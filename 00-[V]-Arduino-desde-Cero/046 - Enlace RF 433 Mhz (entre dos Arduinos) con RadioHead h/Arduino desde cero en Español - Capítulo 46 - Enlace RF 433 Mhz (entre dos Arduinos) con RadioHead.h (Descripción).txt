@@ -1,0 +1,29 @@
+Veremos como utilizar un par de módulos emisor y receptor RF a 433 Mhz 📡 de bajo costo con la librería RadioHead.h para enviar datos de forma inalámbrica entre dos Arduinos.
+Se introducirá brevemente el concepto de modulación por amplitud ASK y como fabricar antenas helicoidales para los módulos en extremos del enlace.
+
+Usaremos el emisor mediante dos pulsadores a modo de control remoto y comandar un par de LEDs en el receptor.
+
+Librería RadioHead.h : http://www.airspayce.com/mikem/arduino/RadioHead/
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#Arduino433Mhz
+#ArduinoRF
+Arduino RF 433 remote control
+Arduino RF 433 transmitter and receiver
+Radiohead Arduino library
+433 Mhz Arduino control remoto
+Arduino radio module
+
+Marcas de tiempo:
+0:00 Introducción y Modulación ASK
+3:13 Construcción casera de antenas
+7:25 Circuito de conexión
+9:44 Descarga de librería
+10:56 Primer programa (Emisor)
+17:10 Primer programa (Receptor)
+23:09 Circuito de conexión para segunda experiencia
+26:12 Segundo programa (Emisor)
+29:30 Segundo programa (Receptor)
+32:27 Cuestiones de Alcance y despedida

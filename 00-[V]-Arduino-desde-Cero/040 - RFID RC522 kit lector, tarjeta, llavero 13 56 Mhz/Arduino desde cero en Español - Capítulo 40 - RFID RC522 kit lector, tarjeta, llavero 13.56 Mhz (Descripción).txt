@@ -1,0 +1,25 @@
+El módulo lector RFID RC522 utiliza radiofrecuencia para leer una tarjeta o llavero a varios centímetros de distancia y obtener el identificador único, haciéndolo útil para sistemas de control de acceso donde Arduino puede tomar una acción.
+Se verá en detalle el circuito integrado incorporado en la tarjeta y llavero y como la memoria EEPROM interna permite almacenar datos de forma segura mediante encriptación.
+
+Haremos un simple control de acceso con tarjeta y llavero. 
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoRFID
+#ArduinoNFC
+#ArduinoRC522
+rfid como funciona
+mfrc522 library arduino
+mifare 1k
+rfid uid
+
+Marcas de tiempo:
+0:00 Introducción y concepto RFID
+4:13 Circuito de conexión con Arduino
+6:29 Instalación librería MFRC522
+7:35 Programa ejemplo (volcado)
+14:50 Chip MIFARE (hoja de datos)
+17:56 Primer programa (lectura de UID)
+24:25 Segundo programa (simple control de acceso)
+31:45 Tags diferentes frecuencias

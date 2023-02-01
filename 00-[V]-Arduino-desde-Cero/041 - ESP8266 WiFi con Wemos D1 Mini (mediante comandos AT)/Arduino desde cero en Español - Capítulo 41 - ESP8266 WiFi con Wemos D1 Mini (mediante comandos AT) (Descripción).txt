@@ -1,0 +1,23 @@
+Conectaremos Arduino por WiFi mediante la Wemos D1 Mini basada en ESP8266 y mediante comandos AT podremos establecer un servidor web para responder peticiones desde un navegador web.
+
+Veremos como el SoC ESP8266 permite conectar a Arduino fácilmente a una red local mediante WiFi, iniciar un servidor web para recibir información mediante el método GET y responder peticiones del navegador web, todo mediante simples comandos AT. 
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoWiFi
+#ArduinoESP8266
+#ArduinoComandosAT
+Arduino WiFi ESP8266
+Wemos D1 Mini web server
+Web server ESP8266
+ESP8266 AT Commands
+
+Marcas de tiempo:
+0:00 Introducción a ESP8266 SoC
+4:39 Wemos D1 Mini (modelo de placa)
+8:52 Circuito de conexión
+15:10 Primer programa
+17:00 Comandos AT (listado y explicación)
+26:49 Navegador web (enviando y recibiendo datos)
+35:04 Próximo capítulo (DHT11 + LED)

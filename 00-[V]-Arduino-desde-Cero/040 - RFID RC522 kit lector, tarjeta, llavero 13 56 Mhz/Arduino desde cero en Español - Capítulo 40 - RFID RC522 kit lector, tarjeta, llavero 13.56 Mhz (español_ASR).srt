@@ -1,0 +1,2812 @@
+1
+00:00:01,870 --> 00:00:08,230
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,660 --> 00:00:10,449
+40 de arduino desde cero en español
+
+3
+00:00:08,230 --> 00:00:14,859
+en esta oportunidad analizaremos el
+
+4
+00:00:10,449 --> 00:00:18,309
+funcionamiento del arf haydee rs500 22
+
+5
+00:00:14,859 --> 00:00:20,439
+el cual consta de un módulo lector una
+
+6
+00:00:18,309 --> 00:00:23,259
+tarjeta y un llavero para la
+
+7
+00:00:20,440 --> 00:00:26,200
+identificación por radiofrecuencia sin
+
+8
+00:00:23,260 --> 00:00:28,630
+contacto a rreef haití corresponde a las
+
+9
+00:00:26,199 --> 00:00:30,939
+siglas en inglés de identificación por
+
+10
+00:00:28,629 --> 00:00:33,700
+radiofrecuencia y mediante un módulo
+
+11
+00:00:30,940 --> 00:00:36,609
+lector que conectaremos arduino podremos
+
+12
+00:00:33,700 --> 00:00:39,250
+acercar una tarjeta o llavero a unos
+
+13
+00:00:36,609 --> 00:00:42,039
+pocos centímetros del lector y obtener
+
+14
+00:00:39,250 --> 00:00:44,588
+información como ser el identificador
+
+15
+00:00:42,039 --> 00:00:46,870
+único tanto la tarjeta como el llavero
+
+16
+00:00:44,588 --> 00:00:49,570
+tienen un circuito integrado y una
+
+17
+00:00:46,869 --> 00:00:52,748
+antena que permite recibir las ondas de
+
+18
+00:00:49,570 --> 00:00:55,539
+radio emitidas desde el lector y luego
+
+19
+00:00:52,749 --> 00:00:58,539
+este último podrá identificar de forma
+
+20
+00:00:55,539 --> 00:01:00,969
+única a la tarjeta haciéndolo útil para
+
+21
+00:00:58,539 --> 00:01:03,158
+sistemas de control de acceso en la
+
+22
+00:01:00,969 --> 00:01:05,320
+imagen vemos una representación del
+
+23
+00:01:03,158 --> 00:01:07,629
+circuito integrado y la antena
+
+24
+00:01:05,319 --> 00:01:10,298
+incorporados en una tarjeta
+
+25
+00:01:07,629 --> 00:01:12,339
+tarjeta tiene un tamaño convencional al
+
+26
+00:01:10,299 --> 00:01:14,770
+estilo tarjeta de crédito
+
+27
+00:01:12,340 --> 00:01:18,399
+el módulo lector emite una señal de
+
+28
+00:01:14,769 --> 00:01:20,949
+radio a una frecuencia de 13.56
+
+29
+00:01:18,399 --> 00:01:23,109
+megahertz y se ve representada en el
+
+30
+00:01:20,950 --> 00:01:26,079
+gráfico superior de la parte derecha
+
+31
+00:01:23,109 --> 00:01:28,569
+esta señal será recibida por la tarjeta
+
+32
+00:01:26,078 --> 00:01:30,519
+si se encuentra en su proximidad el
+
+33
+00:01:28,569 --> 00:01:33,700
+sistema está pensado para distancias
+
+34
+00:01:30,519 --> 00:01:36,670
+cortas de no más de 10 centímetros la
+
+35
+00:01:33,700 --> 00:01:39,390
+tarjeta al recibir la señal utilizará la
+
+36
+00:01:36,670 --> 00:01:42,069
+misma para generar una pequeña corriente
+
+37
+00:01:39,390 --> 00:01:44,739
+necesaria para alimentar al circuito
+
+38
+00:01:42,069 --> 00:01:47,618
+integrado luego realiza una modulación
+
+39
+00:01:44,739 --> 00:01:50,679
+de la señal recibida modificando la
+
+40
+00:01:47,618 --> 00:01:53,140
+carga de su propia antena esto significa
+
+41
+00:01:50,679 --> 00:01:55,569
+que la tarjeta es totalmente pasiva
+
+42
+00:01:53,140 --> 00:01:58,329
+recibe la energía de la señal de
+
+43
+00:01:55,569 --> 00:02:00,509
+radiofrecuencia del lector y modificando
+
+44
+00:01:58,329 --> 00:02:03,879
+las características de su propia antena
+
+45
+00:02:00,509 --> 00:02:07,299
+genera una modulación en la señal y
+
+46
+00:02:03,879 --> 00:02:09,519
+luego el lector recibe y de modula para
+
+47
+00:02:07,299 --> 00:02:12,489
+obtener la información en esta imagen
+
+48
+00:02:09,519 --> 00:02:13,060
+vemos la señal reflejada que recibe el
+
+49
+00:02:12,489 --> 00:02:16,090
+lector
+
+50
+00:02:13,060 --> 00:02:18,789
+con una modificación en la amplitud de
+
+51
+00:02:16,090 --> 00:02:20,709
+la onda y un cambio en su fase estos
+
+52
+00:02:18,789 --> 00:02:23,469
+cambios son interpretados por el
+
+53
+00:02:20,709 --> 00:02:25,780
+microcontrolador del módulo lector la
+
+54
+00:02:23,469 --> 00:02:28,419
+comunicación a refadi
+
+55
+00:02:25,780 --> 00:02:30,750
+forma parte de un estándar general para
+
+56
+00:02:28,419 --> 00:02:34,839
+la comunicación por campos cercanos
+
+57
+00:02:30,750 --> 00:02:37,530
+denominado nfc near field communication
+
+58
+00:02:34,840 --> 00:02:40,870
+el llavero es solo un formato físico
+
+59
+00:02:37,530 --> 00:02:42,459
+distinto pero consta exactamente de los
+
+60
+00:02:40,870 --> 00:02:45,330
+mismos componentes que la tarjeta
+
+61
+00:02:42,459 --> 00:02:47,469
+también existen etiquetas autoadhesivas
+
+62
+00:02:45,330 --> 00:02:49,719
+veremos en breve que el circuito
+
+63
+00:02:47,469 --> 00:02:51,840
+integrado de la tarjeta no sólo es capaz
+
+64
+00:02:49,719 --> 00:02:54,939
+de devolver un número de identificación
+
+65
+00:02:51,840 --> 00:02:57,549
+sino que también información adicional
+
+66
+00:02:54,939 --> 00:03:00,659
+al tener una pequeña memoria incorporada
+
+67
+00:02:57,549 --> 00:03:04,030
+pero veamos primero el módulo el lector
+
+68
+00:03:00,659 --> 00:03:06,609
+incorpora sobre su circuito impreso una
+
+69
+00:03:04,030 --> 00:03:09,568
+antena que permite emitir la señal de
+
+70
+00:03:06,610 --> 00:03:12,430
+radiofrecuencia y un circuito integrado
+
+71
+00:03:09,568 --> 00:03:16,839
+microcontrolador específico o cuyo
+
+72
+00:03:12,430 --> 00:03:18,969
+modelo es el mrc 522 este
+
+73
+00:03:16,840 --> 00:03:19,599
+microcontrolador se comunicará con
+
+74
+00:03:18,969 --> 00:03:23,050
+arduino
+
+75
+00:03:19,599 --> 00:03:25,090
+mediante una interfaz serie del tipo sp
+
+76
+00:03:23,050 --> 00:03:28,660
+y como ya vimos el concepto de
+
+77
+00:03:25,090 --> 00:03:31,050
+funcionamiento en el capítulo 37 junto
+
+78
+00:03:28,659 --> 00:03:33,549
+con el módulo lector de memorias microsd
+
+79
+00:03:31,050 --> 00:03:36,880
+la alimentación se realiza con una
+
+80
+00:03:33,550 --> 00:03:39,430
+atención de 33 volts como arduino ya nos
+
+81
+00:03:36,879 --> 00:03:42,699
+brinda la posibilidad de una salida de
+
+82
+00:03:39,430 --> 00:03:45,340
+alimentación de 33 volts además de la de
+
+83
+00:03:42,699 --> 00:03:47,439
+5 que solemos utilizar no tendremos
+
+84
+00:03:45,340 --> 00:03:50,530
+inconvenientes para su conexión directa
+
+85
+00:03:47,439 --> 00:03:52,750
+antes tendremos un pequeño trabajo de
+
+86
+00:03:50,530 --> 00:03:56,140
+soldar una tira de pines al módulo
+
+87
+00:03:52,750 --> 00:03:56,770
+podremos optar por pines rectos oa 90
+
+88
+00:03:56,139 --> 00:03:58,899
+grados
+
+89
+00:03:56,770 --> 00:04:01,450
+yo estaré usando los pines a 90 grados
+
+90
+00:03:58,900 --> 00:04:04,599
+de manera de conectar el módulo con
+
+91
+00:04:01,449 --> 00:04:07,989
+arduino de forma directa mediante cables
+
+92
+00:04:04,599 --> 00:04:10,239
+sin necesidad de pasar por protoboard el
+
+93
+00:04:07,990 --> 00:04:12,760
+kit viene con ambos tipos de pines
+
+94
+00:04:10,240 --> 00:04:15,250
+veamos entonces ahora el circuito de
+
+95
+00:04:12,759 --> 00:04:18,009
+conexión es una buena cantidad de cables
+
+96
+00:04:15,250 --> 00:04:20,019
+para lo cual esta tabla nos servirá de
+
+97
+00:04:18,009 --> 00:04:22,389
+referencia en la primera columna
+
+98
+00:04:20,019 --> 00:04:25,539
+tendremos la denominación de los pines
+
+99
+00:04:22,389 --> 00:04:25,839
+en el módulo comenzando de arriba hacia
+
+100
+00:04:25,540 --> 00:04:28,689
+abajo
+
+101
+00:04:25,839 --> 00:04:31,299
+en la siguiente columna los pines a los
+
+102
+00:04:28,689 --> 00:04:34,360
+cuales debemos conectar para el caso de
+
+103
+00:04:31,300 --> 00:04:37,060
+arduino 1 y en la última columna para el
+
+104
+00:04:34,360 --> 00:04:40,050
+caso de usar el modelo mega el primer
+
+105
+00:04:37,060 --> 00:04:43,149
+pin del módulo con la denominación sda
+
+106
+00:04:40,050 --> 00:04:46,360
+corresponde al slider select de la
+
+107
+00:04:43,149 --> 00:04:49,060
+comunicación por s&amp;p y si bien esa idea
+
+108
+00:04:46,360 --> 00:04:52,509
+puede parecer en un principio la línea
+
+109
+00:04:49,060 --> 00:04:54,699
+de datos para interfaz y 12 en realidad
+
+110
+00:04:52,509 --> 00:04:57,370
+ese es el life select y debería estar
+
+111
+00:04:54,699 --> 00:05:00,100
+identificado de esa manera en su lugar
+
+112
+00:04:57,370 --> 00:05:02,949
+tenemos esa idea que puede prestar a
+
+113
+00:05:00,100 --> 00:05:06,400
+confusión pero así son las cosas en
+
+114
+00:05:02,949 --> 00:05:08,978
+definitiva este pin sda lo conectaremos
+
+115
+00:05:06,399 --> 00:05:11,709
+con un cable directo al pin digital
+
+116
+00:05:08,978 --> 00:05:15,189
+número 10 de arduino le sigue en orden
+
+117
+00:05:11,709 --> 00:05:18,069
+descendente es ese acá sería el block
+
+118
+00:05:15,189 --> 00:05:19,300
+que irá conectado al pin digital número
+
+119
+00:05:18,069 --> 00:05:23,469
+13
+
+120
+00:05:19,300 --> 00:05:27,668
+luego amos y master out es live in al
+
+121
+00:05:23,470 --> 00:05:31,690
+pin digital número 11 miso master in
+
+122
+00:05:27,668 --> 00:05:32,560
+slave out al pin número 12 el pin
+
+123
+00:05:31,689 --> 00:05:35,740
+siguiente
+
+124
+00:05:32,560 --> 00:05:38,350
+y no lo estaremos conectando luego le
+
+125
+00:05:35,740 --> 00:05:41,829
+sigue genere que lo conectaremos a
+
+126
+00:05:38,350 --> 00:05:44,710
+genere de arduino el pin denominado rct
+
+127
+00:05:41,829 --> 00:05:48,039
+que es el reset lo conectaremos al pin
+
+128
+00:05:44,709 --> 00:05:51,310
+digital número 9 de arduino y finalmente
+
+129
+00:05:48,040 --> 00:05:54,490
+tendremos el indicado como 33 volts que
+
+130
+00:05:51,310 --> 00:05:56,918
+irá a la salida de 33 volts de arduino
+
+131
+00:05:54,490 --> 00:05:58,960
+es importante que la costumbre de
+
+132
+00:05:56,918 --> 00:06:01,899
+alimentar nuestros dispositivos con
+
+133
+00:05:58,959 --> 00:06:02,680
+salida de 5 volts no nos juegue una mala
+
+134
+00:06:01,899 --> 00:06:05,199
+pasada
+
+135
+00:06:02,680 --> 00:06:08,740
+deberás prestar atención de conectarlo a
+
+136
+00:06:05,199 --> 00:06:12,039
+la salida de 33 volts con eso ya tenemos
+
+137
+00:06:08,740 --> 00:06:15,280
+todas las conexiones son las 4 típicas
+
+138
+00:06:12,040 --> 00:06:19,180
+de la interfaz esp y con el adicional de
+
+139
+00:06:15,279 --> 00:06:21,339
+reset y la alimentación que será de 3,3
+
+140
+00:06:19,180 --> 00:06:24,069
+volts con esta cantidad de cables es
+
+141
+00:06:21,339 --> 00:06:26,500
+importante es que verifiques dos veces
+
+142
+00:06:24,069 --> 00:06:28,060
+que todo se encuentra como se describe
+
+143
+00:06:26,500 --> 00:06:31,240
+en la tabla para la programación
+
+144
+00:06:28,060 --> 00:06:33,550
+deberemos descargar una librería para
+
+145
+00:06:31,240 --> 00:06:36,460
+facilitar la interacción con el módulo
+
+146
+00:06:33,550 --> 00:06:39,220
+lo haremos de la forma usual ingresando
+
+147
+00:06:36,459 --> 00:06:42,579
+al menú programa incluir librería
+
+148
+00:06:39,220 --> 00:06:44,740
+y luego gestionar librerías aguardamos
+
+149
+00:06:42,579 --> 00:06:47,289
+unos segundos mientras se actualiza el
+
+150
+00:06:44,740 --> 00:06:48,030
+listado y escribimos en el campo de
+
+151
+00:06:47,290 --> 00:06:52,360
+búsqueda
+
+152
+00:06:48,029 --> 00:06:57,519
+rc 522 la librería que debemos instalar
+
+153
+00:06:52,360 --> 00:07:00,370
+es la que dice msrc 522 by github
+
+154
+00:06:57,519 --> 00:07:02,529
+community yo ya la tengo instalada por
+
+155
+00:07:00,370 --> 00:07:04,899
+eso no está habilitado el botón de
+
+156
+00:07:02,529 --> 00:07:06,750
+instalar pero lo estará en tu caso al
+
+157
+00:07:04,899 --> 00:07:10,000
+presionarlo luego de unos segundos
+
+158
+00:07:06,750 --> 00:07:13,000
+descarga e instala verás que aparece el
+
+159
+00:07:10,000 --> 00:07:14,939
+texto instó luego será cuestión de
+
+160
+00:07:13,000 --> 00:07:18,129
+cerrar el gestor para el primer programa
+
+161
+00:07:14,939 --> 00:07:20,680
+utilizaremos uno de los ejemplos que se
+
+162
+00:07:18,129 --> 00:07:24,250
+instala junto con la librería para ello
+
+163
+00:07:20,680 --> 00:07:29,230
+iremos al menú archivo ejemplos
+
+164
+00:07:24,250 --> 00:07:31,418
+buscamos el submenú mcr de 522 que
+
+165
+00:07:29,230 --> 00:07:33,939
+probablemente esté casi al final del
+
+166
+00:07:31,418 --> 00:07:37,418
+listado y luego seleccionamos el que
+
+167
+00:07:33,939 --> 00:07:40,209
+dice camps info es el programa que yo ya
+
+168
+00:07:37,418 --> 00:07:42,519
+tengo aquí abierto generalmente no
+
+169
+00:07:40,209 --> 00:07:45,638
+utilizamos los programas de ejemplo pero
+
+170
+00:07:42,519 --> 00:07:48,098
+en este caso puntual no será de utilidad
+
+171
+00:07:45,639 --> 00:07:50,199
+paso no escribimos ni una línea de
+
+172
+00:07:48,098 --> 00:07:51,128
+código igual luego haremos nuestro
+
+173
+00:07:50,199 --> 00:07:53,590
+propio programa
+
+174
+00:07:51,129 --> 00:07:57,430
+tomando como referencia elementos del
+
+175
+00:07:53,589 --> 00:07:59,918
+actual dan info se traduce como volcado
+
+176
+00:07:57,430 --> 00:08:02,590
+de información y eso es lo que hará este
+
+177
+00:07:59,918 --> 00:08:05,799
+programa cuando acerquemos la tarjeta o
+
+178
+00:08:02,589 --> 00:08:07,989
+llavero al lector obtendremos toda la
+
+179
+00:08:05,800 --> 00:08:09,718
+información del mismo junto con las
+
+180
+00:08:07,990 --> 00:08:12,069
+notas que deja el autor del programa
+
+181
+00:08:09,718 --> 00:08:14,079
+miremos también la tabla con las
+
+182
+00:08:12,069 --> 00:08:15,908
+conexiones que ya hicimos con
+
+183
+00:08:14,079 --> 00:08:19,448
+anterioridad no estaremos analizando
+
+184
+00:08:15,908 --> 00:08:21,788
+línea por línea sólo las relevantes que
+
+185
+00:08:19,449 --> 00:08:24,669
+son para comenzar la inclusión de las
+
+186
+00:08:21,788 --> 00:08:28,509
+librerías esp y para la comunicación por
+
+187
+00:08:24,668 --> 00:08:32,319
+dicho base y la reciente descargada msr
+
+188
+00:08:28,509 --> 00:08:34,658
+de 522 la definición de un objeto al
+
+189
+00:08:32,320 --> 00:08:37,209
+cual se le pasan los parámetros de las
+
+190
+00:08:34,658 --> 00:08:40,269
+constantes definidas para los números de
+
+191
+00:08:37,208 --> 00:08:42,939
+pines a donde tenemos conectados slave
+
+192
+00:08:40,269 --> 00:08:45,190
+select y reset en el setup
+
+193
+00:08:42,940 --> 00:08:48,610
+luego de inicializar la comunicación por
+
+194
+00:08:45,190 --> 00:08:52,240
+el monitor serie y el base sp
+
+195
+00:08:48,610 --> 00:08:56,028
+tenemos un llamado a la función
+
+196
+00:08:52,240 --> 00:08:58,339
+in it esta función inicializa el módulo
+
+197
+00:08:56,028 --> 00:09:01,429
+lector nos encontraremos con una serie
+
+198
+00:08:58,339 --> 00:09:02,329
+de siglas y será importante saber a qué
+
+199
+00:09:01,429 --> 00:09:04,758
+se refieren
+
+200
+00:09:02,328 --> 00:09:08,239
+para eso traigo a pantalla una breve
+
+201
+00:09:04,759 --> 00:09:11,419
+nota al margen aquí vemos que psd son
+
+202
+00:09:08,240 --> 00:09:14,899
+las siglas de proximity coupling device
+
+203
+00:09:11,419 --> 00:09:17,838
+en definitiva cuando veamos psb debemos
+
+204
+00:09:14,899 --> 00:09:20,568
+hacernos la idea que se trata del módulo
+
+205
+00:09:17,839 --> 00:09:24,920
+lector luego en el loop tendremos otra
+
+206
+00:09:20,568 --> 00:09:29,088
+función llamada be y ese guión bajo is
+
+207
+00:09:24,919 --> 00:09:31,490
+new card present otra nueva sigla psc
+
+208
+00:09:29,089 --> 00:09:35,029
+que según nuestra nota significa
+
+209
+00:09:31,490 --> 00:09:37,730
+proximity integrated circuit chip en
+
+210
+00:09:35,028 --> 00:09:40,490
+pocas palabras se refiere la tarjeta o
+
+211
+00:09:37,730 --> 00:09:43,879
+llavero nuevamente cuando veamos las
+
+212
+00:09:40,490 --> 00:09:47,720
+siglas psc nos debe venir a la memoria
+
+213
+00:09:43,879 --> 00:09:50,139
+la tarjeta is new card present consulta
+
+214
+00:09:47,720 --> 00:09:53,480
+si el lector ha detectado la presencia
+
+215
+00:09:50,139 --> 00:09:55,879
+de una tarjeta vemos que la condición
+
+216
+00:09:53,480 --> 00:09:57,589
+del if está negada con el signo de
+
+217
+00:09:55,879 --> 00:09:58,590
+admiración con los cuales estamos
+
+218
+00:09:57,589 --> 00:10:01,920
+diciendo
+
+219
+00:09:58,590 --> 00:10:04,740
+si no hay una tarjeta presente entonces
+
+220
+00:10:01,919 --> 00:10:07,709
+ejecutamos lo que esté entre sus llaves
+
+221
+00:10:04,740 --> 00:10:11,009
+que en este caso es simplemente return
+
+222
+00:10:07,710 --> 00:10:13,800
+ritter ya lo vimos en otros programas lo
+
+223
+00:10:11,009 --> 00:10:16,409
+que hace es devolver o retornar a la
+
+224
+00:10:13,799 --> 00:10:19,169
+función anterior en este caso el loop
+
+225
+00:10:16,409 --> 00:10:21,919
+como en realidad en arduino el loop es
+
+226
+00:10:19,169 --> 00:10:24,719
+la función principal que se ejecuta
+
+227
+00:10:21,919 --> 00:10:27,599
+infinitamente lo que hacemos es salir
+
+228
+00:10:24,720 --> 00:10:30,120
+del loop y volver a ingresar al mismo y
+
+229
+00:10:27,600 --> 00:10:32,879
+así todo el tiempo hasta que se detecte
+
+230
+00:10:30,120 --> 00:10:35,669
+una tarjeta presente claro está que sin
+
+231
+00:10:32,879 --> 00:10:38,309
+una tarjeta entonces no podemos proceder
+
+232
+00:10:35,669 --> 00:10:41,339
+con el resto del código si ahora detecta
+
+233
+00:10:38,309 --> 00:10:43,979
+una tarjeta salta al condicional y
+
+234
+00:10:41,340 --> 00:10:46,800
+consulta con una nueva función
+
+235
+00:10:43,980 --> 00:10:49,980
+ricard serial si puede obtener
+
+236
+00:10:46,799 --> 00:10:52,309
+información de ella ya que puede ser una
+
+237
+00:10:49,980 --> 00:10:55,920
+tarjeta no compatible con el módulo
+
+238
+00:10:52,309 --> 00:10:57,829
+nuevamente la misma mecánica si no puede
+
+239
+00:10:55,919 --> 00:11:00,750
+obtener información de la tarjeta
+
+240
+00:10:57,830 --> 00:11:04,170
+entonces hace un retorno sin parámetros
+
+241
+00:11:00,750 --> 00:11:07,259
+ahora sí si ambas condiciones se dan
+
+242
+00:11:04,169 --> 00:11:09,269
+es decir que hay una tarjeta presente y
+
+243
+00:11:07,259 --> 00:11:13,259
+podemos obtener datos de la misma
+
+244
+00:11:09,269 --> 00:11:16,049
+llamamos a la última función de tu serie
+
+245
+00:11:13,259 --> 00:11:18,480
+que hace un volcado de la totalidad de
+
+246
+00:11:16,049 --> 00:11:20,729
+la información sobre el monitor serie
+
+247
+00:11:18,480 --> 00:11:23,159
+esta última función no la estaremos
+
+248
+00:11:20,730 --> 00:11:25,259
+utilizando a futuro por eso no
+
+249
+00:11:23,159 --> 00:11:27,990
+entraremos en detalle solo es cuestión
+
+250
+00:11:25,259 --> 00:11:30,720
+que sepas que hace el volcado de toda la
+
+251
+00:11:27,990 --> 00:11:33,120
+información para poder visualizarla en
+
+252
+00:11:30,720 --> 00:11:35,250
+el monitor serie y ese es todo el
+
+253
+00:11:33,120 --> 00:11:37,409
+programa salvando el hecho de que nos
+
+254
+00:11:35,250 --> 00:11:40,259
+debemos acostumbrar a algunas siglas
+
+255
+00:11:37,409 --> 00:11:43,019
+especiales para referenciar al módulo
+
+256
+00:11:40,259 --> 00:11:45,720
+lector y a la tarjeta y el programa es
+
+257
+00:11:43,019 --> 00:11:47,669
+bien directo en su accionar y por eso lo
+
+258
+00:11:45,720 --> 00:11:50,970
+usaremos no solo para obtener la
+
+259
+00:11:47,669 --> 00:11:52,919
+información de la tarjeta o llavero sino
+
+260
+00:11:50,970 --> 00:11:55,800
+también para verificar que la conexión
+
+261
+00:11:52,919 --> 00:11:58,110
+con el módulo quedó bien realizada para
+
+262
+00:11:55,799 --> 00:12:00,109
+este caso como es un programa de ejemplo
+
+263
+00:11:58,110 --> 00:12:03,120
+y no le hicimos modificaciones
+
+264
+00:12:00,110 --> 00:12:05,879
+directamente lo subimos arduino y luego
+
+265
+00:12:03,120 --> 00:12:08,310
+abrimos el monitor serie una cuestión
+
+266
+00:12:05,879 --> 00:12:08,980
+rápida antes de acercar la tarjeta al
+
+267
+00:12:08,309 --> 00:12:11,138
+lector
+
+268
+00:12:08,980 --> 00:12:13,449
+y es que estaremos haciendo el volcado
+
+269
+00:12:11,139 --> 00:12:16,180
+de bastante información almacenada en la
+
+270
+00:12:13,448 --> 00:12:18,399
+tarjeta y ese proceso llevará varios
+
+271
+00:12:16,179 --> 00:12:20,948
+segundos así que cuando hacer que es la
+
+272
+00:12:18,399 --> 00:12:23,230
+tarjeta deberás dejarla un par de
+
+273
+00:12:20,948 --> 00:12:26,019
+segundos hasta que finalice de mostrar
+
+274
+00:12:23,230 --> 00:12:29,490
+información en el monitor serie ahora
+
+275
+00:12:26,019 --> 00:12:29,490
+mismo hago el proceso
+
+276
+00:12:35,070 --> 00:12:40,320
+muy bien aparece más información de la
+
+277
+00:12:38,039 --> 00:12:43,500
+que probablemente esperabas así que es
+
+278
+00:12:40,320 --> 00:12:45,030
+hora de analizar un poco de qué se trata
+
+279
+00:12:43,500 --> 00:12:47,220
+volviendo a la parte superior del
+
+280
+00:12:45,029 --> 00:12:49,500
+volcado de información vimos que la
+
+281
+00:12:47,220 --> 00:12:52,710
+primera línea muestra la versión del
+
+282
+00:12:49,500 --> 00:12:55,379
+firmware del microcontrolador es decir
+
+283
+00:12:52,710 --> 00:12:58,920
+el software que corre dentro del mismo
+
+284
+00:12:55,379 --> 00:13:01,289
+dice versión 2.0 que no tiene utilidad
+
+285
+00:12:58,919 --> 00:13:03,929
+para nosotros luego nos indica los
+
+286
+00:13:01,289 --> 00:13:07,919
+valores que mostrará a continuación y el
+
+287
+00:13:03,929 --> 00:13:11,479
+primero y más importante es el de wii de
+
+288
+00:13:07,919 --> 00:13:14,490
+significa única identificación
+
+289
+00:13:11,480 --> 00:13:16,950
+identificador único es un número de
+
+290
+00:13:14,490 --> 00:13:20,370
+cuatro bytes mostrado en formato
+
+291
+00:13:16,950 --> 00:13:25,410
+hexadecimal 900
+
+292
+00:13:20,370 --> 00:13:28,259
+y 4 a 4 este identificador uideh es
+
+293
+00:13:25,409 --> 00:13:30,480
+único para cada tarjeta o llavero de
+
+294
+00:13:28,259 --> 00:13:33,179
+manera que nos permitirá en el próximo
+
+295
+00:13:30,480 --> 00:13:35,879
+programa utilizarlo para hacer un simple
+
+296
+00:13:33,179 --> 00:13:38,549
+control de acceso recordad que un dígito
+
+297
+00:13:35,879 --> 00:13:40,649
+en hexadecimal corresponde a los números
+
+298
+00:13:38,549 --> 00:13:44,878
+0 a 9
+
+299
+00:13:40,649 --> 00:13:47,938
+de a efe para formar un total de 16
+
+300
+00:13:44,879 --> 00:13:50,039
+posibles combinaciones con 4 bits por
+
+301
+00:13:47,938 --> 00:13:52,889
+eso al mostrarlo de a pares
+
+302
+00:13:50,039 --> 00:13:55,379
+tenemos un byte cuatro pares de valores
+
+303
+00:13:52,889 --> 00:13:58,198
+formarán los cuatro bytes
+
+304
+00:13:55,379 --> 00:14:00,389
+luego nos muestra el sac que es un valor
+
+305
+00:13:58,198 --> 00:14:02,758
+que identifica al tipo de circuito
+
+306
+00:14:00,389 --> 00:14:05,850
+integrado en la tarjeta y la capacidad
+
+307
+00:14:02,759 --> 00:14:11,220
+de la memoria luego nos indica el tipo
+
+308
+00:14:05,850 --> 00:14:14,490
+de tarjeta psc type y dice my heart 1
+
+309
+00:14:11,220 --> 00:14:17,220
+cabe myfair es el nombre comercial del
+
+310
+00:14:14,490 --> 00:14:20,100
+circuito integrado de la tarjeta y un
+
+311
+00:14:17,220 --> 00:14:23,759
+cabe como podrás imaginar es la
+
+312
+00:14:20,100 --> 00:14:26,100
+capacidad de memoria de un kb de esto se
+
+313
+00:14:23,759 --> 00:14:28,740
+desprende que efectivamente la tarjeta
+
+314
+00:14:26,100 --> 00:14:31,829
+tiene una memoria interna del tipo
+
+315
+00:14:28,740 --> 00:14:34,470
+'pro-am' igual que la incorporada en el
+
+316
+00:14:31,828 --> 00:14:37,708
+microcontrolador de arduino que vimos en
+
+317
+00:14:34,470 --> 00:14:40,740
+el capítulo 39 lo que veremos luego es
+
+318
+00:14:37,708 --> 00:14:43,979
+la totalidad de los 1024 bytes de la
+
+319
+00:14:40,740 --> 00:14:46,860
+memoria que está dividida en sectores y
+
+320
+00:14:43,980 --> 00:14:47,490
+bloques vale la pena indagar un poco más
+
+321
+00:14:46,860 --> 00:14:49,980
+sobre él
+
+322
+00:14:47,490 --> 00:14:52,889
+para eso traigo a pantalla la hoja de
+
+323
+00:14:49,980 --> 00:14:57,750
+datos del circuito integrado my first
+
+324
+00:14:52,889 --> 00:14:59,490
+que tiene este bonito nombre m f 1 s 50
+
+325
+00:14:57,750 --> 00:15:02,480
+y x
+
+326
+00:14:59,490 --> 00:15:05,399
+b 1 claramente el nombre comercial
+
+327
+00:15:02,480 --> 00:15:07,740
+myfair es más fácil de recordar
+
+328
+00:15:05,399 --> 00:15:09,809
+este documento pdf tiene una gran
+
+329
+00:15:07,740 --> 00:15:11,850
+cantidad de información sobre el
+
+330
+00:15:09,809 --> 00:15:13,979
+funcionamiento del circuito integrado
+
+331
+00:15:11,850 --> 00:15:16,709
+pero lo que me interesa destacar se
+
+332
+00:15:13,980 --> 00:15:19,200
+encuentra en la página 8 correspondiente
+
+333
+00:15:16,708 --> 00:15:21,389
+a la organización de la memoria en esta
+
+334
+00:15:19,200 --> 00:15:24,660
+tabla se muestra la totalidad de la
+
+335
+00:15:21,389 --> 00:15:27,838
+memoria de 1024 bytes vemos que está
+
+336
+00:15:24,659 --> 00:15:32,189
+organizada en 16 sectores cada sector
+
+337
+00:15:27,839 --> 00:15:35,310
+tiene 4 bloques y cada bloque 16 bytes
+
+338
+00:15:32,190 --> 00:15:39,209
+de información así que si hacemos 16
+
+339
+00:15:35,309 --> 00:15:42,659
+sectores por 4 bloques por 16 bytes nos
+
+340
+00:15:39,208 --> 00:15:45,449
+da exactamente 1024 bytes volvemos al
+
+341
+00:15:42,659 --> 00:15:47,399
+monitor serie miras que al principio del
+
+342
+00:15:45,450 --> 00:15:50,370
+volcado de información de memoria
+
+343
+00:15:47,399 --> 00:15:53,669
+aparece la primera columna con el número
+
+344
+00:15:50,370 --> 00:15:58,649
+del sector de 0 a 15
+
+345
+00:15:53,669 --> 00:16:02,309
+el bloque de 0 a 63 y cada uno de los 16
+
+346
+00:15:58,649 --> 00:16:05,699
+bytes desde 0 a 15 de vuelta a la hoja
+
+347
+00:16:02,309 --> 00:16:09,419
+de datos veremos que en el sector 0 y
+
+348
+00:16:05,700 --> 00:16:12,420
+bloque cero indica manufacturer data
+
+349
+00:16:09,419 --> 00:16:16,349
+datos del fabricante donde los primeros
+
+350
+00:16:12,419 --> 00:16:18,689
+4 bytes corresponden al cuide y luego le
+
+351
+00:16:16,350 --> 00:16:21,629
+siguen otros bytes con información
+
+352
+00:16:18,690 --> 00:16:24,990
+adicional en el monitor serie aquí están
+
+353
+00:16:21,629 --> 00:16:27,240
+dichos 4 bytes del wii de el dato más
+
+354
+00:16:24,990 --> 00:16:29,610
+importante de la tarjeta para nuestro
+
+355
+00:16:27,240 --> 00:16:31,830
+caso todo esto que analizamos uno es
+
+356
+00:16:29,610 --> 00:16:33,899
+para complicar el tema es solo para que
+
+357
+00:16:31,830 --> 00:16:36,240
+veas que el circuito de la tarjeta
+
+358
+00:16:33,899 --> 00:16:39,240
+realiza tanto las tareas de comunicación
+
+359
+00:16:36,240 --> 00:16:41,879
+con el lector como también almacenar
+
+360
+00:16:39,240 --> 00:16:44,519
+información en su memoria nosotros en
+
+361
+00:16:41,879 --> 00:16:47,220
+este capítulo trabajaremos únicamente
+
+362
+00:16:44,519 --> 00:16:50,519
+con el quid pero queda claro que ha de
+
+363
+00:16:47,220 --> 00:16:53,160
+ser una memoria brom podríamos almacenar
+
+364
+00:16:50,519 --> 00:16:55,710
+información en ella y un detalle es que
+
+365
+00:16:53,159 --> 00:16:58,679
+la información es almacenada de forma
+
+366
+00:16:55,710 --> 00:16:59,910
+segura mediante encriptación eso
+
+367
+00:16:58,679 --> 00:17:01,739
+previene el robo
+
+368
+00:16:59,909 --> 00:17:04,500
+información sensible que podría
+
+369
+00:17:01,740 --> 00:17:07,130
+almacenarse cada bloque tiene un par de
+
+370
+00:17:04,500 --> 00:17:09,900
+llaves llamadas aquí
+
+371
+00:17:07,130 --> 00:17:12,570
+xvii que luego son usadas para
+
+372
+00:17:09,900 --> 00:17:15,000
+desencriptar la información del lado del
+
+373
+00:17:12,569 --> 00:17:18,210
+lector y forman parte del protocolo
+
+374
+00:17:15,000 --> 00:17:20,339
+denominado script o one pero eso quedará
+
+375
+00:17:18,210 --> 00:17:21,990
+para realizar como corresponde
+
+376
+00:17:20,339 --> 00:17:24,149
+en otro momento por ahora me interesa
+
+377
+00:17:21,990 --> 00:17:26,730
+que te quedes con el concepto que el
+
+378
+00:17:24,150 --> 00:17:29,690
+circuito integrado dentro de la tarjeta
+
+379
+00:17:26,730 --> 00:17:32,670
+tiene una memoria brom que almacena el
+
+380
+00:17:29,690 --> 00:17:34,320
+identificador único y la posibilidad de
+
+381
+00:17:32,670 --> 00:17:37,170
+guardar de forma segura
+
+382
+00:17:34,319 --> 00:17:39,659
+información adicional personalizada
+
+383
+00:17:37,170 --> 00:17:41,759
+genial ahora sí estamos listos para
+
+384
+00:17:39,660 --> 00:17:45,120
+nuestro primer programa que consistirá
+
+385
+00:17:41,759 --> 00:17:48,210
+en leer los cuidé de la tarjeta y el
+
+386
+00:17:45,119 --> 00:17:51,449
+llavero sin hacer un volcado de toda la
+
+387
+00:17:48,210 --> 00:17:53,670
+información sólo el cuida y sienta las
+
+388
+00:17:51,450 --> 00:17:56,580
+bases para armar finalmente el sistema
+
+389
+00:17:53,670 --> 00:17:59,220
+de control de acceso que el código es el
+
+390
+00:17:56,579 --> 00:18:05,099
+siguiente y lo veremos línea por línea
+
+391
+00:17:59,220 --> 00:18:10,079
+incluimos esp y msrc 522
+
+392
+00:18:05,099 --> 00:18:14,879
+las constantes rst ping y ss ping y
+
+393
+00:18:10,079 --> 00:18:17,579
+creamos el objeto m frc 522 enviando
+
+394
+00:18:14,880 --> 00:18:20,010
+dichas dos constantes igual que en el
+
+395
+00:18:17,579 --> 00:18:22,558
+programa de ejemplo también será igual
+
+396
+00:18:20,009 --> 00:18:27,990
+la inicialización de la comunicación por
+
+397
+00:18:22,558 --> 00:18:30,509
+monitor serie a 9.600 bps el base sp y
+
+398
+00:18:27,990 --> 00:18:34,169
+la inicialización del módulo lector con
+
+399
+00:18:30,509 --> 00:18:36,450
+ps de guión bajo init en el loop los
+
+400
+00:18:34,169 --> 00:18:38,970
+condicionales para determinar si está
+
+401
+00:18:36,450 --> 00:18:41,700
+presente una tarjeta en cercanía del
+
+402
+00:18:38,970 --> 00:18:44,519
+lector y si podemos obtener información
+
+403
+00:18:41,700 --> 00:18:47,419
+de la misma luego escribiremos el texto
+
+404
+00:18:44,519 --> 00:18:50,519
+y de dos puntos para a continuación
+
+405
+00:18:47,419 --> 00:18:53,549
+obtener el identificador único mediante
+
+406
+00:18:50,519 --> 00:18:57,119
+el bucle for declaramos aquí mismo una
+
+407
+00:18:53,548 --> 00:18:59,339
+variable de iteración y del tipo byte y
+
+408
+00:18:57,119 --> 00:19:06,689
+la condición para permanecer en el bucle
+
+409
+00:18:59,339 --> 00:19:11,909
+es que sea menor a mrc 522 punto y b
+
+410
+00:19:06,690 --> 00:19:14,309
+punto 6 y el objeto m frc 522 tiene
+
+411
+00:19:11,910 --> 00:19:17,279
+una función que permite obtener el
+
+412
+00:19:14,309 --> 00:19:19,559
+tamaño del vídeo para la tarjeta y ya
+
+413
+00:19:17,279 --> 00:19:22,619
+vieron que vienen incluidos el tamaño
+
+414
+00:19:19,559 --> 00:19:24,389
+como ya vimos será de 4 bytes pero
+
+415
+00:19:22,619 --> 00:19:27,359
+existen algunas tarjetas que pueden
+
+416
+00:19:24,390 --> 00:19:30,960
+tener hasta 7 bytes por eso no colocamos
+
+417
+00:19:27,359 --> 00:19:34,049
+directamente el número 4 y llamamos a we
+
+418
+00:19:30,960 --> 00:19:36,960
+de punto 6 luego con cada iteración
+
+419
+00:19:34,049 --> 00:19:40,980
+incrementaremos el valor de iu en uno
+
+420
+00:19:36,960 --> 00:19:43,680
+con i + + este bucle irá leyendo a un
+
+421
+00:19:40,980 --> 00:19:46,529
+byte por vez y lo mostrará en el monitor
+
+422
+00:19:43,680 --> 00:19:50,210
+serie y eso lo logramos con esta línea
+
+423
+00:19:46,529 --> 00:19:55,980
+sería el punto print entre paréntesis
+
+424
+00:19:50,210 --> 00:20:00,420
+msrc 522 punto y de punto wi de byte
+
+425
+00:19:55,980 --> 00:20:03,539
+entre corchetes y coma x como estamos
+
+426
+00:20:00,420 --> 00:20:07,170
+dentro del bucle for la variable e irá
+
+427
+00:20:03,539 --> 00:20:09,839
+de 0 a 3 obteniendo los 4 bytes del
+
+428
+00:20:07,170 --> 00:20:12,539
+cuide y ex indica que estaremos
+
+429
+00:20:09,839 --> 00:20:15,179
+mostrando el texto en el monitor serie
+
+430
+00:20:12,539 --> 00:20:17,220
+en formato hexadecimal pero si
+
+431
+00:20:15,180 --> 00:20:18,360
+recordarás de cuando hicimos el volcado
+
+432
+00:20:17,220 --> 00:20:20,670
+de la memoria
+
+433
+00:20:18,359 --> 00:20:23,549
+más simple de leer si organizamos los
+
+434
+00:20:20,670 --> 00:20:26,820
+valores de a dos dígitos hexadecimal es
+
+435
+00:20:23,549 --> 00:20:29,700
+de manera de tener un byte completo y
+
+436
+00:20:26,819 --> 00:20:32,609
+luego un espacio en blanco para separar
+
+437
+00:20:29,700 --> 00:20:35,370
+un byte del otro por ese motivo tenemos
+
+438
+00:20:32,609 --> 00:20:37,799
+este bloque if que servirá para dar
+
+439
+00:20:35,369 --> 00:20:40,409
+formato al texto a mostrar por el
+
+440
+00:20:37,799 --> 00:20:42,659
+monitor serie es un trabajo extra que
+
+441
+00:20:40,410 --> 00:20:45,660
+vale la pena hacer y verás que es muy
+
+442
+00:20:42,660 --> 00:20:48,600
+simple la condición del if consulta si
+
+443
+00:20:45,660 --> 00:20:52,050
+el valor del byte del wii de leído es
+
+444
+00:20:48,599 --> 00:20:54,779
+menor al número 10 en hexadecimal es
+
+445
+00:20:52,049 --> 00:20:58,559
+decir que la condición será verdadera si
+
+446
+00:20:54,779 --> 00:21:01,470
+el valor leído está entre 0 y 9 en dicho
+
+447
+00:20:58,559 --> 00:21:03,329
+caso con un serial punto print un
+
+448
+00:21:01,470 --> 00:21:06,120
+espacio 0
+
+449
+00:21:03,329 --> 00:21:09,029
+lo que hacemos es agregar un 0 delante
+
+450
+00:21:06,119 --> 00:21:12,179
+del valor leído y un espacio en blanco
+
+451
+00:21:09,029 --> 00:21:15,299
+si el valor leído es mayor o igual al
+
+452
+00:21:12,180 --> 00:21:18,900
+número 10 en hexadecimal es decir las
+
+453
+00:21:15,299 --> 00:21:21,779
+letras a a la f solo deberemos imprimir
+
+454
+00:21:18,900 --> 00:21:24,480
+un espacio en blanco para separar un
+
+455
+00:21:21,779 --> 00:21:25,109
+byte del otro ahora cuando ejecutemos el
+
+456
+00:21:24,480 --> 00:21:27,720
+programa
+
+457
+00:21:25,109 --> 00:21:30,899
+se entenderá mejor la cuestión es que de
+
+458
+00:21:27,720 --> 00:21:33,329
+esta forma nos aparecerá el cuide en un
+
+459
+00:21:30,900 --> 00:21:36,929
+formato más legible luego de haber leído
+
+460
+00:21:33,329 --> 00:21:39,659
+e impreso el valor del bid hacemos un
+
+461
+00:21:36,929 --> 00:21:42,420
+salto de línea para ubicar el cursor y
+
+462
+00:21:39,660 --> 00:21:45,210
+dejarlo listo para una nueva lectura y
+
+463
+00:21:42,420 --> 00:21:50,190
+la última línea del programa será llamar
+
+464
+00:21:45,210 --> 00:21:52,829
+a la función psc alt en esta función lo
+
+465
+00:21:50,190 --> 00:21:55,650
+que hace es indicarle a la tarjeta o
+
+466
+00:21:52,829 --> 00:21:58,019
+llavero que ya no necesitamos obtener
+
+467
+00:21:55,650 --> 00:22:01,919
+más información y finalice la
+
+468
+00:21:58,019 --> 00:22:05,069
+comunicación recordad que psc se refiere
+
+469
+00:22:01,919 --> 00:22:07,950
+la tarjeta halt en inglés significa
+
+470
+00:22:05,069 --> 00:22:10,589
+detener y de esa manera también logramos
+
+471
+00:22:07,950 --> 00:22:13,519
+que el lector deje de consumir energía
+
+472
+00:22:10,589 --> 00:22:16,740
+para generar la señal de radiofrecuencia
+
+473
+00:22:13,519 --> 00:22:19,319
+perfecto vamos a verificar subir el
+
+474
+00:22:16,740 --> 00:22:22,380
+programa y abrir el monitor serie
+
+475
+00:22:19,319 --> 00:22:25,139
+acercamos la tarjeta al lector y veremos
+
+476
+00:22:22,380 --> 00:22:28,410
+que inmediatamente en el monitor serie
+
+477
+00:22:25,140 --> 00:22:30,720
+nos aparece wii de dos puntos y los
+
+478
+00:22:28,410 --> 00:22:31,558
+cuatro bytes de identificación de la
+
+479
+00:22:30,720 --> 00:22:33,659
+tarjeta
+
+480
+00:22:31,558 --> 00:22:36,990
+además organizados de a dos dígitos
+
+481
+00:22:33,659 --> 00:22:39,450
+hexadecimal es haciendo que cada parque
+
+482
+00:22:36,990 --> 00:22:41,490
+de separado por un espacio para que
+
+483
+00:22:39,450 --> 00:22:43,919
+corresponda a un byte queda
+
+484
+00:22:41,490 --> 00:22:46,649
+perfectamente legible y ese es el motivo
+
+485
+00:22:43,919 --> 00:22:49,980
+del condicional if que aplicamos en el
+
+486
+00:22:46,648 --> 00:22:54,898
+programa el juí de de mi tarjeta es el 9
+
+487
+00:22:49,980 --> 00:22:57,659
+0 0 y 4 a 4 claro está que el de tu
+
+488
+00:22:54,898 --> 00:22:59,729
+tarjeta será distinto acerquemos ahora
+
+489
+00:22:57,659 --> 00:23:05,789
+el llavero y veamos el valor que nos
+
+490
+00:22:59,730 --> 00:23:08,339
+devuelve será en mi caso 0 6 7 6 2 5 de
+
+491
+00:23:05,788 --> 00:23:11,759
+9 podrás también apreciar que obtenemos
+
+492
+00:23:08,339 --> 00:23:14,278
+el uid de forma muy rápida a diferencia
+
+493
+00:23:11,759 --> 00:23:16,740
+del programa de ejemplo que requería una
+
+494
+00:23:14,278 --> 00:23:19,470
+permanencia de varios segundos esto es
+
+495
+00:23:16,740 --> 00:23:21,419
+porque solo consultamos por el vídeo y
+
+496
+00:23:19,470 --> 00:23:24,990
+no la totalidad del contenido de la
+
+497
+00:23:21,419 --> 00:23:28,169
+memoria sólo leemos los primeros 4 bytes
+
+498
+00:23:24,990 --> 00:23:30,929
+del bloque y sector 0 podrás volver a
+
+499
+00:23:28,169 --> 00:23:33,090
+pasar la tarjeta cuantas veces quieras y
+
+500
+00:23:30,929 --> 00:23:35,999
+el llavero para verificar que obtenemos
+
+501
+00:23:33,089 --> 00:23:37,019
+siempre un resultado antes de cerrar el
+
+502
+00:23:35,999 --> 00:23:38,220
+monitor
+
+503
+00:23:37,019 --> 00:23:41,069
+anotemos los valores
+
+504
+00:23:38,220 --> 00:23:43,470
+de los cuide de la tarjeta y llaveros
+
+505
+00:23:41,069 --> 00:23:45,928
+para el próximo programa podrás abrir un
+
+506
+00:23:43,470 --> 00:23:49,500
+documento de texto en blanco y escribir
+
+507
+00:23:45,929 --> 00:23:52,009
+tarjeta dos puntos seleccionar el cuide
+
+508
+00:23:49,500 --> 00:23:56,069
+de la tarjeta y con el atajo de teclado
+
+509
+00:23:52,009 --> 00:23:59,579
+control más la letra se copiará luego en
+
+510
+00:23:56,069 --> 00:24:00,658
+el documento con control más recorta
+
+511
+00:23:59,579 --> 00:24:03,899
+pegar
+
+512
+00:24:00,659 --> 00:24:06,750
+debajo escribiremos llavero dos puntos y
+
+513
+00:24:03,900 --> 00:24:09,390
+nuevamente copiamos del monitor serie y
+
+514
+00:24:06,750 --> 00:24:11,460
+pegamos en el documento ya tenemos todo
+
+515
+00:24:09,390 --> 00:24:13,590
+listo para el segundo programa donde
+
+516
+00:24:11,460 --> 00:24:16,769
+implementaremos un simple control de
+
+517
+00:24:13,589 --> 00:24:19,859
+acceso leeremos el uid de la tarjeta y
+
+518
+00:24:16,769 --> 00:24:23,038
+llavero y compararemos si está en la
+
+519
+00:24:19,859 --> 00:24:25,439
+lista de usuarios con acceso permitido o
+
+520
+00:24:23,038 --> 00:24:28,650
+no usaremos la base del primer programa
+
+521
+00:24:25,440 --> 00:24:31,919
+y agregaremos antes del set-up estas
+
+522
+00:24:28,650 --> 00:24:35,970
+tres líneas la primera crea un array del
+
+523
+00:24:31,919 --> 00:24:39,299
+tipo byte llamado lectura y de con un
+
+524
+00:24:35,970 --> 00:24:42,360
+tamaño de 4 en este raid almacenaremos
+
+525
+00:24:39,298 --> 00:24:43,710
+el valor leído del bid que en el primer
+
+526
+00:24:42,359 --> 00:24:46,139
+programa solo
+
+527
+00:24:43,710 --> 00:24:48,630
+trabajamos por el monitor serie pero no
+
+528
+00:24:46,140 --> 00:24:51,299
+lo almacenamos ahora es necesario porque
+
+529
+00:24:48,630 --> 00:24:54,510
+haremos una comparación la comparación
+
+530
+00:24:51,298 --> 00:24:58,200
+será con otros dos a raíz que llamaremos
+
+531
+00:24:54,509 --> 00:25:00,240
+usuario 1 y usuario 2 estos ya los
+
+532
+00:24:58,200 --> 00:25:02,819
+cargaremos con los valores que copiamos
+
+533
+00:25:00,240 --> 00:25:05,849
+de nuestra tarjeta y llavero debemos
+
+534
+00:25:02,819 --> 00:25:09,298
+utilizar el prefijo 0 x para indicar que
+
+535
+00:25:05,849 --> 00:25:12,329
+el número es en hexadecimal en usuario 1
+
+536
+00:25:09,298 --> 00:25:15,240
+y usuario 2 debidas colocar los valores
+
+537
+00:25:12,329 --> 00:25:17,908
+que correspondan a tu tarjeta y llavero
+
+538
+00:25:15,240 --> 00:25:20,970
+en el setup solo agregaremos el texto
+
+539
+00:25:17,909 --> 00:25:23,549
+listo simplemente para arrancar sin que
+
+540
+00:25:20,970 --> 00:25:26,970
+esté la ventana vacía en el loop luego
+
+541
+00:25:23,548 --> 00:25:30,329
+del serial punto print del byte del wii
+
+542
+00:25:26,970 --> 00:25:34,079
+de leído vamos a almacenarlo en la rai
+
+543
+00:25:30,329 --> 00:25:36,240
+lectura y de como verás esta línea está
+
+544
+00:25:34,079 --> 00:25:39,960
+dentro del bucle foro para ir mostrando
+
+545
+00:25:36,240 --> 00:25:42,630
+el byte del wii de de a uno por vez y al
+
+546
+00:25:39,960 --> 00:25:45,600
+mismo tiempo almacenándolo por eso
+
+547
+00:25:42,630 --> 00:25:48,000
+lectura uideh tiene entre corchetes la
+
+548
+00:25:45,599 --> 00:25:49,809
+variable dieter acción y para que quede
+
+549
+00:25:48,000 --> 00:25:52,359
+visualmente organizado vamos
+
+550
+00:25:49,809 --> 00:25:54,759
+utilizar un serial punto paint y entre
+
+551
+00:25:52,359 --> 00:25:58,689
+comillas la barra invertida y el
+
+552
+00:25:54,759 --> 00:26:01,150
+carácter te late es de tabulación de esa
+
+553
+00:25:58,690 --> 00:26:04,570
+forma dejamos un espacio de tabulación
+
+554
+00:26:01,150 --> 00:26:07,330
+entre el oído y el texto que le seguirá
+
+555
+00:26:04,569 --> 00:26:09,490
+este bloque que resaltó ahora la
+
+556
+00:26:07,329 --> 00:26:11,889
+comparación del oído y leído de la
+
+557
+00:26:09,490 --> 00:26:15,370
+tarjeta o llavero que acerquemos al
+
+558
+00:26:11,890 --> 00:26:17,800
+lector con los uid es del usuario 1 y
+
+559
+00:26:15,369 --> 00:26:20,169
+usuario 2 para reutilizar parte del
+
+560
+00:26:17,799 --> 00:26:22,930
+código haremos el proceso de comparación
+
+561
+00:26:20,170 --> 00:26:25,840
+en una función que crearemos con el
+
+562
+00:26:22,930 --> 00:26:27,880
+nombre com para wii de iu a dicha
+
+563
+00:26:25,839 --> 00:26:31,209
+función le enviaremos como primer
+
+564
+00:26:27,880 --> 00:26:34,210
+parámetro el lectura uideh y como
+
+565
+00:26:31,210 --> 00:26:37,210
+segundo parámetro usuario 1 y
+
+566
+00:26:34,210 --> 00:26:40,210
+posteriormente usuario 2 como ya vimos
+
+567
+00:26:37,210 --> 00:26:42,670
+hace tiempo una función en la creamos al
+
+568
+00:26:40,210 --> 00:26:45,160
+final del código fuera del loop lo
+
+569
+00:26:42,670 --> 00:26:48,490
+hacemos declarando el nombre en este
+
+570
+00:26:45,160 --> 00:26:50,950
+caso con para wii de el tipo de variable
+
+571
+00:26:48,490 --> 00:26:53,559
+que devolverá que será un tipo booleana
+
+572
+00:26:50,950 --> 00:26:56,049
+y entre paréntesis las variables locales
+
+573
+00:26:53,559 --> 00:26:58,779
+que tomarán los valores enviados
+
+574
+00:26:56,049 --> 00:27:01,960
+desde el loop de volver a volar que sólo
+
+575
+00:26:58,779 --> 00:27:05,889
+permite dos valores posibles verdadero
+
+576
+00:27:01,960 --> 00:27:08,350
+truco o falso force de esa manera si la
+
+577
+00:27:05,890 --> 00:27:11,950
+comparación es exitosa retorno a la
+
+578
+00:27:08,349 --> 00:27:14,469
+verdadero y en caso contrario falso el
+
+579
+00:27:11,950 --> 00:27:17,740
+proceso de comparación es de un byte por
+
+580
+00:27:14,470 --> 00:27:20,380
+vez por eso tendremos un bucle foro con
+
+581
+00:27:17,740 --> 00:27:23,289
+la variable de iteración y la condición
+
+582
+00:27:20,380 --> 00:27:26,110
+para permanecer en el bucle será que sea
+
+583
+00:27:23,289 --> 00:27:30,099
+menor a la longitud del vídeo para
+
+584
+00:27:26,109 --> 00:27:32,889
+nuestro caso 4 e incrementaremos y en 1
+
+585
+00:27:30,099 --> 00:27:36,730
+en cada pasada luego con el condicional
+
+586
+00:27:32,890 --> 00:27:40,120
+if comparamos los bytes de cada array el
+
+587
+00:27:36,730 --> 00:27:43,720
+llamado localmente lectura con el id de
+
+588
+00:27:40,119 --> 00:27:46,750
+la tarjeta leída y el array usuario con
+
+589
+00:27:43,720 --> 00:27:49,630
+el usuario 1 y luego cuando sea llamada
+
+590
+00:27:46,750 --> 00:27:52,329
+la función por segunda vez con usuario 2
+
+591
+00:27:49,630 --> 00:27:54,990
+si alguno de los bytes no son iguales
+
+592
+00:27:52,329 --> 00:27:59,240
+inmediatamente salimos de la función
+
+593
+00:27:54,990 --> 00:28:01,970
+retornando un valor o falso con return
+
+594
+00:27:59,240 --> 00:28:04,819
+si luego de comparar los cuatro bytes
+
+595
+00:28:01,970 --> 00:28:07,640
+todos ellos coinciden retornamos con
+
+596
+00:28:04,819 --> 00:28:10,099
+verdadero return true
+
+597
+00:28:07,640 --> 00:28:13,610
+así que para resumir esta función con
+
+598
+00:28:10,099 --> 00:28:17,089
+paga y de retornar a un valor de falso
+
+599
+00:28:13,609 --> 00:28:20,659
+si el wii de leído es distinto del del
+
+600
+00:28:17,089 --> 00:28:23,149
+usuario 1 y verdadero si ambos son
+
+601
+00:28:20,660 --> 00:28:25,220
+iguales si ahora volvemos al loop al
+
+602
+00:28:23,150 --> 00:28:27,710
+mismo lugar de donde llamamos a la
+
+603
+00:28:25,220 --> 00:28:30,829
+función vemos que es la condición del if
+
+604
+00:28:27,710 --> 00:28:33,799
+si la comparación fue exitosa un valor
+
+605
+00:28:30,829 --> 00:28:37,369
+verdadero imprime en el monitor serie el
+
+606
+00:28:33,799 --> 00:28:39,889
+texto bienvenido usuario 1 luego con
+
+607
+00:28:37,369 --> 00:28:42,889
+otro condicional llamamos a la misma
+
+608
+00:28:39,890 --> 00:28:45,290
+función con paraguay pero esta vez con
+
+609
+00:28:42,890 --> 00:28:48,470
+el usuario 2 y nuevamente si nos
+
+610
+00:28:45,289 --> 00:28:51,349
+devuelve verdadero imprimimos el texto
+
+611
+00:28:48,470 --> 00:28:53,720
+bienvenido usuario 2 por último si las
+
+612
+00:28:51,349 --> 00:28:56,959
+comparaciones no fueron exitosas
+
+613
+00:28:53,720 --> 00:28:59,839
+entonces escribimos no te conozco aquí
+
+614
+00:28:56,960 --> 00:29:01,970
+deberíamos escribir acceso denegado pero
+
+615
+00:28:59,839 --> 00:29:04,639
+como no nos tomamos las cosas muy en
+
+616
+00:29:01,970 --> 00:29:06,169
+serio le damos un toque personal con un
+
+617
+00:29:04,640 --> 00:29:08,179
+no te conozco
+
+618
+00:29:06,169 --> 00:29:12,499
+última línea del programa será la
+
+619
+00:29:08,179 --> 00:29:15,109
+función psc health y para finalizar la
+
+620
+00:29:12,499 --> 00:29:16,940
+comunicación con la tarjeta recordad que
+
+621
+00:29:15,108 --> 00:29:18,798
+el código de los programas vistos en
+
+622
+00:29:16,940 --> 00:29:21,379
+este capítulo y el de todos los
+
+623
+00:29:18,798 --> 00:29:23,239
+capítulos está disponible para descargar
+
+624
+00:29:21,378 --> 00:29:26,269
+desde el enlace en la zona de
+
+625
+00:29:23,239 --> 00:29:29,629
+descripción vamos a verificar subir el
+
+626
+00:29:26,269 --> 00:29:31,759
+programa y abrir el monitor serie se
+
+627
+00:29:29,628 --> 00:29:33,980
+muestra el texto listo y queda a la
+
+628
+00:29:31,759 --> 00:29:36,950
+espera de que acerquemos la tarjeta o
+
+629
+00:29:33,980 --> 00:29:39,558
+llavero acerquemos primero la tarjeta al
+
+630
+00:29:36,950 --> 00:29:46,239
+lector y veremos que inmediatamente se
+
+631
+00:29:39,558 --> 00:29:49,940
+muestra we de 2 puntos 9 0 0 y 4 a 4
+
+632
+00:29:46,239 --> 00:29:52,340
+bienvenido usuario uno perfecto detectó
+
+633
+00:29:49,940 --> 00:29:54,798
+la tarjeta comparó con el listado de
+
+634
+00:29:52,339 --> 00:29:57,528
+usuarios y detectó que se trata del
+
+635
+00:29:54,798 --> 00:30:00,408
+usuario 1 probemos ahora con el llavero
+
+636
+00:29:57,528 --> 00:30:02,929
+como es de esperar muestra el vídeo
+
+637
+00:30:00,409 --> 00:30:06,350
+correspondiente y luego de un espacio de
+
+638
+00:30:02,929 --> 00:30:08,840
+tabulación bienvenido usuario 2 como
+
+639
+00:30:06,349 --> 00:30:11,449
+tanto la tarjeta como el llavero está en
+
+640
+00:30:08,839 --> 00:30:12,199
+el listado de los usuarios siempre nos
+
+641
+00:30:11,450 --> 00:30:14,450
+mostrará
+
+642
+00:30:12,200 --> 00:30:17,240
+el texto de bienvenida para que nos
+
+643
+00:30:14,450 --> 00:30:19,788
+muestre el no te conozco deberíamos
+
+644
+00:30:17,240 --> 00:30:22,009
+volver al código cerremos el monitor
+
+645
+00:30:19,788 --> 00:30:25,069
+serie y vamos al principio de la
+
+646
+00:30:22,009 --> 00:30:27,319
+definición de la rae usuario 2 y
+
+647
+00:30:25,069 --> 00:30:31,579
+modifiquemos el valor del primer byte
+
+648
+00:30:27,319 --> 00:30:33,859
+cambiemos el 0 6 por por ejemplo 0 8 de
+
+649
+00:30:31,579 --> 00:30:36,619
+esa forma cuando pasemos el llavero por
+
+650
+00:30:33,859 --> 00:30:40,158
+el lector la comparación dará un valor
+
+651
+00:30:36,619 --> 00:30:42,768
+de falso y tendremos el texto de no te
+
+652
+00:30:40,159 --> 00:30:44,899
+conozco equivalente al de acceso
+
+653
+00:30:42,769 --> 00:30:47,690
+denegado sumamos esta pequeña
+
+654
+00:30:44,898 --> 00:30:51,319
+modificación pasemos de nuevo la tarjeta
+
+655
+00:30:47,690 --> 00:30:54,830
+y dirá bienvenido usuario 1 ahora al
+
+656
+00:30:51,319 --> 00:30:56,808
+pasar el llavero dirá no te conozco y
+
+657
+00:30:54,829 --> 00:30:59,839
+así verificamos que el proceso de
+
+658
+00:30:56,808 --> 00:31:03,200
+comparación funciona correctamente y
+
+659
+00:30:59,839 --> 00:31:05,509
+sólo los cuides de los usuarios listados
+
+660
+00:31:03,200 --> 00:31:08,028
+tienen acceso claro hasta que este
+
+661
+00:31:05,509 --> 00:31:11,359
+programa es básico y en vez de escribir
+
+662
+00:31:08,028 --> 00:31:14,839
+en el monitor serie estarías encendiendo
+
+663
+00:31:11,359 --> 00:31:17,569
+un relé por unos 10 segundos el cual
+
+664
+00:31:14,839 --> 00:31:19,039
+activa a su vez una cerradura eléctrica
+
+665
+00:31:17,569 --> 00:31:21,259
+de una puerta
+
+666
+00:31:19,039 --> 00:31:23,569
+quiero otro método para un control de
+
+667
+00:31:21,259 --> 00:31:25,460
+acceso pero sienta las bases para
+
+668
+00:31:23,569 --> 00:31:28,399
+ajustarlo a tus necesidades
+
+669
+00:31:25,460 --> 00:31:31,670
+agregar un lcd también sería una opción
+
+670
+00:31:28,400 --> 00:31:34,340
+o incluso de forma más avanzada realizar
+
+671
+00:31:31,670 --> 00:31:37,220
+un sistema que permita agregar nuevas
+
+672
+00:31:34,339 --> 00:31:39,740
+tarjetas o llaveros sin necesidad de
+
+673
+00:31:37,220 --> 00:31:43,759
+cargar nuevamente el programa haciendo
+
+674
+00:31:39,740 --> 00:31:45,920
+uso de la memoria brom del capítulo 39
+
+675
+00:31:43,759 --> 00:31:48,440
+para finalizar el capítulo quiero
+
+676
+00:31:45,920 --> 00:31:50,840
+hacerte una mención rápida de las
+
+677
+00:31:48,440 --> 00:31:54,230
+distintas frecuencias de operación para
+
+678
+00:31:50,839 --> 00:31:58,099
+rift haití en la imagen se ve una antena
+
+679
+00:31:54,230 --> 00:32:00,680
+para 13.56 megahertz la misma frecuencia
+
+680
+00:31:58,099 --> 00:32:04,429
+a la que opera nuestro módulo lector
+
+681
+00:32:00,680 --> 00:32:05,360
+pero también existen de 125 kilos hertz
+
+682
+00:32:04,430 --> 00:32:08,330
+en la banda
+
+683
+00:32:05,359 --> 00:32:10,969
+lf de baja frecuencia son las típicas
+
+684
+00:32:08,329 --> 00:32:12,829
+que se encuentran adheridas en formato
+
+685
+00:32:10,970 --> 00:32:17,089
+de etiquetas en conjunto con
+
+686
+00:32:12,829 --> 00:32:19,460
+dispositivos antirrobo luego de 13.56
+
+687
+00:32:17,089 --> 00:32:23,269
+megahertz las que estuvimos trabajando a
+
+688
+00:32:19,460 --> 00:32:24,519
+nosotros y también existen de 868
+
+689
+00:32:23,269 --> 00:32:27,548
+megahertz
+
+690
+00:32:24,519 --> 00:32:30,219
+en el espectro de hf ultra alta
+
+691
+00:32:27,548 --> 00:32:32,950
+frecuencia estas últimas al ser la
+
+692
+00:32:30,219 --> 00:32:35,379
+frecuencia más elevada requieren antenas
+
+693
+00:32:32,950 --> 00:32:38,409
+más pequeñas con lo cual si vas a
+
+694
+00:32:35,378 --> 00:32:40,689
+adquirir tarjetas o llaveros adicionales
+
+695
+00:32:38,409 --> 00:32:44,229
+a los ya incluidos en el kit deberás
+
+696
+00:32:40,690 --> 00:32:46,599
+tener en cuenta que deben ser de 13.56
+
+697
+00:32:44,229 --> 00:32:49,269
+megahertz con circuito integrado del
+
+698
+00:32:46,598 --> 00:32:52,058
+tipo my fear eso es todo por este
+
+699
+00:32:49,269 --> 00:32:54,638
+capítulo como siempre te pido te
+
+700
+00:32:52,058 --> 00:32:57,278
+suscribas si aún no lo has hecho y por
+
+701
+00:32:54,638 --> 00:32:59,858
+cualquier duda o comentario lo podrás
+
+702
+00:32:57,278 --> 00:33:03,868
+hacer debajo que con gusto te responderé
+
+703
+00:32:59,858 --> 00:33:03,868
+chau y hasta la próxima
+

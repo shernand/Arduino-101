@@ -1,0 +1,28 @@
+Veremos el display de 7 segmentos para mostrar información en Arduino con la ayuda del MAX7219 mediante el proceso de multiplexación y comandos desde Arduino.
+Se explicará en detalle el funcionamiento del display de un dígito y de doble dígito y el esquemático de conexión con el controlador MAX7219.
+
+También como usar el operador aritmético módulo para separar los dígitos indivuales de un número y así poder mostrar en el display.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoDisplay
+#Arduino7segmentos
+#MAX7219
+7 segments display
+Display catodo comun
+Libreria LedControl
+Display multiplexacion
+Persistencia de la visión
+
+Marcas de tiempo:
+0:00 Introducción y Básicos de segmentos
+3:34 Módulo de 2 dígitos
+4:32 Multiplexación, efecto visual y uso
+6:52 MAX7219 para simplificar conexiones
+7:10 Conexión (visualización en esquemático)
+16:54 Conexión (visualización en protoboard)
+21:10 Primer programa (contador de segundos)
+21:37 Instalación librería LedControl
+33:15 Uso del Punto decimal

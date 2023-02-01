@@ -1,0 +1,26 @@
+El modelo de placa Arduino Nano bien compacto, ideal para iniciar o como segunda placa, describiremos los componentes, distribución de pines, puntos a favor y en contra respecto del modelo Arduino UNO y cómo instalar los drivers para las versiones FT232RL como para el CH340G del conversor.
+
+También cómo alimentar de forma externa mediante el pin RAW y los límites de los rieles de 5 y 3,3 V.
+
+Controlador driver FT232RL: https://www.ftdichip.com/Drivers/VCP.htm
+Controlador driver CH340G: http://www.wch-ic.com/downloads/CH341SER_EXE.html
+
+#ArduinoNano
+#ArduinoDesdeCero
+#ArduinoInicial
+Arduino Nano desde cero
+Arduino Nano alimentacion externa
+Arduino Nano vs Uno
+Arduino Nano v3
+Nano Arduino pinout
+Arduino Nano CH340
+
+
+Marcas de tiempo:
+0:00 Introducción y Componentes de la placa
+2:30 Distribución de pines (pinout)
+5:40 Métodos de alimentación (no regulada y USB)
+7:55 Circuito integrado USB-TTL
+9:11 Descarga de driver FT232RL
+10:51 Descarga de driver CH340G
+11:29 Comparativa NANO vs UNO

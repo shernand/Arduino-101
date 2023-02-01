@@ -1,0 +1,3084 @@
+1
+00:00:00,000 --> 00:00:04,950
+en esta oportunidad veremos el principio
+
+2
+00:00:02,549 --> 00:00:07,979
+de funcionamiento del display de siete
+
+3
+00:00:04,950 --> 00:00:09,870
+segmentos para mostrar información y la
+
+4
+00:00:07,980 --> 00:00:13,559
+ayuda que nos brinda el circuito
+
+5
+00:00:09,869 --> 00:00:15,959
+integrado max 72 19 para el manejo de
+
+6
+00:00:13,558 --> 00:00:18,179
+múltiples dígitos el display de siete
+
+7
+00:00:15,960 --> 00:00:20,880
+segmentos es un viejo conocido de la
+
+8
+00:00:18,179 --> 00:00:23,698
+electrónica y seguramente lo hayas visto
+
+9
+00:00:20,879 --> 00:00:26,070
+en multitud de aparatos cómo ser equipos
+
+10
+00:00:23,699 --> 00:00:28,080
+de música hornos de microondas o
+
+11
+00:00:26,070 --> 00:00:31,260
+decodificadores de televisión por cable
+
+12
+00:00:28,079 --> 00:00:33,479
+tiene la ventaja de ser visible a larga
+
+13
+00:00:31,260 --> 00:00:36,600
+distancia ya que cada uno de los
+
+14
+00:00:33,479 --> 00:00:38,578
+segmentos es un led un diodo emisor de
+
+15
+00:00:36,600 --> 00:00:41,160
+luz como el que ya vimos desde el
+
+16
+00:00:38,579 --> 00:00:43,620
+capítulo 3 aquí trabajaremos con una
+
+17
+00:00:41,159 --> 00:00:45,718
+representación gráfica para simplificar
+
+18
+00:00:43,619 --> 00:00:48,808
+cada uno de los segmentos se lo
+
+19
+00:00:45,719 --> 00:00:52,140
+identifica mediante una letra desde la a
+
+20
+00:00:48,808 --> 00:00:56,099
+hasta la g y luego el punto decimal con
+
+21
+00:00:52,140 --> 00:00:59,219
+dp decimal point en inglés son 7 los
+
+22
+00:00:56,100 --> 00:01:01,379
+segmentos a al eje de allí lleva la
+
+23
+00:00:59,219 --> 00:01:04,349
+denominación de display de siete
+
+24
+00:01:01,378 --> 00:01:06,450
+segmentos y cada uno de ellos inclusive
+
+25
+00:01:04,349 --> 00:01:09,089
+el punto decimal
+
+26
+00:01:06,450 --> 00:01:11,100
+simplemente un led que se ilumina al
+
+27
+00:01:09,090 --> 00:01:13,439
+aplicar tensión a los terminales
+
+28
+00:01:11,099 --> 00:01:16,468
+adecuados como ya vimos de cuando
+
+29
+00:01:13,438 --> 00:01:19,228
+analizamos el led rgb que se trataba de
+
+30
+00:01:16,468 --> 00:01:21,599
+tres leds en un mismo encapsulado para
+
+31
+00:01:19,228 --> 00:01:24,450
+ahorrar pines de conexión existían de
+
+32
+00:01:21,599 --> 00:01:26,849
+dos tipos de ánodo común y de cátodo
+
+33
+00:01:24,450 --> 00:01:29,670
+común aquí en el diagrama vimos que el
+
+34
+00:01:26,849 --> 00:01:33,118
+display tiene 5 pines en su parte
+
+35
+00:01:29,670 --> 00:01:35,819
+superior y 5 pines en su inferior los
+
+36
+00:01:33,118 --> 00:01:38,579
+pines centrales tanto superior como
+
+37
+00:01:35,819 --> 00:01:40,679
+inferior serán el terminal común de los
+
+38
+00:01:38,579 --> 00:01:44,728
+leds veremos en breve que nosotros
+
+39
+00:01:40,679 --> 00:01:47,728
+usaremos un circuito integrado max 7219
+
+40
+00:01:44,728 --> 00:01:49,789
+a modo de controlador o driver y el
+
+41
+00:01:47,728 --> 00:01:53,340
+mismo requiere que el display sea
+
+42
+00:01:49,789 --> 00:01:55,978
+únicamente del tipo cátodo común lo cual
+
+43
+00:01:53,340 --> 00:01:58,649
+es importante notar ya que existen de
+
+44
+00:01:55,978 --> 00:02:00,629
+ambos tipos si es del tipo cátodo común
+
+45
+00:01:58,649 --> 00:02:02,969
+entonces ya podemos decir que el
+
+46
+00:02:00,629 --> 00:02:05,519
+terminal con un lo estaremos conectando
+
+47
+00:02:02,969 --> 00:02:08,459
+a gene de y para encender cualquiera de
+
+48
+00:02:05,519 --> 00:02:10,618
+los segmentos aplicaremos una tensión
+
+49
+00:02:08,459 --> 00:02:12,829
+positiva de manera que si quisiéramos
+
+50
+00:02:10,618 --> 00:02:15,438
+mostrar el número 0 tendríamos que
+
+51
+00:02:12,829 --> 00:02:17,629
+conectar el terminal común ya sea el de
+
+52
+00:02:15,438 --> 00:02:19,989
+la parte superior o el de la parte
+
+53
+00:02:17,628 --> 00:02:23,120
+inferior ya que están conectados
+
+54
+00:02:19,989 --> 00:02:27,709
+internamente luego un uno lógico se
+
+55
+00:02:23,120 --> 00:02:30,530
+aplicaría a los segmentos a b c d e y f
+
+56
+00:02:27,709 --> 00:02:33,949
+es decir que no conectaríamos el
+
+57
+00:02:30,530 --> 00:02:36,019
+segmento g ni el punto decimal aquí con
+
+58
+00:02:33,949 --> 00:02:39,229
+color rojo se muestran como se
+
+59
+00:02:36,019 --> 00:02:41,539
+iluminaría dichos segmentos mostrando el
+
+60
+00:02:39,229 --> 00:02:43,488
+número 0 otro ejemplo para que quede
+
+61
+00:02:41,539 --> 00:02:46,340
+claro el concepto sería mostrar el
+
+62
+00:02:43,489 --> 00:02:49,400
+número 1 el cual se logra encendiendo
+
+63
+00:02:46,340 --> 00:02:51,919
+los segmentos b y c por eso verás que
+
+64
+00:02:49,400 --> 00:02:54,938
+mantenemos geneve sobre el terminal
+
+65
+00:02:51,919 --> 00:02:58,400
+común y aplicamos un uno lógico
+
+66
+00:02:54,938 --> 00:03:00,828
+únicamente a los segmentos b y c como
+
+67
+00:02:58,400 --> 00:03:03,530
+verás es muy simple solo conectar el
+
+68
+00:03:00,829 --> 00:03:06,200
+terminal común a gene de porque se trata
+
+69
+00:03:03,530 --> 00:03:08,419
+de un display de cátodo común y un uno
+
+70
+00:03:06,199 --> 00:03:10,878
+lógico a los segmentos que deseamos
+
+71
+00:03:08,419 --> 00:03:13,599
+iluminar en la práctica con un solo
+
+72
+00:03:10,878 --> 00:03:16,068
+display es decir con un solo dígito
+
+73
+00:03:13,598 --> 00:03:18,500
+generalmente no alcanza para mostrar
+
+74
+00:03:16,068 --> 00:03:19,280
+información suficiente se requieren al
+
+75
+00:03:18,500 --> 00:03:23,419
+menos
+
+76
+00:03:19,280 --> 00:03:26,330
+dígitos para mostrar números de 0 a 99
+
+77
+00:03:23,419 --> 00:03:29,149
+por eso aquí se muestra un módulo de dos
+
+78
+00:03:26,330 --> 00:03:31,160
+dígitos estos módulos mantienen la misma
+
+79
+00:03:29,150 --> 00:03:34,700
+cantidad de pines que en el caso
+
+80
+00:03:31,159 --> 00:03:36,889
+anterior 5 en la parte superior y 5 en
+
+81
+00:03:34,699 --> 00:03:39,530
+la inferior entonces cómo logramos
+
+82
+00:03:36,889 --> 00:03:42,289
+manejar 2 dígitos con tan pocas
+
+83
+00:03:39,530 --> 00:03:44,750
+conexiones en principio ambos dígitos
+
+84
+00:03:42,289 --> 00:03:46,879
+tienen sus segmentos en paralelo es
+
+85
+00:03:44,750 --> 00:03:50,330
+decir que cuando vemos el pin con la
+
+86
+00:03:46,879 --> 00:03:53,120
+letra a significa que el segmento a de
+
+87
+00:03:50,330 --> 00:03:55,670
+ambos dígitos reciben el mismo nivel
+
+88
+00:03:53,120 --> 00:03:58,730
+lógico lo mismo para todos los demás
+
+89
+00:03:55,669 --> 00:04:02,000
+segmentos y punto decimal de esa manera
+
+90
+00:03:58,729 --> 00:04:04,669
+con 8 pines podemos manejar los 7
+
+91
+00:04:02,000 --> 00:04:06,830
+segmentos y el punto decimal luego
+
+92
+00:04:04,669 --> 00:04:09,259
+tendremos de forma independiente el
+
+93
+00:04:06,830 --> 00:04:11,870
+terminal del cátodo común del primer
+
+94
+00:04:09,259 --> 00:04:15,169
+dígito el dígito de la derecha con la
+
+95
+00:04:11,870 --> 00:04:18,168
+denominación de 1 y a su lado el cátodo
+
+96
+00:04:15,169 --> 00:04:21,500
+común a los segmentos del segundo dígito
+
+97
+00:04:18,168 --> 00:04:23,870
+con la denominación de 2 el truco es que
+
+98
+00:04:21,500 --> 00:04:25,250
+no estaremos mostrando al mismo tiempo
+
+99
+00:04:23,870 --> 00:04:27,290
+los dos dígitos
+
+100
+00:04:25,250 --> 00:04:31,189
+usaremos el proceso de multiplexación
+
+101
+00:04:27,290 --> 00:04:34,370
+que vimos en el capítulo 43 junto con la
+
+102
+00:04:31,189 --> 00:04:36,680
+matriz de leds de 8 x 8 la idea es
+
+103
+00:04:34,370 --> 00:04:39,470
+enviar la información de los segmentos a
+
+104
+00:04:36,680 --> 00:04:42,259
+iluminar y de forma posterior habilitar
+
+105
+00:04:39,470 --> 00:04:45,710
+el dígito correspondiente enviando un
+
+106
+00:04:42,259 --> 00:04:47,959
+serológico equivalente a gene de al
+
+107
+00:04:45,709 --> 00:04:51,019
+dígito por ejemplo si aquí deseamos
+
+108
+00:04:47,959 --> 00:04:54,319
+mostrar el número 0 en el dígito de la
+
+109
+00:04:51,019 --> 00:04:59,509
+derecha el menos significativo enviamos
+
+110
+00:04:54,319 --> 00:05:03,980
+un 1 lógico a los segmentos a b c d e y
+
+111
+00:04:59,509 --> 00:05:05,810
+f y luego un 0 lógico al pin de 1 si
+
+112
+00:05:03,980 --> 00:05:09,169
+bien los segmentos están conectados en
+
+113
+00:05:05,810 --> 00:05:11,810
+paralelo de forma interna al módulo solo
+
+114
+00:05:09,168 --> 00:05:14,269
+estará habilitado el primer dígito el de
+
+115
+00:05:11,810 --> 00:05:17,209
+la derecha ya que el otro dígito no
+
+116
+00:05:14,269 --> 00:05:19,729
+tiene un cero lógico en dedos que
+
+117
+00:05:17,209 --> 00:05:22,430
+permitiría a habilitarlo si ahora por el
+
+118
+00:05:19,730 --> 00:05:24,590
+contrario queremos mostrar el número 1
+
+119
+00:05:22,430 --> 00:05:27,470
+pero esta vez sobre el dígito de la
+
+120
+00:05:24,589 --> 00:05:31,788
+izquierda enviamos un 1 lógico a los
+
+121
+00:05:27,470 --> 00:05:34,939
+segmentos b y c y luego un 0 lógico a
+
+122
+00:05:31,788 --> 00:05:37,370
+dedos habilitándolo y de esta forma
+
+123
+00:05:34,939 --> 00:05:39,470
+podemos seleccionar qué dígito es el
+
+124
+00:05:37,370 --> 00:05:41,899
+habilitado si nuestra intención es
+
+125
+00:05:39,470 --> 00:05:45,710
+mostrar el número 10 ese sería el
+
+126
+00:05:41,899 --> 00:05:47,810
+proceso paso a paso enviar los 1 lógicos
+
+127
+00:05:45,709 --> 00:05:51,709
+para encender los segmentos del primer
+
+128
+00:05:47,810 --> 00:05:55,189
+dígito y mostrar el 0 luego un 0 lógico
+
+129
+00:05:51,709 --> 00:05:58,060
+en de 1 para habilitar a dicho dígito de
+
+130
+00:05:55,189 --> 00:06:01,099
+forma seguida quitamos el serológico
+
+131
+00:05:58,060 --> 00:06:03,740
+efectivamente apagando todos los dígitos
+
+132
+00:06:01,098 --> 00:06:06,740
+luego los 1 lógicos para encender los
+
+133
+00:06:03,740 --> 00:06:10,310
+segmentos que muestran el número 1 y un
+
+134
+00:06:06,740 --> 00:06:12,769
+0 lógico al de 2 para mostrarlo si este
+
+135
+00:06:10,310 --> 00:06:15,019
+proceso lo repetimos constantemente de
+
+136
+00:06:12,769 --> 00:06:17,389
+forma muy rápida y el efecto de
+
+137
+00:06:15,019 --> 00:06:19,698
+persistencia de la visión nos dará la
+
+138
+00:06:17,389 --> 00:06:22,009
+ilusión de que ambos dígitos se
+
+139
+00:06:19,699 --> 00:06:23,718
+encuentran encendidos al mismo tiempo
+
+140
+00:06:22,009 --> 00:06:27,348
+aunque ya sabemos que en realidad
+
+141
+00:06:23,718 --> 00:06:29,810
+estamos contando muy rápidamente entre
+
+142
+00:06:27,348 --> 00:06:32,329
+ellos si quisiéramos implementar este
+
+143
+00:06:29,810 --> 00:06:34,399
+sistema con arduino de forma directa nos
+
+144
+00:06:32,329 --> 00:06:37,128
+ocuparía una gran cantidad de pines
+
+145
+00:06:34,399 --> 00:06:39,829
+digitales 10 en total
+
+146
+00:06:37,129 --> 00:06:42,379
+de colocar resistencias en serie con
+
+147
+00:06:39,829 --> 00:06:44,838
+cada uno de los segmentos para limitar
+
+148
+00:06:42,379 --> 00:06:47,379
+la corriente por eso es que usaremos un
+
+149
+00:06:44,838 --> 00:06:49,610
+circuito integrado controlador
+
+150
+00:06:47,379 --> 00:06:52,699
+específicamente diseñado para manejar
+
+151
+00:06:49,610 --> 00:06:56,300
+displays de siete segmentos y matrices
+
+152
+00:06:52,699 --> 00:06:58,879
+se trata del max 72 19 que como
+
+153
+00:06:56,300 --> 00:07:01,879
+comentaba antes lo usamos en el capítulo
+
+154
+00:06:58,879 --> 00:07:03,729
+43 en esta vista de diagrama eléctrico
+
+155
+00:07:01,879 --> 00:07:06,468
+también llamado esquemático
+
+156
+00:07:03,728 --> 00:07:10,008
+representamos en la parte izquierda el
+
+157
+00:07:06,468 --> 00:07:12,709
+circuito integrado max 72 19 y a la
+
+158
+00:07:10,009 --> 00:07:15,499
+derecha colocaremos dos módulos de dos
+
+159
+00:07:12,709 --> 00:07:17,718
+dígitos de manera de tener un total de
+
+160
+00:07:15,499 --> 00:07:20,479
+cuatro dígitos para mostrar información
+
+161
+00:07:17,718 --> 00:07:23,118
+es la configuración que usaremos en la
+
+162
+00:07:20,478 --> 00:07:26,028
+práctica nos detendremos unos instantes
+
+163
+00:07:23,119 --> 00:07:28,249
+para entender bien este esquemático y la
+
+164
+00:07:26,028 --> 00:07:30,439
+importancia del mismo en lugar de la
+
+165
+00:07:28,249 --> 00:07:32,629
+vista de protoboard que igual veremos
+
+166
+00:07:30,439 --> 00:07:35,059
+luego un esquemático tiene el propósito
+
+167
+00:07:32,629 --> 00:07:37,429
+de mostrar las conexiones entre sus
+
+168
+00:07:35,059 --> 00:07:39,559
+componentes de una forma simple y
+
+169
+00:07:37,428 --> 00:07:42,558
+directa por ejemplo verás que los
+
+170
+00:07:39,559 --> 00:07:44,960
+módulos de 2 dígitos de 7 segmentos
+
+171
+00:07:42,559 --> 00:07:47,689
+tienen sus pines de conexión en un orden
+
+172
+00:07:44,959 --> 00:07:50,239
+distinto al del módulo en la vida real
+
+173
+00:07:47,689 --> 00:07:52,370
+tenemos en la parte superior todas las
+
+174
+00:07:50,240 --> 00:07:55,250
+conexiones de los segmentos y en la
+
+175
+00:07:52,370 --> 00:07:56,538
+parte inferior los cátodos común esos
+
+176
+00:07:55,250 --> 00:07:58,300
+porque al momento de hacer las
+
+177
+00:07:56,538 --> 00:08:01,218
+conexiones con el circuito integrado
+
+178
+00:07:58,300 --> 00:08:03,650
+evitaremos que se crucen conexiones y
+
+179
+00:08:01,218 --> 00:08:06,918
+complique en la vista lo mismo pasa con
+
+180
+00:08:03,649 --> 00:08:09,679
+el máx 7219 donde vemos que en una
+
+181
+00:08:06,918 --> 00:08:12,348
+columna están todas las conexiones a los
+
+182
+00:08:09,680 --> 00:08:15,500
+segmentos y dígitos y en otra columna
+
+183
+00:08:12,348 --> 00:08:17,718
+todo lo que es alimentación conexión de
+
+184
+00:08:15,500 --> 00:08:20,060
+datos que irán arduino y otras
+
+185
+00:08:17,718 --> 00:08:22,339
+cuestiones que ya veremos entonces para
+
+186
+00:08:20,060 --> 00:08:25,250
+resumir deberás tener en cuenta que en
+
+187
+00:08:22,339 --> 00:08:27,408
+la mayoría de casos un esquemático no
+
+188
+00:08:25,250 --> 00:08:29,689
+muestra la disposición física o
+
+189
+00:08:27,408 --> 00:08:33,110
+verdadera de los pines en un dispositivo
+
+190
+00:08:29,689 --> 00:08:35,929
+en un intento de priorizar la facilidad
+
+191
+00:08:33,110 --> 00:08:38,300
+de su lectura hecha la aclaración veamos
+
+192
+00:08:35,929 --> 00:08:40,250
+cómo se conectan los componentes no te
+
+193
+00:08:38,299 --> 00:08:41,538
+preocupes si al principio parece
+
+194
+00:08:40,250 --> 00:08:43,519
+intimidante
+
+195
+00:08:41,538 --> 00:08:46,819
+ya verás que es muy simple de entender
+
+196
+00:08:43,519 --> 00:08:49,789
+el max 7219 tiene la capacidad de
+
+197
+00:08:46,820 --> 00:08:54,860
+manejar hasta 8 dígitos es por eso que
+
+198
+00:08:49,789 --> 00:08:58,429
+tiene conexiones con de 0 a 7 es decir
+
+199
+00:08:54,860 --> 00:09:00,409
+dígito 0 a dígito 7 recordad que es
+
+200
+00:08:58,429 --> 00:09:03,769
+usual en electrónica que el primer
+
+201
+00:09:00,409 --> 00:09:06,169
+elemento tenga índice 0 en vez de 1
+
+202
+00:09:03,769 --> 00:09:09,529
+nosotros como tenemos un total de 4
+
+203
+00:09:06,169 --> 00:09:13,399
+dígitos usaremos solo las conexiones de
+
+204
+00:09:09,529 --> 00:09:15,740
+0 a 3 vimos antes que un módulo de dos
+
+205
+00:09:13,399 --> 00:09:18,199
+dígitos tienen sus segmentos conectados
+
+206
+00:09:15,740 --> 00:09:20,330
+en paralelo de forma interna y que
+
+207
+00:09:18,200 --> 00:09:23,000
+usábamos la multiplexación para
+
+208
+00:09:20,330 --> 00:09:25,250
+habilitar de un dígito por vez ahora
+
+209
+00:09:23,000 --> 00:09:28,129
+para manejar otro módulo de dos dígitos
+
+210
+00:09:25,250 --> 00:09:30,950
+el proceso es muy simple debemos
+
+211
+00:09:28,129 --> 00:09:33,830
+conectar esta vez de forma externa los
+
+212
+00:09:30,950 --> 00:09:36,440
+segmentos de ambos módulos entonces si
+
+213
+00:09:33,830 --> 00:09:39,379
+comenzamos con el punto decimal de p
+
+214
+00:09:36,440 --> 00:09:41,900
+veremos que está conectado el punto
+
+215
+00:09:39,379 --> 00:09:44,600
+decimal del módulo de la derecha con el
+
+216
+00:09:41,899 --> 00:09:46,970
+punto decimal del módulo de la izquierda
+
+217
+00:09:44,600 --> 00:09:49,490
+cuando hay una conexión eléctrica se
+
+218
+00:09:46,970 --> 00:09:52,340
+muestra con un punto 1 punto de unión
+
+219
+00:09:49,490 --> 00:09:54,470
+que denota una conexión eléctrica en
+
+220
+00:09:52,340 --> 00:09:57,019
+otras partes cuando las líneas se
+
+221
+00:09:54,470 --> 00:09:59,629
+entrecruzan equivalen para nosotros a
+
+222
+00:09:57,019 --> 00:10:01,850
+cables se cruzan pero no hay un punto
+
+223
+00:09:59,629 --> 00:10:04,490
+que indique una conexión entre ellos
+
+224
+00:10:01,850 --> 00:10:06,800
+ahora que ambos puntos decimales de los
+
+225
+00:10:04,490 --> 00:10:10,339
+dos módulos están conectados entre sí
+
+226
+00:10:06,799 --> 00:10:14,629
+iremos al terminal denominado set de p
+
+227
+00:10:10,339 --> 00:10:17,390
+del max 7219 es el terminal del circuito
+
+228
+00:10:14,629 --> 00:10:20,299
+integrado especialmente designado para
+
+229
+00:10:17,389 --> 00:10:22,669
+manejar el punto decimal como ya podrás
+
+230
+00:10:20,299 --> 00:10:24,889
+imaginarte haremos la misma tarea para
+
+231
+00:10:22,669 --> 00:10:27,769
+el resto de los segmentos conectando el
+
+232
+00:10:24,889 --> 00:10:30,679
+segmento a del módulo de la derecha con
+
+233
+00:10:27,769 --> 00:10:33,980
+el segmento a del módulo de la izquierda
+
+234
+00:10:30,679 --> 00:10:37,399
+y conectaremos al terminal sec del
+
+235
+00:10:33,980 --> 00:10:39,860
+circuito integrado y así con el resto el
+
+236
+00:10:37,399 --> 00:10:42,740
+circuito integrado manejará por nosotros
+
+237
+00:10:39,860 --> 00:10:45,320
+el envío de los 1 lógicos para encender
+
+238
+00:10:42,740 --> 00:10:47,419
+el segmento que corresponda sólo resta
+
+239
+00:10:45,320 --> 00:10:50,600
+la multiplexación que se realiza
+
+240
+00:10:47,419 --> 00:10:53,750
+enviando un serológico al terminal común
+
+241
+00:10:50,600 --> 00:10:57,200
+cátodo de cada dígito aquí lo que hay
+
+242
+00:10:53,750 --> 00:11:00,230
+que recordar es que dice 0 dígito 0
+
+243
+00:10:57,200 --> 00:11:02,870
+equivale al dígito menos significativo
+
+244
+00:11:00,230 --> 00:11:06,319
+al dígito de las unidades por eso lo
+
+245
+00:11:02,870 --> 00:11:09,438
+conectaremos de uno del módulo de la
+
+246
+00:11:06,318 --> 00:11:12,139
+derecha misma operatoria para uno el
+
+247
+00:11:09,438 --> 00:11:15,048
+dígito que muestra las decenas irá
+
+248
+00:11:12,139 --> 00:11:18,919
+conectado a dedos del módulo de la
+
+249
+00:11:15,048 --> 00:11:22,399
+derecha ligados a de uno del módulo de
+
+250
+00:11:18,919 --> 00:11:24,438
+la izquierda y del tres al de dos y con
+
+251
+00:11:22,399 --> 00:11:26,659
+eso tenemos todas las conexiones de los
+
+252
+00:11:24,438 --> 00:11:28,789
+displays verás que el hecho de haber
+
+253
+00:11:26,659 --> 00:11:31,308
+modificado la posición de los terminales
+
+254
+00:11:28,789 --> 00:11:34,368
+tanto en los displays como el integrado
+
+255
+00:11:31,308 --> 00:11:36,649
+ayuda a tener una vista simple y
+
+256
+00:11:34,369 --> 00:11:39,678
+rápidamente y poder saber dónde va
+
+257
+00:11:36,649 --> 00:11:42,259
+conectado cada parte muy bien eso no fue
+
+258
+00:11:39,678 --> 00:11:45,318
+tan difícil vamos a la otra sección del
+
+259
+00:11:42,259 --> 00:11:47,989
+max 72 19 el terminal con la
+
+260
+00:11:45,318 --> 00:11:50,149
+denominación de más corresponde al
+
+261
+00:11:47,989 --> 00:11:52,790
+positivo de la alimentación que lo
+
+262
+00:11:50,149 --> 00:11:55,548
+conectaremos a bsc veces se lo
+
+263
+00:11:52,789 --> 00:11:58,068
+obtendremos desde la salida de 5 volts
+
+264
+00:11:55,548 --> 00:12:00,350
+de arduino este símbolo de una flecha
+
+265
+00:11:58,068 --> 00:12:02,448
+apuntando hacia arriba se usan los
+
+266
+00:12:00,350 --> 00:12:05,209
+esquemáticos para representar el
+
+267
+00:12:02,448 --> 00:12:08,339
+positivo del riel de tensión le sigue
+
+268
+00:12:05,208 --> 00:12:10,500
+debajo el terminal y qué sirve para
+
+269
+00:12:08,340 --> 00:12:13,110
+establecer el nivel de corriente que
+
+270
+00:12:10,500 --> 00:12:16,320
+suministrará el integrado a cada
+
+271
+00:12:13,110 --> 00:12:18,600
+segmento del display y el valor de 33 k
+
+272
+00:12:16,320 --> 00:12:20,400
+está especificado por el fabricante del
+
+273
+00:12:18,600 --> 00:12:23,460
+integrado como el adecuado para
+
+274
+00:12:20,399 --> 00:12:26,399
+suministrar unos 10.000 jumper a cada
+
+275
+00:12:23,460 --> 00:12:28,769
+segmento es un brillo medio de todas
+
+276
+00:12:26,399 --> 00:12:31,230
+maneras por software tendremos también
+
+277
+00:12:28,769 --> 00:12:33,840
+una regulación de brillo si por ejemplo
+
+278
+00:12:31,230 --> 00:12:36,539
+el proyecto requiere que el display esté
+
+279
+00:12:33,840 --> 00:12:39,420
+en una zona muy iluminada o a pleno sol
+
+280
+00:12:36,539 --> 00:12:42,419
+sería adecuado modificar el valor de esa
+
+281
+00:12:39,419 --> 00:12:45,809
+resistencia para aumentar el brillo y
+
+282
+00:12:42,419 --> 00:12:48,659
+así lograr un mayor contraste con 33 k
+
+283
+00:12:45,809 --> 00:12:51,179
+funcionará perfectamente bien y siempre
+
+284
+00:12:48,659 --> 00:12:54,179
+es bueno no excederse en la cantidad de
+
+285
+00:12:51,179 --> 00:12:56,459
+corriente al led entre veces se genere
+
+286
+00:12:54,179 --> 00:12:59,129
+es conveniente colocar un capacitor
+
+287
+00:12:56,460 --> 00:13:02,310
+electrolítico de 10 micro farah adiós
+
+288
+00:12:59,129 --> 00:13:05,039
+por 16 volts este capacitor ayuda a
+
+289
+00:13:02,309 --> 00:13:07,709
+absorber picos de corriente mientras se
+
+290
+00:13:05,039 --> 00:13:10,169
+produce la connotación entre dígitos es
+
+291
+00:13:07,710 --> 00:13:13,290
+muy usual ver este tipo de capacitores
+
+292
+00:13:10,169 --> 00:13:15,509
+que llevan el nombre de capacitores
+
+293
+00:13:13,289 --> 00:13:17,429
+no entraremos en detalle pero es
+
+294
+00:13:15,509 --> 00:13:20,009
+recomendable recordad que estos
+
+295
+00:13:17,429 --> 00:13:23,129
+capacitores tienen polaridad y es
+
+296
+00:13:20,009 --> 00:13:25,680
+importante no conectarlos al revés sobre
+
+297
+00:13:23,129 --> 00:13:28,110
+el capacitor existe una banda de color
+
+298
+00:13:25,679 --> 00:13:30,659
+que indica el negativo el que debe
+
+299
+00:13:28,110 --> 00:13:33,000
+conectarse en nuestro caso a gene de
+
+300
+00:13:30,659 --> 00:13:35,068
+luego tendremos las conexiones para
+
+301
+00:13:33,000 --> 00:13:39,028
+recibir la información desde arduino
+
+302
+00:13:35,068 --> 00:13:41,969
+mediante los pines de in clk y load
+
+303
+00:13:39,028 --> 00:13:44,909
+usaremos el base sp y para enviar de
+
+304
+00:13:41,970 --> 00:13:49,290
+forma serie los datos de in ear al pin
+
+305
+00:13:44,909 --> 00:13:52,740
+digital número 11 de arduino moss y cl
+
+306
+00:13:49,289 --> 00:13:56,338
+que irá al pin digital número 13 seria
+
+307
+00:13:52,740 --> 00:13:59,579
+el bloc y load irá al pin digital número
+
+308
+00:13:56,339 --> 00:14:01,949
+10 de arduino es live select también
+
+309
+00:13:59,578 --> 00:14:05,669
+llamado chip select aquí se puede
+
+310
+00:14:01,948 --> 00:14:08,669
+apreciar lo positivo de usar el max 7219
+
+311
+00:14:05,669 --> 00:14:11,879
+con sólo tres líneas de datos podemos
+
+312
+00:14:08,669 --> 00:14:15,568
+manejar todos los dígitos hasta 8 de
+
+313
+00:14:11,879 --> 00:14:18,778
+manera que si tenemos un dígito 24 como
+
+314
+00:14:15,568 --> 00:14:21,479
+nuestro caso u 8 siempre usaremos 3
+
+315
+00:14:18,778 --> 00:14:24,000
+pines de arduino ahorrando una cantidad
+
+316
+00:14:21,480 --> 00:14:27,360
+considerable de conexiones incluso los
+
+317
+00:14:24,000 --> 00:14:29,789
+macs 7219 se pueden conectar en cascada
+
+318
+00:14:27,360 --> 00:14:32,759
+para aumentar aún más el número de
+
+319
+00:14:29,789 --> 00:14:35,909
+dígitos con el terminal de out que
+
+320
+00:14:32,759 --> 00:14:38,399
+nosotros no estaremos usando finalmente
+
+321
+00:14:35,909 --> 00:14:41,219
+el circuito integrado tiene dos pines de
+
+322
+00:14:38,399 --> 00:14:43,589
+gene de que los conectaremos a gene de
+
+323
+00:14:41,220 --> 00:14:45,600
+arduino lo único que falta en este
+
+324
+00:14:43,589 --> 00:14:47,730
+diagrama para realizar las conexiones
+
+325
+00:14:45,600 --> 00:14:49,980
+son los números de los pines del
+
+326
+00:14:47,730 --> 00:14:52,259
+circuito integrado en la vida real
+
+327
+00:14:49,980 --> 00:14:54,990
+recordad que aquí la disposición se
+
+328
+00:14:52,259 --> 00:14:57,120
+optimizó para una fácil lectura pero al
+
+329
+00:14:54,990 --> 00:14:59,549
+momento de nosotros tener que realizar
+
+330
+00:14:57,120 --> 00:15:02,250
+las conexiones necesitamos el número de
+
+331
+00:14:59,549 --> 00:15:04,679
+pines reales esto se obtiene de la hoja
+
+332
+00:15:02,250 --> 00:15:06,539
+de datos del circuito integrado para
+
+333
+00:15:04,679 --> 00:15:09,448
+ahorrar tiempo aquí muestro en color
+
+334
+00:15:06,539 --> 00:15:11,909
+rojo el número de pin que corresponde a
+
+335
+00:15:09,448 --> 00:15:14,309
+cada uno de los terminales verás que si
+
+336
+00:15:11,909 --> 00:15:16,409
+hubiésemos seguido el orden verdadero de
+
+337
+00:15:14,309 --> 00:15:18,809
+los pines nos habría quedado un diagrama
+
+338
+00:15:16,409 --> 00:15:21,179
+mucho más complicado con líneas
+
+339
+00:15:18,809 --> 00:15:23,159
+cruzándose por todos lados
+
+340
+00:15:21,179 --> 00:15:25,769
+estaremos en unos segundos con la vista
+
+341
+00:15:23,159 --> 00:15:27,990
+de proto board y apreciará la diferencia
+
+342
+00:15:25,769 --> 00:15:30,059
+entonces por ejemplo vemos que si
+
+343
+00:15:27,990 --> 00:15:33,509
+queremos conectar el punto decimal
+
+344
+00:15:30,059 --> 00:15:36,599
+deberemos usar el pin número 22 del
+
+345
+00:15:33,509 --> 00:15:39,450
+circuito integrado el segmento y lo
+
+346
+00:15:36,600 --> 00:15:42,300
+encontraremos sobre el pin número 14 y
+
+347
+00:15:39,450 --> 00:15:44,879
+así con todo el resto los pines que nos
+
+348
+00:15:42,299 --> 00:15:47,370
+usaremos no tienen la identificación
+
+349
+00:15:44,879 --> 00:15:49,559
+para no complicar la vista de hecho el
+
+350
+00:15:47,370 --> 00:15:51,810
+usual es que en un esquemático no
+
+351
+00:15:49,559 --> 00:15:53,969
+tengamos la indicación de los pines que
+
+352
+00:15:51,809 --> 00:15:56,849
+corresponden al integrado en el mundo
+
+353
+00:15:53,970 --> 00:15:59,100
+real será trabajo de nuestra parte ver
+
+354
+00:15:56,850 --> 00:16:01,230
+la hoja de datos finalmente debemos
+
+355
+00:15:59,100 --> 00:16:04,200
+recordar cómo era la distribución de
+
+356
+00:16:01,230 --> 00:16:06,990
+pines de los displays de doble dígito
+
+357
+00:16:04,200 --> 00:16:09,750
+aquí lo traigo a pantalla y teníamos 5
+
+358
+00:16:06,990 --> 00:16:12,600
+pines en la parte superior y 5 en la
+
+359
+00:16:09,750 --> 00:16:14,759
+inferior con esta distribución ahora sí
+
+360
+00:16:12,600 --> 00:16:17,129
+con este diagrama podríamos conectar
+
+361
+00:16:14,759 --> 00:16:19,620
+todo si por ejemplo deseamos comenzar
+
+362
+00:16:17,129 --> 00:16:21,720
+con el punto decimal que se encuentra
+
+363
+00:16:19,620 --> 00:16:24,629
+aquí en el módulo no estaríamos
+
+364
+00:16:21,720 --> 00:16:28,080
+conectando con un cable al punto decimal
+
+365
+00:16:24,629 --> 00:16:33,029
+del otro módulo digamos con un cable al
+
+366
+00:16:28,080 --> 00:16:35,490
+pin número 22 del max 72 19 espero que
+
+367
+00:16:33,029 --> 00:16:37,740
+no haya sido aburrido y la idea es que
+
+368
+00:16:35,490 --> 00:16:40,320
+esté familiarices con la vista de
+
+369
+00:16:37,740 --> 00:16:42,019
+esquemático ya que es la preferida en
+
+370
+00:16:40,320 --> 00:16:44,790
+circuitos donde hay una cantidad
+
+371
+00:16:42,019 --> 00:16:47,850
+considerable de conexiones ahora iremos
+
+372
+00:16:44,789 --> 00:16:50,339
+a la vista de protoboard y si realmente
+
+373
+00:16:47,850 --> 00:16:52,290
+es una ensalada de cables creo que
+
+374
+00:16:50,340 --> 00:16:54,960
+comienza a quedar claro que la vista de
+
+375
+00:16:52,289 --> 00:16:57,539
+esquemático es una mejor opción pero en
+
+376
+00:16:54,960 --> 00:16:59,759
+definitiva como se muestra aquí es cómo
+
+377
+00:16:57,539 --> 00:17:02,730
+quedará nuestro proyecto totalmente
+
+378
+00:16:59,759 --> 00:17:05,250
+armado intenté colocar cada conexión con
+
+379
+00:17:02,730 --> 00:17:07,769
+colores distintos pero fritz sin tiene
+
+380
+00:17:05,250 --> 00:17:09,869
+una cantidad ilimitada así que algunos
+
+381
+00:17:07,769 --> 00:17:12,420
+colores los debí repetir una
+
+382
+00:17:09,869 --> 00:17:15,000
+recomendación para armar este proyecto
+
+383
+00:17:12,420 --> 00:17:17,339
+es comenzar haciendo las conexiones de
+
+384
+00:17:15,000 --> 00:17:19,740
+los segmentos en paralelo entre los
+
+385
+00:17:17,338 --> 00:17:22,500
+módulos por ejemplo comenzando con el
+
+386
+00:17:19,740 --> 00:17:24,078
+punto decimal aquí aparece con un cable
+
+387
+00:17:22,500 --> 00:17:26,699
+de color marrón
+
+388
+00:17:24,078 --> 00:17:29,700
+lamentablemente un poco oculto por otros
+
+389
+00:17:26,699 --> 00:17:32,820
+cables turístic hable uno y los pines de
+
+390
+00:17:29,700 --> 00:17:35,759
+punto decimal de ambos módulos y luego
+
+391
+00:17:32,819 --> 00:17:39,889
+con un cable del mismo color vamos al
+
+392
+00:17:35,759 --> 00:17:42,119
+pin número 22 del max 72 19
+
+393
+00:17:39,890 --> 00:17:44,520
+exactamente igual que vimos en el
+
+394
+00:17:42,119 --> 00:17:47,549
+esquemático si no has trabajado con un
+
+395
+00:17:44,519 --> 00:17:49,920
+circuito integrado antes el pin número 1
+
+396
+00:17:47,549 --> 00:17:52,049
+es el que se encuentra más cerca de un
+
+397
+00:17:49,920 --> 00:17:54,570
+punto que tiene el encapsulado del
+
+398
+00:17:52,049 --> 00:17:57,389
+integrado nos sirve de referencia para
+
+399
+00:17:54,569 --> 00:18:00,179
+poder contar aquí en la imagen quizás no
+
+400
+00:17:57,390 --> 00:18:02,640
+se ve claramente pero ese punto está en
+
+401
+00:18:00,180 --> 00:18:05,820
+este lugar que marcó con lo cual éste
+
+402
+00:18:02,640 --> 00:18:08,640
+será el pin número 1 el número 2 será el
+
+403
+00:18:05,819 --> 00:18:11,429
+que está a su derecha le sigue el pin 3
+
+404
+00:18:08,640 --> 00:18:14,220
+y así hasta el final de la fila inferior
+
+405
+00:18:11,430 --> 00:18:16,830
+esté integrado tiene un total de 24
+
+406
+00:18:14,220 --> 00:18:19,829
+pines con lo cual tendremos 12 de un
+
+407
+00:18:16,829 --> 00:18:22,470
+lado y 12 del otro así que este pin que
+
+408
+00:18:19,829 --> 00:18:25,589
+marcó es el número 12 ahora para pasar
+
+409
+00:18:22,470 --> 00:18:28,740
+al otro lado lo que hacemos es ir al pin
+
+410
+00:18:25,589 --> 00:18:32,849
+opuesto al último es decir el opuesto al
+
+411
+00:18:28,740 --> 00:18:35,099
+12 ese será el número 13 luego el pin 14
+
+412
+00:18:32,849 --> 00:18:38,219
+sea el que esté de su izquierda y así
+
+413
+00:18:35,099 --> 00:18:40,549
+hasta el último que será el 24 aquí con
+
+414
+00:18:38,220 --> 00:18:44,039
+el integrado ubicado de forma horizontal
+
+415
+00:18:40,549 --> 00:18:47,609
+el pin número 1 es el primero de la
+
+416
+00:18:44,039 --> 00:18:50,279
+izquierda en la fila inferior el pin 12
+
+417
+00:18:47,609 --> 00:18:52,889
+será el último de la fila inferior y
+
+418
+00:18:50,279 --> 00:18:55,740
+luego el 13 será el primero de la
+
+419
+00:18:52,890 --> 00:18:57,960
+derecha de la fila superior no olvidaba
+
+420
+00:18:55,740 --> 00:19:01,470
+de aclarar que el integrado está ubicado
+
+421
+00:18:57,960 --> 00:19:03,900
+sobre el surco o canal de protoboard de
+
+422
+00:19:01,470 --> 00:19:06,839
+manera que queden las dos filas de pines
+
+423
+00:19:03,900 --> 00:19:09,570
+separadas a este tipo de encapsulado se
+
+424
+00:19:06,839 --> 00:19:12,959
+lo denomina div por sus siglas en inglés
+
+425
+00:19:09,569 --> 00:19:14,879
+de encapsulado doble en línea una
+
+426
+00:19:12,960 --> 00:19:17,100
+conexión más para que quede claro el
+
+427
+00:19:14,880 --> 00:19:19,560
+tema hagamos la correspondiente al
+
+428
+00:19:17,099 --> 00:19:21,719
+segmento a volvemos a la vista de
+
+429
+00:19:19,559 --> 00:19:24,929
+esquemático que ya no es necesario
+
+430
+00:19:21,720 --> 00:19:27,990
+aclarar es una vista mucho más simple el
+
+431
+00:19:24,930 --> 00:19:30,210
+segmento a es el primer pin de la fila
+
+432
+00:19:27,990 --> 00:19:33,390
+superior del módulo y debe estar
+
+433
+00:19:30,210 --> 00:19:36,569
+conectado al segmento a del otro módulo
+
+434
+00:19:33,390 --> 00:19:39,570
+y a su vez al pin número 14 del
+
+435
+00:19:36,569 --> 00:19:42,720
+integrado hagamos eso este cable de
+
+436
+00:19:39,569 --> 00:19:45,389
+color naranja unen los segmentos a de
+
+437
+00:19:42,720 --> 00:19:48,630
+ambos módulos y con un cable del mismo
+
+438
+00:19:45,390 --> 00:19:50,700
+color vamos al pin número 14 del
+
+439
+00:19:48,630 --> 00:19:52,919
+integrado aquí está el capacitor
+
+440
+00:19:50,700 --> 00:19:56,278
+electrolítico que va conectado entre
+
+441
+00:19:52,919 --> 00:19:58,770
+veces se genera el capacitor suele tener
+
+442
+00:19:56,278 --> 00:20:01,230
+unas patas largas y podría ser la
+
+443
+00:19:58,769 --> 00:20:05,069
+práctica colocarlos directamente sobre
+
+444
+00:20:01,230 --> 00:20:07,380
+los pines 19 y 4 aquí está colocado
+
+445
+00:20:05,069 --> 00:20:09,689
+alejado del integrado y conectado
+
+446
+00:20:07,380 --> 00:20:12,470
+mediante cables para no complicar aún
+
+447
+00:20:09,690 --> 00:20:15,240
+más la vista es un trabajo de paciencia
+
+448
+00:20:12,470 --> 00:20:18,028
+recomiendo que una vez finalizadas todas
+
+449
+00:20:15,240 --> 00:20:20,819
+las conexiones dediques unos minutos a
+
+450
+00:20:18,028 --> 00:20:23,788
+revisarlas todas desde el principio ya
+
+451
+00:20:20,819 --> 00:20:26,220
+que normal equivocarse sobre todo al
+
+452
+00:20:23,788 --> 00:20:28,048
+contar los pines del integrado todo el
+
+453
+00:20:26,220 --> 00:20:31,200
+tiempo que le dediques a verificar las
+
+454
+00:20:28,048 --> 00:20:34,648
+conexiones lo ahorrarás luego si algo
+
+455
+00:20:31,200 --> 00:20:37,470
+falla las conexiones entre el max y 7219
+
+456
+00:20:34,648 --> 00:20:41,069
+y arduino son éstas el cable de color
+
+457
+00:20:37,470 --> 00:20:45,000
+azul desde el pin 1 del integrado al pin
+
+458
+00:20:41,069 --> 00:20:47,639
+digital número 11 de arduino el pin 13
+
+459
+00:20:45,000 --> 00:20:51,240
+del integrado al pin digital también
+
+460
+00:20:47,640 --> 00:20:54,659
+número 3 de arduino con este cable verde
+
+461
+00:20:51,240 --> 00:20:57,569
+y finalmente el pin 12 del integrado al
+
+462
+00:20:54,659 --> 00:21:00,480
+pin digital número 10 de arduino con
+
+463
+00:20:57,569 --> 00:21:03,058
+este cable naranja genial esa fue la
+
+464
+00:21:00,480 --> 00:21:05,490
+parte difícil ahora vamos a la
+
+465
+00:21:03,058 --> 00:21:07,918
+programación este programa mostrará la
+
+466
+00:21:05,490 --> 00:21:10,558
+cantidad de segundos transcurridos desde
+
+467
+00:21:07,919 --> 00:21:13,710
+iniciado el mismo algo que ya hicimos en
+
+468
+00:21:10,558 --> 00:21:16,019
+el capítulo 10 con el módulo lcd ya que
+
+469
+00:21:13,710 --> 00:21:18,690
+sirve para verificar que los dígitos
+
+470
+00:21:16,019 --> 00:21:20,609
+muestran correctamente los números no es
+
+471
+00:21:18,690 --> 00:21:23,070
+un programa que tenga una función
+
+472
+00:21:20,609 --> 00:21:26,099
+práctica concreta usaremos la misma
+
+473
+00:21:23,069 --> 00:21:28,259
+librería del capítulo 43 con la matriz
+
+474
+00:21:26,099 --> 00:21:31,019
+de leds en caso de que no la tengas
+
+475
+00:21:28,259 --> 00:21:34,288
+instalada en él y de como ya es usual
+
+476
+00:21:31,019 --> 00:21:37,349
+iremos al menú programa incluir librería
+
+477
+00:21:34,288 --> 00:21:40,079
+y administrar bibliotecas o lo que es lo
+
+478
+00:21:37,349 --> 00:21:42,118
+mismo gestionar librerías si estás
+
+479
+00:21:40,079 --> 00:21:44,609
+trabajando con una versión más antigua
+
+480
+00:21:42,118 --> 00:21:48,148
+del ide en el campo de búsqueda
+
+481
+00:21:44,609 --> 00:21:51,599
+colocaremos led control seleccionamos la
+
+482
+00:21:48,148 --> 00:21:54,569
+que dice led control by eberhard fail y
+
+483
+00:21:51,599 --> 00:21:57,148
+el botón instalar luego es
+
+484
+00:21:54,569 --> 00:21:59,220
+de cerrar el gestor de manera que en la
+
+485
+00:21:57,148 --> 00:22:02,579
+primera línea incluimos la librería
+
+486
+00:21:59,220 --> 00:22:05,940
+leduc control y creamos un objeto con el
+
+487
+00:22:02,579 --> 00:22:09,658
+nombre lc y le pasamos los pines a los
+
+488
+00:22:05,940 --> 00:22:14,490
+cuales tenemos conectados de in clk y
+
+489
+00:22:09,659 --> 00:22:16,919
+load o chip select del max 7219 en ese
+
+490
+00:22:14,490 --> 00:22:19,740
+orden como se muestra en esta nota al
+
+491
+00:22:16,919 --> 00:22:22,019
+margen luego el último parámetro indica
+
+492
+00:22:19,740 --> 00:22:24,450
+el número de dispositivos el de
+
+493
+00:22:22,019 --> 00:22:26,819
+circuitos integrados que tendremos como
+
+494
+00:22:24,450 --> 00:22:29,850
+se pueden conectar en cascada podemos
+
+495
+00:22:26,819 --> 00:22:33,778
+tener más de uno en nuestro caso sólo
+
+496
+00:22:29,849 --> 00:22:36,959
+tenemos un max 7219 que nos alcanza y
+
+497
+00:22:33,778 --> 00:22:39,599
+sobra para manejar cuatro dígitos luego
+
+498
+00:22:36,960 --> 00:22:42,690
+declaramos la variable segundos del tipo
+
+499
+00:22:39,599 --> 00:22:45,119
+entera aquí almacenaremos la cantidad de
+
+500
+00:22:42,690 --> 00:22:47,759
+segundos transcurridos desde iniciado el
+
+501
+00:22:45,119 --> 00:22:50,658
+programa en cuatro dígitos podremos
+
+502
+00:22:47,759 --> 00:22:53,759
+mostrar de 0 a 9
+
+503
+00:22:50,659 --> 00:22:56,460
+1999 en el setup colocaremos las
+
+504
+00:22:53,759 --> 00:23:00,599
+funciones básicas de inicialización del
+
+505
+00:22:56,460 --> 00:23:04,019
+max 72 19 igual que como ya vimos con la
+
+506
+00:23:00,599 --> 00:23:06,779
+de leds la función de down cuyo primer
+
+507
+00:23:04,019 --> 00:23:09,000
+parámetro es el número de dispositivo al
+
+508
+00:23:06,779 --> 00:23:10,859
+cual haremos referencia aquí es
+
+509
+00:23:09,000 --> 00:23:13,710
+importante recordar que el número de
+
+510
+00:23:10,859 --> 00:23:17,819
+dispositivos se enumera desde cero es
+
+511
+00:23:13,710 --> 00:23:20,970
+decir que un solo max 7219 tendrá el
+
+512
+00:23:17,819 --> 00:23:24,419
+índice cero si tú hicimos dos el segundo
+
+513
+00:23:20,970 --> 00:23:26,579
+tendría índice uno por eso aquí se marca
+
+514
+00:23:24,420 --> 00:23:29,910
+que el número de dispositivo es siempre
+
+515
+00:23:26,579 --> 00:23:32,220
+un número entre 0 y 7 en todas las
+
+516
+00:23:29,910 --> 00:23:34,800
+funciones del control veremos que el
+
+517
+00:23:32,220 --> 00:23:37,410
+primer parámetro siempre se refiere al
+
+518
+00:23:34,799 --> 00:23:40,190
+índice de dispositivo al cual aplicamos
+
+519
+00:23:37,410 --> 00:23:43,500
+la acción entonces para encender el max
+
+520
+00:23:40,190 --> 00:23:46,680
+7219 que inicia por defecto apagado
+
+521
+00:23:43,500 --> 00:23:50,700
+enviaremos al número de dispositivo 0 un
+
+522
+00:23:46,680 --> 00:23:53,700
+valor booleana de falso falls le sigue
+
+523
+00:23:50,700 --> 00:23:56,130
+la función set intensity para establecer
+
+524
+00:23:53,700 --> 00:23:59,160
+el nivel de brillo nuevamente el primer
+
+525
+00:23:56,130 --> 00:24:02,370
+parámetro será 0 ya que tenemos un solo
+
+526
+00:23:59,160 --> 00:24:06,460
+circuito integrado y luego un valor de 4
+
+527
+00:24:02,369 --> 00:24:09,939
+donde los permitidos van de 0 a 15
+
+528
+00:24:06,460 --> 00:24:12,789
+siendo 15 el brillo máximo a mi gusto un
+
+529
+00:24:09,940 --> 00:24:15,880
+valor de 4 es adecuado pero podrás jugar
+
+530
+00:24:12,789 --> 00:24:18,609
+con este número según tu necesidad
+
+531
+00:24:15,880 --> 00:24:21,550
+finalmente la función clear display para
+
+532
+00:24:18,609 --> 00:24:24,339
+borrar o blanquear los dígitos jan el
+
+533
+00:24:21,549 --> 00:24:26,559
+loop usaremos la función milis que
+
+534
+00:24:24,339 --> 00:24:28,980
+devuelve la cantidad de milisegundos
+
+535
+00:24:26,559 --> 00:24:32,049
+transcurridos desde iniciado el programa
+
+536
+00:24:28,980 --> 00:24:34,390
+dividiendo el valor devuelto por 1000 en
+
+537
+00:24:32,049 --> 00:24:37,359
+la variable segundos efectivamente
+
+538
+00:24:34,390 --> 00:24:39,670
+tenemos el valor pasado a segundos ahora
+
+539
+00:24:37,359 --> 00:24:42,369
+es momento de mostrar la información en
+
+540
+00:24:39,670 --> 00:24:45,220
+los dígitos para eso usaremos la función
+
+541
+00:24:42,369 --> 00:24:48,279
+set digite que aquí en la nota al margen
+
+542
+00:24:45,220 --> 00:24:50,170
+vemos sus parámetros el primero como ya
+
+543
+00:24:48,279 --> 00:24:54,309
+dijimos será el número de dispositivos
+
+544
+00:24:50,170 --> 00:24:57,130
+para nosotros 0 como segundo el dígito
+
+545
+00:24:54,309 --> 00:24:59,200
+en esta imagen para que quede claro se
+
+546
+00:24:57,130 --> 00:25:02,230
+muestran los 4 dígitos de nuestro
+
+547
+00:24:59,200 --> 00:25:05,200
+proyecto el dígito de las unidades el de
+
+548
+00:25:02,230 --> 00:25:07,779
+la derecha tiene como índice el 0 el
+
+549
+00:25:05,200 --> 00:25:12,120
+dígito a su izquierda el de las decenas
+
+550
+00:25:07,779 --> 00:25:15,220
+tendrá índice 1 y así hasta el índice
+
+551
+00:25:12,119 --> 00:25:18,099
+nuevamente aquí contamos iniciando desde
+
+552
+00:25:15,220 --> 00:25:21,160
+cero por eso el primer dígito el menos
+
+553
+00:25:18,099 --> 00:25:23,679
+significativo tendrá índice cero y el
+
+554
+00:25:21,160 --> 00:25:25,930
+más significativo tres el tercer
+
+555
+00:25:23,680 --> 00:25:28,930
+parámetros era el valor que deseamos
+
+556
+00:25:25,930 --> 00:25:31,860
+mostrar en dicho dígito y por último un
+
+557
+00:25:28,930 --> 00:25:34,570
+valor del tipo booleana truco falls
+
+558
+00:25:31,859 --> 00:25:36,759
+verdadero o falso para indicar si
+
+559
+00:25:34,569 --> 00:25:38,799
+estaremos encendiendo el punto decimal
+
+560
+00:25:36,759 --> 00:25:41,589
+recordad que el display de siete
+
+561
+00:25:38,799 --> 00:25:43,960
+segmentos tiene siete segmentos y el
+
+562
+00:25:41,589 --> 00:25:46,689
+punto decimal y de esa forma podemos
+
+563
+00:25:43,960 --> 00:25:49,150
+mostrar información volviendo al código
+
+564
+00:25:46,690 --> 00:25:51,309
+nos encontramos con un problema y es que
+
+565
+00:25:49,150 --> 00:25:54,220
+debemos descomponer el número de los
+
+566
+00:25:51,309 --> 00:25:56,919
+segundos en sus dígitos individuales si
+
+567
+00:25:54,220 --> 00:26:00,460
+por ejemplo transcurrieron 25 segundos
+
+568
+00:25:56,920 --> 00:26:04,330
+debemos colocar en el dígito 0 el número
+
+569
+00:26:00,460 --> 00:26:06,130
+5 y en el dígito 1 el número 2 esta
+
+570
+00:26:04,329 --> 00:26:08,859
+cuestión se resuelve de una manera
+
+571
+00:26:06,130 --> 00:26:11,950
+simple mediante un operador aritmético
+
+572
+00:26:08,859 --> 00:26:15,219
+llamado módulo y se representa mediante
+
+573
+00:26:11,950 --> 00:26:17,880
+el signo de por ciento o porcentaje aquí
+
+574
+00:26:15,220 --> 00:26:20,309
+nos detendremos unos segundos para este
+
+575
+00:26:17,880 --> 00:26:22,920
+operador que es muy útil en variados
+
+576
+00:26:20,309 --> 00:26:25,980
+casos y verás cómo nos soluciona el tema
+
+577
+00:26:22,920 --> 00:26:28,140
+de separar en dígitos individuales para
+
+578
+00:26:25,980 --> 00:26:31,380
+mostrar en el display de siete segmentos
+
+579
+00:26:28,140 --> 00:26:34,200
+el módulo devuelve el resto de la
+
+580
+00:26:31,380 --> 00:26:36,450
+división entre dos números enteros y
+
+581
+00:26:34,200 --> 00:26:40,019
+esto queda claro con un ejemplo si
+
+582
+00:26:36,450 --> 00:26:43,200
+aplicamos siete módulo 5 que se escribe
+
+583
+00:26:40,019 --> 00:26:46,950
+como el número 7 símbolo de por ciento y
+
+584
+00:26:43,200 --> 00:26:49,590
+el número 5 el resultado es 2 aquí
+
+585
+00:26:46,950 --> 00:26:53,519
+haremos de forma gráfica la división de
+
+586
+00:26:49,589 --> 00:26:55,829
+7 en 5 quizás ya estés algo oxidado en
+
+587
+00:26:53,519 --> 00:26:58,619
+la práctica de realizar una división
+
+588
+00:26:55,829 --> 00:27:00,809
+entre dos números de forma manual el
+
+589
+00:26:58,619 --> 00:27:03,629
+módulo dijimos que devuelve el resto de
+
+590
+00:27:00,809 --> 00:27:07,139
+la división entre dos números enteros si
+
+591
+00:27:03,630 --> 00:27:11,250
+hacemos siete divididos 5 el resultado
+
+592
+00:27:07,140 --> 00:27:13,830
+es 1 en realidad 14 lo como trabajamos
+
+593
+00:27:11,250 --> 00:27:18,900
+con números enteros no nos interesa la
+
+594
+00:27:13,829 --> 00:27:21,869
+parte de la coma decimal 1 x 5 es 5 y
+
+595
+00:27:18,900 --> 00:27:25,480
+cuánto falta para llegar a 7
+
+596
+00:27:21,869 --> 00:27:29,679
+entonces 2 será el resto de la división
+
+597
+00:27:25,480 --> 00:27:32,470
+por esos 7 módulo 5 da como resultado 2
+
+598
+00:27:29,680 --> 00:27:35,799
+siendo 2 el resto de la división
+
+599
+00:27:32,470 --> 00:27:39,940
+enviamos este otro ejemplo con 15 módulo
+
+600
+00:27:35,799 --> 00:27:42,940
+10 el resultado es 5 veamos aquí 15
+
+601
+00:27:39,940 --> 00:27:46,150
+dividido 10 da un valor de 11
+
+602
+00:27:42,940 --> 00:27:49,930
+multiplicado por 10 es 10 lo que falta
+
+603
+00:27:46,150 --> 00:27:52,480
+para llegar a 15 es 5 por esos 5 es el
+
+604
+00:27:49,930 --> 00:27:55,000
+resto de la división aplicar el módulo
+
+605
+00:27:52,480 --> 00:27:57,700
+10 lleva a la conclusión de que nos
+
+606
+00:27:55,000 --> 00:27:59,829
+permite obtener el último dígito de un
+
+607
+00:27:57,700 --> 00:28:02,799
+número de esa manera logramos
+
+608
+00:27:59,829 --> 00:28:05,259
+descomponer el número de dos dígitos y
+
+609
+00:28:02,799 --> 00:28:08,680
+quedarnos solamente con el último el
+
+610
+00:28:05,259 --> 00:28:12,460
+dígito menos significativo del número 15
+
+611
+00:28:08,680 --> 00:28:14,980
+obtuvimos fácilmente el 5 usaremos el
+
+612
+00:28:12,460 --> 00:28:17,860
+módulo 10 por obtener todos los dígitos
+
+613
+00:28:14,980 --> 00:28:19,509
+de un número de forma muy simple ahora
+
+614
+00:28:17,859 --> 00:28:23,409
+para que quede claro tomemos como
+
+615
+00:28:19,509 --> 00:28:26,680
+ejemplo el número 87 si hacemos 87
+
+616
+00:28:23,410 --> 00:28:28,830
+módulo 10 el resultado es 7 ya ni
+
+617
+00:28:26,680 --> 00:28:31,690
+siquiera necesitamos y hacer cálculos
+
+618
+00:28:28,829 --> 00:28:35,139
+visualmente ya sabemos que si aplicamos
+
+619
+00:28:31,690 --> 00:28:38,470
+módulo 10 nos devuelve el último dígito
+
+620
+00:28:35,140 --> 00:28:42,070
+el 7 igual para verificar hagamos la
+
+621
+00:28:38,470 --> 00:28:46,779
+división al igual que antes 87 dividido
+
+622
+00:28:42,069 --> 00:28:51,339
+a 10 da un valor de 88 por 10 es 80 y lo
+
+623
+00:28:46,779 --> 00:28:53,440
+que falta para llegar a 87 es 77 es el
+
+624
+00:28:51,339 --> 00:28:55,899
+resto de la división una cuestión
+
+625
+00:28:53,440 --> 00:28:58,870
+importante es que el operador módulo es
+
+626
+00:28:55,900 --> 00:29:01,179
+válido únicamente para números enteros
+
+627
+00:28:58,869 --> 00:29:03,609
+no podemos usarlos para números con coma
+
+628
+00:29:01,179 --> 00:29:05,530
+decimal o de punto flotante
+
+629
+00:29:03,609 --> 00:29:08,288
+volviendo al programa aplicaremos la
+
+630
+00:29:05,529 --> 00:29:11,139
+función set digite el primer parámetro
+
+631
+00:29:08,288 --> 00:29:15,190
+para nosotros será siempre 0 porque
+
+632
+00:29:11,140 --> 00:29:18,309
+tenemos un solo max 7219 el segundo
+
+633
+00:29:15,190 --> 00:29:20,500
+parámetro será 0 en este caso ya que
+
+634
+00:29:18,308 --> 00:29:23,740
+deseamos mostrar un valor en el primer
+
+635
+00:29:20,500 --> 00:29:25,779
+dígito el menos significativo y luego en
+
+636
+00:29:23,740 --> 00:29:27,970
+el tercer parámetro va el valor que
+
+637
+00:29:25,779 --> 00:29:32,529
+deseamos mostrar y lo hacemos de manera
+
+638
+00:29:27,970 --> 00:29:34,779
+muy simple con segundos módulo 10 la
+
+639
+00:29:32,529 --> 00:29:37,569
+variables segundos tienen los segundos
+
+640
+00:29:34,779 --> 00:29:39,160
+ocurridos desde iniciado el programa si
+
+641
+00:29:37,569 --> 00:29:42,129
+el valor de la variable le aplicamos
+
+642
+00:29:39,160 --> 00:29:45,160
+módulo 10 obtenemos el dígito menos
+
+643
+00:29:42,130 --> 00:29:48,580
+significativo así de simple el último
+
+644
+00:29:45,160 --> 00:29:51,130
+parámetro de 7 digite será falso ya que
+
+645
+00:29:48,579 --> 00:29:53,230
+no estaremos encendiendo el punto
+
+646
+00:29:51,130 --> 00:29:56,140
+decimal verás que hacemos el cálculo
+
+647
+00:29:53,230 --> 00:29:59,289
+aquí mismo sobre el tercer parámetro de
+
+648
+00:29:56,140 --> 00:30:01,840
+la función set digite de esa manera no
+
+649
+00:29:59,289 --> 00:30:04,599
+es necesario asignar el resultado a una
+
+650
+00:30:01,839 --> 00:30:06,250
+variable pero podríamos hacerlo si fuera
+
+651
+00:30:04,599 --> 00:30:09,789
+necesario para un procesamiento
+
+652
+00:30:06,250 --> 00:30:12,309
+posterior ahora para el dígito 1 el
+
+653
+00:30:09,789 --> 00:30:14,889
+dígito de las decenas haremos primero la
+
+654
+00:30:12,309 --> 00:30:17,470
+división por 10 del valor de la variable
+
+655
+00:30:14,890 --> 00:30:20,410
+segundos al dividir por 10 es
+
+656
+00:30:17,470 --> 00:30:22,690
+equivalente a moverse una posición hacia
+
+657
+00:30:20,410 --> 00:30:26,800
+la izquierda por ejemplo si segundos
+
+658
+00:30:22,690 --> 00:30:29,920
+tuviera un valor de 25 entonces 25 al
+
+659
+00:30:26,799 --> 00:30:34,119
+dividirlo por 10 da 2 recordad que no
+
+660
+00:30:29,920 --> 00:30:36,850
+tomamos la parte decimal sería sino 25
+
+661
+00:30:34,119 --> 00:30:39,789
+entonces y ahora aplicamos el módulo 10
+
+662
+00:30:36,849 --> 00:30:41,589
+obtenemos el dígito para mostrar como
+
+663
+00:30:39,789 --> 00:30:43,839
+nuevamente aplicamos todas las
+
+664
+00:30:41,589 --> 00:30:46,869
+operaciones sobre el propio tercer
+
+665
+00:30:43,839 --> 00:30:48,849
+parámetro de set digite indicamos que
+
+666
+00:30:46,869 --> 00:30:51,189
+primero se debe hacer la división de
+
+667
+00:30:48,849 --> 00:30:54,459
+segundos por 10 por eso lo colocamos
+
+668
+00:30:51,190 --> 00:30:57,009
+entre paréntesis y a dicho resultado el
+
+669
+00:30:54,460 --> 00:30:59,558
+módulo 10 de manera que dividiendo un
+
+670
+00:30:57,009 --> 00:31:02,679
+número por 10 y luego a módulo 10
+
+671
+00:30:59,558 --> 00:31:05,168
+obtenemos el dígito a la izquierda del
+
+672
+00:31:02,679 --> 00:31:08,320
+menos significativo el de las decenas
+
+673
+00:31:05,169 --> 00:31:11,230
+para el tercer dígito que tiene índice 2
+
+674
+00:31:08,319 --> 00:31:13,359
+debemos movernos dos posiciones hacia la
+
+675
+00:31:11,230 --> 00:31:16,599
+izquierda lo hacemos muy simple
+
+676
+00:31:13,359 --> 00:31:19,449
+dividiendo por 100 en lugar de 10 y
+
+677
+00:31:16,599 --> 00:31:22,148
+nuevamente módulo 10 para el último
+
+678
+00:31:19,450 --> 00:31:24,940
+dígito dividimos primero por mil y luego
+
+679
+00:31:22,148 --> 00:31:27,219
+módulo 10 verás que siempre trabajamos
+
+680
+00:31:24,940 --> 00:31:30,278
+con la misma variable segundos
+
+681
+00:31:27,220 --> 00:31:34,269
+comenzamos con módulo 10 luego dividimos
+
+682
+00:31:30,278 --> 00:31:37,630
+por 10 y módulo 10 dividimos por 100 y
+
+683
+00:31:34,269 --> 00:31:40,269
+módulo 10 y dividimos por 1000 y módulo
+
+684
+00:31:37,630 --> 00:31:42,820
+10 la división nos permite movernos
+
+685
+00:31:40,269 --> 00:31:45,849
+desde el dígito menos significativo
+
+686
+00:31:42,819 --> 00:31:49,490
+hacia el más significativo finalmente
+
+687
+00:31:45,849 --> 00:31:50,509
+aplicamos una demora de 1 y ese es todo
+
+688
+00:31:49,490 --> 00:31:52,640
+el programa
+
+689
+00:31:50,509 --> 00:31:55,339
+la intención es verificar que podemos
+
+690
+00:31:52,640 --> 00:31:57,920
+mostrar información en los dígitos y que
+
+691
+00:31:55,339 --> 00:32:01,339
+todo ha quedado correctamente conectado
+
+692
+00:31:57,920 --> 00:32:03,440
+vamos a verificar y subir el programa se
+
+693
+00:32:01,339 --> 00:32:06,439
+puede apreciar como en el display de 4
+
+694
+00:32:03,440 --> 00:32:08,269
+dígitos va incrementando cada un segundo
+
+695
+00:32:06,440 --> 00:32:10,700
+mostrando la cantidad de segundos
+
+696
+00:32:08,269 --> 00:32:12,859
+transcurridos desde iniciado el programa
+
+697
+00:32:10,700 --> 00:32:15,350
+este es el momento de verificar que los
+
+698
+00:32:12,859 --> 00:32:18,169
+dígitos estén encendidos correctamente
+
+699
+00:32:15,349 --> 00:32:20,719
+si faltase algún segmento tendrás que
+
+700
+00:32:18,170 --> 00:32:23,539
+revisar el conexionado lo mismo que si
+
+701
+00:32:20,720 --> 00:32:25,549
+no enciende algún dígito por completo en
+
+702
+00:32:23,539 --> 00:32:28,909
+ese caso podrías verificar que la
+
+703
+00:32:25,549 --> 00:32:31,730
+conexión al cátodo común del dígito está
+
+704
+00:32:28,910 --> 00:32:35,540
+bien conectado al pin que corresponde en
+
+705
+00:32:31,730 --> 00:32:37,940
+el max 7219 podrás notar también que no
+
+706
+00:32:35,539 --> 00:32:40,009
+se percibe el proceso de multiplexación
+
+707
+00:32:37,940 --> 00:32:42,769
+si bien ya sabemos que estamos
+
+708
+00:32:40,009 --> 00:32:45,470
+encendiendo de un dígito por vez de
+
+709
+00:32:42,769 --> 00:32:47,750
+forma muy rápida no se aprecia por el
+
+710
+00:32:45,470 --> 00:32:51,250
+efecto de persistencia de la visión
+
+711
+00:32:47,750 --> 00:32:54,589
+general el arduo trabajo de la conexión
+
+712
+00:32:51,250 --> 00:32:57,169
+entender cómo interpretar el esquemático
+
+713
+00:32:54,589 --> 00:33:00,109
+separa los dígitos mediante el operador
+
+714
+00:32:57,169 --> 00:33:02,778
+módulo ha dado sus frutos y tenemos un
+
+715
+00:33:00,109 --> 00:33:05,269
+bonito contador de segundos de cuatro
+
+716
+00:33:02,778 --> 00:33:07,519
+dígitos para finalizar el capítulo te
+
+717
+00:33:05,269 --> 00:33:09,650
+quiero mostrar rápidamente cómo tratar
+
+718
+00:33:07,519 --> 00:33:12,440
+el tema de mostrar un valor con coma
+
+719
+00:33:09,650 --> 00:33:14,570
+decimal este programa de ejemplo es sólo
+
+720
+00:33:12,440 --> 00:33:16,669
+a fines didácticos en la variable
+
+721
+00:33:14,569 --> 00:33:18,649
+temperatura cargaremos un valor que
+
+722
+00:33:16,669 --> 00:33:21,740
+podría provenir de un sensor de
+
+723
+00:33:18,650 --> 00:33:24,769
+temperatura como hacer el término del
+
+724
+00:33:21,740 --> 00:33:28,000
+capítulo 34 que nos devuelve un valor
+
+725
+00:33:24,769 --> 00:33:31,940
+con coma decimal por ejemplo
+
+726
+00:33:28,000 --> 00:33:33,829
+22.27 una temperatura ambiente ya
+
+727
+00:33:31,940 --> 00:33:36,528
+sabemos que no podemos aplicar el
+
+728
+00:33:33,829 --> 00:33:39,619
+operador módulo sobre un valor de punto
+
+729
+00:33:36,528 --> 00:33:41,750
+flotante entonces declaramos aquí una
+
+730
+00:33:39,619 --> 00:33:44,329
+variable que lo usaremos con el único
+
+731
+00:33:41,750 --> 00:33:47,569
+fin de mostrar el valor de temperatura
+
+732
+00:33:44,329 --> 00:33:50,928
+sobre los displays las llamaremos temp y
+
+733
+00:33:47,569 --> 00:33:53,898
+un bajo display y será del tipo entera
+
+734
+00:33:50,929 --> 00:33:56,690
+int sí ya sabemos que el valor a mostrar
+
+735
+00:33:53,898 --> 00:33:59,479
+tendrá siempre este tipo de formato con
+
+736
+00:33:56,690 --> 00:34:02,538
+dos dígitos enteros y dos decimales
+
+737
+00:33:59,480 --> 00:34:05,150
+podemos hacer una la multiplicación del
+
+738
+00:34:02,538 --> 00:34:06,158
+valor de temperatura por 100 de esa
+
+739
+00:34:05,150 --> 00:34:10,059
+manera el
+
+740
+00:34:06,159 --> 00:34:13,639
+22.27 se convierte en 2000
+
+741
+00:34:10,059 --> 00:34:16,299
+227 en definitiva nos deshacemos de la
+
+742
+00:34:13,639 --> 00:34:19,579
+coma decimal el número
+
+743
+00:34:16,300 --> 00:34:22,550
+2.227 al ser entero podemos aplicarle
+
+744
+00:34:19,579 --> 00:34:24,259
+sin problemas el operador módulo por eso
+
+745
+00:34:22,550 --> 00:34:26,740
+aquí es igual que el primer programa
+
+746
+00:34:24,260 --> 00:34:30,250
+pero con la variable temp
+
+747
+00:34:26,739 --> 00:34:33,250
+display pero no queremos mostrar
+
+748
+00:34:30,250 --> 00:34:37,280
+2.227 queremos mostrar
+
+749
+00:34:33,250 --> 00:34:40,460
+22.27 muy simple encendemos el punto
+
+750
+00:34:37,280 --> 00:34:43,129
+decimal del dígito número 2 cambiando el
+
+751
+00:34:40,460 --> 00:34:45,980
+último parámetro de siete dígitos
+
+752
+00:34:43,128 --> 00:34:48,168
+default a true entonces de esa manera
+
+753
+00:34:45,980 --> 00:34:50,898
+convertimos un valor que no podemos
+
+754
+00:34:48,168 --> 00:34:53,148
+mostrar de forma directa en uno que si
+
+755
+00:34:50,898 --> 00:34:56,000
+con una simple multiplicación y
+
+756
+00:34:53,148 --> 00:34:58,848
+encendiendo el punto decimal del dígito
+
+757
+00:34:56,000 --> 00:35:01,460
+que corresponde sumamos este programa y
+
+758
+00:34:58,849 --> 00:35:03,280
+veamos como no podía ser de otra manera
+
+759
+00:35:01,460 --> 00:35:06,769
+se muestra
+
+760
+00:35:03,280 --> 00:35:09,589
+22.27 en capítulos posteriores haremos
+
+761
+00:35:06,769 --> 00:35:11,869
+algunos los prácticos con displays de
+
+762
+00:35:09,588 --> 00:35:13,940
+siete segmentos por ahora para no
+
+763
+00:35:11,869 --> 00:35:16,130
+extender demasiado el capítulo lo
+
+764
+00:35:13,940 --> 00:35:19,068
+dejaremos aquí que vimos una gran
+
+765
+00:35:16,130 --> 00:35:20,930
+cantidad de conceptos como siempre te
+
+766
+00:35:19,068 --> 00:35:23,659
+pido te suscribas si aún no lo has hecho
+
+767
+00:35:20,929 --> 00:35:25,879
+darle un me gusta si te pareció
+
+768
+00:35:23,659 --> 00:35:28,518
+interesante y por cualquier duda o
+
+769
+00:35:25,880 --> 00:35:31,730
+comentario lo podrás hacer debajo que
+
+770
+00:35:28,518 --> 00:35:33,969
+con gusto te responderé chau y hasta la
+
+771
+00:35:31,730 --> 00:35:33,969
+próxima
+

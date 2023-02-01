@@ -1,0 +1,2976 @@
+1
+00:00:01,679 --> 00:00:08,189
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,440 --> 00:00:10,320
+42 de arduino desde cero en español
+
+3
+00:00:08,189 --> 00:00:12,419
+en esta oportunidad utilizaremos los
+
+4
+00:00:10,320 --> 00:00:14,789
+conceptos adquiridos en el capítulo
+
+5
+00:00:12,419 --> 00:00:18,089
+anterior donde trabajamos con el módulo
+
+6
+00:00:14,789 --> 00:00:21,179
+uy mos de 1 min y para conectar arduino
+
+7
+00:00:18,089 --> 00:00:24,240
+a una red local mediante wifi si no
+
+8
+00:00:21,179 --> 00:00:26,550
+viste el capítulo 41 te lo recomiendo ya
+
+9
+00:00:24,239 --> 00:00:28,979
+que si bien haremos un breve repaso de
+
+10
+00:00:26,550 --> 00:00:31,769
+las cuestiones más importantes tomaremos
+
+11
+00:00:28,980 --> 00:00:34,469
+conceptos ya vistos para avanzar en el
+
+12
+00:00:31,769 --> 00:00:37,079
+análisis aquí se encuentran listados los
+
+13
+00:00:34,469 --> 00:00:39,420
+objetivos propuestos automatizar el
+
+14
+00:00:37,079 --> 00:00:42,210
+proceso de conexión a la red de local
+
+15
+00:00:39,420 --> 00:00:44,969
+luego mediante el método get controlar
+
+16
+00:00:42,210 --> 00:00:47,460
+un led o conectado a un pin digital de
+
+17
+00:00:44,969 --> 00:00:50,070
+arduino y finalmente crear una página
+
+18
+00:00:47,460 --> 00:00:53,340
+web que sirva para mostrar los valores
+
+19
+00:00:50,070 --> 00:00:56,609
+de temperatura y humedad de un sensor de
+
+20
+00:00:53,340 --> 00:00:59,010
+ht 11 vayamos ya mismo al circuito de
+
+21
+00:00:56,609 --> 00:01:02,070
+conexión para el primer programa este
+
+22
+00:00:59,009 --> 00:01:04,228
+circuito solo incorpora un led cuyo
+
+23
+00:01:02,070 --> 00:01:07,010
+ánodo es conectado mediante una
+
+24
+00:01:04,228 --> 00:01:08,549
+resistencia limitadora de corriente de
+
+25
+00:01:07,010 --> 00:01:11,609
+330 oms
+
+26
+00:01:08,549 --> 00:01:14,700
+al pin digital número 2 de arduino y el
+
+27
+00:01:11,609 --> 00:01:18,060
+cátodo a gene d de esta forma podremos
+
+28
+00:01:14,700 --> 00:01:20,850
+encenderlo con un 1 lógico el resto es
+
+29
+00:01:18,060 --> 00:01:23,370
+exactamente igual que el capítulo 41
+
+30
+00:01:20,849 --> 00:01:25,439
+alimentamos la de 1 min y con la salida
+
+31
+00:01:23,370 --> 00:01:28,290
+de cinco bolsas de arduino y la
+
+32
+00:01:25,439 --> 00:01:33,209
+comunicación serie sería mediante los
+
+33
+00:01:28,290 --> 00:01:34,050
+pines 10 para rx y 11 para tx del lado
+
+34
+00:01:33,209 --> 00:01:36,029
+de arduino
+
+35
+00:01:34,049 --> 00:01:38,549
+recordemos que resultaba necesario
+
+36
+00:01:36,030 --> 00:01:42,329
+nivelar estas líneas ya que el módulo
+
+37
+00:01:38,549 --> 00:01:46,170
+funciona con niveles lógicos de 33 volts
+
+38
+00:01:42,329 --> 00:01:48,959
+por este motivo las líneas rx y tx pasan
+
+39
+00:01:46,170 --> 00:01:52,980
+por el nivelador antes de conectarse a
+
+40
+00:01:48,959 --> 00:01:55,379
+tx rx de la de 1 min y entonces para
+
+41
+00:01:52,980 --> 00:01:58,020
+resumir lo único que incorporamos al
+
+42
+00:01:55,379 --> 00:02:00,420
+circuito del capítulo anterior es el led
+
+43
+00:01:58,019 --> 00:02:02,789
+con su resistencia antes de ver el
+
+44
+00:02:00,420 --> 00:02:05,430
+código del primer programa repasemos
+
+45
+00:02:02,790 --> 00:02:07,800
+brevemente el proceso de realizar una
+
+46
+00:02:05,430 --> 00:02:10,260
+petición desde un navegador web y
+
+47
+00:02:07,799 --> 00:02:12,960
+responder a la misma aquí tenemos una
+
+48
+00:02:10,259 --> 00:02:15,329
+representación de un navegador web
+
+49
+00:02:12,960 --> 00:02:17,550
+y ejecutando en una computadora si
+
+50
+00:02:15,330 --> 00:02:20,640
+colocamos en la barra de direcciones la
+
+51
+00:02:17,550 --> 00:02:23,400
+ip de nuestra de 1 min y generamos una
+
+52
+00:02:20,639 --> 00:02:26,009
+petición al servidor web corriendo en el
+
+53
+00:02:23,400 --> 00:02:28,650
+módulo del capítulo anterior vimos que
+
+54
+00:02:26,009 --> 00:02:30,449
+en el monitor serie aparecía todo este
+
+55
+00:02:28,650 --> 00:02:32,789
+bloque de información lo que nos
+
+56
+00:02:30,449 --> 00:02:35,310
+interesa obtener de esta forma en
+
+57
+00:02:32,789 --> 00:02:37,769
+principio es el número de la conexión
+
+58
+00:02:35,310 --> 00:02:40,020
+como estaremos utilizando el servidor
+
+59
+00:02:37,770 --> 00:02:42,960
+web con capacidad de múltiples
+
+60
+00:02:40,020 --> 00:02:45,210
+conexiones en simultáneo este valor será
+
+61
+00:02:42,960 --> 00:02:47,760
+de vital importancia el número de la
+
+62
+00:02:45,210 --> 00:02:51,719
+conexión aparece luego de los caracteres
+
+63
+00:02:47,759 --> 00:02:54,509
+más y pd coma y en este caso de ejemplo
+
+64
+00:02:51,719 --> 00:02:56,609
+el número 0 ya que sería la primera
+
+65
+00:02:54,509 --> 00:02:59,280
+petición que estaría recibiendo el
+
+66
+00:02:56,610 --> 00:03:01,860
+servidor web desde iniciado el programa
+
+67
+00:02:59,280 --> 00:03:05,009
+este número luego lo necesitamos como
+
+68
+00:03:01,860 --> 00:03:07,650
+parte del comando hazte más
+
+69
+00:03:05,009 --> 00:03:10,049
+center para responder de vuelta al
+
+70
+00:03:07,650 --> 00:03:12,750
+navegador el primer parámetro de dicho
+
+71
+00:03:10,050 --> 00:03:15,630
+comando a t es el número de la conexión
+
+72
+00:03:12,750 --> 00:03:19,050
+y el segundo la longitud de los datos a
+
+73
+00:03:15,629 --> 00:03:22,379
+enviar por ejemplo sería 04
+
+74
+00:03:19,050 --> 00:03:24,990
+donde 0 es el número de la conexión y 4
+
+75
+00:03:22,379 --> 00:03:28,319
+la longitud de datos a enviar en el
+
+76
+00:03:24,990 --> 00:03:32,909
+capítulo 41 vimos como ejemplo enviando
+
+77
+00:03:28,319 --> 00:03:35,299
+hola y luego 1234 ahora que tenemos este
+
+78
+00:03:32,909 --> 00:03:38,759
+tema presente vamos al primer programa
+
+79
+00:03:35,300 --> 00:03:41,880
+incluimos la librería software serial y
+
+80
+00:03:38,759 --> 00:03:44,340
+creamos un objeto llamado de uno al cual
+
+81
+00:03:41,879 --> 00:03:47,009
+le pasamos los parámetros para definir
+
+82
+00:03:44,340 --> 00:03:50,099
+que el pin digital número 10 será
+
+83
+00:03:47,009 --> 00:03:53,459
+utilizado como rx y el pin digital el
+
+84
+00:03:50,099 --> 00:03:56,430
+número 11 como tx luego una constante
+
+85
+00:03:53,460 --> 00:03:58,860
+llamada le da con el número 2 así
+
+86
+00:03:56,430 --> 00:04:01,230
+trabajamos de forma más cómoda y le
+
+87
+00:03:58,860 --> 00:04:04,110
+indicamos al compilador que reemplace
+
+88
+00:04:01,229 --> 00:04:06,719
+toda ocurrencia de la constante le da
+
+89
+00:04:04,110 --> 00:04:10,140
+por el número 2 que es el pin a donde
+
+90
+00:04:06,719 --> 00:04:12,990
+tenemos conectado el led con pin mode lo
+
+91
+00:04:10,139 --> 00:04:15,599
+establecemos como salida output lo que
+
+92
+00:04:12,990 --> 00:04:18,030
+sigue es enviar de forma automática los
+
+93
+00:04:15,599 --> 00:04:20,339
+comandos a t que hacíamos de forma
+
+94
+00:04:18,029 --> 00:04:23,189
+manual desde el monitor serie en el
+
+95
+00:04:20,339 --> 00:04:23,819
+capítulo 41 lo hacemos de manera muy
+
+96
+00:04:23,189 --> 00:04:27,149
+simple
+
+97
+00:04:23,819 --> 00:04:30,089
+de 1 punto print line y entre paréntesis
+
+98
+00:04:27,149 --> 00:04:32,909
+y comillas el comando asti que
+
+99
+00:04:30,089 --> 00:04:35,549
+corresponda utilizamos print line ya que
+
+100
+00:04:32,910 --> 00:04:38,340
+deseamos aplicar una combinación de
+
+101
+00:04:35,550 --> 00:04:40,889
+salto de línea y retorno de carro en
+
+102
+00:04:38,339 --> 00:04:45,479
+definitiva un enter del teclado el
+
+103
+00:04:40,889 --> 00:04:48,930
+primer comando ate es ate + cw modo
+
+104
+00:04:45,480 --> 00:04:52,170
+igual 1 que establece al módulo en modo
+
+105
+00:04:48,930 --> 00:04:54,959
+cliente también llamado station luego
+
+106
+00:04:52,170 --> 00:04:56,970
+aplicamos una demora de un segundo y
+
+107
+00:04:54,959 --> 00:04:59,699
+esto lo hacemos para darle tiempo a que
+
+108
+00:04:56,970 --> 00:05:02,100
+el módulo tome el comando adecuadamente
+
+109
+00:04:59,699 --> 00:05:04,740
+cuando enviábamos un comando asti por el
+
+110
+00:05:02,100 --> 00:05:07,379
+monitor serie veíamos en el mismo un
+
+111
+00:05:04,740 --> 00:05:10,079
+mensaje de ok aquí no estaremos
+
+112
+00:05:07,379 --> 00:05:12,029
+utilizando el monitor serie enviamos los
+
+113
+00:05:10,079 --> 00:05:14,339
+comandos de forma automática
+
+114
+00:05:12,029 --> 00:05:17,549
+por eso verás que luego de cada comando
+
+115
+00:05:14,339 --> 00:05:20,279
+te aplicaremos una demora el siguiente
+
+116
+00:05:17,550 --> 00:05:24,420
+comando te permite al módulo unirse a
+
+117
+00:05:20,279 --> 00:05:27,779
+nuestra red local con ate + c w
+
+118
+00:05:24,420 --> 00:05:29,129
+jp y le indicamos el identificador de
+
+119
+00:05:27,779 --> 00:05:32,519
+nuestra red
+
+120
+00:05:29,129 --> 00:05:35,278
+cesc ayby y la contraseña aquí verás que
+
+121
+00:05:32,519 --> 00:05:37,678
+antes de la comida del identificador ni
+
+122
+00:05:35,278 --> 00:05:40,408
+lo intentes aparece el carácter de la
+
+123
+00:05:37,678 --> 00:05:42,538
+barra invertida la barra invertida es un
+
+124
+00:05:40,408 --> 00:05:44,668
+carácter especial que le indica a la
+
+125
+00:05:42,538 --> 00:05:47,699
+función print line que el siguiente
+
+126
+00:05:44,668 --> 00:05:49,978
+carácter debe imprimirse tal cual es
+
+127
+00:05:47,699 --> 00:05:52,379
+decir que no sea interpretado como un
+
+128
+00:05:49,978 --> 00:05:54,718
+comando en otras palabras le estamos
+
+129
+00:05:52,379 --> 00:05:57,300
+diciendo que escriba las comillas tal
+
+130
+00:05:54,718 --> 00:06:00,058
+cual que esas comillas no forman parte
+
+131
+00:05:57,300 --> 00:06:03,269
+de la función si no usáramos la barra
+
+132
+00:06:00,059 --> 00:06:05,849
+invertida el de 1 punto print line vería
+
+133
+00:06:03,269 --> 00:06:08,429
+unas comillas al principio del comando
+
+134
+00:06:05,848 --> 00:06:10,498
+ate y luego otras comillas
+
+135
+00:06:08,428 --> 00:06:13,498
+luego del igual y lo interpretaría como
+
+136
+00:06:10,499 --> 00:06:15,899
+que ya finalizamos de definir el texto a
+
+137
+00:06:13,499 --> 00:06:18,990
+imprimir por eso con la barra invertida
+
+138
+00:06:15,899 --> 00:06:21,778
+decimos el siguiente carácter quiero que
+
+139
+00:06:18,990 --> 00:06:24,149
+lo imprimas tal cual no lo interpretes
+
+140
+00:06:21,778 --> 00:06:25,769
+cabe aclarar que la barra invertida no
+
+141
+00:06:24,149 --> 00:06:27,928
+es la barra normal que estamos
+
+142
+00:06:25,769 --> 00:06:30,989
+acostumbrados de por ejemplo cuando
+
+143
+00:06:27,928 --> 00:06:34,109
+deseamos colocar un comentario con barra
+
+144
+00:06:30,988 --> 00:06:35,638
+barra y luego una descripción la barra
+
+145
+00:06:34,110 --> 00:06:38,400
+invertida deberás buscarlo
+
+146
+00:06:35,639 --> 00:06:41,098
+tu teclado y generalmente se accede
+
+147
+00:06:38,399 --> 00:06:43,649
+mediante una combinación de dos teclas
+
+148
+00:06:41,098 --> 00:06:46,528
+dependerá un poco la distribución de tu
+
+149
+00:06:43,649 --> 00:06:49,168
+teclado muy bien luego del comando a ti
+
+150
+00:06:46,528 --> 00:06:52,228
+para unirnos a la red aplicaremos una
+
+151
+00:06:49,168 --> 00:06:54,538
+demora más grande de 10 segundos ya que
+
+152
+00:06:52,228 --> 00:06:57,449
+este proceso requiere una comunicación
+
+153
+00:06:54,538 --> 00:06:59,938
+del módulo con nuestro módem router el
+
+154
+00:06:57,449 --> 00:07:03,330
+cual deberá autenticar los y asignamos
+
+155
+00:06:59,939 --> 00:07:05,699
+una ip 10 segundos es más que suficiente
+
+156
+00:07:03,329 --> 00:07:08,519
+y podría ser algo menor pero iremos a
+
+157
+00:07:05,699 --> 00:07:11,310
+los seguros de todas maneras todos estos
+
+158
+00:07:08,519 --> 00:07:13,829
+comandos se ejecutan por única vez al
+
+159
+00:07:11,310 --> 00:07:18,718
+estar dentro del set up resta entonces
+
+160
+00:07:13,829 --> 00:07:21,028
+enviar a t más de ip books igual 1 para
+
+161
+00:07:18,718 --> 00:07:23,699
+indicar el modo de múltiples conexiones
+
+162
+00:07:21,028 --> 00:07:27,750
+y ate más
+
+163
+00:07:23,699 --> 00:07:31,469
+server igual 180 para iniciar el
+
+164
+00:07:27,750 --> 00:07:33,930
+servidor 9 en el puerto 80 y eso es todo
+
+165
+00:07:31,470 --> 00:07:37,020
+para el setup ya esta altura tenemos la
+
+166
+00:07:33,930 --> 00:07:39,329
+de 1 mini conectada a la red local por
+
+167
+00:07:37,019 --> 00:07:41,699
+wifi en el loop lo primero que haremos
+
+168
+00:07:39,329 --> 00:07:45,000
+es consultar si existe información
+
+169
+00:07:41,699 --> 00:07:48,509
+disponible proveniente del módulo con de
+
+170
+00:07:45,000 --> 00:07:50,819
+1 punto available la función available
+
+171
+00:07:48,509 --> 00:07:52,339
+ya lo usamos en otras oportunidades para
+
+172
+00:07:50,819 --> 00:07:55,769
+ver si había información disponible
+
+173
+00:07:52,339 --> 00:07:58,349
+desde el monitor serie en este caso como
+
+174
+00:07:55,769 --> 00:08:00,839
+el monitor no lo usamos la función se
+
+175
+00:07:58,350 --> 00:08:04,230
+aplica al de uno básicamente lo que
+
+176
+00:08:00,839 --> 00:08:05,429
+consultamos es si el módulo de 1 mini le
+
+177
+00:08:04,230 --> 00:08:08,910
+ha enviado datos
+
+178
+00:08:05,430 --> 00:08:11,879
+arduino mediante el pin rx si es así
+
+179
+00:08:08,910 --> 00:08:14,580
+entonces comenzamos a procesar en caso
+
+180
+00:08:11,879 --> 00:08:16,290
+contrario no hacemos nada nos quedamos
+
+181
+00:08:14,579 --> 00:08:18,449
+todo el tiempo a la espera de
+
+182
+00:08:16,290 --> 00:08:21,270
+información entrante como usaremos
+
+183
+00:08:18,449 --> 00:08:23,789
+varios condicionales y a veces al abrir
+
+184
+00:08:21,269 --> 00:08:26,069
+una llave se complica ver cuando se
+
+185
+00:08:23,790 --> 00:08:28,770
+cierra la misma es decir que aquí vemos
+
+186
+00:08:26,069 --> 00:08:30,870
+este primer condicional que abre una
+
+187
+00:08:28,769 --> 00:08:33,480
+llave pero en qué parte del codo
+
+188
+00:08:30,870 --> 00:08:35,700
+se cierra el vide de arduino nos
+
+189
+00:08:33,480 --> 00:08:38,789
+facilita la vida con una indicación muy
+
+190
+00:08:35,700 --> 00:08:41,280
+útil y esto te servirá no sólo para este
+
+191
+00:08:38,789 --> 00:08:43,169
+programa si ubicamos el cursor justo
+
+192
+00:08:41,279 --> 00:08:45,600
+después de la llave de apertura del
+
+193
+00:08:43,169 --> 00:08:48,559
+condicional y luego vamos bajando en el
+
+194
+00:08:45,600 --> 00:08:51,360
+código verás que aparece un rectángulo
+
+195
+00:08:48,559 --> 00:08:53,939
+conteniendo la llave de cierre y así
+
+196
+00:08:51,360 --> 00:08:57,210
+podemos identificar muy rápidamente
+
+197
+00:08:53,940 --> 00:08:59,850
+donde finaliza el bloque iniciado muchas
+
+198
+00:08:57,210 --> 00:09:02,190
+líneas atrás aquí se puede ver que el
+
+199
+00:08:59,850 --> 00:09:05,490
+primer condicional de de 1 punto
+
+200
+00:09:02,190 --> 00:09:07,860
+available abarca la totalidad del código
+
+201
+00:09:05,490 --> 00:09:08,850
+ya que la llave de cierre que le sigue
+
+202
+00:09:07,860 --> 00:09:11,159
+es la de loop
+
+203
+00:09:08,850 --> 00:09:13,649
+en definitiva si no hay información
+
+204
+00:09:11,159 --> 00:09:16,439
+disponible equivalente a la condición de
+
+205
+00:09:13,649 --> 00:09:18,929
+falso no hacemos nada volviendo a la
+
+206
+00:09:16,440 --> 00:09:21,120
+primera línea del loop y así todo el
+
+207
+00:09:18,929 --> 00:09:22,919
+tiempo volviendo al principio ya
+
+208
+00:09:21,120 --> 00:09:25,500
+establecimos que esperaremos por
+
+209
+00:09:22,919 --> 00:09:28,049
+información disponible si la condición
+
+210
+00:09:25,500 --> 00:09:30,840
+es verdadero aplicamos una pequeña
+
+211
+00:09:28,049 --> 00:09:33,629
+demora de un segundo que es necesaria
+
+212
+00:09:30,840 --> 00:09:36,030
+para luego ir al segundo condicional en
+
+213
+00:09:33,629 --> 00:09:36,860
+este aplicaremos una nueva función
+
+214
+00:09:36,029 --> 00:09:40,789
+llamada
+
+215
+00:09:36,860 --> 00:09:43,310
+find del objeto de uno la función find
+
+216
+00:09:40,789 --> 00:09:45,439
+se utiliza para buscar información lo
+
+217
+00:09:43,309 --> 00:09:49,009
+que nosotros deseamos buscar es la
+
+218
+00:09:45,440 --> 00:09:51,410
+cadena más ip de coma por eso dicha
+
+219
+00:09:49,009 --> 00:09:54,049
+cadena se coloca como parámetro de la
+
+220
+00:09:51,409 --> 00:09:57,139
+función veamos esta nota al margen para
+
+221
+00:09:54,049 --> 00:09:59,299
+entender mejor la función find le datos
+
+222
+00:09:57,139 --> 00:10:01,639
+serie hasta encontrar la cadena
+
+223
+00:09:59,299 --> 00:10:05,089
+especificada retorna un valor de
+
+224
+00:10:01,639 --> 00:10:07,939
+verdadero si la encuentra y falso luego
+
+225
+00:10:05,090 --> 00:10:10,490
+de un cierto tiempo de espera o time out
+
+226
+00:10:07,940 --> 00:10:13,130
+que por defecto es de un segundo
+
+227
+00:10:10,490 --> 00:10:16,639
+nosotros en el código le indicamos que
+
+228
+00:10:13,129 --> 00:10:19,039
+busque por la cadena más ip de coma aquí
+
+229
+00:10:16,639 --> 00:10:21,889
+tenemos el encabezado de una petición
+
+230
+00:10:19,039 --> 00:10:24,139
+como vimos antes en rojo aparece la
+
+231
+00:10:21,889 --> 00:10:26,419
+cadena que deseamos buscar lo que es
+
+232
+00:10:24,139 --> 00:10:28,850
+importante entender de esta función es
+
+233
+00:10:26,419 --> 00:10:32,179
+que busca por la cadena a medida que los
+
+234
+00:10:28,850 --> 00:10:34,759
+datos serie van ingresando es decir que
+
+235
+00:10:32,179 --> 00:10:36,889
+no es cómo buscar sobre un documento de
+
+236
+00:10:34,759 --> 00:10:38,419
+texto donde ya se dispone de la
+
+237
+00:10:36,889 --> 00:10:41,299
+totalidad del contenido
+
+238
+00:10:38,419 --> 00:10:42,889
+aquí el encabezado aparece todo completo
+
+239
+00:10:41,299 --> 00:10:45,649
+pero en realidad estamos
+
+240
+00:10:42,889 --> 00:10:48,318
+buscando la cadena yendo de un carácter
+
+241
+00:10:45,649 --> 00:10:51,139
+por vez y eso significa que una vez que
+
+242
+00:10:48,318 --> 00:10:53,868
+el de 1 punto available nos indica que
+
+243
+00:10:51,139 --> 00:10:56,659
+hay datos disponibles la función o fine
+
+244
+00:10:53,869 --> 00:10:59,720
+comienza a leer los caracteres a medida
+
+245
+00:10:56,659 --> 00:11:03,438
+que van ingresando leerá primero el cero
+
+246
+00:10:59,720 --> 00:11:07,850
+luego la coma luego un espacio luego la
+
+247
+00:11:03,438 --> 00:11:10,129
+letra c luego luego la letra n y así con
+
+248
+00:11:07,850 --> 00:11:13,339
+cada carácter que ingresa nosotros
+
+249
+00:11:10,129 --> 00:11:15,649
+indicamos que busque por más ip de coma
+
+250
+00:11:13,339 --> 00:11:18,199
+con lo cual los datos hasta que
+
+251
+00:11:15,649 --> 00:11:21,889
+encuentra el carácter del símbolo demás
+
+252
+00:11:18,198 --> 00:11:23,958
+en ese punto find dice bueno ya es uno
+
+253
+00:11:21,889 --> 00:11:26,389
+de los caracteres de la cadena que me
+
+254
+00:11:23,958 --> 00:11:29,778
+dijeron que debo buscar voy a seguir
+
+255
+00:11:26,389 --> 00:11:33,470
+leyendo luego lee una y luego una p
+
+256
+00:11:29,778 --> 00:11:35,328
+luego una vez y luego una coma en ese
+
+257
+00:11:33,470 --> 00:11:37,819
+punto dice correcto
+
+258
+00:11:35,328 --> 00:11:40,248
+esta es la cadena que debía buscar voy a
+
+259
+00:11:37,818 --> 00:11:42,708
+responder con un verdadero así que
+
+260
+00:11:40,249 --> 00:11:45,168
+poniéndonos en los zapatos de la función
+
+261
+00:11:42,708 --> 00:11:47,268
+find vemos cómo es la lógica de su
+
+262
+00:11:45,168 --> 00:11:49,610
+funcionamiento y es importante
+
+263
+00:11:47,269 --> 00:11:52,039
+entenderlo bien ya que le aplicaremos
+
+264
+00:11:49,610 --> 00:11:53,959
+nuevamente en breve volviendo al código
+
+265
+00:11:52,039 --> 00:11:56,088
+la línea que se ejecuta cuando la
+
+266
+00:11:53,958 --> 00:11:58,639
+condición es de verdadero que ha
+
+267
+00:11:56,089 --> 00:12:01,700
+encontrado la cadena hacemos la lectura
+
+268
+00:11:58,639 --> 00:12:04,069
+del próximo carácter con de 1 punto
+
+269
+00:12:01,700 --> 00:12:07,700
+read 2 ahora veremos el motivo por el
+
+270
+00:12:04,070 --> 00:12:10,190
+cual le restamos 48 y asigna su valor a
+
+271
+00:12:07,700 --> 00:12:13,100
+una variable del tipo en tira llamada
+
+272
+00:12:10,190 --> 00:12:15,230
+conexión lo que nosotros nos interesa es
+
+273
+00:12:13,100 --> 00:12:18,440
+el número de la conexión por eso
+
+274
+00:12:15,230 --> 00:12:21,110
+buscamos por más ip de coma ya que el
+
+275
+00:12:18,440 --> 00:12:24,110
+próximo carácter es justamente en el
+
+276
+00:12:21,110 --> 00:12:26,659
+número de la conexión en este caso el 0
+
+277
+00:12:24,110 --> 00:12:29,389
+y guardamos en una variable para más
+
+278
+00:12:26,659 --> 00:12:32,689
+adelante donde debemos responder a la
+
+279
+00:12:29,389 --> 00:12:35,539
+petición ahora el tema de restarle 48
+
+280
+00:12:32,690 --> 00:12:37,640
+para eso vamos brevemente a esta tabla
+
+281
+00:12:35,539 --> 00:12:41,240
+que corresponde a una versión reducida
+
+282
+00:12:37,639 --> 00:12:43,789
+de la llamada tabla aquí se escribe de
+
+283
+00:12:41,240 --> 00:12:45,950
+esta manera pero se pronuncia aquí
+
+284
+00:12:43,789 --> 00:12:48,528
+cuando el navegador web realiza la
+
+285
+00:12:45,950 --> 00:12:51,560
+petición al servidor corriendo en la de
+
+286
+00:12:48,528 --> 00:12:54,559
+1 min y los caracteres son codificados
+
+287
+00:12:51,559 --> 00:12:55,759
+según esta tabla que es un estándar que
+
+288
+00:12:54,559 --> 00:12:58,489
+viene de la época
+
+289
+00:12:55,759 --> 00:13:00,710
+grafía y se ha ampliado con el tiempo
+
+290
+00:12:58,490 --> 00:13:03,620
+cuando hacemos de 1 punto
+
+291
+00:13:00,710 --> 00:13:06,530
+read en realidad estamos leyendo el
+
+292
+00:13:03,620 --> 00:13:09,590
+valor en ask y que representa el número
+
+293
+00:13:06,529 --> 00:13:13,039
+0 en esta tabla se puede ver que el 0
+
+294
+00:13:09,590 --> 00:13:15,710
+corresponde al 48 expresado en decimal
+
+295
+00:13:13,039 --> 00:13:18,169
+bajo el código aquí es decir que en
+
+296
+00:13:15,710 --> 00:13:21,680
+definitiva estaríamos leyendo un valor
+
+297
+00:13:18,169 --> 00:13:24,759
+de 48 no de 0 esto es cierto para todos
+
+298
+00:13:21,679 --> 00:13:28,039
+los números letras mayúsculas minúsculas
+
+299
+00:13:24,759 --> 00:13:30,350
+y caracteres especiales pero por ahora
+
+300
+00:13:28,039 --> 00:13:33,620
+nos interesan los números que el 0
+
+301
+00:13:30,350 --> 00:13:37,639
+codificado en aquí es el número 48 en
+
+302
+00:13:33,620 --> 00:13:41,750
+decimal el número 1 corresponde al 49 y
+
+303
+00:13:37,639 --> 00:13:44,179
+el número 2 al 50 en aquí y así de
+
+304
+00:13:41,750 --> 00:13:47,690
+manera que en la variable conexión nos
+
+305
+00:13:44,179 --> 00:13:50,029
+interesa guardar el número 0 no el 48
+
+306
+00:13:47,690 --> 00:13:53,530
+por eso al mismo tiempo que hacemos la
+
+307
+00:13:50,029 --> 00:13:57,620
+lectura con de 1 punto ruido le restamos
+
+308
+00:13:53,529 --> 00:14:01,279
+48 de esa manera el número 0 resulta de
+
+309
+00:13:57,620 --> 00:14:02,389
+la resta entre 48 y 48 si se
+
+310
+00:14:01,279 --> 00:14:04,789
+estableciera una
+
+311
+00:14:02,389 --> 00:14:07,699
+una conexión en simultáneo tendría el
+
+312
+00:14:04,789 --> 00:14:10,879
+número uno la función de 1 punto ring
+
+313
+00:14:07,700 --> 00:14:14,030
+devolvería el número uno pero codificado
+
+314
+00:14:10,879 --> 00:14:17,419
+en aquí que es el 49 pero si le restamos
+
+315
+00:14:14,029 --> 00:14:22,189
+48 entonces almacenamos en la variable
+
+316
+00:14:17,419 --> 00:14:24,919
+conexión 49 menos 48 que es 1 en
+
+317
+00:14:22,190 --> 00:14:28,880
+definitiva para los números es fácil
+
+318
+00:14:24,919 --> 00:14:31,370
+el valor en aquí se le resta 48 y listo
+
+319
+00:14:28,879 --> 00:14:33,950
+tenemos entonces en la variable conexión
+
+320
+00:14:31,370 --> 00:14:36,950
+el número de la conexión para este caso
+
+321
+00:14:33,950 --> 00:14:39,290
+de ejemplo el 0 ahora haremos una
+
+322
+00:14:36,950 --> 00:14:42,710
+búsqueda similar pero buscamos por otra
+
+323
+00:14:39,289 --> 00:14:45,740
+cadena que será el igual recordar a del
+
+324
+00:14:42,710 --> 00:14:48,410
+capítulo 41 que la forma que teníamos de
+
+325
+00:14:45,740 --> 00:14:52,009
+enviar un dato al servidor web y de
+
+326
+00:14:48,409 --> 00:14:54,529
+incorporarlo a la url mediante una barra
+
+327
+00:14:52,009 --> 00:14:57,439
+luego de la ip y veíamos como el
+
+328
+00:14:54,529 --> 00:15:00,079
+encabezado luego de get aparecía el
+
+329
+00:14:57,440 --> 00:15:03,500
+texto prueba como nuestra intención es
+
+330
+00:15:00,080 --> 00:15:07,070
+encender o apagar un led enviaremos led
+
+331
+00:15:03,500 --> 00:15:08,419
+igual a 1 para encenderlo un led igual a
+
+332
+00:15:07,070 --> 00:15:11,149
+0 para apagar
+
+333
+00:15:08,419 --> 00:15:15,379
+usaremos este tercer condicional if
+
+334
+00:15:11,149 --> 00:15:19,009
+donde la condición será de 1 punto find
+
+335
+00:15:15,379 --> 00:15:20,860
+entre paréntesis comillas le da igual de
+
+336
+00:15:19,009 --> 00:15:24,350
+la misma manera que con el anterior
+
+337
+00:15:20,860 --> 00:15:27,919
+buscamos por la cadena más y pd coma
+
+338
+00:15:24,350 --> 00:15:30,350
+ahora buscaremos por ley igual aquí en
+
+339
+00:15:27,919 --> 00:15:32,899
+la nota al margen se muestra en rojo
+
+340
+00:15:30,350 --> 00:15:35,360
+la cadena formando parte del encabezado
+
+341
+00:15:32,899 --> 00:15:38,448
+se encuentra la cadena le da igual
+
+342
+00:15:35,360 --> 00:15:41,959
+hacemos una lectura con de unos puntos
+
+343
+00:15:38,448 --> 00:15:44,689
+ruidos le restamos 48 y almacenamos en
+
+344
+00:15:41,958 --> 00:15:47,088
+la variable lectura con lo cual ahora la
+
+345
+00:15:44,690 --> 00:15:50,540
+lectura tendrá un valor de 1 si
+
+346
+00:15:47,089 --> 00:15:53,389
+solicitamos encender el led o un 0 si
+
+347
+00:15:50,539 --> 00:15:56,838
+solicitamos apagarlo en este ejemplo
+
+348
+00:15:53,389 --> 00:15:58,970
+lectura asume un valor de 1 para resumir
+
+349
+00:15:56,839 --> 00:16:01,670
+logramos almacenar en la variable
+
+350
+00:15:58,970 --> 00:16:04,129
+conexión el número de la conexión
+
+351
+00:16:01,669 --> 00:16:06,799
+generado por la petición desde el
+
+352
+00:16:04,129 --> 00:16:09,320
+navegador web y en la variable lectura
+
+353
+00:16:06,799 --> 00:16:11,269
+el valor del estado del lado que se
+
+354
+00:16:09,320 --> 00:16:13,778
+quiere establecer con un simple
+
+355
+00:16:11,269 --> 00:16:16,839
+condicional y podremos consultar
+
+356
+00:16:13,778 --> 00:16:20,350
+si lectura tiene un valor de 1 en cuyo
+
+357
+00:16:16,839 --> 00:16:23,110
+caso con un digital right led high end
+
+358
+00:16:20,350 --> 00:16:24,790
+sentimos el led conectado al pin digital
+
+359
+00:16:23,110 --> 00:16:27,550
+número 2 de arduino
+
+360
+00:16:24,789 --> 00:16:30,938
+luego consultados si lectura es igual a
+
+361
+00:16:27,549 --> 00:16:33,998
+0 en ese caso con un digital write led
+
+362
+00:16:30,938 --> 00:16:37,240
+low apagamos el led pero adicionalmente
+
+363
+00:16:33,999 --> 00:16:39,220
+deseamos responder con un texto que se
+
+364
+00:16:37,240 --> 00:16:41,889
+muestra en la página web del navegador
+
+365
+00:16:39,220 --> 00:16:45,579
+por eso vamos a crear una cadena de
+
+366
+00:16:41,889 --> 00:16:48,129
+caracteres un string llamado página y le
+
+367
+00:16:45,578 --> 00:16:52,628
+cargaremos inicialmente unas etiquetas
+
+368
+00:16:48,129 --> 00:16:54,300
+html html es el lenguaje que interpreta
+
+369
+00:16:52,629 --> 00:16:57,278
+el navegador web para mostrar
+
+370
+00:16:54,299 --> 00:16:59,679
+información es muy fácil de aplicar y
+
+371
+00:16:57,278 --> 00:17:01,929
+también muy directo aquí traigo una
+
+372
+00:16:59,679 --> 00:17:05,948
+nueva nota al margen sobre la estructura
+
+373
+00:17:01,929 --> 00:17:08,168
+básica de una página en formato html es
+
+374
+00:17:05,949 --> 00:17:10,959
+un lenguaje que se maneja mediante las
+
+375
+00:17:08,169 --> 00:17:13,538
+llamadas etiquetas una etiqueta se
+
+376
+00:17:10,959 --> 00:17:16,089
+define entre los símbolos de menor y
+
+377
+00:17:13,538 --> 00:17:18,099
+mayor como por ejemplo esta primera
+
+378
+00:17:16,088 --> 00:17:20,609
+línea que declara que el contenido
+
+379
+00:17:18,099 --> 00:17:24,058
+siguiente es del tipo htm
+
+380
+00:17:20,609 --> 00:17:26,369
+l la que le sigue es html como verás
+
+381
+00:17:24,058 --> 00:17:29,519
+está en tres símbolos de menor y mayor
+
+382
+00:17:26,369 --> 00:17:31,699
+por eso se la denomina una etiqueta le
+
+383
+00:17:29,519 --> 00:17:34,500
+sigue la de help que significa
+
+384
+00:17:31,700 --> 00:17:37,080
+encabezado donde se coloca información
+
+385
+00:17:34,500 --> 00:17:40,140
+como ser el título de la página una
+
+386
+00:17:37,079 --> 00:17:42,419
+descripción palabras clave e información
+
+387
+00:17:40,140 --> 00:17:45,000
+que no es visible para el usuario una
+
+388
+00:17:42,420 --> 00:17:47,759
+etiqueta se cierra colocando una barra
+
+389
+00:17:45,000 --> 00:17:49,259
+luego del símbolo de menor aquí vemos
+
+390
+00:17:47,759 --> 00:17:52,470
+que luego de head
+
+391
+00:17:49,259 --> 00:17:54,539
+tenemos vargas head cerramos la etiqueta
+
+392
+00:17:52,470 --> 00:17:57,750
+y no colocamos ningún contenido entre
+
+393
+00:17:54,539 --> 00:18:00,359
+ellas ya que no es algo obligatorio y
+
+394
+00:17:57,750 --> 00:18:02,730
+nuestra intención es generar una página
+
+395
+00:18:00,359 --> 00:18:04,949
+lo más simple posible claro que
+
+396
+00:18:02,730 --> 00:18:08,250
+encontrarás multitud de información en
+
+397
+00:18:04,950 --> 00:18:10,980
+internet sobre el lenguaje html la
+
+398
+00:18:08,250 --> 00:18:13,500
+siguiente etiqueta es body luego de la
+
+399
+00:18:10,980 --> 00:18:15,690
+misma se coloca la información a mostrar
+
+400
+00:18:13,500 --> 00:18:18,720
+en definitiva lo que se va a visualizar
+
+401
+00:18:15,690 --> 00:18:21,120
+en el navegador web aquí están estos
+
+402
+00:18:18,720 --> 00:18:23,370
+puntos suspensivos ya que quiero que
+
+403
+00:18:21,119 --> 00:18:26,009
+tengas una idea de la estructura ya
+
+404
+00:18:23,369 --> 00:18:26,428
+cuando volvamos al código veremos como
+
+405
+00:18:26,009 --> 00:18:29,128
+crea
+
+406
+00:18:26,429 --> 00:18:31,470
+dicho contenido para finalizar se debe
+
+407
+00:18:29,128 --> 00:18:35,069
+cerrar la etiqueta body que abrimos
+
+408
+00:18:31,470 --> 00:18:37,679
+antes y también cerrar la etiqueta html
+
+409
+00:18:35,069 --> 00:18:39,450
+y eso es todo para una estructura básica
+
+410
+00:18:37,679 --> 00:18:42,028
+de una página web
+
+411
+00:18:39,450 --> 00:18:45,419
+volviendo al código vamos a crear un
+
+412
+00:18:42,028 --> 00:18:49,019
+string llamado página y le cargamos la
+
+413
+00:18:45,419 --> 00:18:52,259
+primera parte del código html el dock
+
+414
+00:18:49,019 --> 00:18:54,929
+type el gen y el body hacemos la
+
+415
+00:18:52,259 --> 00:18:58,169
+consulta sin lectura tiene un valor de 1
+
+416
+00:18:54,929 --> 00:19:01,259
+encendemos el led con digital write led
+
+417
+00:18:58,169 --> 00:19:03,480
+high y como ya finalizamos debemos
+
+418
+00:19:01,259 --> 00:19:07,200
+agregar el código para mostrar en el
+
+419
+00:19:03,480 --> 00:19:09,628
+navegador el texto le da igual encendido
+
+420
+00:19:07,200 --> 00:19:14,490
+y sólo hacemos agregando al final del
+
+421
+00:19:09,628 --> 00:19:19,918
+string el siguiente código html h1 led
+
+422
+00:19:14,490 --> 00:19:25,019
+igual encendido barra h 1 barra body y
+
+423
+00:19:19,919 --> 00:19:28,320
+barra html h 1 en html significa líder
+
+424
+00:19:25,019 --> 00:19:30,659
+one encabezado número 1 lo que indica
+
+425
+00:19:28,319 --> 00:19:32,789
+esta etiqueta es que el texto siguiente
+
+426
+00:19:30,659 --> 00:19:35,880
+debe mostrarse en 1
+
+427
+00:19:32,789 --> 00:19:39,029
+grande y en negrita como si fuese el
+
+428
+00:19:35,880 --> 00:19:42,120
+título de una noticia el texto será le
+
+429
+00:19:39,029 --> 00:19:45,960
+dé igual encendido luego debemos cerrar
+
+430
+00:19:42,119 --> 00:19:49,019
+la etiqueta con barra h1 y cerrar el
+
+431
+00:19:45,960 --> 00:19:52,200
+body que abrimos al principio y cerrar
+
+432
+00:19:49,019 --> 00:19:54,629
+el html para terminar de formar la
+
+433
+00:19:52,200 --> 00:19:58,200
+página web la forma de ir agregando
+
+434
+00:19:54,630 --> 00:20:01,010
+contenido al string página es con página
+
+435
+00:19:58,200 --> 00:20:04,980
+más igual que es equivalente a decir
+
+436
+00:20:01,009 --> 00:20:07,289
+página es igual a página más y el
+
+437
+00:20:04,980 --> 00:20:10,470
+contenido a continuación veamos la
+
+438
+00:20:07,289 --> 00:20:12,839
+condición donde lectura es igual a 0 al
+
+439
+00:20:10,470 --> 00:20:15,750
+igual que antes aplicamos un digital
+
+440
+00:20:12,839 --> 00:20:19,529
+write leds pero esta vez low para
+
+441
+00:20:15,750 --> 00:20:22,859
+apagarlo usamos página más igual para
+
+442
+00:20:19,529 --> 00:20:26,430
+agregar el string el texto de led igual
+
+443
+00:20:22,859 --> 00:20:30,509
+apagado también con la etiqueta h 1 y
+
+444
+00:20:26,430 --> 00:20:33,060
+cerramos body y html en definitiva en el
+
+445
+00:20:30,509 --> 00:20:37,259
+string página tenemos todo el contenido
+
+446
+00:20:33,059 --> 00:20:39,058
+de la página web en formato html ya sea
+
+447
+00:20:37,259 --> 00:20:42,329
+para la condición de que él
+
+448
+00:20:39,058 --> 00:20:44,269
+este encendido o apagado guardamos todo
+
+449
+00:20:42,329 --> 00:20:47,609
+en un string porque a continuación
+
+450
+00:20:44,269 --> 00:20:50,399
+debemos emitir el comando ate para
+
+451
+00:20:47,609 --> 00:20:52,798
+enviar todo este contenido y finalmente
+
+452
+00:20:50,398 --> 00:20:55,319
+cerrar la conexión el envío de
+
+453
+00:20:52,798 --> 00:20:58,349
+información equivalente a la respuesta
+
+454
+00:20:55,319 --> 00:21:01,950
+de una petición es con el comando a
+
+455
+00:20:58,349 --> 00:21:04,259
+temas de ip send como vimos en el
+
+456
+00:21:01,950 --> 00:21:07,019
+capítulo anterior el primer parámetro
+
+457
+00:21:04,259 --> 00:21:09,210
+debe ser el número de la conexión que ya
+
+458
+00:21:07,019 --> 00:21:11,609
+tenemos almacenado en la variable
+
+459
+00:21:09,210 --> 00:21:14,490
+conexión y luego la longitud del
+
+460
+00:21:11,609 --> 00:21:17,248
+contenido en nuestro caso la longitud
+
+461
+00:21:14,490 --> 00:21:20,038
+del string página entonces no vendrá
+
+462
+00:21:17,249 --> 00:21:23,490
+bien crear un nuevo string lo llamaremos
+
+463
+00:21:20,038 --> 00:21:26,069
+enviar y le iremos cargando los datos
+
+464
+00:21:23,490 --> 00:21:30,569
+necesarios comenzamos cargando el string
+
+465
+00:21:26,069 --> 00:21:34,109
+enviar el comando hazte más ipc and
+
+466
+00:21:30,569 --> 00:21:36,839
+igual luego con enviar más igual
+
+467
+00:21:34,109 --> 00:21:39,329
+agregamos a la cadena el número de
+
+468
+00:21:36,839 --> 00:21:42,720
+conexión almacenado en la variable
+
+469
+00:21:39,329 --> 00:21:45,659
+conexión luego agregamos una coma y
+
+470
+00:21:42,720 --> 00:21:48,299
+finalmente la longitud del string
+
+471
+00:21:45,660 --> 00:21:51,630
+que se obtiene de forma muy simple con
+
+472
+00:21:48,299 --> 00:21:54,269
+la función la página punto link
+
+473
+00:21:51,630 --> 00:21:58,950
+devolverá la longitud de la cadena
+
+474
+00:21:54,269 --> 00:22:01,559
+página por ejemplo 200 si fuesen 200 los
+
+475
+00:21:58,950 --> 00:22:04,620
+caracteres que vamos a enviar con eso ya
+
+476
+00:22:01,559 --> 00:22:07,710
+tenemos en el string enviar completo con
+
+477
+00:22:04,619 --> 00:22:10,349
+el comando ate armamos el string pero
+
+478
+00:22:07,710 --> 00:22:13,769
+aún no lo enviamos para ello usaremos la
+
+479
+00:22:10,349 --> 00:22:16,589
+función print line del objeto de uno lo
+
+480
+00:22:13,769 --> 00:22:19,829
+que enviaremos es el string enviar con
+
+481
+00:22:16,589 --> 00:22:22,980
+lo cual la línea queda de 1 punto print
+
+482
+00:22:19,829 --> 00:22:25,649
+line enviar luego debemos aplicar una
+
+483
+00:22:22,980 --> 00:22:28,079
+demora de un segundo para asegurarnos de
+
+484
+00:22:25,650 --> 00:22:30,330
+darle tiempo a la de uno a mini para
+
+485
+00:22:28,079 --> 00:22:32,789
+procesar esta información cuando
+
+486
+00:22:30,329 --> 00:22:35,759
+usábamos el comando aquí en el capítulo
+
+487
+00:22:32,789 --> 00:22:38,399
+41 veíamos que nos aparecía en el
+
+488
+00:22:35,759 --> 00:22:40,230
+monitor serie el símbolo de mayor
+
+489
+00:22:38,400 --> 00:22:42,870
+quedando a la espera de que
+
+490
+00:22:40,230 --> 00:22:45,960
+introduzcamos la información enviar aquí
+
+491
+00:22:42,869 --> 00:22:48,539
+como el proceso es automático lo hacemos
+
+492
+00:22:45,960 --> 00:22:52,169
+con un nuevo de 1 punto print line
+
+493
+00:22:48,539 --> 00:22:54,358
+página y finalmente otra demora de un
+
+494
+00:22:52,169 --> 00:22:58,559
+segundo solo nos resta cerrar la
+
+495
+00:22:54,358 --> 00:23:01,199
+conexión con a temas de ip cloud para
+
+496
+00:22:58,558 --> 00:23:05,009
+eso armamos un nuevo string llamado
+
+497
+00:23:01,200 --> 00:23:08,249
+cerrar y le cargamos a temas ceip y
+
+498
+00:23:05,009 --> 00:23:11,519
+close igual luego le adicionamos el
+
+499
+00:23:08,249 --> 00:23:14,788
+número de conexión con de 1 punto print
+
+500
+00:23:11,519 --> 00:23:17,819
+line cerrará enviamos dicho comando y
+
+501
+00:23:14,788 --> 00:23:19,950
+una última demora de dos segundos esta
+
+502
+00:23:17,819 --> 00:23:22,470
+es la última línea del programa
+
+503
+00:23:19,950 --> 00:23:24,690
+luego están solo las llaves de cierre de
+
+504
+00:23:22,470 --> 00:23:27,179
+los condicionales de las primeras líneas
+
+505
+00:23:24,690 --> 00:23:30,090
+así que el programa volverá a la primera
+
+506
+00:23:27,179 --> 00:23:32,639
+línea de loop y quedará a la espera de
+
+507
+00:23:30,089 --> 00:23:34,738
+nueva información disponible recordad
+
+508
+00:23:32,638 --> 00:23:38,428
+que recién luego de enviar el comando
+
+509
+00:23:34,739 --> 00:23:41,460
+ate más ceip close es que se muestra la
+
+510
+00:23:38,429 --> 00:23:44,278
+información en el navegador web y ese es
+
+511
+00:23:41,460 --> 00:23:46,858
+todo el programa vamos a verificar y
+
+512
+00:23:44,278 --> 00:23:50,308
+subirlo luego abramos nuestro navegador
+
+513
+00:23:46,858 --> 00:23:51,868
+web favorito en nuestra computadora o
+
+514
+00:23:50,308 --> 00:23:54,960
+desde cualquier otro dispositivo
+
+515
+00:23:51,868 --> 00:23:57,619
+conectado a la red de local
+
+516
+00:23:54,960 --> 00:24:00,480
+a un notebook tablet o teléfono móvil
+
+517
+00:23:57,619 --> 00:24:03,479
+ingresemos en la barra de direcciones la
+
+518
+00:24:00,480 --> 00:24:05,640
+ip de nuestra de 1 min y esta dirección
+
+519
+00:24:03,480 --> 00:24:12,808
+ip lo obtuvimos en el capítulo anterior
+
+520
+00:24:05,640 --> 00:24:16,528
+para mi caso es la 192 168 0 18 y a
+
+521
+00:24:12,808 --> 00:24:19,678
+continuación barra led igual
+
+522
+00:24:16,528 --> 00:24:22,409
+1 de esta forma generamos una petición
+
+523
+00:24:19,679 --> 00:24:25,830
+al servidor web y le enviamos mediante
+
+524
+00:24:22,409 --> 00:24:28,559
+el método get led igual a 1 indicando
+
+525
+00:24:25,829 --> 00:24:31,558
+que deseamos encender el led presionamos
+
+526
+00:24:28,558 --> 00:24:34,129
+enter y vemos que en protoboard el led
+
+527
+00:24:31,558 --> 00:24:37,769
+se enciende y unos instantes luego
+
+528
+00:24:34,130 --> 00:24:40,830
+aparece el texto le da igual encendido
+
+529
+00:24:37,769 --> 00:24:43,319
+en la página web perfecto parece que
+
+530
+00:24:40,829 --> 00:24:45,778
+funciona bien probemos ahora de apagar
+
+531
+00:24:43,319 --> 00:24:48,898
+el led simplemente volvemos a la barra
+
+532
+00:24:45,778 --> 00:24:53,548
+de direcciones y cambiamos el led igual
+
+533
+00:24:48,898 --> 00:24:56,849
+1 por led igual 0 enter y vemos que le
+
+534
+00:24:53,548 --> 00:24:59,819
+de se apaga e instantes luego la página
+
+535
+00:24:56,849 --> 00:25:02,849
+web se actualiza con el texto
+
+536
+00:24:59,819 --> 00:25:06,089
+igual apagado de esta forma verificamos
+
+537
+00:25:02,849 --> 00:25:08,809
+que la de 1 min y ejecutando el servidor
+
+538
+00:25:06,089 --> 00:25:11,759
+web recibió la petición del navegador
+
+539
+00:25:08,809 --> 00:25:14,069
+obtuvo el valor del led y aplicó la
+
+540
+00:25:11,759 --> 00:25:17,069
+acción requerida encendiendo lo o
+
+541
+00:25:14,069 --> 00:25:19,470
+apagando lo y también respondiendo con
+
+542
+00:25:17,069 --> 00:25:21,569
+el texto adecuado antes de ir al segundo
+
+543
+00:25:19,470 --> 00:25:25,559
+programa quiero hacer un repaso rápido
+
+544
+00:25:21,569 --> 00:25:28,349
+en el setup enviamos todos los comandos
+
+545
+00:25:25,559 --> 00:25:31,200
+necesarios para conectar las de 1 mini a
+
+546
+00:25:28,349 --> 00:25:33,750
+la red local esto lo hacemos una sola
+
+547
+00:25:31,200 --> 00:25:36,210
+vez al inicio del programa en el loop
+
+548
+00:25:33,750 --> 00:25:38,759
+esperamos por información disponible
+
+549
+00:25:36,210 --> 00:25:41,549
+proveniente del módulo obtenemos el
+
+550
+00:25:38,759 --> 00:25:44,549
+número de la conexión buscamos por led
+
+551
+00:25:41,549 --> 00:25:48,059
+igual para saber si la acción deseada es
+
+552
+00:25:44,549 --> 00:25:51,269
+encender o apagar y aplicamos la acción
+
+553
+00:25:48,059 --> 00:25:53,730
+con digital raid al mismo tiempo armamos
+
+554
+00:25:51,269 --> 00:25:57,569
+un string con el contenido de la página
+
+555
+00:25:53,730 --> 00:26:00,450
+web a mostrar otro con el comando ate
+
+556
+00:25:57,569 --> 00:26:02,730
+necesario para responder la petición y
+
+557
+00:26:00,450 --> 00:26:05,580
+enviar el contenido de la página y
+
+558
+00:26:02,730 --> 00:26:07,559
+finalmente cerrar la conexión
+
+559
+00:26:05,579 --> 00:26:10,589
+ya sabemos que si podemos controlar a
+
+560
+00:26:07,559 --> 00:26:13,589
+voluntad un pin digital entonces podemos
+
+561
+00:26:10,589 --> 00:26:16,319
+activar cualquier otro dispositivo como
+
+562
+00:26:13,589 --> 00:26:19,500
+ser un relé dar el comando para mover un
+
+563
+00:26:16,319 --> 00:26:22,439
+servo hacer girar un motor y mucho más
+
+564
+00:26:19,500 --> 00:26:25,079
+para el segundo programa obtendremos los
+
+565
+00:26:22,440 --> 00:26:28,440
+valores de temperatura y humedad de un
+
+566
+00:26:25,079 --> 00:26:31,500
+dht 11 y lo mostraremos en una página
+
+567
+00:26:28,440 --> 00:26:34,620
+web que además actualiza su contenido de
+
+568
+00:26:31,500 --> 00:26:37,500
+forma automática cada 15 segundos para
+
+569
+00:26:34,619 --> 00:26:39,599
+eso veamos el circuito de conexión
+
+570
+00:26:37,500 --> 00:26:44,039
+yo estaría trabajando con el módulo de
+
+571
+00:26:39,599 --> 00:26:47,789
+ht 11 modelo k y 15 que forma parte del
+
+572
+00:26:44,039 --> 00:26:50,759
+kit de sensores 37 en uno en el capítulo
+
+573
+00:26:47,789 --> 00:26:55,019
+7 vimos en detalle las características
+
+574
+00:26:50,759 --> 00:26:57,390
+del dht 11 y de ht 22 y también cómo
+
+575
+00:26:55,019 --> 00:27:00,269
+conectarlo en caso de trabajar con el
+
+576
+00:26:57,390 --> 00:27:03,690
+sensor solo sin formar parte de un
+
+577
+00:27:00,269 --> 00:27:06,930
+módulo aquí el caic 15 dispone de tres
+
+578
+00:27:03,690 --> 00:27:09,870
+pines el de la derecha será geneve que
+
+579
+00:27:06,930 --> 00:27:11,039
+lo conectaremos a gene d del conversor
+
+580
+00:27:09,869 --> 00:27:14,669
+de nivel
+
+581
+00:27:11,039 --> 00:27:17,159
+del medio abc c 5 volts que los podemos
+
+582
+00:27:14,670 --> 00:27:20,250
+obtener de la entrada de alto voltaje
+
+583
+00:27:17,160 --> 00:27:22,860
+del nivelador y finalmente el pin de
+
+584
+00:27:20,250 --> 00:27:26,009
+señal y lo conectaremos con un cable
+
+585
+00:27:22,859 --> 00:27:28,740
+directo al pin digital número 4 de
+
+586
+00:27:26,009 --> 00:27:31,440
+arduino y eso es todo este segundo
+
+587
+00:27:28,740 --> 00:27:33,079
+programa es muy similar al primero solo
+
+588
+00:27:31,440 --> 00:27:36,600
+que no estaremos obteniendo información
+
+589
+00:27:33,079 --> 00:27:38,519
+desde el encabezado solo responderemos a
+
+590
+00:27:36,599 --> 00:27:41,099
+una petición con los valores de
+
+591
+00:27:38,519 --> 00:27:43,619
+temperatura y humedad que nos brinda el
+
+592
+00:27:41,099 --> 00:27:46,589
+sensor primero incluiremos las librerías
+
+593
+00:27:43,619 --> 00:27:49,079
+de ht que nos facilitará el uso del
+
+594
+00:27:46,589 --> 00:27:51,059
+sensor por cualquier duda sobre cómo
+
+595
+00:27:49,079 --> 00:27:53,069
+instalar esta librería podrás ver el
+
+596
+00:27:51,059 --> 00:27:55,559
+capítulo número 7
+
+597
+00:27:53,069 --> 00:27:58,799
+luego declaramos una constante llamada
+
+598
+00:27:55,559 --> 00:28:01,740
+sensor con el número 4 ya que en dicho
+
+599
+00:27:58,799 --> 00:28:05,519
+pin tenemos conectado la señal del dht
+
+600
+00:28:01,740 --> 00:28:08,549
+11 y creamos un objeto del tipo de ht
+
+601
+00:28:05,519 --> 00:28:11,369
+indicando que nuestro modelo es el de ht
+
+602
+00:28:08,549 --> 00:28:14,970
+11 siendo que la librería es válida
+
+603
+00:28:11,369 --> 00:28:17,009
+también para el de ht 22 el setup será
+
+604
+00:28:14,970 --> 00:28:20,130
+exactamente igual que el primero
+
+605
+00:28:17,009 --> 00:28:23,309
+programa solo que omitimos el pin modo
+
+606
+00:28:20,130 --> 00:28:26,160
+ya que la librería de ht se encarga de
+
+607
+00:28:23,309 --> 00:28:28,769
+establecer el pin del sensor así que
+
+608
+00:28:26,160 --> 00:28:30,980
+aquí conectamos la de 1 mini a la red
+
+609
+00:28:28,769 --> 00:28:33,480
+local con los comandos a ti
+
+610
+00:28:30,980 --> 00:28:36,089
+correspondientes en el loop esperamos
+
+611
+00:28:33,480 --> 00:28:39,809
+por información disponible con de 1
+
+612
+00:28:36,089 --> 00:28:42,419
+punto available buscamos por más ip de
+
+613
+00:28:39,809 --> 00:28:44,309
+coma y almacenamos en la variable
+
+614
+00:28:42,420 --> 00:28:46,620
+conexión el número de la misma
+
+615
+00:28:44,309 --> 00:28:49,379
+declaramos una string con la
+
+616
+00:28:46,619 --> 00:28:53,969
+denominación página y cargamos las
+
+617
+00:28:49,380 --> 00:28:57,450
+primeras etiquetas html dock type html
+
+618
+00:28:53,970 --> 00:29:00,029
+head y body son los mismos que el primer
+
+619
+00:28:57,450 --> 00:29:02,759
+programa pero lo que se agrega es esta
+
+620
+00:29:00,029 --> 00:29:05,039
+nueva etiqueta meta lo que indica esta
+
+621
+00:29:02,759 --> 00:29:08,250
+etiqueta es que realizaremos una
+
+622
+00:29:05,039 --> 00:29:11,009
+actualización o refresco de la página de
+
+623
+00:29:08,250 --> 00:29:13,950
+forma automática cada 15 segundos
+
+624
+00:29:11,009 --> 00:29:16,440
+de esta forma muy simple generamos una
+
+625
+00:29:13,950 --> 00:29:19,049
+nueva petición desde el navegador cada
+
+626
+00:29:16,440 --> 00:29:21,600
+15 segundos y nos evita tener que
+
+627
+00:29:19,049 --> 00:29:23,579
+realizarlo de forma manual una vez
+
+628
+00:29:21,599 --> 00:29:27,029
+cargada la página actual
+
+629
+00:29:23,579 --> 00:29:29,220
+cada 15 segundos como la etiqueta meta
+
+630
+00:29:27,029 --> 00:29:32,490
+tiene entre comillas las palabras
+
+631
+00:29:29,220 --> 00:29:34,500
+refresh y 15 se utiliza la barra
+
+632
+00:29:32,490 --> 00:29:37,440
+invertida para indicar que dichas
+
+633
+00:29:34,500 --> 00:29:40,259
+comillas sean colocadas tal cual y no
+
+634
+00:29:37,440 --> 00:29:43,789
+sean interpretadas continuamos armando
+
+635
+00:29:40,259 --> 00:29:47,039
+el string página agregando h 1
+
+636
+00:29:43,789 --> 00:29:49,200
+temperatura 2 puntos y un espacio en
+
+637
+00:29:47,039 --> 00:29:52,230
+blanco al igual que el primer programa
+
+638
+00:29:49,200 --> 00:29:55,140
+indicamos que el texto temperatura dos
+
+639
+00:29:52,230 --> 00:29:57,960
+puntos aparezca como un encabezado tipo
+
+640
+00:29:55,140 --> 00:30:00,390
+1 ahora es momento de obtener el valor
+
+641
+00:29:57,960 --> 00:30:04,470
+de temperatura lo hacemos de forma muy
+
+642
+00:30:00,390 --> 00:30:07,080
+simple con dht punto ruiz de temperatura
+
+643
+00:30:04,470 --> 00:30:09,539
+y asignamos el valor a la variable
+
+644
+00:30:07,079 --> 00:30:11,879
+entera aquí mismo declarada con el
+
+645
+00:30:09,539 --> 00:30:14,399
+nombre temperatura es el valor de
+
+646
+00:30:11,880 --> 00:30:17,040
+temperatura es del tipo entera y
+
+647
+00:30:14,400 --> 00:30:19,230
+nosotros estamos armando un string para
+
+648
+00:30:17,039 --> 00:30:22,289
+enviarle de vuelta al navegador
+
+649
+00:30:19,230 --> 00:30:25,019
+así que usaremos la función string y
+
+650
+00:30:22,289 --> 00:30:28,409
+entre paréntesis la variable temperatura
+
+651
+00:30:25,019 --> 00:30:31,799
+de esa forma convertimos el valor entero
+
+652
+00:30:28,410 --> 00:30:35,610
+a string y lo agregamos a string página
+
+653
+00:30:31,799 --> 00:30:38,159
+con página más igual como verás el
+
+654
+00:30:35,609 --> 00:30:40,740
+proceso es simple la idea es ir
+
+655
+00:30:38,160 --> 00:30:42,960
+generando el string página con todo el
+
+656
+00:30:40,740 --> 00:30:45,539
+contenido a mostrarse solo debemos
+
+657
+00:30:42,960 --> 00:30:48,450
+convertir el valor de temperatura para
+
+658
+00:30:45,539 --> 00:30:52,379
+poder incorporarlo agregamos la etiqueta
+
+659
+00:30:48,450 --> 00:30:55,019
+br que en html significa break line
+
+660
+00:30:52,380 --> 00:30:57,090
+nueva línea ya que luego de mostrar la
+
+661
+00:30:55,019 --> 00:31:00,089
+temperatura deseamos ir a la siguiente
+
+662
+00:30:57,089 --> 00:31:02,209
+línea y mostrar la humedad con la misma
+
+663
+00:31:00,089 --> 00:31:06,000
+metodología que para la temperatura
+
+664
+00:31:02,210 --> 00:31:09,690
+agregamos al string el texto humedad dos
+
+665
+00:31:06,000 --> 00:31:12,779
+puntos y un espacio con la función de ht
+
+666
+00:31:09,690 --> 00:31:15,180
+punto read you meeting obtenemos el
+
+667
+00:31:12,779 --> 00:31:16,740
+valor y lo asignamos a la variable
+
+668
+00:31:15,180 --> 00:31:20,100
+entera humedad
+
+669
+00:31:16,740 --> 00:31:24,029
+luego la convertimos a string resta sólo
+
+670
+00:31:20,099 --> 00:31:27,029
+cerrar las etiquetas body y html con eso
+
+671
+00:31:24,029 --> 00:31:29,730
+tenemos todo el string página generado
+
+672
+00:31:27,029 --> 00:31:32,279
+con los textos y valores de temperatura
+
+673
+00:31:29,730 --> 00:31:34,829
+y humedad los dos bloques siguientes
+
+674
+00:31:32,279 --> 00:31:37,349
+serán exactamente iguales
+
+675
+00:31:34,829 --> 00:31:41,009
+el programa generamos un nuevo string
+
+676
+00:31:37,349 --> 00:31:44,369
+enviar con el comando ate más
+
+677
+00:31:41,009 --> 00:31:47,250
+el número de la conexión y la longitud
+
+678
+00:31:44,369 --> 00:31:50,129
+de la página y enviamos mediante de 1
+
+679
+00:31:47,250 --> 00:31:54,028
+punto print line enviar y luego la
+
+680
+00:31:50,130 --> 00:31:57,240
+página con de 1 punto print line página
+
+681
+00:31:54,028 --> 00:31:58,470
+finalmente cerramos la conexión con ate
+
+682
+00:31:57,240 --> 00:32:01,620
++
+
+683
+00:31:58,470 --> 00:32:04,019
+cloud para resumir el programa espera
+
+684
+00:32:01,619 --> 00:32:06,869
+por una petición desde el navegador web
+
+685
+00:32:04,019 --> 00:32:09,500
+y responde con una página que muestra
+
+686
+00:32:06,869 --> 00:32:12,959
+los valores de temperatura y humedad
+
+687
+00:32:09,500 --> 00:32:15,960
+obtenidos del dht 11 actualizando el
+
+688
+00:32:12,960 --> 00:32:18,808
+contenido de forma automática cada 15
+
+689
+00:32:15,960 --> 00:32:21,389
+segundos vamos a verificar y subir el
+
+690
+00:32:18,808 --> 00:32:23,970
+programa nuevamente abramos nuestro
+
+691
+00:32:21,388 --> 00:32:26,459
+navegador web y coloquemos en la barra
+
+692
+00:32:23,970 --> 00:32:33,149
+de direcciones la ip de nuestro módulo
+
+693
+00:32:26,460 --> 00:32:35,940
+las 192 168 0 18 y enter podrás observar
+
+694
+00:32:33,148 --> 00:32:38,879
+que se muestra el texto temperatura dos
+
+695
+00:32:35,940 --> 00:32:41,460
+puntos y el valor debajo
+
+696
+00:32:38,880 --> 00:32:43,710
+a dos puntos y el valor correspondiente
+
+697
+00:32:41,460 --> 00:32:45,690
+ahora sin ningún tipo de acción
+
+698
+00:32:43,710 --> 00:32:48,230
+necesaria de nuestra parte se
+
+699
+00:32:45,690 --> 00:32:50,240
+actualizará la página cada 15 segundos
+
+700
+00:32:48,230 --> 00:32:53,130
+mostrando los valores actualizados
+
+701
+00:32:50,240 --> 00:32:55,349
+estaría tapando con la mano el sensor
+
+702
+00:32:53,130 --> 00:32:57,000
+para obligar a un incremento en la
+
+703
+00:32:55,349 --> 00:32:58,919
+temperatura y humedad
+
+704
+00:32:57,000 --> 00:33:01,589
+la humedad será el valor que se
+
+705
+00:32:58,920 --> 00:33:04,500
+incremente más rápidamente recordad que
+
+706
+00:33:01,589 --> 00:33:06,959
+cada 15 segundos se actualiza con lo
+
+707
+00:33:04,500 --> 00:33:09,269
+cual debemos ver cómo cambia luego
+
+708
+00:33:06,960 --> 00:33:11,390
+quitándola mano cuando se actualicen los
+
+709
+00:33:09,269 --> 00:33:14,700
+valores deberá ir bajando lentamente
+
+710
+00:33:11,390 --> 00:33:16,950
+hasta la temperatura y humedad ambiente
+
+711
+00:33:14,700 --> 00:33:19,670
+el tiempo de actualización podrás
+
+712
+00:33:16,950 --> 00:33:22,860
+modificarlo pero no sería recomendable
+
+713
+00:33:19,670 --> 00:33:25,710
+reducirlo a menos de 10 segundos ten en
+
+714
+00:33:22,859 --> 00:33:28,079
+cuenta que esta interfaz web es a modo
+
+715
+00:33:25,710 --> 00:33:30,420
+de monitoreo y no requiere una
+
+716
+00:33:28,079 --> 00:33:33,210
+actualización constante si quisiéramos
+
+717
+00:33:30,420 --> 00:33:36,090
+aplicar una acción por ejemplo si la
+
+718
+00:33:33,210 --> 00:33:38,250
+temperatura supera determinado valor lo
+
+719
+00:33:36,089 --> 00:33:41,099
+haríamos dentro del código del programa
+
+720
+00:33:38,250 --> 00:33:43,259
+que se actualiza mucho más rápido de
+
+721
+00:33:41,099 --> 00:33:46,199
+esta manera vemos cómo es muy simple
+
+722
+00:33:43,259 --> 00:33:49,410
+obtener datos desde la petición
+
+723
+00:33:46,200 --> 00:33:52,230
+navegador web para generar una acción y
+
+724
+00:33:49,410 --> 00:33:55,200
+también cómo obtener datos de un sensor
+
+725
+00:33:52,230 --> 00:33:57,750
+conectado arduino para mostrarlos en una
+
+726
+00:33:55,200 --> 00:34:00,299
+página para finalizar el capítulo quiero
+
+727
+00:33:57,750 --> 00:34:03,240
+hacerte mención de una línea que puede
+
+728
+00:34:00,299 --> 00:34:06,599
+ser necesaria que incorpore si el módulo
+
+729
+00:34:03,240 --> 00:34:09,329
+parece no responder a los comandos ate
+
+730
+00:34:06,599 --> 00:34:12,079
+es un comando para resetear el mismo
+
+731
+00:34:09,329 --> 00:34:15,150
+esta acción la podrás realizar también
+
+732
+00:34:12,079 --> 00:34:17,099
+presionando el botón de reset de la de 1
+
+733
+00:34:15,150 --> 00:34:19,440
+mini pero para hacerlo de forma
+
+734
+00:34:17,099 --> 00:34:23,819
+automática es sólo cuestión de agregar
+
+735
+00:34:19,440 --> 00:34:25,889
+estas dos líneas antes del ate más se w
+
+736
+00:34:23,820 --> 00:34:28,650
+modo recordad que el código de los
+
+737
+00:34:25,889 --> 00:34:31,049
+programas vistos en este capítulo y el
+
+738
+00:34:28,650 --> 00:34:33,570
+de todos los capítulos está disponible
+
+739
+00:34:31,050 --> 00:34:36,420
+para descargar desde el enlace en la
+
+740
+00:34:33,570 --> 00:34:38,700
+zona de descripción como es usual te
+
+741
+00:34:36,420 --> 00:34:41,820
+pido te suscribas si aún no lo has hecho
+
+742
+00:34:38,699 --> 00:34:44,009
+y por cualquier duda o comentario lo
+
+743
+00:34:41,820 --> 00:34:48,860
+podrás hacer debajo que con gusto te
+
+744
+00:34:44,010 --> 00:34:48,860
+responderé chau y hasta la próxima
+

@@ -1,0 +1,27 @@
+Display OLED de 0,96" interfaz I2C gráfico de colores amarillo y cyan para todo tipo de proyectos con Arduino, excelente contraste y ángulo de visión con bajo consumo.
+Basado en controlador (driver) SSD1306 veremos como conectarlo fácilmente a Arduino y usar librerías para rápidamente mostrar texto, gráficos y simples animaciones.
+
+Librería Adafruit GFX: https://learn.adafruit.com/adafruit-gfx-graphics-library/graphics-primitives
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoDisplay
+#ArduinoOLED
+Arduino SSD1306
+Arduino oled 128x64
+Arduino oled 0.96
+Arduino oled i2c
+Arduino pantalla oled
+Ssd1306 adafruit
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:27 Características del módulo
+4:48 Circuito de conexión
+5:39 Instalación de librerías
+6:44 Primer programa (segundos transcurridos)
+16:24 Segundo programa (texto extenso)
+19:39 Tercer programa (figuras geométricas y animación)
+24:09 Cuarto programa (figura geométrica y texto simultáneo)
+26:45 Resumen de lo analizado y despedida

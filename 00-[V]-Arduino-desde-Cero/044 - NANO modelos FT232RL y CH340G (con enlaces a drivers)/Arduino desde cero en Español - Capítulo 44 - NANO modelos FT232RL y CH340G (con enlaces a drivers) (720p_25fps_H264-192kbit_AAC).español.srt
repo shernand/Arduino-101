@@ -1,0 +1,1240 @@
+1
+00:00:01,560 --> 00:00:08,308
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,429 --> 00:00:10,349
+44 de arduino desde cero en español
+
+3
+00:00:08,308 --> 00:00:13,198
+en esta oportunidad analizaremos el
+
+4
+00:00:10,349 --> 00:00:14,660
+modelo de placas nano ideal para reducir
+
+5
+00:00:13,198 --> 00:00:17,759
+el tamaño de nuestros proyectos
+
+6
+00:00:14,660 --> 00:00:20,910
+manteniendo las capacidades ya conocidas
+
+7
+00:00:17,759 --> 00:00:23,490
+del modelo 1 de hecho en esta imagen se
+
+8
+00:00:20,910 --> 00:00:27,240
+puede ver a escala el tamaño de la nano
+
+9
+00:00:23,489 --> 00:00:29,879
+respecto de la 1 con tan sólo 43 x 18
+
+10
+00:00:27,239 --> 00:00:32,668
+milímetros podremos incorporarla en
+
+11
+00:00:29,879 --> 00:00:35,399
+espacios reducidos el precio de la nano
+
+12
+00:00:32,668 --> 00:00:37,829
+es inferior a la de 1 con lo cual es una
+
+13
+00:00:35,399 --> 00:00:40,350
+placa muy popular para comenzar en el
+
+14
+00:00:37,829 --> 00:00:43,049
+mundo de arduino y también para su uso
+
+15
+00:00:40,350 --> 00:00:45,929
+como segunda placa en proyectos donde se
+
+16
+00:00:43,049 --> 00:00:48,719
+requieren tener dos arduino por ejemplo
+
+17
+00:00:45,929 --> 00:00:51,570
+en enlaces de radiofrecuencia donde una
+
+18
+00:00:48,719 --> 00:00:54,149
+transmite y otra recibe veamos en
+
+19
+00:00:51,570 --> 00:00:56,280
+detalle los componentes principales en
+
+20
+00:00:54,149 --> 00:00:58,739
+la imagen de la izquierda tenemos una
+
+21
+00:00:56,280 --> 00:01:01,740
+vista superior donde se destacan el
+
+22
+00:00:58,740 --> 00:01:03,480
+conector del tipo mini usb que nos
+
+23
+00:01:01,740 --> 00:01:06,118
+permitirá conectarla a nuestra
+
+24
+00:01:03,479 --> 00:01:07,979
+computadora mediante un conector mucho
+
+25
+00:01:06,118 --> 00:01:10,140
+más pequeño que el modelo
+
+26
+00:01:07,980 --> 00:01:12,719
+luego el microcontrolador será
+
+27
+00:01:10,140 --> 00:01:16,950
+exactamente el mismo que para el modelo
+
+28
+00:01:12,719 --> 00:01:19,560
+1 y la admira 328 p con encapsulado de
+
+29
+00:01:16,950 --> 00:01:21,900
+montaje superficial con lo cual todos
+
+30
+00:01:19,560 --> 00:01:24,780
+los programas posibles de ejecutar en la
+
+31
+00:01:21,900 --> 00:01:25,410
+1 lo harán aquí en la no en la vista
+
+32
+00:01:24,780 --> 00:01:27,810
+inferior
+
+33
+00:01:25,409 --> 00:01:30,689
+venimos a sus lados las tiras de pines
+
+34
+00:01:27,810 --> 00:01:33,269
+macho que se conectan a protoboard para
+
+35
+00:01:30,689 --> 00:01:36,299
+conectar los cables de forma directa
+
+36
+00:01:33,269 --> 00:01:38,699
+esta parte difiere del modelo 1 donde
+
+37
+00:01:36,299 --> 00:01:40,979
+los pines son hembras y ubicados en la
+
+38
+00:01:38,700 --> 00:01:44,040
+parte superior con lo cual aquí la idea
+
+39
+00:01:40,980 --> 00:01:46,620
+principal es conectarla a protoboard en
+
+40
+00:01:44,040 --> 00:01:49,110
+un circuito impreso con un zócalo o
+
+41
+00:01:46,620 --> 00:01:52,050
+soldado de forma directa cerca del
+
+42
+00:01:49,109 --> 00:01:55,739
+conector mini usb tendremos un circuito
+
+43
+00:01:52,049 --> 00:01:57,659
+integrado conversor usb ttl que nos
+
+44
+00:01:55,739 --> 00:02:00,629
+permite conectar la placa a la
+
+45
+00:01:57,659 --> 00:02:03,420
+computadora obtener de ella alimentación
+
+46
+00:02:00,629 --> 00:02:06,299
+y comunicación para cargar programas y
+
+47
+00:02:03,420 --> 00:02:08,729
+monitor series más adelante veremos que
+
+48
+00:02:06,299 --> 00:02:11,419
+existen dos modelos populares de este
+
+49
+00:02:08,729 --> 00:02:13,949
+conversor dependiendo del fabricante
+
+50
+00:02:11,419 --> 00:02:17,068
+finalmente un regulador lineal
+
+51
+00:02:13,949 --> 00:02:19,378
+de 5 volts permite obtener dicha
+
+52
+00:02:17,068 --> 00:02:21,750
+atención en un pin de salida para
+
+53
+00:02:19,378 --> 00:02:24,389
+alimentar dispositivos externos cuando
+
+54
+00:02:21,750 --> 00:02:28,139
+es alimentada la placa de forma externa
+
+55
+00:02:24,389 --> 00:02:30,208
+mediante un pin especial llamado bein la
+
+56
+00:02:28,139 --> 00:02:32,969
+funcionalidad de cada uno de los pines
+
+57
+00:02:30,209 --> 00:02:35,098
+digitales y analógicos los podemos ver
+
+58
+00:02:32,969 --> 00:02:37,439
+aquí tendremos la misma cantidad de
+
+59
+00:02:35,098 --> 00:02:41,669
+pines digitales configurables como
+
+60
+00:02:37,439 --> 00:02:45,060
+entrada o salida de 2 a de 13 donde seis
+
+61
+00:02:41,669 --> 00:02:47,280
+de ellos tendrán capacidad de w m igual
+
+62
+00:02:45,060 --> 00:02:49,469
+que arduino uno si estás viendo este
+
+63
+00:02:47,280 --> 00:02:51,598
+capítulo e iniciando en el mundo de
+
+64
+00:02:49,469 --> 00:02:54,030
+arduino recomiendo que comiences desde
+
+65
+00:02:51,598 --> 00:02:58,078
+el principio del curso donde se explican
+
+66
+00:02:54,030 --> 00:03:00,390
+los pines digitales analógicos wm y más
+
+67
+00:02:58,079 --> 00:03:04,379
+con respecto a los pines analógicos
+
+68
+00:03:00,389 --> 00:03:07,949
+tendremos a 0 a 5 igual que el modelo 1
+
+69
+00:03:04,379 --> 00:03:11,280
+pero aquí aparecen dos adicionales a6 y
+
+70
+00:03:07,949 --> 00:03:13,828
+a7 logrando así un total de 8 entradas
+
+71
+00:03:11,280 --> 00:03:16,860
+analógicas pese al reducido tamaño
+
+72
+00:03:13,829 --> 00:03:19,680
+tenemos 2 pines adicionales que son
+
+73
+00:03:16,860 --> 00:03:20,400
+bienvenidos los dos primeros pines de la
+
+74
+00:03:19,680 --> 00:03:23,129
+fila
+
+75
+00:03:20,400 --> 00:03:26,519
+fer your derecha corresponden a de uno
+
+76
+00:03:23,128 --> 00:03:29,098
+para tx y de cero para rx de la
+
+77
+00:03:26,519 --> 00:03:31,289
+comunicación serie por guard en el
+
+78
+00:03:29,098 --> 00:03:32,988
+modelo 1 estos mismos pines se
+
+79
+00:03:31,289 --> 00:03:36,568
+encuentran pero en orden invertido
+
+80
+00:03:32,989 --> 00:03:39,060
+primero de 0 y luego de 1 con la misma
+
+81
+00:03:36,568 --> 00:03:41,399
+funcionalidad son un reflejo de las
+
+82
+00:03:39,060 --> 00:03:44,658
+líneas de comunicación provistas por el
+
+83
+00:03:41,400 --> 00:03:47,969
+conversor usb ttl aunque por lo general
+
+84
+00:03:44,658 --> 00:03:50,639
+usamos la librería software serial para
+
+85
+00:03:47,969 --> 00:03:52,919
+definir otros dos pines cualquiera para
+
+86
+00:03:50,639 --> 00:03:55,348
+dicha función ya que estamos hablando de
+
+87
+00:03:52,919 --> 00:03:58,738
+comunicación serie tendremos los pines
+
+88
+00:03:55,348 --> 00:04:01,199
+asociados a la interfaz esp y iguales
+
+89
+00:03:58,739 --> 00:04:04,709
+que en el modelo 1 con el pin digital
+
+90
+00:04:01,199 --> 00:04:09,209
+número 10 ejecutando la función de slave
+
+91
+00:04:04,709 --> 00:04:12,299
+select el 11 como si el 12 como miso y
+
+92
+00:04:09,209 --> 00:04:14,519
+del otro lado de la placa al pin 13 como
+
+93
+00:04:12,299 --> 00:04:17,970
+sería el club también al igual que el
+
+94
+00:04:14,519 --> 00:04:21,629
+modelo 1 la interfaz de dos cables y 12
+
+95
+00:04:17,970 --> 00:04:23,400
+estará presente en a 4 para esa idea y a
+
+96
+00:04:21,629 --> 00:04:26,159
+5 para eso
+
+97
+00:04:23,399 --> 00:04:29,429
+y el resto de los pines serán la salida
+
+98
+00:04:26,160 --> 00:04:31,460
+de 33 volts luego el que corresponde a
+
+99
+00:04:29,430 --> 00:04:34,709
+la referencia de las entradas analógicas
+
+100
+00:04:31,459 --> 00:04:37,560
+este pin con denominación red quién
+
+101
+00:04:34,709 --> 00:04:40,649
+arduino uno existe como a red
+
+102
+00:04:37,560 --> 00:04:43,199
+nunca lo usamos y en un futuro capítulo
+
+103
+00:04:40,649 --> 00:04:46,049
+lo analizaremos como corresponde luego
+
+104
+00:04:43,199 --> 00:04:48,780
+la salida regulada de 5 volts que usamos
+
+105
+00:04:46,050 --> 00:04:52,288
+de manera usual para alimentar sensores
+
+106
+00:04:48,779 --> 00:04:55,258
+y dispositivos y 2 pines de gene de o
+
+107
+00:04:52,288 --> 00:04:57,990
+más a tierra en ambos lados de la placa
+
+108
+00:04:55,259 --> 00:05:00,419
+para mayor comodidad un pin de reset
+
+109
+00:04:57,990 --> 00:05:03,329
+para realizar dicha función de forma
+
+110
+00:05:00,418 --> 00:05:06,689
+remota si no tenemos acceso al pulsador
+
+111
+00:05:03,329 --> 00:05:09,300
+físico de la placa y finalmente be in o
+
+112
+00:05:06,689 --> 00:05:11,969
+voltaje de entrada que se utilizará para
+
+113
+00:05:09,300 --> 00:05:15,270
+alimentar la placa con una fuente no
+
+114
+00:05:11,970 --> 00:05:17,729
+regulada de entre 7 y 12 volts en
+
+115
+00:05:15,269 --> 00:05:20,728
+arduino 1 tenemos un conector para
+
+116
+00:05:17,728 --> 00:05:23,490
+alimentación externa del tipo jack aquí
+
+117
+00:05:20,728 --> 00:05:25,949
+como la placa tiene un tamaño reducido
+
+118
+00:05:23,490 --> 00:05:28,590
+no resultaría práctico colocar un
+
+119
+00:05:25,949 --> 00:05:30,770
+conector tan voluminoso por eso tenemos
+
+120
+00:05:28,589 --> 00:05:33,419
+un pin destinado para él
+
+121
+00:05:30,769 --> 00:05:35,909
+externa el tema alimentación es
+
+122
+00:05:33,420 --> 00:05:38,189
+importante y por eso quiero detenerme
+
+123
+00:05:35,910 --> 00:05:40,800
+unos instantes para analizarlo en
+
+124
+00:05:38,189 --> 00:05:43,230
+detalle en esta vista inferior de la
+
+125
+00:05:40,800 --> 00:05:46,379
+nano tenemos en la parte superior el
+
+126
+00:05:43,230 --> 00:05:48,600
+conector del tipo mini usb ya sabemos
+
+127
+00:05:46,379 --> 00:05:51,360
+que conectando un cable a la computadora
+
+128
+00:05:48,600 --> 00:05:54,060
+podemos alimentar la nano y también
+
+129
+00:05:51,360 --> 00:05:56,910
+cargarle programas y obtener datos de
+
+130
+00:05:54,060 --> 00:06:00,000
+ella mediante el monitor serie el pin de
+
+131
+00:05:56,910 --> 00:06:02,580
+salida de 5 volts refleja los mismos
+
+132
+00:06:00,000 --> 00:06:05,220
+cinco volts del puerto usb de la
+
+133
+00:06:02,579 --> 00:06:07,439
+computadora y así es que trabajamos la
+
+134
+00:06:05,220 --> 00:06:10,350
+mayoría de los casos si ahora deseamos
+
+135
+00:06:07,439 --> 00:06:12,600
+trabajar de forma autónoma sin conexión
+
+136
+00:06:10,350 --> 00:06:15,300
+a la computadora podremos alimentar la
+
+137
+00:06:12,600 --> 00:06:18,870
+placa con una fuente externa con valores
+
+138
+00:06:15,300 --> 00:06:21,509
+de tensión de entre 7 y 12 volts dicho
+
+139
+00:06:18,870 --> 00:06:23,819
+voltaje se aplica de forma directa al
+
+140
+00:06:21,509 --> 00:06:26,670
+regulador lineal de tensión aquí
+
+141
+00:06:23,819 --> 00:06:30,240
+señalado éste convertirá la tensión de
+
+142
+00:06:26,670 --> 00:06:32,910
+entrada no regulada a 5 volts regulados
+
+143
+00:06:30,240 --> 00:06:35,790
+con un suministro máximo de corriente de
+
+144
+00:06:32,910 --> 00:06:37,409
+hasta 500.000 jumper la misma forma en
+
+145
+00:06:35,790 --> 00:06:39,689
+la que funciona el modelo
+
+146
+00:06:37,408 --> 00:06:42,389
+cuando aplicamos una fuente externa
+
+147
+00:06:39,689 --> 00:06:44,819
+mediante el jack de alimentación pasa
+
+148
+00:06:42,389 --> 00:06:48,658
+por el regulador y brinda una salida
+
+149
+00:06:44,819 --> 00:06:51,598
+estable y regulada de 5 goltz ahora para
+
+150
+00:06:48,658 --> 00:06:55,019
+la salida de 33 world la cuestión es
+
+151
+00:06:51,598 --> 00:06:58,079
+diferente en la no respecto de 1 en nano
+
+152
+00:06:55,019 --> 00:07:01,739
+los 33 volts son generados por el propio
+
+153
+00:06:58,079 --> 00:07:04,198
+conversor usb ttl el mismo circuito
+
+154
+00:07:01,738 --> 00:07:07,138
+integrado tiene un regulador incorporado
+
+155
+00:07:04,199 --> 00:07:09,929
+que genera los 33 volts de forma
+
+156
+00:07:07,139 --> 00:07:12,449
+diferente el modelo 1 dispone de un
+
+157
+00:07:09,928 --> 00:07:15,928
+regulador por separado y destinado
+
+158
+00:07:12,449 --> 00:07:19,079
+exclusivamente para el riel de 33 volts
+
+159
+00:07:15,928 --> 00:07:22,558
+en uno dicho regulador puede suministrar
+
+160
+00:07:19,079 --> 00:07:25,259
+hasta 150 mil jumper de corriente máxima
+
+161
+00:07:22,559 --> 00:07:28,079
+aquí en la nano como no tenemos un
+
+162
+00:07:25,259 --> 00:07:30,179
+regulador especializado y forma parte de
+
+163
+00:07:28,079 --> 00:07:33,478
+la funcionalidad del conversor el
+
+164
+00:07:30,178 --> 00:07:36,088
+suministro de corriente será menor de 50
+
+165
+00:07:33,478 --> 00:07:38,758
+mil jumper como máximo es importante
+
+166
+00:07:36,088 --> 00:07:41,459
+tener en cuenta esta diferencia si bien
+
+167
+00:07:38,759 --> 00:07:43,230
+solemos trabajar con el riel de 5 volts
+
+168
+00:07:41,459 --> 00:07:46,949
+ya hemos utilizado el
+
+169
+00:07:43,230 --> 00:07:49,530
+de 33 en varias ocasiones y es necesario
+
+170
+00:07:46,949 --> 00:07:51,300
+estar al tanto de su limitación para
+
+171
+00:07:49,529 --> 00:07:55,319
+esta placa ya que estamos en la parte
+
+172
+00:07:51,300 --> 00:07:57,600
+inferior el conversor usb ttl dependerá
+
+173
+00:07:55,319 --> 00:08:00,269
+del fabricante de la nano no todos
+
+174
+00:07:57,600 --> 00:08:05,370
+utilizan el mismo circuito integrado el
+
+175
+00:08:00,269 --> 00:08:07,949
+más usual es éste el modelo ft 232 rl
+
+176
+00:08:05,370 --> 00:08:12,030
+que es el de mi placa pero también es
+
+177
+00:08:07,949 --> 00:08:14,339
+popular el modelo ch 340 g ambos modelos
+
+178
+00:08:12,029 --> 00:08:18,089
+funcionan correctamente pero al momento
+
+179
+00:08:14,339 --> 00:08:19,819
+de instalar el id de arduino el mismo no
+
+180
+00:08:18,089 --> 00:08:22,769
+incorpora los drivers o controladores
+
+181
+00:08:19,819 --> 00:08:25,469
+para nuestra computadora por eso es
+
+182
+00:08:22,769 --> 00:08:27,839
+necesario descargar el correspondiente a
+
+183
+00:08:25,470 --> 00:08:30,690
+nuestro modelo desde la página web del
+
+184
+00:08:27,839 --> 00:08:32,879
+fabricante de hecho a veces es motivo de
+
+185
+00:08:30,689 --> 00:08:35,610
+frustración para aquellos que inician
+
+186
+00:08:32,879 --> 00:08:37,679
+con arduino y el modelo lab no ya que se
+
+187
+00:08:35,610 --> 00:08:40,470
+asume que junto con la instalación del
+
+188
+00:08:37,679 --> 00:08:42,779
+ide se incorporan los controladores que
+
+189
+00:08:40,470 --> 00:08:45,870
+requiere la computadora para detectar la
+
+190
+00:08:42,779 --> 00:08:48,509
+placa y no es el caso veremos ahora cómo
+
+191
+00:08:45,870 --> 00:08:48,899
+descargar e instalar el controlador para
+
+192
+00:08:48,509 --> 00:08:51,059
+ambos
+
+193
+00:08:48,899 --> 00:08:53,850
+modelos y luego finalizaremos el
+
+194
+00:08:51,059 --> 00:08:56,609
+capítulo con unas conclusiones sobre los
+
+195
+00:08:53,850 --> 00:09:00,540
+aspectos a favor y en contra del modelo
+
+196
+00:08:56,610 --> 00:09:03,060
+nano versus 1 es importante instalar el
+
+197
+00:09:00,539 --> 00:09:05,159
+controlador antes de que conectes la
+
+198
+00:09:03,059 --> 00:09:07,319
+placa a la computadora para evitar
+
+199
+00:09:05,159 --> 00:09:11,549
+inconvenientes si tu nano tiene el
+
+200
+00:09:07,320 --> 00:09:14,100
+circuito integrado ft 232 rl entonces
+
+201
+00:09:11,549 --> 00:09:16,349
+deberás ingresar a esta dirección web
+
+202
+00:09:14,100 --> 00:09:18,960
+estaré dejando en la zona de descripción
+
+203
+00:09:16,350 --> 00:09:21,300
+este mismo enlace al ingresar a dicha
+
+204
+00:09:18,960 --> 00:09:23,519
+página deberemos buscar la sección de
+
+205
+00:09:21,299 --> 00:09:25,379
+descarga y seleccionar el sistema
+
+206
+00:09:23,519 --> 00:09:27,389
+operativo de nuestra computadora
+
+207
+00:09:25,379 --> 00:09:31,110
+en mi caso seleccionar el enlace
+
+208
+00:09:27,389 --> 00:09:33,840
+denominado setup execute hable sobre el
+
+209
+00:09:31,110 --> 00:09:36,600
+sistema windows podemos seleccionar que
+
+210
+00:09:33,840 --> 00:09:38,790
+abra con el explorador de windows así
+
+211
+00:09:36,600 --> 00:09:41,430
+nos lleva de forma directa al archivo
+
+212
+00:09:38,789 --> 00:09:44,459
+ejecutable hacemos doble clic sobre el
+
+213
+00:09:41,429 --> 00:09:47,159
+mismo y luego el botón extracto inicia
+
+214
+00:09:44,460 --> 00:09:50,190
+el asistente de instalación aceptamos el
+
+215
+00:09:47,159 --> 00:09:52,589
+contrato como es usual y siguiente esto
+
+216
+00:09:50,190 --> 00:09:54,990
+copiará los archivos necesarios y luego
+
+217
+00:09:52,590 --> 00:09:57,959
+sólo basta con presionar en final
+
+218
+00:09:54,990 --> 00:10:00,480
+en este punto ahora si procedemos a
+
+219
+00:09:57,958 --> 00:10:03,719
+conectar la placa a nuestra computadora
+
+220
+00:10:00,480 --> 00:10:05,909
+mediante el cable usb windows detectará
+
+221
+00:10:03,720 --> 00:10:08,160
+el nuevo hardware y veremos brevemente
+
+222
+00:10:05,909 --> 00:10:11,399
+la ventana de instalación del nuevo
+
+223
+00:10:08,159 --> 00:10:13,379
+dispositivo y eso es todo para verificar
+
+224
+00:10:11,399 --> 00:10:14,850
+que ha quedado todo correcto podemos
+
+225
+00:10:13,379 --> 00:10:17,669
+ingresar al administrador de
+
+226
+00:10:14,850 --> 00:10:22,050
+dispositivos y bajo la sección puertos
+
+227
+00:10:17,669 --> 00:10:25,708
+con y lte usb serial port entre
+
+228
+00:10:22,049 --> 00:10:27,870
+paréntesis con 4 con 4 es el puerto
+
+229
+00:10:25,708 --> 00:10:30,479
+asignado en mi caso y puede ser un
+
+230
+00:10:27,870 --> 00:10:32,959
+número distinto en el tuyo recordarlo
+
+231
+00:10:30,480 --> 00:10:35,639
+para ahora seleccionar desde el id
+
+232
+00:10:32,958 --> 00:10:38,849
+ingresando al menú herramientas en la
+
+233
+00:10:35,639 --> 00:10:41,730
+sección placa seleccionamos arduino nano
+
+234
+00:10:38,850 --> 00:10:45,778
+luego nuevamente en herramientas sección
+
+235
+00:10:41,730 --> 00:10:48,089
+puerto el como 4 para mi caso en el tuyo
+
+236
+00:10:45,778 --> 00:10:50,850
+sea el que hayas visto el administrador
+
+237
+00:10:48,089 --> 00:10:52,980
+de dispositivos y con eso ya queda todo
+
+238
+00:10:50,850 --> 00:10:56,129
+listo ahora en caso de que tu placa
+
+239
+00:10:52,980 --> 00:10:58,709
+tenga el circuito integrado ch 340 g
+
+240
+00:10:56,129 --> 00:11:00,710
+deberás ingresar a esta dirección web
+
+241
+00:10:58,708 --> 00:11:03,589
+que también dejaré en él
+
+242
+00:11:00,710 --> 00:11:06,019
+de la zona de descripción seleccionar el
+
+243
+00:11:03,590 --> 00:11:08,960
+sistema operativo en mi caso windows
+
+244
+00:11:06,019 --> 00:11:11,870
+doble clic en el ejecutable luego
+
+245
+00:11:08,960 --> 00:11:14,780
+ejecutar en la ventana de advertencia y
+
+246
+00:11:11,870 --> 00:11:16,700
+finalmente el botón install en pocos
+
+247
+00:11:14,779 --> 00:11:20,209
+segundos copiará los archivos necesarios
+
+248
+00:11:16,700 --> 00:11:22,100
+y luego el botón aceptar al igual que
+
+249
+00:11:20,210 --> 00:11:24,080
+antes podrá verificar mediante el
+
+250
+00:11:22,100 --> 00:11:25,930
+administrador de dispositivos y
+
+251
+00:11:24,080 --> 00:11:28,550
+seleccionar el puerto con
+
+252
+00:11:25,929 --> 00:11:31,549
+correspondiente desde el ide para
+
+253
+00:11:28,549 --> 00:11:34,069
+finalizar veamos según mi parecer cuáles
+
+254
+00:11:31,549 --> 00:11:37,459
+son los puntos a favor y en contra del
+
+255
+00:11:34,070 --> 00:11:40,360
+modelo nano respecto del 1 el principal
+
+256
+00:11:37,460 --> 00:11:42,620
+a favor es claramente el tamaño reducido
+
+257
+00:11:40,360 --> 00:11:45,110
+haciéndolo ideal para integrar en
+
+258
+00:11:42,620 --> 00:11:47,240
+lugares de poco espacio y también para
+
+259
+00:11:45,110 --> 00:11:50,919
+aplicaciones móviles y el hecho de tener
+
+260
+00:11:47,240 --> 00:11:53,480
+el microcontrolador at mega 328 p
+
+261
+00:11:50,919 --> 00:11:55,449
+exactamente igual que arruinó uno no se
+
+262
+00:11:53,480 --> 00:11:57,830
+aseguró a trabajar con un viejo conocido
+
+263
+00:11:55,450 --> 00:12:00,379
+donde todos los programas vistos
+
+264
+00:11:57,830 --> 00:12:03,190
+funcionarán de forma directa sin ningún
+
+265
+00:12:00,379 --> 00:12:06,000
+tipo de cambio dos entradas analógicas
+
+266
+00:12:03,190 --> 00:12:09,090
+adicionales puede que no sean un gran
+
+267
+00:12:06,000 --> 00:12:11,730
+pero claramente no vienen mal por su
+
+268
+00:12:09,090 --> 00:12:14,370
+reducido tamaño y los pines de conexión
+
+269
+00:12:11,730 --> 00:12:17,009
+macho en su parte inferior la hace ideal
+
+270
+00:12:14,370 --> 00:12:19,379
+para conexión directa a protoboard o
+
+271
+00:12:17,009 --> 00:12:22,259
+montar sobre un zócalo en un circuito
+
+272
+00:12:19,379 --> 00:12:25,350
+impreso un precio inferior respecto al
+
+273
+00:12:22,259 --> 00:12:27,750
+modelo 1 la hace atractiva no solo para
+
+274
+00:12:25,350 --> 00:12:29,879
+comenzar en el mundo de arduino sino
+
+275
+00:12:27,750 --> 00:12:32,840
+también para tener como segunda placa
+
+276
+00:12:29,879 --> 00:12:34,710
+para proyectos por ejemplo de enlaces de
+
+277
+00:12:32,840 --> 00:12:37,470
+radiofrecuencia que veremos en un
+
+278
+00:12:34,710 --> 00:12:40,560
+próximo capítulo en contra tendremos que
+
+279
+00:12:37,470 --> 00:12:43,050
+el conector del tipo mini usb no es tan
+
+280
+00:12:40,559 --> 00:12:46,079
+robusto como el modelo 1 claramente la
+
+281
+00:12:43,049 --> 00:12:48,839
+decisión de un conector usb más pequeño
+
+282
+00:12:46,080 --> 00:12:50,639
+en relación al tamaño de la placa pero
+
+283
+00:12:48,840 --> 00:12:53,460
+sigue siendo algo a tener en cuenta
+
+284
+00:12:50,639 --> 00:12:56,340
+sobre todo para aquellos que recién se
+
+285
+00:12:53,460 --> 00:12:58,590
+inician el riel de 33 volts como
+
+286
+00:12:56,340 --> 00:13:02,310
+analizamos antes es provisto por el
+
+287
+00:12:58,590 --> 00:13:04,830
+propio conversor usb ttl y por ende se
+
+288
+00:13:02,309 --> 00:13:07,589
+encuentra limitado en su suministro de
+
+289
+00:13:04,830 --> 00:13:10,980
+corriente a aproximadamente una tercera
+
+290
+00:13:07,590 --> 00:13:12,780
+parte de lo que es capaz el modelo 1
+
+291
+00:13:10,980 --> 00:13:15,899
+finalmente los denominados
+
+292
+00:13:12,779 --> 00:13:18,750
+es que son placas de expansión diseñados
+
+293
+00:13:15,899 --> 00:13:21,329
+para el modelo 1 nos servirán para lana
+
+294
+00:13:18,750 --> 00:13:23,639
+no por una cuestión de tamaño entonces
+
+295
+00:13:21,330 --> 00:13:26,490
+para redondear un poco el tema creo que
+
+296
+00:13:23,639 --> 00:13:28,889
+la nano es una excelente opción como
+
+297
+00:13:26,490 --> 00:13:32,850
+segunda placa si ya tenemos como
+
+298
+00:13:28,889 --> 00:13:34,949
+principal un modelo 1 mega u otro pero
+
+299
+00:13:32,850 --> 00:13:38,370
+para aquellos que recién comienzan en
+
+300
+00:13:34,950 --> 00:13:40,680
+modelo 1 por su tamaño y robustez sigue
+
+301
+00:13:38,370 --> 00:13:43,289
+siendo mi recomendación recordad que
+
+302
+00:13:40,679 --> 00:13:45,899
+vimos también en el capítulo 32 el
+
+303
+00:13:43,289 --> 00:13:48,559
+modelo pro mini que es otra interesante
+
+304
+00:13:45,899 --> 00:13:51,299
+opción pero ya para usuarios algo más
+
+305
+00:13:48,559 --> 00:13:54,119
+experimentados en la plataforma eso es
+
+306
+00:13:51,299 --> 00:13:56,129
+todo por este capítulo como siempre te
+
+307
+00:13:54,120 --> 00:13:59,310
+pido te suscribas si aún no lo has hecho
+
+308
+00:13:56,129 --> 00:14:01,379
+y por cualquier duda o comentario lo
+
+309
+00:13:59,309 --> 00:14:06,349
+podéis hacer debajo que con gusto te
+
+310
+00:14:01,379 --> 00:14:06,350
+responde chau y hasta la próxima
+

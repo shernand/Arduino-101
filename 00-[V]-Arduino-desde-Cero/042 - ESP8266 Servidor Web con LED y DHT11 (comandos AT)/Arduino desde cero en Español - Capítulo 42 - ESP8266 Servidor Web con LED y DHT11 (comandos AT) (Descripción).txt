@@ -1,0 +1,27 @@
+Mediante la Wemos D1 Mini basada en ESP8266 iniciaremos un servidor web y utilizaremos información del encabezado para encender un LED conectado a un pin digital de Arduino y también crearemos una página web para mostrar temperatura y humedad de un sensor DHT11.
+Continuando con lo iniciado en el capitulo 41, automatizaremos la conexión a la red local, con el método GET daremos el comando para enceder o apagar un LED y obtener los datos de un sensor DHT11 y mostrarlos en el navegador web.
+
+Recomendable ver Capítulo 41: https://www.youtube.com/watch?v=kaU52mCMk6M 
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoWiFi
+#ArduinoESP8266
+#ArduinoServidorWeb
+#ArduinoComandosAT
+Arduino WiFi ESP8266
+Wemos D1 Mini web server
+Web server ESP8266
+ESP8266 servidor web
+ESP8266 Arduino
+nodemcu comandos arduino
+metodo get html
+
+Marcas de tiempo:
+0:00 Introducción y referencia a Capítulo 41
+0:56 Circuito de conexión
+3:34 Primer programa (activando LED)
+26:26 Circuito de conexión (incorporando DHT11)
+27:28 Segundo programa (datos DHT11 en Navegador Web)

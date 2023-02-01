@@ -1,0 +1,26 @@
+Con el módulo MOSFET IRF520N transistor de potencia podremos manejar cargas de alto consumo de corriente y mediante salidas PWM de Arduino con alta velocidad de conmutación. Veremos los conceptos básicos de los transistores MOSFET y consideraciones a la hora de su utilización en la práctica.
+
+Utilizaremos una lámpara de automóvil de 12 VDC y 15 Watts para la práctica. 
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+Sugerido:
+Relé electromecánico (Capítulo 8) https://www.youtube.com/watch?v=Q5UkNPgN9Ow
+Relé de estado sólido (Capítulo 52) https://www.youtube.com/watch?v=x2UW3JODcYU
+
+#ArduinoMOSFET
+#ArduinoConmutaContinua
+#ArduinoTransistor
+Modulo MOSFET
+Que es un MOSFET
+MOSFET PWM
+
+Marcas de tiempo:
+0:00 Introducción, Transistores y sus tipos
+3:00 MOSFET de canal N
+5:50 Concepto de RDS(ON)
+13:59 Esquemático del módulo (detalle de componentes)
+17:18 Circuito de conexión
+18:01 Primer programa (activando lámpara de 12 VDC)
+19:30 Segundo programa (PWM en lámpara de 12 VDC)

@@ -1,0 +1,38 @@
+Analizaremos el Magnetómetro de 3 ejes (HMC5883L y QMC5883L) para su uso como brújula digital 🧭 utilizado para la orientación y navegación, veremos los conceptos sobre el magnetismo terrestre, acimut y declinación magnética para proyectos con Arduino.
+Mediante el módulo HMC5883L de fácil conexión a Arduino por bus I2C, podremos calcular el acimut magnético y geográfico.
+
+Librería QMC5883L: https://github.com/keepworking/Mecha_QMC5883L
+
+Mapa declinación magnética: https://www.ngdc.noaa.gov/geomag/WMM/data/WMM2015/WMM2015_D_MERC.pdf
+
+Declinación magnética para nuestra ubicación: http://www.magnetic-declination.com
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoMagnetometro
+#ArduinoHMC5883L
+#ArduinoQMC5883L
+#CampoMagneticoTerrestre
+#ArduinoBrujulaDigital
+#DigitalCompass
+#ArduinoAzimut
+Magnetometer
+Digital compass
+Fake HMC5883L
+Compass heading
+
+Marcas de tiempo:
+0:00 Introducción y Ejes del campo magnético
+1:40 Conceptos básico de brújula
+2:25 Dentro del circuito integrado (funcionamiento)
+3:43 Norte magnético
+5:44 Concepto de acimut (azimut)
+7:23 Componentes del módulo (detalle)
+9:44 Circuito de conexión
+11:10 Descarga de librería
+12:33 Primer programa (valor de acimut)
+18:46 Concepto de declinación
+21:30 Segundo programa (acimut geográfico)
+26:58 Múltiples usos del sensor en la vida diaria

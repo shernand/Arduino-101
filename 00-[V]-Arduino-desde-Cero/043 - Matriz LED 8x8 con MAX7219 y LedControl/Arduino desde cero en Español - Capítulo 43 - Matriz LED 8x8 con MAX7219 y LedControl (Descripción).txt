@@ -1,0 +1,28 @@
+Mediante una matriz de LED de 8x8 controlada con el MAX7219 podremos mostrar fácilmente letras, números, caracteres especiales y simples animaciones con fácil conexión a Arduino.
+Con solo tres líneas de datos podremos controlar hasta 8 matrices encadenadas de forma muy simple desde Arduino y la librería LedControl, veremos también como crear simples animaciones.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoDisplay
+#ArduinoMatrizLed
+#MAX7219
+Arduino matriz LED 8x8
+Arduino matriz de LEDs
+Arduino MAX7219 8x8 LED matrix
+Arduino MAX7219 library
+MAX7219 matriz 8x8
+MAX7219cng Arduino
+Led matrix
+Led lights
+
+Marcas de tiempo:
+0:00 Bienvenida y Características del módulo
+5:01 Circuito de conexión
+6:10 Instalación libreria LedControl
+6:56 Primer programa (encender cada elemento)
+17:02 Multiplexación (efecto persistencia)
+21:28 Segundo programa (digitos 0 a 9)
+29:02 Tercer programa (simple animación)
+30:37 Encadenando módulos

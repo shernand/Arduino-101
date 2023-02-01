@@ -1,0 +1,1872 @@
+1
+00:00:01,790 --> 00:00:08,870
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,839 --> 00:00:10,849
+45 de arduino desde cero en español
+
+3
+00:00:08,869 --> 00:00:15,079
+en esta oportunidad aprenderemos a
+
+4
+00:00:10,849 --> 00:00:18,079
+trabajar con el módulo mosfet y rf 520
+
+5
+00:00:15,080 --> 00:00:20,778
+en el cual nos permitirá activar cargas
+
+6
+00:00:18,079 --> 00:00:23,539
+de diferentes extensiones de continua y
+
+7
+00:00:20,778 --> 00:00:25,910
+alto consumo de corriente de forma muy
+
+8
+00:00:23,539 --> 00:00:26,660
+simple con un solo pin digital de
+
+9
+00:00:25,910 --> 00:00:29,149
+arduino
+
+10
+00:00:26,660 --> 00:00:31,699
+el componente principal del módulo es un
+
+11
+00:00:29,149 --> 00:00:33,259
+transistor de potencia mosfet para
+
+12
+00:00:31,699 --> 00:00:35,929
+entender su funcionamiento
+
+13
+00:00:33,259 --> 00:00:38,329
+hagamos una breve reseña sobre los
+
+14
+00:00:35,929 --> 00:00:41,030
+transistores existen dos usos
+
+15
+00:00:38,329 --> 00:00:43,429
+principales de los transistores uno de
+
+16
+00:00:41,030 --> 00:00:45,260
+ellos para la amplificación de señales
+
+17
+00:00:43,429 --> 00:00:47,929
+donde se trabajan con tensiones
+
+18
+00:00:45,259 --> 00:00:50,000
+variables en el tiempo por ejemplo como
+
+19
+00:00:47,929 --> 00:00:53,149
+un amplificador de audio que debe
+
+20
+00:00:50,000 --> 00:00:55,399
+amplificar una pequeña señal proveniente
+
+21
+00:00:53,149 --> 00:00:58,579
+de un micrófono para una etapa posterior
+
+22
+00:00:55,399 --> 00:01:00,859
+como ser manejar un parlante en este
+
+23
+00:00:58,579 --> 00:01:03,320
+modo diremos que estamos en el dominio
+
+24
+00:01:00,859 --> 00:01:05,840
+analógico y el otro uso es en
+
+25
+00:01:03,320 --> 00:01:07,939
+conmutación donde el transistor se lo
+
+26
+00:01:05,840 --> 00:01:11,000
+utiliza como un interruptor
+
+27
+00:01:07,939 --> 00:01:13,609
+encendido apagado de esta manera podrá
+
+28
+00:01:11,000 --> 00:01:15,530
+tener dos estados posibles por eso
+
+29
+00:01:13,609 --> 00:01:18,170
+diremos que se encuentra en el dominio
+
+30
+00:01:15,530 --> 00:01:20,900
+digital en este último es donde lo
+
+31
+00:01:18,170 --> 00:01:23,450
+trabajaremos con arduino solo a modo de
+
+32
+00:01:20,900 --> 00:01:26,000
+referencia y sin entrar en mayor detalle
+
+33
+00:01:23,450 --> 00:01:29,299
+diremos que existen dos tipos de
+
+34
+00:01:26,000 --> 00:01:31,849
+transistores los denominados bipolares y
+
+35
+00:01:29,299 --> 00:01:34,489
+los modos feet los bipolares mostrados
+
+36
+00:01:31,849 --> 00:01:37,750
+en la parte izquierda suelen llamarse
+
+37
+00:01:34,489 --> 00:01:41,299
+también mediante sus siglas de jt
+
+38
+00:01:37,750 --> 00:01:45,019
+transistores de cultura bipolar éstos se
+
+39
+00:01:41,299 --> 00:01:48,079
+dividen a su vez en dos tipos los n pn y
+
+40
+00:01:45,019 --> 00:01:51,199
+los pnp sus terminales de conexión son
+
+41
+00:01:48,079 --> 00:01:53,689
+base colector y emisor en modo
+
+42
+00:01:51,200 --> 00:01:55,969
+conmutación estos transistores al
+
+43
+00:01:53,689 --> 00:01:58,879
+aplicar una atención adecuada al
+
+44
+00:01:55,969 --> 00:02:01,459
+terminal de base lograremos que circule
+
+45
+00:01:58,879 --> 00:02:04,819
+una corriente entre los terminales de
+
+46
+00:02:01,459 --> 00:02:06,978
+emisor y colector nuevamente te recuerdo
+
+47
+00:02:04,819 --> 00:02:09,618
+que el tema transistores está para una
+
+48
+00:02:06,978 --> 00:02:11,689
+charla extensa y esto que veremos es
+
+49
+00:02:09,618 --> 00:02:14,120
+sólo una aproximación para que
+
+50
+00:02:11,689 --> 00:02:15,739
+comprendas el concepto básico
+
+51
+00:02:14,120 --> 00:02:18,408
+sobre la derecha tendremos los
+
+52
+00:02:15,739 --> 00:02:22,250
+transistores mosfet los cuales también
+
+53
+00:02:18,408 --> 00:02:24,739
+se dividen en del tipo de canal n y de
+
+54
+00:02:22,250 --> 00:02:28,128
+canal p los terminales tienen
+
+55
+00:02:24,739 --> 00:02:30,650
+denominaciones distintas que serán gates
+
+56
+00:02:28,128 --> 00:02:32,959
+drain y source al igual que los
+
+57
+00:02:30,650 --> 00:02:36,230
+bipolares aplicando una atención
+
+58
+00:02:32,959 --> 00:02:39,289
+adecuada en el terminal gate lograremos
+
+59
+00:02:36,229 --> 00:02:42,699
+una circulación de corriente entre drain
+
+60
+00:02:39,289 --> 00:02:45,590
+y source por cierto los feet significa
+
+61
+00:02:42,699 --> 00:02:47,889
+transistor de efecto de campo de
+
+62
+00:02:45,590 --> 00:02:50,780
+semiconductor de óxido de metal
+
+63
+00:02:47,889 --> 00:02:53,598
+claramente referirnos por su sigla
+
+64
+00:02:50,780 --> 00:02:56,628
+mosfet es más cómodo nuestro módulo
+
+65
+00:02:53,598 --> 00:02:59,268
+tiene un transistor mosfet de canal n
+
+66
+00:02:56,628 --> 00:03:01,340
+por eso nos centraremos en el mismo
+
+67
+00:02:59,269 --> 00:03:03,829
+decíamos que utilizaremos el transistor
+
+68
+00:03:01,340 --> 00:03:05,840
+en modo de conmutación como si se
+
+69
+00:03:03,829 --> 00:03:09,049
+tratara de un interruptor de encendido
+
+70
+00:03:05,840 --> 00:03:11,539
+apagado el nombre de los terminales los
+
+71
+00:03:09,049 --> 00:03:14,269
+mantendremos en inglés esto es porque en
+
+72
+00:03:11,539 --> 00:03:16,370
+la hoja de datos que veremos luego nos
+
+73
+00:03:14,269 --> 00:03:18,950
+encontraremos con parámetros que hacen
+
+74
+00:03:16,370 --> 00:03:21,379
+referencia a los terminales gheit
+
+75
+00:03:18,949 --> 00:03:24,859
+drain y source de manera que si
+
+76
+00:03:21,378 --> 00:03:27,739
+alternamos entre español e inglés solo
+
+77
+00:03:24,860 --> 00:03:30,319
+generaremos una mayor confusión sobre la
+
+78
+00:03:27,739 --> 00:03:32,870
+derecha tenemos un diagrama eléctrico
+
+79
+00:03:30,318 --> 00:03:35,958
+con un interruptor mecánico donde el
+
+80
+00:03:32,870 --> 00:03:39,680
+extremo inferior lo conectamos a masa
+
+81
+00:03:35,959 --> 00:03:42,560
+tierra o genere el extremo superior lo
+
+82
+00:03:39,680 --> 00:03:45,140
+conectamos a un símbolo que representa
+
+83
+00:03:42,560 --> 00:03:48,530
+la carga y luego al positivo de la
+
+84
+00:03:45,139 --> 00:03:51,229
+alimentación de 12 volts de continua a
+
+85
+00:03:48,530 --> 00:03:53,930
+propósito coloque una tensión de 12
+
+86
+00:03:51,229 --> 00:03:56,568
+volts ya que sabemos que arduino no
+
+87
+00:03:53,930 --> 00:03:59,599
+puede generar por sí solo de forma de
+
+88
+00:03:56,568 --> 00:04:02,359
+mostrar que podemos activar cargas con
+
+89
+00:03:59,598 --> 00:04:05,598
+diversas tensiones la carga se lo
+
+90
+00:04:02,360 --> 00:04:08,450
+denomina con la letra l de load en
+
+91
+00:04:05,598 --> 00:04:11,209
+inglés que es la carga entonces todo
+
+92
+00:04:08,449 --> 00:04:14,030
+aquello que deseamos activar puede ser
+
+93
+00:04:11,209 --> 00:04:17,389
+un motor una luz o cualquier otro
+
+94
+00:04:14,030 --> 00:04:19,759
+dispositivo al hablar de carga usamos un
+
+95
+00:04:17,389 --> 00:04:22,460
+término genérico queda claro del
+
+96
+00:04:19,759 --> 00:04:24,740
+circuito que en la posición actual del
+
+97
+00:04:22,459 --> 00:04:25,819
+interruptor no hay circulación de
+
+98
+00:04:24,740 --> 00:04:28,550
+corriente por la
+
+99
+00:04:25,819 --> 00:04:31,759
+arga ya que un extremo está conectado al
+
+100
+00:04:28,550 --> 00:04:34,579
+positivo de tensión a los 12 volts pero
+
+101
+00:04:31,759 --> 00:04:37,579
+el circuito queda abierto si cerramos el
+
+102
+00:04:34,579 --> 00:04:40,250
+interruptor entonces si tendremos una
+
+103
+00:04:37,579 --> 00:04:43,129
+circulación de corriente por la carga si
+
+104
+00:04:40,250 --> 00:04:45,680
+fuese una lámpara se encendería pero ese
+
+105
+00:04:43,129 --> 00:04:48,079
+interruptor es mecánico nuestra
+
+106
+00:04:45,680 --> 00:04:48,949
+intención es activar la carga desde
+
+107
+00:04:48,079 --> 00:04:50,599
+arduino
+
+108
+00:04:48,949 --> 00:04:53,599
+por eso reemplazamos el interruptor
+
+109
+00:04:50,600 --> 00:04:56,450
+mecánico por el mos fet lo conectaremos
+
+110
+00:04:53,600 --> 00:04:58,820
+entre los terminales the drain y source
+
+111
+00:04:56,449 --> 00:05:00,879
+como se muestra en esta imagen
+
+112
+00:04:58,819 --> 00:05:04,159
+gates será el terminal de control
+
+113
+00:05:00,879 --> 00:05:06,920
+aplicando tensión al mismo lograremos el
+
+114
+00:05:04,160 --> 00:05:10,160
+mismo efecto de abrir y cerrar el
+
+115
+00:05:06,920 --> 00:05:13,189
+circuito la lógica será muy simple si
+
+116
+00:05:10,160 --> 00:05:15,860
+aplicamos 0 volts al terminal gate
+
+117
+00:05:13,189 --> 00:05:18,139
+lograremos que el most feet se comporte
+
+118
+00:05:15,860 --> 00:05:20,840
+como un circuito abierto no habiendo
+
+119
+00:05:18,139 --> 00:05:24,129
+circulación de corriente entre dren y
+
+120
+00:05:20,839 --> 00:05:27,589
+source a este estado se lo denomina o
+
+121
+00:05:24,129 --> 00:05:28,759
+apagado si por el contrario aplicamos 5
+
+122
+00:05:27,589 --> 00:05:32,479
+volts
+
+123
+00:05:28,759 --> 00:05:35,500
+a un nivel alto hi desde arduino el most
+
+124
+00:05:32,480 --> 00:05:38,390
+feet pasa a un estado de encendido con
+
+125
+00:05:35,500 --> 00:05:40,550
+logrando una circulación de corriente
+
+126
+00:05:38,389 --> 00:05:42,589
+entre train y source
+
+127
+00:05:40,550 --> 00:05:46,310
+de esa manera controlamos la conmutación
+
+128
+00:05:42,589 --> 00:05:48,859
+del mosfet muy simple y directo pero
+
+129
+00:05:46,310 --> 00:05:51,709
+existe un pequeño detalle cuando el most
+
+130
+00:05:48,860 --> 00:05:55,610
+feet se encuentra en estado encendido on
+
+131
+00:05:51,709 --> 00:05:58,549
+de forma ideal entre drain y source la
+
+132
+00:05:55,610 --> 00:06:01,850
+resistencia debería tener un valor de 0
+
+133
+00:05:58,550 --> 00:06:04,370
+11 un contacto como el de un relé pero
+
+134
+00:06:01,850 --> 00:06:07,490
+sabemos que un mosfet no funciona de
+
+135
+00:06:04,370 --> 00:06:09,829
+forma mecánica es un semiconductor de
+
+136
+00:06:07,490 --> 00:06:12,350
+allí que en la realidad la resistencia
+
+137
+00:06:09,829 --> 00:06:17,120
+que presenta entre los terminales the
+
+138
+00:06:12,350 --> 00:06:20,030
+drain y source es de 0 211 ese valor es
+
+139
+00:06:17,120 --> 00:06:21,769
+realmente muy pequeño pero no es cero y
+
+140
+00:06:20,029 --> 00:06:26,569
+es válido para el modelo que estamos
+
+141
+00:06:21,769 --> 00:06:28,759
+estudiando el irpf 520 n es un valor
+
+142
+00:06:26,569 --> 00:06:31,459
+importante a la hora de utilizar un
+
+143
+00:06:28,759 --> 00:06:34,029
+motos feet y tiene una nomenclatura que
+
+144
+00:06:31,459 --> 00:06:37,609
+es la siguiente r
+
+145
+00:06:34,029 --> 00:06:40,519
+es decir la resistencia que presenta
+
+146
+00:06:37,610 --> 00:06:43,910
+entre los terminales the drain y source
+
+147
+00:06:40,519 --> 00:06:47,149
+en estado on quizás pienses que es un
+
+148
+00:06:43,910 --> 00:06:49,550
+valor tan pequeño que no tiene demasiada
+
+149
+00:06:47,149 --> 00:06:52,459
+relevancia que prácticamente se lo
+
+150
+00:06:49,550 --> 00:06:54,770
+podría considerar como 0 un cable como
+
+151
+00:06:52,459 --> 00:06:56,959
+la situación ideal pero veremos en breve
+
+152
+00:06:54,769 --> 00:06:59,930
+que esa resistencia es un factor
+
+153
+00:06:56,959 --> 00:07:03,079
+importante a la hora de disipar potencia
+
+154
+00:06:59,930 --> 00:07:06,280
+al circular mucha corriente otro valor
+
+155
+00:07:03,079 --> 00:07:10,669
+que es importante ponderar corresponde a
+
+156
+00:07:06,279 --> 00:07:13,039
+bgs la tensión entre gates y source ya
+
+157
+00:07:10,670 --> 00:07:17,240
+vimos que con 0 volts el transistor
+
+158
+00:07:13,040 --> 00:07:20,330
+permanecía en estado off y con 5 volts
+
+159
+00:07:17,240 --> 00:07:23,120
+pasa a onu pero ya analizaremos la hoja
+
+160
+00:07:20,329 --> 00:07:25,789
+de datos donde dicha tensión cumple su
+
+161
+00:07:23,120 --> 00:07:28,370
+rol por último tendremos la corriente
+
+162
+00:07:25,790 --> 00:07:31,340
+que circula por el terminal de drive con
+
+163
+00:07:28,370 --> 00:07:33,800
+la nomenclatura y de queda claro que no
+
+164
+00:07:31,339 --> 00:07:36,979
+podremos hacer circular una cantidad
+
+165
+00:07:33,800 --> 00:07:38,180
+infinita de corriente existirá un límite
+
+166
+00:07:36,980 --> 00:07:40,759
+para cada modelo
+
+167
+00:07:38,180 --> 00:07:43,100
+transistor de esa forma llegamos a la
+
+168
+00:07:40,759 --> 00:07:45,650
+conclusión de que un transistor mosfet
+
+169
+00:07:43,100 --> 00:07:49,970
+está caracterizado principalmente por
+
+170
+00:07:45,649 --> 00:07:53,089
+tres valores rdc en bgc
+
+171
+00:07:49,970 --> 00:07:57,800
+y de aquí traigo a pantalla la hoja de
+
+172
+00:07:53,089 --> 00:08:00,679
+datos del irpf 520 en su fabricante es
+
+173
+00:07:57,800 --> 00:08:03,740
+international rectifica de allí las
+
+174
+00:08:00,680 --> 00:08:05,810
+letras y r en la denominación en el
+
+175
+00:08:03,740 --> 00:08:09,949
+recuadro aparecen algunos de los valores
+
+176
+00:08:05,810 --> 00:08:11,959
+que destacamos recién rdc on que será de
+
+177
+00:08:09,949 --> 00:08:16,490
+0 2 11
+
+178
+00:08:11,959 --> 00:08:18,439
+la corriente máxima y de de 97 amper en
+
+179
+00:08:16,490 --> 00:08:22,939
+la tabla se puede ver que la corriente y
+
+180
+00:08:18,439 --> 00:08:25,848
+de 97 amper se obtiene cuando bgs es de
+
+181
+00:08:22,939 --> 00:08:28,490
+10 world y aquí aparece la principal
+
+182
+00:08:25,848 --> 00:08:31,098
+limitación y el transistor permite una
+
+183
+00:08:28,490 --> 00:08:33,440
+circulación alta de corriente pero con
+
+184
+00:08:31,098 --> 00:08:36,049
+una tensión en el terminal de gates que
+
+185
+00:08:33,440 --> 00:08:39,080
+no nos es posible generar desde arduino
+
+186
+00:08:36,049 --> 00:08:42,609
+de forma directa sólo somos capaces de
+
+187
+00:08:39,080 --> 00:08:47,440
+generar 5volts desde un pin digital
+
+188
+00:08:42,610 --> 00:08:49,839
+efe 520 n es unos fet de potencia de uso
+
+189
+00:08:47,440 --> 00:08:52,360
+genérico no está optimizado para
+
+190
+00:08:49,839 --> 00:08:54,870
+tensiones de control de niveles lógicos
+
+191
+00:08:52,360 --> 00:08:57,970
+es decir que no conduce de forma
+
+192
+00:08:54,870 --> 00:09:00,278
+completa con 5 volts para ver en
+
+193
+00:08:57,970 --> 00:09:02,860
+realidad cuánta corrientes era capaz de
+
+194
+00:09:00,278 --> 00:09:04,750
+manejar vamos a esta gráfica por
+
+195
+00:09:02,860 --> 00:09:07,240
+supuesto que la hoja de datos tiene
+
+196
+00:09:04,750 --> 00:09:10,028
+multitud de información pero la idea no
+
+197
+00:09:07,240 --> 00:09:13,060
+es complicada y ver los datos más
+
+198
+00:09:10,028 --> 00:09:16,929
+relevantes esta curva nos muestra en su
+
+199
+00:09:13,059 --> 00:09:20,169
+eje horizontal la atención bgc y en el
+
+200
+00:09:16,929 --> 00:09:23,859
+vertical la corriente y de se puede ver
+
+201
+00:09:20,169 --> 00:09:26,139
+que efectivamente a 10 volts de bgc es
+
+202
+00:09:23,860 --> 00:09:28,778
+que se obtiene la máxima circulación de
+
+203
+00:09:26,139 --> 00:09:32,500
+corriente pero nosotros podemos aplicar
+
+204
+00:09:28,778 --> 00:09:36,879
+5volts entonces si interceptamos la
+
+205
+00:09:32,500 --> 00:09:39,309
+curva a 5 balls de bgc la corriente y de
+
+206
+00:09:36,879 --> 00:09:42,850
+esta justo entre las líneas que
+
+207
+00:09:39,309 --> 00:09:47,829
+delimitan una corriente entre 4 y 5
+
+208
+00:09:42,850 --> 00:09:50,019
+amper unos 45 ese será el valor real
+
+209
+00:09:47,830 --> 00:09:52,570
+la circulación de corriente máxima
+
+210
+00:09:50,019 --> 00:09:56,110
+cuando le aplicamos al terminal de gate
+
+211
+00:09:52,570 --> 00:09:58,540
+una tensión de 5 volts además esa
+
+212
+00:09:56,110 --> 00:10:01,659
+corriente será posible manejarla con un
+
+213
+00:09:58,539 --> 00:10:04,360
+disipador adherido al transistor el
+
+214
+00:10:01,659 --> 00:10:06,730
+módulo no viene con el mismo así que
+
+215
+00:10:04,360 --> 00:10:10,029
+probablemente seguimos de forma efectiva
+
+216
+00:10:06,730 --> 00:10:12,100
+a la mitad de esa corriente unos dos
+
+217
+00:10:10,029 --> 00:10:15,449
+samper sin que se eleve la temperatura
+
+218
+00:10:12,100 --> 00:10:18,519
+demasiado lo ideal para el manejo con
+
+219
+00:10:15,450 --> 00:10:23,230
+microcontroladores es la versión l de
+
+220
+00:10:18,519 --> 00:10:25,419
+los modos fet como el hierro el 520 que
+
+221
+00:10:23,230 --> 00:10:28,570
+está pensado para ser controlado con
+
+222
+00:10:25,419 --> 00:10:32,620
+voltajes de 5 volts aquí se muestra una
+
+223
+00:10:28,570 --> 00:10:37,570
+comparativa de las curvas de un irpf 520
+
+224
+00:10:32,620 --> 00:10:41,799
+y un rl 520 para el rf vimos que la
+
+225
+00:10:37,570 --> 00:10:44,770
+corriente y de 5 volts es de 45 amper
+
+226
+00:10:41,799 --> 00:10:47,979
+pero si utilizáramos el modelo y rl
+
+227
+00:10:44,769 --> 00:10:52,059
+vimos que y de ahora podría llegar a los
+
+228
+00:10:47,980 --> 00:10:54,519
+10 5 am pero con la misma atención de 5
+
+229
+00:10:52,059 --> 00:10:57,849
+volts se ve de forma clara
+
+230
+00:10:54,519 --> 00:11:00,699
+tipo de transistor mosfet influye mucho
+
+231
+00:10:57,850 --> 00:11:03,129
+en la corriente que podemos manejar así
+
+232
+00:11:00,700 --> 00:11:06,160
+que siempre que podamos elegir lo ideal
+
+233
+00:11:03,129 --> 00:11:08,830
+será un modelo optimizado para tensiones
+
+234
+00:11:06,159 --> 00:11:12,819
+de niveles lógicos pero nuestro módulo
+
+235
+00:11:08,830 --> 00:11:15,190
+viene con el irpf 520 n con lo cual
+
+236
+00:11:12,820 --> 00:11:17,890
+deberíamos vivir con la limitación en la
+
+237
+00:11:15,190 --> 00:11:20,800
+corriente por algún motivo este módulo
+
+238
+00:11:17,889 --> 00:11:22,960
+popular en arduino incluye un transistor
+
+239
+00:11:20,799 --> 00:11:25,029
+que no es el ideal para un
+
+240
+00:11:22,960 --> 00:11:28,389
+microcontrolador para terminar de cerrar
+
+241
+00:11:25,029 --> 00:11:31,299
+el concepto veamos un caso real que
+
+242
+00:11:28,389 --> 00:11:33,669
+luego haremos en la práctica la carga de
+
+243
+00:11:31,299 --> 00:11:36,969
+nuestro mosfet será una lámpara de
+
+244
+00:11:33,669 --> 00:11:39,610
+automóvil de 12 volts y 15 watts de
+
+245
+00:11:36,970 --> 00:11:41,740
+potencia aquí representada en el
+
+246
+00:11:39,610 --> 00:11:44,740
+diagrama eléctrico ya sabemos que el
+
+247
+00:11:41,740 --> 00:11:47,950
+most fet estando encendido equivale a
+
+248
+00:11:44,740 --> 00:11:51,220
+una resistencia entre drain y source de
+
+249
+00:11:47,950 --> 00:11:53,200
+0 a 2 11 con lo cual hagamos unos
+
+250
+00:11:51,220 --> 00:11:55,750
+cálculos sencillos para ver qué
+
+251
+00:11:53,200 --> 00:11:58,210
+significa tener esta resistencia en
+
+252
+00:11:55,750 --> 00:12:00,730
+serie con la carga de la fórmula de
+
+253
+00:11:58,210 --> 00:12:03,759
+potencia b por i d
+
+254
+00:12:00,730 --> 00:12:06,699
+el valor de la corriente que será la
+
+255
+00:12:03,759 --> 00:12:11,230
+potencia sobre la atención que en este
+
+256
+00:12:06,698 --> 00:12:15,879
+caso 15 watts / 12 volts eso nos da una
+
+257
+00:12:11,230 --> 00:12:18,129
+corriente y de de 125 amper de esa
+
+258
+00:12:15,879 --> 00:12:20,470
+manera con el valor de la potencia de la
+
+259
+00:12:18,129 --> 00:12:23,470
+lámpara obtenemos la corriente que
+
+260
+00:12:20,470 --> 00:12:25,810
+circulará por la misma que equivale a la
+
+261
+00:12:23,470 --> 00:12:28,300
+corriente del terminal drain luego
+
+262
+00:12:25,809 --> 00:12:32,259
+tenemos la resistencia que representa el
+
+263
+00:12:28,299 --> 00:12:36,849
+most feet en su estado con que es de 0 2
+
+264
+00:12:32,259 --> 00:12:39,578
+11 por ley de ohm y es igual a b sobre r
+
+265
+00:12:36,850 --> 00:12:42,778
+despejamos el valor de la tensión que
+
+266
+00:12:39,578 --> 00:12:49,269
+será la corriente y d por la resistencia
+
+267
+00:12:42,778 --> 00:12:52,120
+rds con 125 amper por 02 11 y el valor
+
+268
+00:12:49,269 --> 00:12:54,610
+es de 0,25 volts
+
+269
+00:12:52,120 --> 00:12:58,659
+eso significa que sobre el moxos fetca
+
+270
+00:12:54,610 --> 00:13:01,300
+en 0.25 volts en definitiva la
+
+271
+00:12:58,659 --> 00:13:03,759
+conclusión es que aplicando una atención
+
+272
+00:13:01,299 --> 00:13:05,799
+de alimentación de 12 volts por la
+
+273
+00:13:03,759 --> 00:13:10,319
+resistencia del modo fer tiene
+
+274
+00:13:05,799 --> 00:13:16,269
+que la lámpara les llegarán 12 volts -0
+
+275
+00:13:10,320 --> 00:13:19,778
+25 un total de 11 75 volts perdimos poco
+
+276
+00:13:16,269 --> 00:13:24,278
+sólo un cuarto de volt grueso un valor a
+
+277
+00:13:19,778 --> 00:13:28,120
+tener en cuenta además son 025 gold si
+
+278
+00:13:24,278 --> 00:13:31,028
+circulan 125 amper si la lámpara fuese
+
+279
+00:13:28,120 --> 00:13:33,789
+del doble de potencia 30 watts la
+
+280
+00:13:31,028 --> 00:13:37,539
+corriente sería el doble y la caída de
+
+281
+00:13:33,789 --> 00:13:41,069
+tensión sobre el modo fet de 05 volts
+
+282
+00:13:37,539 --> 00:13:43,838
+llegando de forma efectiva a la lámpara
+
+283
+00:13:41,070 --> 00:13:45,970
+11,5 volts en definitiva hay que
+
+284
+00:13:43,839 --> 00:13:49,420
+recordar que el most feet nos introduce
+
+285
+00:13:45,970 --> 00:13:51,940
+una resistencia en serie con la carga de
+
+286
+00:13:49,419 --> 00:13:55,559
+bajo valor pero igual a tener en cuenta
+
+287
+00:13:51,940 --> 00:13:57,970
+y sobre todo con altas corrientes genial
+
+288
+00:13:55,559 --> 00:14:00,759
+suficiente de cálculos por el capítulo
+
+289
+00:13:57,970 --> 00:14:04,240
+aquí vemos el módulo que tiene a su
+
+290
+00:14:00,759 --> 00:14:06,129
+izquierda tres pines a 90 grados con las
+
+291
+00:14:04,240 --> 00:14:09,519
+denominaciones sigue
+
+292
+00:14:06,129 --> 00:14:13,210
+a veces e higiene de el transistor
+
+293
+00:14:09,519 --> 00:14:14,019
+mosfet dos resistencias un led y dos
+
+294
+00:14:13,210 --> 00:14:16,540
+born heras
+
+295
+00:14:14,019 --> 00:14:18,970
+el diagrama eléctrico o esquemático
+
+296
+00:14:16,539 --> 00:14:21,219
+muestra la forma en que están conectados
+
+297
+00:14:18,970 --> 00:14:22,420
+los componentes comenzando desde los
+
+298
+00:14:21,220 --> 00:14:24,190
+pines de control
+
+299
+00:14:22,419 --> 00:14:28,240
+lo primero que veremos es que el
+
+300
+00:14:24,190 --> 00:14:31,420
+denominado bsc no tiene conexión no se
+
+301
+00:14:28,240 --> 00:14:33,879
+utiliza y de hecho ese pin está soldado
+
+302
+00:14:31,419 --> 00:14:35,919
+en la placa del circuito impreso pero no
+
+303
+00:14:33,879 --> 00:14:38,500
+conectado a nada y de hecho no
+
+304
+00:14:35,919 --> 00:14:41,799
+necesitamos bcc ya que le enviaremos
+
+305
+00:14:38,500 --> 00:14:45,519
+desde un pin digital de arduino 10 ó un
+
+306
+00:14:41,799 --> 00:14:48,609
+1 lógico mediante el pin sigue señal
+
+307
+00:14:45,519 --> 00:14:52,059
+verás que sigue está conectado a light
+
+308
+00:14:48,610 --> 00:14:55,419
+del modos fet geneve será la referencia
+
+309
+00:14:52,059 --> 00:14:58,359
+de masa o tierra entre señal y genere
+
+310
+00:14:55,419 --> 00:15:01,120
+tendremos este circuito de un led con su
+
+311
+00:14:58,360 --> 00:15:03,310
+resistencia en serie asociada no es un
+
+312
+00:15:01,120 --> 00:15:05,679
+elemento obligatorio para comandar el
+
+313
+00:15:03,309 --> 00:15:08,259
+most feet sólo nos dará una indicación
+
+314
+00:15:05,679 --> 00:15:11,079
+visual cuando enviemos por el pin de
+
+315
+00:15:08,259 --> 00:15:11,980
+señal un uno lógico que enciende el
+
+316
+00:15:11,080 --> 00:15:14,860
+transistor
+
+317
+00:15:11,980 --> 00:15:17,920
+y luego tenemos otra resistencia esta
+
+318
+00:15:14,860 --> 00:15:21,310
+que marcó aquí de un acá entre gates y
+
+319
+00:15:17,919 --> 00:15:24,009
+gene de esta resistencia si es necesaria
+
+320
+00:15:21,309 --> 00:15:26,049
+para proteger el transistor resulta que
+
+321
+00:15:24,009 --> 00:15:29,110
+los transistores de efecto de campo
+
+322
+00:15:26,049 --> 00:15:31,419
+tienen el terminal de gate muy sensible
+
+323
+00:15:29,110 --> 00:15:33,850
+a descargas electrostáticas por una
+
+324
+00:15:31,419 --> 00:15:35,919
+cuestión propia de la construcción si
+
+325
+00:15:33,850 --> 00:15:39,040
+tocáramos con nuestras manos el terminal
+
+326
+00:15:35,919 --> 00:15:41,589
+de gates podríamos aplicarle una tensión
+
+327
+00:15:39,039 --> 00:15:44,199
+que podría arruinarlo por eso esta
+
+328
+00:15:41,590 --> 00:15:47,110
+resistencia asegura que gates siempre
+
+329
+00:15:44,200 --> 00:15:49,150
+tenga un nivel de referencia de masa en
+
+330
+00:15:47,110 --> 00:15:53,080
+definitiva no queremos que dicho
+
+331
+00:15:49,149 --> 00:15:55,090
+terminal que ve al aire sin conexión así
+
+332
+00:15:53,080 --> 00:15:57,759
+que cuando trabajes con un transistor de
+
+333
+00:15:55,090 --> 00:16:00,160
+efecto de campo de canal n
+
+334
+00:15:57,759 --> 00:16:03,220
+deberás colocar una resistencia de pull
+
+335
+00:16:00,159 --> 00:16:05,289
+down de aproximadamente un k para
+
+336
+00:16:03,220 --> 00:16:07,930
+asegurar una referencia permanente
+
+337
+00:16:05,289 --> 00:16:10,329
+entonces nuestra tarea será enviarle
+
+338
+00:16:07,929 --> 00:16:13,870
+desde un pin digital de arduino un nivel
+
+339
+00:16:10,330 --> 00:16:16,180
+lógico bajo o alto para controlar el
+
+340
+00:16:13,870 --> 00:16:17,350
+most feet en este módulo veremos que
+
+341
+00:16:16,179 --> 00:16:20,199
+también se enciende
+
+342
+00:16:17,350 --> 00:16:23,019
+el led incorporado la etapa de salida es
+
+343
+00:16:20,200 --> 00:16:25,540
+bien directa en la born era inferior con
+
+344
+00:16:23,019 --> 00:16:28,179
+los terminales de be in y gene de
+
+345
+00:16:25,539 --> 00:16:30,699
+aplicaremos la atención que necesita la
+
+346
+00:16:28,179 --> 00:16:32,559
+carga en nuestro caso de ejemplo como
+
+347
+00:16:30,700 --> 00:16:36,220
+vamos a controlar una lámpara de
+
+348
+00:16:32,559 --> 00:16:40,199
+automóvil de 12 volts aplicaremos 12
+
+349
+00:16:36,220 --> 00:16:42,399
+volts entre 20 y gene de veras kevin
+
+350
+00:16:40,200 --> 00:16:44,670
+equivalente al positivo de la
+
+351
+00:16:42,399 --> 00:16:47,709
+alimentación está conectado de forma
+
+352
+00:16:44,669 --> 00:16:51,069
+permanente con de más de la born era
+
+353
+00:16:47,710 --> 00:16:53,500
+superior en esta colocaremos la carga la
+
+354
+00:16:51,070 --> 00:16:55,720
+lámpara que deseamos controlar lo que
+
+355
+00:16:53,500 --> 00:16:58,570
+hará el mosfet es interrumpir la
+
+356
+00:16:55,720 --> 00:17:01,269
+conexión al gene de vemos que genere y
+
+357
+00:16:58,570 --> 00:17:02,950
+pasa por el terminal de source y drain
+
+358
+00:17:01,269 --> 00:17:05,589
+está conectado
+
+359
+00:17:02,950 --> 00:17:08,500
+avn - de manera que el módulo nos brinda
+
+360
+00:17:05,589 --> 00:17:10,740
+una conexión simple del mosfet con born
+
+361
+00:17:08,500 --> 00:17:13,150
+heras para alimentación y carga
+
+362
+00:17:10,740 --> 00:17:15,849
+adecuadas para alta circulación de
+
+363
+00:17:13,150 --> 00:17:18,400
+corriente veamos entonces el circuito de
+
+364
+00:17:15,849 --> 00:17:21,429
+conexión que utilizaremos en la práctica
+
+365
+00:17:18,400 --> 00:17:24,130
+conectaremos gene de de arduino con gene
+
+366
+00:17:21,430 --> 00:17:27,039
+del módulo iremos con un cable y directo
+
+367
+00:17:24,130 --> 00:17:30,190
+desde el pin digital número 3 hasta el
+
+368
+00:17:27,039 --> 00:17:32,259
+terminal sigue del módulo con eso ya
+
+369
+00:17:30,190 --> 00:17:35,140
+tenemos el control del módulo desde
+
+370
+00:17:32,259 --> 00:17:37,660
+arduino como vimos antes veces en el
+
+371
+00:17:35,140 --> 00:17:40,900
+módulo no se conecta en la bóveda
+
+372
+00:17:37,660 --> 00:17:44,200
+inferior del módulo conectaremos en 20
+
+373
+00:17:40,900 --> 00:17:46,600
+al positivo de una batería de 12 volts o
+
+374
+00:17:44,200 --> 00:17:50,140
+fuente de alimentación de dicha tensión
+
+375
+00:17:46,599 --> 00:17:52,689
+y el negativo a gene d en la born era
+
+376
+00:17:50,140 --> 00:17:56,020
+superior ir a la carga la lámpara de
+
+377
+00:17:52,690 --> 00:18:00,460
+automóvil de 12 volts y 15 watts el
+
+378
+00:17:56,019 --> 00:18:03,339
+positivo además y el negativo ab - y eso
+
+379
+00:18:00,460 --> 00:18:06,069
+es todo la programación será muy simple
+
+380
+00:18:03,339 --> 00:18:09,309
+ya que sólo debemos controlar el pin
+
+381
+00:18:06,069 --> 00:18:12,849
+digital número 3 de arduino enviando un
+
+382
+00:18:09,309 --> 00:18:15,250
+nivel bajo desactivamos el mosfet con lo
+
+383
+00:18:12,849 --> 00:18:18,250
+cual no circula corriente por la carga
+
+384
+00:18:15,250 --> 00:18:20,410
+enviando un nivel alto lo activados
+
+385
+00:18:18,250 --> 00:18:23,049
+haciendo que circule corriente
+
+386
+00:18:20,410 --> 00:18:26,200
+encendiendo la lámpara declaramos una
+
+387
+00:18:23,049 --> 00:18:28,690
+constante llamada mosfet con el número 3
+
+388
+00:18:26,200 --> 00:18:31,960
+ya que en dicho pin tenemos conectado el
+
+389
+00:18:28,690 --> 00:18:35,350
+terminal de señal del módulo luego en el
+
+390
+00:18:31,960 --> 00:18:38,350
+setup con pin mode establecemos dicho
+
+391
+00:18:35,349 --> 00:18:42,579
+pin como salida en el loop con digital
+
+392
+00:18:38,349 --> 00:18:46,149
+write mosfet high enviamos un nivel alto
+
+393
+00:18:42,579 --> 00:18:49,329
+al pin 3 haciendo que active el mosfet y
+
+394
+00:18:46,150 --> 00:18:52,480
+pase a un estado on mantenemos dicho
+
+395
+00:18:49,329 --> 00:18:55,299
+nivel por un segundo con delay entre
+
+396
+00:18:52,480 --> 00:18:57,759
+paréntesis 1000 luego aplicaremos la
+
+397
+00:18:55,299 --> 00:19:01,450
+misma metodología pero para apagarlo con
+
+398
+00:18:57,759 --> 00:19:04,150
+un digital write mosfet low pero por dos
+
+399
+00:19:01,450 --> 00:19:06,309
+segundos y ese es todo el programa
+
+400
+00:19:04,150 --> 00:19:10,000
+queremos verificar que estamos logrando
+
+401
+00:19:06,309 --> 00:19:13,210
+conmutar el mosfet sin problemas sin más
+
+402
+00:19:10,000 --> 00:19:15,700
+vamos a verificar y subir el programa
+
+403
+00:19:13,210 --> 00:19:18,819
+podrás ver que la lámpara efectivamente
+
+404
+00:19:15,700 --> 00:19:21,400
+enciende por un segundo y apaga por dos
+
+405
+00:19:18,819 --> 00:19:24,700
+segundos emulando lo que serían las
+
+406
+00:19:21,400 --> 00:19:26,500
+intermitentes o balizas de un auto lo
+
+407
+00:19:24,700 --> 00:19:28,690
+importante es que comprobamos que
+
+408
+00:19:26,500 --> 00:19:31,150
+tenemos control sobre el encendido de la
+
+409
+00:19:28,690 --> 00:19:31,929
+lámpara mediante el modos fet y en este
+
+410
+00:19:31,150 --> 00:19:35,379
+segundo
+
+411
+00:19:31,929 --> 00:19:37,960
+aprovecharemos la capacidad wm de
+
+412
+00:19:35,378 --> 00:19:41,199
+arduino para incrementar y luego
+
+413
+00:19:37,960 --> 00:19:44,860
+decrementar el brillo de la lámpara el
+
+414
+00:19:41,200 --> 00:19:47,440
+pin número 3 tiene capacidad de w m con
+
+415
+00:19:44,859 --> 00:19:50,109
+lo cual no será necesario modificar el
+
+416
+00:19:47,440 --> 00:19:52,360
+circuito de conexión de paso esto
+
+417
+00:19:50,109 --> 00:19:54,699
+demuestra un uso importante del modos
+
+418
+00:19:52,359 --> 00:19:56,618
+fet que en la capacidad de conmutar la
+
+419
+00:19:54,700 --> 00:19:59,139
+carga a alta velocidad
+
+420
+00:19:56,618 --> 00:20:02,470
+cuestión que no se podría hacer con un
+
+421
+00:19:59,138 --> 00:20:05,798
+relieve por una restricción mecánica wm
+
+422
+00:20:02,470 --> 00:20:08,860
+lo vimos en detalle allí hace tiempo en
+
+423
+00:20:05,798 --> 00:20:11,950
+el capítulo 4 vimos que podíamos emular
+
+424
+00:20:08,859 --> 00:20:14,349
+una atención analógica en un pin de
+
+425
+00:20:11,950 --> 00:20:17,319
+arduino haciendo una modulación por
+
+426
+00:20:14,349 --> 00:20:19,658
+ancho de pulso modificando el ciclo de
+
+427
+00:20:17,319 --> 00:20:22,839
+trabajo de la señal y repitiendo el
+
+428
+00:20:19,659 --> 00:20:25,450
+proceso a unos 500 ciclos por segundo
+
+429
+00:20:22,839 --> 00:20:27,788
+así que en este programa es muy simple
+
+430
+00:20:25,450 --> 00:20:30,308
+agregamos una variable con el nombre
+
+431
+00:20:27,788 --> 00:20:35,250
+brillo para almacenar los valores que
+
+432
+00:20:30,308 --> 00:20:38,220
+admite wm de 0 a 255
+
+433
+00:20:35,250 --> 00:20:40,410
+en el loop hacemos un bucle foro donde
+
+434
+00:20:38,220 --> 00:20:42,990
+incrementamos la variable brillo con
+
+435
+00:20:40,410 --> 00:20:46,110
+cada iteración y la aplicamos a la
+
+436
+00:20:42,990 --> 00:20:50,700
+función análoga right de esta forma
+
+437
+00:20:46,109 --> 00:20:54,209
+comienza de cero hasta 255 introduciendo
+
+438
+00:20:50,700 --> 00:20:57,000
+una pequeña demora de 25 milisegundos
+
+439
+00:20:54,210 --> 00:21:00,180
+para poder percibir mejor la transición
+
+440
+00:20:57,000 --> 00:21:02,670
+luego un bloque similar pero esta vez de
+
+441
+00:21:00,180 --> 00:21:07,200
+incrementamos el valor de brillo que
+
+442
+00:21:02,670 --> 00:21:09,900
+comienza desde 255 hasta 0 muy simple
+
+443
+00:21:07,200 --> 00:21:12,690
+por cualquier duda o refresco sobre el
+
+444
+00:21:09,900 --> 00:21:16,050
+tema p w m te recomiendo veas el
+
+445
+00:21:12,690 --> 00:21:18,720
+capítulo número 4 vamos a verificar y
+
+446
+00:21:16,049 --> 00:21:20,579
+subir el programa podemos observar que
+
+447
+00:21:18,720 --> 00:21:23,339
+se comienza con un brillo de 0
+
+448
+00:21:20,579 --> 00:21:27,599
+equivalente a lámpara apagada y va
+
+449
+00:21:23,339 --> 00:21:31,259
+incrementando hasta brillo máximo de 255
+
+450
+00:21:27,599 --> 00:21:34,019
+luego va de crimen tando hasta 0 y así
+
+451
+00:21:31,259 --> 00:21:36,569
+todo el tiempo fácilmente podríamos
+
+452
+00:21:34,019 --> 00:21:39,389
+agregar un potenciómetro y hacer un
+
+453
+00:21:36,569 --> 00:21:42,259
+regulador de intensidad o dimmer para
+
+454
+00:21:39,390 --> 00:21:45,410
+resumir analizamos el funcionamiento
+
+455
+00:21:42,259 --> 00:21:48,109
+de un transistor del tipo mosfet en modo
+
+456
+00:21:45,410 --> 00:21:50,630
+de conmutación vimos los parámetros más
+
+457
+00:21:48,109 --> 00:21:53,479
+importantes a tener en cuenta y lo
+
+458
+00:21:50,630 --> 00:21:55,390
+utilizamos para controlar una carga de
+
+459
+00:21:53,480 --> 00:21:58,940
+alto consumo de corriente
+
+460
+00:21:55,390 --> 00:22:01,790
+wm para demostrar la alta velocidad de
+
+461
+00:21:58,940 --> 00:22:04,730
+conmutación que se puede lograr y eso es
+
+462
+00:22:01,789 --> 00:22:06,769
+todo por este capítulo como siempre te
+
+463
+00:22:04,730 --> 00:22:11,029
+pido te suscribas si aún no lo has hecho
+
+464
+00:22:06,769 --> 00:22:13,460
+darle un me gusta si te pareció útil o
+
+465
+00:22:11,029 --> 00:22:16,490
+al menos interesante y por cualquier
+
+466
+00:22:13,460 --> 00:22:19,759
+duda o comentario lo podrás hacer debajo
+
+467
+00:22:16,490 --> 00:22:22,089
+que con gusto te responderé chao y hasta
+
+468
+00:22:19,759 --> 00:22:22,089
+la próxima
+

@@ -1,0 +1,2984 @@
+1
+00:00:01,620 --> 00:00:08,310
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,459 --> 00:00:10,410
+46 de arduino desde cero en español
+
+3
+00:00:08,310 --> 00:00:12,780
+en esta oportunidad aprenderemos a
+
+4
+00:00:10,410 --> 00:00:14,750
+trabajar con un par de módulos que nos
+
+5
+00:00:12,779 --> 00:00:17,160
+permitirán crear un enlace de
+
+6
+00:00:14,750 --> 00:00:19,920
+radiofrecuencia para la transmisión y
+
+7
+00:00:17,160 --> 00:00:23,490
+recepción de datos de forma inalámbrica
+
+8
+00:00:19,920 --> 00:00:26,130
+a corta distancia veamos brevemente cómo
+
+9
+00:00:23,489 --> 00:00:28,739
+se realiza el proceso de modulación de
+
+10
+00:00:26,129 --> 00:00:31,199
+una señal portadora para que transporte
+
+11
+00:00:28,739 --> 00:00:34,429
+la información digital desde el emisor
+
+12
+00:00:31,199 --> 00:00:37,890
+hacia el receptor la frecuencia será de
+
+13
+00:00:34,429 --> 00:00:40,469
+433 megahertz y vemos representada una
+
+14
+00:00:37,890 --> 00:00:43,378
+señal del tipo senoidal denominada
+
+15
+00:00:40,469 --> 00:00:45,929
+portadora asume este nombre ya que sobre
+
+16
+00:00:43,378 --> 00:00:48,358
+la misma realizaremos una modificación
+
+17
+00:00:45,929 --> 00:00:51,359
+de sus características para transportar
+
+18
+00:00:48,359 --> 00:00:54,989
+los datos digitales esta señal portadora
+
+19
+00:00:51,359 --> 00:00:57,120
+funciona sobre una banda denominada y sm
+
+20
+00:00:54,988 --> 00:01:01,259
+que corresponde a las siglas en inglés
+
+21
+00:00:57,119 --> 00:01:03,119
+de ingeniería científico y médico es una
+
+22
+00:01:01,259 --> 00:01:06,030
+banda que no requiere una licencia
+
+23
+00:01:03,119 --> 00:01:07,739
+especial para trabajar sobre la misma de
+
+24
+00:01:06,030 --> 00:01:10,590
+hecho existen bandas
+
+25
+00:01:07,739 --> 00:01:13,259
+gm a distintas frecuencias una que
+
+26
+00:01:10,590 --> 00:01:16,740
+seguramente te resultará conocida es la
+
+27
+00:01:13,259 --> 00:01:19,469
+banda a 2.4 gigahertz utilizadas por
+
+28
+00:01:16,739 --> 00:01:22,259
+bluetooth y wi-fi debajo de la señal
+
+29
+00:01:19,469 --> 00:01:24,989
+portadora tenemos una representación de
+
+30
+00:01:22,259 --> 00:01:27,420
+datos digitales que deseamos enviar de
+
+31
+00:01:24,989 --> 00:01:30,179
+un punto a otro de forma inalámbrica
+
+32
+00:01:27,420 --> 00:01:32,670
+esta señal digital la generamos
+
+33
+00:01:30,179 --> 00:01:35,399
+fácilmente con un pin digital de arduino
+
+34
+00:01:32,670 --> 00:01:37,950
+al proceso de modificar la señal
+
+35
+00:01:35,399 --> 00:01:40,560
+portadora para que contenga esta señal
+
+36
+00:01:37,950 --> 00:01:43,469
+digital se lo denomina modulación
+
+37
+00:01:40,560 --> 00:01:45,450
+existen diferentes tipos de modulación
+
+38
+00:01:43,469 --> 00:01:48,298
+el que utilizaremos para nuestros
+
+39
+00:01:45,450 --> 00:01:51,868
+módulos será del tipo a ese caso
+
+40
+00:01:48,299 --> 00:01:54,990
+amplitud gift skin es decir modulación
+
+41
+00:01:51,868 --> 00:01:57,450
+por amplitud o simplemente a m el
+
+42
+00:01:54,989 --> 00:02:00,929
+proceso es muy simple mira que cuando
+
+43
+00:01:57,450 --> 00:02:03,959
+aparece un uno lógico la señal modulada
+
+44
+00:02:00,929 --> 00:02:07,140
+a ese cada corresponde directamente a la
+
+45
+00:02:03,959 --> 00:02:09,330
+señal portadora exactamente igual con su
+
+46
+00:02:07,140 --> 00:02:12,180
+amplitud máxima cuando aparece un
+
+47
+00:02:09,330 --> 00:02:14,280
+serológico la señal modulada es la
+
+48
+00:02:12,180 --> 00:02:17,040
+portadora pero con nula
+
+49
+00:02:14,280 --> 00:02:18,959
+amplitud o lo que es lo mismo ausencia
+
+50
+00:02:17,039 --> 00:02:21,810
+de la portadora a este tipo de
+
+51
+00:02:18,959 --> 00:02:25,860
+modulación a ese k se le refiere también
+
+52
+00:02:21,810 --> 00:02:28,650
+como binary amplitud lifting modulación
+
+53
+00:02:25,860 --> 00:02:31,830
+por amplitud binaria ya que existirán
+
+54
+00:02:28,650 --> 00:02:32,520
+sólo dos niveles de amplitud máxima y
+
+55
+00:02:31,830 --> 00:02:34,739
+cero
+
+56
+00:02:32,520 --> 00:02:37,890
+por ejemplo en esta parte de los datos a
+
+57
+00:02:34,739 --> 00:02:40,709
+transmitir si tenemos dos unos lógicos
+
+58
+00:02:37,889 --> 00:02:43,859
+seguidos entonces tendremos que la señal
+
+59
+00:02:40,709 --> 00:02:45,989
+modulada resultante es la portadora sin
+
+60
+00:02:43,860 --> 00:02:49,200
+modificar por el tiempo que dura la
+
+61
+00:02:45,989 --> 00:02:51,840
+señal digital en su estado alto si luego
+
+62
+00:02:49,199 --> 00:02:54,268
+le siguen dos ceros lógicos entonces
+
+63
+00:02:51,840 --> 00:02:56,700
+tendremos ausencia de portadora por
+
+64
+00:02:54,269 --> 00:02:58,530
+dicho tiempo en este capítulo
+
+65
+00:02:56,699 --> 00:03:01,349
+nos centraremos en las cuestiones
+
+66
+00:02:58,530 --> 00:03:03,719
+prácticas y cómo implementar los módulos
+
+67
+00:03:01,349 --> 00:03:05,669
+para diversas situaciones así que
+
+68
+00:03:03,719 --> 00:03:08,159
+dejaremos de lado cuestiones más
+
+69
+00:03:05,669 --> 00:03:10,919
+profundas sobre radiofrecuencia y
+
+70
+00:03:08,159 --> 00:03:12,780
+modulación justamente una cuestión de la
+
+71
+00:03:10,919 --> 00:03:15,599
+práctica que debemos atender de
+
+72
+00:03:12,780 --> 00:03:16,020
+inmediato es la cuestión antenas para
+
+73
+00:03:15,599 --> 00:03:18,689
+los
+
+74
+00:03:16,020 --> 00:03:21,150
+los que no vienen incluídas se pueden
+
+75
+00:03:18,689 --> 00:03:23,759
+adquirir por separado aunque el costo
+
+76
+00:03:21,150 --> 00:03:26,159
+suele ser mayor y los propios módulos
+
+77
+00:03:23,759 --> 00:03:29,039
+por eso te propongo que realicemos un
+
+78
+00:03:26,159 --> 00:03:31,859
+par de antenas de forma casera haremos
+
+79
+00:03:29,039 --> 00:03:34,019
+un par de antenas del tipo helicoidales
+
+80
+00:03:31,860 --> 00:03:37,280
+de manera que ocupen el menor espacio
+
+81
+00:03:34,020 --> 00:03:39,719
+posible partimos de un alambre de cobre
+
+82
+00:03:37,280 --> 00:03:43,020
+esmaltado es decir que tiene una
+
+83
+00:03:39,719 --> 00:03:45,810
+cobertura aislante en amel en toda su
+
+84
+00:03:43,020 --> 00:03:48,120
+extensión aquí se muestra un rollo de
+
+85
+00:03:45,810 --> 00:03:50,069
+este tipo de alambre y me quedo de
+
+86
+00:03:48,120 --> 00:03:52,860
+cuando realice el bobinado de un
+
+87
+00:03:50,069 --> 00:03:56,340
+transformador es ideal para estos casos
+
+88
+00:03:52,860 --> 00:03:57,330
+el diámetro o sección es de 0,3
+
+89
+00:03:56,340 --> 00:04:00,240
+milímetros
+
+90
+00:03:57,330 --> 00:04:03,510
+podrás usar cable más fino o más grueso
+
+91
+00:04:00,240 --> 00:04:05,879
+incluso cable unipolar convencional pero
+
+92
+00:04:03,509 --> 00:04:07,829
+la idea de formar las espiras de la
+
+93
+00:04:05,879 --> 00:04:10,769
+antena helicoidal y que la forma
+
+94
+00:04:07,830 --> 00:04:13,410
+permanezca sin modificarse demasiado por
+
+95
+00:04:10,770 --> 00:04:15,659
+eso un cable muy fino tenderá a doblarse
+
+96
+00:04:13,409 --> 00:04:17,969
+vamos a cortar un tramo de 30
+
+97
+00:04:15,659 --> 00:04:20,579
+centímetros de este alambre y luego
+
+98
+00:04:17,970 --> 00:04:22,250
+quitar el esmalte el material aislador
+
+99
+00:04:20,579 --> 00:04:25,699
+de uno de los
+
+100
+00:04:22,250 --> 00:04:27,800
+unos 5 milímetros son suficientes
+
+101
+00:04:25,699 --> 00:04:30,589
+este será el extremo que sol daremos
+
+102
+00:04:27,800 --> 00:04:34,670
+luego al módulo finalmente tomaremos un
+
+103
+00:04:30,589 --> 00:04:38,029
+elemento cilíndrico de unos 5 5 ó 6
+
+104
+00:04:34,670 --> 00:04:40,129
+milímetros un lápiz o una lapicera suele
+
+105
+00:04:38,029 --> 00:04:41,089
+tener este diámetro con un trozo de
+
+106
+00:04:40,129 --> 00:04:43,370
+cinta
+
+107
+00:04:41,089 --> 00:04:46,279
+sostendremos el extremo que le quitamos
+
+108
+00:04:43,370 --> 00:04:48,649
+el esmalte de manera que no se mueva y
+
+109
+00:04:46,279 --> 00:04:51,529
+comenzaremos a enrollar el alambre en
+
+110
+00:04:48,649 --> 00:04:54,229
+forma de espiral bien juntas hasta la
+
+111
+00:04:51,529 --> 00:04:56,839
+totalidad del largo del cable deberá
+
+112
+00:04:54,230 --> 00:04:59,030
+quedar algo así luego podrás quitar la
+
+113
+00:04:56,839 --> 00:05:01,729
+cinta y deslizar la antena por el
+
+114
+00:04:59,029 --> 00:05:04,429
+extremo la idea siempre es mantener la
+
+115
+00:05:01,730 --> 00:05:07,220
+forma de espiral y que se deforme lo
+
+116
+00:05:04,430 --> 00:05:09,650
+menos posible genial ya tenemos una
+
+117
+00:05:07,220 --> 00:05:12,680
+antena ahora realizaremos el mismo
+
+118
+00:05:09,649 --> 00:05:15,409
+proceso para una segunda antena cortando
+
+119
+00:05:12,680 --> 00:05:18,199
+30 centímetros de alambre quitando unos
+
+120
+00:05:15,410 --> 00:05:21,169
+5 milímetros de aislación de un extremo
+
+121
+00:05:18,199 --> 00:05:23,479
+y enrollando lo sobre un lápiz antes de
+
+122
+00:05:21,168 --> 00:05:26,269
+soldar las antenas tendrás que separar
+
+123
+00:05:23,480 --> 00:05:28,879
+un poco las espiras no hace falta una
+
+124
+00:05:26,269 --> 00:05:31,909
+gran precisión podrás tomar como refiere
+
+125
+00:05:28,879 --> 00:05:34,909
+estas imágenes luego sol daremos la
+
+126
+00:05:31,910 --> 00:05:37,100
+antena del emisor sobre el orificio que
+
+127
+00:05:34,910 --> 00:05:40,040
+tiene el circuito impreso sobre el
+
+128
+00:05:37,100 --> 00:05:42,170
+extremo superior derecho y mismo trabajo
+
+129
+00:05:40,040 --> 00:05:44,930
+con la antena del receptor sobre la
+
+130
+00:05:42,170 --> 00:05:47,689
+esquina inferior izquierda en caso de
+
+131
+00:05:44,930 --> 00:05:49,639
+que adquieras las antenas ya listas solo
+
+132
+00:05:47,689 --> 00:05:51,949
+tendrás que realizar el proceso de
+
+133
+00:05:49,639 --> 00:05:54,469
+soldado el tipo de comunicación que
+
+134
+00:05:51,949 --> 00:05:57,139
+podremos lograr con estos módulos es el
+
+135
+00:05:54,470 --> 00:05:59,570
+denominado simplex ya que tenemos un
+
+136
+00:05:57,139 --> 00:06:02,599
+módulo que solo cumple la función de
+
+137
+00:05:59,569 --> 00:06:05,389
+emitir y otro módulo que sólo cumple la
+
+138
+00:06:02,600 --> 00:06:06,950
+función de recibir es decir que no es
+
+139
+00:06:05,389 --> 00:06:09,259
+bidireccional
+
+140
+00:06:06,949 --> 00:06:11,689
+esto genera el problema de que el emisor
+
+141
+00:06:09,259 --> 00:06:13,909
+no tiene forma de saber si los datos
+
+142
+00:06:11,689 --> 00:06:16,670
+enviados han sido recibidos
+
+143
+00:06:13,910 --> 00:06:19,550
+correctamente en el otro extremo no hay
+
+144
+00:06:16,670 --> 00:06:22,730
+una confirmación de recepción por este
+
+145
+00:06:19,550 --> 00:06:25,480
+motivo y por que la modulación a sk es
+
+146
+00:06:22,730 --> 00:06:27,830
+simple pero a la vez proclive a
+
+147
+00:06:25,480 --> 00:06:30,740
+interferencias es que usaremos una
+
+148
+00:06:27,829 --> 00:06:33,259
+librería denominada radiohead esta
+
+149
+00:06:30,740 --> 00:06:35,420
+librería es muy popular y viene en
+
+150
+00:06:33,259 --> 00:06:38,209
+reemplazo de su versión anterior
+
+151
+00:06:35,420 --> 00:06:40,220
+con el nombre virtual why are de hecho
+
+152
+00:06:38,209 --> 00:06:42,889
+en la web hay muchos ejemplos de
+
+153
+00:06:40,220 --> 00:06:45,770
+utilización de estos módulos con virtual
+
+154
+00:06:42,889 --> 00:06:48,019
+why are nosotros usaremos la versión más
+
+155
+00:06:45,769 --> 00:06:50,899
+moderna y recomendada por el
+
+156
+00:06:48,019 --> 00:06:53,689
+desarrollador esta librería asegura una
+
+157
+00:06:50,899 --> 00:06:56,389
+comunicación confiable donde previo al
+
+158
+00:06:53,689 --> 00:06:59,329
+envío de los datos genera unos pulsos
+
+159
+00:06:56,389 --> 00:07:02,389
+denominados de entrenamiento una serie
+
+160
+00:06:59,329 --> 00:07:04,639
+de unos y ceros alternados y luego unos
+
+161
+00:07:02,389 --> 00:07:06,979
+caracteres especiales para indicar el
+
+162
+00:07:04,639 --> 00:07:09,829
+inicio de los datos la longitud de los
+
+163
+00:07:06,980 --> 00:07:12,890
+mismos y un código de verificación de
+
+164
+00:07:09,829 --> 00:07:14,629
+esa manera el receptor puede saber si la
+
+165
+00:07:12,889 --> 00:07:17,870
+integridad de los datos se ha
+
+166
+00:07:14,629 --> 00:07:20,629
+comprometido y de esa manera aceptar o
+
+167
+00:07:17,870 --> 00:07:23,149
+descartar la información todo un proceso
+
+168
+00:07:20,629 --> 00:07:25,279
+relativamente complejo del cual nos
+
+169
+00:07:23,149 --> 00:07:27,620
+despreocupamos vamos al circuito de
+
+170
+00:07:25,279 --> 00:07:30,889
+conexión que por primera vez en el curso
+
+171
+00:07:27,620 --> 00:07:33,889
+usaremos dos arduino uno dedicado a
+
+172
+00:07:30,889 --> 00:07:36,430
+manejar el módulo emisor y otro dedicado
+
+173
+00:07:33,889 --> 00:07:39,889
+al módulo receptor del lado izquierdo
+
+174
+00:07:36,430 --> 00:07:41,180
+tenemos las conexiones para controlar el
+
+175
+00:07:39,889 --> 00:07:44,060
+emisor
+
+176
+00:07:41,180 --> 00:07:46,879
+usar un modelo de placa pro mini como la
+
+177
+00:07:44,060 --> 00:07:49,280
+vista en el capítulo 32 ya que es la que
+
+178
+00:07:46,879 --> 00:07:52,850
+tengo libre por el momento aquí podrás
+
+179
+00:07:49,279 --> 00:07:55,339
+utilizar un arduino 1 mega nano o
+
+180
+00:07:52,850 --> 00:07:57,860
+cualquier otro todo se encuentra en su
+
+181
+00:07:55,339 --> 00:08:01,279
+propia pequeña protoboard del lado del
+
+182
+00:07:57,860 --> 00:08:04,490
+receptor usar el modelo 1 de siempre
+
+183
+00:08:01,279 --> 00:08:07,038
+conectado al módulo receptor también en
+
+184
+00:08:04,490 --> 00:08:07,970
+su propio protoboard las conexiones son
+
+185
+00:08:07,038 --> 00:08:10,759
+muy simples
+
+186
+00:08:07,970 --> 00:08:13,070
+del lado emisor el módulo consta de tres
+
+187
+00:08:10,759 --> 00:08:15,680
+pines el primero de la izquierda tienen
+
+188
+00:08:13,069 --> 00:08:18,800
+la denominación data que sobre el
+
+189
+00:08:15,680 --> 00:08:21,829
+circuito impreso aparece como atado el
+
+190
+00:08:18,800 --> 00:08:24,530
+data al revés un pequeño defecto del
+
+191
+00:08:21,829 --> 00:08:26,689
+circuito impreso a través de este pin le
+
+192
+00:08:24,529 --> 00:08:29,119
+enviaremos desde arduino los datos a
+
+193
+00:08:26,689 --> 00:08:32,509
+transmitir lo conectaremos con un cable
+
+194
+00:08:29,120 --> 00:08:35,479
+directo al pin digital número 12 el pin
+
+195
+00:08:32,509 --> 00:08:38,809
+del medio será veces que lo conectaremos
+
+196
+00:08:35,479 --> 00:08:41,778
+con un cable a veces de la pro mini en
+
+197
+00:08:38,809 --> 00:08:44,359
+este caso si usaras un modelo 1 mega
+
+198
+00:08:41,778 --> 00:08:46,610
+sería el equivalente a 5 volts y por
+
+199
+00:08:44,360 --> 00:08:47,629
+último nos resta gene de que lo
+
+200
+00:08:46,610 --> 00:08:50,899
+conectaremos
+
+201
+00:08:47,629 --> 00:08:54,139
+nd de la provinia y con eso ya tenemos
+
+202
+00:08:50,899 --> 00:08:56,600
+la conexión del lado emisor del lado del
+
+203
+00:08:54,139 --> 00:08:59,509
+receptor el primer pin de la izquierda
+
+204
+00:08:56,600 --> 00:09:02,960
+corresponde a veces y lo conectaremos a
+
+205
+00:08:59,509 --> 00:09:05,750
+la salida de 5 volts de la 1 los 2 pines
+
+206
+00:09:02,960 --> 00:09:08,570
+siguientes corresponden a data ambos
+
+207
+00:09:05,750 --> 00:09:10,759
+pines cumplen la misma función así que
+
+208
+00:09:08,570 --> 00:09:14,240
+se pueden conectar de forma indistinta
+
+209
+00:09:10,759 --> 00:09:16,970
+uno u otro aquí elegí el primer pin
+
+210
+00:09:14,240 --> 00:09:19,909
+luego de bsc lo conectaremos al pin
+
+211
+00:09:16,970 --> 00:09:23,240
+digital número 11 de arduino el último
+
+212
+00:09:19,909 --> 00:09:25,699
+pin de la derecha gene de tira a gene de
+
+213
+00:09:23,240 --> 00:09:28,549
+arduino muy simple sólo es cuestión de
+
+214
+00:09:25,700 --> 00:09:31,820
+aplicar alimentación y data se usan los
+
+215
+00:09:28,549 --> 00:09:33,949
+pines 12 para el lado del emisor y 11
+
+216
+00:09:31,820 --> 00:09:35,870
+para el lado del receptor ya que son los
+
+217
+00:09:33,950 --> 00:09:39,110
+valores por defecto de la librería
+
+218
+00:09:35,870 --> 00:09:41,269
+radiohead que pueden usarse otros si es
+
+219
+00:09:39,110 --> 00:09:44,000
+necesario esta librería no está
+
+220
+00:09:41,269 --> 00:09:46,039
+disponible desde el gestor del ide de
+
+221
+00:09:44,000 --> 00:09:48,440
+manera que debemos tomarnos el trabajo
+
+222
+00:09:46,039 --> 00:09:51,469
+de ingresar a la siguiente página web
+
+223
+00:09:48,440 --> 00:09:54,320
+estaré dejando el enlace debajo en la
+
+224
+00:09:51,470 --> 00:09:56,960
+zona de descripción haciendo clic en él
+
+225
+00:09:54,320 --> 00:09:59,780
+enlace de la página descargamos el
+
+226
+00:09:56,960 --> 00:10:01,850
+archivo comprimido con extensión zip a
+
+227
+00:09:59,779 --> 00:10:04,159
+nuestra computadora al momento de
+
+228
+00:10:01,850 --> 00:10:08,149
+publicación de este capítulo la última
+
+229
+00:10:04,159 --> 00:10:10,939
+versión disponible es la 1.89 muy bien
+
+230
+00:10:08,149 --> 00:10:13,579
+ahora abramos el id de arduino y para
+
+231
+00:10:10,940 --> 00:10:16,490
+instalar esta librería es muy fácil
+
+232
+00:10:13,580 --> 00:10:20,090
+iremos al menú programa incluir librería
+
+233
+00:10:16,490 --> 00:10:22,549
+y la opción añadir librería puntos y
+
+234
+00:10:20,090 --> 00:10:25,250
+vamos al directorio donde descargamos el
+
+235
+00:10:22,549 --> 00:10:28,039
+archivo lo seleccionamos y luego el
+
+236
+00:10:25,250 --> 00:10:30,500
+botón abrir veremos que no aparece
+
+237
+00:10:28,039 --> 00:10:33,169
+ningún mensaje en él y de que la
+
+238
+00:10:30,500 --> 00:10:35,720
+librería ya está instalada y el proceso
+
+239
+00:10:33,169 --> 00:10:38,349
+sólo demora unos pocos segundos para
+
+240
+00:10:35,720 --> 00:10:41,690
+estar seguros podemos ir al menú archivo
+
+241
+00:10:38,350 --> 00:10:44,000
+ejemplos y buscar por el submenú raíz de
+
+242
+00:10:41,690 --> 00:10:46,310
+ojeda hay una gran cantidad de ejemplos
+
+243
+00:10:44,000 --> 00:10:49,159
+para distintos tipos de modulación de
+
+244
+00:10:46,309 --> 00:10:51,469
+señal y de tipos de módulos no usaremos
+
+245
+00:10:49,159 --> 00:10:53,629
+ninguno de estos ejemplos pero nos sirve
+
+246
+00:10:51,470 --> 00:10:56,330
+para saber si la librería quedó bien
+
+247
+00:10:53,629 --> 00:10:58,519
+instalada ahora sí veamos el primer
+
+248
+00:10:56,330 --> 00:11:00,920
+programa como trabajaremos con dos
+
+249
+00:10:58,519 --> 00:11:04,069
+placas arduino tendremos dos
+
+250
+00:11:00,919 --> 00:11:06,559
+digo distintos uno para el emisor y otro
+
+251
+00:11:04,070 --> 00:11:09,170
+para el receptor por este motivo en la
+
+252
+00:11:06,559 --> 00:11:11,388
+primera línea aparece el comentario de
+
+253
+00:11:09,169 --> 00:11:13,759
+que se trata del primer programa del
+
+254
+00:11:11,389 --> 00:11:16,278
+lado del emisor recordad que como es
+
+255
+00:11:13,759 --> 00:11:18,948
+usual el código fuente de todos los
+
+256
+00:11:16,278 --> 00:11:20,870
+programas vistos en este capítulo se
+
+257
+00:11:18,948 --> 00:11:23,000
+encuentran disponibles para descargar
+
+258
+00:11:20,870 --> 00:11:24,919
+desde el enlace en la zona de
+
+259
+00:11:23,000 --> 00:11:28,458
+descripción en este primer programa
+
+260
+00:11:24,919 --> 00:11:31,610
+haremos algo muy simple transmitir un
+
+261
+00:11:28,458 --> 00:11:33,679
+mensaje y luego recibirlo para mostrarlo
+
+262
+00:11:31,610 --> 00:11:36,019
+mediante el monitor serie aquí
+
+263
+00:11:33,679 --> 00:11:39,259
+comenzaremos con el código del lado del
+
+264
+00:11:36,019 --> 00:11:42,470
+emisor incluimos la librería radiohead y
+
+265
+00:11:39,259 --> 00:11:44,448
+luego también la dsp y que es necesaria
+
+266
+00:11:42,470 --> 00:11:47,028
+para que funcione correctamente
+
+267
+00:11:44,448 --> 00:11:49,189
+reid el health aunque no tengamos ningún
+
+268
+00:11:47,028 --> 00:11:51,860
+dispositivo que haga uso de esta
+
+269
+00:11:49,190 --> 00:11:54,199
+interfaz sería debemos incluir la de
+
+270
+00:11:51,860 --> 00:11:59,060
+todas formas creamos un objeto con el
+
+271
+00:11:54,198 --> 00:12:02,778
+nombre rf guión bajo driver del tipo rh
+
+272
+00:11:59,059 --> 00:12:05,028
+y un bajo a sk al principio del capítulo
+
+273
+00:12:02,778 --> 00:12:07,309
+vimos que utilizaríamos el tipo de
+
+274
+00:12:05,028 --> 00:12:10,360
+modulación por amplitud a s
+
+275
+00:12:07,309 --> 00:12:13,309
+radiohead en realidad permite utilizar
+
+276
+00:12:10,360 --> 00:12:16,639
+diversos métodos de modulación para
+
+277
+00:12:13,309 --> 00:12:18,879
+nuestros módulos usaremos a sk por eso
+
+278
+00:12:16,639 --> 00:12:23,149
+el nombre rh
+
+279
+00:12:18,879 --> 00:12:25,700
+sk indica que justamente el objeto usará
+
+280
+00:12:23,149 --> 00:12:28,759
+la parte de la librería correspondiente
+
+281
+00:12:25,700 --> 00:12:31,009
+a dicha modulación también de paso no
+
+282
+00:12:28,759 --> 00:12:33,230
+cargamos código innecesario en la
+
+283
+00:12:31,009 --> 00:12:36,559
+memoria de arduino con eso tenemos el
+
+284
+00:12:33,230 --> 00:12:39,050
+objeto rf driver del mismo usaremos
+
+285
+00:12:36,559 --> 00:12:41,419
+varias funciones que nos facilitarán en
+
+286
+00:12:39,049 --> 00:12:43,639
+gran medida tanto el envío como la
+
+287
+00:12:41,419 --> 00:12:46,129
+recepción de datos y en el setup
+
+288
+00:12:43,639 --> 00:12:49,039
+inicializa mos al objeto con la función
+
+289
+00:12:46,129 --> 00:12:51,679
+init sin ningún parámetro si no
+
+290
+00:12:49,039 --> 00:12:54,139
+colocamos ningún parámetro la librería
+
+291
+00:12:51,679 --> 00:12:57,500
+asume que trabajaremos a una velocidad
+
+292
+00:12:54,139 --> 00:13:01,129
+de 2000 bits por segundo siendo la
+
+293
+00:12:57,500 --> 00:13:04,730
+velocidad máxima de 2400 que el pin
+
+294
+00:13:01,129 --> 00:13:07,879
+digital para la recepción será el 11 y
+
+295
+00:13:04,730 --> 00:13:10,580
+para la transmisión el 12 por eso usamos
+
+296
+00:13:07,879 --> 00:13:12,019
+esos mismos pines cuando conectamos los
+
+297
+00:13:10,580 --> 00:13:14,239
+módulos a las placas
+
+298
+00:13:12,019 --> 00:13:16,759
+si quisiéramos cambiar los pines por
+
+299
+00:13:14,239 --> 00:13:19,790
+otros lo haríamos aquí en la función
+
+300
+00:13:16,759 --> 00:13:22,249
+init y eso es todo para el setup el loop
+
+301
+00:13:19,789 --> 00:13:23,149
+verás qué consiste de muy pocas líneas
+
+302
+00:13:22,249 --> 00:13:26,420
+de código
+
+303
+00:13:23,149 --> 00:13:28,730
+pero quizás lo encuentres algo extraño a
+
+304
+00:13:26,419 --> 00:13:30,769
+lo que solemos utilizar esto es porque
+
+305
+00:13:28,730 --> 00:13:34,129
+como he comentado en otras oportunidades
+
+306
+00:13:30,769 --> 00:13:36,678
+las librerías son geniales a la hora de
+
+307
+00:13:34,129 --> 00:13:39,558
+manejar toda la parte complicada de un
+
+308
+00:13:36,678 --> 00:13:42,139
+proceso pero nosotros debemos usarla en
+
+309
+00:13:39,558 --> 00:13:44,539
+el formato en la cual fue diseñada por
+
+310
+00:13:42,139 --> 00:13:47,749
+el desarrollador y el mensaje a enviar
+
+311
+00:13:44,539 --> 00:13:50,149
+será este entre comillas hola desde
+
+312
+00:13:47,749 --> 00:13:52,970
+lejos con el signo de admiración al
+
+313
+00:13:50,149 --> 00:13:55,778
+final ahora este texto se almacena en
+
+314
+00:13:52,970 --> 00:13:59,178
+una variable con el nombre m sg
+
+315
+00:13:55,778 --> 00:14:02,058
+abreviatura de mes y en inglés y verás
+
+316
+00:13:59,178 --> 00:14:05,208
+que está declarada como un carácter car
+
+317
+00:14:02,058 --> 00:14:08,480
+con un asterisco estás teórico se llama
+
+318
+00:14:05,208 --> 00:14:10,669
+puntero y se usa mucho en el lenguaje se
+
+319
+00:14:08,480 --> 00:14:13,220
+más más en la programación que hacemos
+
+320
+00:14:10,669 --> 00:14:15,438
+nosotros nunca lo usamos pero en este
+
+321
+00:14:13,220 --> 00:14:17,329
+caso es necesario ya que el
+
+322
+00:14:15,438 --> 00:14:19,969
+desarrollador de la librería
+
+323
+00:14:17,328 --> 00:14:22,308
+así lo requiere también verás que le
+
+324
+00:14:19,970 --> 00:14:25,548
+precede con esto que es una palabra
+
+325
+00:14:22,308 --> 00:14:28,548
+reservada para constante no te preocupes
+
+326
+00:14:25,548 --> 00:14:30,798
+ni tampoco te compliques la idea es
+
+327
+00:14:28,548 --> 00:14:32,360
+hacerlo lo más simple posible pero
+
+328
+00:14:30,798 --> 00:14:35,149
+debemos pasar por estas pequeñas
+
+329
+00:14:32,360 --> 00:14:37,428
+penurias para usar esta potente librería
+
+330
+00:14:35,149 --> 00:14:40,489
+en definitiva toda esta parte que
+
+331
+00:14:37,428 --> 00:14:43,068
+resalto es un puntero a la cadena que
+
+332
+00:14:40,489 --> 00:14:46,489
+deseamos enviar ahora viene la función
+
+333
+00:14:43,068 --> 00:14:49,669
+send esta función envía el mensaje que
+
+334
+00:14:46,489 --> 00:14:52,339
+apuntamos con anterioridad requiere que
+
+335
+00:14:49,669 --> 00:14:54,678
+el primer parámetro sea un byte con el
+
+336
+00:14:52,339 --> 00:14:57,019
+puntero a la cadena por eso verás que
+
+337
+00:14:54,678 --> 00:14:59,838
+todo lo que está antes de la primera
+
+338
+00:14:57,019 --> 00:15:02,649
+coma es decir el primer parámetro es
+
+339
+00:14:59,839 --> 00:15:06,920
+windows 8
+
+340
+00:15:02,649 --> 00:15:10,220
+asterisco msg nuevamente esto no lo
+
+341
+00:15:06,919 --> 00:15:13,789
+pienses demasiado windows 8
+
+342
+00:15:10,220 --> 00:15:17,239
+es un formato usado por semanas más para
+
+343
+00:15:13,789 --> 00:15:20,889
+describir a un entero sin signo de 8
+
+344
+00:15:17,239 --> 00:15:24,190
+bits de longitud así que todo windows 8
+
+345
+00:15:20,889 --> 00:15:27,940
+lo podrás ver como una variable tipo
+
+346
+00:15:24,190 --> 00:15:30,640
+y el asterisco y el nombre m sg es el
+
+347
+00:15:27,940 --> 00:15:33,550
+puntero a la cadena de enviar el segundo
+
+348
+00:15:30,639 --> 00:15:36,100
+parámetro es la longitud de los datos a
+
+349
+00:15:33,549 --> 00:15:39,219
+enviar para eso usaremos la función
+
+350
+00:15:36,100 --> 00:15:43,120
+str leer y entre paréntesis
+
+351
+00:15:39,220 --> 00:15:45,610
+msg esta función devuelve la longitud de
+
+352
+00:15:43,120 --> 00:15:48,159
+la cadena entonces para resumir la
+
+353
+00:15:45,610 --> 00:15:51,009
+función o senda requiere como primer
+
+354
+00:15:48,159 --> 00:15:54,819
+parámetro el puntero a la cadena enviar
+
+355
+00:15:51,009 --> 00:15:57,730
+y como segundo la longitud de la misma
+
+356
+00:15:54,820 --> 00:16:00,430
+finalmente invocamos a la función weight
+
+357
+00:15:57,730 --> 00:16:03,070
+para que sienta que lo que hace es
+
+358
+00:16:00,429 --> 00:16:05,679
+esperar a que se envíe la información
+
+359
+00:16:03,070 --> 00:16:07,990
+este tiempo depende de la longitud de
+
+360
+00:16:05,679 --> 00:16:10,569
+datos a enviar por eso no es un valor
+
+361
+00:16:07,990 --> 00:16:13,840
+fijo recordad que hay todo un proceso
+
+362
+00:16:10,570 --> 00:16:16,720
+previo de enviar el preámbulo antes de
+
+363
+00:16:13,840 --> 00:16:19,300
+los datos en sí y luego la generación de
+
+364
+00:16:16,720 --> 00:16:21,759
+un código de verificación recién luego
+
+365
+00:16:19,299 --> 00:16:24,129
+de ejecutada esta función es que
+
+366
+00:16:21,759 --> 00:16:26,409
+efectivamente se ha transmitido la
+
+367
+00:16:24,129 --> 00:16:29,649
+información la última línea del programa
+
+368
+00:16:26,409 --> 00:16:31,110
+es una demora de un segundo es decir que
+
+369
+00:16:29,649 --> 00:16:34,240
+estaremos en
+
+370
+00:16:31,110 --> 00:16:37,210
+aproximadamente cada un segundo el texto
+
+371
+00:16:34,240 --> 00:16:39,490
+hola desde lejos y ese es todo el
+
+372
+00:16:37,210 --> 00:16:42,129
+programa más allá de las cuestiones que
+
+373
+00:16:39,490 --> 00:16:44,710
+vimos algo particulares para usar las
+
+374
+00:16:42,129 --> 00:16:47,529
+funciones es bastante simple y
+
+375
+00:16:44,710 --> 00:16:49,870
+básicamente siempre igual en mi caso
+
+376
+00:16:47,529 --> 00:16:52,329
+como el módulo emisor será comandado con
+
+377
+00:16:49,870 --> 00:16:55,210
+la pro mini debo seleccionar desde el
+
+378
+00:16:52,330 --> 00:16:57,879
+ide en el modelo de la placa pro mini y
+
+379
+00:16:55,210 --> 00:17:00,670
+el puerto que corresponde en tu caso
+
+380
+00:16:57,879 --> 00:17:03,429
+será el modelo de placa y puerto que
+
+381
+00:17:00,669 --> 00:17:06,730
+uses para el emisor y ahora sí es hora
+
+382
+00:17:03,429 --> 00:17:09,399
+de verificar y subir el programa una vez
+
+383
+00:17:06,730 --> 00:17:12,099
+subido vamos directo al programa del
+
+384
+00:17:09,400 --> 00:17:14,350
+receptor al igual que antes la primer
+
+385
+00:17:12,099 --> 00:17:16,719
+línea tendrá el comentario de que se
+
+386
+00:17:14,349 --> 00:17:19,659
+trata del primer programa del lado del
+
+387
+00:17:16,720 --> 00:17:23,049
+receptor misma cuestión de incluir las
+
+388
+00:17:19,660 --> 00:17:26,380
+librerías radiohead y sp y crear el
+
+389
+00:17:23,049 --> 00:17:29,109
+objeto rf driver y ahora en setup
+
+390
+00:17:26,380 --> 00:17:33,250
+agregamos la inicialización del monitor
+
+391
+00:17:29,109 --> 00:17:36,549
+serie a 9.600 bps para poder visualizar
+
+392
+00:17:33,250 --> 00:17:40,000
+el mensaje recibido vamos a declarar una
+
+393
+00:17:36,549 --> 00:17:43,419
+con el nombre buff contracción de bajar
+
+394
+00:17:40,000 --> 00:17:46,480
+en inglés un espacio de memoria asignado
+
+395
+00:17:43,420 --> 00:17:49,269
+para almacenar el mensaje recibido se
+
+396
+00:17:46,480 --> 00:17:51,400
+trata de un array como utilizamos en
+
+397
+00:17:49,269 --> 00:17:53,740
+otros programas solo que lo declaramos
+
+398
+00:17:51,400 --> 00:17:58,500
+en el formato que requiere la librería
+
+399
+00:17:53,740 --> 00:18:02,470
+wind 8 guión bajo te bus entre corchetes
+
+400
+00:17:58,500 --> 00:18:05,200
+17 17 es la cantidad de caracteres que
+
+401
+00:18:02,470 --> 00:18:07,960
+tiene el texto hola desde lejos hay que
+
+402
+00:18:05,200 --> 00:18:10,210
+contar los espacios en blanco y también
+
+403
+00:18:07,960 --> 00:18:12,940
+el signo de admiración al final es
+
+404
+00:18:10,210 --> 00:18:15,730
+importante reservar este espacio con la
+
+405
+00:18:12,940 --> 00:18:18,580
+cantidad exacta de caracteres a recibir
+
+406
+00:18:15,730 --> 00:18:21,730
+luego una nueva variable esta vez con el
+
+407
+00:18:18,579 --> 00:18:23,949
+nombre buff leen que almacenará la
+
+408
+00:18:21,730 --> 00:18:27,190
+longitud total de los caracteres
+
+409
+00:18:23,950 --> 00:18:30,220
+recibidos y le cargamos el resultado que
+
+410
+00:18:27,190 --> 00:18:31,120
+nos devuelve la función size of entre
+
+411
+00:18:30,220 --> 00:18:33,670
+paréntesis
+
+412
+00:18:31,119 --> 00:18:37,059
+buff sí que parece un juego de palabras
+
+413
+00:18:33,670 --> 00:18:39,850
+pero size of significa espacio o
+
+414
+00:18:37,059 --> 00:18:42,428
+longitud de entonces decimos que
+
+415
+00:18:39,849 --> 00:18:45,519
+queremos obtener la longitud de la cara
+
+416
+00:18:42,429 --> 00:18:48,669
+llamada buzz que antes declaramos como
+
+417
+00:18:45,519 --> 00:18:51,429
+array de 17 caracteres claro está que
+
+418
+00:18:48,669 --> 00:18:53,769
+toda esta parte aquí resaltada la
+
+419
+00:18:51,429 --> 00:18:56,230
+podríamos reemplazar directamente por el
+
+420
+00:18:53,769 --> 00:18:58,679
+número 17 pero de esta forma es más
+
+421
+00:18:56,230 --> 00:19:01,599
+cómodo si luego en otro programa
+
+422
+00:18:58,679 --> 00:19:04,090
+modificamos la longitud de la cadena no
+
+423
+00:19:01,599 --> 00:19:07,359
+tenemos que preocuparnos en cargar la
+
+424
+00:19:04,089 --> 00:19:11,048
+longitud ya que la función lo hace por
+
+425
+00:19:07,359 --> 00:19:14,709
+nosotros en definitiva en bus creamos un
+
+426
+00:19:11,048 --> 00:19:18,158
+array de caracteres de 17 posiciones y
+
+427
+00:19:14,710 --> 00:19:20,470
+en bus leen la longitud del mismo todo
+
+428
+00:19:18,159 --> 00:19:23,259
+esto es en preparación para la función
+
+429
+00:19:20,470 --> 00:19:27,999
+que tenemos aquí como condicional del if
+
+430
+00:19:23,259 --> 00:19:30,220
+la función receive del objeto rf driver
+
+431
+00:19:27,999 --> 00:19:34,058
+esta función devuelve un valor de
+
+432
+00:19:30,220 --> 00:19:37,028
+verdadero true si el array bus tiene la
+
+433
+00:19:34,058 --> 00:19:39,788
+totalidad de los caracteres recibidos en
+
+434
+00:19:37,028 --> 00:19:42,460
+definitiva los indica si ha recibido el
+
+435
+00:19:39,788 --> 00:19:44,919
+mensaje por parte del emisor algo
+
+436
+00:19:42,460 --> 00:19:47,048
+importante de mencionar en este punto es
+
+437
+00:19:44,919 --> 00:19:48,850
+que devolverá verdadero si la
+
+438
+00:19:47,048 --> 00:19:52,000
+comprobación de los datos
+
+439
+00:19:48,849 --> 00:19:54,209
+ha sido correcta si por ejemplo en medio
+
+440
+00:19:52,000 --> 00:19:56,079
+de la recepción una interferencia
+
+441
+00:19:54,210 --> 00:19:59,380
+modificará los datos
+
+442
+00:19:56,079 --> 00:20:02,109
+el crc la validación de datos daría
+
+443
+00:19:59,380 --> 00:20:04,930
+incorrecta con lo cual esta función ya
+
+444
+00:20:02,109 --> 00:20:07,629
+no devuelve verdadero solo lo hace si la
+
+445
+00:20:04,930 --> 00:20:10,330
+integridad en información se mantuvo un
+
+446
+00:20:07,630 --> 00:20:12,580
+motivo más para usar una librería y
+
+447
+00:20:10,329 --> 00:20:15,789
+asegurar así una buena comunicación
+
+448
+00:20:12,579 --> 00:20:18,029
+entonces de manera muy simple dentro del
+
+449
+00:20:15,789 --> 00:20:20,319
+condicional if que ingresaremos
+
+450
+00:20:18,029 --> 00:20:22,569
+únicamente se han llegado a datos
+
+451
+00:20:20,319 --> 00:20:25,359
+correctos será mostrar la información
+
+452
+00:20:22,569 --> 00:20:28,480
+por el monitor serie imprimiendo primero
+
+453
+00:20:25,359 --> 00:20:31,240
+mensaje un espacio en blanco y en la
+
+454
+00:20:28,480 --> 00:20:34,269
+siguiente línea el contenido de buffer
+
+455
+00:20:31,240 --> 00:20:36,789
+book aquí vemos también cómo debemos
+
+456
+00:20:34,269 --> 00:20:39,549
+colocar el puntero con el símbolo del
+
+457
+00:20:36,789 --> 00:20:43,059
+asterisco y definirlo con un carácter
+
+458
+00:20:39,549 --> 00:20:45,220
+card esta línea será un print line de
+
+459
+00:20:43,059 --> 00:20:48,879
+manera que deje un salto de línea al
+
+460
+00:20:45,220 --> 00:20:51,309
+final y así dejar el cursor listo para
+
+461
+00:20:48,880 --> 00:20:53,290
+la próxima línea y ese es todo el
+
+462
+00:20:51,309 --> 00:20:55,629
+programa receptor verás que es muy
+
+463
+00:20:53,289 --> 00:20:58,000
+simple ahora que ya sabemos
+
+464
+00:20:55,630 --> 00:21:00,760
+las particularidades del formato de la
+
+465
+00:20:58,000 --> 00:21:03,250
+librería nuevamente daremos una pasada
+
+466
+00:21:00,759 --> 00:21:06,129
+por el menú herramientas y seleccionar
+
+467
+00:21:03,250 --> 00:21:09,099
+el modelo de placa 1 ya que es el que
+
+468
+00:21:06,130 --> 00:21:12,160
+usaré para controlar el módulo receptor
+
+469
+00:21:09,099 --> 00:21:15,069
+y el puerto com que corresponda con esto
+
+470
+00:21:12,160 --> 00:21:18,279
+establecido podemos verificar y subir el
+
+471
+00:21:15,069 --> 00:21:20,439
+programa genial por fin tenemos listos
+
+472
+00:21:18,279 --> 00:21:22,809
+todo para probar antes de abrir el
+
+473
+00:21:20,440 --> 00:21:25,660
+monitor serie te mostraré cómo tengo
+
+474
+00:21:22,809 --> 00:21:28,210
+configurado el proyecto completo aquí
+
+475
+00:21:25,660 --> 00:21:30,940
+verás la promin y sobre protoboard y el
+
+476
+00:21:28,210 --> 00:21:34,480
+módulo emisor la pro mini conectada
+
+477
+00:21:30,940 --> 00:21:37,390
+miente un conversor usb ttl y el mismo a
+
+478
+00:21:34,480 --> 00:21:40,390
+su vez conectado a una batería del tipo
+
+479
+00:21:37,390 --> 00:21:42,580
+power bank este tipo de baterías son muy
+
+480
+00:21:40,390 --> 00:21:45,700
+útiles ya que incluyen en su interior
+
+481
+00:21:42,579 --> 00:21:48,279
+una batería de litio-ion la podemos
+
+482
+00:21:45,700 --> 00:21:50,860
+cargar con la computadora o cargador de
+
+483
+00:21:48,279 --> 00:21:52,359
+pared y luego nos brinda una salida
+
+484
+00:21:50,859 --> 00:21:54,839
+estándar usb
+
+485
+00:21:52,359 --> 00:21:58,029
+en definitiva tengo todo el emisor
+
+486
+00:21:54,839 --> 00:22:00,759
+funcionando a batería esto permite mover
+
+487
+00:21:58,029 --> 00:22:01,750
+con libertad el mismo y de paso luego
+
+488
+00:22:00,759 --> 00:22:04,450
+hacer alguna
+
+489
+00:22:01,750 --> 00:22:07,299
+pruebas de alcance del lado del receptor
+
+490
+00:22:04,450 --> 00:22:10,090
+curado vino uno estoy alimentando todo
+
+491
+00:22:07,299 --> 00:22:11,889
+con el cable usb de la computadora ya
+
+492
+00:22:10,089 --> 00:22:14,889
+que necesitaremos mediante el mismo
+
+493
+00:22:11,890 --> 00:22:17,020
+cable recibir los datos para mostrar por
+
+494
+00:22:14,890 --> 00:22:20,350
+el monitor serie aclarado el panorama
+
+495
+00:22:17,019 --> 00:22:23,230
+aurel monitor serie y como no podía ser
+
+496
+00:22:20,349 --> 00:22:26,379
+de otra manera vemos que cada un segundo
+
+497
+00:22:23,230 --> 00:22:28,900
+nos muestra el texto hola desde lejos
+
+498
+00:22:26,380 --> 00:22:31,660
+tengo todo el sistema del emisor y
+
+499
+00:22:28,900 --> 00:22:34,360
+receptor cerca para que quepa todo en la
+
+500
+00:22:31,660 --> 00:22:36,940
+cámara verificamos así que ambos
+
+501
+00:22:34,359 --> 00:22:39,549
+sistemas funcionan correctamente si tu
+
+502
+00:22:36,940 --> 00:22:42,670
+emisor como en mi caso lo alimentas con
+
+503
+00:22:39,549 --> 00:22:44,980
+baterías podrás alejarte con el mismo y
+
+504
+00:22:42,670 --> 00:22:48,610
+hacer pruebas de alcance yo llegué a
+
+505
+00:22:44,980 --> 00:22:51,370
+aproximadamente un metro sin problemas
+
+506
+00:22:48,609 --> 00:22:54,099
+si estuviésemos fuera de alcance os
+
+507
+00:22:51,369 --> 00:22:55,779
+hubiese filtrado una interferencia que
+
+508
+00:22:54,099 --> 00:22:58,389
+modifica el contenido del mensaje
+
+509
+00:22:55,779 --> 00:23:01,389
+emitido veremos que directamente el
+
+510
+00:22:58,390 --> 00:23:04,300
+monitor serie no muestra nada ya que el
+
+511
+00:23:01,390 --> 00:23:07,080
+código de verificación ssrc no habría
+
+512
+00:23:04,299 --> 00:23:10,319
+sido válido te propongo que hagamos un
+
+513
+00:23:07,079 --> 00:23:12,389
+y último programa para usar el emisor a
+
+514
+00:23:10,319 --> 00:23:15,720
+modo de control remoto con dos
+
+515
+00:23:12,390 --> 00:23:17,278
+pulsadores y dos leds en el receptor a
+
+516
+00:23:15,720 --> 00:23:19,980
+los cuales les daremos dos
+
+517
+00:23:17,278 --> 00:23:22,859
+comportamientos distintos para eso vamos
+
+518
+00:23:19,980 --> 00:23:25,500
+al circuito de conexión y agregar un par
+
+519
+00:23:22,859 --> 00:23:28,979
+de componentes en protoboard el emisor
+
+520
+00:23:25,500 --> 00:23:31,589
+agregaremos dos pulsadores el número uno
+
+521
+00:23:28,980 --> 00:23:34,528
+el de la izquierda conectaremos uno de
+
+522
+00:23:31,589 --> 00:23:37,379
+sus extremos a gene de aquí marcado con
+
+523
+00:23:34,528 --> 00:23:40,169
+el cable negro del otro extremo iremos
+
+524
+00:23:37,380 --> 00:23:42,809
+de forma directa al pin digital número
+
+525
+00:23:40,169 --> 00:23:45,059
+dos de la provincia como son pulsadores
+
+526
+00:23:42,808 --> 00:23:47,490
+de cuatro terminales bien es cómodo
+
+527
+00:23:45,058 --> 00:23:50,009
+ubicarlos justo sobre el zócalo o
+
+528
+00:23:47,490 --> 00:23:52,919
+hendidura de protoboard quedando dos
+
+529
+00:23:50,009 --> 00:23:55,829
+pines en la mitad superior y dos pines
+
+530
+00:23:52,919 --> 00:23:58,710
+en la mitad inferior con el pulsador 2
+
+531
+00:23:55,829 --> 00:24:01,379
+misma cuestión uno de sus extremos a
+
+532
+00:23:58,710 --> 00:24:03,870
+genere y luego un cable directo al pin
+
+533
+00:24:01,380 --> 00:24:06,240
+digital número 3 verás que no he
+
+534
+00:24:03,869 --> 00:24:08,759
+colocado ninguna resistencia de pull up
+
+535
+00:24:06,240 --> 00:24:12,089
+o pull down la idea es que al presionar
+
+536
+00:24:08,759 --> 00:24:13,619
+el pulsador podamos leer un nivel bajo
+
+537
+00:24:12,089 --> 00:24:16,169
+sobre el pin digital de ardoz
+
+538
+00:24:13,619 --> 00:24:18,599
+pero ya sabemos que cuando un pin se
+
+539
+00:24:16,170 --> 00:24:20,670
+establece como entrada no puede quedar
+
+540
+00:24:18,599 --> 00:24:22,709
+al aire sin conexión
+
+541
+00:24:20,670 --> 00:24:25,259
+en este caso deberíamos colocar una
+
+542
+00:24:22,710 --> 00:24:28,470
+resistencia de pull up en cada pin
+
+543
+00:24:25,259 --> 00:24:30,720
+digital tanto en el 2 como en el 3 pero
+
+544
+00:24:28,470 --> 00:24:32,850
+verás en la programación que podemos
+
+545
+00:24:30,720 --> 00:24:35,400
+aprovechar una característica de la
+
+546
+00:24:32,849 --> 00:24:38,669
+función pin modo para generar una
+
+547
+00:24:35,400 --> 00:24:41,309
+resistencia de pull up de forma interna
+
+548
+00:24:38,670 --> 00:24:44,580
+al microcontrolador y así nos ahorramos
+
+549
+00:24:41,308 --> 00:24:47,069
+de colocarla en el circuito en un minuto
+
+550
+00:24:44,579 --> 00:24:49,949
+lo vemos en definitivo del lado emisor
+
+551
+00:24:47,069 --> 00:24:53,250
+solo incorporamos dos pulsadores a los
+
+552
+00:24:49,950 --> 00:24:56,519
+pines digitales 2 y 3 que pondrán dichos
+
+553
+00:24:53,250 --> 00:24:59,279
+pines a un nivel bajo si son presionados
+
+554
+00:24:56,519 --> 00:25:02,308
+del lado del receptor incorporamos dos
+
+555
+00:24:59,279 --> 00:25:03,899
+leds uno rojo y uno verde con sus
+
+556
+00:25:02,308 --> 00:25:07,920
+correspondientes resistencias
+
+557
+00:25:03,900 --> 00:25:10,590
+limitadoras de corriente de 330 oms en
+
+558
+00:25:07,920 --> 00:25:13,380
+el ánodo de cada uno los cátodos de
+
+559
+00:25:10,589 --> 00:25:16,049
+ambos los conectamos al genere como se
+
+560
+00:25:13,380 --> 00:25:18,179
+muestra con estos cables de color negro
+
+561
+00:25:16,049 --> 00:25:19,289
+del extremo de la resistencia que
+
+562
+00:25:18,179 --> 00:25:22,230
+conecta el
+
+563
+00:25:19,289 --> 00:25:25,920
+el led rojo vamos con un cable directo
+
+564
+00:25:22,230 --> 00:25:28,440
+al pin digital número 2 de arduino 1 y
+
+565
+00:25:25,920 --> 00:25:32,310
+de la resistencia que conecta al ánodo
+
+566
+00:25:28,440 --> 00:25:34,680
+del led verde al pin digital número 3 y
+
+567
+00:25:32,309 --> 00:25:37,079
+eso es todo para el circuito del segundo
+
+568
+00:25:34,680 --> 00:25:40,080
+programa la idea es que al presionar el
+
+569
+00:25:37,079 --> 00:25:43,349
+pulsador número 1 del lado del emisor
+
+570
+00:25:40,079 --> 00:25:45,449
+lograremos encender el led rojo del lado
+
+571
+00:25:43,349 --> 00:25:48,750
+del receptor y al presionar nuevamente
+
+572
+00:25:45,450 --> 00:25:51,569
+lo apagamos es decir que si el led rojo
+
+573
+00:25:48,750 --> 00:25:54,210
+está apagado con una pulsación lo
+
+574
+00:25:51,569 --> 00:25:57,119
+encendemos si está encendido con una
+
+575
+00:25:54,210 --> 00:25:59,490
+pulsación lo apagamos al del verde le
+
+576
+00:25:57,119 --> 00:26:02,279
+daremos un comportamiento distinto con
+
+577
+00:25:59,490 --> 00:26:05,039
+una pulsación del pulsador número 2
+
+578
+00:26:02,279 --> 00:26:08,099
+encenderemos el led verde por 5 segundos
+
+579
+00:26:05,039 --> 00:26:10,859
+y luego se apagará de forma automática
+
+580
+00:26:08,099 --> 00:26:13,500
+una nueva pulsación repetirá la
+
+581
+00:26:10,859 --> 00:26:16,259
+operación como ya hicimos antes en la
+
+582
+00:26:13,500 --> 00:26:18,569
+primer línea dejamos un comentario de
+
+583
+00:26:16,259 --> 00:26:21,240
+que se trata del segundo programa del
+
+584
+00:26:18,569 --> 00:26:24,839
+lado del emisor incluimos las librerías
+
+585
+00:26:21,240 --> 00:26:25,680
+creamos el objeto y dos constantes con
+
+586
+00:26:24,839 --> 00:26:28,470
+numeral
+
+587
+00:26:25,680 --> 00:26:31,890
+y que serán pulsador uno con el número
+
+588
+00:26:28,470 --> 00:26:34,799
+dos y pulsador dos con el número tres en
+
+589
+00:26:31,890 --> 00:26:38,370
+el setup debemos establecer los pines 2
+
+590
+00:26:34,799 --> 00:26:40,950
+y 3 como entradas con pin modo aquí por
+
+591
+00:26:38,369 --> 00:26:43,169
+primera vez veremos una forma distinta
+
+592
+00:26:40,950 --> 00:26:45,870
+de establecer un pin digital como
+
+593
+00:26:43,170 --> 00:26:48,180
+entrada en vez de colocar input como
+
+594
+00:26:45,869 --> 00:26:50,489
+solemos hacer colocaremos la palabra
+
+595
+00:26:48,180 --> 00:26:53,250
+reservada input
+
+596
+00:26:50,490 --> 00:26:55,559
+pull up recién cuando vimos el circuito
+
+597
+00:26:53,250 --> 00:26:58,049
+conectamos los pulsadores de forma
+
+598
+00:26:55,559 --> 00:27:00,809
+directa sin ninguna resistencia que
+
+599
+00:26:58,049 --> 00:27:03,899
+establezca un nivel de referencia alto
+
+600
+00:27:00,809 --> 00:27:06,149
+con la instrucción input pull up decimos
+
+601
+00:27:03,900 --> 00:27:09,150
+que el pin además de establecerse como
+
+602
+00:27:06,150 --> 00:27:12,080
+entrada activemos una resistencia de
+
+603
+00:27:09,150 --> 00:27:15,509
+pull up interna al microcontrolador
+
+604
+00:27:12,079 --> 00:27:17,789
+equivalente a 20 k de esa manera si
+
+605
+00:27:15,509 --> 00:27:20,910
+hacemos una lectura del pin veremos
+
+606
+00:27:17,789 --> 00:27:22,859
+siempre un nivel alto y cambia a bajo
+
+607
+00:27:20,910 --> 00:27:26,040
+únicamente cuando se presiona el
+
+608
+00:27:22,859 --> 00:27:28,019
+pulsador es muy útil usar impopular
+
+609
+00:27:26,039 --> 00:27:29,730
+cuando no queremos colocar una
+
+610
+00:27:28,019 --> 00:27:31,980
+resistencia externa
+
+611
+00:27:29,730 --> 00:27:34,620
+como en este caso algo que quizás te
+
+612
+00:27:31,980 --> 00:27:37,710
+preguntes es si existe el input pull
+
+613
+00:27:34,619 --> 00:27:40,349
+down para activar una resistencia a masa
+
+614
+00:27:37,710 --> 00:27:43,380
+en la entrada y la respuesta es que no
+
+615
+00:27:40,349 --> 00:27:46,169
+la función pin mode sólo permite que en
+
+616
+00:27:43,380 --> 00:27:50,370
+su segundo parámetro se coloque input
+
+617
+00:27:46,170 --> 00:27:53,400
+input pull up como entrada o output como
+
+618
+00:27:50,369 --> 00:27:55,859
+salida muy bien aprendimos algo nuevo de
+
+619
+00:27:53,400 --> 00:27:58,380
+pin modo que nos viene acompañando desde
+
+620
+00:27:55,859 --> 00:28:01,379
+inicios del curso la última línea de
+
+621
+00:27:58,380 --> 00:28:04,200
+setup será la inicialización del objeto
+
+622
+00:28:01,380 --> 00:28:07,920
+al presionar el pulsador número 1 vamos
+
+623
+00:28:04,200 --> 00:28:10,710
+a enviar el carácter 1 un solo carácter
+
+624
+00:28:07,920 --> 00:28:13,470
+no hace falta enviar más y de paso
+
+625
+00:28:10,710 --> 00:28:16,529
+hacemos una comunicación inalámbrica
+
+626
+00:28:13,470 --> 00:28:19,019
+bien breve y rápida al presionar el
+
+627
+00:28:16,529 --> 00:28:22,289
+pulsador número 2 enviaremos un solo
+
+628
+00:28:19,019 --> 00:28:25,349
+carácter el número 2 por eso tenemos dos
+
+629
+00:28:22,289 --> 00:28:27,480
+bloques y que harán dicha función aquí
+
+630
+00:28:25,349 --> 00:28:29,730
+preguntamos si pulsador uno tiene un
+
+631
+00:28:27,480 --> 00:28:32,849
+valor low es decir que si se ha
+
+632
+00:28:29,730 --> 00:28:35,308
+presionado el pulsador 1 recordad que
+
+633
+00:28:32,849 --> 00:28:37,678
+los forzamos a un nivel alto
+
+634
+00:28:35,308 --> 00:28:40,558
+con input pull up si es cierta la
+
+635
+00:28:37,679 --> 00:28:42,450
+condición entonces usaremos el mismo
+
+636
+00:28:40,558 --> 00:28:45,058
+método que el primer programa para
+
+637
+00:28:42,450 --> 00:28:47,749
+enviar el carácter número 1 lo
+
+638
+00:28:45,058 --> 00:28:51,869
+declaramos y almacenamos en el puntero
+
+639
+00:28:47,749 --> 00:28:55,379
+msg usamos la función send para enviarlo
+
+640
+00:28:51,869 --> 00:28:57,508
+y luego el weight packet send de esa
+
+641
+00:28:55,378 --> 00:29:00,748
+manera si se presiona el pulsador número
+
+642
+00:28:57,509 --> 00:29:03,389
+1 enviamos el carácter número 1 el
+
+643
+00:29:00,749 --> 00:29:05,759
+siguiente condicional consultar a esta
+
+644
+00:29:03,388 --> 00:29:08,519
+vez por el pulsador 2 si se ha
+
+645
+00:29:05,759 --> 00:29:11,610
+presionado enviaremos el número 2
+
+646
+00:29:08,519 --> 00:29:13,740
+finalmente aplicamos una demora de 200
+
+647
+00:29:11,609 --> 00:29:16,589
+milisegundos ya que el look es bien
+
+648
+00:29:13,740 --> 00:29:19,859
+corto y de paso nos sirve como simple
+
+649
+00:29:16,589 --> 00:29:22,528
+método anti rebote de los pulsadores y
+
+650
+00:29:19,859 --> 00:29:25,048
+eso es todo para el lado emisor vamos a
+
+651
+00:29:22,528 --> 00:29:28,048
+seleccionar nuestro modelo de placa el
+
+652
+00:29:25,048 --> 00:29:30,359
+puerto y luego verificar y subir el
+
+653
+00:29:28,048 --> 00:29:32,668
+programa para el lado receptor lo que
+
+654
+00:29:30,359 --> 00:29:36,868
+haremos es esperar hasta recibir el
+
+655
+00:29:32,669 --> 00:29:39,570
+carácter si es el 1 activamos el rojo si
+
+656
+00:29:36,868 --> 00:29:41,158
+es el 2 el led verde declaramos las
+
+657
+00:29:39,569 --> 00:29:43,950
+constantes
+
+658
+00:29:41,159 --> 00:29:46,229
+con un valor de 2 y la de verde con un
+
+659
+00:29:43,950 --> 00:29:48,778
+valor de 3 ya que en dichos pines
+
+660
+00:29:46,229 --> 00:29:51,389
+tenemos conectados los leds en el setup
+
+661
+00:29:48,778 --> 00:29:53,909
+establecemos los pines como salidas e
+
+662
+00:29:51,388 --> 00:29:56,939
+inicial izamos el objeto creamos un
+
+663
+00:29:53,909 --> 00:29:58,979
+buffer de un solo carácter con el nombre
+
+664
+00:29:56,940 --> 00:30:01,528
+buff recordarás que en el primer
+
+665
+00:29:58,979 --> 00:30:04,200
+programa hicimos lo mismo pero con una
+
+666
+00:30:01,528 --> 00:30:07,169
+longitud de 17 quien el largo de la
+
+667
+00:30:04,200 --> 00:30:10,440
+cadena hola desde lejos aquí será un
+
+668
+00:30:07,169 --> 00:30:13,559
+solo carácter también buff leen con la
+
+669
+00:30:10,440 --> 00:30:15,899
+longitud que será de 1 consultamos si el
+
+670
+00:30:13,558 --> 00:30:18,778
+buffer está completo con información
+
+671
+00:30:15,898 --> 00:30:21,238
+recibida si es así preguntamos con el
+
+672
+00:30:18,778 --> 00:30:24,298
+primer bloque si se trata del carácter
+
+673
+00:30:21,239 --> 00:30:27,358
+número uno si ese es el caso con digital
+
+674
+00:30:24,298 --> 00:30:30,598
+raid aplicamos el valor opuesto del
+
+675
+00:30:27,358 --> 00:30:33,329
+leído del led rojo esto lo hicimos ya en
+
+676
+00:30:30,598 --> 00:30:35,908
+otras ocasiones haciendo un digital
+
+677
+00:30:33,329 --> 00:30:38,939
+del led rojo y con el signo de
+
+678
+00:30:35,909 --> 00:30:41,489
+admiración delante lo invertimos así que
+
+679
+00:30:38,940 --> 00:30:44,548
+si lee un valor o bajo de que el led
+
+680
+00:30:41,489 --> 00:30:46,230
+está apagado aplica el valor opuesto 1
+
+681
+00:30:44,548 --> 00:30:48,690
+alto y lo enciende
+
+682
+00:30:46,230 --> 00:30:50,910
+si estuviese encendido lo apaga
+
+683
+00:30:48,690 --> 00:30:53,730
+finalmente consultamos si el carácter
+
+684
+00:30:50,910 --> 00:30:56,519
+recibido es el número 2 si ese es el
+
+685
+00:30:53,730 --> 00:30:59,400
+caso entonces encendemos el led verde
+
+686
+00:30:56,519 --> 00:31:01,679
+aplicamos una demora de 5 segundos
+
+687
+00:30:59,400 --> 00:31:05,009
+manteniéndolo encendido por dicho tiempo
+
+688
+00:31:01,679 --> 00:31:07,820
+y luego con digital write con low para
+
+689
+00:31:05,009 --> 00:31:10,798
+apagarlo y ese es todo el programa
+
+690
+00:31:07,819 --> 00:31:13,139
+nuevamente hacemos una pasada por el
+
+691
+00:31:10,798 --> 00:31:15,808
+modelo de placa y seleccionamos la
+
+692
+00:31:13,140 --> 00:31:18,840
+nuestra del lado del receptor y el
+
+693
+00:31:15,808 --> 00:31:22,079
+puerto que corresponda verificamos y
+
+694
+00:31:18,839 --> 00:31:24,449
+subimos genial todo listo al igual que
+
+695
+00:31:22,079 --> 00:31:26,879
+antes en la imagen se ve el emisor
+
+696
+00:31:24,450 --> 00:31:30,150
+operado con batería con sus dos
+
+697
+00:31:26,880 --> 00:31:32,669
+pulsadores y el receptor con los leds si
+
+698
+00:31:30,150 --> 00:31:35,130
+presionamos el botón número 1 el de la
+
+699
+00:31:32,669 --> 00:31:37,919
+izquierda veremos que el receptor se
+
+700
+00:31:35,130 --> 00:31:40,410
+enciende el led rojo y mantiene
+
+701
+00:31:37,919 --> 00:31:42,830
+encendido si volvemos a presionar el
+
+702
+00:31:40,410 --> 00:31:45,269
+pulsador número 1
+
+703
+00:31:42,829 --> 00:31:47,309
+perfecto realiza la acción que le
+
+704
+00:31:45,269 --> 00:31:49,980
+programamos si ahora presionamos el
+
+705
+00:31:47,309 --> 00:31:52,740
+botón número 2 en el emisor veremos que
+
+706
+00:31:49,980 --> 00:31:56,309
+enciende el led verde en el receptor por
+
+707
+00:31:52,740 --> 00:31:58,529
+5 segundos y luego se apaga ya sabemos
+
+708
+00:31:56,309 --> 00:32:01,109
+esta altura que si podemos controlar a
+
+709
+00:31:58,529 --> 00:32:03,319
+voluntad con un led entonces podemos
+
+710
+00:32:01,109 --> 00:32:06,929
+activar todo tipo de dispositivos
+
+711
+00:32:03,319 --> 00:32:10,439
+motores relés para trabajar con tensión
+
+712
+00:32:06,930 --> 00:32:13,560
+de red un módulo mosfet para cargas de
+
+713
+00:32:10,440 --> 00:32:16,200
+continua y todo lo que necesitemos los
+
+714
+00:32:13,559 --> 00:32:19,289
+programas están pensados para fácilmente
+
+715
+00:32:16,200 --> 00:32:21,870
+incorporar por ejemplo más botones del
+
+716
+00:32:19,289 --> 00:32:24,779
+lado del emisor y realizar distintas
+
+717
+00:32:21,869 --> 00:32:27,179
+acciones en el receptor para finalizar
+
+718
+00:32:24,779 --> 00:32:28,619
+el capítulo quiero hacerte mención que
+
+719
+00:32:27,180 --> 00:32:31,710
+el módulo emisor
+
+720
+00:32:28,619 --> 00:32:34,500
+rf permite alimentar los contenciones de
+
+721
+00:32:31,710 --> 00:32:37,710
+entre 5 y 12 volts nosotros lo
+
+722
+00:32:34,500 --> 00:32:39,599
+trabajamos con 5 volts que es cómodo y
+
+723
+00:32:37,710 --> 00:32:41,789
+lo obtenemos de la propia placa de
+
+724
+00:32:39,599 --> 00:32:44,339
+arduino pero si quisieras aumentar el
+
+725
+00:32:41,789 --> 00:32:47,069
+alcance podrás usar una fuente de
+
+726
+00:32:44,339 --> 00:32:49,548
+alimentación externa de 12 volts de
+
+727
+00:32:47,069 --> 00:32:52,519
+continua aquí se muestra la con
+
+728
+00:32:49,548 --> 00:32:55,460
+es simplemente conectar el positivo de
+
+729
+00:32:52,519 --> 00:32:58,399
+la fuente externa al pin en vez ese del
+
+730
+00:32:55,460 --> 00:33:01,159
+módulo que es el pin del medio luego es
+
+731
+00:32:58,398 --> 00:33:03,709
+importante que tanto gene de de la
+
+732
+00:33:01,159 --> 00:33:06,350
+fuente externa como gene de de arduino
+
+733
+00:33:03,710 --> 00:33:09,319
+estén conectados entre sí para mantener
+
+734
+00:33:06,349 --> 00:33:11,359
+la misma referencia de más a lo usual
+
+735
+00:33:09,319 --> 00:33:13,398
+cuando trabajamos con distintas fuentes
+
+736
+00:33:11,359 --> 00:33:16,308
+es importante aclarar que esta
+
+737
+00:33:13,398 --> 00:33:18,349
+posibilidad de alimentar con 12 volts es
+
+738
+00:33:16,308 --> 00:33:22,099
+solo para el módulo emisor
+
+739
+00:33:18,349 --> 00:33:24,048
+el receptor funciona únicamente con 5
+
+740
+00:33:22,099 --> 00:33:27,769
+bolsas y eso es todo por este capítulo
+
+741
+00:33:24,048 --> 00:33:30,710
+como siempre te pido te suscribas si aún
+
+742
+00:33:27,769 --> 00:33:34,128
+no lo has hecho darle un me gusta si te
+
+743
+00:33:30,710 --> 00:33:36,470
+pareció útil o al menos interesante y
+
+744
+00:33:34,128 --> 00:33:38,599
+por cualquier duda o comentario lo
+
+745
+00:33:36,470 --> 00:33:43,538
+podéis hacer debajo que con gusto te
+
+746
+00:33:38,599 --> 00:33:43,538
+responderé chao y hasta la próxima
+

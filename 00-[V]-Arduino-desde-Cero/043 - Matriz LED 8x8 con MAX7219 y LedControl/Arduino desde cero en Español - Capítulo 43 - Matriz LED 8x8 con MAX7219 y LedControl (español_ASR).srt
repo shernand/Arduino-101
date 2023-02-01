@@ -1,0 +1,2796 @@
+1
+00:00:01,560 --> 00:00:08,128
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,318 --> 00:00:10,410
+43 de arduino desde cero en español
+
+3
+00:00:08,128 --> 00:00:14,128
+en esta oportunidad analizaremos el
+
+4
+00:00:10,410 --> 00:00:17,609
+módulo matriz de led de 8 x 8 controlada
+
+5
+00:00:14,128 --> 00:00:19,829
+mediante el circuito integrado max 72 19
+
+6
+00:00:17,609 --> 00:00:23,339
+que nos permitirá visualizar de forma
+
+7
+00:00:19,829 --> 00:00:26,248
+simple números letras caractericé
+
+8
+00:00:23,338 --> 00:00:28,948
+especiales y generar simples animaciones
+
+9
+00:00:26,248 --> 00:00:31,678
+el módulo consta de la matriz de leds de
+
+10
+00:00:28,949 --> 00:00:34,260
+8 x 8 y el circuito integrado que nos
+
+11
+00:00:31,678 --> 00:00:36,869
+permitirá manejarla desde arduino con
+
+12
+00:00:34,259 --> 00:00:39,659
+tan sólo tres líneas de datos y también
+
+13
+00:00:36,869 --> 00:00:42,629
+encadenar múltiples módulos veamos
+
+14
+00:00:39,659 --> 00:00:45,479
+primero en detalle la matriz de leds 8 x
+
+15
+00:00:42,630 --> 00:00:48,359
+8 indica que tendremos un total de 8
+
+16
+00:00:45,479 --> 00:00:51,809
+filas y 8 columnas para controlar el
+
+17
+00:00:48,359 --> 00:00:54,479
+encendido individual de los 64 leds que
+
+18
+00:00:51,810 --> 00:00:56,570
+componen la matriz el formato matricial
+
+19
+00:00:54,479 --> 00:00:59,039
+permite reducir de forma significativa
+
+20
+00:00:56,570 --> 00:01:01,859
+la cantidad de conexiones necesarias
+
+21
+00:00:59,039 --> 00:01:04,319
+para el control en color azul se
+
+22
+00:01:01,859 --> 00:01:05,909
+encuentran las ocho filas enumeradas
+
+23
+00:01:04,319 --> 00:01:09,209
+desde la número cero
+
+24
+00:01:05,909 --> 00:01:12,719
+hasta la número 7 las columnas también
+
+25
+00:01:09,209 --> 00:01:14,968
+enumeradas de 0 a 7 en color verde en la
+
+26
+00:01:12,718 --> 00:01:17,578
+intersección de cada fila y columna
+
+27
+00:01:14,968 --> 00:01:20,339
+tenemos conectado un led a un diodo
+
+28
+00:01:17,578 --> 00:01:23,519
+emisor de luz que para este módulo será
+
+29
+00:01:20,340 --> 00:01:26,899
+de color rojo brillante existen matrices
+
+30
+00:01:23,519 --> 00:01:30,500
+de ánodo común y de cátodo común el max
+
+31
+00:01:26,899 --> 00:01:33,390
+7219 requiere que la matriz sea
+
+32
+00:01:30,500 --> 00:01:35,938
+exclusivamente del tipo cátodo común
+
+33
+00:01:33,390 --> 00:01:38,459
+podemos ver como todos los cátodos de
+
+34
+00:01:35,938 --> 00:01:40,828
+los leds individuales que forman una
+
+35
+00:01:38,459 --> 00:01:43,649
+fila se encuentran conectados entre sí
+
+36
+00:01:40,828 --> 00:01:46,438
+de allí que se trata de una matriz de
+
+37
+00:01:43,649 --> 00:01:49,769
+cátodo común entonces cómo hacemos para
+
+38
+00:01:46,438 --> 00:01:51,208
+encender un elemento un led por ejemplo
+
+39
+00:01:49,769 --> 00:01:54,269
+el primero de la esquina superior
+
+40
+00:01:51,209 --> 00:01:58,140
+izquierda será tan simple como colocar
+
+41
+00:01:54,269 --> 00:02:01,438
+un silo lógico es decir 0 volts sobre la
+
+42
+00:01:58,140 --> 00:02:04,679
+fila número 0 y un 1 lógico en la
+
+43
+00:02:01,438 --> 00:02:07,919
+columna 0 de esa manera el led recibe
+
+44
+00:02:04,679 --> 00:02:11,560
+una atención positiva en su ano 2 y 0
+
+45
+00:02:07,920 --> 00:02:13,659
+balls o genere en su cátodo
+
+46
+00:02:11,560 --> 00:02:16,870
+si ahora quisiéramos encender por
+
+47
+00:02:13,659 --> 00:02:20,469
+ejemplo este otro led o mantendríamos un
+
+48
+00:02:16,870 --> 00:02:23,200
+serológico en la fila 0 pero ahora el 1
+
+49
+00:02:20,469 --> 00:02:26,620
+lógico lo aplicaríamos a la columna
+
+50
+00:02:23,199 --> 00:02:28,568
+número 4 si bien la fila 0 tiene todos
+
+51
+00:02:26,620 --> 00:02:31,780
+los cátodos de los leds de la fila
+
+52
+00:02:28,568 --> 00:02:35,018
+conectados entre sí enciende únicamente
+
+53
+00:02:31,780 --> 00:02:37,449
+el que recibe un 1 lógico una atención
+
+54
+00:02:35,019 --> 00:02:40,150
+positiva otro ejemplo más para que quede
+
+55
+00:02:37,449 --> 00:02:42,818
+claro sería encender este led será
+
+56
+00:02:40,150 --> 00:02:46,659
+cuestión de aplicar un serológico en la
+
+57
+00:02:42,818 --> 00:02:49,509
+fila número 4 y 11 lógico en la columna
+
+58
+00:02:46,659 --> 00:02:52,599
+6 aquí no hablamos de un valor de
+
+59
+00:02:49,509 --> 00:02:55,090
+tensión para el 1 lógico ya que no
+
+60
+00:02:52,599 --> 00:02:57,579
+activaremos la matriz de forma directa
+
+61
+00:02:55,090 --> 00:02:59,769
+con un pin digital de arduino pasaremos
+
+62
+00:02:57,580 --> 00:03:02,830
+por el circuito integrado que nos
+
+63
+00:02:59,769 --> 00:03:05,170
+servirá de driver o controlador entonces
+
+64
+00:03:02,830 --> 00:03:08,049
+queda claro que una matriz de 8 x 8
+
+65
+00:03:05,169 --> 00:03:11,229
+requiere de un total de 16 líneas de
+
+66
+00:03:08,049 --> 00:03:13,420
+control 8 para las filas y 8 para las
+
+67
+00:03:11,229 --> 00:03:16,358
+columnas para reducir la cantidad de
+
+68
+00:03:13,419 --> 00:03:18,579
+pines y facilitar su manejo viene al
+
+69
+00:03:16,359 --> 00:03:22,270
+rescate el circuito integrado
+
+70
+00:03:18,580 --> 00:03:24,880
+y los máx 72 19 que se muestra aquí
+
+71
+00:03:22,270 --> 00:03:27,640
+representado en este diagrama en bloque
+
+72
+00:03:24,879 --> 00:03:30,340
+del módulo este circuito integrado está
+
+73
+00:03:27,639 --> 00:03:32,739
+diseñado específicamente para el manejo
+
+74
+00:03:30,340 --> 00:03:35,289
+de matrices de leds y también para
+
+75
+00:03:32,740 --> 00:03:38,260
+displays de siete segmentos que veremos
+
+76
+00:03:35,289 --> 00:03:41,409
+en un futuro capítulo lo interesante es
+
+77
+00:03:38,259 --> 00:03:44,019
+que nos brinda un interfaz serie de sólo
+
+78
+00:03:41,409 --> 00:03:46,449
+tres pines para controlar desde arduino
+
+79
+00:03:44,020 --> 00:03:49,240
+y nos despreocupamos del manejo de las
+
+80
+00:03:46,449 --> 00:03:51,579
+16 líneas de la matriz en breve cuando
+
+81
+00:03:49,240 --> 00:03:56,080
+hagamos la programación verá que es muy
+
+82
+00:03:51,580 --> 00:03:58,959
+simple el max 72 19 se alimentará con 5
+
+83
+00:03:56,080 --> 00:04:03,250
+volts desde arduino y con las líneas de
+
+84
+00:03:58,959 --> 00:04:05,469
+in cs y celica podremos enviarle los
+
+85
+00:04:03,250 --> 00:04:08,050
+comandos para activar cualquier elemento
+
+86
+00:04:05,469 --> 00:04:10,300
+de la matriz aquí se muestra también que
+
+87
+00:04:08,050 --> 00:04:12,939
+el circuito integrado tiene un pin
+
+88
+00:04:10,300 --> 00:04:15,400
+especial con una resistencia de pull up
+
+89
+00:04:12,939 --> 00:04:18,279
+para establecer la corriente máxima a
+
+90
+00:04:15,400 --> 00:04:20,798
+cada led es un valor ya calculado para
+
+91
+00:04:18,279 --> 00:04:21,759
+el módulo con lo cual ya está todo
+
+92
+00:04:20,798 --> 00:04:23,649
+resuelto
+
+93
+00:04:21,759 --> 00:04:24,189
+nuestra tarea es sólo alimentar el
+
+94
+00:04:23,649 --> 00:04:26,769
+módulo
+
+95
+00:04:24,189 --> 00:04:30,160
+y brindar los datos por la interfaz
+
+96
+00:04:26,769 --> 00:04:34,240
+serie la interfaz serie es del tipo sp y
+
+97
+00:04:30,160 --> 00:04:37,480
+como ya vimos en el capítulo 37 donde de
+
+98
+00:04:34,240 --> 00:04:42,400
+in será el equivalente amos y del lado
+
+99
+00:04:37,480 --> 00:04:44,560
+de arduino master out slide y luego ese
+
+100
+00:04:42,399 --> 00:04:48,219
+será el chip select con lo que es lo
+
+101
+00:04:44,560 --> 00:04:51,100
+mismo el slide select y finalmente clk
+
+102
+00:04:48,220 --> 00:04:53,560
+para el reloj serie un pin adicional que
+
+103
+00:04:51,100 --> 00:04:56,560
+veremos hacia el final del capítulo de
+
+104
+00:04:53,560 --> 00:04:59,199
+out permite encadenar múltiples módulos
+
+105
+00:04:56,560 --> 00:05:02,019
+para ampliar la capacidad vamos entonces
+
+106
+00:04:59,199 --> 00:05:04,120
+al circuito de conexión en este punto
+
+107
+00:05:02,019 --> 00:05:07,479
+vale la pena mencionar que existen
+
+108
+00:05:04,120 --> 00:05:11,290
+distintos modelos de matrices basadas en
+
+109
+00:05:07,480 --> 00:05:13,569
+máx 72 19 algunas tienen el circuito
+
+110
+00:05:11,290 --> 00:05:16,150
+integrado con encapsulado de montaje
+
+111
+00:05:13,569 --> 00:05:18,730
+superficial y ubicado debajo de la
+
+112
+00:05:16,149 --> 00:05:21,759
+propia matriz haciendo que sea el módulo
+
+113
+00:05:18,730 --> 00:05:24,100
+más compacto y útil para su conexión en
+
+114
+00:05:21,759 --> 00:05:27,189
+cascada el que te estaré mostrando en la
+
+115
+00:05:24,100 --> 00:05:30,189
+práctica tiene la matriz y a su lado el
+
+116
+00:05:27,189 --> 00:05:33,730
+max 72 19 en
+
+117
+00:05:30,189 --> 00:05:36,189
+el pin superior con la denominación bsc
+
+118
+00:05:33,730 --> 00:05:39,670
+lo conectaremos de forma directa a la
+
+119
+00:05:36,189 --> 00:05:43,240
+salida de 5volts de arduino el pin ign
+
+120
+00:05:39,670 --> 00:05:45,879
+de género de arduino con eso ya tenemos
+
+121
+00:05:43,240 --> 00:05:49,360
+la alimentación luego el pin denominado
+
+122
+00:05:45,879 --> 00:05:52,600
+de in data in lo conectaremos al pin
+
+123
+00:05:49,360 --> 00:05:55,090
+digital número 11 de arduino 1 en la
+
+124
+00:05:52,600 --> 00:05:58,150
+nota se muestran los pines equivalentes
+
+125
+00:05:55,089 --> 00:06:00,609
+en caso de usar el modelo megas luego se
+
+126
+00:05:58,149 --> 00:06:04,029
+l acá lo conectaremos al pin digital
+
+127
+00:06:00,610 --> 00:06:07,449
+número 13 y finalmente el chip select al
+
+128
+00:06:04,029 --> 00:06:09,389
+pin digital número 10 y eso es todo para
+
+129
+00:06:07,449 --> 00:06:12,399
+la conexión para la programación
+
+130
+00:06:09,389 --> 00:06:14,649
+instalaremos primero una librería que
+
+131
+00:06:12,399 --> 00:06:18,699
+nos facilitará el manejo de la matriz
+
+132
+00:06:14,649 --> 00:06:21,789
+mediante el max 72 19 para eso como ya
+
+133
+00:06:18,699 --> 00:06:24,789
+es usual iremos al menú programa incluir
+
+134
+00:06:21,790 --> 00:06:27,220
+librería y luego gestionar librerías
+
+135
+00:06:24,790 --> 00:06:29,590
+aguardamos unos instantes mientras se
+
+136
+00:06:27,220 --> 00:06:32,950
+actualiza el listado y luego escribimos
+
+137
+00:06:29,589 --> 00:06:35,919
+en el campo de búsqueda de control la
+
+138
+00:06:32,949 --> 00:06:39,279
+librería que nos interesa es la que dice
+
+139
+00:06:35,920 --> 00:06:42,009
+control by eberhard fail las
+
+140
+00:06:39,279 --> 00:06:44,739
+seleccionamos y luego el botón instalar
+
+141
+00:06:42,009 --> 00:06:46,719
+yo ya la tengo instalada por eso no me
+
+142
+00:06:44,740 --> 00:06:49,780
+aparece habilitado pero lo estará en tu
+
+143
+00:06:46,720 --> 00:06:53,260
+caso luego de unos segundos descarga e
+
+144
+00:06:49,779 --> 00:06:55,449
+instala aparece el texto instala y ya
+
+145
+00:06:53,259 --> 00:06:58,089
+podemos cerrar la ventana del gestor
+
+146
+00:06:55,449 --> 00:07:01,300
+este primer programa tiene como objetivo
+
+147
+00:06:58,089 --> 00:07:03,759
+ir encendiendo y apagando cada uno de
+
+148
+00:07:01,300 --> 00:07:06,579
+los leds de la matriz desde el primer
+
+149
+00:07:03,759 --> 00:07:08,769
+elemento hasta el último la primer línea
+
+150
+00:07:06,579 --> 00:07:11,409
+incorpora la librería que acabamos de
+
+151
+00:07:08,769 --> 00:07:15,219
+instalar luego creamos un objeto del
+
+152
+00:07:11,410 --> 00:07:17,740
+tipo led control con el nombre lc y
+
+153
+00:07:15,220 --> 00:07:20,040
+llamamos a la función de control
+
+154
+00:07:17,740 --> 00:07:22,780
+pasándole una serie de parámetros
+
+155
+00:07:20,040 --> 00:07:25,210
+usaremos una variedad de funciones en
+
+156
+00:07:22,779 --> 00:07:28,929
+este programa por eso traigo a pantalla
+
+157
+00:07:25,209 --> 00:07:31,539
+esta nota al margen a modo de resumen el
+
+158
+00:07:28,930 --> 00:07:34,269
+control requiere de cuatro parámetros el
+
+159
+00:07:31,540 --> 00:07:37,000
+primero será el pin digital de arduino a
+
+160
+00:07:34,269 --> 00:07:39,699
+donde tenemos conectado de in que en
+
+161
+00:07:37,000 --> 00:07:41,620
+nuestro caso es el número 11
+
+162
+00:07:39,699 --> 00:07:42,639
+le sigue el pin a donde se encuentra
+
+163
+00:07:41,620 --> 00:07:46,209
+conectado
+
+164
+00:07:42,639 --> 00:07:49,749
+acá el pin 13 y luego el pin a donde se
+
+165
+00:07:46,209 --> 00:07:52,120
+encuentra conectado cs el número 10 y el
+
+166
+00:07:49,749 --> 00:07:54,580
+último parámetro indica el número de
+
+167
+00:07:52,120 --> 00:07:57,370
+dispositivos conectados como te decía
+
+168
+00:07:54,579 --> 00:08:00,038
+antes estos módulos están pensados para
+
+169
+00:07:57,370 --> 00:08:01,538
+poder encadenar los entre sí y es usual
+
+170
+00:08:00,038 --> 00:08:03,968
+tener más de uno
+
+171
+00:08:01,538 --> 00:08:06,519
+la librería permite manejar hasta ocho
+
+172
+00:08:03,968 --> 00:08:10,379
+módulos encadenados por eso este último
+
+173
+00:08:06,519 --> 00:08:12,878
+parámetro debe ser un valor entre 1 y 8
+
+174
+00:08:10,379 --> 00:08:16,000
+nosotros como estaremos trabajando con
+
+175
+00:08:12,879 --> 00:08:18,550
+un único módulo le asignaremos un valor
+
+176
+00:08:16,000 --> 00:08:21,908
+de 1 si tuviésemos conectados dos
+
+177
+00:08:18,550 --> 00:08:24,250
+módulos colocaríamos un número 2 y así
+
+178
+00:08:21,908 --> 00:08:26,199
+hasta un máximo de 8 volviendo al
+
+179
+00:08:24,250 --> 00:08:29,439
+programa en la sección de setup
+
+180
+00:08:26,199 --> 00:08:31,930
+utilizamos la función ya down para
+
+181
+00:08:29,439 --> 00:08:36,099
+indicar que deseamos habilitar la matriz
+
+182
+00:08:31,930 --> 00:08:39,339
+que el max 7219 por defecto para ahorrar
+
+183
+00:08:36,099 --> 00:08:42,729
+energía inicializa en modo hat down
+
+184
+00:08:39,339 --> 00:08:45,430
+activo es decir apagado aquí en la nota
+
+185
+00:08:42,729 --> 00:08:48,129
+vimos que la función shut down del
+
+186
+00:08:45,429 --> 00:08:50,879
+objeto ls tiene dos paramentos
+
+187
+00:08:48,129 --> 00:08:53,379
+el primero es el número del módulo
+
+188
+00:08:50,879 --> 00:08:56,019
+representado por su correspondiente
+
+189
+00:08:53,379 --> 00:08:59,200
+índice esto significa que el primer
+
+190
+00:08:56,019 --> 00:09:02,439
+módulo siempre tiene el índice 0 un
+
+191
+00:08:59,200 --> 00:09:05,680
+segundo módulo tendría el índice 1 si
+
+192
+00:09:02,440 --> 00:09:08,440
+tuviésemos 8 módulos el último tendría
+
+193
+00:09:05,679 --> 00:09:10,839
+índice 7 algo que ya es usual en
+
+194
+00:09:08,440 --> 00:09:13,630
+electrónica y programación donde el
+
+195
+00:09:10,840 --> 00:09:16,030
+primer dispositivo no es el número 1
+
+196
+00:09:13,629 --> 00:09:18,370
+sino que es el 0 aquí no debe
+
+197
+00:09:16,029 --> 00:09:20,529
+confundirse de antes cuando creamos el
+
+198
+00:09:18,370 --> 00:09:23,679
+objeto e indicamos que el número de
+
+199
+00:09:20,529 --> 00:09:25,899
+dispositivos era de 1 efectivamente
+
+200
+00:09:23,679 --> 00:09:28,689
+tenemos un solo módulo pero para
+
+201
+00:09:25,899 --> 00:09:31,539
+referenciar nos al mismo comenzamos a
+
+202
+00:09:28,690 --> 00:09:33,910
+contar desde cero así que en definitiva
+
+203
+00:09:31,539 --> 00:09:36,879
+el primer parámetro de la función jack
+
+204
+00:09:33,909 --> 00:09:39,370
+down será cero indicando que estamos
+
+205
+00:09:36,879 --> 00:09:42,009
+trabajando con el primer módulo el
+
+206
+00:09:39,370 --> 00:09:45,549
+segundo parámetro es un valor booleana
+
+207
+00:09:42,009 --> 00:09:48,939
+true force recordad que la función hat
+
+208
+00:09:45,549 --> 00:09:51,278
+down se traduce como apagado así que lo
+
+209
+00:09:48,940 --> 00:09:54,790
+que decimos con un valor de falls
+
+210
+00:09:51,278 --> 00:09:57,490
+falso y que no deseamos que esté apagado
+
+211
+00:09:54,789 --> 00:10:00,068
+equivalente a la condición de encendido
+
+212
+00:09:57,490 --> 00:10:02,019
+por eso esta función es la primera que
+
+213
+00:10:00,068 --> 00:10:05,139
+invocamos desde el setup como por
+
+214
+00:10:02,019 --> 00:10:07,778
+defecto inicia apagado le indicamos que
+
+215
+00:10:05,139 --> 00:10:10,539
+se encienda esta función es útil en
+
+216
+00:10:07,778 --> 00:10:12,578
+casos donde se debe ahorrar energía se
+
+217
+00:10:10,539 --> 00:10:15,129
+puede llamar en cualquier punto del
+
+218
+00:10:12,578 --> 00:10:17,739
+programa así que en una aplicación por
+
+219
+00:10:15,129 --> 00:10:20,170
+ejemplo funcionando a batería podríamos
+
+220
+00:10:17,740 --> 00:10:22,778
+establecer que pasado determinado tiempo
+
+221
+00:10:20,169 --> 00:10:25,568
+de inactividad se apague con un jack
+
+222
+00:10:22,778 --> 00:10:28,269
+down truck ahora que vimos el comando de
+
+223
+00:10:25,568 --> 00:10:31,088
+encender la matriz con la función set
+
+224
+00:10:28,269 --> 00:10:33,850
+intensity indicamos el nivel de
+
+225
+00:10:31,089 --> 00:10:36,100
+intensidad del led o brillo del mismo
+
+226
+00:10:33,850 --> 00:10:38,319
+esta función también requiere de dos
+
+227
+00:10:36,100 --> 00:10:41,439
+parámetros primero el número de
+
+228
+00:10:38,318 --> 00:10:43,990
+dispositivos para nosotros 0 porque
+
+229
+00:10:41,438 --> 00:10:48,308
+tenemos uno solo y luego debemos indicar
+
+230
+00:10:43,990 --> 00:10:52,089
+un número entre 0 y 15 donde 0 es brillo
+
+231
+00:10:48,308 --> 00:10:54,730
+a mínimo y 15 es brillo máximo los leds
+
+232
+00:10:52,089 --> 00:10:57,520
+de la matriz son muy brillantes así que
+
+233
+00:10:54,730 --> 00:11:00,610
+en condiciones normales de luz ambiente
+
+234
+00:10:57,519 --> 00:11:03,279
+valor de 4 va bien si fueses a utilizar
+
+235
+00:11:00,610 --> 00:11:04,680
+el módulo en un lugar muy iluminado oa
+
+236
+00:11:03,279 --> 00:11:06,909
+plena luz del día
+
+237
+00:11:04,679 --> 00:11:10,120
+seguramente deberías incrementar el
+
+238
+00:11:06,909 --> 00:11:13,539
+valor a por ejemplo 10 recordad que el
+
+239
+00:11:10,120 --> 00:11:15,279
+máximo es de 15 genial ya casi tenemos
+
+240
+00:11:13,539 --> 00:11:17,620
+todo listo para la etapa de
+
+241
+00:11:15,279 --> 00:11:21,039
+inicialización nos resta una última
+
+242
+00:11:17,620 --> 00:11:23,860
+función denominada clear display que
+
+243
+00:11:21,039 --> 00:11:27,759
+borra o blanquea la matriz no es algo
+
+244
+00:11:23,860 --> 00:11:30,009
+obligatorio pero el max 7219 luego de
+
+245
+00:11:27,759 --> 00:11:32,039
+sacarlo de su situación inicial de
+
+246
+00:11:30,009 --> 00:11:35,200
+apagado puede mostrar información
+
+247
+00:11:32,039 --> 00:11:38,049
+aleatoria que se reflejaría en algunos
+
+248
+00:11:35,200 --> 00:11:40,330
+elementos iluminados de la matriz así
+
+249
+00:11:38,049 --> 00:11:42,669
+que no viene de más aplicarla requiere
+
+250
+00:11:40,330 --> 00:11:44,950
+de un solo parámetro que es el número de
+
+251
+00:11:42,669 --> 00:11:47,829
+dispositivos nuevamente para nuestro
+
+252
+00:11:44,950 --> 00:11:49,890
+caso el 0 como podrás ver todas las
+
+253
+00:11:47,830 --> 00:11:52,570
+funciones requieren que al menos
+
+254
+00:11:49,889 --> 00:11:55,269
+especificamos el número de dispositivo
+
+255
+00:11:52,570 --> 00:11:58,080
+sobre el cual aplicar la acción en el
+
+256
+00:11:55,269 --> 00:12:01,210
+loop utilizaremos dos bucles for
+
+257
+00:11:58,080 --> 00:12:03,550
+anidados para ir recorriendo cada uno de
+
+258
+00:12:01,210 --> 00:12:04,420
+los elementos de la matriz y aplicando
+
+259
+00:12:03,549 --> 00:12:07,328
+la función
+
+260
+00:12:04,419 --> 00:12:09,939
+se le da esta función requiere que le
+
+261
+00:12:07,328 --> 00:12:13,028
+indiquemos el número de dispositivo el
+
+262
+00:12:09,940 --> 00:12:15,850
+número de filas el número de columna y
+
+263
+00:12:13,028 --> 00:12:18,610
+el estado que puede ser truth of course
+
+264
+00:12:15,850 --> 00:12:22,329
+en definitiva hacia el led en dicha fila
+
+265
+00:12:18,610 --> 00:12:25,360
+y columna debe encenderse true o
+
+266
+00:12:22,328 --> 00:12:28,539
+apagarse force el primer bucle for
+
+267
+00:12:25,360 --> 00:12:30,909
+inicia con una variable de nombre fila y
+
+268
+00:12:28,539 --> 00:12:33,669
+un valor de 0 la condición para
+
+269
+00:12:30,909 --> 00:12:36,969
+permanecer dentro del bucle es que fila
+
+270
+00:12:33,669 --> 00:12:40,419
+sea menor a 8 con lo cual iremos desde 0
+
+271
+00:12:36,970 --> 00:12:44,139
+hasta 7 y con cada iteración incrementa
+
+272
+00:12:40,419 --> 00:12:46,599
+la variable en 1 con fila + + el
+
+273
+00:12:44,139 --> 00:12:49,060
+siguiente bucle for hace la misma tarea
+
+274
+00:12:46,600 --> 00:12:51,639
+pero recorriendo las columnas también
+
+275
+00:12:49,059 --> 00:12:54,189
+definiendo una variable columna con un
+
+276
+00:12:51,639 --> 00:12:57,129
+valor inicial de 0 con la condición de
+
+277
+00:12:54,190 --> 00:13:00,370
+columna menor a 8 e incrementando la
+
+278
+00:12:57,129 --> 00:13:03,338
+variable en uno con cada iteración luego
+
+279
+00:13:00,370 --> 00:13:05,828
+la función sea 'thriller' con 0 que es
+
+280
+00:13:03,339 --> 00:13:08,709
+el número de dispositivo la variable de
+
+281
+00:13:05,828 --> 00:13:10,309
+la fila la variable de la columna y un
+
+282
+00:13:08,708 --> 00:13:12,559
+valor de estado
+
+283
+00:13:10,309 --> 00:13:15,589
+y para encender el led en dicha
+
+284
+00:13:12,559 --> 00:13:18,199
+ubicación aplicamos una demora de 100
+
+285
+00:13:15,590 --> 00:13:20,269
+milisegundos y luego la misma función
+
+286
+00:13:18,200 --> 00:13:23,300
+pero esta vez con un valor de estado
+
+287
+00:13:20,269 --> 00:13:26,179
+force para pagar el mismo led y una
+
+288
+00:13:23,299 --> 00:13:28,399
+nueva demora de 100 milisegundos de
+
+289
+00:13:26,179 --> 00:13:31,278
+manera que la primera vez que se ejecuta
+
+290
+00:13:28,399 --> 00:13:34,278
+el loop tendremos a fila con un valor de
+
+291
+00:13:31,278 --> 00:13:38,480
+0 luego columna también con un valor de
+
+292
+00:13:34,278 --> 00:13:41,929
+0 encendemos el led en fila 0 y columna
+
+293
+00:13:38,480 --> 00:13:44,480
+0 y lo apagamos a continuación el
+
+294
+00:13:41,929 --> 00:13:47,299
+segundo bucle for incrementa el valor de
+
+295
+00:13:44,480 --> 00:13:50,930
+la columna pero la de fila sigue siendo
+
+296
+00:13:47,299 --> 00:13:54,169
+0 entonces estaremos en fila 0 y columna
+
+297
+00:13:50,929 --> 00:13:56,479
+1 y nuevamente el proceso de encender y
+
+298
+00:13:54,169 --> 00:13:59,028
+apagar el led recorrida a toda la
+
+299
+00:13:56,480 --> 00:14:01,720
+columna incrementa el valor de la fila
+
+300
+00:13:59,028 --> 00:14:04,309
+en 1 y todo el proceso nuevamente
+
+301
+00:14:01,720 --> 00:14:06,860
+recorriendo la totalidad de filas y
+
+302
+00:14:04,309 --> 00:14:09,769
+columnas de la matriz vamos entonces a
+
+303
+00:14:06,860 --> 00:14:12,500
+verificar y subir el programa podemos
+
+304
+00:14:09,769 --> 00:14:15,679
+observar que comienza encendiendo el
+
+305
+00:14:12,500 --> 00:14:16,669
+primer elemento de la matriz en fila 0 y
+
+306
+00:14:15,679 --> 00:14:20,929
+columna
+
+307
+00:14:16,669 --> 00:14:23,599
+apaga y continúa con fila 0 y columna 1
+
+308
+00:14:20,929 --> 00:14:24,949
+hasta el final de la fila luego continúa
+
+309
+00:14:23,600 --> 00:14:26,810
+con la siguiente
+
+310
+00:14:24,950 --> 00:14:29,690
+de esa manera comenzamos desde la
+
+311
+00:14:26,809 --> 00:14:32,569
+esquina superior izquierda y terminamos
+
+312
+00:14:29,690 --> 00:14:35,180
+en la inferior derecha y así todo el
+
+313
+00:14:32,570 --> 00:14:37,370
+tiempo en este punto también podrás ver
+
+314
+00:14:35,179 --> 00:14:41,299
+si el nivel de brillo que establecimos
+
+315
+00:14:37,370 --> 00:14:43,940
+de 4 es el adecuado pudiendo reducirlo o
+
+316
+00:14:41,299 --> 00:14:45,500
+incrementarlo a voluntad una cuestión a
+
+317
+00:14:43,940 --> 00:14:48,560
+tener en cuenta es que cuando
+
+318
+00:14:45,500 --> 00:14:51,500
+establecemos un valor de estado con 7
+
+319
+00:14:48,559 --> 00:14:54,289
+leds por ejemplo de true para encender
+
+320
+00:14:51,500 --> 00:14:57,259
+un elemento si luego establecemos un
+
+321
+00:14:54,289 --> 00:15:00,079
+valor en otro led distinto y la anterior
+
+322
+00:14:57,259 --> 00:15:03,620
+permanece sin cambios por eso aquí
+
+323
+00:15:00,080 --> 00:15:06,500
+usamos dos set led uno con true para
+
+324
+00:15:03,620 --> 00:15:09,470
+encenderlo por 100 milisegundos y luego
+
+325
+00:15:06,500 --> 00:15:12,409
+se tener sobre el mismo elemento pero
+
+326
+00:15:09,470 --> 00:15:14,899
+con force para apagarlo por otros 100
+
+327
+00:15:12,409 --> 00:15:17,209
+milisegundos algo similar a lo que
+
+328
+00:15:14,899 --> 00:15:17,840
+ocurría cuando trabajábamos con el negro
+
+329
+00:15:17,210 --> 00:15:20,690
+pixel
+
+330
+00:15:17,840 --> 00:15:22,639
+en el capítulo 29 si hacemos una pequeña
+
+331
+00:15:20,690 --> 00:15:25,520
+modificación en el código
+
+332
+00:15:22,639 --> 00:15:27,439
+verás el efecto que obtenemos cambiemos
+
+333
+00:15:25,519 --> 00:15:30,949
+en principio el valor de la primer
+
+334
+00:15:27,440 --> 00:15:34,370
+demora a 200 milisegundos comentemos la
+
+335
+00:15:30,950 --> 00:15:37,009
+línea del set led falls y la segunda
+
+336
+00:15:34,370 --> 00:15:39,740
+demora si ejecutamos este programa
+
+337
+00:15:37,009 --> 00:15:42,289
+encenderá cada led de la matriz pero no
+
+338
+00:15:39,740 --> 00:15:45,860
+la pagará es decir que enciende el de la
+
+339
+00:15:42,289 --> 00:15:50,120
+fila 0 columna 0 luego de 200
+
+340
+00:15:45,860 --> 00:15:52,129
+milisegundos fila 0 columna 1 y así para
+
+341
+00:15:50,120 --> 00:15:55,190
+todos los elementos con lo cual al
+
+342
+00:15:52,129 --> 00:15:57,529
+llegar al último tendremos la totalidad
+
+343
+00:15:55,190 --> 00:15:59,780
+de encendido las situaciones que luego
+
+344
+00:15:57,529 --> 00:16:02,419
+cuando el loop vuelva a ejecutar el
+
+345
+00:15:59,779 --> 00:16:05,539
+código estamos indicando que queremos
+
+346
+00:16:02,419 --> 00:16:07,929
+encender un elemento pero ese elemento
+
+347
+00:16:05,539 --> 00:16:11,120
+ya está encendido nunca lo apagamos
+
+348
+00:16:07,929 --> 00:16:13,309
+estaríamos encendiendo un led que ya se
+
+349
+00:16:11,120 --> 00:16:16,100
+encuentra encendido no percibiendo
+
+350
+00:16:13,309 --> 00:16:18,289
+cambio alguno por eso podemos usar de
+
+351
+00:16:16,100 --> 00:16:21,230
+manera muy simple la función que
+
+352
+00:16:18,289 --> 00:16:24,230
+aplicamos en el setup la clear display
+
+353
+00:16:21,230 --> 00:16:27,230
+de esa forma al finalizar de encender el
+
+354
+00:16:24,230 --> 00:16:28,610
+último elemento hace un blanqueo de toda
+
+355
+00:16:27,230 --> 00:16:30,920
+la matriz y así
+
+356
+00:16:28,610 --> 00:16:33,829
+puede comenzar nuevamente vamos
+
+357
+00:16:30,919 --> 00:16:35,958
+rápidamente a subir este programa y
+
+358
+00:16:33,828 --> 00:16:39,379
+verifiquemos que efectivamente ahora
+
+359
+00:16:35,958 --> 00:16:41,629
+cada elemento va encendiendo y permanece
+
+360
+00:16:39,379 --> 00:16:44,750
+encendido hasta que llegue al final
+
+361
+00:16:41,629 --> 00:16:47,360
+hasta la esquina inferior derecha donde
+
+362
+00:16:44,750 --> 00:16:50,360
+se aplica el clear display y así
+
+363
+00:16:47,360 --> 00:16:52,490
+comienza nuevamente todo muy bonito pero
+
+364
+00:16:50,360 --> 00:16:55,839
+qué sucede si queremos mostrar un
+
+365
+00:16:52,490 --> 00:16:58,730
+carácter un dígito numérico o una letra
+
+366
+00:16:55,839 --> 00:17:01,399
+encender de un led por vez ya no nos
+
+367
+00:16:58,730 --> 00:17:03,819
+servirá para eso tenemos un proceso
+
+368
+00:17:01,399 --> 00:17:06,859
+denominado visualización por
+
+369
+00:17:03,818 --> 00:17:09,438
+multiplexación para entender el concepto
+
+370
+00:17:06,859 --> 00:17:11,779
+dejemos de lado el diagrama eléctrico de
+
+371
+00:17:09,439 --> 00:17:14,660
+la matriz y hagamos una representación
+
+372
+00:17:11,779 --> 00:17:17,869
+de la misma en formato de cuadrícula
+
+373
+00:17:14,660 --> 00:17:20,480
+cada casillero representa a un led y
+
+374
+00:17:17,869 --> 00:17:23,719
+cada fila y columna se encuentran
+
+375
+00:17:20,480 --> 00:17:26,298
+enumerados de 0 a 7 supongamos que
+
+376
+00:17:23,720 --> 00:17:29,019
+deseamos mostrar el número 0 un
+
+377
+00:17:26,298 --> 00:17:31,849
+casillero relleno de color negro
+
+378
+00:17:29,019 --> 00:17:34,789
+representará a un led de encendido de
+
+379
+00:17:31,849 --> 00:17:36,819
+esa forma es más fácil de visualizar
+
+380
+00:17:34,789 --> 00:17:39,259
+que el número no está perfectamente
+
+381
+00:17:36,819 --> 00:17:41,389
+centrado en la matriz ya que por lo
+
+382
+00:17:39,259 --> 00:17:44,629
+general los números tienen una
+
+383
+00:17:41,390 --> 00:17:47,720
+proporción más alta que ancha y además
+
+384
+00:17:44,630 --> 00:17:50,180
+tenemos un número par de filas y
+
+385
+00:17:47,720 --> 00:17:52,910
+columnas lo importante es que podemos
+
+386
+00:17:50,180 --> 00:17:55,880
+representar el número cero si encendemos
+
+387
+00:17:52,910 --> 00:17:59,060
+todos los leds representados como una
+
+388
+00:17:55,880 --> 00:18:01,820
+cuadrícula rellena de color negro la
+
+389
+00:17:59,059 --> 00:18:04,909
+idea es ir activando de una fila por vez
+
+390
+00:18:01,819 --> 00:18:07,879
+desde el acero hasta las siete o lo que
+
+391
+00:18:04,910 --> 00:18:10,850
+es lo mismo desde la fila superior hasta
+
+392
+00:18:07,880 --> 00:18:13,640
+la inferior esta activación parcial para
+
+393
+00:18:10,849 --> 00:18:16,129
+obtener una representación completa es
+
+394
+00:18:13,640 --> 00:18:19,370
+lo que se denomina multiplexación o
+
+395
+00:18:16,130 --> 00:18:22,880
+conmutación estamos activando una fila
+
+396
+00:18:19,369 --> 00:18:25,429
+por vez de forma muy breve y con mutando
+
+397
+00:18:22,880 --> 00:18:27,530
+muy rápidamente para aprovechar el
+
+398
+00:18:25,430 --> 00:18:29,960
+efecto de persistencia de la visión
+
+399
+00:18:27,529 --> 00:18:32,690
+creando la ilusión de una imagen
+
+400
+00:18:29,960 --> 00:18:35,660
+completa por ahora concentrémonos en la
+
+401
+00:18:32,690 --> 00:18:38,960
+primera fila y ya verás como todo tiene
+
+402
+00:18:35,660 --> 00:18:40,130
+sentido es la de índice cero ya vimos
+
+403
+00:18:38,960 --> 00:18:43,490
+que como es una
+
+404
+00:18:40,130 --> 00:18:45,950
+de cátodo común los cátodos de todos los
+
+405
+00:18:43,490 --> 00:18:49,490
+leds de la fila están unidos entre sí
+
+406
+00:18:45,950 --> 00:18:51,730
+con lo cual activar una fila es tan
+
+407
+00:18:49,490 --> 00:18:54,740
+fácil como enviar a la misma un
+
+408
+00:18:51,730 --> 00:18:57,740
+serológico los casilleros rellenos de
+
+409
+00:18:54,740 --> 00:19:00,170
+color negro representan a los leds de
+
+410
+00:18:57,740 --> 00:19:03,109
+las columnas que deben estar encendidos
+
+411
+00:19:00,170 --> 00:19:06,470
+para formar el carácter a mostrar sobre
+
+412
+00:19:03,109 --> 00:19:10,459
+la fila activa en este caso se dan los
+
+413
+00:19:06,470 --> 00:19:13,390
+de las columnas 2 3 y 4 al casillero
+
+414
+00:19:10,460 --> 00:19:15,860
+vacío le vamos a asignar un valor de 0
+
+415
+00:19:13,390 --> 00:19:19,280
+equivalente a un led apagado y al
+
+416
+00:19:15,859 --> 00:19:22,129
+casillero relleno un valor de 1
+
+417
+00:19:19,279 --> 00:19:26,899
+equivalente al doble de encendido de esa
+
+418
+00:19:22,130 --> 00:19:32,300
+manera nos queda esta secuencia 0 0 1 1
+
+419
+00:19:26,900 --> 00:19:36,830
+1 0 0 0 un número binario puede asumir
+
+420
+00:19:32,299 --> 00:19:39,190
+dos únicos valores 0 o 1 es la base de
+
+421
+00:19:36,829 --> 00:19:42,230
+la electrónica digital algo puede estar
+
+422
+00:19:39,190 --> 00:19:44,900
+encendido o apagado no existe otra
+
+423
+00:19:42,230 --> 00:19:46,309
+posibilidad por eso la analogía con los
+
+424
+00:19:44,900 --> 00:19:49,519
+casilleros
+
+425
+00:19:46,309 --> 00:19:52,069
+forma ya tenemos un número binario de 8
+
+426
+00:19:49,519 --> 00:19:54,889
+bits de longitud que representa la
+
+427
+00:19:52,069 --> 00:19:57,980
+información a mostrar en una fila ahora
+
+428
+00:19:54,890 --> 00:20:00,440
+vamos a la fila siguiente la de índice 1
+
+429
+00:19:57,980 --> 00:20:02,630
+aquí es importante entender que cuando
+
+430
+00:20:00,440 --> 00:20:05,930
+digo que vamos a la siguiente fila
+
+431
+00:20:02,630 --> 00:20:08,570
+significa que dejamos de activar la fila
+
+432
+00:20:05,930 --> 00:20:11,870
+anterior para pasar a la siguiente
+
+433
+00:20:08,569 --> 00:20:15,399
+eléctricamente quitamos el 0 lógico de
+
+434
+00:20:11,869 --> 00:20:19,250
+la fila 0 y los pasamos o debería decir
+
+435
+00:20:15,400 --> 00:20:21,769
+contamos a la fila 1 en esta fila número
+
+436
+00:20:19,250 --> 00:20:25,579
+1 nuevamente si traducimos los
+
+437
+00:20:21,769 --> 00:20:26,089
+casilleros vacíos y rellenos por ceros y
+
+438
+00:20:25,579 --> 00:20:32,750
+unos
+
+439
+00:20:26,089 --> 00:20:36,559
+el formato binario nos queda 0 1 0 0 0 1
+
+440
+00:20:32,750 --> 00:20:38,539
+0 0 continuando hacia la fila 2 nos
+
+441
+00:20:36,559 --> 00:20:41,359
+encontramos que la información es la
+
+442
+00:20:38,539 --> 00:20:44,299
+misma que la fila anterior y se debe a
+
+443
+00:20:41,359 --> 00:20:47,209
+que el número 0 que deseamos representar
+
+444
+00:20:44,299 --> 00:20:49,930
+tiene esta combinación que se repite y
+
+445
+00:20:47,210 --> 00:20:52,700
+de hecho se repetirá hasta la fila 6
+
+446
+00:20:49,930 --> 00:20:56,150
+inclusive la última fila
+
+447
+00:20:52,700 --> 00:21:00,259
+7 tendrán los mismos datos expresados en
+
+448
+00:20:56,150 --> 00:21:05,990
+binario que la fila 0 con la secuencia 0
+
+449
+00:21:00,259 --> 00:21:09,079
+0 1 1 1 0 0 0 en definitiva tenemos que
+
+450
+00:21:05,990 --> 00:21:12,319
+la representación del dígito numérico 0
+
+451
+00:21:09,079 --> 00:21:14,509
+es esta de aquí en formato binario y
+
+452
+00:21:12,319 --> 00:21:17,059
+vimos que estaremos multiplicando la
+
+453
+00:21:14,509 --> 00:21:20,000
+información de manera de mostrar una
+
+454
+00:21:17,059 --> 00:21:21,919
+fila por vez y engañando al ojo para
+
+455
+00:21:20,000 --> 00:21:25,250
+hacerle creer que todos los elementos
+
+456
+00:21:21,920 --> 00:21:27,680
+están encendidos para formar el dígito
+
+457
+00:21:25,250 --> 00:21:30,650
+vamos a la programación y verá que es
+
+458
+00:21:27,680 --> 00:21:33,799
+muy simple la idea de este programa es
+
+459
+00:21:30,650 --> 00:21:37,040
+mostrar los dígitos numéricos desde el 0
+
+460
+00:21:33,799 --> 00:21:39,710
+hasta el 9 a intervalos de un segundo
+
+461
+00:21:37,039 --> 00:21:43,159
+incluimos la librería led control
+
+462
+00:21:39,710 --> 00:21:46,309
+creamos el objeto llamado lc como ya
+
+463
+00:21:43,160 --> 00:21:49,040
+hicimos antes y una constante denominada
+
+464
+00:21:46,309 --> 00:21:51,470
+demora con un valor de 1000 esto es
+
+465
+00:21:49,039 --> 00:21:54,230
+porque aplicaremos más adelante un delay
+
+466
+00:21:51,470 --> 00:21:56,630
+entre dígito y dígito y si queremos
+
+467
+00:21:54,230 --> 00:21:57,620
+cambiar el tiempo de transición entre
+
+468
+00:21:56,630 --> 00:21:59,570
+uno y otro
+
+469
+00:21:57,619 --> 00:22:01,909
+es más cómodo definirlo como una
+
+470
+00:21:59,569 --> 00:22:04,700
+constante al principio y luego si
+
+471
+00:22:01,910 --> 00:22:06,830
+deseamos cambiarlo lo hacemos en un solo
+
+472
+00:22:04,700 --> 00:22:07,759
+lugar ahora la parte de generar los
+
+473
+00:22:06,829 --> 00:22:10,399
+caracteres
+
+474
+00:22:07,759 --> 00:22:13,759
+vimos recién cómo podíamos representar
+
+475
+00:22:10,400 --> 00:22:17,000
+el número 0 en binario para cada fila
+
+476
+00:22:13,759 --> 00:22:21,019
+entonces aquí simplemente creamos un
+
+477
+00:22:17,000 --> 00:22:24,769
+array del tipo byte que lo llamaremos 0
+
+478
+00:22:21,019 --> 00:22:27,980
+entre corchetes colocamos el número 8 ya
+
+479
+00:22:24,769 --> 00:22:30,500
+que tendrá justamente 8 elementos cuando
+
+480
+00:22:27,980 --> 00:22:33,620
+trabajamos con un array generalmente le
+
+481
+00:22:30,500 --> 00:22:35,808
+cargamos números en decimal en ocasiones
+
+482
+00:22:33,619 --> 00:22:39,349
+hemos cargado números en formato
+
+483
+00:22:35,808 --> 00:22:42,289
+hexadecimal colocando el prefijo 0 x
+
+484
+00:22:39,349 --> 00:22:44,779
+delante del número en este caso y por
+
+485
+00:22:42,289 --> 00:22:47,058
+primera vez ingresaremos un número en
+
+486
+00:22:44,779 --> 00:22:50,000
+binario la forma de decir que el
+
+487
+00:22:47,058 --> 00:22:53,389
+siguiente número es binario y no decimal
+
+488
+00:22:50,000 --> 00:22:55,670
+es con el prefijo b larga en mayúscula
+
+489
+00:22:53,390 --> 00:23:01,220
+con lo cual el primer elemento de la
+
+490
+00:22:55,670 --> 00:23:01,850
+raíz tendrá al 0 0 1 1 1 0 0 0 en
+
+491
+00:23:01,220 --> 00:23:03,680
+binario
+
+492
+00:23:01,849 --> 00:23:07,129
+por eso la be larga mayor
+
+493
+00:23:03,680 --> 00:23:08,960
+como prefijo separado por una coma y en
+
+494
+00:23:07,130 --> 00:23:12,080
+la siguiente línea colocamos los
+
+495
+00:23:08,960 --> 00:23:14,660
+siguientes 8 bits que corresponden a la
+
+496
+00:23:12,079 --> 00:23:21,889
+segunda fila nuevamente con be larga
+
+497
+00:23:14,660 --> 00:23:24,740
+mayúscula y la secuencia 0 1 0 0 0 1 0 0
+
+498
+00:23:21,890 --> 00:23:27,200
+son exactamente los mismos valores que
+
+499
+00:23:24,740 --> 00:23:30,259
+obtuvimos en la cuadrícula cerramos la
+
+500
+00:23:27,200 --> 00:23:32,990
+declaración de la rai 0 cerrando la
+
+501
+00:23:30,259 --> 00:23:35,329
+llave y punto y coma en caso de que
+
+502
+00:23:32,990 --> 00:23:36,079
+tengas dudas sobre el funcionamiento de
+
+503
+00:23:35,329 --> 00:23:38,839
+la raíz
+
+504
+00:23:36,079 --> 00:23:41,539
+te recomiendo véase el capítulo 9 donde
+
+505
+00:23:38,839 --> 00:23:44,419
+se explica en detalle usamos un array
+
+506
+00:23:41,539 --> 00:23:47,750
+para representar cada dígito ya que es
+
+507
+00:23:44,420 --> 00:23:50,509
+ideal al ser muy fácil de recorrer con
+
+508
+00:23:47,750 --> 00:23:53,569
+un simple bucle for y eso es todo para
+
+509
+00:23:50,509 --> 00:23:55,730
+el dígito numérico 0 en un array tenemos
+
+510
+00:23:53,569 --> 00:23:58,250
+toda la información necesaria para
+
+511
+00:23:55,730 --> 00:24:01,759
+mostrarlo en la matriz pero como vamos a
+
+512
+00:23:58,250 --> 00:24:04,069
+mostrar también los dígitos 1 al 9 verás
+
+513
+00:24:01,759 --> 00:24:06,400
+que debajo están sus correspondientes
+
+514
+00:24:04,069 --> 00:24:10,759
+arrays 1 2
+
+515
+00:24:06,400 --> 00:24:13,490
+34 y así hasta el número 9 un total de
+
+516
+00:24:10,759 --> 00:24:16,160
+10 arrays recordad que el código de los
+
+517
+00:24:13,490 --> 00:24:18,319
+programas vistos en este capítulo y el
+
+518
+00:24:16,160 --> 00:24:20,330
+de todos los capítulos se encuentra
+
+519
+00:24:18,319 --> 00:24:23,149
+disponible para descargar desde el
+
+520
+00:24:20,329 --> 00:24:25,369
+enlace en la zona de descripción genial
+
+521
+00:24:23,150 --> 00:24:28,160
+ya tenemos todos nuestros dígitos
+
+522
+00:24:25,369 --> 00:24:29,750
+numéricos preparados el setup será
+
+523
+00:24:28,160 --> 00:24:32,170
+exactamente igual que los programas
+
+524
+00:24:29,750 --> 00:24:34,700
+anteriores activando la matriz
+
+525
+00:24:32,170 --> 00:24:37,250
+estableciendo el nivel de intensidad o
+
+526
+00:24:34,700 --> 00:24:39,259
+brillo y un blanqueo de la misma
+
+527
+00:24:37,250 --> 00:24:41,299
+por el momento pasaremos por alto al
+
+528
+00:24:39,259 --> 00:24:43,759
+contenido del loop ya que quiero
+
+529
+00:24:41,299 --> 00:24:47,089
+mostrarte una nueva función es la
+
+530
+00:24:43,759 --> 00:24:49,460
+denominada set row para verla en detalle
+
+531
+00:24:47,089 --> 00:24:53,089
+vamos a la nota al margen donde vemos
+
+532
+00:24:49,460 --> 00:24:56,000
+que se requiere como primer parámetro el
+
+533
+00:24:53,089 --> 00:24:57,799
+número de dispositivo el número de filas
+
+534
+00:24:56,000 --> 00:25:01,039
+en donde deseamos escribir la
+
+535
+00:24:57,799 --> 00:25:03,109
+información y luego un valor un valor de
+
+536
+00:25:01,039 --> 00:25:05,659
+8 bits de longitud
+
+537
+00:25:03,109 --> 00:25:09,139
+aquí es donde colocaremos la secuencia
+
+538
+00:25:05,660 --> 00:25:11,330
+de unos y ceros de cada fila para formar
+
+539
+00:25:09,140 --> 00:25:13,580
+el carácter a mostrar
+
+540
+00:25:11,329 --> 00:25:17,119
+un carácter dividimos llamar a la
+
+541
+00:25:13,579 --> 00:25:20,179
+función set row un total de ocho veces
+
+542
+00:25:17,119 --> 00:25:23,089
+uno por cada fila de la matriz ahora sí
+
+543
+00:25:20,180 --> 00:25:25,250
+veamos el loop como decía antes la idea
+
+544
+00:25:23,089 --> 00:25:28,429
+del programa es mostrar los dígitos
+
+545
+00:25:25,250 --> 00:25:31,670
+numéricos 0 al 9 a intervalos de un
+
+546
+00:25:28,430 --> 00:25:34,130
+segundo para mostrar cada dígito debemos
+
+547
+00:25:31,670 --> 00:25:37,130
+usar la función set row
+
+548
+00:25:34,130 --> 00:25:40,130
+8 veces lo hacemos con un simple bucle
+
+549
+00:25:37,130 --> 00:25:42,890
+foro el usuario que tengamos un look muy
+
+550
+00:25:40,130 --> 00:25:45,860
+largo y poco elegante por eso creamos
+
+551
+00:25:42,890 --> 00:25:49,640
+una función a nuestra medida tendrá el
+
+552
+00:25:45,859 --> 00:25:52,219
+nombre de mostrar guión bajo cero esta
+
+553
+00:25:49,640 --> 00:25:56,390
+función la declaramos fuera del loop con
+
+554
+00:25:52,220 --> 00:25:59,329
+void mostrar guión bajo cero y entre
+
+555
+00:25:56,390 --> 00:26:02,540
+llaves lo que deseamos ejecutar que será
+
+556
+00:25:59,329 --> 00:26:05,240
+muy simple un bucle foro que comienza
+
+557
+00:26:02,539 --> 00:26:08,480
+con la variable de iteración y en cero
+
+558
+00:26:05,240 --> 00:26:11,450
+en la condición es que sea menor a ocho
+
+559
+00:26:08,480 --> 00:26:14,329
+e incrementando la variable en uno con
+
+560
+00:26:11,450 --> 00:26:17,660
+cada pasada la acción será llamar a la
+
+561
+00:26:14,329 --> 00:26:21,529
+función set row del objeto ls
+
+562
+00:26:17,660 --> 00:26:23,930
+con 0 ya que tenemos un solo módulo la
+
+563
+00:26:21,529 --> 00:26:27,710
+fila será directamente la variable de
+
+564
+00:26:23,930 --> 00:26:32,210
+iteración y que va de 0 a 7 y el valor
+
+565
+00:26:27,710 --> 00:26:35,000
+será el raid 0 en la posición también y
+
+566
+00:26:32,210 --> 00:26:38,120
+en el array 0 tenemos todos los datos
+
+567
+00:26:35,000 --> 00:26:42,140
+para mostrar el dígito 0 de manera que
+
+568
+00:26:38,119 --> 00:26:44,779
+sí y vale 0 con set row estamos diciendo
+
+569
+00:26:42,140 --> 00:26:48,890
+que en la fila debemos cargar el valor
+
+570
+00:26:44,779 --> 00:26:52,339
+de la raíz 0 en la posición 0 cuando el
+
+571
+00:26:48,890 --> 00:26:55,790
+bucle repite y incrementen 1 entonces
+
+572
+00:26:52,339 --> 00:26:59,899
+ahora estaremos en la fila 1 y el valor
+
+573
+00:26:55,789 --> 00:27:02,240
+será el de la raíz 0 en la posición 1 de
+
+574
+00:26:59,900 --> 00:27:04,580
+esa forma verás que con un simple bucle
+
+575
+00:27:02,240 --> 00:27:08,089
+foro aprovechamos la variable de
+
+576
+00:27:04,579 --> 00:27:10,939
+iteración para indicarle a ser row la
+
+577
+00:27:08,089 --> 00:27:13,339
+fila que debe escribir y el dato que lo
+
+578
+00:27:10,940 --> 00:27:15,860
+obtenemos de la raíz en esa misma
+
+579
+00:27:13,339 --> 00:27:17,959
+posición volviendo al loop ahora
+
+580
+00:27:15,859 --> 00:27:19,729
+entendemos que cuando llamamos a la
+
+581
+00:27:17,960 --> 00:27:22,279
+función mostrar
+
+582
+00:27:19,730 --> 00:27:24,890
+bajo cero y estaremos mostrando al
+
+583
+00:27:22,279 --> 00:27:28,399
+dígito numérico cero al hacerlo mediante
+
+584
+00:27:24,890 --> 00:27:30,620
+una función el loop nos queda corto y
+
+585
+00:27:28,400 --> 00:27:33,380
+bien entendible luego de mostrar el
+
+586
+00:27:30,619 --> 00:27:36,679
+dígito deseamos aplicar una demora de un
+
+587
+00:27:33,380 --> 00:27:39,710
+segundo por eso la función delay entre
+
+588
+00:27:36,680 --> 00:27:41,900
+paréntesis demora recordarás que demora
+
+589
+00:27:39,710 --> 00:27:44,450
+la definimos como una constante al
+
+590
+00:27:41,900 --> 00:27:47,210
+principio con un valor de 1000 así que
+
+591
+00:27:44,450 --> 00:27:50,059
+es equivalente a delay entre paréntesis
+
+592
+00:27:47,210 --> 00:27:52,700
+1000 con la ventaja de que si deseamos
+
+593
+00:27:50,059 --> 00:27:55,700
+cambiar el valor de la demora no debemos
+
+594
+00:27:52,700 --> 00:27:58,880
+hacerlo en cada delay lo cambiamos en la
+
+595
+00:27:55,700 --> 00:28:00,799
+constante del principio y listo el resto
+
+596
+00:27:58,880 --> 00:28:04,130
+del programa es aplicar la misma
+
+597
+00:28:00,799 --> 00:28:07,250
+mecánica para mostrar el dígito número 1
+
+598
+00:28:04,130 --> 00:28:10,970
+llamamos a la función mostrar
+
+599
+00:28:07,250 --> 00:28:12,380
+1 si vamos debajo la función a mostrar
+
+600
+00:28:10,970 --> 00:28:14,480
+jon bajo 1
+
+601
+00:28:12,380 --> 00:28:17,540
+vemos que nuevamente tenemos un bucle
+
+602
+00:28:14,480 --> 00:28:20,630
+for pero donde el valor de set no será
+
+603
+00:28:17,539 --> 00:28:23,299
+el de array 1 luego en el loop una
+
+604
+00:28:20,630 --> 00:28:26,809
+demora y así para todos los dígitos a
+
+605
+00:28:23,299 --> 00:28:30,200
+mostrar eso es todo así que vamos a ver
+
+606
+00:28:26,808 --> 00:28:32,388
+y subir el programa podrás observar como
+
+607
+00:28:30,200 --> 00:28:36,080
+no podría ser de otra manera que se
+
+608
+00:28:32,388 --> 00:28:38,599
+muestran los dígitos 0 9 a intervalos de
+
+609
+00:28:36,079 --> 00:28:41,119
+un segundo podrás apreciar también que
+
+610
+00:28:38,599 --> 00:28:43,788
+los dígitos se muestran perfectamente
+
+611
+00:28:41,119 --> 00:28:45,709
+bien sin ningún tipo de parpadeo o
+
+612
+00:28:43,788 --> 00:28:48,619
+interrupción si bien estamos
+
+613
+00:28:45,710 --> 00:28:51,200
+multiplicando de una fila por vez al
+
+614
+00:28:48,619 --> 00:28:53,508
+hacerlo muy rápidamente el efecto de
+
+615
+00:28:51,200 --> 00:28:55,819
+persistencia de la visión nos da la
+
+616
+00:28:53,509 --> 00:28:58,628
+ilusión de mostrarse como si estuvieran
+
+617
+00:28:55,819 --> 00:29:02,148
+todos los elementos que forman el dígito
+
+618
+00:28:58,628 --> 00:29:04,819
+encendidos al mismo tiempo muy bien este
+
+619
+00:29:02,148 --> 00:29:07,849
+último programa demuestra cómo hacer una
+
+620
+00:29:04,819 --> 00:29:10,189
+simple animación la idea es mostrar una
+
+621
+00:29:07,849 --> 00:29:12,888
+flecha hacia arriba que se va moviendo
+
+622
+00:29:10,190 --> 00:29:15,590
+de forma continua similar a la que
+
+623
+00:29:12,888 --> 00:29:18,678
+tienen los ascensores o elevadores en
+
+624
+00:29:15,589 --> 00:29:20,569
+edificios la mecánica será la misma sólo
+
+625
+00:29:18,679 --> 00:29:23,480
+que esta vez en lugar de mostrar
+
+626
+00:29:20,569 --> 00:29:26,240
+distintos números será la representación
+
+627
+00:29:23,480 --> 00:29:28,909
+de una flecha que en cada posición se
+
+628
+00:29:26,240 --> 00:29:31,128
+desplaza ligeramente hacia arriba al
+
+629
+00:29:28,909 --> 00:29:32,060
+estilo de una animación cuadro por
+
+630
+00:29:31,128 --> 00:29:34,939
+cuadro
+
+631
+00:29:32,059 --> 00:29:38,539
+la animación lleva un total de 9 arrays
+
+632
+00:29:34,940 --> 00:29:42,170
+comienza con el llamado flecha arriba 1
+
+633
+00:29:38,539 --> 00:29:44,480
+y así hasta flecha arriba 9 en el loop
+
+634
+00:29:42,170 --> 00:29:48,820
+llamamos a cada una de las nueve
+
+635
+00:29:44,480 --> 00:29:52,220
+funciones mostrar uno hasta mostrar
+
+636
+00:29:48,819 --> 00:29:55,159
+nueve más abajo al igual que el programa
+
+637
+00:29:52,220 --> 00:29:57,890
+anterior solo recorremos cada array con
+
+638
+00:29:55,160 --> 00:30:00,140
+un bucle forma nada nuevo realmente para
+
+639
+00:29:57,890 --> 00:30:03,110
+este programa sólo que los arrays
+
+640
+00:30:00,140 --> 00:30:05,570
+contienen la imagen de una flecha me
+
+641
+00:30:03,109 --> 00:30:08,990
+olvidaba que la demora en este caso la
+
+642
+00:30:05,569 --> 00:30:11,779
+reducimos a 250 milisegundos para una
+
+643
+00:30:08,990 --> 00:30:14,809
+animación más suave entonces ahora sí
+
+644
+00:30:11,779 --> 00:30:18,649
+vamos a verificar y subir el programa
+
+645
+00:30:14,809 --> 00:30:21,289
+bonito tenemos una animación sin fin de
+
+646
+00:30:18,650 --> 00:30:24,440
+una flecha subiendo de manera que para
+
+647
+00:30:21,289 --> 00:30:27,619
+resumir mostrar un carácter ya sea un
+
+648
+00:30:24,440 --> 00:30:30,610
+número una letra o un carácter especial
+
+649
+00:30:27,619 --> 00:30:33,259
+es sólo cuestión de generar los arrays
+
+650
+00:30:30,609 --> 00:30:36,349
+correspondientes y con la función set
+
+651
+00:30:33,259 --> 00:30:38,509
+row mostrar de una fila por vez para
+
+652
+00:30:36,349 --> 00:30:41,148
+finalizar el capítulo veamos
+
+653
+00:30:38,509 --> 00:30:44,058
+encadenar un segundo módulo es realmente
+
+654
+00:30:41,148 --> 00:30:46,758
+muy simple y sólo cuestión de conectar
+
+655
+00:30:44,058 --> 00:30:49,398
+mediante cinco cables paralelos la
+
+656
+00:30:46,759 --> 00:30:51,709
+salida del primer módulo con la entrada
+
+657
+00:30:49,398 --> 00:30:55,128
+del segundo verás que las conexiones
+
+658
+00:30:51,709 --> 00:30:58,099
+arduino no cambian y eso son bueno ya
+
+659
+00:30:55,128 --> 00:31:01,069
+sea que tengamos un solo módulo u ocho
+
+660
+00:30:58,098 --> 00:31:03,678
+sólo utilizaremos tres pines digitales
+
+661
+00:31:01,069 --> 00:31:06,319
+para la comunicación en la nota se
+
+662
+00:31:03,679 --> 00:31:09,949
+muestra que de la salida del módulo uno
+
+663
+00:31:06,319 --> 00:31:14,538
+veces se se conecta con la entrada veces
+
+664
+00:31:09,949 --> 00:31:17,778
+del módulo 2nd con gene de de out del
+
+665
+00:31:14,538 --> 00:31:21,378
+primero con jane del segundo y las
+
+666
+00:31:17,778 --> 00:31:26,179
+siguientes dos líneas en paralelo cs con
+
+667
+00:31:21,378 --> 00:31:28,848
+cs slk con cl acá existen módulos ya
+
+668
+00:31:26,179 --> 00:31:31,369
+armados de por ejemplo cuatro matrices
+
+669
+00:31:28,848 --> 00:31:34,249
+donde el formato hace que no quede
+
+670
+00:31:31,368 --> 00:31:37,308
+espacio libre entre un módulo y otro
+
+671
+00:31:34,249 --> 00:31:38,739
+como si ocurre en este caso ahora desde
+
+672
+00:31:37,308 --> 00:31:41,358
+el punto de vista de la programación
+
+673
+00:31:38,739 --> 00:31:44,179
+tomemos como ejemplo el primer programa
+
+674
+00:31:41,358 --> 00:31:44,898
+visto en este capítulo al momento de
+
+675
+00:31:44,179 --> 00:31:48,229
+crearlo
+
+676
+00:31:44,898 --> 00:31:51,888
+lc deberás cambiar el último parámetro
+
+677
+00:31:48,229 --> 00:31:54,769
+de la de control de 1 a 2 indicando que
+
+678
+00:31:51,888 --> 00:31:57,558
+ahora tenemos dos módulos en vez de uno
+
+679
+00:31:54,769 --> 00:32:00,319
+en el setup realizamos la misma tarea
+
+680
+00:31:57,558 --> 00:32:03,019
+que el módulo de índice cero pero ahora
+
+681
+00:32:00,319 --> 00:32:05,960
+el de índice uno simplemente copiamos
+
+682
+00:32:03,019 --> 00:32:09,710
+las tres líneas de código las pegamos
+
+683
+00:32:05,960 --> 00:32:10,098
+debajo y cambiamos el 0 por un 1 en el
+
+684
+00:32:09,710 --> 00:32:12,558
+loop
+
+685
+00:32:10,098 --> 00:32:15,319
+a modo de ejemplo también podemos copiar
+
+686
+00:32:12,558 --> 00:32:17,148
+todo el código y pegarlo debajo
+
+687
+00:32:15,319 --> 00:32:20,928
+cambiando simplemente el primer
+
+688
+00:32:17,148 --> 00:32:24,408
+parámetro de la función se le da de 0
+
+689
+00:32:20,929 --> 00:32:27,169
+por 1 y eso es todo podrás controlar de
+
+690
+00:32:24,409 --> 00:32:29,059
+forma totalmente independiente el módulo
+
+691
+00:32:27,169 --> 00:32:31,788
+1 y el módulo 2
+
+692
+00:32:29,058 --> 00:32:35,418
+simplemente indicando en la función si
+
+693
+00:32:31,788 --> 00:32:38,358
+se trata del índice 0 o el 1 eso es todo
+
+694
+00:32:35,419 --> 00:32:40,729
+por este capítulo como es usual te pido
+
+695
+00:32:38,358 --> 00:32:43,368
+te suscribas si aún no lo has hecho y
+
+696
+00:32:40,729 --> 00:32:45,469
+por cualquier duda o comentario lo
+
+697
+00:32:43,368 --> 00:32:47,139
+podéis hacer debajo que con gusto te
+
+698
+00:32:45,469 --> 00:32:50,309
+responderé
+
+699
+00:32:47,140 --> 00:32:50,310
+y hasta la próxima
+
