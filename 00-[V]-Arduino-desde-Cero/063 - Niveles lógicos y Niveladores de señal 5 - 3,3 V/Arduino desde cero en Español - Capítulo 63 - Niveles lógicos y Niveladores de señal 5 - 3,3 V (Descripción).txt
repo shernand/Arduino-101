@@ -1,0 +1,22 @@
+Analizaremos un poco más en profundidad las características eléctricas de los niveles lógicos de Arduino y electrónica digital en general (TTL y CMOS) y los niveladores de señal para adaptar lógica de 5 a 3,3 V y viceversa.
+Veremos la conexión y aplicación práctica de los niveladores de señal (level shifter) para la interconexión de dispositivos con lógicas de distinto voltaje.
+
+
+#ArduinoNivelesLogicos
+#ArduinoNiveladorSeñal
+#ArduinoAdaptadorNivel
+#ArduinoConversorNivel
+Conversor de niveles lógicos 3.3/5v 
+Convertidor de nivel lógico bidireccional
+Logic level converter 3.3v 5v
+Level shifter Arduino
+Logica ttl y cmos
+
+Marcas de tiempo:
+
+0:00 Bienvenida e introducción
+1:14 Niveles lógicos TTL 5V
+5:32 Niveles lógicos CMOS 3,3V
+6:28 Niveles Arduino (ATmega 328)
+9:46 Hardware (Niveladores, level shifters)
+12:57 Resumen y despedida

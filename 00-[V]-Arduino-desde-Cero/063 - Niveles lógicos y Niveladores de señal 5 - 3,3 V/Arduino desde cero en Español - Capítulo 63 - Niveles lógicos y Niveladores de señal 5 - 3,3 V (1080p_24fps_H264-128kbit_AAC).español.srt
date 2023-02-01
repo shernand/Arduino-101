@@ -1,0 +1,1236 @@
+1
+00:00:00,719 --> 00:00:05,430
+hola a todos y bienvenidos a un nuevo
+
+2
+00:00:03,180 --> 00:00:06,149
+capítulo de arduino desde cero en
+
+3
+00:00:05,429 --> 00:00:08,849
+español
+
+4
+00:00:06,149 --> 00:00:11,039
+en esta oportunidad analizaremos un poco
+
+5
+00:00:08,849 --> 00:00:13,859
+más en profundidad los niveles lógicos
+
+6
+00:00:11,039 --> 00:00:16,018
+de los pines digitales y sus tolerancias
+
+7
+00:00:13,859 --> 00:00:18,480
+cuando son usados como entradas o
+
+8
+00:00:16,018 --> 00:00:21,509
+salidas y el hardware que permite
+
+9
+00:00:18,480 --> 00:00:24,179
+nivelar señales con lógicas de distinta
+
+10
+00:00:21,509 --> 00:00:26,429
+tensión como ya sabrás a esta altura los
+
+11
+00:00:24,178 --> 00:00:29,068
+pines digitales de arduino se pueden
+
+12
+00:00:26,428 --> 00:00:31,259
+configurar como entrada input o como
+
+13
+00:00:29,068 --> 00:00:33,600
+salida output y lo hacemos en
+
+14
+00:00:31,259 --> 00:00:36,390
+programación mediante la función pin
+
+15
+00:00:33,600 --> 00:00:39,570
+mode en este ejemplo establecemos al pin
+
+16
+00:00:36,390 --> 00:00:41,909
+digital número 2 como entrada input en
+
+17
+00:00:39,570 --> 00:00:44,270
+definitiva estaremos leyendo el valor
+
+18
+00:00:41,909 --> 00:00:47,189
+lógico en dicho pin si por el contrario
+
+19
+00:00:44,270 --> 00:00:50,040
+establecemos al pin número 2 como salida
+
+20
+00:00:47,189 --> 00:00:53,239
+output estaremos aplicando un nivel
+
+21
+00:00:50,039 --> 00:00:56,460
+lógico en el mismo un serológico flow
+
+22
+00:00:53,240 --> 00:00:59,940
+equivale a la ausencia de tensión o cero
+
+23
+00:00:56,460 --> 00:01:02,370
+volts un 1 lógico -hay equivale a una
+
+24
+00:00:59,939 --> 00:01:05,408
+atención de 5 volts para el modelo de
+
+25
+00:01:02,369 --> 00:01:08,228
+arruinó 1 aunque en breve veremos
+
+26
+00:01:05,409 --> 00:01:12,159
+en otros capítulos que existen lógicas
+
+27
+00:01:08,228 --> 00:01:14,709
+de 33 volts donde un uno lógico equivale
+
+28
+00:01:12,159 --> 00:01:16,770
+a dicha atención en este gráfico vamos a
+
+29
+00:01:14,709 --> 00:01:19,328
+suponer que tenemos al pin digital
+
+30
+00:01:16,769 --> 00:01:21,280
+configurado como entrada y en esta
+
+31
+00:01:19,328 --> 00:01:25,389
+escala vertical los valores de tensión
+
+32
+00:01:21,280 --> 00:01:27,608
+de 0 a 5 volts a intervalos de un volt a
+
+33
+00:01:25,390 --> 00:01:30,069
+modo de referencia la idea es que
+
+34
+00:01:27,608 --> 00:01:32,199
+podamos ver hasta qué punto la tensión
+
+35
+00:01:30,069 --> 00:01:34,299
+presente en un pin configurado como
+
+36
+00:01:32,200 --> 00:01:37,299
+entrada se lo considera como un nivel
+
+37
+00:01:34,299 --> 00:01:40,299
+lógico a esto hi por cierto aquí en el
+
+38
+00:01:37,299 --> 00:01:42,640
+título dice tt el estándar de tele
+
+39
+00:01:40,299 --> 00:01:45,520
+corresponde a las siglas en inglés de
+
+40
+00:01:42,640 --> 00:01:47,259
+lógica transistor transistor ya que esto
+
+41
+00:01:45,519 --> 00:01:49,450
+que veremos se aplica no sólo
+
+42
+00:01:47,259 --> 00:01:51,368
+microcontroladores como arduino sino a
+
+43
+00:01:49,450 --> 00:01:54,250
+todo tipo de circuitos electrónicos
+
+44
+00:01:51,368 --> 00:01:57,968
+digitales esta barra azul cubre las
+
+45
+00:01:54,250 --> 00:02:00,459
+tensiones entre 2 y 5 a propósito no es
+
+46
+00:01:57,968 --> 00:02:02,949
+una barra sólida ya que quiero que veas
+
+47
+00:02:00,459 --> 00:02:06,219
+las líneas de referencia entonces un
+
+48
+00:02:02,950 --> 00:02:08,560
+nivel lógico alto height es detectado en
+
+49
+00:02:06,218 --> 00:02:11,739
+un pin digital configurado como entrada
+
+50
+00:02:08,560 --> 00:02:14,080
+si su voltaje se encuentra entre 2
+
+51
+00:02:11,740 --> 00:02:16,540
+5 volts quizás te parezca un rango
+
+52
+00:02:14,080 --> 00:02:18,730
+demasiado amplio quizás pensarías que
+
+53
+00:02:16,539 --> 00:02:21,069
+estaríamos con una atención muy cercana
+
+54
+00:02:18,729 --> 00:02:23,019
+a los 5 goles pero justamente este
+
+55
+00:02:21,069 --> 00:02:24,879
+capítulo es para mostrar que cuando
+
+56
+00:02:23,020 --> 00:02:27,189
+conectamos arduino con otros
+
+57
+00:02:24,879 --> 00:02:30,159
+dispositivos las tensiones no son
+
+58
+00:02:27,189 --> 00:02:32,469
+siempre precisas y existen tolerancias
+
+59
+00:02:30,159 --> 00:02:35,289
+en definitiva si hacemos un digital
+
+60
+00:02:32,469 --> 00:02:39,009
+ruido de un pin digital y arduino de una
+
+61
+00:02:35,289 --> 00:02:41,439
+tensión entre 2 y 5 volts lo considera
+
+62
+00:02:39,009 --> 00:02:43,629
+como un nivel alto sigamos con el nivel
+
+63
+00:02:41,439 --> 00:02:46,030
+bajo low para continuar con la temática
+
+64
+00:02:43,629 --> 00:02:49,180
+aquí se muestra con una barra de color
+
+65
+00:02:46,030 --> 00:02:52,539
+verde y se indica que el rango es de 0 a
+
+66
+00:02:49,180 --> 00:02:55,090
+0 8 volts nuevamente vemos un nivel de
+
+67
+00:02:52,539 --> 00:02:57,789
+tolerancia si en el pin digital existe
+
+68
+00:02:55,090 --> 00:03:00,849
+la presencia de un voltaje ligeramente
+
+69
+00:02:57,789 --> 00:03:03,909
+superior a los 0 volts más precisamente
+
+70
+00:03:00,849 --> 00:03:06,939
+hasta 0,8 lo considera como un nivel
+
+71
+00:03:03,909 --> 00:03:09,490
+lógico bajo lo esta separación que
+
+72
+00:03:06,939 --> 00:03:12,189
+existe entre los niveles lógicos es una
+
+73
+00:03:09,490 --> 00:03:15,730
+zona indefinida eso significa que si por
+
+74
+00:03:12,189 --> 00:03:17,800
+ejemplo existiese una atención de 15
+
+75
+00:03:15,729 --> 00:03:20,349
+volts no sabemos cuál es el
+
+76
+00:03:17,800 --> 00:03:23,140
+de la lectura podría ser considerado
+
+77
+00:03:20,349 --> 00:03:25,719
+tanto como un nivel bajo como uno alto
+
+78
+00:03:23,139 --> 00:03:27,250
+recordad que hay dos estados posibles y
+
+79
+00:03:25,719 --> 00:03:29,800
+es por este motivo que cuando un pin
+
+80
+00:03:27,250 --> 00:03:32,949
+digital se establece como entrada no
+
+81
+00:03:29,800 --> 00:03:35,530
+debe dejarse al aire sin conexión una
+
+82
+00:03:32,949 --> 00:03:37,899
+pregunta usual del capítulo 3 donde
+
+83
+00:03:35,530 --> 00:03:40,330
+colocamos una resistencia de pull down
+
+84
+00:03:37,900 --> 00:03:42,250
+junto al pulsador la usamos para
+
+85
+00:03:40,330 --> 00:03:44,980
+asegurar que mientras no esté siendo
+
+86
+00:03:42,250 --> 00:03:47,349
+presionado el pin digital establecido
+
+87
+00:03:44,979 --> 00:03:50,169
+como entrada asegura un nivel lógico
+
+88
+00:03:47,349 --> 00:03:52,989
+bajo y cambia alto al presionar el
+
+89
+00:03:50,169 --> 00:03:56,379
+pulsador también con la función pin modo
+
+90
+00:03:52,990 --> 00:03:59,080
+e imputó podemos colocar un pulsador
+
+91
+00:03:56,379 --> 00:04:01,180
+directo con conexión a gene de que
+
+92
+00:03:59,080 --> 00:04:03,640
+brindará un nivel bajo löw al
+
+93
+00:04:01,180 --> 00:04:05,469
+presionarlo en definitiva la idea es que
+
+94
+00:04:03,639 --> 00:04:07,929
+quede claro que existe un rango de
+
+95
+00:04:05,469 --> 00:04:11,259
+tensiones que un pin digital establecido
+
+96
+00:04:07,930 --> 00:04:13,599
+como entrada lo leerá como jaime o lou y
+
+97
+00:04:11,259 --> 00:04:16,120
+de paso también reforzar el motivo por
+
+98
+00:04:13,599 --> 00:04:18,909
+el cual no dejar un pin al aire sin
+
+99
+00:04:16,120 --> 00:04:21,670
+conexión o referencia dejemos a un lado
+
+100
+00:04:18,910 --> 00:04:23,800
+este gráfico y veamos uno similar pero
+
+101
+00:04:21,670 --> 00:04:24,550
+en el caso de establecer un pin digital
+
+102
+00:04:23,800 --> 00:04:27,250
+como
+
+103
+00:04:24,550 --> 00:04:30,069
+en dicho caso estaremos aplicando un
+
+104
+00:04:27,250 --> 00:04:34,180
+nivel lógico al pib será high si se
+
+105
+00:04:30,069 --> 00:04:37,810
+encuentra en el rango de 275 volts y lou
+
+106
+00:04:34,180 --> 00:04:39,668
+en el rango de 0 04 con los gráficos
+
+107
+00:04:37,810 --> 00:04:42,038
+lado a lado se pueden ver las
+
+108
+00:04:39,668 --> 00:04:44,769
+diferencias si al fin como salida le
+
+109
+00:04:42,038 --> 00:04:48,610
+enviamos un nivel high entregará una
+
+110
+00:04:44,769 --> 00:04:51,490
+atención con un mínimo de 27 y el pin
+
+111
+00:04:48,610 --> 00:04:54,009
+como entrada aceptará como mínimo una
+
+112
+00:04:51,490 --> 00:04:56,500
+tensión de 2 vols es decir que bajo las
+
+113
+00:04:54,009 --> 00:04:59,319
+peores condiciones que la salida sea la
+
+114
+00:04:56,500 --> 00:05:01,329
+mínima posible y aunque perdamos parte
+
+115
+00:04:59,319 --> 00:05:03,819
+de la tensión quedará un margen de
+
+116
+00:05:01,329 --> 00:05:05,740
+seguridad para que ese nivel -hay sea
+
+117
+00:05:03,819 --> 00:05:07,658
+interpretado correctamente por la
+
+118
+00:05:05,740 --> 00:05:09,788
+entrada no te preocupes que estos
+
+119
+00:05:07,658 --> 00:05:12,098
+valores no te los estoy mostrando con la
+
+120
+00:05:09,788 --> 00:05:14,110
+intención de memorizar es para que sepas
+
+121
+00:05:12,098 --> 00:05:16,959
+los márgenes que existen para un pin
+
+122
+00:05:14,110 --> 00:05:19,300
+declarado como entrada y como salida en
+
+123
+00:05:16,959 --> 00:05:21,430
+condiciones reales donde podríamos tener
+
+124
+00:05:19,300 --> 00:05:23,860
+muchos dispositivos conectados mediante
+
+125
+00:05:21,430 --> 00:05:26,348
+cables en un circuito impreso donde
+
+126
+00:05:23,860 --> 00:05:28,419
+pueden existir interferencias y demás
+
+127
+00:05:26,348 --> 00:05:31,089
+factores que puedan modificar los
+
+128
+00:05:28,418 --> 00:05:34,089
+voltajes claro que toda esta historia
+
+129
+00:05:31,089 --> 00:05:35,560
+para el nivel lógico de 33 volts y el
+
+130
+00:05:34,089 --> 00:05:37,959
+cual es muy popular en
+
+131
+00:05:35,560 --> 00:05:39,519
+microcontroladores desde hace tiempo es
+
+132
+00:05:37,959 --> 00:05:45,069
+importante tenerlo en cuenta para
+
+133
+00:05:39,519 --> 00:05:46,299
+arquitecturas arm bits esp 8 266 esp 32
+
+134
+00:05:45,069 --> 00:05:48,939
+y muchos más
+
+135
+00:05:46,300 --> 00:05:51,910
+arduino también tiene modelos con lógica
+
+136
+00:05:48,939 --> 00:05:53,709
+de 3,3 golpes por eso es relevante tener
+
+137
+00:05:51,910 --> 00:05:56,020
+en cuenta estos valores que aquí se
+
+138
+00:05:53,709 --> 00:05:58,719
+muestran con el mismo sistema de barras
+
+139
+00:05:56,019 --> 00:06:00,849
+para los niveles lógicos height y luego
+
+140
+00:05:58,720 --> 00:06:03,880
+tanto para un pin declarado como entrada
+
+141
+00:06:00,850 --> 00:06:06,430
+como para uno como salida de la misma
+
+142
+00:06:03,879 --> 00:06:08,860
+forma que para lógica de 5 volts es
+
+143
+00:06:06,430 --> 00:06:11,470
+importante evitar sobre todo cuando el
+
+144
+00:06:08,860 --> 00:06:13,930
+pin está como entrada de no caer en la
+
+145
+00:06:11,470 --> 00:06:16,810
+zona indefinida ya que el resultado de
+
+146
+00:06:13,930 --> 00:06:18,850
+la lectura es impredecible todo lo visto
+
+147
+00:06:16,810 --> 00:06:21,189
+al momento es para electrónica digital
+
+148
+00:06:18,850 --> 00:06:24,460
+en general ya sea para tecnología de
+
+149
+00:06:21,189 --> 00:06:27,129
+tele como para hacemos en lógicas de 5 y
+
+150
+00:06:24,459 --> 00:06:29,649
+3 3 pero arduino tiene una leve
+
+151
+00:06:27,129 --> 00:06:32,139
+variación respecto de los estándares y
+
+152
+00:06:29,649 --> 00:06:34,288
+en cierta forma es algo más permisivo
+
+153
+00:06:32,139 --> 00:06:36,920
+por eso te presento estos gráficos
+
+154
+00:06:34,288 --> 00:06:40,759
+específicos para el modelo mégane
+
+155
+00:06:36,920 --> 00:06:43,160
+328 el usado en las placas 10 mini y
+
+156
+00:06:40,759 --> 00:06:45,439
+nano verás en la gráfica de la izquierda
+
+157
+00:06:43,160 --> 00:06:48,320
+que para el pin como entrada identifica
+
+158
+00:06:45,439 --> 00:06:52,759
+como un valor high con tensiones entre 3
+
+159
+00:06:48,319 --> 00:06:55,670
+y 5 volts y un valor low entre 0 y 15
+
+160
+00:06:52,759 --> 00:06:58,189
+con respecto a tete el estándar en nivel
+
+161
+00:06:55,670 --> 00:07:00,879
+high es similar pero verás que el logo
+
+162
+00:06:58,189 --> 00:07:04,189
+permite una atención bastante elevada de
+
+163
+00:07:00,879 --> 00:07:07,129
+15 es un dato importante y resulta que a
+
+164
+00:07:04,189 --> 00:07:09,379
+veces no es tan fácil colocar un pin a 0
+
+165
+00:07:07,129 --> 00:07:11,509
+volts o gene de generalmente hay
+
+166
+00:07:09,379 --> 00:07:14,329
+resistencias entre las líneas de
+
+167
+00:07:11,509 --> 00:07:16,759
+alimentación de pull up o pull down que
+
+168
+00:07:14,329 --> 00:07:19,969
+nos permiten llegar a los extremos sobre
+
+169
+00:07:16,759 --> 00:07:22,459
+todo a 0 volts o muy cerca del mismo así
+
+170
+00:07:19,970 --> 00:07:25,580
+que la mega 328 que permite una atención
+
+171
+00:07:22,459 --> 00:07:28,399
+de hasta 15 goltz que se ha considerado
+
+172
+00:07:25,579 --> 00:07:30,250
+como un nivel bajo low es algo muy bueno
+
+173
+00:07:28,399 --> 00:07:33,469
+cuando estamos trabajando en proyectos
+
+174
+00:07:30,250 --> 00:07:36,199
+temporales con protoboard o circuitos de
+
+175
+00:07:33,470 --> 00:07:38,720
+desarrollo con cables y conexiones que
+
+176
+00:07:36,199 --> 00:07:40,399
+no son siempre del todo robustas por
+
+177
+00:07:38,720 --> 00:07:43,010
+otro lado desde el punto de vista del
+
+178
+00:07:40,399 --> 00:07:43,659
+pin como salida el microcontrolador es
+
+179
+00:07:43,009 --> 00:07:46,420
+bien
+
+180
+00:07:43,660 --> 00:07:50,260
+a un nivel alto o high tendrá al menos
+
+181
+00:07:46,420 --> 00:07:52,270
+una atención de 42 y un nivel low como
+
+182
+00:07:50,259 --> 00:07:54,250
+máximo 09
+
+183
+00:07:52,269 --> 00:07:56,919
+en definitiva asegura que la atención
+
+184
+00:07:54,250 --> 00:07:58,540
+que aplica está bien en los extremos de
+
+185
+00:07:56,920 --> 00:08:01,030
+manera que variaciones que se puedan
+
+186
+00:07:58,540 --> 00:08:03,220
+producir por conexiones externas y
+
+187
+00:08:01,029 --> 00:08:05,829
+modifiquen las tensiones igual serán
+
+188
+00:08:03,220 --> 00:08:08,200
+bien reconocidas por un pin como entrada
+
+189
+00:08:05,829 --> 00:08:11,169
+en definitiva bien estricto para la
+
+190
+00:08:08,199 --> 00:08:14,050
+salida y permisivo para la entrada si
+
+191
+00:08:11,170 --> 00:08:16,540
+debemos decirlo en una única frase para
+
+192
+00:08:14,050 --> 00:08:19,150
+resumir todo lo visto existe una fórmula
+
+193
+00:08:16,540 --> 00:08:22,780
+para fácilmente obtener los valores
+
+194
+00:08:19,149 --> 00:08:25,120
+tanto en lógica de 5 como de 3 3 a la
+
+195
+00:08:22,779 --> 00:08:27,549
+hora de usar arduino y es esta de aquí
+
+196
+00:08:25,120 --> 00:08:30,340
+para obtener el valor mínimo para ser
+
+197
+00:08:27,550 --> 00:08:33,340
+considerado como un nivel alto estando
+
+198
+00:08:30,339 --> 00:08:38,559
+al pin comentada cuya sigla es de corta
+
+199
+00:08:33,340 --> 00:08:41,830
+y h es 0.6 por veces aquí se usa a veces
+
+200
+00:08:38,559 --> 00:08:44,829
+de forma genérica ya que puede ser de 5
+
+201
+00:08:41,830 --> 00:08:47,830
+o 33 dependiendo de la lógica que usemos
+
+202
+00:08:44,830 --> 00:08:49,540
+de manera que con veces en 5 volts
+
+203
+00:08:47,830 --> 00:08:52,990
+tendremos que cortar
+
+204
+00:08:49,539 --> 00:08:55,208
+y hd3 balls y volviendo a las fórmulas
+
+205
+00:08:52,990 --> 00:08:57,698
+de arriba vimos que el cálculo para el
+
+206
+00:08:55,208 --> 00:09:01,299
+valor máximo para ser considerado como
+
+207
+00:08:57,698 --> 00:09:05,409
+low estando el pin con entrada es 0,3
+
+208
+00:09:01,299 --> 00:09:07,599
+por bcc cuyas siglas son de corta y l
+
+209
+00:09:05,409 --> 00:09:10,088
+estas siglas las mencionó ya que las
+
+210
+00:09:07,600 --> 00:09:11,879
+encontrarás en variada documentación que
+
+211
+00:09:10,089 --> 00:09:13,949
+puedes encontrarte acerca de
+
+212
+00:09:11,879 --> 00:09:18,970
+microcontroladores y dispositivos
+
+213
+00:09:13,948 --> 00:09:21,338
+entonces ve corta y el será de 15 y para
+
+214
+00:09:18,970 --> 00:09:24,310
+completar podemos hacer los mismos
+
+215
+00:09:21,339 --> 00:09:27,399
+cálculos pero ecológicas de 33 siendo
+
+216
+00:09:24,309 --> 00:09:29,500
+veces de dicha atención nos da un valor
+
+217
+00:09:27,399 --> 00:09:30,549
+mínimo para ser considerado como un
+
+218
+00:09:29,500 --> 00:09:33,429
+nivel alto
+
+219
+00:09:30,549 --> 00:09:38,258
+-hay con el pin como entrada de corta y
+
+220
+00:09:33,429 --> 00:09:43,269
+h de 198 volts y finalmente be corta y
+
+221
+00:09:38,259 --> 00:09:45,490
+el de 0 99 genial suficiente de teoría y
+
+222
+00:09:43,269 --> 00:09:47,560
+gráficos por el capítulo veamos los
+
+223
+00:09:45,490 --> 00:09:49,659
+módulos que usaremos en la práctica para
+
+224
+00:09:47,559 --> 00:09:52,239
+conectar dispositivos con distintos
+
+225
+00:09:49,659 --> 00:09:54,519
+niveles lógicos dos modelos se muestran
+
+226
+00:09:52,240 --> 00:09:55,810
+el de la izquierda es un nivelador de
+
+227
+00:09:54,519 --> 00:09:58,480
+dos canales
+
+228
+00:09:55,809 --> 00:10:00,909
+en la vista superior e inferior si bien
+
+229
+00:09:58,480 --> 00:10:03,340
+parece que los pines están al revés en
+
+230
+00:10:00,909 --> 00:10:05,259
+realidad está de esa forma ya que la
+
+231
+00:10:03,340 --> 00:10:08,110
+indicación de la funcionalidad de cada
+
+232
+00:10:05,259 --> 00:10:10,179
+pin se encuentra en la parte posterior y
+
+233
+00:10:08,110 --> 00:10:12,700
+conectando sobre protoboard es más
+
+234
+00:10:10,179 --> 00:10:15,278
+cómodo de esa manera a la derecha un
+
+235
+00:10:12,700 --> 00:10:17,040
+nivelador pero de 8 canales de este
+
+236
+00:10:15,278 --> 00:10:20,259
+estilo existen muchos en el mercado
+
+237
+00:10:17,039 --> 00:10:22,539
+también de por ejemplo 4 canales un
+
+238
+00:10:20,259 --> 00:10:26,289
+canal es una línea de datos para nivelar
+
+239
+00:10:22,539 --> 00:10:28,419
+la lógica entre 5 y 33 por eso el de dos
+
+240
+00:10:26,289 --> 00:10:31,778
+canales servirá para dos líneas de datos
+
+241
+00:10:28,419 --> 00:10:32,439
+útil para por ejemplo datos serie por
+
+242
+00:10:31,778 --> 00:10:36,159
+guard
+
+243
+00:10:32,440 --> 00:10:38,650
+y 12 ya para s&amp;p necesitamos al menos
+
+244
+00:10:36,159 --> 00:10:41,289
+tres canales claro que el de 8 servirá
+
+245
+00:10:38,649 --> 00:10:44,199
+para nivelar dicha cantidad de líneas de
+
+246
+00:10:41,289 --> 00:10:46,629
+datos entre distintos dispositivos el
+
+247
+00:10:44,200 --> 00:10:49,990
+nivelador de dos canales lo usamos en el
+
+248
+00:10:46,629 --> 00:10:51,850
+capítulo 41 con la wii mos de 1 min
+
+249
+00:10:49,990 --> 00:10:54,039
+cuando hablamos sobre la comunicación
+
+250
+00:10:51,850 --> 00:10:57,129
+inalámbrica por wifi y debíamos
+
+251
+00:10:54,039 --> 00:11:01,959
+conectarla de una mini basada en el s&amp;p
+
+252
+00:10:57,129 --> 00:11:04,480
+82 66 con lógica de 33 con arduino 1
+
+253
+00:11:01,960 --> 00:11:06,310
+de lógica de 5 volts algunas
+
+254
+00:11:04,480 --> 00:11:08,649
+características que comparten todos los
+
+255
+00:11:06,309 --> 00:11:10,779
+niveladores de señal es que deben ser
+
+256
+00:11:08,649 --> 00:11:12,970
+alimentados con las tensiones de los
+
+257
+00:11:10,779 --> 00:11:16,750
+niveles lógicos es decir que debe
+
+258
+00:11:12,970 --> 00:11:19,720
+aplicarse tanto 5,33 para que pueda
+
+259
+00:11:16,750 --> 00:11:20,620
+hacer la conversión de forma correcta la
+
+260
+00:11:19,720 --> 00:11:24,129
+designación
+
+261
+00:11:20,620 --> 00:11:26,620
+hb corta refiere a alto voltaje claro
+
+262
+00:11:24,129 --> 00:11:29,230
+que de alto no tiene nada pero sirve de
+
+263
+00:11:26,620 --> 00:11:32,519
+referencia para la parte que será de 5
+
+264
+00:11:29,230 --> 00:11:36,580
+golpes mientras eleve corta bajo voltaje
+
+265
+00:11:32,519 --> 00:11:38,679
+será para la sección de 33 entonces si
+
+266
+00:11:36,580 --> 00:11:41,800
+ingresamos con una señal por los pines
+
+267
+00:11:38,679 --> 00:11:44,229
+hb corta y estaremos con lógica de 5
+
+268
+00:11:41,799 --> 00:11:46,839
+volts aquí a modo de ejemplo se muestra
+
+269
+00:11:44,230 --> 00:11:49,659
+una señal donde la amplitud de la misma
+
+270
+00:11:46,840 --> 00:11:52,450
+es de 5 lo que obtendremos en la sección
+
+271
+00:11:49,659 --> 00:11:55,899
+eleve corta es la misma señal pero con
+
+272
+00:11:52,450 --> 00:11:58,120
+amplitud de 33 es relevante ver que las
+
+273
+00:11:55,899 --> 00:12:01,209
+características más importantes de la
+
+274
+00:11:58,120 --> 00:12:05,019
+señal quedan inalterables con respecto a
+
+275
+00:12:01,210 --> 00:12:07,750
+tiempos ancho de pulso fase sólo se
+
+276
+00:12:05,019 --> 00:12:08,409
+modifica la amplitud el nivelador es
+
+277
+00:12:07,750 --> 00:12:10,389
+bidireccional
+
+278
+00:12:08,409 --> 00:12:13,600
+de manera que si ingresamos con una
+
+279
+00:12:10,389 --> 00:12:16,149
+señal de amplitud de 33 en su parte
+
+280
+00:12:13,600 --> 00:12:19,930
+eleve corta obtendremos la señal
+
+281
+00:12:16,149 --> 00:12:22,120
+nivelada a 5 volts en la parte hb corta
+
+282
+00:12:19,929 --> 00:12:24,278
+como te comentaba existen distintos
+
+283
+00:12:22,120 --> 00:12:26,740
+modelos y las designaciones pueden
+
+284
+00:12:24,278 --> 00:12:29,679
+cambiar en este modulo de 8 canales
+
+285
+00:12:26,740 --> 00:12:32,110
+verás que la sección de alto voltaje se
+
+286
+00:12:29,679 --> 00:12:36,159
+designa con la letra a por eso tendremos
+
+287
+00:12:32,110 --> 00:12:39,100
+en su columna izquierda veces a ign de
+
+288
+00:12:36,159 --> 00:12:43,870
+que será la alimentación de 5 volts y
+
+289
+00:12:39,100 --> 00:12:48,189
+los canales a 0 a 7 del lado opuesto bcc
+
+290
+00:12:43,870 --> 00:12:50,860
+b será de 33 y las líneas de datos de 0
+
+291
+00:12:48,188 --> 00:12:53,289
+a b 7 otros modelos de niveladores
+
+292
+00:12:50,860 --> 00:12:55,839
+incluyen un circuito integrado que
+
+293
+00:12:53,289 --> 00:12:58,688
+realizan la tarea y puede incluir otras
+
+294
+00:12:55,839 --> 00:13:00,399
+funciones adicionales para resumir vimos
+
+295
+00:12:58,688 --> 00:13:03,068
+los niveles lógicos que veníamos
+
+296
+00:13:00,399 --> 00:13:04,990
+utilizando desde el inicio pero ahora
+
+297
+00:13:03,068 --> 00:13:07,719
+centrándonos en sus características
+
+298
+00:13:04,990 --> 00:13:09,879
+eléctricas y tolerancias no sólo para
+
+299
+00:13:07,720 --> 00:13:12,370
+arduino sino también para electrónica
+
+300
+00:13:09,879 --> 00:13:14,830
+digital en general y los niveladores de
+
+301
+00:13:12,370 --> 00:13:17,919
+señal para interconectar dispositivo
+
+302
+00:13:14,830 --> 00:13:20,500
+con distintos niveles lógicos y eso es
+
+303
+00:13:17,919 --> 00:13:22,689
+todo por este capítulo como siempre por
+
+304
+00:13:20,500 --> 00:13:25,000
+cualquier duda o comentario lo podrás
+
+305
+00:13:22,690 --> 00:13:27,460
+hacer debajo no olvides dejar un me
+
+306
+00:13:25,000 --> 00:13:29,259
+gusta si te pareció interesante y
+
+307
+00:13:27,460 --> 00:13:31,930
+suscribirte para recibir una
+
+308
+00:13:29,259 --> 00:13:36,419
+notificación que se publica nuevo
+
+309
+00:13:31,929 --> 00:13:36,419
+material chao y hasta la próxima
+

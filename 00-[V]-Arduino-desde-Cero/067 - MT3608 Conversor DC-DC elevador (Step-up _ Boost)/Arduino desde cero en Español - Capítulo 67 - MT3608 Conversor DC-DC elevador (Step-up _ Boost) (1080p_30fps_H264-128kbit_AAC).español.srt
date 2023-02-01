@@ -1,0 +1,684 @@
+1
+00:00:00,590 --> 00:00:06,200
+hola bienvenidos a un nuevo capítulo de
+
+2
+00:00:03,738 --> 00:00:08,269
+arduino desde cero en español
+
+3
+00:00:06,200 --> 00:00:11,870
+en esta oportunidad veremos un módulo
+
+4
+00:00:08,269 --> 00:00:14,629
+conversor de cdc y elevador de voltaje
+
+5
+00:00:11,869 --> 00:00:16,910
+muy útil para principalmente todo tipo
+
+6
+00:00:14,630 --> 00:00:19,699
+de proyectos con alimentación por pilas
+
+7
+00:00:16,910 --> 00:00:22,009
+o baterías veremos sus características y
+
+8
+00:00:19,699 --> 00:00:24,199
+aplicaciones típicas como así también
+
+9
+00:00:22,010 --> 00:00:27,070
+sus restricciones de esa manera
+
+10
+00:00:24,199 --> 00:00:29,689
+completamos lo visto en el capítulo 64
+
+11
+00:00:27,070 --> 00:00:32,840
+dedicado en este caso a los conversores
+
+12
+00:00:29,689 --> 00:00:35,149
+del tipo reductores a este tipo de
+
+13
+00:00:32,840 --> 00:00:38,239
+conversores elevadores se los denomina
+
+14
+00:00:35,149 --> 00:00:41,329
+también como step up o boost donde el
+
+15
+00:00:38,238 --> 00:00:44,030
+voltaje de salida de out será mayor que
+
+16
+00:00:41,329 --> 00:00:47,840
+el voltaje de entrada bein y el voltaje
+
+17
+00:00:44,030 --> 00:00:51,410
+de entrada para este modelo mt 3608 será
+
+18
+00:00:47,840 --> 00:00:53,450
+amplio en el rango de 2 a 24 volts de
+
+19
+00:00:51,409 --> 00:00:56,119
+continua haciendo el ideal para
+
+20
+00:00:53,450 --> 00:00:58,969
+alimentación con pilas o baterías el
+
+21
+00:00:56,119 --> 00:01:01,369
+voltaje de salida será en el rango de 5
+
+22
+00:00:58,969 --> 00:01:04,009
+a 28 volts y se puede establecer
+
+23
+00:01:01,369 --> 00:01:07,069
+mediante este potenciómetro multi vuelta
+
+24
+00:01:04,009 --> 00:01:09,890
+al valor deseado el suministro
+
+25
+00:01:07,069 --> 00:01:12,109
+será de 2 am pero máximo aunque por el
+
+26
+00:01:09,890 --> 00:01:14,960
+reducido tamaño del circuito conversor
+
+27
+00:01:12,109 --> 00:01:17,269
+ese valor es un máximo absoluto con
+
+28
+00:01:14,959 --> 00:01:19,699
+ayuda de un disipador en breve veremos
+
+29
+00:01:17,269 --> 00:01:22,489
+cómo hacer algunos cálculos pero un
+
+30
+00:01:19,700 --> 00:01:24,859
+valor de un amper es más realista la
+
+31
+00:01:22,489 --> 00:01:28,459
+eficiencia en la conversión es elevada
+
+32
+00:01:24,859 --> 00:01:31,039
+de hasta un 93% aunque claro es un valor
+
+33
+00:01:28,459 --> 00:01:33,829
+que varía en función de varios aspectos
+
+34
+00:01:31,040 --> 00:01:36,590
+como ser por ejemplo la temperatura la
+
+35
+00:01:33,829 --> 00:01:38,780
+potencia máxima de salida es de 6 watts
+
+36
+00:01:36,590 --> 00:01:40,759
+y también en breve veremos que este es
+
+37
+00:01:38,780 --> 00:01:43,039
+un factor limitante a la hora de
+
+38
+00:01:40,759 --> 00:01:44,810
+trabajar con voltajes elevados
+
+39
+00:01:43,039 --> 00:01:47,570
+el módulo como se muestra es bien
+
+40
+00:01:44,810 --> 00:01:49,368
+pequeño e ideal para incorporar en todo
+
+41
+00:01:47,569 --> 00:01:51,679
+tipo de proyectos con arduino o
+
+42
+00:01:49,368 --> 00:01:54,319
+electrónica en general de manera que nos
+
+43
+00:01:51,680 --> 00:01:57,200
+centraremos en usos típicos en la vida
+
+44
+00:01:54,319 --> 00:02:00,169
+real en este diagrama tenemos un arduino
+
+45
+00:01:57,200 --> 00:02:02,659
+1 el cual deseamos alimentar con pilas
+
+46
+00:02:00,170 --> 00:02:05,929
+del tipo comunes cada pila con un
+
+47
+00:02:02,659 --> 00:02:08,959
+voltaje nominal de 15 volts nos brindará
+
+48
+00:02:05,929 --> 00:02:11,780
+un total de 6 volts como se ilustra con
+
+49
+00:02:08,959 --> 00:02:14,210
+este voltímetro aplicado a la salida del
+
+50
+00:02:11,780 --> 00:02:16,640
+porta pilas claro que este voltaje
+
+51
+00:02:14,210 --> 00:02:18,920
+disminuyendo a medida que las pilas
+
+52
+00:02:16,639 --> 00:02:21,109
+vayan perdiendo carga conectamos
+
+53
+00:02:18,919 --> 00:02:25,189
+entonces el porta pilas a las entradas
+
+54
+00:02:21,110 --> 00:02:28,310
+de más ive y menos del módulo elevador
+
+55
+00:02:25,189 --> 00:02:31,159
+en este punto vamos a regular la salida
+
+56
+00:02:28,310 --> 00:02:33,560
+del mismo a 7 volts girando con un
+
+57
+00:02:31,159 --> 00:02:35,960
+destornillador el eje del potenciómetro
+
+58
+00:02:33,560 --> 00:02:38,449
+multi vuelta este es un proceso que
+
+59
+00:02:35,960 --> 00:02:40,909
+siempre deberás hacer antes de conectar
+
+60
+00:02:38,449 --> 00:02:43,609
+el dispositivo a alimentar en nuestro
+
+61
+00:02:40,909 --> 00:02:45,859
+caso la placa arduino por eso aquí el
+
+62
+00:02:43,610 --> 00:02:48,200
+club de alimentación no se encuentra
+
+63
+00:02:45,860 --> 00:02:51,080
+conectado ya que debemos verificar con
+
+64
+00:02:48,199 --> 00:02:53,569
+tester o multímetro que el voltaje sea
+
+65
+00:02:51,080 --> 00:02:56,210
+el deseado una vez establecido entonces
+
+66
+00:02:53,569 --> 00:02:59,120
+conectaremos para este ejemplo al jack
+
+67
+00:02:56,210 --> 00:03:02,060
+de alimentación de arduino 1 el voltaje
+
+68
+00:02:59,120 --> 00:03:05,420
+de 7 volts lo analizamos en el capítulo
+
+69
+00:03:02,060 --> 00:03:07,460
+50 que si no lo viste te lo recomiendo y
+
+70
+00:03:05,419 --> 00:03:09,469
+es el que se aconseja aplicar a la
+
+71
+00:03:07,460 --> 00:03:12,230
+entrada de tensión no regulada de la
+
+72
+00:03:09,469 --> 00:03:15,020
+placa para luego el regulador interno
+
+73
+00:03:12,229 --> 00:03:18,019
+reduzca a 5 volts para el funcionamiento
+
+74
+00:03:15,020 --> 00:03:20,420
+de la placa y también obtener 5 volts en
+
+75
+00:03:18,020 --> 00:03:21,260
+su salida para alimentar dispositivos
+
+76
+00:03:20,419 --> 00:03:23,419
+externos
+
+77
+00:03:21,259 --> 00:03:25,908
+pero realmente no estamos haciendo
+
+78
+00:03:23,419 --> 00:03:29,298
+trabajar demasiado a nuestro conversor
+
+79
+00:03:25,908 --> 00:03:31,009
+elevador solo un volt en realidad a
+
+80
+00:03:29,299 --> 00:03:33,890
+medida que vayan descargando se las
+
+81
+00:03:31,009 --> 00:03:35,959
+pilas el voltaje irá decreciendo pero el
+
+82
+00:03:33,889 --> 00:03:38,719
+conversor siempre brindará de forma
+
+83
+00:03:35,959 --> 00:03:41,628
+precisa y el valor establecido en este
+
+84
+00:03:38,719 --> 00:03:44,000
+caso 7 podemos reemplazar las pilas
+
+85
+00:03:41,628 --> 00:03:47,568
+comunes por pilas recargables que tienen
+
+86
+00:03:44,000 --> 00:03:49,669
+una tensión nominal de 12 volts esto nos
+
+87
+00:03:47,568 --> 00:03:53,208
+da un voltaje a la salida del porta
+
+88
+00:03:49,669 --> 00:03:55,639
+pilas de 48 y ningún problema para
+
+89
+00:03:53,209 --> 00:03:58,098
+nuestro circuito sin realizar ningún
+
+90
+00:03:55,639 --> 00:04:01,759
+tipo de ajuste el conversor elevará
+
+91
+00:03:58,098 --> 00:04:04,039
+dicha tensión a los 7 establecidos por
+
+92
+00:04:01,759 --> 00:04:06,949
+último podemos reemplazar por una única
+
+93
+00:04:04,039 --> 00:04:09,620
+batería de litio una como la mostrada de
+
+94
+00:04:06,949 --> 00:04:12,439
+litio polímero comúnmente denominada
+
+95
+00:04:09,620 --> 00:04:16,788
+lipo que también puede ser iones de
+
+96
+00:04:12,439 --> 00:04:19,399
+litio como la clásica 18 650 cualquier
+
+97
+00:04:16,788 --> 00:04:22,879
+hacia el caso estas baterías brindan una
+
+98
+00:04:19,399 --> 00:04:24,769
+tensión nominal de 37 volts y podremos
+
+99
+00:04:22,879 --> 00:04:26,990
+conectar de forma directa a la entrada
+
+100
+00:04:24,769 --> 00:04:30,318
+de nuestro conversor para él
+
+101
+00:04:26,990 --> 00:04:32,780
+a 7 sin inconvenientes pero este módulo
+
+102
+00:04:30,319 --> 00:04:34,789
+tiene una limitación y por eso quiero
+
+103
+00:04:32,779 --> 00:04:37,638
+que lo analicemos juntos mediante una
+
+104
+00:04:34,788 --> 00:04:39,649
+simple fórmula decíamos al principio que
+
+105
+00:04:37,639 --> 00:04:42,259
+la potencia de salida máxima de este
+
+106
+00:04:39,649 --> 00:04:44,659
+módulo es de 6 watts la potencia se
+
+107
+00:04:42,259 --> 00:04:48,590
+calcula como el producto del voltaje y
+
+108
+00:04:44,660 --> 00:04:50,930
+la corriente más resumido es p igual a b
+
+109
+00:04:48,589 --> 00:04:54,168
+por i entonces si el valor de la
+
+110
+00:04:50,930 --> 00:04:56,150
+potencia es fijo de 6 watts podemos
+
+111
+00:04:54,168 --> 00:04:58,038
+despejar de la fórmula el valor de la
+
+112
+00:04:56,149 --> 00:05:00,589
+corriente quedando que la corriente
+
+113
+00:04:58,038 --> 00:05:03,769
+máxima que puede suministrar el módulo
+
+114
+00:05:00,589 --> 00:05:06,228
+es 6 watts dividido por la atención o
+
+115
+00:05:03,769 --> 00:05:08,658
+voltaje claro que el voltaje es variable
+
+116
+00:05:06,228 --> 00:05:11,149
+y lo establecemos de acuerdo a nuestra
+
+117
+00:05:08,658 --> 00:05:13,728
+necesidad entonces para los ejemplos
+
+118
+00:05:11,149 --> 00:05:15,978
+vistos donde establecimos un voltaje de
+
+119
+00:05:13,728 --> 00:05:21,788
+7 volts tendremos que el suministro de
+
+120
+00:05:15,978 --> 00:05:26,719
+corriente máximo será 6 / 7 lo cual da 0
+
+121
+00:05:21,788 --> 00:05:29,418
+857 amper o lo que es lo mismo 857.000
+
+122
+00:05:26,720 --> 00:05:32,419
+jumper queda claro entonces que no
+
+123
+00:05:29,418 --> 00:05:33,528
+podemos dejarnos llevar únicamente por
+
+124
+00:05:32,418 --> 00:05:36,258
+el valor absoluto
+
+125
+00:05:33,528 --> 00:05:38,718
+máximo que nos indica el fabricante sino
+
+126
+00:05:36,259 --> 00:05:40,699
+por el valor de potencia y en función
+
+127
+00:05:38,718 --> 00:05:43,308
+del voltaje establecido en su salida
+
+128
+00:05:40,699 --> 00:05:46,338
+como conclusión podemos decir que a
+
+129
+00:05:43,309 --> 00:05:48,109
+mayor tensión o voltaje de salida menor
+
+130
+00:05:46,338 --> 00:05:49,879
+será el suministro de corriente que
+
+131
+00:05:48,108 --> 00:05:53,149
+podemos obtener si por ejemplo
+
+132
+00:05:49,879 --> 00:05:55,459
+establecemos una salida de 12 volts la
+
+133
+00:05:53,149 --> 00:06:01,459
+corriente máxima cuánto será entonces
+
+134
+00:05:55,459 --> 00:06:04,369
+muy simple 6 / 12 eso da un valor de 0.5
+
+135
+00:06:01,459 --> 00:06:07,009
+amper esta restricción es impuesta por
+
+136
+00:06:04,369 --> 00:06:09,679
+el reducido tamaño del conversor el cual
+
+137
+00:06:07,009 --> 00:06:12,709
+limita la potencia de salida y su
+
+138
+00:06:09,678 --> 00:06:14,208
+capacidad para poder disipar calor todo
+
+139
+00:06:12,709 --> 00:06:16,579
+lo visto nos lleva a un par de
+
+140
+00:06:14,209 --> 00:06:21,019
+conclusiones a tener en cuenta al usar
+
+141
+00:06:16,579 --> 00:06:23,418
+este módulo mt 3608 y saber si es apto
+
+142
+00:06:21,019 --> 00:06:25,668
+para nuestro proyecto como positivo
+
+143
+00:06:23,418 --> 00:06:30,019
+tiene el amplio rango de tensiones de
+
+144
+00:06:25,668 --> 00:06:32,928
+entrada de 2 a 24 volts y de salida de 5
+
+145
+00:06:30,019 --> 00:06:34,999
+a 28 lo cual lo hace muy versátil
+
+146
+00:06:32,928 --> 00:06:37,728
+también que es un conversor muy
+
+147
+00:06:34,999 --> 00:06:38,330
+eficiente en su operación y genera pocas
+
+148
+00:06:37,728 --> 00:06:41,000
+pérdidas
+
+149
+00:06:38,329 --> 00:06:43,519
+de energía en el proceso su reducido
+
+150
+00:06:41,000 --> 00:06:46,250
+tamaño y bajo costo hace que pueda
+
+151
+00:06:43,519 --> 00:06:48,948
+integrarse fácilmente en diversidad de
+
+152
+00:06:46,250 --> 00:06:50,718
+casos el punto en contra es el limitado
+
+153
+00:06:48,949 --> 00:06:52,879
+suministro de corriente que puede
+
+154
+00:06:50,718 --> 00:06:55,218
+brindar como vimos antes con los
+
+155
+00:06:52,879 --> 00:06:57,560
+cálculos de potencia con lo cual lo hace
+
+156
+00:06:55,218 --> 00:07:00,860
+ideal para alimentación de dispositivos
+
+157
+00:06:57,560 --> 00:07:03,050
+electrónicos de bajo consumo donde puede
+
+158
+00:07:00,860 --> 00:07:05,598
+que sea necesario elevar bastante la
+
+159
+00:07:03,050 --> 00:07:08,300
+tensión pero el consumo de corriente es
+
+160
+00:07:05,598 --> 00:07:10,610
+bajo un módulo interesante para tener en
+
+161
+00:07:08,300 --> 00:07:12,620
+cuenta y quizás en nuestro arsenal de
+
+162
+00:07:10,610 --> 00:07:14,479
+componentes para algún proyecto que lo
+
+163
+00:07:12,620 --> 00:07:17,120
+requiera claro que existen también
+
+164
+00:07:14,478 --> 00:07:19,728
+conversores y elevadores pensados para
+
+165
+00:07:17,120 --> 00:07:22,550
+un mayor suministro de corriente pero al
+
+166
+00:07:19,728 --> 00:07:24,829
+mismo tiempo más voluminosos eso es todo
+
+167
+00:07:22,550 --> 00:07:27,310
+por este breve capítulo si te pareció
+
+168
+00:07:24,829 --> 00:07:30,228
+interesante recuerda dejar un me gusta
+
+169
+00:07:27,310 --> 00:07:32,478
+suscribirte si aún no lo has hecho y por
+
+170
+00:07:30,228 --> 00:07:37,360
+cualquier duda o comentario lo podrás
+
+171
+00:07:32,478 --> 00:07:37,360
+hacer debajo chao y hasta la próxima
+

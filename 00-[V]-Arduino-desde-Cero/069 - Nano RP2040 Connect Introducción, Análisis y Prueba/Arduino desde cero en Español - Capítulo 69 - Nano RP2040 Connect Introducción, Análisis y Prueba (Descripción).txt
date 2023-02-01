@@ -1,0 +1,44 @@
+La moderna placa de Arduino Nano RP2040 Connect con corazón de Raspberry Pi, conectividad WiFi, Bluetooth y gran cantidad de sensores incorporados hace de una placa de desarrollo versátil y fácil de utilizar en infinidad de proyectos.
+Haremos un análisis detallado de su hardware, instalación de software para trabajar con el IDE de Arduino y un programa de demostración para el control del LED RGB incorporado mediante WiFi a través del navegador web de un teléfono móvil. Sentando las bases para futuros capítulos donde se analizarán puntualmente el micrófono PDM, el IMU con Machine Learning, Bluetooth y más.
+
+Uso de la placa con Arduino IoT Cloud:
+https://www.youtube.com/watch?v=MMV-5k_33CI
+
+Recomendado: Raspberry Pi Pico para usuarios de Arduino:
+https://www.youtube.com/watch?v=aUthpvnxNhE
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+
+#NanoRP2040Connect
+#ArduinoIoT
+#IDEArduino
+Nano RP2040 Connect
+Arduino nano rp2040 connect with headers
+Ublox nina w102
+wifinina arduino
+Arduino spi flash
+Arduino pdm microphone
+Arduino IMU sensor
+imu sensor machine learning
+nina w102 bluetooth ble
+Arduino Mbed OS Nano Boards
+Arduino wifi access point
+Arduino wifi telefono
+Arduino modulo criptografico
+Arduino nano rp2040 projects
+nueva placa arduino
+mejor arduino
+Arduino IoT
+
+Marcas de tiempo:
+
+0:00 Introducción
+0:36 Hardware y características
+4:44 Jumpers en parte posterior
+6:42 Distribución de pines (pinout)
+10:14 Configurando el IDE de Arduino
+12:44 Programa WiFi para control de LED RGB
+19:04 Probando el programa con teléfono móvil

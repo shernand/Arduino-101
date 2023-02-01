@@ -1,0 +1,23 @@
+Con el módulo TCS3200 podremos determinar el color de una superficie de manera simple con Arduino, incluye iluminación incorporada y un sensor de 64 fotodiodos para la tarea.
+Mediante una simple programación veremos como detectar los colores rojo, verde y azul en la superficie de papeles para tomar una acción, útil para procesos de automatización.
+
+
+Código fuente de los programas visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoSensorColor
+#ArduinoTCS3200
+#ArduinoColorDigital
+TCS230
+TCS3210
+Color sensor
+Color sensing
+Colour sensor
+
+Marcas de tiempo:
+
+0:00 Introducción y Principio de funcionamiento
+6:06 Circuito de conexión con Arduino
+7:35 Primer programa (detectando colores y anotando valores)
+15:25 Segundo programa (en base a valores mostrar en texto el color)
+20:33 Conclusiones y despedida

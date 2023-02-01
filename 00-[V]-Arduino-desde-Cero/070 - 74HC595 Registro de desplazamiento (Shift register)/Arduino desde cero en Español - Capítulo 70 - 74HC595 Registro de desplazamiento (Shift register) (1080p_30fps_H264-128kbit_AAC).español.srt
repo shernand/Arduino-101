@@ -1,0 +1,2292 @@
+1
+00:00:00,870 --> 00:00:06,870
+hola bienvenidos a un nuevo capítulo de
+
+2
+00:00:03,988 --> 00:00:09,000
+arduino desde cero en español en esta
+
+3
+00:00:06,870 --> 00:00:11,750
+oportunidad analizaremos el circuito
+
+4
+00:00:09,000 --> 00:00:14,940
+integrado 74 hs
+
+5
+00:00:11,750 --> 00:00:17,640
+595 un clásico de electrónica digital
+
+6
+00:00:14,939 --> 00:00:20,339
+que para nosotros junto con arduino nos
+
+7
+00:00:17,640 --> 00:00:23,429
+permitirá fácilmente controlar 8 salidas
+
+8
+00:00:20,339 --> 00:00:26,189
+con sólo 3 pines digitales e incluso
+
+9
+00:00:23,429 --> 00:00:28,769
+poder encadenar un segundo circuito y
+
+10
+00:00:26,190 --> 00:00:31,320
+controlar hasta 16 salidas con los
+
+11
+00:00:28,769 --> 00:00:32,628
+mismos 3 pines digitales veremos el
+
+12
+00:00:31,320 --> 00:00:35,518
+principio de funcionamiento
+
+13
+00:00:32,628 --> 00:00:38,308
+conexión y programas de ejemplo para un
+
+14
+00:00:35,518 --> 00:00:43,108
+uso práctico el circuito integrado de la
+
+15
+00:00:38,308 --> 00:00:45,780
+imagen es el 74 hs 595 denominado
+
+16
+00:00:43,109 --> 00:00:48,059
+registro de desplazamiento o shift
+
+17
+00:00:45,780 --> 00:00:50,158
+registrar en inglés este es el
+
+18
+00:00:48,058 --> 00:00:52,408
+encapsulado ideal para trabajar con
+
+19
+00:00:50,158 --> 00:00:55,079
+protoboard aunque también existe de
+
+20
+00:00:52,408 --> 00:00:57,600
+montaje superficial pero primero debemos
+
+21
+00:00:55,079 --> 00:00:59,460
+entender su funcionamiento en este
+
+22
+00:00:57,600 --> 00:01:01,249
+diagrama vamos a representar la
+
+23
+00:00:59,460 --> 00:01:04,198
+funcionalidad como este rectángulo
+
+24
+00:01:01,249 --> 00:01:06,870
+dividido en ocho posiciones ya que el
+
+25
+00:01:04,198 --> 00:01:09,120
+integrado dispone de ocho salidas
+
+26
+00:01:06,870 --> 00:01:11,700
+salidas se representan por estas ocho
+
+27
+00:01:09,120 --> 00:01:14,400
+flechas apuntando hacia arriba y es lo
+
+28
+00:01:11,700 --> 00:01:16,740
+que denominaremos datos paralelos por la
+
+29
+00:01:14,400 --> 00:01:19,350
+izquierda ingresamos con información en
+
+30
+00:01:16,739 --> 00:01:21,719
+formato serie por eso se trata de una
+
+31
+00:01:19,349 --> 00:01:24,750
+única entrada entonces tenemos una
+
+32
+00:01:21,719 --> 00:01:27,239
+entrada serie y una salida paralelo de 8
+
+33
+00:01:24,750 --> 00:01:29,459
+bits supongamos que ingresamos por su
+
+34
+00:01:27,239 --> 00:01:31,530
+entrada con este número de 8 bits
+
+35
+00:01:29,459 --> 00:01:33,509
+representado en binario toda la
+
+36
+00:01:31,530 --> 00:01:35,730
+operación del circuito integrado es a
+
+37
+00:01:33,510 --> 00:01:38,280
+nivel de bits por eso trabajaremos en
+
+38
+00:01:35,730 --> 00:01:40,859
+binario en definitiva ingresamos con una
+
+39
+00:01:38,280 --> 00:01:44,159
+serie de unos y ceros con una longitud
+
+40
+00:01:40,859 --> 00:01:45,629
+total de 8 es un número cualquiera sólo
+
+41
+00:01:44,159 --> 00:01:48,119
+para ilustrar el principio de
+
+42
+00:01:45,629 --> 00:01:50,519
+funcionamiento la idea es que este
+
+43
+00:01:48,120 --> 00:01:52,829
+número que ingresamos de forma serie de
+
+44
+00:01:50,519 --> 00:01:55,289
+a un bit por vez se convierta en formato
+
+45
+00:01:52,829 --> 00:01:57,959
+paralelo en la salida pero para que esto
+
+46
+00:01:55,290 --> 00:02:00,330
+suceda debemos incorporar una forma de
+
+47
+00:01:57,959 --> 00:02:04,349
+sincronizar en qué momento el bit
+
+48
+00:02:00,329 --> 00:02:08,009
+presente en la entrada ingresa al 74 h 6
+
+49
+00:02:04,349 --> 00:02:10,530
+595 para su procesamiento de allí la
+
+50
+00:02:08,009 --> 00:02:13,169
+necesidad de una línea de control un
+
+51
+00:02:10,530 --> 00:02:15,330
+reloj como se muestra sobre la derecha
+
+52
+00:02:13,169 --> 00:02:17,488
+no es más que una serie de pulsos con
+
+53
+00:02:15,330 --> 00:02:20,370
+cada pulso le decimos al circuito
+
+54
+00:02:17,489 --> 00:02:22,890
+integrado que lea la entrada y comienza
+
+55
+00:02:20,370 --> 00:02:25,200
+el proceso el proceso para convertir la
+
+56
+00:02:22,889 --> 00:02:27,059
+información serie en paralelo es
+
+57
+00:02:25,199 --> 00:02:29,969
+mediante el desplazamiento de los bits
+
+58
+00:02:27,060 --> 00:02:32,610
+serie de allí el nombre de registro de
+
+59
+00:02:29,969 --> 00:02:35,219
+desplazamiento en este ejemplo al número
+
+60
+00:02:32,610 --> 00:02:37,980
+de 8 bits vamos a ingresarlo comenzando
+
+61
+00:02:35,219 --> 00:02:42,060
+por el bit más significativo denominado
+
+62
+00:02:37,979 --> 00:02:45,299
+por las siglas msv por mons significant
+
+63
+00:02:42,060 --> 00:02:47,280
+bit este cero de aquí entonces este cero
+
+64
+00:02:45,300 --> 00:02:49,769
+se encuentra presente en la entrada
+
+65
+00:02:47,280 --> 00:02:52,080
+serie luego del primer pulso de reloj
+
+66
+00:02:49,769 --> 00:02:54,509
+ingresa a la primera posición del
+
+67
+00:02:52,080 --> 00:02:56,519
+registro desplazamiento verás que este
+
+68
+00:02:54,509 --> 00:02:59,609
+cero queda ubicado en el primer
+
+69
+00:02:56,519 --> 00:03:02,189
+casillero muy bien ese es el inicio y
+
+70
+00:02:59,610 --> 00:03:04,319
+ahora se verá con más claridad la parte
+
+71
+00:03:02,189 --> 00:03:06,689
+del desplazamiento ahora el próximo
+
+72
+00:03:04,318 --> 00:03:09,929
+pulso de reloj tomaremos el siguiente
+
+73
+00:03:06,689 --> 00:03:12,449
+bit en este caso otro cero es el bit a
+
+74
+00:03:09,930 --> 00:03:14,610
+la derecha del más significativo que
+
+75
+00:03:12,449 --> 00:03:17,099
+ingresamos anteriormente lo que va a
+
+76
+00:03:14,610 --> 00:03:19,410
+suceder primero es que el bit anterior
+
+77
+00:03:17,099 --> 00:03:22,560
+que estaba en este casillero
+
+78
+00:03:19,409 --> 00:03:25,620
+al siguiente dejando espacio para el
+
+79
+00:03:22,560 --> 00:03:28,080
+próximo bit que es otro cero de esa
+
+80
+00:03:25,620 --> 00:03:30,750
+manera de los 8 bits de la entrada serie
+
+81
+00:03:28,080 --> 00:03:33,510
+ya ingresamos 2 siempre con el mismo
+
+82
+00:03:30,750 --> 00:03:35,520
+proceso con cada pulso de reloj se
+
+83
+00:03:33,509 --> 00:03:37,590
+produce un desplazamiento hacia la
+
+84
+00:03:35,520 --> 00:03:40,170
+derecha y se carga en el nuevo bit
+
+85
+00:03:37,590 --> 00:03:43,520
+enviamos otro ejemplo vamos a cargar
+
+86
+00:03:40,169 --> 00:03:45,959
+este bit 11 entonces según la mecánica
+
+87
+00:03:43,520 --> 00:03:48,240
+analizada cuando llegue un pulso de
+
+88
+00:03:45,960 --> 00:03:51,300
+reloj primero se desplazarán a la
+
+89
+00:03:48,240 --> 00:03:54,330
+derecha los dos bits anteriores y luego
+
+90
+00:03:51,300 --> 00:03:56,939
+se carga el nuevo bit en este caso un 1
+
+91
+00:03:54,330 --> 00:04:00,570
+el cuarto bit comenzando desde el bit
+
+92
+00:03:56,939 --> 00:04:03,090
+más significativo es ahora un 0 este que
+
+93
+00:04:00,569 --> 00:04:05,729
+marcó aquí con un nuevo pulso de reloj
+
+94
+00:04:03,090 --> 00:04:08,430
+se desplazarán los 3 bits anteriores
+
+95
+00:04:05,729 --> 00:04:10,590
+dejando lugar para cargar el nuevo de
+
+96
+00:04:08,430 --> 00:04:12,420
+manera que luego de 8 pulsos de reloj
+
+97
+00:04:10,590 --> 00:04:14,879
+terminaremos con el registro de
+
+98
+00:04:12,419 --> 00:04:16,680
+desplazamiento cargado con los 8 bits
+
+99
+00:04:14,879 --> 00:04:19,680
+que el ingresamos de forma serie
+
+100
+00:04:16,680 --> 00:04:21,540
+logramos que dé a un bit por vez cargar
+
+101
+00:04:19,680 --> 00:04:24,480
+el registro y convertir la información
+
+102
+00:04:21,540 --> 00:04:25,920
+serie en paralelo pero existe un
+
+103
+00:04:24,480 --> 00:04:28,110
+inconveniente
+
+104
+00:04:25,920 --> 00:04:31,379
+en el hecho de que mientras cargamos los
+
+105
+00:04:28,110 --> 00:04:33,449
+datos las salidas cambian de estado es
+
+106
+00:04:31,379 --> 00:04:35,969
+decir que mientras desplazamos los bits
+
+107
+00:04:33,449 --> 00:04:38,849
+serie las salidas van cambiando también
+
+108
+00:04:35,970 --> 00:04:41,460
+y eso puede ser un problema dependiendo
+
+109
+00:04:38,850 --> 00:04:44,070
+de que conectemos en la salida lo ideal
+
+110
+00:04:41,459 --> 00:04:46,680
+sería que la salida no cambie hasta que
+
+111
+00:04:44,069 --> 00:04:48,629
+se haya finalizado el proceso de carga y
+
+112
+00:04:46,680 --> 00:04:51,300
+este tema lo resuelve el circuito
+
+113
+00:04:48,629 --> 00:04:52,800
+integrado con este bloque de aquí justo
+
+114
+00:04:51,300 --> 00:04:55,800
+por arriba del registro de
+
+115
+00:04:52,800 --> 00:04:57,810
+desplazamiento y previo a la salida se
+
+116
+00:04:55,800 --> 00:04:59,790
+trata de un registro de almacenamiento
+
+117
+00:04:57,810 --> 00:05:02,430
+el cual también tiene un reloj
+
+118
+00:04:59,790 --> 00:05:04,920
+independiente entonces la idea es muy
+
+119
+00:05:02,430 --> 00:05:07,740
+simple la salida del circuito integrado
+
+120
+00:05:04,920 --> 00:05:10,259
+está conectada a este registro y en este
+
+121
+00:05:07,740 --> 00:05:12,300
+caso está vacío entonces podemos ir
+
+122
+00:05:10,259 --> 00:05:14,579
+haciendo la carga en el registro de
+
+123
+00:05:12,300 --> 00:05:17,340
+desplazamiento una vez finalizada la
+
+124
+00:05:14,579 --> 00:05:19,709
+misma entonces con un único pulso le
+
+125
+00:05:17,339 --> 00:05:22,379
+indicamos al registro de almacenamiento
+
+126
+00:05:19,709 --> 00:05:25,199
+que tome los datos del de desplazamiento
+
+127
+00:05:22,379 --> 00:05:28,019
+y los exponga al exterior por eso verá
+
+128
+00:05:25,199 --> 00:05:30,750
+que exactamente los mismos bits pasan de
+
+129
+00:05:28,019 --> 00:05:33,459
+un registro a otro si ahora ingresamos
+
+130
+00:05:30,750 --> 00:05:36,189
+con nuevo datos series verás que aquí
+
+131
+00:05:33,459 --> 00:05:38,469
+para que se note la diferencia ingreso
+
+132
+00:05:36,189 --> 00:05:41,529
+con una serie alternada de unos y ceros
+
+133
+00:05:38,470 --> 00:05:43,570
+el registro de almacenamiento aún tiene
+
+134
+00:05:41,529 --> 00:05:45,639
+el dato anterior luego de que el
+
+135
+00:05:43,569 --> 00:05:48,399
+registro de desplazamiento haya hecho su
+
+136
+00:05:45,639 --> 00:05:50,889
+trabajo entonces con un único pulso en
+
+137
+00:05:48,399 --> 00:05:53,979
+el reloj 2 indicamos que tomen los
+
+138
+00:05:50,889 --> 00:05:56,139
+nuevos bits y los exponga al exterior en
+
+139
+00:05:53,980 --> 00:05:58,900
+definitiva asegura que la salida no
+
+140
+00:05:56,139 --> 00:06:02,439
+fluctúa con datos mientras hacemos la
+
+141
+00:05:58,899 --> 00:06:05,229
+carga nosotros de forma expresa debemos
+
+142
+00:06:02,439 --> 00:06:07,899
+indicar en qué momento exponer los datos
+
+143
+00:06:05,230 --> 00:06:12,730
+al exterior y ese es el principio de
+
+144
+00:06:07,899 --> 00:06:15,099
+funcionamiento del 74 hs 595 ingresamos
+
+145
+00:06:12,730 --> 00:06:17,170
+con datos serie y salimos con datos
+
+146
+00:06:15,100 --> 00:06:19,210
+paralelo antes de ver la hoja de datos
+
+147
+00:06:17,170 --> 00:06:22,270
+quiero mostrarte el nombre de las
+
+148
+00:06:19,209 --> 00:06:24,430
+designaciones reales para los pines el
+
+149
+00:06:22,269 --> 00:06:28,359
+ingreso de los datos serie lleva la
+
+150
+00:06:24,430 --> 00:06:30,610
+denominación ser de serial en inglés el
+
+151
+00:06:28,360 --> 00:06:36,310
+reloj que sincroniza la carga de datos
+
+152
+00:06:30,610 --> 00:06:40,430
+es ese el clk de shift register clock el
+
+153
+00:06:36,310 --> 00:06:42,589
+reloj para él de almacenamiento r cl k y
+
+154
+00:06:40,430 --> 00:06:47,060
+por último las salidas se denominan con
+
+155
+00:06:42,589 --> 00:06:49,758
+la letra q comenzando de q aqu h estas
+
+156
+00:06:47,060 --> 00:06:52,579
+denominaciones las veremos ya mismo en
+
+157
+00:06:49,759 --> 00:06:55,550
+la hoja de datos la misma la podrás
+
+158
+00:06:52,579 --> 00:06:57,978
+descargar como pdf o ver en línea dejaré
+
+159
+00:06:55,550 --> 00:06:59,060
+un enlace en la zona de descripción no
+
+160
+00:06:57,978 --> 00:07:01,699
+quiero entrar en muchos detalles
+
+161
+00:06:59,060 --> 00:07:03,410
+técnicos pero hay unos pines de control
+
+162
+00:07:01,699 --> 00:07:05,150
+que son necesarios entender su
+
+163
+00:07:03,410 --> 00:07:07,689
+funcionamiento para aplicar en la
+
+164
+00:07:05,149 --> 00:07:10,969
+práctica el primero es el de
+
+165
+00:07:07,689 --> 00:07:13,490
+output enable que habilita las salidas
+
+166
+00:07:10,970 --> 00:07:15,919
+esta línea arriba de las letras hoy
+
+167
+00:07:13,490 --> 00:07:18,530
+indica que se activa con un nivel bajo
+
+168
+00:07:15,918 --> 00:07:21,258
+con lo cual si conectamos a gene de
+
+169
+00:07:18,529 --> 00:07:24,258
+entonces activamos la función que es
+
+170
+00:07:21,259 --> 00:07:26,419
+precisamente activar las salidas q del
+
+171
+00:07:24,259 --> 00:07:28,550
+circuito integrado la mantendremos
+
+172
+00:07:26,418 --> 00:07:31,279
+siempre conectada genere para
+
+173
+00:07:28,550 --> 00:07:36,079
+simplificar la otra línea de interés es
+
+174
+00:07:31,279 --> 00:07:38,899
+esta denominada s r clr shift register
+
+175
+00:07:36,079 --> 00:07:41,359
+clear que resetea al registro de
+
+176
+00:07:38,899 --> 00:07:43,609
+desplazamiento también activa con nivel
+
+177
+00:07:41,360 --> 00:07:45,770
+bajo esta línea no le estaremos
+
+178
+00:07:43,610 --> 00:07:48,590
+controlando arduino con lo cual la
+
+179
+00:07:45,769 --> 00:07:50,629
+conectaremos a veces ca-5 volts
+
+180
+00:07:48,589 --> 00:07:53,839
+justamente como está activa baja
+
+181
+00:07:50,629 --> 00:07:56,360
+nosotros no queremos que se active sino
+
+182
+00:07:53,839 --> 00:07:59,448
+resetea al registro por eso aplicamos el
+
+183
+00:07:56,360 --> 00:08:01,939
+nivel lógico opuesto 1 alto de paso
+
+184
+00:07:59,449 --> 00:08:03,860
+podrás ver la estructura interna toda
+
+185
+00:08:01,939 --> 00:08:06,019
+esta columna de la izquierda corresponde
+
+186
+00:08:03,860 --> 00:08:08,509
+al registro de desplazamiento y esta
+
+187
+00:08:06,019 --> 00:08:10,969
+otra columna de la derecha al registro
+
+188
+00:08:08,509 --> 00:08:13,069
+de almacenamiento en esta hoja se
+
+189
+00:08:10,970 --> 00:08:15,590
+muestra la distribución de los pines y
+
+190
+00:08:13,069 --> 00:08:17,889
+ya mismo vamos al circuito de conexión o
+
+191
+00:08:15,589 --> 00:08:23,089
+esquemático para aplicar en la práctica
+
+192
+00:08:17,889 --> 00:08:25,189
+protagonista principal el 74 hs 595 en
+
+193
+00:08:23,089 --> 00:08:27,379
+el centro recordad que el esquemático
+
+194
+00:08:25,189 --> 00:08:30,110
+tiene como propósito simplificar la
+
+195
+00:08:27,379 --> 00:08:32,689
+vista de conexiones entre componentes y
+
+196
+00:08:30,110 --> 00:08:35,028
+no es necesario representar exactamente
+
+197
+00:08:32,690 --> 00:08:37,219
+la distribución física de los pines en
+
+198
+00:08:35,028 --> 00:08:39,200
+un integrado por eso verás que sobre la
+
+199
+00:08:37,219 --> 00:08:41,839
+columna izquierda se encuentran las
+
+200
+00:08:39,200 --> 00:08:44,330
+conexiones de alimentación control con
+
+201
+00:08:41,839 --> 00:08:46,490
+conexión permanente y datos con arduino
+
+202
+00:08:44,330 --> 00:08:48,829
+sobre la columna derecha todas las
+
+203
+00:08:46,490 --> 00:08:51,529
+salidas entre paréntesis los pines
+
+204
+00:08:48,828 --> 00:08:53,719
+físicos del integrado a veces lo
+
+205
+00:08:51,529 --> 00:08:57,829
+conectaremos a cinco bolsos provistos
+
+206
+00:08:53,720 --> 00:09:00,170
+por arduino la línea s r clr que vimos
+
+207
+00:08:57,830 --> 00:09:03,139
+en la hoja de datos la conectaremos de
+
+208
+00:09:00,169 --> 00:09:05,329
+forma permanente abc para evitar el
+
+209
+00:09:03,139 --> 00:09:07,669
+reseteo del registro de desplazamiento
+
+210
+00:09:05,330 --> 00:09:10,100
+luego las tres líneas que controlaremos
+
+211
+00:09:07,669 --> 00:09:12,500
+desde arduino sobre los pines digitales
+
+212
+00:09:10,100 --> 00:09:14,480
+7 8 y 9
+
+213
+00:09:12,500 --> 00:09:17,659
+finalmente el generador integrado a
+
+214
+00:09:14,480 --> 00:09:19,789
+genio de arduino y output enable también
+
+215
+00:09:17,659 --> 00:09:22,850
+a gene de ya que estaremos habilitando
+
+216
+00:09:19,789 --> 00:09:24,889
+de forma permanente las salidas ya que
+
+217
+00:09:22,850 --> 00:09:27,529
+estamos de este lado aquí aparece el
+
+218
+00:09:24,889 --> 00:09:30,110
+símbolo de un capacitor electrolítico de
+
+219
+00:09:27,529 --> 00:09:31,759
+10 micro fa radios por 16 volts es lo
+
+220
+00:09:30,110 --> 00:09:34,129
+que se denomina un capacitor de
+
+221
+00:09:31,759 --> 00:09:36,049
+desacople conectado en paralelo con la
+
+222
+00:09:34,129 --> 00:09:39,049
+alimentación por eso en su parte
+
+223
+00:09:36,049 --> 00:09:41,569
+superior se conecta a 5 balls con este
+
+224
+00:09:39,049 --> 00:09:43,939
+símbolo y en la parte inferior al gene
+
+225
+00:09:41,570 --> 00:09:46,100
+de es conveniente utilizar un capacitor
+
+226
+00:09:43,940 --> 00:09:48,350
+de este tipo para absorber picos de
+
+227
+00:09:46,100 --> 00:09:50,779
+consumo ya que estaremos encendiendo
+
+228
+00:09:48,350 --> 00:09:53,389
+leds que ya veremos no es un valor
+
+229
+00:09:50,779 --> 00:09:57,409
+crítico con lo que puede ser de 10 micro
+
+230
+00:09:53,389 --> 00:10:00,139
+farah dios' 47 ó 100 y en caso de que no
+
+231
+00:09:57,409 --> 00:10:02,870
+de uno no hay problema el circuito igual
+
+232
+00:10:00,139 --> 00:10:04,879
+funcionará sin inconvenientes ya sobre
+
+233
+00:10:02,870 --> 00:10:06,709
+la columna de la derecha tenemos todas
+
+234
+00:10:04,879 --> 00:10:09,680
+las salidas cuba
+
+235
+00:10:06,708 --> 00:10:11,838
+h sobre cada salida vamos a conectar un
+
+236
+00:10:09,679 --> 00:10:15,289
+led con la clásica resistencia
+
+237
+00:10:11,839 --> 00:10:18,529
+limitadora de corriente de 330 11 al
+
+238
+00:10:15,289 --> 00:10:22,309
+ánodo del led el cátodo de todos a gene
+
+239
+00:10:18,528 --> 00:10:24,769
+de la qh primo es una salida utilizada
+
+240
+00:10:22,309 --> 00:10:30,049
+para conectar en cascada o encadenar
+
+241
+00:10:24,769 --> 00:10:32,659
+otro circuito 74 hc 595 tema que veremos
+
+242
+00:10:30,049 --> 00:10:35,269
+al finalizar el capítulo por ahora lo
+
+243
+00:10:32,659 --> 00:10:37,818
+dejamos sin conexión y con eso tenemos
+
+244
+00:10:35,269 --> 00:10:40,039
+todo el circuito en definitiva con tres
+
+245
+00:10:37,818 --> 00:10:43,099
+pines digitales de arduino tendremos un
+
+246
+00:10:40,039 --> 00:10:45,409
+control de 8 salidas a las cuales le
+
+247
+00:10:43,100 --> 00:10:47,990
+conectamos un led para identificar
+
+248
+00:10:45,409 --> 00:10:50,028
+fácilmente cuál se encuentra activa
+
+249
+00:10:47,990 --> 00:10:52,459
+ahora dirá la programación que la
+
+250
+00:10:50,028 --> 00:10:54,259
+encontrarás muy simple el propósito de
+
+251
+00:10:52,458 --> 00:10:56,869
+este primer programa es hacer un
+
+252
+00:10:54,259 --> 00:10:58,339
+contador binario de 8 bits para
+
+253
+00:10:56,870 --> 00:11:00,980
+verificar que todo se encuentra
+
+254
+00:10:58,339 --> 00:11:03,440
+correctamente conectado y verificar cómo
+
+255
+00:11:00,980 --> 00:11:07,700
+podemos enviar de forma serie
+
+256
+00:11:03,440 --> 00:11:10,280
+por es que el 74 hs 595 convertida en
+
+257
+00:11:07,700 --> 00:11:13,160
+paralelo encendiendo los leds a sus
+
+258
+00:11:10,279 --> 00:11:15,439
+salidas en estos tres numeral i find
+
+259
+00:11:13,159 --> 00:11:18,289
+damos las directivas al compilador para
+
+260
+00:11:15,440 --> 00:11:23,180
+que reemplace todo ocurrencia de ser por
+
+261
+00:11:18,289 --> 00:11:26,569
+el número 7 r clk por el número 8 y ese
+
+262
+00:11:23,179 --> 00:11:28,759
+ere clk por el número 9 así trabajamos
+
+263
+00:11:26,570 --> 00:11:31,370
+con los nombres en vez de los números de
+
+264
+00:11:28,759 --> 00:11:33,860
+pines y también si necesitarás utilizar
+
+265
+00:11:31,370 --> 00:11:36,019
+cualquier otra combinación de pines lo
+
+266
+00:11:33,860 --> 00:11:38,960
+podrás cambiar desde aquí una sola vez
+
+267
+00:11:36,019 --> 00:11:41,840
+el setup muy simple declarando a los
+
+268
+00:11:38,960 --> 00:11:44,780
+tres pines como salida output mediante
+
+269
+00:11:41,840 --> 00:11:47,649
+pin mode ya en el loop utilizaremos un
+
+270
+00:11:44,779 --> 00:11:50,689
+bucle for con la variable de iteración y
+
+271
+00:11:47,649 --> 00:11:54,889
+comenzando desde cero la condición es
+
+272
+00:11:50,690 --> 00:11:59,090
+que sea menor a 256 y con cada iteración
+
+273
+00:11:54,889 --> 00:12:01,639
+incrementamos y en uno con y más más en
+
+274
+00:11:59,090 --> 00:12:02,710
+definitiva el código dentro del bucle se
+
+275
+00:12:01,639 --> 00:12:06,199
+repetirá
+
+276
+00:12:02,710 --> 00:12:10,519
+255 veces con la variable y en el rango
+
+277
+00:12:06,200 --> 00:12:12,530
+de 0 a 255 que como recordarás s rango
+
+278
+00:12:10,519 --> 00:12:16,429
+de valores en decimal que podemos
+
+279
+00:12:12,529 --> 00:12:20,480
+obtener con 8 bits este digital raid r
+
+280
+00:12:16,429 --> 00:12:23,059
+clk low envía un nivel bajo al reloj del
+
+281
+00:12:20,480 --> 00:12:25,370
+registro de almacenamiento esto hace que
+
+282
+00:12:23,059 --> 00:12:26,959
+la salida no apliquen ningún cambio
+
+283
+00:12:25,370 --> 00:12:29,029
+presente en el registro de
+
+284
+00:12:26,960 --> 00:12:31,370
+desplazamiento esto lo hacemos porque
+
+285
+00:12:29,029 --> 00:12:33,709
+estaremos en la próxima línea cargando
+
+286
+00:12:31,370 --> 00:12:35,899
+justamente el registro de desplazamiento
+
+287
+00:12:33,710 --> 00:12:38,060
+de un bit por vez y no queremos que en
+
+288
+00:12:35,899 --> 00:12:40,340
+la salida aparezca el desplazamiento de
+
+289
+00:12:38,059 --> 00:12:43,069
+los datos queremos únicamente que cuando
+
+290
+00:12:40,340 --> 00:12:45,680
+se haya finalizado la carga entonces si
+
+291
+00:12:43,070 --> 00:12:47,720
+exponen a la salida el registro de
+
+292
+00:12:45,679 --> 00:12:50,209
+desplazamiento y ahora la función
+
+293
+00:12:47,720 --> 00:12:52,639
+estrella de este programa la que nos
+
+294
+00:12:50,210 --> 00:12:55,220
+facilitará enormemente el proceso de
+
+295
+00:12:52,639 --> 00:12:58,879
+enviar los datos serie la función es la
+
+296
+00:12:55,220 --> 00:13:01,820
+denominada gift out para eso veamos una
+
+297
+00:12:58,879 --> 00:13:04,519
+nota al margen la función shift out es
+
+298
+00:13:01,820 --> 00:13:06,470
+una función incorporada en el lead con
+
+299
+00:13:04,519 --> 00:13:09,019
+lo cual no se requiere de ninguna
+
+300
+00:13:06,470 --> 00:13:12,560
+librería externa tiene cuatro parámetros
+
+301
+00:13:09,019 --> 00:13:14,990
+el primero datos será el pin a donde
+
+302
+00:13:12,559 --> 00:13:17,319
+enviaremos los datos serie para nuestro
+
+303
+00:13:14,990 --> 00:13:20,289
+caso es el pin denominado
+
+304
+00:13:17,320 --> 00:13:23,020
+el segundo parámetro reloj es para
+
+305
+00:13:20,289 --> 00:13:25,299
+definir el pin utilizado como reloj para
+
+306
+00:13:23,019 --> 00:13:28,870
+sincronizar la carga de los datos en
+
+307
+00:13:25,299 --> 00:13:31,539
+nuestro caso ese ere clk el tercer
+
+308
+00:13:28,870 --> 00:13:33,820
+parámetro orden puede ser de dos
+
+309
+00:13:31,539 --> 00:13:37,899
+posibilidades con dos constantes
+
+310
+00:13:33,820 --> 00:13:42,100
+específicas que puede ser msb first bit
+
+311
+00:13:37,899 --> 00:13:45,459
+más significativo primero o lsb first
+
+312
+00:13:42,100 --> 00:13:47,620
+bit menos significativo primero estas
+
+313
+00:13:45,460 --> 00:13:49,960
+dos son constantes utilizadas por la
+
+314
+00:13:47,620 --> 00:13:52,090
+función para saber el orden en que
+
+315
+00:13:49,960 --> 00:13:55,690
+deberá cargar el valor del próximo
+
+316
+00:13:52,090 --> 00:13:58,269
+parámetro utilizaremos msb first que es
+
+317
+00:13:55,690 --> 00:14:00,160
+el método más usual y si recordarás de
+
+318
+00:13:58,269 --> 00:14:02,470
+cuando analizamos el funcionamiento del
+
+319
+00:14:00,159 --> 00:14:04,929
+registro de desplazamiento comenzamos a
+
+320
+00:14:02,470 --> 00:14:07,389
+cargar los datos comenzando justamente
+
+321
+00:14:04,929 --> 00:14:09,459
+con el bit más significativo pero la
+
+322
+00:14:07,389 --> 00:14:12,340
+función nos da la opción de comenzar
+
+323
+00:14:09,460 --> 00:14:14,980
+también del lado opuesto desde el bit
+
+324
+00:14:12,340 --> 00:14:17,590
+menos significativo por último el cuarto
+
+325
+00:14:14,980 --> 00:14:19,269
+parámetro el valor a enviar en el
+
+326
+00:14:17,590 --> 00:14:21,700
+programa verás que el último parámetro
+
+327
+00:14:19,269 --> 00:14:26,379
+es directamente la variable de tracción
+
+328
+00:14:21,700 --> 00:14:28,720
+y que como vimos irá 0 a 255 entonces
+
+329
+00:14:26,379 --> 00:14:31,659
+con una sola línea de código gracias a
+
+330
+00:14:28,720 --> 00:14:34,089
+la función gift out podemos fácilmente
+
+331
+00:14:31,659 --> 00:14:35,889
+enviar el valor sin preocuparnos por
+
+332
+00:14:34,089 --> 00:14:38,110
+cuestiones de sincronización o
+
+333
+00:14:35,889 --> 00:14:40,899
+generación de un pulso de reloj la
+
+334
+00:14:38,110 --> 00:14:42,938
+función se encarga de todo genial
+
+335
+00:14:40,899 --> 00:14:45,249
+volviendo al programa ya vamos
+
+336
+00:14:42,938 --> 00:14:49,389
+finalizando la línea que sigue es un
+
+337
+00:14:45,249 --> 00:14:51,548
+digital write r clk hi esto le indica al
+
+338
+00:14:49,389 --> 00:14:53,919
+registro de almacenamiento que ahora si
+
+339
+00:14:51,548 --> 00:14:56,499
+deseamos que los datos del registro de
+
+340
+00:14:53,919 --> 00:14:59,528
+desplazamiento se expongan al exterior
+
+341
+00:14:56,499 --> 00:15:01,959
+ya que finalizamos la carga del mismo la
+
+342
+00:14:59,528 --> 00:15:02,919
+última línea será una demora de 500
+
+343
+00:15:01,958 --> 00:15:05,469
+milisegundos
+
+344
+00:15:02,919 --> 00:15:08,409
+entonces para resumir lo que hacemos es
+
+345
+00:15:05,470 --> 00:15:11,259
+usar la función gift out para enviar a
+
+346
+00:15:08,409 --> 00:15:11,938
+intervalos de medio segundo valores de 0
+
+347
+00:15:11,259 --> 00:15:17,769
+a
+
+348
+00:15:11,938 --> 00:15:20,139
+255 al 74 hc 595 como tenemos conectados
+
+349
+00:15:17,769 --> 00:15:23,379
+leds a sus salidas veremos que se van
+
+350
+00:15:20,139 --> 00:15:27,818
+encendiendo con el valor 0 luego con 1
+
+351
+00:15:23,379 --> 00:15:30,649
+con 2 y así hasta el 255 haciendo un
+
+352
+00:15:27,818 --> 00:15:33,438
+contador binario recordar que si bien
+
+353
+00:15:30,649 --> 00:15:36,230
+un valor en decimal las salidas es en
+
+354
+00:15:33,438 --> 00:15:39,349
+binario de 8 bits y ese es todo el
+
+355
+00:15:36,230 --> 00:15:42,039
+programa vamos a verificar y subirlo a
+
+356
+00:15:39,350 --> 00:15:44,808
+ver qué sucede la acción comienza
+
+357
+00:15:42,039 --> 00:15:46,458
+rápidamente ya que cada medio segundo
+
+358
+00:15:44,808 --> 00:15:48,458
+estamos enviando un número que
+
+359
+00:15:46,458 --> 00:15:51,528
+incrementa de 0 a
+
+360
+00:15:48,458 --> 00:15:53,868
+255 por eso verás que encienden los leds
+
+361
+00:15:51,528 --> 00:15:56,838
+comenzando desde la derecha que es el
+
+362
+00:15:53,869 --> 00:15:59,028
+led 0 y representa al bit menos
+
+363
+00:15:56,839 --> 00:16:01,300
+significativo a medida que el número
+
+364
+00:15:59,028 --> 00:16:04,399
+incrementa en valor se irán encendiendo
+
+365
+00:16:01,299 --> 00:16:06,469
+leds hacia la izquierda el proceso
+
+366
+00:16:04,399 --> 00:16:10,159
+demora unos dos minutos en llegar al
+
+367
+00:16:06,470 --> 00:16:12,769
+valor máximo de 255 que es todos los
+
+368
+00:16:10,159 --> 00:16:15,350
+leds encendidos al mismo tiempo luego
+
+369
+00:16:12,769 --> 00:16:17,240
+comenzarán nuevamente desde cero
+
+370
+00:16:15,350 --> 00:16:20,509
+genial parece que funciona correctamente
+
+371
+00:16:17,240 --> 00:16:24,919
+y la idea es verificar más que nada que
+
+372
+00:16:20,509 --> 00:16:27,079
+las conexiones del 74 hs 595 con arduino
+
+373
+00:16:24,919 --> 00:16:30,378
+y desde el integrado hacia los leds
+
+374
+00:16:27,078 --> 00:16:33,049
+están bien dejemos este hipnótico juego
+
+375
+00:16:30,379 --> 00:16:35,928
+de luces de lado para analizar un caso
+
+376
+00:16:33,049 --> 00:16:38,539
+de la vida real estos 8 leds podrían
+
+377
+00:16:35,928 --> 00:16:40,578
+formar parte por de un panel de control
+
+378
+00:16:38,539 --> 00:16:42,909
+que le indica a un operario de una
+
+379
+00:16:40,578 --> 00:16:45,679
+máquina el estado de distintos sensores
+
+380
+00:16:42,909 --> 00:16:48,439
+alarmas etcétera por lo que es deseable
+
+381
+00:16:45,679 --> 00:16:50,809
+poder activar un único led o varios de
+
+382
+00:16:48,440 --> 00:16:53,209
+ellos a voluntad pero como vimos la
+
+383
+00:16:50,809 --> 00:16:55,669
+función gift out requiere que indiquemos
+
+384
+00:16:53,208 --> 00:16:57,948
+un número de 8 bits y estuvimos
+
+385
+00:16:55,669 --> 00:17:00,439
+trabajando con números en decimal por
+
+386
+00:16:57,948 --> 00:17:02,750
+eso te propongo ver esta segunda nota al
+
+387
+00:17:00,440 --> 00:17:04,939
+margen para entender más del tema en
+
+388
+00:17:02,750 --> 00:17:07,308
+esta fila tenemos los leds de nuestro
+
+389
+00:17:04,939 --> 00:17:11,240
+proyecto las salidas del registro del
+
+390
+00:17:07,308 --> 00:17:13,818
+desplazamiento led 0 al led 7 para ocho
+
+391
+00:17:11,240 --> 00:17:16,338
+en total si queremos obtener el valor en
+
+392
+00:17:13,818 --> 00:17:19,818
+decimal que representa cada uno de ellos
+
+393
+00:17:16,338 --> 00:17:23,149
+de forma individual es muy fácil 2 es la
+
+394
+00:17:19,818 --> 00:17:25,548
+base por ser binario y elevado o también
+
+395
+00:17:23,150 --> 00:17:27,949
+llamado a la potencia que corresponde al
+
+396
+00:17:25,548 --> 00:17:31,099
+bit en nuestro caso coincidente con el
+
+397
+00:17:27,949 --> 00:17:33,529
+número del led dicho más simple el led 0
+
+398
+00:17:31,099 --> 00:17:37,639
+tendrá su equivalente en decimal de 2
+
+399
+00:17:33,529 --> 00:17:40,250
+elevado a la 0 que es 1 el led 1 será 2
+
+400
+00:17:37,640 --> 00:17:43,340
+elevado a la primer potencia que es 2
+
+401
+00:17:40,250 --> 00:17:45,740
+esto no es necesario saberlo de memoria
+
+402
+00:17:43,339 --> 00:17:47,720
+hacer con la calculadora aquí te muestro
+
+403
+00:17:45,740 --> 00:17:50,089
+con la de windows pasando a modo
+
+404
+00:17:47,720 --> 00:17:53,569
+científico para el led 2 por ejemplo
+
+405
+00:17:50,089 --> 00:17:55,699
+será 2 presionamos en esta tecla de la
+
+406
+00:17:53,569 --> 00:17:58,669
+calculadora que permite elevar a una
+
+407
+00:17:55,700 --> 00:18:02,330
+potencia y nuevamente el número 2 verás
+
+408
+00:17:58,670 --> 00:18:05,810
+que el resultado es 4 para el led 3 será
+
+409
+00:18:02,329 --> 00:18:08,179
+2 elevado a la tercer potencia o 2 al
+
+410
+00:18:05,809 --> 00:18:11,960
+cubo que como muestra la calculadora es
+
+411
+00:18:08,180 --> 00:18:15,440
+8 y así con el resto hasta el led 7 cuyo
+
+412
+00:18:11,960 --> 00:18:17,539
+valor en decimal equivale a 128 de esa
+
+413
+00:18:15,440 --> 00:18:20,210
+manera podrás imaginar que es muy fácil
+
+414
+00:18:17,539 --> 00:18:22,159
+entonces encender cualquier led
+
+415
+00:18:20,210 --> 00:18:25,190
+si queremos encender por ejemplo el led
+
+416
+00:18:22,160 --> 00:18:28,790
+en número 5 a la funciones y fdt out le
+
+417
+00:18:25,190 --> 00:18:30,740
+enviamos el valor 32 y listo vamos a la
+
+418
+00:18:28,789 --> 00:18:32,389
+programación para implementarlo para
+
+419
+00:18:30,740 --> 00:18:34,460
+simplificar y no tener que estar
+
+420
+00:18:32,390 --> 00:18:36,770
+recordando el valor en decimal que
+
+421
+00:18:34,460 --> 00:18:39,380
+corresponde a cada lado crearemos esta
+
+422
+00:18:36,769 --> 00:18:43,670
+serie de numeral de fames entonces el
+
+423
+00:18:39,380 --> 00:18:45,480
+primero con leds 0 y el valor de 1 led 1
+
+424
+00:18:43,670 --> 00:18:49,380
+y el valor de 2
+
+425
+00:18:45,480 --> 00:18:52,380
+2 y el valor de 4 y así hasta el 7 con
+
+426
+00:18:49,380 --> 00:18:54,809
+el valor de 128 de la misma manera que
+
+427
+00:18:52,380 --> 00:18:56,370
+vimos recién de la nota al margen
+
+428
+00:18:54,808 --> 00:18:59,369
+entonces en el programa directamente
+
+429
+00:18:56,369 --> 00:19:01,199
+hacemos referencia a la constante en vez
+
+430
+00:18:59,369 --> 00:19:03,089
+del número recordad que el numeral
+
+431
+00:19:01,200 --> 00:19:05,039
+-define al ser una directiva el
+
+432
+00:19:03,089 --> 00:19:08,279
+compilador no ocupa espacio en memoria
+
+433
+00:19:05,039 --> 00:19:10,529
+el setup sin cambios respecto del primer
+
+434
+00:19:08,279 --> 00:19:13,349
+programa y en el loop simplemente
+
+435
+00:19:10,529 --> 00:19:15,899
+encenderemos un led o varios de ellos en
+
+436
+00:19:13,349 --> 00:19:18,689
+simultáneo el primer digital raid con
+
+437
+00:19:15,900 --> 00:19:21,540
+lou para el registro de almacenamiento
+
+438
+00:19:18,690 --> 00:19:24,090
+luego shift out mismos parámetros que ya
+
+439
+00:19:21,539 --> 00:19:26,308
+vimos y en el valor enviar simplemente
+
+440
+00:19:24,089 --> 00:19:29,639
+la constante que representa al led a
+
+441
+00:19:26,308 --> 00:19:32,399
+encender por ejemplo el de 0 así de
+
+442
+00:19:29,640 --> 00:19:35,009
+simple luego el digital raid con high
+
+443
+00:19:32,400 --> 00:19:37,140
+para el registro de almacenamiento para
+
+444
+00:19:35,009 --> 00:19:39,720
+que exponga al exterior el valor del
+
+445
+00:19:37,140 --> 00:19:42,059
+registro de desplazamiento y una demora
+
+446
+00:19:39,720 --> 00:19:44,250
+final de medio segundo en este caso
+
+447
+00:19:42,058 --> 00:19:46,829
+porque el loop es muy corto y no tiene
+
+448
+00:19:44,250 --> 00:19:48,690
+sentido actualizar tan seguido entonces
+
+449
+00:19:46,829 --> 00:19:52,099
+de esta forma lograremos que encienda el
+
+450
+00:19:48,690 --> 00:19:54,570
+cero verifiquemos y subamos el programa
+
+451
+00:19:52,099 --> 00:19:57,329
+efectivamente pudimos observar que se
+
+452
+00:19:54,569 --> 00:19:59,759
+enciende únicamente el led 0 y se
+
+453
+00:19:57,329 --> 00:20:01,949
+mantiene perfecto tenemos control
+
+454
+00:19:59,759 --> 00:20:04,529
+individual de cada led si quisiéramos
+
+455
+00:20:01,950 --> 00:20:07,980
+encender dos leds al mismo tiempo por
+
+456
+00:20:04,529 --> 00:20:11,009
+ejemplo el led 0 y el led 1 lo hacemos
+
+457
+00:20:07,980 --> 00:20:13,529
+muy fácil en la función gift out luego
+
+458
+00:20:11,009 --> 00:20:15,900
+de la de cero escribimos el símbolo de
+
+459
+00:20:13,529 --> 00:20:18,058
+más y luego led 1
+
+460
+00:20:15,900 --> 00:20:20,280
+ahora comienza a hacerse evidente es la
+
+461
+00:20:18,058 --> 00:20:22,889
+comodidad de haber creado las series de
+
+462
+00:20:20,279 --> 00:20:24,928
+numeral design de antes trabajamos con
+
+463
+00:20:22,890 --> 00:20:27,480
+los nombres de las constantes y podemos
+
+464
+00:20:24,929 --> 00:20:29,880
+sumar directamente para obtener el valor
+
+465
+00:20:27,480 --> 00:20:32,610
+deseado problemas subiendo esta pequeña
+
+466
+00:20:29,880 --> 00:20:36,179
+modificación y como no podía ser de otra
+
+467
+00:20:32,609 --> 00:20:37,889
+manera encienden leds 0 y 1
+
+468
+00:20:36,179 --> 00:20:40,710
+una última modificación ahora
+
+469
+00:20:37,890 --> 00:20:43,590
+encendiendo el led 7 nuevamente en la
+
+470
+00:20:40,710 --> 00:20:46,500
+función gift out incorporamos el símbolo
+
+471
+00:20:43,589 --> 00:20:50,609
+de más y led 7 subimos el programa
+
+472
+00:20:46,500 --> 00:20:52,920
+verificando que encienden leds 0 1 y 7
+
+473
+00:20:50,609 --> 00:20:54,919
+para finalizar el capítulo te quiero
+
+474
+00:20:52,920 --> 00:20:59,700
+mostrar cómo encadenar
+
+475
+00:20:54,920 --> 00:21:02,159
+274 h 6 595 ya que poder controlar ocho
+
+476
+00:20:59,700 --> 00:21:05,038
+salidas con sólo tres pines digitales de
+
+477
+00:21:02,159 --> 00:21:07,260
+arduino es bueno pero controlar 16
+
+478
+00:21:05,038 --> 00:21:10,048
+salidas con las mismas tres líneas es
+
+479
+00:21:07,259 --> 00:21:12,329
+aún mejor en este diagrama simplificado
+
+480
+00:21:10,048 --> 00:21:13,829
+verás que es muy simple este de aquí es
+
+481
+00:21:12,329 --> 00:21:16,379
+el circuito integrado que venimos
+
+482
+00:21:13,829 --> 00:21:18,658
+utilizando aquí más abajo otro
+
+483
+00:21:16,380 --> 00:21:21,120
+exactamente igual la forma de
+
+484
+00:21:18,659 --> 00:21:23,610
+encadenarlos es usar la salida coche
+
+485
+00:21:21,119 --> 00:21:26,308
+primo del primero el que dejamos sin
+
+486
+00:21:23,609 --> 00:21:28,589
+conexión hasta ahora lo conectaremos a
+
+487
+00:21:26,308 --> 00:21:32,879
+la entrada serie del segundo integrado
+
+488
+00:21:28,589 --> 00:21:35,009
+es decir q h primo a ser del segundo de
+
+489
+00:21:32,880 --> 00:21:37,049
+esa manera se mantiene el desplazamiento
+
+490
+00:21:35,009 --> 00:21:40,019
+de datos desde el primero al segundo
+
+491
+00:21:37,048 --> 00:21:44,759
+luego conectamos en paralelo las líneas
+
+492
+00:21:40,019 --> 00:21:47,639
+r clk y ese ere slk ya que las estaremos
+
+493
+00:21:44,759 --> 00:21:50,490
+activando al mismo tiempo y eso es todo
+
+494
+00:21:47,640 --> 00:21:52,650
+realmente muy simple y claro seguiremos
+
+495
+00:21:50,490 --> 00:21:55,200
+controlando todo con las mismas tres
+
+496
+00:21:52,650 --> 00:21:57,210
+líneas desde arduino para no complicar
+
+497
+00:21:55,200 --> 00:21:59,788
+el diagrama omitir los leds y sus
+
+498
+00:21:57,210 --> 00:22:02,429
+resistencias sería asociadas pero deje
+
+499
+00:21:59,788 --> 00:22:06,569
+enumeradas las salidas que ahora serán
+
+500
+00:22:02,429 --> 00:22:09,000
+desde led de cero hasta 15 16 salidas en
+
+501
+00:22:06,569 --> 00:22:11,759
+total veamos rápidamente la programación
+
+502
+00:22:09,000 --> 00:22:14,160
+muy similar al segundo programa pero con
+
+503
+00:22:11,759 --> 00:22:16,470
+esta sección del numeral design ampliada
+
+504
+00:22:14,160 --> 00:22:20,400
+para las definiciones de 8 leds
+
+505
+00:22:16,470 --> 00:22:22,440
+adicionales del número 8 al 15 con sus
+
+506
+00:22:20,400 --> 00:22:24,780
+correspondientes valores en decimal
+
+507
+00:22:22,440 --> 00:22:28,200
+ahora ya trabajaremos con un número de
+
+508
+00:22:24,779 --> 00:22:30,660
+16 bits el loop también muy similar pero
+
+509
+00:22:28,200 --> 00:22:33,240
+debemos atender una cuestión y es que la
+
+510
+00:22:30,660 --> 00:22:36,360
+función gift out solo puede tomar un
+
+511
+00:22:33,240 --> 00:22:38,549
+valor de 8 bits y el nuestro es de 16
+
+512
+00:22:36,359 --> 00:22:41,189
+por eso llamamos a la función en dos
+
+513
+00:22:38,549 --> 00:22:43,470
+oportunidades la primera en esta línea
+
+514
+00:22:41,190 --> 00:22:45,960
+con el valor de enviar por ejemplo el
+
+515
+00:22:43,470 --> 00:22:48,809
+led 12 es decir que nuestra intención es
+
+516
+00:22:45,960 --> 00:22:53,670
+encender el led número 12 que ya forma
+
+517
+00:22:48,809 --> 00:22:55,769
+parte del segundo 74 h 6 595 aplicamos
+
+518
+00:22:53,670 --> 00:22:58,440
+de forma directa una operación a nivel
+
+519
+00:22:55,769 --> 00:23:01,170
+de bits que está designada con estos dos
+
+520
+00:22:58,440 --> 00:23:03,930
+símbolos de mayor lo que indica es que
+
+521
+00:23:01,170 --> 00:23:04,980
+vamos a desplazar ocho posiciones hacia
+
+522
+00:23:03,930 --> 00:23:08,250
+la derecha
+
+523
+00:23:04,980 --> 00:23:10,200
+el valor del led 12 led 12 es una
+
+524
+00:23:08,250 --> 00:23:12,148
+constante que será reemplazada al
+
+525
+00:23:10,200 --> 00:23:14,058
+momento de la compilación por el valor
+
+526
+00:23:12,148 --> 00:23:17,038
+correspondiente en decimal
+
+527
+00:23:14,058 --> 00:23:18,928
+4.096 para que quede claro vamos a una
+
+528
+00:23:17,038 --> 00:23:22,379
+nota al margen aquí se encuentra
+
+529
+00:23:18,929 --> 00:23:24,538
+representado el número decimal 4.096 en
+
+530
+00:23:22,380 --> 00:23:27,299
+binario podemos separarlos en dos
+
+531
+00:23:24,538 --> 00:23:30,089
+segmentos de 8 bits cada uno entonces
+
+532
+00:23:27,298 --> 00:23:33,058
+tendremos una parte alta con los 8 bits
+
+533
+00:23:30,089 --> 00:23:35,009
+más significativos y la parte baja con
+
+534
+00:23:33,058 --> 00:23:37,319
+el resto de 8 bits los menos
+
+535
+00:23:35,009 --> 00:23:39,960
+significativos como shift auto permite
+
+536
+00:23:37,319 --> 00:23:42,269
+sólo 8 bits aplicamos el operador de
+
+537
+00:23:39,960 --> 00:23:45,090
+desplazamiento de 8 posiciones a la
+
+538
+00:23:42,269 --> 00:23:47,819
+derecha el resultado es este la parte
+
+539
+00:23:45,089 --> 00:23:50,519
+alta ahora ocupa la posición de la parte
+
+540
+00:23:47,819 --> 00:23:54,119
+baja si aplicamos un valor de 16 bits
+
+541
+00:23:50,519 --> 00:23:56,700
+asif out la misma trunca el valor a los
+
+542
+00:23:54,119 --> 00:23:58,918
+8 bits o lo que es lo mismo se queda con
+
+543
+00:23:56,700 --> 00:24:01,528
+la parte baja por eso es que en esta
+
+544
+00:23:58,919 --> 00:24:04,740
+línea primero desplazamos 8 posiciones
+
+545
+00:24:01,528 --> 00:24:07,308
+para preservar el valor original de la
+
+546
+00:24:04,740 --> 00:24:10,319
+parte alta que si no sería desestimada
+
+547
+00:24:07,308 --> 00:24:13,349
+aplicamos y luego volvemos a usar la
+
+548
+00:24:10,319 --> 00:24:15,629
+función out con el valor sin modificar
+
+549
+00:24:13,349 --> 00:24:18,569
+donde ya sabemos que tomará la parte
+
+550
+00:24:15,630 --> 00:24:21,090
+baja únicamente no es complicado pero
+
+551
+00:24:18,569 --> 00:24:23,668
+que trabajar con 16 bits requiere algo
+
+552
+00:24:21,089 --> 00:24:25,859
+más de trabajo en definitiva con estas
+
+553
+00:24:23,669 --> 00:24:28,799
+dos líneas logramos enviar de forma
+
+554
+00:24:25,859 --> 00:24:31,079
+serie un valor de 16 bits que luego
+
+555
+00:24:28,798 --> 00:24:33,418
+activará cualquiera de las 16 salidas
+
+556
+00:24:31,079 --> 00:24:35,509
+del integrado en un capítulo a futuro
+
+557
+00:24:33,419 --> 00:24:38,220
+analizaremos más en profundidad
+
+558
+00:24:35,509 --> 00:24:42,419
+operadores a nivel de bits lo que
+
+559
+00:24:38,220 --> 00:24:45,089
+demostramos es que el 74 hc 595 es muy
+
+560
+00:24:42,419 --> 00:24:46,860
+útil para manejar múltiples salidas con
+
+561
+00:24:45,089 --> 00:24:48,990
+solo tres líneas de control desde
+
+562
+00:24:46,859 --> 00:24:51,869
+arduino y una programación bastante
+
+563
+00:24:48,990 --> 00:24:54,538
+simple y como encadenar dos de estos
+
+564
+00:24:51,869 --> 00:24:57,268
+circuitos integrados para manejar 16
+
+565
+00:24:54,538 --> 00:25:00,359
+salidas con las mismas 3 ocupadas por
+
+566
+00:24:57,269 --> 00:25:02,609
+arduino eso es todo por este capítulo si
+
+567
+00:25:00,359 --> 00:25:05,038
+te pareció interesante recuerda dejar un
+
+568
+00:25:02,609 --> 00:25:07,740
+me gusta suscribirte si aún no lo has
+
+569
+00:25:05,038 --> 00:25:10,019
+hecho y activar la campana para recibir
+
+570
+00:25:07,740 --> 00:25:12,388
+una notificación ni bien se publica
+
+571
+00:25:10,019 --> 00:25:14,548
+nuevo material y como siempre por
+
+572
+00:25:12,388 --> 00:25:19,459
+cualquier duda o comentario lo podrás
+
+573
+00:25:14,548 --> 00:25:19,460
+hacer debajo chao y hasta la próxima
+

@@ -1,0 +1,26 @@
+Un módulo para la conversión DC-DC de salida variable ideal para proyectos de Arduino y electrónica en general. El LM2596 permite ingresar con tensión no regulada de hasta 40 V y regular de forma precisa hasta 37 V con un suministro de corriente hasta 3 A.
+Veremos un ejemplo práctico de alimentación y regulación de su salida, verificando su capacidad de regulación. También un vistazo del LM317, un regulador lineal muy popular de la vieja escuela y las diferencias entre reguladores reductores (step-down o buck) lineales y conmutados.
+
+Recomendable ver Capítulo 50: https://www.youtube.com/watch?v=9SKD_p9sFcI
+
+#LM2596
+#ArduinoLM2596
+#ArduinoFuenteRegulable
+LM2596 power supply
+LM2596 funcionamiento
+Regulador DC-DC regulator
+Regulador step-down buck
+Reguladores lineales y conmutados
+Regulador de voltaje
+Switching buck
+Modulo step down
+
+
+Marcas de tiempo:
+
+0:00 Bienvenida e introducción
+1:10 Características del módulo
+4:06 Experiencia práctica
+7:14 Vistazo de LM317
+7:59 Reguladores lineales y conmutados
+9:52 Resumen y despedida

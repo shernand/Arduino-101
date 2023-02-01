@@ -1,0 +1,996 @@
+1
+00:00:00,470 --> 00:00:05,149
+hola a todos y bienvenidos a un nuevo
+
+2
+00:00:02,960 --> 00:00:06,108
+capítulo de arduino desde cero en
+
+3
+00:00:05,149 --> 00:00:08,179
+español
+
+4
+00:00:06,108 --> 00:00:10,219
+en esta oportunidad veremos un módulo
+
+5
+00:00:08,179 --> 00:00:13,099
+fuente de alimentación para protoboard
+
+6
+00:00:10,220 --> 00:00:15,620
+muy útil y versátil para diversidad de
+
+7
+00:00:13,099 --> 00:00:16,160
+proyectos de arduino y electrónica en
+
+8
+00:00:15,619 --> 00:00:18,588
+general
+
+9
+00:00:16,160 --> 00:00:20,689
+el módulo tiene las dimensiones para
+
+10
+00:00:18,588 --> 00:00:23,299
+colocarse directamente sobre protoboard
+
+11
+00:00:20,689 --> 00:00:25,550
+como se ve en la imagen y los pines
+
+12
+00:00:23,300 --> 00:00:28,550
+posteriores quedan alineados con los
+
+13
+00:00:25,550 --> 00:00:30,800
+rieles de atención superior e inferior a
+
+14
+00:00:28,550 --> 00:00:34,009
+este modelo también se le denomina mb
+
+15
+00:00:30,800 --> 00:00:35,859
+102 por el ampliamente utilizado modelo
+
+16
+00:00:34,009 --> 00:00:38,269
+de proto guard del mismo nombre
+
+17
+00:00:35,859 --> 00:00:39,589
+identifiquemos primero los componentes
+
+18
+00:00:38,270 --> 00:00:42,140
+del módulo para entender su
+
+19
+00:00:39,590 --> 00:00:44,359
+funcionamiento este jack de alimentación
+
+20
+00:00:42,140 --> 00:00:46,909
+es el mismo que se usa en el modelo de
+
+21
+00:00:44,359 --> 00:00:50,359
+arduino uno pensado para ingresar con
+
+22
+00:00:46,909 --> 00:00:53,390
+tensión no regulada con un mínimo de 6.5
+
+23
+00:00:50,359 --> 00:00:55,460
+y un máximo de 12 volts mediante una
+
+24
+00:00:53,390 --> 00:00:58,009
+fuente de pared o baterías en el
+
+25
+00:00:55,460 --> 00:01:00,289
+capítulo 50 analizamos varias cuestiones
+
+26
+00:00:58,009 --> 00:01:02,089
+de alimentación si no lo viste te lo
+
+27
+00:01:00,289 --> 00:01:04,099
+recomiendo luego tendremos un
+
+28
+00:01:02,090 --> 00:01:06,560
+interruptor mecánico de encendido y
+
+29
+00:01:04,099 --> 00:01:07,519
+apagado un diodo para protección de
+
+30
+00:01:06,560 --> 00:01:10,490
+polaridad imbert
+
+31
+00:01:07,519 --> 00:01:12,920
+y un led verde de encendido le sigue un
+
+32
+00:01:10,489 --> 00:01:15,500
+puerto usb convencional que servirá
+
+33
+00:01:12,920 --> 00:01:18,170
+tanto para entrada como salida de 5
+
+34
+00:01:15,500 --> 00:01:20,539
+volts regulados más adelante veremos un
+
+35
+00:01:18,170 --> 00:01:22,579
+poco más en detalle este puerto y sus
+
+36
+00:01:20,539 --> 00:01:25,099
+características finalmente los
+
+37
+00:01:22,578 --> 00:01:27,250
+componentes activos que serán el corazón
+
+38
+00:01:25,099 --> 00:01:30,169
+del módulo los reguladores de tensión
+
+39
+00:01:27,250 --> 00:01:32,810
+este de aquí es el de 5 volts con un
+
+40
+00:01:30,170 --> 00:01:35,750
+suministro de corriente de hasta 700.000
+
+41
+00:01:32,810 --> 00:01:37,640
+jumper el regulador toma la tensión no
+
+42
+00:01:35,750 --> 00:01:41,390
+regulada que apliquemos a la entrada
+
+43
+00:01:37,640 --> 00:01:43,728
+irregular 5volts de forma estable a su
+
+44
+00:01:41,390 --> 00:01:46,280
+lado encontraremos un segundo regulador
+
+45
+00:01:43,728 --> 00:01:48,920
+lineal pero de 33 volts con un
+
+46
+00:01:46,280 --> 00:01:50,750
+suministro máximo de también 700000
+
+47
+00:01:48,920 --> 00:01:52,579
+jumper de manera que con ambos
+
+48
+00:01:50,750 --> 00:01:56,149
+reguladores podremos alimentar
+
+49
+00:01:52,578 --> 00:01:58,339
+dispositivos con 5 o 3,3 volts los
+
+50
+00:01:56,149 --> 00:02:01,280
+reguladores lineales deben reducir la
+
+51
+00:01:58,340 --> 00:02:04,939
+atención de entrada al valor regulado ya
+
+52
+00:02:01,280 --> 00:02:07,728
+sea de 5 o 3,3 y esta tarea la realiza
+
+53
+00:02:04,938 --> 00:02:10,549
+disipando energía en forma de calor este
+
+54
+00:02:07,728 --> 00:02:13,039
+módulo simple y de bajo costo utiliza al
+
+55
+00:02:10,549 --> 00:02:13,849
+propio circuito impreso como disipador
+
+56
+00:02:13,039 --> 00:02:16,009
+para la tarea
+
+57
+00:02:13,849 --> 00:02:18,590
+por eso el máximo suministro de
+
+58
+00:02:16,009 --> 00:02:21,139
+corriente de 700 mil jumper se puede
+
+59
+00:02:18,590 --> 00:02:22,819
+lograr por períodos cortos de tiempo por
+
+60
+00:02:21,139 --> 00:02:25,369
+dicho motivo en la práctica se
+
+61
+00:02:22,819 --> 00:02:27,650
+recomienda no llegar a más de 500 mil
+
+62
+00:02:25,370 --> 00:02:29,840
+jumper como vimos antes la idea es
+
+63
+00:02:27,650 --> 00:02:32,480
+colocar el módulo sobre protoboard y
+
+64
+00:02:29,840 --> 00:02:34,550
+aplicar las tensiones reguladas de forma
+
+65
+00:02:32,479 --> 00:02:36,560
+directa sobre los rieles de tensión de
+
+66
+00:02:34,550 --> 00:02:38,719
+la misma para esa tarea tendremos
+
+67
+00:02:36,560 --> 00:02:41,870
+versatilidad de uso mediante estos
+
+68
+00:02:38,719 --> 00:02:43,879
+jumpers o puentes de color amarillo que
+
+69
+00:02:41,870 --> 00:02:46,640
+permitirán establecer qué nivel de
+
+70
+00:02:43,879 --> 00:02:49,069
+tensión a aplicar a cada riel de forma
+
+71
+00:02:46,639 --> 00:02:51,199
+independiente en esta tabla se muestran
+
+72
+00:02:49,069 --> 00:02:53,389
+las tres posibles combinaciones para un
+
+73
+00:02:51,199 --> 00:02:55,549
+riel sobre el propio circuito impreso
+
+74
+00:02:53,389 --> 00:02:57,709
+aparecen las designaciones de los
+
+75
+00:02:55,550 --> 00:02:59,930
+voltajes dependiendo de la posición de
+
+76
+00:02:57,710 --> 00:03:01,939
+los jumpers por eso si lo ubicamos de
+
+77
+00:02:59,930 --> 00:03:04,760
+esta forma obtendremos en el riel
+
+78
+00:03:01,939 --> 00:03:07,609
+asociado cinco goles en definitiva la
+
+79
+00:03:04,759 --> 00:03:10,429
+salida del regulador lineal de 5 volts
+
+80
+00:03:07,610 --> 00:03:12,170
+se aplica al riel si colocamos el jumper
+
+81
+00:03:10,430 --> 00:03:14,569
+en la posición intermedia con la
+
+82
+00:03:12,169 --> 00:03:17,569
+denominación off no estaremos aplicando
+
+83
+00:03:14,569 --> 00:03:20,060
+tensión es una forma de inhibir la
+
+84
+00:03:17,569 --> 00:03:23,030
+aplicación de tensión al riel
+
+85
+00:03:20,060 --> 00:03:26,090
+en esta otra posición lograremos que la
+
+86
+00:03:23,030 --> 00:03:28,848
+salida del regulador lineal de 33 sea el
+
+87
+00:03:26,090 --> 00:03:30,590
+aplicado al riel lo mismo se aplica al
+
+88
+00:03:28,848 --> 00:03:32,449
+otro riel de protoboard
+
+89
+00:03:30,590 --> 00:03:34,400
+de hecho podrás ver en esta imagen que
+
+90
+00:03:32,449 --> 00:03:38,149
+los sounders están colocados de manera
+
+91
+00:03:34,400 --> 00:03:41,360
+tal de tener en este riel 5 y en este
+
+92
+00:03:38,150 --> 00:03:43,039
+otro 33 una configuración usual que
+
+93
+00:03:41,360 --> 00:03:45,200
+podríamos tener en un proyecto de
+
+94
+00:03:43,039 --> 00:03:48,259
+arduino donde se requieren ambos niveles
+
+95
+00:03:45,199 --> 00:03:51,649
+por existir sensores o dispositivos que
+
+96
+00:03:48,259 --> 00:03:54,679
+requieren tanto de 5 como de 33 un
+
+97
+00:03:51,650 --> 00:03:59,000
+ejemplo sería cuando analizamos al nrf
+
+98
+00:03:54,680 --> 00:04:02,030
+24 l 01 en el capítulo 51 donde para
+
+99
+00:03:59,000 --> 00:04:05,360
+alimentar al nrf usábamos un regulador
+
+100
+00:04:02,030 --> 00:04:06,979
+externo de 33 con este módulo de fuente
+
+101
+00:04:05,360 --> 00:04:09,709
+y podríamos haberlo hecho sin
+
+102
+00:04:06,979 --> 00:04:12,590
+componentes adicionales estos 8 pines
+
+103
+00:04:09,709 --> 00:04:16,280
+macho de aquí permiten brindar tensiones
+
+104
+00:04:12,590 --> 00:04:18,379
+de 5 y 33 en todo momento útil para
+
+105
+00:04:16,279 --> 00:04:20,539
+colocar por ejemplo dispositivos como
+
+106
+00:04:18,379 --> 00:04:23,870
+ser un ventilador que ya viene con un
+
+107
+00:04:20,540 --> 00:04:26,060
+conector tipo dupont hembra armado o
+
+108
+00:04:23,870 --> 00:04:27,740
+para colocar cables individuales
+
+109
+00:04:26,060 --> 00:04:30,019
+estas tensiones estarán siempre
+
+110
+00:04:27,740 --> 00:04:32,060
+presentes y es independiente de la
+
+111
+00:04:30,019 --> 00:04:34,459
+posición de los jumpers que se aplican
+
+112
+00:04:32,060 --> 00:04:36,860
+sólo para los rieles de protoboard toda
+
+113
+00:04:34,459 --> 00:04:40,909
+la fila inferior de 4 pines serán de
+
+114
+00:04:36,860 --> 00:04:43,460
+referencia además a gene de 2 para 3 3 y
+
+115
+00:04:40,910 --> 00:04:45,530
+dos para 5volts de manera que verás que
+
+116
+00:04:43,459 --> 00:04:47,779
+existen muchas opciones que brindan
+
+117
+00:04:45,529 --> 00:04:50,059
+versatilidad a la hora de alimentación
+
+118
+00:04:47,779 --> 00:04:52,069
+aquí te muestro rápidamente cómo se
+
+119
+00:04:50,060 --> 00:04:54,139
+coloca el módulo en protoboard con los
+
+120
+00:04:52,069 --> 00:04:56,750
+pines del módulo primero en el riel
+
+121
+00:04:54,139 --> 00:04:59,449
+superior y luego los pines sobre el riel
+
+122
+00:04:56,750 --> 00:05:02,089
+inferior verificando que quede todo bien
+
+123
+00:04:59,449 --> 00:05:03,978
+alineado y de forma firme quizás tengas
+
+124
+00:05:02,089 --> 00:05:06,259
+que hacer algo de fuerza al colocarlo
+
+125
+00:05:03,978 --> 00:05:08,779
+por primera vez pero ya luego con el uso
+
+126
+00:05:06,259 --> 00:05:11,120
+se ajustará perfectamente para la
+
+127
+00:05:08,779 --> 00:05:14,418
+alimentación yo estaré usando una fuente
+
+128
+00:05:11,120 --> 00:05:17,149
+de pared de 75 volts y 1000 miriam pero
+
+129
+00:05:14,418 --> 00:05:20,000
+recordad que el rango posible es de 6,5
+
+130
+00:05:17,149 --> 00:05:23,060
+a 12 como los reguladores brindan un
+
+131
+00:05:20,000 --> 00:05:25,579
+máximo de 700.000 jumper la fuente no es
+
+132
+00:05:23,060 --> 00:05:27,978
+necesario que brinde un suministro muy
+
+133
+00:05:25,579 --> 00:05:29,509
+superior a los 1000 miliamperios esta
+
+134
+00:05:27,978 --> 00:05:31,879
+fuente en particular la tengo hace
+
+135
+00:05:29,509 --> 00:05:34,490
+tiempo y no tenía el plus
+
+136
+00:05:31,879 --> 00:05:37,310
+por eso verás que directamente tengo los
+
+137
+00:05:34,490 --> 00:05:39,800
+cables separados y algo de soldadura en
+
+138
+00:05:37,310 --> 00:05:42,350
+sus extremos con cables de color negro
+
+139
+00:05:39,800 --> 00:05:44,509
+es importante primero verificar cuál de
+
+140
+00:05:42,350 --> 00:05:46,970
+ellos es el positivo que lo podrás hacer
+
+141
+00:05:44,509 --> 00:05:49,189
+con un tester o multímetro y este
+
+142
+00:05:46,970 --> 00:05:51,680
+adaptador muy útil que tiene una born
+
+143
+00:05:49,189 --> 00:05:55,250
+era en un extremo para atornillar los
+
+144
+00:05:51,680 --> 00:05:57,590
+cables y un plug de 55 milímetros de
+
+145
+00:05:55,250 --> 00:05:59,870
+diámetro exterior que va justo para el
+
+146
+00:05:57,589 --> 00:06:02,179
+jack del módulo la idea es que pueda ser
+
+147
+00:05:59,870 --> 00:06:04,519
+reutilizar alguna fuente que tengas de
+
+148
+00:06:02,180 --> 00:06:06,860
+algún viejo dispositivo si está dentro
+
+149
+00:06:04,519 --> 00:06:08,689
+del rango permitido de manera que sólo
+
+150
+00:06:06,860 --> 00:06:11,449
+es cuestión de conectar la fuente a
+
+151
+00:06:08,689 --> 00:06:14,449
+suministro de red y el plug a la entrada
+
+152
+00:06:11,449 --> 00:06:16,219
+del módulo y así tendremos todo listo y
+
+153
+00:06:14,449 --> 00:06:18,620
+dependiendo de cómo hayamos configurado
+
+154
+00:06:16,220 --> 00:06:20,630
+los jumpers tendremos tensión en los
+
+155
+00:06:18,620 --> 00:06:22,790
+rieles al presionar el botón de
+
+156
+00:06:20,629 --> 00:06:24,589
+encendido es importante que antes de
+
+157
+00:06:22,790 --> 00:06:26,990
+comenzar a trabajar con tu proyecto
+
+158
+00:06:24,589 --> 00:06:29,269
+hagas una verificación de que los rieles
+
+159
+00:06:26,990 --> 00:06:31,790
+tienen la atención correcta para eso
+
+160
+00:06:29,269 --> 00:06:34,669
+podrás usar unos cables y colocarlos en
+
+161
+00:06:31,790 --> 00:06:37,729
+principio sobre el riel superior en mi
+
+162
+00:06:34,670 --> 00:06:40,069
+caso el último configurado para 5 volts
+
+163
+00:06:37,728 --> 00:06:43,579
+el botón deberás verificar que el texto
+
+164
+00:06:40,069 --> 00:06:47,990
+muestra una atención muy cercana a 5 en
+
+165
+00:06:43,579 --> 00:06:50,359
+mi caso como se ve de 497 misma tarea
+
+166
+00:06:47,990 --> 00:06:52,848
+para el riel inferior en mi caso que lo
+
+167
+00:06:50,360 --> 00:06:54,680
+tengo configurado para 3,3 deberé
+
+168
+00:06:52,848 --> 00:06:57,319
+verificar que se encuentra presente
+
+169
+00:06:54,680 --> 00:06:59,629
+dicha atención ahora sí con tranquilidad
+
+170
+00:06:57,319 --> 00:07:02,180
+podrás conectar todo lo necesario para
+
+171
+00:06:59,629 --> 00:07:04,759
+tu proyecto queda el tema del puerto usb
+
+172
+00:07:02,180 --> 00:07:07,490
+que al principio decía que sirve tanto
+
+173
+00:07:04,759 --> 00:07:09,919
+de entrada como de salida de 5 volts
+
+174
+00:07:07,490 --> 00:07:12,199
+regulados como salida es muy útil para
+
+175
+00:07:09,918 --> 00:07:15,049
+alimentar otros dispositivos fuera de
+
+176
+00:07:12,199 --> 00:07:17,809
+proto board mediante un cable aquí por
+
+177
+00:07:15,050 --> 00:07:19,639
+ejemplo tengo conectado un arduino 1 y
+
+178
+00:07:17,809 --> 00:07:21,979
+al presionar el botón de encendido del
+
+179
+00:07:19,639 --> 00:07:25,009
+módulo vemos qué arduino uno enciende
+
+180
+00:07:21,978 --> 00:07:27,199
+sin problemas claro que el modelo 1 ya
+
+181
+00:07:25,009 --> 00:07:29,449
+tiene un jack de alimentación pero no
+
+182
+00:07:27,199 --> 00:07:32,478
+sería el caso de por ejemplo una nano
+
+183
+00:07:29,449 --> 00:07:35,658
+donde podrías colocar un cable usb a
+
+184
+00:07:32,478 --> 00:07:38,028
+mini usb y así alimentarla o cualquier
+
+185
+00:07:35,658 --> 00:07:40,248
+otro dispositivo para entender cómo usar
+
+186
+00:07:38,028 --> 00:07:42,649
+este puerto como entrada enviamos el
+
+187
+00:07:40,249 --> 00:07:43,760
+diagrama eléctrico o esquemático que nos
+
+188
+00:07:42,649 --> 00:07:46,459
+brinda el fabricante
+
+189
+00:07:43,759 --> 00:07:48,500
+qué vale aclarar hay varios de manera
+
+190
+00:07:46,459 --> 00:07:51,079
+que cuando adquieras el módulo puede
+
+191
+00:07:48,500 --> 00:07:53,360
+tener algunas variaciones de colores o
+
+192
+00:07:51,079 --> 00:07:55,459
+disposiciones de componentes este
+
+193
+00:07:53,360 --> 00:07:58,040
+conector es el de alimentación donde
+
+194
+00:07:55,459 --> 00:07:59,959
+ingresamos con por ejemplo la fuente de
+
+195
+00:07:58,040 --> 00:08:02,450
+pared si presionamos el botón de
+
+196
+00:07:59,959 --> 00:08:05,180
+encendido queda justamente en esta
+
+197
+00:08:02,449 --> 00:08:06,709
+posición si seguimos esta línea vemos
+
+198
+00:08:05,180 --> 00:08:09,379
+que pasa primero por el diodo de
+
+199
+00:08:06,709 --> 00:08:12,199
+protección de polaridad inversa y luego
+
+200
+00:08:09,379 --> 00:08:15,199
+a la entrada del regulador de 5 volts a
+
+201
+00:08:12,199 --> 00:08:17,269
+su salida tendremos 5 volts regulados y
+
+202
+00:08:15,199 --> 00:08:20,269
+dicha atención estará presente sobre
+
+203
+00:08:17,269 --> 00:08:22,759
+esta línea que se marca de color rojo si
+
+204
+00:08:20,269 --> 00:08:25,039
+seguimos el camino vimos que ingresa al
+
+205
+00:08:22,759 --> 00:08:28,099
+segundo regulador y de este último
+
+206
+00:08:25,040 --> 00:08:30,620
+obtendremos los 3,3 volts pero quiero
+
+207
+00:08:28,100 --> 00:08:33,500
+que veas como la línea roja de 5 goltz
+
+208
+00:08:30,620 --> 00:08:36,409
+conecta el puerto usb que está aquí
+
+209
+00:08:33,500 --> 00:08:38,509
+debajo y los 5 volts están presentes en
+
+210
+00:08:36,409 --> 00:08:42,889
+el pin de dicho conector con el nombre
+
+211
+00:08:38,509 --> 00:08:44,899
+usb bcc con letras de color naranja este
+
+212
+00:08:42,889 --> 00:08:47,330
+sería el caso donde alimentamos el
+
+213
+00:08:44,899 --> 00:08:49,939
+módulo con tensión no regulada y la
+
+214
+00:08:47,330 --> 00:08:52,940
+salida del regulador de 5 volts
+
+215
+00:08:49,940 --> 00:08:55,280
+rica de forma directa al puerto usb y de
+
+216
+00:08:52,940 --> 00:08:57,470
+esa manera podemos alimentar otros
+
+217
+00:08:55,279 --> 00:09:00,319
+dispositivos pero podemos usar también
+
+218
+00:08:57,470 --> 00:09:02,300
+el conector usb como entrada aquí es
+
+219
+00:09:00,320 --> 00:09:05,840
+importante aclarar que no podemos usar
+
+220
+00:09:02,299 --> 00:09:08,089
+al mismo tiempo el puerto usb y el jack
+
+221
+00:09:05,840 --> 00:09:10,670
+de alimentación como entrada entonces
+
+222
+00:09:08,090 --> 00:09:13,519
+ingresamos con 5 volts mediante el
+
+223
+00:09:10,669 --> 00:09:15,949
+puerto usb pasamos por alto al regulador
+
+224
+00:09:13,519 --> 00:09:18,379
+conectamos directamente a la salida del
+
+225
+00:09:15,950 --> 00:09:21,440
+mismo y luego igual camino que vimos
+
+226
+00:09:18,379 --> 00:09:23,929
+antes para ingresar al regulador de 3-3
+
+227
+00:09:21,440 --> 00:09:26,780
+entonces para resumir y no complicar
+
+228
+00:09:23,929 --> 00:09:28,909
+recomiendo que uses el puerto usb como
+
+229
+00:09:26,779 --> 00:09:31,370
+salida para alimentar cualquier otro
+
+230
+00:09:28,909 --> 00:09:34,129
+dispositivo aunque según lo explicado y
+
+231
+00:09:31,370 --> 00:09:36,860
+aquí mostrado también podría usarse como
+
+232
+00:09:34,129 --> 00:09:39,500
+entrada pero únicamente con 5 voltios
+
+233
+00:09:36,860 --> 00:09:42,139
+regulados nunca con una tensión superior
+
+234
+00:09:39,500 --> 00:09:44,120
+en resumen este módulo es muy útil para
+
+235
+00:09:42,139 --> 00:09:46,850
+tenerlo a mano para nuestros proyectos
+
+236
+00:09:44,120 --> 00:09:49,850
+de proto guard con arduino o electrónica
+
+237
+00:09:46,850 --> 00:09:51,470
+en general es cómodo de bajo precio y
+
+238
+00:09:49,850 --> 00:09:53,779
+podemos alimentar con variedad de
+
+239
+00:09:51,470 --> 00:09:56,089
+tensiones y flexibilidad a la hora de
+
+240
+00:09:53,779 --> 00:09:59,419
+brindar tensiones reguladas
+
+241
+00:09:56,089 --> 00:10:02,089
+5 33 volts eso es todo por este capítulo
+
+242
+00:09:59,419 --> 00:10:04,519
+espero yo ha sido de tu interés si es el
+
+243
+00:10:02,089 --> 00:10:07,009
+caso te pido le des un me gusta te
+
+244
+00:10:04,519 --> 00:10:08,948
+suscribas si aún no lo has hecho activar
+
+245
+00:10:07,009 --> 00:10:12,350
+la campana para recibir una notificación
+
+246
+00:10:08,948 --> 00:10:14,359
+ni en se publica un nuevo material y por
+
+247
+00:10:12,350 --> 00:10:16,519
+cualquier duda o comentario lo podrás
+
+248
+00:10:14,360 --> 00:10:20,470
+hacer debajo que con gusto te responderé
+
+249
+00:10:16,519 --> 00:10:20,470
+chao y hasta la próxima
+

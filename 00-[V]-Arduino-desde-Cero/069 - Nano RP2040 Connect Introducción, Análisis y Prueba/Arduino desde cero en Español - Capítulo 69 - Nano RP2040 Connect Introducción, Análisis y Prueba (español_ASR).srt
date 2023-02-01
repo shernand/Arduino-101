@@ -1,0 +1,1936 @@
+1
+00:00:00,600 --> 00:00:06,389
+hola bienvenidos a un nuevo capítulo de
+
+2
+00:00:03,600 --> 00:00:08,490
+arduino desde cero en español en esta
+
+3
+00:00:06,389 --> 00:00:10,769
+oportunidad analizaremos el último
+
+4
+00:00:08,490 --> 00:00:14,220
+lanzamiento de una placa de arduino en
+
+5
+00:00:10,769 --> 00:00:16,559
+modelo nano erp 2040 conecta con una
+
+6
+00:00:14,220 --> 00:00:19,160
+mezcla interesante de micro controlador
+
+7
+00:00:16,559 --> 00:00:21,750
+de raspberry pi conectividad wifi
+
+8
+00:00:19,160 --> 00:00:23,240
+bluetooth y una gran cantidad de
+
+9
+00:00:21,750 --> 00:00:26,309
+sensores incorporados
+
+10
+00:00:23,239 --> 00:00:28,649
+configuraremos el id para trabajar con
+
+11
+00:00:26,309 --> 00:00:31,549
+esta nueva placa y haremos un ejemplo
+
+12
+00:00:28,649 --> 00:00:33,988
+del servidor web que controla el led rgb
+
+13
+00:00:31,550 --> 00:00:37,170
+incorporado mediante conectividad
+
+14
+00:00:33,988 --> 00:00:38,509
+inalámbrica wi-fi la nueva placa de
+
+15
+00:00:37,170 --> 00:00:41,429
+arduino que se muestra en la imagen
+
+16
+00:00:38,509 --> 00:00:45,420
+mantiene el mismo factor de forma que
+
+17
+00:00:41,429 --> 00:00:48,329
+los modelos nano de 43 x 18 milímetros y
+
+18
+00:00:45,420 --> 00:00:51,838
+30 pines en dos filas novedad de este
+
+19
+00:00:48,329 --> 00:00:55,768
+modelo es el microcontrolador erp 2040
+
+20
+00:00:51,838 --> 00:00:58,289
+fabricado por raspberry pi el erp 2040
+
+21
+00:00:55,768 --> 00:01:01,198
+lo vimos hace poco con la raspberry pay
+
+22
+00:00:58,289 --> 00:01:03,629
+pico en un vídeo que te dejó una tarjeta
+
+23
+00:01:01,198 --> 00:01:06,090
+y un enlace en la descripción por si no
+
+24
+00:01:03,628 --> 00:01:09,840
+lo viste se trata de un doble núcleo de
+
+25
+00:01:06,090 --> 00:01:13,079
+32 bits arm cortex m 0 + con una
+
+26
+00:01:09,840 --> 00:01:14,850
+velocidad de hasta 133 megahertz aunque
+
+27
+00:01:13,079 --> 00:01:18,539
+la misma es variable para ahorrar
+
+28
+00:01:14,849 --> 00:01:22,409
+energía incorpora 264 kilobytes de
+
+29
+00:01:18,540 --> 00:01:25,140
+memoria ram y usb nativo versión 1.1
+
+30
+00:01:22,409 --> 00:01:27,689
+para conectividad con la computadora y
+
+31
+00:01:25,140 --> 00:01:30,989
+así cargar programas y las modalidades
+
+32
+00:01:27,689 --> 00:01:34,170
+host y device para la capacidad h y de
+
+33
+00:01:30,989 --> 00:01:37,379
+permitiendo emular un teclado mouse
+
+34
+00:01:34,170 --> 00:01:38,939
+joystick y otros dispositivos la memoria
+
+35
+00:01:37,379 --> 00:01:42,478
+flash a diferencia de lo que estamos
+
+36
+00:01:38,939 --> 00:01:45,319
+acostumbrados del admira 328 p es una
+
+37
+00:01:42,478 --> 00:01:48,900
+entidad externa y en este modelo erp
+
+38
+00:01:45,319 --> 00:01:50,969
+2040 connect es de 16 megabytes la
+
+39
+00:01:48,900 --> 00:01:53,219
+posibilidad de tener la memoria fuera
+
+40
+00:01:50,969 --> 00:01:55,109
+del microcontrolador da libertad a los
+
+41
+00:01:53,219 --> 00:01:57,299
+fabricantes para usar distintas
+
+42
+00:01:55,109 --> 00:02:00,359
+configuraciones de capacidad como
+
+43
+00:01:57,299 --> 00:02:02,310
+referencia la raspberry pi pico incluye
+
+44
+00:02:00,359 --> 00:02:04,618
+dos megabytes la conectividad
+
+45
+00:02:02,310 --> 00:02:07,079
+inalámbrica vendrá de la mano de este
+
+46
+00:02:04,618 --> 00:02:10,500
+módulo del fabricante you blocks con el
+
+47
+00:02:07,079 --> 00:02:14,129
+modelo ni na w 102 está basado
+
+48
+00:02:10,500 --> 00:02:16,500
+internamente en el s&amp;p 32 y brin nuestra
+
+49
+00:02:14,129 --> 00:02:18,710
+nano de conectividad wi-fi en
+
+50
+00:02:16,500 --> 00:02:22,620
+modalidades b/g/n
+
+51
+00:02:18,710 --> 00:02:25,879
+correspondientes a velocidades de 11 54
+
+52
+00:02:22,620 --> 00:02:28,980
+y 600 megabits por segundo en bandas de
+
+53
+00:02:25,879 --> 00:02:33,150
+24 gigahertz tendremos también bluetooth
+
+54
+00:02:28,979 --> 00:02:36,000
+en versión 4.2 y modalidad vélez de baja
+
+55
+00:02:33,150 --> 00:02:39,260
+energía este pequeño amigo de aquí es un
+
+56
+00:02:36,000 --> 00:02:42,330
+y mv o unidad de medición inercial
+
+57
+00:02:39,259 --> 00:02:45,419
+acelerómetro de tres ejes y giróscopo
+
+58
+00:02:42,330 --> 00:02:48,150
+giroscopio de también tres ejes dando
+
+59
+00:02:45,419 --> 00:02:50,250
+seis grados de libertad lo interesante
+
+60
+00:02:48,150 --> 00:02:53,039
+de este sensor es que incorpora un
+
+61
+00:02:50,250 --> 00:02:55,830
+procesador de matching learning y
+
+62
+00:02:53,039 --> 00:02:58,709
+permite procesar en tiempo real datos de
+
+63
+00:02:55,830 --> 00:03:01,560
+aceleración lineal y angular permitiendo
+
+64
+00:02:58,710 --> 00:03:04,409
+obtener fácilmente determinados patrones
+
+65
+00:03:01,560 --> 00:03:07,319
+de movimiento como ser caminata o una
+
+66
+00:03:04,409 --> 00:03:09,539
+rápida desaceleración todo sin quitar
+
+67
+00:03:07,319 --> 00:03:12,120
+tiempo al microcontrolador principal
+
+68
+00:03:09,539 --> 00:03:14,429
+como es usual cuando se incorpora un y
+
+69
+00:03:12,120 --> 00:03:18,159
+mv sobre el circuito impreso se
+
+70
+00:03:14,430 --> 00:03:20,409
+encuentra la indicación de los ejes x y
+
+71
+00:03:18,159 --> 00:03:22,780
+a nuestra disposición también un
+
+72
+00:03:20,409 --> 00:03:25,569
+micrófono mems de sistemas
+
+73
+00:03:22,780 --> 00:03:28,240
+microelectromecánicos que permite captar
+
+74
+00:03:25,569 --> 00:03:31,329
+sonido y enviarlo de forma digital al
+
+75
+00:03:28,240 --> 00:03:35,050
+erp 2040 mediante modulación por
+
+76
+00:03:31,330 --> 00:03:37,780
+densidad de pulso pdm el último circuito
+
+77
+00:03:35,050 --> 00:03:40,510
+integrado de está densamente poblada
+
+78
+00:03:37,780 --> 00:03:43,120
+placa es un módulo criptográfico que
+
+79
+00:03:40,509 --> 00:03:45,819
+permite la aceleración por hardware de
+
+80
+00:03:43,120 --> 00:03:47,069
+algoritmos ampliamente utilizados como
+
+81
+00:03:45,819 --> 00:03:51,819
+celia
+
+82
+00:03:47,069 --> 00:03:54,549
+256 y el s 128 también para quitar carga
+
+83
+00:03:51,819 --> 00:03:58,719
+al procesador principal diodos emisores
+
+84
+00:03:54,550 --> 00:04:00,760
+de luz serán tres este del tipo rgb que
+
+85
+00:03:58,719 --> 00:04:03,460
+bajo el mismo encapsulado se encuentran
+
+86
+00:04:00,759 --> 00:04:05,889
+los colores rojo verde y azul es del
+
+87
+00:04:03,460 --> 00:04:08,200
+tipo ánodo común y a diferencia de lo
+
+88
+00:04:05,889 --> 00:04:11,649
+que podría suponer es controlado por el
+
+89
+00:04:08,199 --> 00:04:14,589
+módulo ni na w 102 de manera que para
+
+90
+00:04:11,650 --> 00:04:17,019
+usar el led rgb siempre debemos incluir
+
+91
+00:04:14,590 --> 00:04:19,030
+la librería de dicho módulo cuando
+
+92
+00:04:17,019 --> 00:04:22,290
+hagamos la práctica lo verás sólo
+
+93
+00:04:19,029 --> 00:04:26,199
+recordar que no está conectado al erp
+
+94
+00:04:22,290 --> 00:04:28,330
+2041 de encendido de color rojo y el led
+
+95
+00:04:26,199 --> 00:04:30,789
+incorporado clásico de las placas de
+
+96
+00:04:28,329 --> 00:04:33,870
+arduino de color naranja conectado
+
+97
+00:04:30,790 --> 00:04:36,879
+internamente al pin digital número 13
+
+98
+00:04:33,870 --> 00:04:38,680
+finalmente tendremos un botón de reset y
+
+99
+00:04:36,879 --> 00:04:42,819
+el tipo de puerto de conexión para
+
+100
+00:04:38,680 --> 00:04:44,980
+alimentación y datos será micro usb en
+
+101
+00:04:42,819 --> 00:04:47,409
+la parte posterior de la placa sigue la
+
+102
+00:04:44,980 --> 00:04:50,169
+acción ya no con componentes activos
+
+103
+00:04:47,410 --> 00:04:53,169
+pero con dos puentes o jumpers el
+
+104
+00:04:50,168 --> 00:04:57,459
+primero de ellos con la denominación 3.3
+
+105
+00:04:53,168 --> 00:04:59,529
+b sj 4 del esquemático viene conectado
+
+106
+00:04:57,459 --> 00:05:02,319
+por defecto como se puede apreciar en la
+
+107
+00:04:59,529 --> 00:05:06,159
+imagen este puente conecta la salida del
+
+108
+00:05:02,319 --> 00:05:09,610
+conversor de cdc que reduce los 5 volts
+
+109
+00:05:06,160 --> 00:05:11,860
+del puerto usb a 3,3 volts para la
+
+110
+00:05:09,610 --> 00:05:13,780
+operación de la placa en este punto
+
+111
+00:05:11,860 --> 00:05:17,020
+viene bien dejar en claro que los
+
+112
+00:05:13,779 --> 00:05:19,989
+niveles lógicos de la nano erp 2040
+
+113
+00:05:17,019 --> 00:05:22,329
+connect será de 3,3 volts debemos
+
+114
+00:05:19,990 --> 00:05:25,030
+olvidarnos de los 5 que veníamos
+
+115
+00:05:22,329 --> 00:05:28,870
+trabajando de otros modelos todo aquí es
+
+116
+00:05:25,029 --> 00:05:31,149
+33 el segundo puente con la denominación
+
+117
+00:05:28,870 --> 00:05:34,629
+usb se encuentra por defecto
+
+118
+00:05:31,149 --> 00:05:38,169
+desconectado y su función es aislar los
+
+119
+00:05:34,629 --> 00:05:41,170
+5 volts del puerto usb a este pin sobre
+
+120
+00:05:38,170 --> 00:05:43,689
+la placa la razón es por seguridad y
+
+121
+00:05:41,170 --> 00:05:46,330
+asegurarse que por error no utilicemos
+
+122
+00:05:43,689 --> 00:05:48,969
+estos 5 volts para entrar con dicha
+
+123
+00:05:46,329 --> 00:05:51,339
+atención a un pin digital de la nano es
+
+124
+00:05:48,970 --> 00:05:54,610
+un recordatorio de arduino para aquellos
+
+125
+00:05:51,339 --> 00:05:57,250
+dispersos que esta placa es solo de 33
+
+126
+00:05:54,610 --> 00:05:59,980
+sin embargo en muchos casos es útil
+
+127
+00:05:57,250 --> 00:06:03,250
+tener en un pin los 5 volts del puerto
+
+128
+00:05:59,980 --> 00:06:05,620
+usb para alimentar un sensor y luego
+
+129
+00:06:03,250 --> 00:06:08,709
+utilizar un divisor de tensión si
+
+130
+00:06:05,620 --> 00:06:11,019
+necesitamos ingresar a un pin de manera
+
+131
+00:06:08,709 --> 00:06:14,259
+que por defecto en ningún punto de la
+
+132
+00:06:11,019 --> 00:06:16,779
+placa tendremos un pin con 5 volts al no
+
+133
+00:06:14,259 --> 00:06:19,329
+ser que coloquemos un pequeño punto de
+
+134
+00:06:16,779 --> 00:06:22,359
+soldadura cerrando el puente como
+
+135
+00:06:19,329 --> 00:06:24,969
+referencia la raspberry pipe ico tiene
+
+136
+00:06:22,360 --> 00:06:28,750
+un pin denominado vivas que justamente
+
+137
+00:06:24,970 --> 00:06:31,600
+expone los 5 del puerto microusb en un
+
+138
+00:06:28,750 --> 00:06:33,879
+pin quizás arduino sea demasiado sobre
+
+139
+00:06:31,600 --> 00:06:35,379
+protector de sus usuarios por posibles
+
+140
+00:06:33,879 --> 00:06:37,569
+errores de conexión
+
+141
+00:06:35,379 --> 00:06:40,120
+aunque algunos ya seamos grandes para
+
+142
+00:06:37,569 --> 00:06:42,370
+esto todo muy bien pero veamos la
+
+143
+00:06:40,120 --> 00:06:45,579
+distribución de pines con este gráfico
+
+144
+00:06:42,370 --> 00:06:48,069
+de pin out provisto por el fabricante lo
+
+145
+00:06:45,579 --> 00:06:49,659
+utilizo porque está bien diseñado pero
+
+146
+00:06:48,069 --> 00:06:51,519
+hay algunas cuestiones que quiero
+
+147
+00:06:49,660 --> 00:06:54,910
+aclarar en principio como el
+
+148
+00:06:51,519 --> 00:06:56,799
+microcontrolador es el erp 2040 verás
+
+149
+00:06:54,910 --> 00:07:00,220
+que en color naranja aparecen las
+
+150
+00:06:56,800 --> 00:07:02,699
+designaciones de jipi jay o siglas de
+
+151
+00:07:00,220 --> 00:07:05,010
+entradas salidas de propósito general
+
+152
+00:07:02,699 --> 00:07:07,689
+igual tenemos al lado la designación
+
+153
+00:07:05,009 --> 00:07:10,629
+clásica de arduino para los pines
+
+154
+00:07:07,689 --> 00:07:15,160
+digitales y entradas analógicas los
+
+155
+00:07:10,629 --> 00:07:18,069
+pines 0 y 1 corresponden a tx rx de la
+
+156
+00:07:15,160 --> 00:07:20,080
+comunicación serie por guard al mismo
+
+157
+00:07:18,069 --> 00:07:23,079
+por programación lo accederemos con
+
+158
+00:07:20,079 --> 00:07:25,389
+serial 1 en lugar de serial cuando
+
+159
+00:07:23,079 --> 00:07:29,529
+queremos comunicarnos por monitor serie
+
+160
+00:07:25,389 --> 00:07:33,459
+ya que el erp 2040 ya tiene usb nativo
+
+161
+00:07:29,529 --> 00:07:35,500
+luego los pines digitales 2 a 12 de este
+
+162
+00:07:33,459 --> 00:07:37,329
+lado de la placa al igual que otros
+
+163
+00:07:35,500 --> 00:07:40,779
+modelos tendremos los pines para
+
+164
+00:07:37,329 --> 00:07:44,319
+comunicación por base esp y en pines 10
+
+165
+00:07:40,779 --> 00:07:46,569
+11 12 y 13 pero a partir de ahora se
+
+166
+00:07:44,319 --> 00:07:47,469
+modifica la denominación de algunos de
+
+167
+00:07:46,569 --> 00:07:49,959
+ellos
+
+168
+00:07:47,470 --> 00:07:53,110
+verás que por ejemplo el pin número 12
+
+169
+00:07:49,959 --> 00:07:56,500
+que dice s&amp;p o son las siglas de
+
+170
+00:07:53,110 --> 00:07:59,560
+controller in peripheral out y es
+
+171
+00:07:56,500 --> 00:08:02,918
+exactamente lo mismo que me hizo de como
+
+172
+00:07:59,560 --> 00:08:05,230
+ya lo vimos del base sp hace tiempo solo
+
+173
+00:08:02,918 --> 00:08:08,560
+que cambia un poco la designación al
+
+174
+00:08:05,230 --> 00:08:11,919
+maestro ahora es controller y al esclavo
+
+175
+00:08:08,560 --> 00:08:16,120
+peripheral mismo tema para el pin 11 de
+
+176
+00:08:11,918 --> 00:08:18,579
+seop o mos y de la vieja denominación el
+
+177
+00:08:16,120 --> 00:08:21,340
+pin 10 que suele utilizarse para el
+
+178
+00:08:18,579 --> 00:08:23,889
+slide select ahora se prefiere usar chip
+
+179
+00:08:21,339 --> 00:08:25,929
+select que en el pin auto original no
+
+180
+00:08:23,889 --> 00:08:28,240
+está marcado ya que en realidad
+
+181
+00:08:25,930 --> 00:08:30,730
+cualquier pin digital se puede usar para
+
+182
+00:08:28,240 --> 00:08:31,650
+dicha función pero el 10 ya es un
+
+183
+00:08:30,730 --> 00:08:35,168
+clásico
+
+184
+00:08:31,649 --> 00:08:38,740
+finalmente del base sp y en el pin 13
+
+185
+00:08:35,168 --> 00:08:40,348
+ese seca como siempre genial sólo un
+
+186
+00:08:38,740 --> 00:08:42,879
+pequeño cambio en las denominaciones
+
+187
+00:08:40,349 --> 00:08:46,340
+luego tendremos las entradas analógicas
+
+188
+00:08:42,879 --> 00:08:48,649
+que serán 8 de acero
+
+189
+00:08:46,340 --> 00:08:50,350
+y que también se pueden usar como pines
+
+190
+00:08:48,649 --> 00:08:53,090
+digitales de entrada salida
+
+191
+00:08:50,350 --> 00:08:58,070
+convencionales reservados se encuentran
+
+192
+00:08:53,090 --> 00:09:00,500
+a4 y a5 sda y scl para el base y 12
+
+193
+00:08:58,070 --> 00:09:03,440
+igual que ocurre con otros modelos de
+
+194
+00:09:00,500 --> 00:09:06,049
+placa este pin de 5 volts recordad que
+
+195
+00:09:03,440 --> 00:09:08,030
+no estará disponible por defecto por el
+
+196
+00:09:06,049 --> 00:09:10,339
+puente que se encuentra abierto de
+
+197
+00:09:08,029 --> 00:09:13,459
+cuando analizamos la vista posterior de
+
+198
+00:09:10,340 --> 00:09:16,460
+la placa si cerramos el puente de usb
+
+199
+00:09:13,460 --> 00:09:20,780
+con soldadura entonces es si tendremos
+
+200
+00:09:16,460 --> 00:09:22,879
+los 5 del puerto usb aquí presentes la
+
+201
+00:09:20,779 --> 00:09:25,730
+salida de alimentación para dispositivos
+
+202
+00:09:22,879 --> 00:09:28,909
+externos se encuentra en este pin y será
+
+203
+00:09:25,730 --> 00:09:31,580
+de 33 volts ya que dicho voltaje es el
+
+204
+00:09:28,909 --> 00:09:34,370
+nivel lógico de la placa para finalizar
+
+205
+00:09:31,580 --> 00:09:37,670
+el pin bein que se muestra para ingresar
+
+206
+00:09:34,370 --> 00:09:40,549
+contención no regulada en el rango de 4
+
+207
+00:09:37,669 --> 00:09:43,610
+a 20 volts equivalente al jack de
+
+208
+00:09:40,549 --> 00:09:46,490
+alimentación del modelo 1 o el pin de
+
+209
+00:09:43,610 --> 00:09:48,769
+raw de la nano tradicional el rango
+
+210
+00:09:46,490 --> 00:09:51,990
+comienza desde 4 volts ya que como
+
+211
+00:09:48,769 --> 00:09:54,480
+necesitamos de 33 para alimentar todos
+
+212
+00:09:51,990 --> 00:09:57,209
+positivos de la placa con 4 es el
+
+213
+00:09:54,480 --> 00:09:59,850
+absoluto mínimo pero funcionará mejor
+
+214
+00:09:57,208 --> 00:10:02,639
+ingresar con al menos 5 para mayor
+
+215
+00:09:59,850 --> 00:10:07,110
+seguridad luego el conversor interno de
+
+216
+00:10:02,639 --> 00:10:09,059
+cdc lo reducirá y regulará a 33 ya
+
+217
+00:10:07,110 --> 00:10:11,339
+teniendo la vista general del hardware
+
+218
+00:10:09,059 --> 00:10:13,409
+les sigue configurar el id de arduino
+
+219
+00:10:11,339 --> 00:10:15,899
+para que pueda trabajar con la nueva
+
+220
+00:10:13,409 --> 00:10:17,899
+placa el proceso es muy simple
+
+221
+00:10:15,899 --> 00:10:21,600
+ingresando al menú herramientas
+
+222
+00:10:17,899 --> 00:10:23,970
+placas y gestor de tarjetas aguardamos
+
+223
+00:10:21,600 --> 00:10:26,850
+unos segundos a que actualiza el listado
+
+224
+00:10:23,970 --> 00:10:31,500
+y en el campo de búsqueda escribimos
+
+225
+00:10:26,850 --> 00:10:32,399
+nano rp 2040 el primer resultado es el
+
+226
+00:10:31,500 --> 00:10:34,320
+adecuado
+
+227
+00:10:32,399 --> 00:10:36,629
+con lo cual presionamos el botón de
+
+228
+00:10:34,320 --> 00:10:39,240
+instalar aguardamos a la descarga e
+
+229
+00:10:36,629 --> 00:10:42,330
+instalación del contenido una vez haya
+
+230
+00:10:39,240 --> 00:10:45,330
+finalizado abrimos el texto de instale y
+
+231
+00:10:42,330 --> 00:10:47,370
+podemos entonces cerrar el gestor en
+
+232
+00:10:45,330 --> 00:10:49,110
+este punto tendrá que conectar la placa
+
+233
+00:10:47,370 --> 00:10:52,379
+a la computadora mediante el cable
+
+234
+00:10:49,110 --> 00:10:55,050
+microusb miras que tenemos un juego de
+
+235
+00:10:52,379 --> 00:10:58,409
+luces con el led de encendido el
+
+236
+00:10:55,049 --> 00:11:00,659
+incorporado que parpadea y él rgb que
+
+237
+00:10:58,409 --> 00:11:02,879
+muestra distintos colores esto es porque
+
+238
+00:11:00,659 --> 00:11:05,278
+ya viene preinstalado un programa de
+
+239
+00:11:02,879 --> 00:11:07,080
+demostración conectado a la placa nos
+
+240
+00:11:05,278 --> 00:11:09,778
+dirigimos nuevamente al menú de
+
+241
+00:11:07,080 --> 00:11:12,509
+herramientas y en placa tendremos varios
+
+242
+00:11:09,778 --> 00:11:15,990
+submenús con las placas clásicas
+
+243
+00:11:12,509 --> 00:11:19,350
+organizadas con haber boards y luego en
+
+244
+00:11:15,990 --> 00:11:21,810
+vez de nano boards yo tengo también
+
+245
+00:11:19,350 --> 00:11:24,389
+instalada la raspberry pipe y ccoo por
+
+246
+00:11:21,809 --> 00:11:27,539
+eso aparece aquí pero debemos volver a
+
+247
+00:11:24,389 --> 00:11:30,870
+nano boards y seleccionamos arduino nano
+
+248
+00:11:27,539 --> 00:11:33,778
+erp 2040 connect volviendo al menú
+
+249
+00:11:30,870 --> 00:11:36,269
+herramientas en placa vimos que ya quedó
+
+250
+00:11:33,778 --> 00:11:39,419
+seleccionada la correcta resta el puerto
+
+251
+00:11:36,269 --> 00:11:42,120
+que en mi caso se muestra es el 7 y
+
+252
+00:11:39,419 --> 00:11:44,519
+claro puede ser distinto en el tuyo así
+
+253
+00:11:42,120 --> 00:11:47,159
+que lo seleccionó y listo podrás volver
+
+254
+00:11:44,519 --> 00:11:49,379
+al menú para una verificación rápida que
+
+255
+00:11:47,159 --> 00:11:51,929
+tanto placa como puerto son los
+
+256
+00:11:49,379 --> 00:11:55,320
+correctos y todo listo para trabajar con
+
+257
+00:11:51,929 --> 00:11:57,479
+nuestra nano rp 20 40 connect ya vimos
+
+258
+00:11:55,320 --> 00:12:00,300
+que la placa incluye una gran cantidad
+
+259
+00:11:57,480 --> 00:12:02,550
+de sensores y dispositivos a los cuales
+
+260
+00:12:00,299 --> 00:12:03,870
+dedicaremos el tiempo que se merecen en
+
+261
+00:12:02,549 --> 00:12:05,699
+distintos capítulos
+
+262
+00:12:03,870 --> 00:12:07,740
+para el presente te quiero mostrar un
+
+263
+00:12:05,700 --> 00:12:10,589
+programa que demuestra la capacidad de
+
+264
+00:12:07,740 --> 00:12:12,570
+comunicación inalámbrica por wifi para
+
+265
+00:12:10,589 --> 00:12:16,110
+eso primero debemos descargar la
+
+266
+00:12:12,570 --> 00:12:18,390
+librería del módulo ni na w100 todos lo
+
+267
+00:12:16,110 --> 00:12:21,690
+hacemos de la forma usual desde el menú
+
+268
+00:12:18,389 --> 00:12:24,059
+programa incluir librería y administrar
+
+269
+00:12:21,690 --> 00:12:26,130
+bibliotecas a guardamos mientras se
+
+270
+00:12:24,059 --> 00:12:29,759
+actualiza el listado y en el campo de
+
+271
+00:12:26,129 --> 00:12:32,370
+búsqueda escribimos wifi en una todo
+
+272
+00:12:29,759 --> 00:12:34,620
+junto el primer resultado es el que
+
+273
+00:12:32,370 --> 00:12:36,870
+vamos a instalar con el botón del mismo
+
+274
+00:12:34,620 --> 00:12:39,389
+nombre y rápidamente veremos que nos
+
+275
+00:12:36,870 --> 00:12:42,480
+aparece la leyenda install podemos
+
+276
+00:12:39,389 --> 00:12:45,299
+entonces cerrar el gestor este programa
+
+277
+00:12:42,480 --> 00:12:48,690
+utiliza el módulo wifi para controlar el
+
+278
+00:12:45,299 --> 00:12:51,389
+led rgb incorporado no estaré explicando
+
+279
+00:12:48,690 --> 00:12:53,430
+línea por línea ya que para el tema wifi
+
+280
+00:12:51,389 --> 00:12:55,710
+quiero dedicarle un capítulo exclusivo
+
+281
+00:12:53,429 --> 00:12:58,079
+ya que hay muchas cuestiones para
+
+282
+00:12:55,710 --> 00:13:00,180
+analizar así que de este solo los
+
+283
+00:12:58,080 --> 00:13:03,480
+bloques básicos para que tengas una idea
+
+284
+00:13:00,179 --> 00:13:05,759
+y también para implementar ya mismo y
+
+285
+00:13:03,480 --> 00:13:08,580
+hacer un interesante primer programa
+
+286
+00:13:05,759 --> 00:13:11,159
+está basado en un ejemplo oficial de
+
+287
+00:13:08,580 --> 00:13:13,739
+arduino en esta dirección y crédito por
+
+288
+00:13:11,159 --> 00:13:16,198
+supuesto a su autor yo realicé algunas
+
+289
+00:13:13,739 --> 00:13:18,629
+pequeñas modificaciones y traducción
+
+290
+00:13:16,198 --> 00:13:21,628
+esta versión la podrás descargar como es
+
+291
+00:13:18,629 --> 00:13:23,519
+usual desde el repositorio de github en
+
+292
+00:13:21,629 --> 00:13:26,850
+el enlace que dejó en la zona de
+
+293
+00:13:23,519 --> 00:13:29,909
+descripción incluimos las librerías esp
+
+294
+00:13:26,850 --> 00:13:31,920
+y la recién instalada wave i'm in a que
+
+295
+00:13:29,909 --> 00:13:35,068
+por cierto recordarás que mencionaba al
+
+296
+00:13:31,919 --> 00:13:37,708
+principio que el led rgb es controlado
+
+297
+00:13:35,068 --> 00:13:41,428
+justamente por este módulo y no por el
+
+298
+00:13:37,708 --> 00:13:43,948
+erp 2040 la idea es crear un punto de
+
+299
+00:13:41,428 --> 00:13:46,558
+acceso de manera de tener la nano
+
+300
+00:13:43,948 --> 00:13:48,568
+conecta de forma independiente a nuestra
+
+301
+00:13:46,558 --> 00:13:51,238
+conexión de internet o red de local
+
+302
+00:13:48,568 --> 00:13:54,118
+vimos algunos temas relacionados hace
+
+303
+00:13:51,239 --> 00:13:56,819
+tiempo en el capítulo 42 todo punto de
+
+304
+00:13:54,119 --> 00:13:58,199
+acceso wifi tendrá un nombre para
+
+305
+00:13:56,818 --> 00:14:00,928
+identificarlo
+
+306
+00:13:58,198 --> 00:14:02,849
+ese es haití y una contraseña
+
+307
+00:14:00,928 --> 00:14:05,458
+cuando nos conectemos al punto de acceso
+
+308
+00:14:02,850 --> 00:14:08,730
+generado por la placa se identificará
+
+309
+00:14:05,458 --> 00:14:13,188
+como nano erp 2040 conecta y la
+
+310
+00:14:08,730 --> 00:14:15,778
+contraseña ingresar será no es 123456
+
+311
+00:14:13,188 --> 00:14:18,528
+claro que podrás colocar el nombre y
+
+312
+00:14:15,778 --> 00:14:21,009
+contraseña que es solo que como mínimo
+
+313
+00:14:18,528 --> 00:14:24,438
+debe ser de 8 caracteres de longitud
+
+314
+00:14:21,009 --> 00:14:26,539
+luego vamos a crear un servidor web para
+
+315
+00:14:24,438 --> 00:14:29,748
+que reciba peticiones en el puerto
+
+316
+00:14:26,539 --> 00:14:32,299
+estándar 80 inicializa mos el monitor
+
+317
+00:14:29,749 --> 00:14:35,778
+serie para mostrar distintos datos sobre
+
+318
+00:14:32,299 --> 00:14:37,639
+la conexión a 9.600 bps aquí
+
+319
+00:14:35,778 --> 00:14:40,399
+establecemos a cada uno de los
+
+320
+00:14:37,639 --> 00:14:43,938
+componentes del led rgb como salida
+
+321
+00:14:40,399 --> 00:14:46,009
+output este nombre led r es una
+
+322
+00:14:43,938 --> 00:14:49,578
+constante que hace referencia al
+
+323
+00:14:46,009 --> 00:14:51,919
+componente rojo del led rgb así que no
+
+324
+00:14:49,578 --> 00:14:54,109
+definimos números de pines cuando
+
+325
+00:14:51,919 --> 00:14:58,159
+seleccionamos en el ide que usamos la
+
+326
+00:14:54,110 --> 00:15:01,100
+placa nano rp 2040 connect ya sabe que
+
+327
+00:14:58,159 --> 00:15:04,338
+la constante led r se refiere al
+
+328
+00:15:01,100 --> 00:15:06,800
+componente rojo del led rgb misma
+
+329
+00:15:04,339 --> 00:15:10,639
+metodología para los componentes verde y
+
+330
+00:15:06,799 --> 00:15:13,219
+azul con las constantes led ge y led de
+
+331
+00:15:10,639 --> 00:15:15,740
+larga aquí consultamos el estado de la
+
+332
+00:15:13,220 --> 00:15:18,170
+comunicación con el módulo wifi y
+
+333
+00:15:15,740 --> 00:15:20,928
+reportamos un mensaje de error si fuera
+
+334
+00:15:18,169 --> 00:15:23,360
+necesario si está todo en orden seguimos
+
+335
+00:15:20,928 --> 00:15:26,600
+este comentario sirve para recordar que
+
+336
+00:15:23,360 --> 00:15:29,329
+x cuando generamos un punto de acceso se
+
+337
+00:15:26,600 --> 00:15:35,120
+asignará una ip estática de red de local
+
+338
+00:15:29,328 --> 00:15:37,039
+que será 192 168 41 y también si es de
+
+339
+00:15:35,120 --> 00:15:39,470
+nuestro interés es establecer una ip
+
+340
+00:15:37,039 --> 00:15:42,110
+específica lo podríamos hacer sin
+
+341
+00:15:39,470 --> 00:15:44,360
+problemas con la función config pero lo
+
+342
+00:15:42,110 --> 00:15:47,209
+dejaremos por defecto en este bloque
+
+343
+00:15:44,360 --> 00:15:49,308
+creamos el punto de acceso y en caso de
+
+344
+00:15:47,208 --> 00:15:51,768
+error también lo hacemos notar con el
+
+345
+00:15:49,308 --> 00:15:53,899
+texto en el monitor serie y estamos
+
+346
+00:15:51,769 --> 00:15:56,539
+listos para el loop el punto de acceso
+
+347
+00:15:53,899 --> 00:15:59,269
+ya está creado pero recién cuando nos
+
+348
+00:15:56,539 --> 00:16:01,818
+conectemos a través de un dispositivo
+
+349
+00:15:59,269 --> 00:16:04,188
+yo estaré usando a mi teléfono móvil es
+
+350
+00:16:01,818 --> 00:16:06,588
+que establecemos el enlace la mayor
+
+351
+00:16:04,188 --> 00:16:09,289
+parte de este bloque es armar una página
+
+352
+00:16:06,589 --> 00:16:11,389
+web para mostrar 6 botones y así
+
+353
+00:16:09,289 --> 00:16:14,719
+controlar cada uno de los componentes
+
+354
+00:16:11,389 --> 00:16:16,970
+del led rgb todas estas líneas son para
+
+355
+00:16:14,720 --> 00:16:20,720
+establecer el estilo miras que están las
+
+356
+00:16:16,970 --> 00:16:23,360
+etiquetas style y barra style decimos
+
+357
+00:16:20,720 --> 00:16:26,028
+que vamos a usar botones redondos de un
+
+358
+00:16:23,360 --> 00:16:28,100
+determinado tamaño y radio luego los
+
+359
+00:16:26,028 --> 00:16:31,159
+botones en sí y la acción que deben
+
+360
+00:16:28,100 --> 00:16:33,680
+tomar esto es importante tendrás que
+
+361
+00:16:31,159 --> 00:16:36,649
+imaginarte que ya nos hemos conectado al
+
+362
+00:16:33,679 --> 00:16:39,109
+punto de acceso el servidor web responde
+
+363
+00:16:36,649 --> 00:16:40,909
+a nuestra petición cuando ingresemos la
+
+364
+00:16:39,110 --> 00:16:43,850
+dirección ip en el navegador web
+
+365
+00:16:40,909 --> 00:16:45,889
+entonces debemos establecer una forma de
+
+366
+00:16:43,850 --> 00:16:48,580
+indicar que deseamos por ejemplo
+
+367
+00:16:45,889 --> 00:16:52,009
+encender el componente rojo del led rgb
+
+368
+00:16:48,580 --> 00:16:56,480
+lo hacemos llamando a la página web pero
+
+369
+00:16:52,009 --> 00:17:03,639
+colocando barra r h es decir http dos
+
+370
+00:16:56,480 --> 00:17:06,380
+puntos barra 192 168 41 barra
+
+371
+00:17:03,639 --> 00:17:08,299
+entonces si vemos aquí debajo lo que
+
+372
+00:17:06,380 --> 00:17:11,270
+hacemos es leer el encabezado de la
+
+373
+00:17:08,299 --> 00:17:13,879
+petición que genera el navegador web y
+
+374
+00:17:11,269 --> 00:17:17,210
+mediante el método get determinamos si
+
+375
+00:17:13,880 --> 00:17:20,780
+es rh entonces encendemos el componente
+
+376
+00:17:17,210 --> 00:17:24,140
+rojo del led rgb con un simple digital
+
+377
+00:17:20,779 --> 00:17:26,839
+write led r high y la misma mecánica
+
+378
+00:17:24,140 --> 00:17:29,630
+para apagar el color rojo aquí en el
+
+379
+00:17:26,839 --> 00:17:33,589
+botón definimos que la opción off de
+
+380
+00:17:29,630 --> 00:17:37,730
+apagar el componente rojo envía rl r por
+
+381
+00:17:33,589 --> 00:17:39,649
+red rojo y l por low nuevamente aquí
+
+382
+00:17:37,730 --> 00:17:43,430
+debajo consultamos mediante el método
+
+383
+00:17:39,650 --> 00:17:46,519
+get que si en la url tenemos una barra
+
+384
+00:17:43,430 --> 00:17:50,509
+rl entonces apagamos con un digital
+
+385
+00:17:46,519 --> 00:17:53,920
+white led r la misma historia para el
+
+386
+00:17:50,509 --> 00:17:57,079
+componente verde con gh encendemos
+
+387
+00:17:53,920 --> 00:18:00,529
+congele apagamos para el azul con be
+
+388
+00:17:57,079 --> 00:18:03,529
+larga h encendemos y con be larga l
+
+389
+00:18:00,529 --> 00:18:05,889
+apagamos y ese es el programa a grandes
+
+390
+00:18:03,529 --> 00:18:08,809
+rasgos creamos un punto de acceso
+
+391
+00:18:05,890 --> 00:18:11,660
+levantamos un servidor web que genera
+
+392
+00:18:08,809 --> 00:18:14,539
+una página con seis botones cada botón
+
+393
+00:18:11,660 --> 00:18:17,779
+llama asimismo agregando al final de la
+
+394
+00:18:14,539 --> 00:18:21,680
+url los caracteres para indicar qué
+
+395
+00:18:17,779 --> 00:18:23,839
+componentes del rgb deseamos encender o
+
+396
+00:18:21,680 --> 00:18:26,000
+apagar no te preocupes que ya le
+
+397
+00:18:23,839 --> 00:18:28,639
+dedicaremos el tiempo que se merece el
+
+398
+00:18:26,000 --> 00:18:31,759
+tema pero por ahora suficiente de teoría
+
+399
+00:18:28,640 --> 00:18:34,040
+y veamos cómo funciona esto subamos el
+
+400
+00:18:31,759 --> 00:18:36,650
+programa mientras te comento que es
+
+401
+00:18:34,039 --> 00:18:38,240
+normal que el proceso de compilación sea
+
+402
+00:18:36,650 --> 00:18:40,970
+más extenso de lo que estamos
+
+403
+00:18:38,240 --> 00:18:43,640
+acostumbrados con placas basadas en él
+
+404
+00:18:40,970 --> 00:18:45,950
+28 p de hecho también por un breve
+
+405
+00:18:43,640 --> 00:18:48,140
+momento puede aparecer una ventana del
+
+406
+00:18:45,950 --> 00:18:50,360
+sistema operativo que ha detectado un
+
+407
+00:18:48,140 --> 00:18:53,840
+dispositivo de almacenamiento masivo
+
+408
+00:18:50,359 --> 00:18:55,879
+luego desaparece automáticamente y verás
+
+409
+00:18:53,839 --> 00:18:59,089
+en barra de mensajes que la compilación
+
+410
+00:18:55,880 --> 00:19:01,460
+y subida a la placa se realizó con éxito
+
+411
+00:18:59,089 --> 00:19:03,500
+con los recursos utilizados
+
+412
+00:19:01,460 --> 00:19:06,140
+vamos a abrir el monitor serie para ver
+
+413
+00:19:03,500 --> 00:19:08,569
+los mensajes que va generando indica que
+
+414
+00:19:06,140 --> 00:19:11,030
+está creando el punto de acceso con el
+
+415
+00:19:08,569 --> 00:19:12,980
+nombre que establecimos y unos segundos
+
+416
+00:19:11,029 --> 00:19:16,879
+luego que ingresemos desde un navegador
+
+417
+00:19:12,980 --> 00:19:19,400
+web a la url indicada la dirección ip
+
+418
+00:19:16,880 --> 00:19:20,750
+por defecto donde se ejecutará el
+
+419
+00:19:19,400 --> 00:19:22,460
+servidor web
+
+420
+00:19:20,750 --> 00:19:25,159
+yo me conectaré primero desde mi
+
+421
+00:19:22,460 --> 00:19:28,788
+teléfono móvil al punto de acceso nano
+
+422
+00:19:25,159 --> 00:19:31,030
+erp 2040 conecta así que lo seleccionó
+
+423
+00:19:28,788 --> 00:19:34,069
+en el listado de wifi disponibles
+
+424
+00:19:31,029 --> 00:19:36,769
+solicita la contraseña selecciono que la
+
+425
+00:19:34,069 --> 00:19:39,288
+muestre ya que no es ningún misterio y
+
+426
+00:19:36,769 --> 00:19:41,839
+colocó lo que definimos en el programa y
+
+427
+00:19:39,288 --> 00:19:45,140
+luego conectar y ya estamos conectados
+
+428
+00:19:41,839 --> 00:19:46,409
+con nuestra placa por wifi genial ahora
+
+429
+00:19:45,140 --> 00:19:49,500
+de abrir el navegador
+
+430
+00:19:46,410 --> 00:19:54,590
+en mi caso chrome e ingresar a la url
+
+431
+00:19:49,500 --> 00:19:58,289
+indicada que es la dirección ip 192 168
+
+432
+00:19:54,589 --> 00:20:00,629
+41 y ya podemos visualizar la página con
+
+433
+00:19:58,289 --> 00:20:02,599
+los 6 botones un par para cada
+
+434
+00:20:00,630 --> 00:20:05,730
+componente de led rgb
+
+435
+00:20:02,599 --> 00:20:08,519
+contexto on para encender y off para
+
+436
+00:20:05,730 --> 00:20:11,039
+apagar el correspondiente amplió un poco
+
+437
+00:20:08,519 --> 00:20:12,990
+la vista para que se vea mejor mientras
+
+438
+00:20:11,039 --> 00:20:15,569
+en la placa vimos que se encuentra
+
+439
+00:20:12,990 --> 00:20:18,000
+encendido el componente verde vamos a
+
+440
+00:20:15,569 --> 00:20:20,909
+apagarlo presionando sobre el botón off
+
+441
+00:20:18,000 --> 00:20:23,430
+al lado del botón de color verde y en la
+
+442
+00:20:20,910 --> 00:20:25,830
+placa vemos que efectivamente ya no hay
+
+443
+00:20:23,430 --> 00:20:29,549
+ningún color encendido también verás que
+
+444
+00:20:25,829 --> 00:20:33,569
+la url aparece la dirección ip y barra
+
+445
+00:20:29,549 --> 00:20:36,119
+gl por green low que toma la acción de
+
+446
+00:20:33,569 --> 00:20:38,369
+apagar el componente verde probemos
+
+447
+00:20:36,119 --> 00:20:41,279
+encendiendo el componente rojo con el
+
+448
+00:20:38,369 --> 00:20:43,589
+botón del mismo color y el texto o al
+
+449
+00:20:41,279 --> 00:20:45,720
+presionarlo vemos que inmediatamente se
+
+450
+00:20:43,589 --> 00:20:49,109
+enciende en la placa el componente de
+
+451
+00:20:45,720 --> 00:20:53,440
+color rojo del led rgb y se recarga la
+
+452
+00:20:49,109 --> 00:20:57,099
+página con la url finalizando con r por
+
+453
+00:20:53,440 --> 00:20:59,650
+red hai apagamos el componente rojo
+
+454
+00:20:57,099 --> 00:21:01,829
+presionando sobre el botón off y se
+
+455
+00:20:59,650 --> 00:21:04,480
+apaga todo funciona correctamente
+
+456
+00:21:01,829 --> 00:21:06,339
+haremos el mismo proceso para el
+
+457
+00:21:04,480 --> 00:21:09,190
+componente de color azul simplemente
+
+458
+00:21:06,339 --> 00:21:11,798
+para verificar y efectivamente ningún
+
+459
+00:21:09,190 --> 00:21:14,440
+problema podemos también dar el comando
+
+460
+00:21:11,798 --> 00:21:16,929
+de encender y mantener encendidos por
+
+461
+00:21:14,440 --> 00:21:20,259
+ejemplo todos los colores comenzando por
+
+462
+00:21:16,929 --> 00:21:23,440
+el azul luego el verde y finalmente el
+
+463
+00:21:20,259 --> 00:21:25,480
+rojo dando como el resultado algo
+
+464
+00:21:23,440 --> 00:21:27,450
+similar a un color blanco como
+
+465
+00:21:25,480 --> 00:21:30,610
+combinación de los tres componentes
+
+466
+00:21:27,450 --> 00:21:34,058
+ahora en orden inverso podemos apagar
+
+467
+00:21:30,609 --> 00:21:36,339
+cada uno de ellos también podrás ver que
+
+468
+00:21:34,058 --> 00:21:38,619
+cada vez que el servidor web responde a
+
+469
+00:21:36,339 --> 00:21:41,139
+una petición del navegador muestra en el
+
+470
+00:21:38,619 --> 00:21:43,599
+monitor serie el encabezado con las
+
+471
+00:21:41,140 --> 00:21:47,799
+características del dispositivo en mi
+
+472
+00:21:43,599 --> 00:21:50,199
+caso un moto g3 con android 6 genial
+
+473
+00:21:47,798 --> 00:21:52,389
+todo funciona correcto y es un
+
+474
+00:21:50,200 --> 00:21:55,350
+interesante ejemplo de la capacidad de
+
+475
+00:21:52,390 --> 00:21:57,929
+conexión inalámbrica de nuestra nano erp
+
+476
+00:21:55,349 --> 00:22:00,969
+2040 conecta en futuros capítulos
+
+477
+00:21:57,929 --> 00:22:04,120
+explorar el resto de dispositivos y
+
+478
+00:22:00,970 --> 00:22:06,038
+también más en profundidad wifi y eso es
+
+479
+00:22:04,119 --> 00:22:08,339
+todo por este capítulo 7 país
+
+480
+00:22:06,038 --> 00:22:11,408
+interesante recuerda dejar un me gusta
+
+481
+00:22:08,339 --> 00:22:13,449
+suscribirte y activar la campana si aún
+
+482
+00:22:11,409 --> 00:22:17,470
+no lo has hecho y por cualquier duda o
+
+483
+00:22:13,450 --> 00:22:19,980
+consulta lo podrás hacer debajo chao y
+
+484
+00:22:17,470 --> 00:22:19,980
+hasta la próxima
+

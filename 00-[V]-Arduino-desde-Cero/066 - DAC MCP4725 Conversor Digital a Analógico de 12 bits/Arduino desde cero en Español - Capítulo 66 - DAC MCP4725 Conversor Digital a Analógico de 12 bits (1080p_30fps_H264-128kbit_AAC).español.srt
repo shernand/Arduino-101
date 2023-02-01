@@ -1,0 +1,1600 @@
+1
+00:00:01,209 --> 00:00:06,940
+hola bienvenidos a un nuevo capítulo de
+
+2
+00:00:04,389 --> 00:00:09,099
+arduino desde cero en español
+
+3
+00:00:06,940 --> 00:00:11,888
+en esta oportunidad veremos un módulo
+
+4
+00:00:09,099 --> 00:00:14,169
+conversor digital analógico que nos
+
+5
+00:00:11,888 --> 00:00:16,660
+permitirá generar con precisión un
+
+6
+00:00:14,169 --> 00:00:19,089
+verdadero voltaje analógico para
+
+7
+00:00:16,660 --> 00:00:21,778
+diversidad de proyectos analizaremos
+
+8
+00:00:19,089 --> 00:00:24,219
+cuestiones relacionadas a la resolución
+
+9
+00:00:21,778 --> 00:00:26,589
+características de la conversión y
+
+10
+00:00:24,219 --> 00:00:28,418
+pruebas con multímetro y osciloscopio
+
+11
+00:00:26,589 --> 00:00:31,000
+para verificar su correcto
+
+12
+00:00:28,419 --> 00:00:33,579
+funcionamiento el módulo lleva el nombre
+
+13
+00:00:31,000 --> 00:00:38,049
+de este pequeño amigo el circuito
+
+14
+00:00:33,579 --> 00:00:41,170
+integrado en el cp 47 25 su conexión es
+
+15
+00:00:38,049 --> 00:00:43,718
+muy simple mediante base y 12 y en su
+
+16
+00:00:41,170 --> 00:00:46,329
+terminal de salida out podremos obtener
+
+17
+00:00:43,719 --> 00:00:49,088
+un verdadero voltaje analógico a
+
+18
+00:00:46,329 --> 00:00:52,299
+diferencia de lo que usábamos en wm
+
+19
+00:00:49,088 --> 00:00:55,268
+siendo una señal digital modulada para
+
+20
+00:00:52,299 --> 00:00:58,358
+simular una tensión analógica como vimos
+
+21
+00:00:55,268 --> 00:01:00,998
+su concepto en el capítulo 4 y luego en
+
+22
+00:00:58,359 --> 00:01:04,838
+un vídeo complementario visualizamos la
+
+23
+00:01:00,999 --> 00:01:07,269
+forma de la señal p w m el módulo es muy
+
+24
+00:01:04,838 --> 00:01:11,048
+versátil en su alimentación siendo
+
+25
+00:01:07,269 --> 00:01:13,780
+en el rango de 275 volts nosotros lo
+
+26
+00:01:11,049 --> 00:01:15,939
+usaremos con 5 con conexión directa con
+
+27
+00:01:13,780 --> 00:01:19,599
+arduino pero es apto también para
+
+28
+00:01:15,938 --> 00:01:22,568
+sistemas con lógica de 33 la resolución
+
+29
+00:01:19,599 --> 00:01:24,849
+es de 12 bits y en breve ya veremos qué
+
+30
+00:01:22,569 --> 00:01:26,829
+significa este número la corriente que
+
+31
+00:01:24,849 --> 00:01:29,798
+es capaz de suministrar en su piel de
+
+32
+00:01:26,828 --> 00:01:32,078
+salida es de 25 mil jumper máximo
+
+33
+00:01:29,799 --> 00:01:34,780
+adecuado para el control de otros
+
+34
+00:01:32,078 --> 00:01:37,328
+circuitos que conectemos a la misma el
+
+35
+00:01:34,780 --> 00:01:40,689
+último punto a destacar es que incorpora
+
+36
+00:01:37,328 --> 00:01:43,149
+una pequeña memoria brom no volátil que
+
+37
+00:01:40,688 --> 00:01:45,368
+permite retener un valor de manera que
+
+38
+00:01:43,149 --> 00:01:48,219
+cuando se pierda alimentación al módulo
+
+39
+00:01:45,368 --> 00:01:51,219
+al ser nuevamente energizado puede
+
+40
+00:01:48,219 --> 00:01:53,950
+iniciar desde un valor predefinido pero
+
+41
+00:01:51,219 --> 00:01:56,530
+analicemos un poco qué significan los 12
+
+42
+00:01:53,950 --> 00:01:58,329
+bits de resolución probablemente ya
+
+43
+00:01:56,530 --> 00:02:00,609
+sepas de cuando usamos la entrada
+
+44
+00:01:58,328 --> 00:02:04,000
+analógica de arduino decíamos que su
+
+45
+00:02:00,609 --> 00:02:06,968
+rango de valores es de 0 a 1.023 o
+
+46
+00:02:04,000 --> 00:02:09,878
+equivalente a 10 bits entonces con esta
+
+47
+00:02:06,968 --> 00:02:11,560
+fórmula genérica muy utilizada podemos
+
+48
+00:02:09,878 --> 00:02:13,810
+saber la cantidad de posibles
+
+49
+00:02:11,560 --> 00:02:17,530
+combinaciones que podemos obtener
+
+50
+00:02:13,810 --> 00:02:21,280
+con n cantidad de bits es 2 elevado a la
+
+51
+00:02:17,530 --> 00:02:23,800
+n donde 2 es lo que se denomina la base
+
+52
+00:02:21,280 --> 00:02:26,979
+2 porque estamos trabajando en binario
+
+53
+00:02:23,800 --> 00:02:30,910
+con un bit podemos obtener sólo dos
+
+54
+00:02:26,979 --> 00:02:34,119
+posibles combinaciones cero o uno de así
+
+55
+00:02:30,909 --> 00:02:36,729
+que la base es 2n es la cantidad o
+
+56
+00:02:34,120 --> 00:02:39,039
+número de bits entonces si nuestro dax
+
+57
+00:02:36,729 --> 00:02:41,738
+que olvidé mencionar corresponde a las
+
+58
+00:02:39,039 --> 00:02:45,909
+siglas en inglés de conversor digital
+
+59
+00:02:41,739 --> 00:02:49,299
+analógico es de 12 bits 2 a la 12 es
+
+60
+00:02:45,909 --> 00:02:51,729
+igual a 4 mil 96 te quiero mostrar
+
+61
+00:02:49,299 --> 00:02:54,580
+rápidamente cómo usar la calculadora de
+
+62
+00:02:51,729 --> 00:02:56,530
+windows para hacer este cálculo primero
+
+63
+00:02:54,580 --> 00:02:59,799
+desde este menú seleccionamos la opción
+
+64
+00:02:56,530 --> 00:03:02,439
+de científica ahora presionamos sobre el
+
+65
+00:02:59,799 --> 00:03:06,370
+número 2 que es la base y luego este
+
+66
+00:03:02,439 --> 00:03:11,650
+botón de x elevado a la iss y finalmente
+
+67
+00:03:06,370 --> 00:03:14,500
+el número 12 igual y vemos que es 4.096
+
+68
+00:03:11,650 --> 00:03:18,250
+muy bien para poner en contexto el
+
+69
+00:03:14,500 --> 00:03:20,560
+significado de 4.096 veamos el siguiente
+
+70
+00:03:18,250 --> 00:03:23,979
+gráfico en la línea vertical
+
+71
+00:03:20,560 --> 00:03:26,469
+a colocar 0 volts en la parte inferior y
+
+72
+00:03:23,979 --> 00:03:28,689
+5 en la parte superior
+
+73
+00:03:26,469 --> 00:03:31,539
+este es el rango de voltajes mínimo y
+
+74
+00:03:28,689 --> 00:03:33,699
+máximo que podemos obtener a la salida
+
+75
+00:03:31,539 --> 00:03:36,219
+del dac si a esta sección la dividimos
+
+76
+00:03:33,699 --> 00:03:38,829
+en cuatro mil noventa y seis tramos o
+
+77
+00:03:36,219 --> 00:03:41,620
+segmentos también llamados divisiones
+
+78
+00:03:38,830 --> 00:03:44,170
+tendremos algo como esto debo aclarar
+
+79
+00:03:41,620 --> 00:03:46,989
+que no está escala pero la idea es que
+
+80
+00:03:44,169 --> 00:03:49,479
+sea representativo del concepto queda
+
+81
+00:03:46,989 --> 00:03:51,819
+claro a primera vista que no es infinita
+
+82
+00:03:49,479 --> 00:03:55,109
+la cantidad de pasos que existen para
+
+83
+00:03:51,818 --> 00:03:58,149
+llegar de 0 a 5 volts existen segmentos
+
+84
+00:03:55,110 --> 00:04:00,580
+discretos de cierto valor también vemos
+
+85
+00:03:58,150 --> 00:04:03,519
+la relación entre los bits de resolución
+
+86
+00:04:00,580 --> 00:04:05,980
+y la cantidad de segmentos discretos a
+
+87
+00:04:03,519 --> 00:04:09,129
+mayor cantidad de bits segmentos más
+
+88
+00:04:05,979 --> 00:04:11,829
+pequeños pero ya con 12 bits verás que
+
+89
+00:04:09,129 --> 00:04:14,199
+la resolución es muy buena para saber el
+
+90
+00:04:11,830 --> 00:04:21,720
+voltaje de cada uno de los segmentos es
+
+91
+00:04:14,199 --> 00:04:23,620
+muy fácil 5volts / 4.096 esto nos da 000
+
+92
+00:04:21,720 --> 00:04:26,290
+122 volts
+
+93
+00:04:23,620 --> 00:04:30,040
+pasado a mili world para no tener que
+
+94
+00:04:26,290 --> 00:04:31,030
+lidiar con tantos ceros es de 122 mil
+
+95
+00:04:30,040 --> 00:04:33,879
+volts
+
+96
+00:04:31,029 --> 00:04:36,698
+este es el voltaje de cada segmento aquí
+
+97
+00:04:33,879 --> 00:04:39,040
+representado en el gráfico es el mínimo
+
+98
+00:04:36,699 --> 00:04:41,439
+incremento que podemos obtener entre
+
+99
+00:04:39,040 --> 00:04:44,110
+valores a la salida del módulo en
+
+100
+00:04:41,439 --> 00:04:47,139
+definitiva si le ordenamos al tag que
+
+101
+00:04:44,110 --> 00:04:50,400
+por ejemplo aplique en su salida 3 volts
+
+102
+00:04:47,139 --> 00:04:55,600
+el próximo valor no podrá ser menor a
+
+103
+00:04:50,399 --> 00:04:57,579
+300 122 volts nuevamente queda claro que
+
+104
+00:04:55,600 --> 00:04:59,949
+no se puede establecer cualquier valor
+
+105
+00:04:57,579 --> 00:05:03,939
+pero realmente en términos prácticos
+
+106
+00:04:59,949 --> 00:05:06,430
+tener tramos discretos de 122 mil volts
+
+107
+00:05:03,939 --> 00:05:08,100
+es lo suficientemente bueno todo
+
+108
+00:05:06,430 --> 00:05:11,918
+dependerá de la aplicación
+
+109
+00:05:08,100 --> 00:05:14,080
+entonces si para el rango de 0 a 5 volts
+
+110
+00:05:11,918 --> 00:05:16,899
+tenemos cuatro mil noventa y seis tramos
+
+111
+00:05:14,079 --> 00:05:20,139
+podemos enumerar los comenzando desde
+
+112
+00:05:16,899 --> 00:05:23,799
+cero para cero volts y hasta cuatro mil
+
+113
+00:05:20,139 --> 00:05:26,560
+95 para el valor máximo de 5 volts
+
+114
+00:05:23,800 --> 00:05:28,660
+entonces surge la pregunta si desea
+
+115
+00:05:26,560 --> 00:05:29,949
+obtener un voltaje de salida de por
+
+116
+00:05:28,660 --> 00:05:33,310
+ejemplo 3
+
+117
+00:05:29,949 --> 00:05:35,560
+qué valor debo enviarle al conversor muy
+
+118
+00:05:33,310 --> 00:05:38,199
+simple teniendo en cuenta que el tag
+
+119
+00:05:35,560 --> 00:05:41,170
+para funcionar debe tener una referencia
+
+120
+00:05:38,199 --> 00:05:44,079
+y esa referencia es siempre el voltaje
+
+121
+00:05:41,170 --> 00:05:46,840
+aplicado a veces que en nuestro caso es
+
+122
+00:05:44,079 --> 00:05:49,300
+de 5 volts ahora con regla de tres
+
+123
+00:05:46,839 --> 00:05:54,489
+simple podemos responder a la pregunta
+
+124
+00:05:49,300 --> 00:05:58,569
+si 5volts es equivalente a 4.095 3 volts
+
+125
+00:05:54,490 --> 00:06:00,759
+es x donde x es la incógnita la regla de
+
+126
+00:05:58,569 --> 00:06:07,209
+tres simple nos indica que para resolver
+
+127
+00:06:00,759 --> 00:06:10,779
+la ecuación es 3 volts x 4.095 y todo /
+
+128
+00:06:07,209 --> 00:06:15,430
+5 volts y si hacemos la cuenta el valor
+
+129
+00:06:10,779 --> 00:06:20,229
+nos da 2.457 de manera que al dax
+
+130
+00:06:15,430 --> 00:06:22,000
+debemos enviarle el número 2.457 él
+
+131
+00:06:20,230 --> 00:06:25,480
+mismo nos brindará en su salida
+
+132
+00:06:22,000 --> 00:06:27,670
+analógica un voltaje de 3 volts una
+
+133
+00:06:25,480 --> 00:06:29,710
+ecuación muy fácil de calcular y le
+
+134
+00:06:27,670 --> 00:06:31,689
+implementaremos luego en programación
+
+135
+00:06:29,709 --> 00:06:35,019
+pero ahora veamos el circuito de
+
+136
+00:06:31,689 --> 00:06:36,579
+conexión con arduino veces en el módulo
+
+137
+00:06:35,019 --> 00:06:40,149
+lo conectaremos de forma
+
+138
+00:06:36,579 --> 00:06:42,908
+directa a 5 goltz de arduino genere del
+
+139
+00:06:40,149 --> 00:06:45,339
+módulo a genio de arduino verás que
+
+140
+00:06:42,908 --> 00:06:48,098
+aparecen dos conexiones de gene de
+
+141
+00:06:45,339 --> 00:06:50,560
+podrás usar cualquiera de ellas ya que
+
+142
+00:06:48,098 --> 00:06:52,899
+se encuentran conectadas entre sí la de
+
+143
+00:06:50,560 --> 00:06:55,389
+arriba queda convenientemente junto al
+
+144
+00:06:52,899 --> 00:06:57,728
+pin de salida auto y es útil para
+
+145
+00:06:55,389 --> 00:07:00,090
+conectar con otros circuitos o en
+
+146
+00:06:57,728 --> 00:07:03,788
+nuestro caso un instrumento de medición
+
+147
+00:07:00,089 --> 00:07:06,128
+nos queda la base y 12 donde esa idea
+
+148
+00:07:03,788 --> 00:07:11,110
+del módulo lo conectamos a la entrada
+
+149
+00:07:06,129 --> 00:07:13,629
+analógica a 4 de arduino y ssl a 5 como
+
+150
+00:07:11,110 --> 00:07:16,360
+siempre en la nota dejo el resumen de
+
+151
+00:07:13,629 --> 00:07:19,360
+las conexiones como es usual de otros
+
+152
+00:07:16,360 --> 00:07:22,270
+módulos por 12 podremos establecer la
+
+153
+00:07:19,360 --> 00:07:25,180
+dirección en este caso mediante puentes
+
+154
+00:07:22,269 --> 00:07:28,448
+con soldadura aquí una ampliación de la
+
+155
+00:07:25,180 --> 00:07:33,129
+zona para ver mejor la pista central es
+
+156
+00:07:28,449 --> 00:07:35,919
+la que conecta al pin del msp 4725 que
+
+157
+00:07:33,129 --> 00:07:38,800
+establece la dirección en realidad aquí
+
+158
+00:07:35,918 --> 00:07:41,408
+debería aparecer una soldadura que une
+
+159
+00:07:38,800 --> 00:07:42,699
+estas dos pistas la central y la
+
+160
+00:07:41,408 --> 00:07:45,099
+superior
+
+161
+00:07:42,699 --> 00:07:48,250
+coloca el pin mediante una resistencia
+
+162
+00:07:45,100 --> 00:07:50,350
+de pull down a gene de mi módulo vino
+
+163
+00:07:48,250 --> 00:07:52,689
+tal cual se muestra y funciona
+
+164
+00:07:50,350 --> 00:07:55,090
+adecuadamente pero en teoría debería
+
+165
+00:07:52,689 --> 00:07:58,389
+estar la soldadura que mencionaba en
+
+166
+00:07:55,089 --> 00:08:01,959
+dicho caso de la dirección y 12 es la 0
+
+167
+00:07:58,389 --> 00:08:04,839
+x 62 si por el contrario debemos cambiar
+
+168
+00:08:01,959 --> 00:08:08,379
+la dirección y 12 podríamos unir con
+
+169
+00:08:04,839 --> 00:08:11,739
+soldadura estas dos pistas la central y
+
+170
+00:08:08,379 --> 00:08:16,000
+la inferior que dice bsc de esa manera
+
+171
+00:08:11,740 --> 00:08:18,970
+en la dirección y 12 cambia a la 0 x 63
+
+172
+00:08:16,000 --> 00:08:20,949
+y eso es todo para la conexión para
+
+173
+00:08:18,970 --> 00:08:22,900
+simplificar la programación como es
+
+174
+00:08:20,949 --> 00:08:25,599
+usual instalaremos una librería
+
+175
+00:08:22,899 --> 00:08:27,699
+específica así que abramos el id de
+
+176
+00:08:25,600 --> 00:08:30,910
+arduino y desde el menú programa
+
+177
+00:08:27,699 --> 00:08:33,789
+seleccionamos incluir librería y luego
+
+178
+00:08:30,910 --> 00:08:35,879
+administrar bibliotecas aguardamos unos
+
+179
+00:08:33,789 --> 00:08:41,349
+segundos y en el campo de búsqueda
+
+180
+00:08:35,879 --> 00:08:43,809
+escribimos msp 4725 devuelve dos
+
+181
+00:08:41,350 --> 00:08:46,600
+resultados en la que usaremos la del
+
+182
+00:08:43,809 --> 00:08:49,029
+desarrollador y da fruto de manera que
+
+183
+00:08:46,600 --> 00:08:51,730
+la seleccionamos y el botón instalar
+
+184
+00:08:49,029 --> 00:08:54,189
+verás que aparece una ventana indicando
+
+185
+00:08:51,730 --> 00:08:57,670
+que es necesario descargar una librería
+
+186
+00:08:54,190 --> 00:09:00,700
+adicional con el nombre y la fruta vas a
+
+187
+00:08:57,669 --> 00:09:03,969
+joe esto es correcto así que vamos
+
+188
+00:09:00,700 --> 00:09:06,160
+directo al botón instó hoy y luego de
+
+189
+00:09:03,970 --> 00:09:09,009
+pocos segundos podemos confirmar con el
+
+190
+00:09:06,159 --> 00:09:11,949
+texto de install que el proceso ya ha
+
+191
+00:09:09,009 --> 00:09:14,409
+finalizado y podemos cerrar la ventana
+
+192
+00:09:11,950 --> 00:09:16,150
+del gestor en este primer programa
+
+193
+00:09:14,409 --> 00:09:18,699
+la intención es verificar el
+
+194
+00:09:16,149 --> 00:09:20,519
+funcionamiento del módulo y la precisión
+
+195
+00:09:18,700 --> 00:09:22,840
+con la que entrega el voltaje
+
+196
+00:09:20,519 --> 00:09:26,079
+conectaremos al circuito que vimos
+
+197
+00:09:22,840 --> 00:09:28,330
+anteriormente un texto o multimedia para
+
+198
+00:09:26,080 --> 00:09:30,970
+verificarlo en la primera línea
+
+199
+00:09:28,330 --> 00:09:33,759
+incluimos la librería wáyar para la
+
+200
+00:09:30,970 --> 00:09:37,990
+comunicación por bass y 12 y luego la
+
+201
+00:09:33,759 --> 00:09:41,080
+que instalamos aida fruit msp 4725
+
+202
+00:09:37,990 --> 00:09:45,220
+creamos un objeto con el nombre jack que
+
+203
+00:09:41,080 --> 00:09:48,670
+será del tipo e id a fruit msp 4725
+
+204
+00:09:45,220 --> 00:09:51,790
+usaremos sus funciones asociadas para en
+
+205
+00:09:48,669 --> 00:09:54,009
+pocas líneas tener control del módulo en
+
+206
+00:09:51,789 --> 00:09:54,879
+el 'set-up' inicializa mos el monitor
+
+207
+00:09:54,009 --> 00:09:58,990
+serie
+
+208
+00:09:54,879 --> 00:10:02,200
+a los usuales 9.600 bps y con la función
+
+209
+00:09:58,990 --> 00:10:07,539
+vienen del objeto that asignamos la
+
+210
+00:10:02,200 --> 00:10:10,840
+dirección y 12 0 x 62 cambiaríamos a 0 x
+
+211
+00:10:07,539 --> 00:10:13,389
+63 y soldar amos el pin de dirección del
+
+212
+00:10:10,840 --> 00:10:16,360
+circuito a veces como vimos cuando
+
+213
+00:10:13,389 --> 00:10:20,019
+analizamos el circuito de conexión luego
+
+214
+00:10:16,360 --> 00:10:22,090
+un simple texto estático de iniciando en
+
+215
+00:10:20,019 --> 00:10:24,909
+el loop usaremos una función para
+
+216
+00:10:22,090 --> 00:10:27,670
+indicarle al módulo que aplique 5
+
+217
+00:10:24,909 --> 00:10:30,519
+voltajes diferentes a intervalos de 5
+
+218
+00:10:27,669 --> 00:10:33,219
+segundos cada uno de esa manera podremos
+
+219
+00:10:30,519 --> 00:10:35,949
+visualizar en el texto multimedia los
+
+220
+00:10:33,220 --> 00:10:38,649
+mismos la función utilizada es set
+
+221
+00:10:35,950 --> 00:10:41,590
+voltage y veamos esta nota al margen
+
+222
+00:10:38,649 --> 00:10:44,019
+para entender sus parámetros el primer
+
+223
+00:10:41,590 --> 00:10:46,210
+parámetro corresponde al valor que
+
+224
+00:10:44,019 --> 00:10:48,340
+enviaremos al dock para que aplique un
+
+225
+00:10:46,210 --> 00:10:51,009
+voltaje en su salida es el valor
+
+226
+00:10:48,340 --> 00:10:53,530
+numérico que saldrá como resultado de
+
+227
+00:10:51,009 --> 00:10:56,379
+aplicar la regla de tres simple el
+
+228
+00:10:53,529 --> 00:10:58,629
+segundo parámetro eprom es un valor
+
+229
+00:10:56,379 --> 00:11:02,169
+volea no del tipo true
+
+230
+00:10:58,629 --> 00:11:04,059
+falls verdadero o falso que indica si el
+
+231
+00:11:02,169 --> 00:11:06,610
+valor especificado en el primer
+
+232
+00:11:04,059 --> 00:11:09,519
+parámetro vamos a almacenarlo en su
+
+233
+00:11:06,610 --> 00:11:12,100
+memoria interna no volátil de esa manera
+
+234
+00:11:09,519 --> 00:11:14,409
+si fuese un valor de true al perder
+
+235
+00:11:12,100 --> 00:11:16,840
+alimentación y recuperarla luego
+
+236
+00:11:14,409 --> 00:11:19,389
+iniciará siempre desde este valor
+
+237
+00:11:16,840 --> 00:11:21,519
+especificado nosotros en el programa de
+
+238
+00:11:19,389 --> 00:11:23,970
+ejemplo trabajaremos siempre con falls
+
+239
+00:11:21,519 --> 00:11:27,460
+falso pero es bueno tener a disposición
+
+240
+00:11:23,970 --> 00:11:30,580
+esta posibilidad de memorizar un valor
+
+241
+00:11:27,460 --> 00:11:33,160
+el tercer y último parámetro establece
+
+242
+00:11:30,580 --> 00:11:35,770
+la velocidad de comunicación del bass y
+
+243
+00:11:33,159 --> 00:11:38,529
+12 por defecto la librería ya lo
+
+244
+00:11:35,769 --> 00:11:42,279
+establece en 400 kilobits por segundo
+
+245
+00:11:38,529 --> 00:11:44,379
+que es el modo denominado fast de manera
+
+246
+00:11:42,279 --> 00:11:47,259
+que no es necesario especificar nada
+
+247
+00:11:44,379 --> 00:11:50,860
+para nuestro caso el módulo permite una
+
+248
+00:11:47,259 --> 00:11:53,259
+mayor velocidad de hasta 34 megabits por
+
+249
+00:11:50,860 --> 00:11:56,529
+segundo pero qué arduino en sus modelos
+
+250
+00:11:53,259 --> 00:12:00,100
+de microcontrolador 328 p no es capaz de
+
+251
+00:11:56,529 --> 00:12:02,799
+lograr así que trabajará a 400 kilobits
+
+252
+00:12:00,100 --> 00:12:04,278
+por segundo entonces en esta primer
+
+253
+00:12:02,799 --> 00:12:07,969
+línea del loop
+
+254
+00:12:04,278 --> 00:12:10,789
+el monitor serie el texto un volt luego
+
+255
+00:12:07,970 --> 00:12:14,209
+con set voltage vamos a establecer el
+
+256
+00:12:10,789 --> 00:12:16,490
+primer parámetro el valor a enviar aquí
+
+257
+00:12:14,208 --> 00:12:19,099
+aplicaremos directamente la regla de
+
+258
+00:12:16,490 --> 00:12:22,370
+tres simple que analizamos al principio
+
+259
+00:12:19,100 --> 00:12:23,209
+es el voltaje deseado en este caso un
+
+260
+00:12:22,370 --> 00:12:25,818
+volt
+
+261
+00:12:23,208 --> 00:12:30,919
+por eso el valor de 1 lo multiplicamos
+
+262
+00:12:25,818 --> 00:12:34,128
+por 4.095 y dividimos todo por 5 luego
+
+263
+00:12:30,919 --> 00:12:36,948
+como segundo parámetro falls para que no
+
+264
+00:12:34,129 --> 00:12:39,680
+memorice este valor y de esa manera ya
+
+265
+00:12:36,948 --> 00:12:42,409
+obtenemos un valor de un volt en la
+
+266
+00:12:39,679 --> 00:12:45,258
+salida del módulo lo mantenemos así por
+
+267
+00:12:42,409 --> 00:12:47,659
+5 segundos con este delay para poder
+
+268
+00:12:45,259 --> 00:12:49,850
+visualizarlo bien en el texto
+
+269
+00:12:47,659 --> 00:12:54,139
+luego básicamente se trata de repetir el
+
+270
+00:12:49,850 --> 00:12:56,839
+bloque de tres líneas para 2 3 4 y 5
+
+271
+00:12:54,139 --> 00:12:59,389
+volts la única diferencia es que
+
+272
+00:12:56,839 --> 00:13:02,029
+actualizamos el texto que se muestra en
+
+273
+00:12:59,389 --> 00:13:04,669
+el monitor serie para que quede acorde
+
+274
+00:13:02,028 --> 00:13:06,860
+con el valor de la salida y cambiamos el
+
+275
+00:13:04,669 --> 00:13:10,818
+voltaje en el primer parámetro de la
+
+276
+00:13:06,860 --> 00:13:13,220
+función y eso es todo vamos a verificar
+
+277
+00:13:10,818 --> 00:13:16,338
+subir el programa y abrir el monitor
+
+278
+00:13:13,220 --> 00:13:18,619
+serie podemos ver el tester conectado a
+
+279
+00:13:16,339 --> 00:13:22,729
+la salida del módulo muestra un voltaje
+
+280
+00:13:18,619 --> 00:13:25,729
+de 0 98 cuando el valor establecido por
+
+281
+00:13:22,729 --> 00:13:29,569
+programación era de un volt ahora vemos
+
+282
+00:13:25,729 --> 00:13:32,288
+que muestra 196 cuando lo programado era
+
+283
+00:13:29,568 --> 00:13:38,108
+de 2 enviamos qué sucede ahora con 3
+
+284
+00:13:32,288 --> 00:13:43,129
+muestra 295 en lugar de 4 en este caso 3
+
+285
+00:13:38,109 --> 00:13:43,970
+92 y finalmente 49 en lugar de los cinco
+
+286
+00:13:43,129 --> 00:13:47,178
+programados
+
+287
+00:13:43,970 --> 00:13:48,949
+luego repetirá el ciclo nuevamente queda
+
+288
+00:13:47,178 --> 00:13:51,379
+claro que la salida no tiene la
+
+289
+00:13:48,948 --> 00:13:54,048
+precisión buscada y hay una explicación
+
+290
+00:13:51,379 --> 00:13:56,329
+para este comportamiento pero primero
+
+291
+00:13:54,048 --> 00:13:58,850
+quiero mostrarte cómo se visualiza en el
+
+292
+00:13:56,328 --> 00:14:01,308
+osciloscopio una línea recta con el
+
+293
+00:13:58,850 --> 00:14:03,889
+voltaje programado que va cambiando cada
+
+294
+00:14:01,308 --> 00:14:06,558
+cinco segundos de esta manera queda
+
+295
+00:14:03,889 --> 00:14:09,288
+totalmente confirmado que se trata de un
+
+296
+00:14:06,558 --> 00:14:12,769
+verdadero voltaje de continua ningún
+
+297
+00:14:09,288 --> 00:14:15,499
+truco aplicado como si hacíamos con p w
+
+298
+00:14:12,769 --> 00:14:17,120
+m si revisamos la explicación anterior
+
+299
+00:14:15,499 --> 00:14:20,540
+con este gráfico
+
+300
+00:14:17,120 --> 00:14:22,820
+asumimos un valor de veces de 5 volts y
+
+301
+00:14:20,539 --> 00:14:26,419
+esa es la referencia que toma el dac
+
+302
+00:14:22,820 --> 00:14:30,379
+para dividir el voltaje en los 4.096
+
+303
+00:14:26,419 --> 00:14:32,809
+tramos pero si veces no es exactamente 5
+
+304
+00:14:30,379 --> 00:14:35,720
+entonces la fórmula nos dará un valor
+
+305
+00:14:32,809 --> 00:14:39,049
+incorrecto vamos a verificar el valor de
+
+306
+00:14:35,720 --> 00:14:41,810
+veces ser real aplicado al módulo voy a
+
+307
+00:14:39,049 --> 00:14:44,959
+desconectar el cable en la salida para
+
+308
+00:14:41,809 --> 00:14:47,119
+reconectar esta vez sobre bcc la
+
+309
+00:14:44,960 --> 00:14:49,610
+alimentación del módulo y vemos
+
+310
+00:14:47,120 --> 00:14:55,159
+claramente en el tester que muestra un
+
+311
+00:14:49,610 --> 00:14:57,830
+voltaje menor de unos 486 487 y
+
+312
+00:14:55,159 --> 00:15:00,469
+fluctuando un poco entonces verificamos
+
+313
+00:14:57,830 --> 00:15:03,200
+que debemos ajustar la fórmula en el
+
+314
+00:15:00,470 --> 00:15:06,410
+programa para corregir esta diferencia
+
+315
+00:15:03,200 --> 00:15:08,810
+lo hacemos muy fácil en esta línea donde
+
+316
+00:15:06,409 --> 00:15:11,240
+establecemos que deseamos un voltaje de
+
+317
+00:15:08,809 --> 00:15:14,149
+salida de un volt vamos a reemplazar
+
+318
+00:15:11,240 --> 00:15:18,440
+este 5 por el valor verdadero que
+
+319
+00:15:14,149 --> 00:15:21,819
+medimos 4.85 vimos que fluctúa va un
+
+320
+00:15:18,440 --> 00:15:25,520
+poco así que colocó un valor cercano
+
+321
+00:15:21,820 --> 00:15:28,040
+si apreciamos una diferencia lo mismo
+
+322
+00:15:25,519 --> 00:15:32,299
+para el resto en vez de dividir por 5
+
+323
+00:15:28,039 --> 00:15:35,149
+vamos a dividir por 4.85 en esta última
+
+324
+00:15:32,299 --> 00:15:37,278
+sección haremos una justa adicional ya
+
+325
+00:15:35,149 --> 00:15:41,600
+sabemos qué veces se ha aplicado el
+
+326
+00:15:37,278 --> 00:15:44,299
+módulo es 4.85 con lo cual no podemos
+
+327
+00:15:41,600 --> 00:15:46,580
+pedirle al dax que provea un voltaje
+
+328
+00:15:44,299 --> 00:15:49,699
+superior al que recibe en su
+
+329
+00:15:46,580 --> 00:15:53,930
+alimentación así que cambiaremos este 5
+
+330
+00:15:49,700 --> 00:15:57,890
+también por un 4.85 queda claro que
+
+331
+00:15:53,929 --> 00:16:00,169
+multiplicar por 4.85 y luego dividir por
+
+332
+00:15:57,889 --> 00:16:02,419
+el mismo número hace que se cancelen
+
+333
+00:16:00,169 --> 00:16:04,939
+mutuamente es pero la idea es que veas
+
+334
+00:16:02,419 --> 00:16:07,338
+que siempre aplicamos la misma regla de
+
+335
+00:16:04,940 --> 00:16:10,430
+tres simple entonces con estas
+
+336
+00:16:07,339 --> 00:16:13,730
+correcciones vamos a verificar subir el
+
+337
+00:16:10,429 --> 00:16:17,649
+programa y abrir el monitor serie esta
+
+338
+00:16:13,730 --> 00:16:21,440
+vez podemos ver que ahora obtenemos 101
+
+339
+00:16:17,649 --> 00:16:24,649
+genial tiene buena pinta ahora para los
+
+340
+00:16:21,440 --> 00:16:27,730
+dos volts el texto muestra 202
+
+341
+00:16:24,649 --> 00:16:31,639
+aguardamos al próximo valor
+
+342
+00:16:27,730 --> 00:16:35,899
+303 el ajuste dio resultado para la
+
+343
+00:16:31,639 --> 00:16:38,439
+salida programada de 4 obtenemos 403 y
+
+344
+00:16:35,899 --> 00:16:43,970
+finalmente para la salida programada de
+
+345
+00:16:38,440 --> 00:16:44,960
+485 obtenemos 489 vemos una mejora
+
+346
+00:16:43,970 --> 00:16:49,960
+significativa
+
+347
+00:16:44,960 --> 00:16:53,420
+quizás colocando 4.86 en vez de 4.85
+
+348
+00:16:49,960 --> 00:16:55,639
+hubiese quedado aún mejor de todas
+
+349
+00:16:53,419 --> 00:16:59,059
+maneras la idea es que puedas apreciar
+
+350
+00:16:55,639 --> 00:17:01,309
+cómo saber el voltaje aplicado al módulo
+
+351
+00:16:59,059 --> 00:17:03,949
+es importante para tener una buena
+
+352
+00:17:01,309 --> 00:17:06,589
+precisión de salida ya que el mismo es
+
+353
+00:17:03,950 --> 00:17:09,200
+utilizado por el dax como referencia
+
+354
+00:17:06,589 --> 00:17:11,720
+para finalizar el capítulo en un veremos
+
+355
+00:17:09,200 --> 00:17:14,539
+algunas de las muchas aplicaciones para
+
+356
+00:17:11,720 --> 00:17:17,089
+un módulo tag como el analizado en la
+
+357
+00:17:14,539 --> 00:17:19,240
+calibración de sensores o dispositivos
+
+358
+00:17:17,089 --> 00:17:22,519
+para ese caso la memoria no volátil
+
+359
+00:17:19,240 --> 00:17:24,740
+eprom es muy útil ya que establecido un
+
+360
+00:17:22,519 --> 00:17:27,859
+valor nos aseguramos que queden amor
+
+361
+00:17:24,740 --> 00:17:30,019
+izado y siempre arranque en el mismo ni
+
+362
+00:17:27,859 --> 00:17:32,119
+bien se aplica alimentación también
+
+363
+00:17:30,019 --> 00:17:33,589
+puede ser utilizado con un potenciómetro
+
+364
+00:17:32,119 --> 00:17:35,899
+digital
+
+365
+00:17:33,589 --> 00:17:38,028
+con un potenciómetro convencional
+
+366
+00:17:35,900 --> 00:17:40,278
+pudimos conectarlo como divisor de
+
+367
+00:17:38,028 --> 00:17:43,460
+tensión y obtener una tensión
+
+368
+00:17:40,278 --> 00:17:45,798
+proporcional al giro del eje pero si
+
+369
+00:17:43,460 --> 00:17:48,440
+quisiéramos tener un control totalmente
+
+370
+00:17:45,798 --> 00:17:51,829
+digital y prescindir de dispositivos
+
+371
+00:17:48,440 --> 00:17:53,690
+mecánicos el dac es una buena opción es
+
+372
+00:17:51,829 --> 00:17:56,119
+también utilizado en sistemas de
+
+373
+00:17:53,690 --> 00:17:59,019
+adquisición de datos donde la generación
+
+374
+00:17:56,119 --> 00:18:01,129
+de voltajes analógicos de precisión es
+
+375
+00:17:59,019 --> 00:18:04,190
+indispensable y también para la
+
+376
+00:18:01,130 --> 00:18:06,919
+generación de señales aunque restringido
+
+377
+00:18:04,190 --> 00:18:10,100
+a bajas frecuencias no por el propio
+
+378
+00:18:06,919 --> 00:18:12,710
+jack pero por la velocidad del base y 12
+
+379
+00:18:10,099 --> 00:18:15,678
+cuando digo bajas frecuencias tendrás
+
+380
+00:18:12,710 --> 00:18:18,169
+que pensar en el no mucho más de 200
+
+381
+00:18:15,679 --> 00:18:20,870
+hertz para la generación de señales
+
+382
+00:18:18,169 --> 00:18:23,480
+existen otros circuitos integrados más
+
+383
+00:18:20,869 --> 00:18:26,119
+adecuados que el presente pero lo listo
+
+384
+00:18:23,480 --> 00:18:28,308
+porque es una posibilidad y junto con la
+
+385
+00:18:26,119 --> 00:18:31,579
+librería se incorporan un par de
+
+386
+00:18:28,308 --> 00:18:34,548
+ejemplos para generar señales senoidal y
+
+387
+00:18:31,579 --> 00:18:37,609
+triangular para resumir vimos un módulo
+
+388
+00:18:34,548 --> 00:18:39,740
+conversor digital analógico que realiza
+
+389
+00:18:37,609 --> 00:18:40,459
+la acción opuesta de la que estamos
+
+390
+00:18:39,740 --> 00:18:44,210
+acostumbrado
+
+391
+00:18:40,460 --> 00:18:47,299
+arduino que incluye un ads si queremos
+
+392
+00:18:44,210 --> 00:18:49,910
+un verdadero voltaje analógico entonces
+
+393
+00:18:47,299 --> 00:18:53,809
+este módulo es una buena opción y además
+
+394
+00:18:49,910 --> 00:18:56,540
+de bajo costo con fácil conexión eso es
+
+395
+00:18:53,809 --> 00:18:59,329
+todo por este capítulo espero haya sido
+
+396
+00:18:56,539 --> 00:19:02,149
+de tu interés si es el caso recordad
+
+397
+00:18:59,329 --> 00:19:04,189
+dejar un me gusta suscribirte si aún no
+
+398
+00:19:02,150 --> 00:19:06,470
+lo has hecho y como siempre por
+
+399
+00:19:04,190 --> 00:19:11,590
+cualquier duda o comentario lo podrás
+
+400
+00:19:06,470 --> 00:19:11,589
+hacer debajo chao y hasta la próxima
+

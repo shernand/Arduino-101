@@ -1,0 +1,24 @@
+Un módulo de fuente diseñado para ubicarse en protoboard y aplicar diversas tensiones en los rieles para proyectos de Arduino y electrónica en general.
+Veremos en detalle los componentes, forma de ingresar con tensión no regulada y aplicar tensiones reguladas de 5 V y 3,3 V directo sobre los rieles de protoboard, también la utilización del puerto USB integrado como entrada y salida.
+
+
+#ArduinoFuenteProtoboard
+#ArduinoBreadboardPowerSupply
+#FuenteProtoboardMB102
+Fuente protoboard 5v
+Fuente de alimentacion para protoboard
+Como alimentar un protoboard
+Protoboard para principiantes
+Modulo 545043
+Modulo HW-131
+
+Marcas de tiempo:
+
+0:00 Introducción y Componentes del módulo
+2:37 Jumpers de selección de voltage
+4:50 Colocación en protoboard
+5:11 Ingresando con fuente de pared (no regulada)
+6:26 Verificación de tensiones con multímetro
+7:09 Uso del puerto USB y consideraciones
+7:41 Esquemático del módulo
+9:40 Conclusiones y despedida

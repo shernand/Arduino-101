@@ -1,0 +1,31 @@
+Veremos el principio de funcionamiento del acelerómetro y giróscopo MPU6050 para su uso en Arduino, ideal para obtener con precisión ángulos de inclinación (rotación) sobre 3 ejes, yaw, pitch y roll.
+Explicación didáctica de los conceptos de acelerómetro y giróscopo (o giroscopio), conexión con Arduino, instalación de librerías y códigos de ejemplo para su aplicación en la videa real.
+
+Librería I2cdev: https://github.com/jrowberg/i2cdevlib
+Librería Simple MPU6050: https://github.com/ZHomeSlice/Simple_MPU6050
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#MPU6050
+#Acelerómetro
+#Giróscopo
+MPU6050 Arduino Español
+MPU6050 calibration
+Arduino MPU6050 library
+Arduino MPU6050 example
+Giroscopio Arduino
+MPU6050 tutorial
+MPU6050 offsets
+
+Marcas de tiempo:
+
+0:00 Bienvenida e introducción
+2:40 Principio de funcionamiento acelerómetro
+5:42 Principio de funcionamiento giróscopo
+7:15 Conceptos de Yaw, Pitch y Roll
+9:46 Circuito de conexión
+11:52 Descarga e instalación de librerías
+14:18 Primer programa (ángulos Yaw, Pitch, Roll)
+34:19 Segundo programa (acción al superar ángulo Pitch)
+37:17 Conclusiones y despedida

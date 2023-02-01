@@ -1,0 +1,32 @@
+El sensor táctil capacitivo TTP223B permite detectar la presencia de un dedo a través de superficies intermedidas como ser papel, plástico, acrílico y vidrio, útil para ocultar al propio sensor muy utilizado en las industrias automotriz y médica.
+Veremos su principio de funcionamiento y experimentos prácticos de detección a través de distintos materiales y espesores de los mismos, dos programas para el control de un LED mediante PWM.
+
+También el análisis de modelo TTP223 con puentes A y B para cambio de lógica e interruptor momentáneo o encendido/apagado para usos sin microcontrolador.
+
+Código fuente de programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+
+#TTP223B
+#SensorTactil
+#TTP223
+TTP223B Arduino
+TTP223B touch sensor
+Arduino sensor tactil
+Sensor touch capacitivo Arduino
+Interruptor tactil
+Interruptor touch
+TTP223 Español
+ttp223 arduino
+
+Marcas de tiempo:
+
+0:00 Introducción y Principio de funcionamiento
+1:58 Componentes del módulo
+3:38 Circuito de conexión con Arduino
+4:25 Primer programa
+5:53 Primeros experimentos
+9:42 Segundo circuito de conexión
+10:26 Segundo programa
+13:58 Práctica de segundo programa
+15:01 Análisis de variante de módulo

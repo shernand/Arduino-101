@@ -1,0 +1,980 @@
+1
+00:00:01,149 --> 00:00:05,800
+hola a todos y bienvenidos a un nuevo
+
+2
+00:00:03,520 --> 00:00:06,549
+capítulo de arduino desde cero en
+
+3
+00:00:05,799 --> 00:00:08,888
+español
+
+4
+00:00:06,549 --> 00:00:14,320
+en esta oportunidad veremos un módulo
+
+5
+00:00:08,888 --> 00:00:16,600
+conversor de cdc modelo lm 25 96 el cual
+
+6
+00:00:14,320 --> 00:00:18,429
+nos permitirá flexibilidad a la hora de
+
+7
+00:00:16,600 --> 00:00:20,769
+alimentar nuestros proyectos de arduino
+
+8
+00:00:18,428 --> 00:00:22,838
+y electrónica en general ya en el
+
+9
+00:00:20,768 --> 00:00:24,698
+capítulo 50 hablamos sobre las
+
+10
+00:00:22,838 --> 00:00:27,698
+características del regulador que
+
+11
+00:00:24,699 --> 00:00:30,070
+incluye la propia placa de arduino 1 su
+
+12
+00:00:27,699 --> 00:00:31,810
+rango de tensión de entrada y suministro
+
+13
+00:00:30,070 --> 00:00:34,000
+de corriente que no siempre es
+
+14
+00:00:31,809 --> 00:00:36,100
+suficiente para todos los casos que se
+
+15
+00:00:34,000 --> 00:00:38,289
+nos puedan presentar también analizamos
+
+16
+00:00:36,100 --> 00:00:41,350
+una opción de utilizar una fuente de
+
+17
+00:00:38,289 --> 00:00:43,450
+computadora tipo x con un suministro de
+
+18
+00:00:41,350 --> 00:00:45,490
+corriente considerable pero su gran
+
+19
+00:00:43,450 --> 00:00:48,490
+dimensión hace que no sea una opción
+
+20
+00:00:45,490 --> 00:00:50,920
+viable para muchos proyectos dejaré un
+
+21
+00:00:48,490 --> 00:00:53,560
+enlace en la zona de descripción para el
+
+22
+00:00:50,920 --> 00:00:56,230
+capítulo 50 que si no lo viste te lo
+
+23
+00:00:53,560 --> 00:00:58,750
+recomiendo entonces un módulo regulador
+
+24
+00:00:56,229 --> 00:01:00,549
+externo que nos brinde mayor suministro
+
+25
+00:00:58,750 --> 00:01:03,100
+de corriente es interesante
+
+26
+00:01:00,549 --> 00:01:06,329
+adicionalmente si incluso la tensión de
+
+27
+00:01:03,100 --> 00:01:07,510
+salida es variable y no sólo obtener 5 o
+
+28
+00:01:06,329 --> 00:01:09,549
+33
+
+29
+00:01:07,510 --> 00:01:11,920
+sucede con el regulador interno de
+
+30
+00:01:09,549 --> 00:01:14,019
+arduino entonces en este capítulo el
+
+31
+00:01:11,920 --> 00:01:16,599
+protagonista será un módulo bien
+
+32
+00:01:14,019 --> 00:01:20,890
+compacto de bajo precio y probada
+
+33
+00:01:16,599 --> 00:01:23,409
+eficacia el lm 25 96 que se muestra en
+
+34
+00:01:20,890 --> 00:01:27,370
+la imagen se trata de un conversor de
+
+35
+00:01:23,409 --> 00:01:29,619
+cdc de cdc significa que trabaja con
+
+36
+00:01:27,370 --> 00:01:32,050
+tensión continua tanto en su entrada
+
+37
+00:01:29,620 --> 00:01:34,329
+como en su salida y además será del tipo
+
+38
+00:01:32,049 --> 00:01:37,509
+reductor conocido también por sus
+
+39
+00:01:34,329 --> 00:01:39,670
+nombres en inglés de step down o back el
+
+40
+00:01:37,510 --> 00:01:44,340
+rango de tensiones o voltaje de entrada
+
+41
+00:01:39,670 --> 00:01:48,460
+será de 45 a 40 volts y el de salida de
+
+42
+00:01:44,340 --> 00:01:50,829
+123 a 37 lo interesante es que podremos
+
+43
+00:01:48,459 --> 00:01:53,139
+establecer cualquier voltaje en el
+
+44
+00:01:50,829 --> 00:01:55,478
+mencionado rango de salida y de esa
+
+45
+00:01:53,140 --> 00:01:57,909
+manera no están limitados a valores pre
+
+46
+00:01:55,478 --> 00:02:00,280
+fijados también de importancia es el
+
+47
+00:01:57,909 --> 00:02:02,950
+suministro de corriente que llega a 3
+
+48
+00:02:00,280 --> 00:02:05,409
+samper como máximo seis veces más
+
+49
+00:02:02,950 --> 00:02:07,840
+corriente que el regulador incorporado
+
+50
+00:02:05,409 --> 00:02:10,359
+de la placa y de esta forma alimentar
+
+51
+00:02:07,840 --> 00:02:12,700
+dispositivos de alto consumo es
+
+52
+00:02:10,360 --> 00:02:13,130
+recomendable utilizar un disipador como
+
+53
+00:02:12,699 --> 00:02:15,469
+éste
+
+54
+00:02:13,129 --> 00:02:17,780
+y es relativamente pequeño y ya se
+
+55
+00:02:15,469 --> 00:02:20,270
+adquiere con un adhesivo que permite
+
+56
+00:02:17,780 --> 00:02:22,909
+ubicarlo directamente sobre el regulador
+
+57
+00:02:20,270 --> 00:02:25,250
+y de esa manera ayudar a disipar el
+
+58
+00:02:22,909 --> 00:02:26,960
+calor generado aquí en esta vista
+
+59
+00:02:25,250 --> 00:02:29,419
+superior se puede apreciar los
+
+60
+00:02:26,960 --> 00:02:31,010
+componentes que forman el módulo los
+
+61
+00:02:29,419 --> 00:02:33,979
+terminales de la izquierda con las
+
+62
+00:02:31,009 --> 00:02:36,079
+denominaciones in más o menos se
+
+63
+00:02:33,979 --> 00:02:38,509
+utilizarán para ingresar con el voltaje
+
+64
+00:02:36,080 --> 00:02:40,969
+a regular del lado opuesto serán los
+
+65
+00:02:38,509 --> 00:02:44,239
+terminales con las denominaciones out +
+
+66
+00:02:40,969 --> 00:02:47,449
+y out - correspondientes al voltaje de
+
+67
+00:02:44,240 --> 00:02:49,159
+salida regulado al valor deseado a estos
+
+68
+00:02:47,449 --> 00:02:51,679
+terminales se les suelen soldar
+
+69
+00:02:49,159 --> 00:02:55,729
+directamente cables este es el circuito
+
+70
+00:02:51,680 --> 00:02:58,550
+integrado lm 2596 que da nombre al
+
+71
+00:02:55,729 --> 00:03:01,069
+módulo y a su lado un potenciómetro o
+
+72
+00:02:58,550 --> 00:03:03,800
+preset multi vuelta que permite ajustar
+
+73
+00:03:01,069 --> 00:03:05,959
+el voltaje de salida al deseado ya
+
+74
+00:03:03,800 --> 00:03:07,850
+veremos en breve cómo regularlo mediante
+
+75
+00:03:05,960 --> 00:03:09,830
+el uso de un destornillador
+
+76
+00:03:07,849 --> 00:03:13,280
+el módulo consta de otros componentes
+
+77
+00:03:09,830 --> 00:03:15,920
+pasivos un diodo shot que un inductor y
+
+78
+00:03:13,280 --> 00:03:18,080
+un led que enciende al recibir voltaje
+
+79
+00:03:15,919 --> 00:03:19,729
+en los terminales de entrada al módulo
+
+80
+00:03:18,080 --> 00:03:22,129
+decíamos al principio
+
+81
+00:03:19,729 --> 00:03:24,829
+el conversor al de sds es del tipo
+
+82
+00:03:22,128 --> 00:03:27,408
+reductor eso significa que el voltaje de
+
+83
+00:03:24,830 --> 00:03:29,150
+salida siempre será menor que el voltaje
+
+84
+00:03:27,408 --> 00:03:31,699
+de entrada para el funcionamiento
+
+85
+00:03:29,150 --> 00:03:33,830
+correcto del conversor la diferencia
+
+86
+00:03:31,699 --> 00:03:37,250
+entre entrada y salida debe ser de al
+
+87
+00:03:33,830 --> 00:03:39,890
+menos 15 volts un ejemplo para que quede
+
+88
+00:03:37,250 --> 00:03:43,068
+claro sería suponer que deseamos obtener
+
+89
+00:03:39,889 --> 00:03:45,048
+en su salida una atención de 5 volts y
+
+90
+00:03:43,068 --> 00:03:49,009
+entonces a la entrada del conversor
+
+91
+00:03:45,049 --> 00:03:51,140
+debemos aplicar como mínimo 6,5 es un
+
+92
+00:03:49,009 --> 00:03:53,719
+valor a tener en cuenta y es simple
+
+93
+00:03:51,139 --> 00:03:57,649
+calcularlo comenzando por la salida que
+
+94
+00:03:53,719 --> 00:03:59,269
+se desea obtener sumando 15 y ese será
+
+95
+00:03:57,650 --> 00:04:01,819
+el valor mínimo a aplicar
+
+96
+00:03:59,269 --> 00:04:03,950
+voy a soldar le unos cables a la entrada
+
+97
+00:04:01,818 --> 00:04:06,560
+y salida del módulo para mostrarte su
+
+98
+00:04:03,949 --> 00:04:08,659
+comportamiento en la vida real del lado
+
+99
+00:04:06,560 --> 00:04:10,579
+izquierdo de pantalla con el tester de
+
+100
+00:04:08,659 --> 00:04:13,159
+color amarillo tengo conectada una
+
+101
+00:04:10,579 --> 00:04:15,170
+fuente de alimentación variable a la
+
+102
+00:04:13,159 --> 00:04:18,288
+entrada del módulo podremos visualizar
+
+103
+00:04:15,169 --> 00:04:20,238
+el voltaje de entrada al módulo sobre la
+
+104
+00:04:18,288 --> 00:04:22,519
+parte derecha otro tester para
+
+105
+00:04:20,238 --> 00:04:23,239
+visualizar el voltaje a la salida del
+
+106
+00:04:22,519 --> 00:04:25,098
+mismo
+
+107
+00:04:23,240 --> 00:04:26,480
+voy a encender la fuente y verás que el
+
+108
+00:04:25,098 --> 00:04:30,529
+tester amarillo marca
+
+109
+00:04:26,480 --> 00:04:32,600
+una atención de 12 a 12 volts digamos 12
+
+110
+00:04:30,529 --> 00:04:35,539
+para redondear tensión de el led
+
+111
+00:04:32,600 --> 00:04:37,460
+incorporado en el módulo de color azul y
+
+112
+00:04:35,540 --> 00:04:41,270
+en el tester de la derecha indica el
+
+113
+00:04:37,459 --> 00:04:43,519
+voltaje de salida de 994 y esta es la
+
+114
+00:04:41,269 --> 00:04:45,500
+primera vez que conecto el módulo así
+
+115
+00:04:43,519 --> 00:04:47,569
+que el potenciómetro se encuentra en una
+
+116
+00:04:45,500 --> 00:04:49,610
+posición desconocida por eso es
+
+117
+00:04:47,569 --> 00:04:51,680
+importante primero regularlo a la
+
+118
+00:04:49,610 --> 00:04:54,259
+tensión deseada antes de conectar
+
+119
+00:04:51,680 --> 00:04:57,019
+cualquier tipo de dispositivo supongamos
+
+120
+00:04:54,259 --> 00:04:59,120
+que necesitamos 5volts entonces con un
+
+121
+00:04:57,019 --> 00:05:02,000
+destornillador comenzamos a girar el
+
+122
+00:04:59,120 --> 00:05:04,430
+potenciómetro como es multi vueltas que
+
+123
+00:05:02,000 --> 00:05:07,250
+puede requerir de varias vueltas en un
+
+124
+00:05:04,430 --> 00:05:09,410
+sentido u otro para llegar al valor
+
+125
+00:05:07,250 --> 00:05:11,959
+deseado de paso podrás ver que
+
+126
+00:05:09,410 --> 00:05:14,240
+efectivamente podrías asignar cualquier
+
+127
+00:05:11,959 --> 00:05:16,669
+valor intermedio dependiendo del
+
+128
+00:05:14,240 --> 00:05:19,639
+proyecto pero seguiremos hasta lograr
+
+129
+00:05:16,670 --> 00:05:21,530
+los 5 goltz de ejemplo que es un voltaje
+
+130
+00:05:19,639 --> 00:05:23,870
+clásico para arduino
+
+131
+00:05:21,529 --> 00:05:25,729
+si te pasaras un poco entonces sería
+
+132
+00:05:23,870 --> 00:05:28,579
+cuestión de girar en sentido contrario
+
+133
+00:05:25,730 --> 00:05:31,610
+hasta que el texto indique exactamente
+
+134
+00:05:28,579 --> 00:05:32,490
+el valor perfecto ya tenemos nuestros 5
+
+135
+00:05:31,610 --> 00:05:34,620
+volts
+
+136
+00:05:32,490 --> 00:05:36,840
+de una entrada de 12 claro que el
+
+137
+00:05:34,620 --> 00:05:39,300
+regulador está pensado para compensar
+
+138
+00:05:36,839 --> 00:05:41,879
+cualquier diferencia o variación de la
+
+139
+00:05:39,300 --> 00:05:44,009
+entrada para comprobarlo voy a subir la
+
+140
+00:05:41,879 --> 00:05:46,110
+atención de la entrada veras que ahora
+
+141
+00:05:44,009 --> 00:05:49,379
+el tester amarillo va mostrando el
+
+142
+00:05:46,110 --> 00:05:51,810
+incremento y me detengo en unos 13 6
+
+143
+00:05:49,379 --> 00:05:54,029
+volts sería el equivalente a la tensión
+
+144
+00:05:51,810 --> 00:05:57,060
+que tendría una batería de automóvil o
+
+145
+00:05:54,029 --> 00:05:59,698
+de moto bien cargada verás que el tester
+
+146
+00:05:57,060 --> 00:06:02,699
+en la salida se mantuvo siempre de forma
+
+147
+00:05:59,699 --> 00:06:05,009
+precisa en 5 volts si ahora bajará la
+
+148
+00:06:02,699 --> 00:06:08,728
+tensión de entrada a un valor menor de
+
+149
+00:06:05,009 --> 00:06:11,550
+12 por ejemplo a unos 87 verás que
+
+150
+00:06:08,728 --> 00:06:13,560
+nuevamente el módulo compensa y mantiene
+
+151
+00:06:11,550 --> 00:06:15,408
+estable la salida al valor que
+
+152
+00:06:13,560 --> 00:06:18,598
+establecimos con el potenciómetro
+
+153
+00:06:15,408 --> 00:06:21,329
+perfecto funciona adecuadamente
+
+154
+00:06:18,598 --> 00:06:23,639
+vuelvo nuevamente a unos 12 volts como
+
+155
+00:06:21,329 --> 00:06:26,250
+al principio mi fuente tiene un control
+
+156
+00:06:23,639 --> 00:06:28,829
+analógico por ese motivo las variaciones
+
+157
+00:06:26,250 --> 00:06:30,509
+se ven reflejadas en el tester voy a
+
+158
+00:06:28,829 --> 00:06:31,859
+establecer un nuevo valor para el
+
+159
+00:06:30,509 --> 00:06:34,259
+voltaje de salida
+
+160
+00:06:31,860 --> 00:06:36,360
+por ejemplo 33 colocando el
+
+161
+00:06:34,259 --> 00:06:38,939
+destornillador y girando hasta obtener
+
+162
+00:06:36,360 --> 00:06:41,189
+exactamente dicho valor
+
+163
+00:06:38,939 --> 00:06:43,800
+5 voltajes del cual podríamos requerir
+
+164
+00:06:41,189 --> 00:06:46,019
+un buen suministro de corriente que este
+
+165
+00:06:43,800 --> 00:06:48,629
+módulo es capaz de brindar nuevamente
+
+166
+00:06:46,019 --> 00:06:50,879
+con pequeños ajustes lograremos el valor
+
+167
+00:06:48,629 --> 00:06:53,550
+deseado siempre es importante verificar
+
+168
+00:06:50,879 --> 00:06:55,800
+el voltaje de salida antes de conectar
+
+169
+00:06:53,550 --> 00:06:58,290
+cualquier dispositivo quizás desde la
+
+170
+00:06:55,800 --> 00:07:00,660
+última vez que usamos el módulo no
+
+171
+00:06:58,290 --> 00:07:02,430
+recordemos en qué valor lo dejamos de
+
+172
+00:07:00,660 --> 00:07:04,950
+esa manera verificamos que podemos
+
+173
+00:07:02,430 --> 00:07:07,650
+establecer un voltaje de salida
+
+174
+00:07:04,949 --> 00:07:10,229
+regulando el potenciómetro y también que
+
+175
+00:07:07,649 --> 00:07:12,539
+variaciones en la tensión de entrada no
+
+176
+00:07:10,230 --> 00:07:14,759
+afectan el valor de la salida para
+
+177
+00:07:12,540 --> 00:07:17,280
+finalizar el capítulo no quiero dejar de
+
+178
+00:07:14,759 --> 00:07:21,089
+hacer mención al clásico regulador de la
+
+179
+00:07:17,279 --> 00:07:23,819
+vieja escuela el l m 317 que aquí se
+
+180
+00:07:21,089 --> 00:07:26,189
+muestra existen módulos en la actualidad
+
+181
+00:07:23,819 --> 00:07:28,230
+que utilizan a este regulador y como
+
+182
+00:07:26,189 --> 00:07:32,279
+verás las características son muy
+
+183
+00:07:28,230 --> 00:07:36,600
+similares al lm 25 96 y el voltaje de
+
+184
+00:07:32,279 --> 00:07:39,119
+entrada de 340 volts el de salida de 12
+
+185
+00:07:36,600 --> 00:07:43,409
+a 37 pero el suministro de corriente
+
+186
+00:07:39,120 --> 00:07:47,429
+máximo es de 15 am pero la mitad que él
+
+187
+00:07:43,408 --> 00:07:49,468
+m 25 96 adicionalmente otra desventaja
+
+188
+00:07:47,428 --> 00:07:51,888
+de este regulador es que al ser menos
+
+189
+00:07:49,468 --> 00:07:54,360
+eficiente requiere de un disipador
+
+190
+00:07:51,889 --> 00:07:56,610
+considerablemente voluminoso como este
+
+191
+00:07:54,360 --> 00:07:58,739
+de aquí para entender mejor los tipos de
+
+192
+00:07:56,610 --> 00:08:01,319
+reguladores veamos el siguiente diagrama
+
+193
+00:07:58,738 --> 00:08:03,329
+no entraremos en detalle pero me parece
+
+194
+00:08:01,319 --> 00:08:05,489
+interesante que tengas en cuenta el
+
+195
+00:08:03,329 --> 00:08:07,769
+panorama completo los reguladores
+
+196
+00:08:05,488 --> 00:08:10,799
+reductores se dividen en dos grandes
+
+197
+00:08:07,769 --> 00:08:12,989
+categorías los lineales y los conmutados
+
+198
+00:08:10,800 --> 00:08:15,629
+los lineales a su vez podrán ser t
+
+199
+00:08:12,988 --> 00:08:18,899
+voltajes de salida fijo como la ya
+
+200
+00:08:15,629 --> 00:08:23,579
+conocida desde hace décadas serie 78
+
+201
+00:08:18,899 --> 00:08:25,949
+como ser el 78 05 el 78 12 entre otros
+
+202
+00:08:23,579 --> 00:08:28,468
+los lineales con voltajes de salida
+
+203
+00:08:25,949 --> 00:08:33,060
+variable aquí encontraremos el recién
+
+204
+00:08:28,468 --> 00:08:36,838
+visto lm 317 y los videos siglas en
+
+205
+00:08:33,059 --> 00:08:40,109
+inglés de low drop out o baja caída cuyo
+
+206
+00:08:36,839 --> 00:08:43,560
+exponente más común es la serie a ms 11
+
+207
+00:08:40,110 --> 00:08:45,750
+17 baja caída hace referencia a la
+
+208
+00:08:43,559 --> 00:08:49,828
+diferencia de tensión entre salida y
+
+209
+00:08:45,750 --> 00:08:50,490
+entrada el l m 25 96 vimos que requiere
+
+210
+00:08:49,828 --> 00:08:53,939
+de al menos
+
+211
+00:08:50,490 --> 00:08:56,639
+15 volts los que le dio pueden trabajar
+
+212
+00:08:53,940 --> 00:08:59,190
+con diferencias más pequeñas haciendo
+
+213
+00:08:56,639 --> 00:09:01,500
+los ideales para aplicaciones móviles a
+
+214
+00:08:59,190 --> 00:09:04,380
+baterías los reguladores connotados
+
+215
+00:09:01,500 --> 00:09:06,929
+también tienen variantes de voltaje fijo
+
+216
+00:09:04,379 --> 00:09:10,200
+y variable uno de los variables es el
+
+217
+00:09:06,929 --> 00:09:13,289
+protagonista de este capítulo el lm 25
+
+218
+00:09:10,200 --> 00:09:16,020
+96 la gran diferencia entre lineales y
+
+219
+00:09:13,289 --> 00:09:18,049
+conmutados es la eficiencia siendo los
+
+220
+00:09:16,019 --> 00:09:21,259
+lineales de cerca del 80 por ciento
+
+221
+00:09:18,049 --> 00:09:23,969
+mientras que los computados de al menos
+
+222
+00:09:21,259 --> 00:09:25,230
+90% de ahí la diferencia en la
+
+223
+00:09:23,970 --> 00:09:29,370
+disipación de calor
+
+224
+00:09:25,230 --> 00:09:32,759
+lm 25 96 es capaz de suministrar el
+
+225
+00:09:29,370 --> 00:09:35,220
+doble de corriente que el l m 317 con
+
+226
+00:09:32,759 --> 00:09:37,799
+menor disipación de calor y por ende
+
+227
+00:09:35,220 --> 00:09:41,100
+menor tamaño de disipador que existen
+
+228
+00:09:37,799 --> 00:09:44,338
+también conversores de cdc elevadores
+
+229
+00:09:41,100 --> 00:09:47,009
+step up o boost donde el voltaje de
+
+230
+00:09:44,339 --> 00:09:49,320
+salida es superior al de entrada al cual
+
+231
+00:09:47,009 --> 00:09:51,899
+le dedicaremos su propio análisis en un
+
+232
+00:09:49,320 --> 00:09:55,500
+futuro capítulo entonces para resumir
+
+233
+00:09:51,899 --> 00:09:58,350
+vimos un módulo conversor de cdc
+
+234
+00:09:55,500 --> 00:10:01,320
+muy útil con salida de voltaje variable
+
+235
+00:09:58,350 --> 00:10:03,180
+de bajo costo y simple de operar ideal
+
+236
+00:10:01,320 --> 00:10:05,520
+para tener a mano para todo tipo de
+
+237
+00:10:03,179 --> 00:10:07,559
+proyectos con arduino o electrónica en
+
+238
+00:10:05,519 --> 00:10:10,350
+general y eso es todo por este capítulo
+
+239
+00:10:07,559 --> 00:10:13,049
+si te pareció interesante recuerda dejar
+
+240
+00:10:10,350 --> 00:10:15,990
+un me gusta suscribirte y activar la
+
+241
+00:10:13,049 --> 00:10:18,569
+campana para recibir una notificación ni
+
+242
+00:10:15,990 --> 00:10:20,129
+bien se publica nuevo material y como
+
+243
+00:10:18,570 --> 00:10:23,940
+siempre por cualquier duda o comentario
+
+244
+00:10:20,129 --> 00:10:26,149
+lo podrás hacer debajo chao y hasta la
+
+245
+00:10:23,940 --> 00:10:26,150
+próxima
+

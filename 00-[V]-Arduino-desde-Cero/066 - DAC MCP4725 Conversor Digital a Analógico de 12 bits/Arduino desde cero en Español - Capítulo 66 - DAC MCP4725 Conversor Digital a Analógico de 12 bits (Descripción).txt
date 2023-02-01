@@ -1,0 +1,27 @@
+Un conversor Digital a Analógico (DAC) de fácil uso y conexión con Arduino es el MCP4725 para generar voltajes de continua en 12 bits de resolución y memoria no volátil EEPROM incorporada.
+Con sus 12 bits de resolución es posible obtener 4096 tramos o segmentos de tan solo 1,22 mV alimentado con 5V, veremos su respuesta y precisión con tester o multímetro y osciloscopio además de sus aplicaciones en la vida real.
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#MCP4725
+#ArduinoDAC
+#ConversorDigitalAnalogico
+MCP4725 Arduino
+MCP4725 Address
+Convertidor digital analogo
+Digital to analog converter
+Salida analogica Arduino
+Arduino salida analoga
+
+
+Marcas de tiempo:
+
+0:00 Introducción  y Características del módulo
+1:58 Análisis de bits de resolución
+6:32 Circuito de conexión
+8:20 Instalación de librería
+9:13 Primer programa (5 voltages diferentes)
+15:04 Segundo programa (recalculando para precisión)
+17:07 Aplicaciones del DAC en la vida real
+18:32 Resumen y despedida

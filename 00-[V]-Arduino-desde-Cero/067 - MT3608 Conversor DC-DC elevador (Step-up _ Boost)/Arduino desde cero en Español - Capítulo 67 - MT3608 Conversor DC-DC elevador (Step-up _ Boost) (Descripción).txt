@@ -1,0 +1,34 @@
+Un módulo compacto y eficiente para la elevación de voltage DC para Arduino y proyectos de electrónica en general.
+Con su amplio voltaje de entrada de 2 a 24 V permite elevar en el rango de 5 a 28 V y hasta 2A de suministro de corriente máximo.
+Veremos aplicaciones prácticas y sus limitaciones en función del voltaje de salida establecido, de esa forma completamos lo iniciado en el Capítulo 64 con los conversores DC-DC reductores en dicha ocasión.
+
+Recomendable ver Capítulo 50:
+https://www.youtube.com/watch?v=9SKD_p9sFcI
+
+Recomendable ver Capítulo 64:
+https://www.youtube.com/watch?v=tpZtv54kOqE
+
+
+#MT3608
+#ConversorDcDc
+#StepUp
+MT3608 Arduino
+MT3608 caracteristicas
+MT3608 boost converter
+Arduino step up
+Arduino boost converter
+Elevar tension de 5 a 12v
+Convertidor dc dc elevador
+mt3608 español
+Arduino boost converter
+elevador de voltaje boost
+
+
+Marcas de tiempo:
+
+0:00 Introducción
+0:32 Características del módulo MT3608
+1:55 Diversos usos prácticos
+4:35 Calculando suministro de corriente
+6:15 Puntos a favor y en contra
+7:23 Despedida, no olvides ...

@@ -1,0 +1,34 @@
+El circuito integrado 74HC595 permite ampliar la cantidad de salidas de Arduino de forma simple y económica, con solo 3 líneas de control podremos activar 8 salidas, veremos el principio de funcionamiento del registro de desplazamiento (shift register), conexión con Arduino y programas de ejemplo.
+También encadenaremos dos 74HC595 para el control de hasta 16 salidas con las mismas 3 líneas desde Arduino. La función shiftOut() se explica en detalle la cual facilita enormemente el proceso y hace el código muy sencillo.
+
+Enlace para descarga de Hoja de datos en PDF o visualización en línea:
+https://www.ti.com/product/SN74HC595
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+
+#74HC595
+#ShiftRegister
+#RegistroDesplazamiento
+shiftout
+74hc595 arduino
+74hc595 como funciona
+74hc595 arduino español
+registro de desplazamiento arduino
+shift register arduino
+ampliacion de pines arduino
+contador binario arduino
+
+
+Marcas de tiempo:
+
+0:00 Introducción
+0:58 Principio de funcionamiento
+6:51 Hoja de datos 74HC595
+8:18 Circuito de conexión (esquemático)
+10:51 Primer programa contador binario
+16:34 Segundo programas, LEDs específicos
+20:54 Encadenando dos 74HC595
+22:10 Tercer programa manejo de 16 salidas
+24:38 Conclusiones finales

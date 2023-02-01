@@ -1,0 +1,2000 @@
+1
+00:00:01,060 --> 00:00:07,089
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,488 --> 00:00:09,458
+61 de arduino desde cero en español
+
+3
+00:00:07,089 --> 00:00:11,528
+en esta oportunidad veremos un módulo
+
+4
+00:00:09,458 --> 00:00:14,198
+sensor de color que nos permitirá tomar
+
+5
+00:00:11,528 --> 00:00:16,359
+acciones en función del color al cual se
+
+6
+00:00:14,198 --> 00:00:19,179
+expone útil para diversidad de proyectos
+
+7
+00:00:16,359 --> 00:00:22,179
+de automatización el módulo consta del
+
+8
+00:00:19,178 --> 00:00:25,209
+sensor propiamente dicho que es el tse
+
+9
+00:00:22,178 --> 00:00:28,299
+tse 3200 y tiene a su alrededor un
+
+10
+00:00:25,210 --> 00:00:29,890
+plástico que cumple una doble función en
+
+11
+00:00:28,300 --> 00:00:32,679
+principio está pensado para poder
+
+12
+00:00:29,890 --> 00:00:35,140
+agregarle una lente para concentrar la
+
+13
+00:00:32,679 --> 00:00:36,399
+luz que le llega por eso dispone de una
+
+14
+00:00:35,140 --> 00:00:38,679
+rosca interna
+
+15
+00:00:36,399 --> 00:00:41,140
+en segundo lugar sirve para aislar al
+
+16
+00:00:38,679 --> 00:00:43,840
+sensor de la fuente de luz que brindarán
+
+17
+00:00:41,140 --> 00:00:46,480
+estos cuatro leds de color blanco de
+
+18
+00:00:43,840 --> 00:00:49,660
+alto brillo los leds se utilizan para
+
+19
+00:00:46,479 --> 00:00:52,149
+generar una luz intensa y así iluminar
+
+20
+00:00:49,659 --> 00:00:54,009
+la superficie que luego el sensor se
+
+21
+00:00:52,149 --> 00:00:56,109
+encargará de detectar el color de la
+
+22
+00:00:54,009 --> 00:00:58,629
+misma de manera que el módulo incluye
+
+23
+00:00:56,109 --> 00:01:01,299
+todo lo necesario para generar luz y
+
+24
+00:00:58,630 --> 00:01:03,700
+captar el reflejo sobre la superficie a
+
+25
+00:01:01,299 --> 00:01:05,530
+analizar veamos un poco más sobre el
+
+26
+00:01:03,700 --> 00:01:07,960
+sensor para entender su principio de
+
+27
+00:01:05,530 --> 00:01:09,519
+funcionamiento aquí sobre la izquierda
+
+28
+00:01:07,959 --> 00:01:11,978
+se encuentra la representación del
+
+29
+00:01:09,519 --> 00:01:14,530
+sensor con su encapsulado transparente
+
+30
+00:01:11,978 --> 00:01:17,049
+en el centro existe una matriz de foto
+
+31
+00:01:14,530 --> 00:01:19,118
+diodos los cuales permiten traducir la
+
+32
+00:01:17,049 --> 00:01:21,250
+luz que incide en ellos era una
+
+33
+00:01:19,118 --> 00:01:24,129
+corriente eléctrica que luego el mismo
+
+34
+00:01:21,250 --> 00:01:26,500
+sensor convertida en una señal cuadrada
+
+35
+00:01:24,129 --> 00:01:28,329
+de frecuencia variable para leer test de
+
+36
+00:01:26,500 --> 00:01:30,219
+arduino pero primero me interesa que
+
+37
+00:01:28,329 --> 00:01:33,609
+centremos la atención en esta imagen
+
+38
+00:01:30,219 --> 00:01:36,579
+cada cuadrado ya sea de color rojo verde
+
+39
+00:01:33,609 --> 00:01:40,840
+azul o blanco representa a un fotodiodo
+
+40
+00:01:36,579 --> 00:01:43,090
+el sensor tiene un total de 64 donde 16
+
+41
+00:01:40,840 --> 00:01:45,969
+tienen un filtro específico para el
+
+42
+00:01:43,090 --> 00:01:49,149
+color rojo 16 un filtro para el color
+
+43
+00:01:45,969 --> 00:01:52,329
+verde 16 un filtro para el color azul y
+
+44
+00:01:49,149 --> 00:01:54,549
+16 no tienen ningún filtro la idea es
+
+45
+00:01:52,329 --> 00:01:56,859
+que la luz que incide en el sensor se
+
+46
+00:01:54,549 --> 00:01:59,319
+pueda medir con cierta precisión en sus
+
+47
+00:01:56,859 --> 00:02:01,899
+colores principales si tú hicimos sólo
+
+48
+00:01:59,319 --> 00:02:04,508
+foto diodos sin filtro sería muy difícil
+
+49
+00:02:01,899 --> 00:02:06,819
+separar los componentes rojo verde y
+
+50
+00:02:04,509 --> 00:02:09,068
+azul por eso es que disponemos de fotos
+
+51
+00:02:06,819 --> 00:02:11,650
+diodos específicos para cada uno de los
+
+52
+00:02:09,068 --> 00:02:14,409
+colores mediante programación podremos
+
+53
+00:02:11,650 --> 00:02:17,349
+seleccionar cuál de ellos activar paraná
+
+54
+00:02:14,409 --> 00:02:19,479
+y el color de una superficie aquí debajo
+
+55
+00:02:17,349 --> 00:02:21,579
+se encuentra un diagrama en bloque que
+
+56
+00:02:19,479 --> 00:02:24,039
+resume la funcionalidad del sensor
+
+57
+00:02:21,580 --> 00:02:27,520
+tomado directo de la hoja de datos del
+
+58
+00:02:24,039 --> 00:02:29,650
+tse tse 3200 la luz incide en él a raíz
+
+59
+00:02:27,520 --> 00:02:32,230
+de foto diodos y luego existe un
+
+60
+00:02:29,650 --> 00:02:34,390
+circuito electrónico que convierte la
+
+61
+00:02:32,229 --> 00:02:37,060
+variación de corriente en variación de
+
+62
+00:02:34,389 --> 00:02:39,269
+frecuencia y así en la salida output
+
+63
+00:02:37,060 --> 00:02:42,129
+tendremos una señal con una frecuencia
+
+64
+00:02:39,270 --> 00:02:45,580
+proporcional al color detectado los
+
+65
+00:02:42,129 --> 00:02:48,519
+pines de control son 4 s2 y s3 que
+
+66
+00:02:45,580 --> 00:02:51,130
+controlan a la raíz de foto diodos s 0 y
+
+67
+00:02:48,520 --> 00:02:54,310
+s 1 para controlar el factor de
+
+68
+00:02:51,129 --> 00:02:57,099
+conversión de la frecuencia o output
+
+69
+00:02:54,310 --> 00:02:59,409
+enable activo con nivel bajo no lo
+
+70
+00:02:57,099 --> 00:03:01,870
+utilizaremos ya que el sensor mantiene
+
+71
+00:02:59,409 --> 00:03:04,090
+su salida constantemente activa con esta
+
+72
+00:03:01,870 --> 00:03:06,340
+línea con una resistencia de pull down
+
+73
+00:03:04,090 --> 00:03:08,259
+dentro del propio módulo analicemos
+
+74
+00:03:06,340 --> 00:03:10,780
+ahora la funcionalidad de las líneas de
+
+75
+00:03:08,259 --> 00:03:13,179
+control algo importante para saber cómo
+
+76
+00:03:10,780 --> 00:03:15,280
+programar desde arduino en la tabla se
+
+77
+00:03:13,180 --> 00:03:18,280
+muestran las distintas combinaciones de
+
+78
+00:03:15,280 --> 00:03:20,949
+las líneas de control s2 y s3 y el
+
+79
+00:03:18,280 --> 00:03:24,039
+efecto que producen en el sensor si está
+
+80
+00:03:20,949 --> 00:03:27,098
+s 2 como ese 3 tienen un nivel lógico
+
+81
+00:03:24,039 --> 00:03:29,530
+bajo lo daremos el comando de activarlos
+
+82
+00:03:27,098 --> 00:03:31,389
+fotodiodos con filtro rojo si nos
+
+83
+00:03:29,530 --> 00:03:33,340
+remitimos a esta imagen podrás
+
+84
+00:03:31,389 --> 00:03:36,068
+imaginarte que solo los cuadrados de
+
+85
+00:03:33,340 --> 00:03:37,090
+color rojo quedan activos y el resto
+
+86
+00:03:36,068 --> 00:03:38,979
+apagados
+
+87
+00:03:37,090 --> 00:03:41,229
+en definitiva permitiendo que solo los
+
+88
+00:03:38,979 --> 00:03:43,509
+foto dios' específicos para la detección
+
+89
+00:03:41,229 --> 00:03:46,659
+del color rojo quedan activos en el
+
+90
+00:03:43,509 --> 00:03:49,509
+sensor estos niveles lógicos sobre s2 y
+
+91
+00:03:46,659 --> 00:03:51,699
+s3 se pueden establecer fácilmente desde
+
+92
+00:03:49,509 --> 00:03:53,979
+arduino mediante pines digitales y
+
+93
+00:03:51,699 --> 00:03:56,738
+usando la función digital write
+
+94
+00:03:53,979 --> 00:03:59,979
+si ahora aplicamos un nivel bajo a ese 2
+
+95
+00:03:56,739 --> 00:04:02,200
+y un nivel alto height a ese 3 daremos
+
+96
+00:03:59,979 --> 00:04:05,169
+el comando de activar únicamente los
+
+97
+00:04:02,199 --> 00:04:07,899
+foto diodos de color azul los 16 que se
+
+98
+00:04:05,169 --> 00:04:11,048
+representan a sí como cuadrados de dicho
+
+99
+00:04:07,900 --> 00:04:13,569
+color con ácidos en un nivel alto y ese
+
+100
+00:04:11,049 --> 00:04:16,389
+3 en un nivel bajo activamos la foto
+
+101
+00:04:13,568 --> 00:04:18,699
+diodos sin filtro los cuadrados aquí de
+
+102
+00:04:16,389 --> 00:04:22,660
+color blanco y por último si colocamos
+
+103
+00:04:18,699 --> 00:04:24,789
+ambos s2 y s3 a un nivel alto activamos
+
+104
+00:04:22,660 --> 00:04:26,950
+los foto diodos de color verde ahora
+
+105
+00:04:24,790 --> 00:04:29,080
+abrimos otra tabla para ese cero
+
+106
+00:04:26,949 --> 00:04:31,509
+y ese uno no te preocupes que no es
+
+107
+00:04:29,079 --> 00:04:33,639
+necesario memorizar nada y traeremos las
+
+108
+00:04:31,509 --> 00:04:36,189
+tablas como una nota al margen cuando
+
+109
+00:04:33,639 --> 00:04:39,069
+hagamos la programación entonces es hora
+
+110
+00:04:36,189 --> 00:04:41,769
+de ver la funcionalidad de ese 0 y ese 1
+
+111
+00:04:39,069 --> 00:04:44,170
+del sensor con esta tabla y sus 4
+
+112
+00:04:41,769 --> 00:04:46,930
+posibles combinaciones para simplificar
+
+113
+00:04:44,170 --> 00:04:49,660
+vamos a comenzar de abajo hacia arriba
+
+114
+00:04:46,930 --> 00:04:50,500
+con ese 0 y ese 1 ambos con un nivel
+
+115
+00:04:49,660 --> 00:04:52,570
+alto
+
+116
+00:04:50,500 --> 00:04:55,629
+-hay logramos que la frecuencia en la
+
+117
+00:04:52,569 --> 00:04:58,689
+salida out del sensor sea al cien por
+
+118
+00:04:55,629 --> 00:05:00,610
+ciento equivalente a la no división de
+
+119
+00:04:58,689 --> 00:05:03,069
+la frecuencia original que brinda el
+
+120
+00:05:00,610 --> 00:05:04,420
+sensor resulta que este sensor está
+
+121
+00:05:03,069 --> 00:05:06,579
+pensado para diversidad de
+
+122
+00:05:04,420 --> 00:05:08,830
+microcontroladores y arduino no es
+
+123
+00:05:06,579 --> 00:05:11,139
+precisamente de los más rápidos para
+
+124
+00:05:08,829 --> 00:05:13,779
+procesar señales con lo cual la salida
+
+125
+00:05:11,139 --> 00:05:16,329
+original que ronda en los 600 kilos
+
+126
+00:05:13,779 --> 00:05:19,029
+hertz es demasiado elevada por eso si
+
+127
+00:05:16,329 --> 00:05:21,399
+colocamos ese cero con un nivel alto y
+
+128
+00:05:19,029 --> 00:05:23,709
+ese uno con uno bajo le indicamos al
+
+129
+00:05:21,399 --> 00:05:26,799
+sensor que deseamos que la salida out
+
+130
+00:05:23,709 --> 00:05:28,930
+sea un 20 por ciento de la original en
+
+131
+00:05:26,800 --> 00:05:32,079
+definitiva que divida la frecuencia por
+
+132
+00:05:28,930 --> 00:05:33,519
+5 de esa manera es apta para procesarla
+
+133
+00:05:32,079 --> 00:05:36,038
+con arduino y solos
+
+134
+00:05:33,519 --> 00:05:38,680
+que aplicaremos en programación quedan
+
+135
+00:05:36,038 --> 00:05:41,228
+otras dos opciones que no usaremos pero
+
+136
+00:05:38,680 --> 00:05:44,199
+igual se listan y son los casos de ese
+
+137
+00:05:41,228 --> 00:05:47,500
+cero en bajo y ese uno en alto para un
+
+138
+00:05:44,199 --> 00:05:50,259
+2% de la frecuencia original equivalente
+
+139
+00:05:47,500 --> 00:05:52,658
+a una división por 50 y una última con
+
+140
+00:05:50,259 --> 00:05:55,240
+ambos en nivel bajo para colocar el
+
+141
+00:05:52,658 --> 00:05:58,180
+sensor en modo de apagado power down
+
+142
+00:05:55,240 --> 00:06:01,060
+para reducir el consumo en definitiva el
+
+143
+00:05:58,180 --> 00:06:02,408
+modo que usaremos nosotros es el de 20%
+
+144
+00:06:01,060 --> 00:06:04,689
+genial
+
+145
+00:06:02,408 --> 00:06:07,300
+analizado el tema vamos al circuito de
+
+146
+00:06:04,689 --> 00:06:09,879
+conexión arduino será conveniente que
+
+147
+00:06:07,300 --> 00:06:12,129
+conectes al módulo directamente mediante
+
+148
+00:06:09,879 --> 00:06:14,500
+cables con arduino ya que el módulo es
+
+149
+00:06:12,129 --> 00:06:16,750
+algo grande para protoboard y no deja
+
+150
+00:06:14,500 --> 00:06:19,990
+espacio para conectarle cables de esa
+
+151
+00:06:16,750 --> 00:06:22,810
+manera debe cc del módulo iremos a 5
+
+152
+00:06:19,990 --> 00:06:25,030
+voltios de arduino de gene de del módulo
+
+153
+00:06:22,810 --> 00:06:27,579
+a gene de de arduino con eso queda
+
+154
+00:06:25,029 --> 00:06:29,829
+cubierto el tema alimentación notarás
+
+155
+00:06:27,579 --> 00:06:32,889
+que del lado opuesto existen otras dos
+
+156
+00:06:29,829 --> 00:06:35,408
+conexiones para veces e higiene son las
+
+157
+00:06:32,889 --> 00:06:37,300
+mismas en ambos lados y están conectadas
+
+158
+00:06:35,408 --> 00:06:39,789
+entre sí es para una cuestión de
+
+159
+00:06:37,300 --> 00:06:42,220
+comodidad de manera que podrás elegir
+
+160
+00:06:39,790 --> 00:06:45,069
+de la parte superior o el par de la
+
+161
+00:06:42,220 --> 00:06:47,740
+parte inferior del pin s 0 del módulo
+
+162
+00:06:45,069 --> 00:06:50,529
+iremos al pin digital número 4 de
+
+163
+00:06:47,740 --> 00:06:53,680
+arduino ocuparemos un total de 5 pines
+
+164
+00:06:50,529 --> 00:06:55,719
+aquí elegí del 4 al 8 de forma
+
+165
+00:06:53,680 --> 00:06:58,090
+consecutiva pero pueden ser cualquier
+
+166
+00:06:55,720 --> 00:07:00,160
+otros pines si alguno de estos ya los
+
+167
+00:06:58,089 --> 00:07:03,369
+estás usando para otro dispositivo o
+
+168
+00:07:00,160 --> 00:07:06,189
+sensor luego de ese 1 del módulo al pin
+
+169
+00:07:03,370 --> 00:07:08,980
+digital número 5 de arduino en la parte
+
+170
+00:07:06,189 --> 00:07:12,399
+inferior conectaremos ese 2 al pin
+
+171
+00:07:08,980 --> 00:07:15,670
+digital número 6 ese 3 al pin digital
+
+172
+00:07:12,399 --> 00:07:18,370
+número 7 y por último la salida out al
+
+173
+00:07:15,670 --> 00:07:20,770
+pin digital número 8 el pin con la
+
+174
+00:07:18,370 --> 00:07:22,840
+denominación led del módulo no lo
+
+175
+00:07:20,769 --> 00:07:25,329
+conectaremos es una línea de control
+
+176
+00:07:22,839 --> 00:07:27,639
+para encender o apagar los cuatro leds
+
+177
+00:07:25,329 --> 00:07:30,009
+blancos por defecto están siempre
+
+178
+00:07:27,639 --> 00:07:32,409
+activos y eso es todo para la conexión
+
+179
+00:07:30,009 --> 00:07:34,719
+como siempre en esta nota se encuentra
+
+180
+00:07:32,410 --> 00:07:37,090
+el resumen para la programación ninguna
+
+181
+00:07:34,720 --> 00:07:39,070
+librería es necesaria la idea de este
+
+182
+00:07:37,089 --> 00:07:41,649
+primer programa es mostrar mediante
+
+183
+00:07:39,069 --> 00:07:44,500
+monitor serie los valores leídos para
+
+184
+00:07:41,649 --> 00:07:46,149
+los colores rojo verde y azul y además
+
+185
+00:07:44,500 --> 00:07:48,670
+tomar una referencia
+
+186
+00:07:46,149 --> 00:07:51,009
+y luego en un segundo programa tomar una
+
+187
+00:07:48,670 --> 00:07:53,590
+acción en base al color detectado
+
+188
+00:07:51,009 --> 00:07:55,659
+comenzamos con esta serie de numeral
+
+189
+00:07:53,589 --> 00:07:59,829
+design para hacer la programación más
+
+190
+00:07:55,660 --> 00:08:04,689
+legible con el nombre s 0 al número 4 s
+
+191
+00:07:59,829 --> 00:08:08,919
+1 al 5 s 2 al 6 s 3 al 7 y el nombre
+
+192
+00:08:04,689 --> 00:08:11,709
+salida tss para el 8 donde conectamos la
+
+193
+00:08:08,920 --> 00:08:14,110
+salida out del módulo en necesitas
+
+194
+00:08:11,709 --> 00:08:17,859
+comenzamos definiendo con pink moon a
+
+195
+00:08:14,110 --> 00:08:19,990
+los pines s 0 a s 3 como salida output
+
+196
+00:08:17,860 --> 00:08:23,350
+ya que serán para el control del módulo
+
+197
+00:08:19,990 --> 00:08:25,300
+y la salida tss como entrada input para
+
+198
+00:08:23,350 --> 00:08:27,640
+leer la señal ahora vamos a establecer
+
+199
+00:08:25,300 --> 00:08:30,220
+la frecuencia de la señal de salida del
+
+200
+00:08:27,639 --> 00:08:32,559
+módulo voy a traer a pantalla una nota
+
+201
+00:08:30,220 --> 00:08:34,840
+al margen con las tablas que vimos antes
+
+202
+00:08:32,559 --> 00:08:38,529
+de aquí podemos recordar que colocando a
+
+203
+00:08:34,840 --> 00:08:41,530
+ese 0 en high y ese 1 el low lo grabamos
+
+204
+00:08:38,529 --> 00:08:43,539
+una salida de un 20% de la frecuencia
+
+205
+00:08:41,529 --> 00:08:45,939
+original lo establecemos aquí en el
+
+206
+00:08:43,539 --> 00:08:48,639
+setup ya que no lo estaremos modificando
+
+207
+00:08:45,940 --> 00:08:52,089
+más adelante finalmente inicializa mos
+
+208
+00:08:48,639 --> 00:08:54,730
+el monitor serie a 9.600 bps
+
+209
+00:08:52,089 --> 00:08:57,040
+la información adquirida en el loop de
+
+210
+00:08:54,730 --> 00:08:59,050
+manera muy simple estableceremos primero
+
+211
+00:08:57,039 --> 00:09:01,990
+la activación de los foto diodos de un
+
+212
+00:08:59,049 --> 00:09:04,149
+color leer la señal generada y almacenar
+
+213
+00:09:01,990 --> 00:09:06,278
+en una variable para luego mostrar en el
+
+214
+00:09:04,149 --> 00:09:08,558
+monitor comenzamos con la activación de
+
+215
+00:09:06,278 --> 00:09:10,448
+la foto diodos con filtros de color rojo
+
+216
+00:09:08,558 --> 00:09:14,469
+si vamos nuevamente la nota al margen
+
+217
+00:09:10,448 --> 00:09:17,258
+vemos que con s2 y s3 ambos en 'low
+
+218
+00:09:14,470 --> 00:09:21,209
+logramos la tarea así que con estos dos
+
+219
+00:09:17,259 --> 00:09:23,800
+digital write colocamos el log s2 y s3
+
+220
+00:09:21,208 --> 00:09:26,558
+ahora para leer la señal que genera el
+
+221
+00:09:23,799 --> 00:09:29,078
+módulo aplicaremos la función false en
+
+222
+00:09:26,558 --> 00:09:31,899
+esta función la usamos hace tiempo en el
+
+223
+00:09:29,078 --> 00:09:33,219
+capítulo 4 con el sensor ultrasónico y
+
+224
+00:09:31,899 --> 00:09:35,789
+permite obtener el valor en
+
+225
+00:09:33,220 --> 00:09:38,620
+microsegundos de una parte de la señal
+
+226
+00:09:35,789 --> 00:09:42,338
+recordad que el sensor brinda una señal
+
+227
+00:09:38,620 --> 00:09:46,209
+cuadrada de 50% de ciclo de trabajo con
+
+228
+00:09:42,339 --> 00:09:48,670
+pausa y entre paréntesis salida tss como
+
+229
+00:09:46,208 --> 00:09:51,308
+primer parámetro y luego como segundo
+
+230
+00:09:48,669 --> 00:09:53,679
+nos devolverá el tiempo en microsegundos
+
+231
+00:09:51,308 --> 00:09:56,948
+que la señal se encuentra en estado bajo
+
+232
+00:09:53,679 --> 00:09:58,959
+como el ciclo de trabajo es del 50% es
+
+233
+00:09:56,948 --> 00:10:01,750
+lo mismo tomar el nivel alto
+
+234
+00:09:58,960 --> 00:10:03,759
+y los tiempos son iguales en definitiva
+
+235
+00:10:01,750 --> 00:10:06,159
+lo que devuelve la función es el tiempo
+
+236
+00:10:03,759 --> 00:10:08,830
+medido en microsegundos en que la señal
+
+237
+00:10:06,159 --> 00:10:11,139
+permanece en estado bajo y ese valor lo
+
+238
+00:10:08,830 --> 00:10:13,930
+asignamos a una variable entera con el
+
+239
+00:10:11,139 --> 00:10:16,179
+nombre rojo podrás preguntarte entonces
+
+240
+00:10:13,929 --> 00:10:19,149
+el motivo por el cual obtenemos un valor
+
+241
+00:10:16,179 --> 00:10:20,859
+de tiempo o qué significa ese valor el
+
+242
+00:10:19,149 --> 00:10:23,319
+tema es que a medida que los foto diodos
+
+243
+00:10:20,860 --> 00:10:25,779
+de un color en este caso del rojo
+
+244
+00:10:23,320 --> 00:10:27,910
+perciben una mayor intensidad la
+
+245
+00:10:25,779 --> 00:10:30,669
+frecuencia aumenta o lo que es lo mismo
+
+246
+00:10:27,909 --> 00:10:33,339
+el periodo disminuye y como nosotros
+
+247
+00:10:30,669 --> 00:10:35,799
+estamos midiendo tiempo el mismo decrece
+
+248
+00:10:33,340 --> 00:10:38,139
+con la presencia de mayor intensidad de
+
+249
+00:10:35,799 --> 00:10:40,389
+color cuando hagamos la práctica quedará
+
+250
+00:10:38,139 --> 00:10:42,100
+más claro pero la idea es que tenga 50
+
+251
+00:10:40,389 --> 00:10:44,049
+que estaremos mostrando valores de
+
+252
+00:10:42,100 --> 00:10:46,210
+tiempo y podremos detectar la presencia
+
+253
+00:10:44,049 --> 00:10:48,729
+de un color específico como una
+
+254
+00:10:46,210 --> 00:10:51,490
+variación de dicho tiempo aplicaremos
+
+255
+00:10:48,730 --> 00:10:53,440
+una demora de 200 milisegundos de manera
+
+256
+00:10:51,490 --> 00:10:55,870
+de estabilizar la lectura antes de
+
+257
+00:10:53,440 --> 00:10:57,940
+conmutar a otro conjunto de foto diodos
+
+258
+00:10:55,870 --> 00:11:00,879
+haremos el mismo proceso para el color
+
+259
+00:10:57,940 --> 00:11:03,640
+verde estableciendo los valores de s2 y
+
+260
+00:11:00,879 --> 00:11:05,350
+s3 en high como se muestra en la tabla
+
+261
+00:11:03,639 --> 00:11:07,960
+aplicando la función
+
+262
+00:11:05,350 --> 00:11:10,810
+y almacenando el valor de la variable
+
+263
+00:11:07,960 --> 00:11:13,240
+con el nombre verde demora de 200
+
+264
+00:11:10,809 --> 00:11:16,119
+milisegundos para el color azul donde
+
+265
+00:11:13,240 --> 00:11:20,289
+según vemos en la tabla y c2 debe tener
+
+266
+00:11:16,120 --> 00:11:23,230
+un valor low y s3 high valls in y
+
+267
+00:11:20,289 --> 00:11:26,259
+almacenando el valor en azul y el último
+
+268
+00:11:23,230 --> 00:11:28,480
+delay de 200 milisegundos de manera que
+
+269
+00:11:26,259 --> 00:11:31,000
+ya tenemos en tres variables los valores
+
+270
+00:11:28,480 --> 00:11:33,009
+de cada color activamos de un color de
+
+271
+00:11:31,000 --> 00:11:35,470
+filtro de foto diego por ves para
+
+272
+00:11:33,009 --> 00:11:37,779
+obtener la mayor sensibilidad al mismo
+
+273
+00:11:35,470 --> 00:11:40,600
+ahora sólo resta mostrar en el monitor
+
+274
+00:11:37,779 --> 00:11:43,329
+serie con serial punto print r dos
+
+275
+00:11:40,600 --> 00:11:45,580
+puntos luego otro serial punto print con
+
+276
+00:11:43,330 --> 00:11:47,440
+el valor de la variable rojo para ir
+
+277
+00:11:45,580 --> 00:11:49,810
+generando columnas y quede todo
+
+278
+00:11:47,440 --> 00:11:52,240
+organizado imprimimos un espacio de
+
+279
+00:11:49,809 --> 00:11:54,519
+tabulación con sería el punto print
+
+280
+00:11:52,240 --> 00:11:57,549
+entre paréntesis comillas barra
+
+281
+00:11:54,519 --> 00:11:59,529
+invertida y la letra t mismo método para
+
+282
+00:11:57,549 --> 00:12:01,509
+el verde ya podrás darte cuenta que el
+
+283
+00:11:59,529 --> 00:12:03,549
+código puede ser algo largo pero es
+
+284
+00:12:01,509 --> 00:12:06,220
+básicamente repetir la misma metodología
+
+285
+00:12:03,549 --> 00:12:08,500
+para cada uno de los colores podríamos
+
+286
+00:12:06,220 --> 00:12:10,990
+haber creado una función pero creo que
+
+287
+00:12:08,500 --> 00:12:11,919
+así se entiende mejor entonces para el
+
+288
+00:12:10,990 --> 00:12:14,379
+verde escribir
+
+289
+00:12:11,919 --> 00:12:16,719
+y recorta dos puntos el valor de la
+
+290
+00:12:14,379 --> 00:12:19,629
+variable verde y espacio de tabulación
+
+291
+00:12:16,720 --> 00:12:22,240
+luego a dos puntos y el valor de la
+
+292
+00:12:19,629 --> 00:12:24,759
+variable azul pero con un serial punto
+
+293
+00:12:22,240 --> 00:12:27,159
+print line de manera que deje un salto
+
+294
+00:12:24,759 --> 00:12:29,980
+de línea y todo listo para los próximos
+
+295
+00:12:27,159 --> 00:12:32,919
+datos y ese es todo el programa vamos a
+
+296
+00:12:29,980 --> 00:12:35,680
+verificar subirlo y abrir el monitor
+
+297
+00:12:32,919 --> 00:12:37,870
+serie yo coloque sobre el escritorio la
+
+298
+00:12:35,679 --> 00:12:40,689
+parte posterior de un catálogo que tiene
+
+299
+00:12:37,870 --> 00:12:43,120
+un color negro opaco o mate de manera
+
+300
+00:12:40,690 --> 00:12:45,519
+que genere un buen contraste y poco
+
+301
+00:12:43,120 --> 00:12:48,009
+reflejo el sensor se encuentra a un par
+
+302
+00:12:45,519 --> 00:12:50,169
+de centímetros apuntando hacia abajo ya
+
+303
+00:12:48,009 --> 00:12:52,539
+que le estaremos colocando papeles de
+
+304
+00:12:50,169 --> 00:12:55,028
+distintos colores en el monitor serie se
+
+305
+00:12:52,539 --> 00:12:56,799
+muestran valores en tres columnas estos
+
+306
+00:12:55,028 --> 00:12:58,539
+valores corresponden al tiempo en
+
+307
+00:12:56,799 --> 00:13:01,838
+microsegundos que nos devuelve la
+
+308
+00:12:58,539 --> 00:13:04,208
+función false y si ahora colocó un trozo
+
+309
+00:13:01,839 --> 00:13:06,790
+de papel blanco verás cómo cambian los
+
+310
+00:13:04,208 --> 00:13:09,849
+valores en el monitor serie los mismos
+
+311
+00:13:06,789 --> 00:13:12,338
+decrecen en valor y es correcto porque a
+
+312
+00:13:09,850 --> 00:13:14,980
+medida que se detecta mayor incidencia
+
+313
+00:13:12,339 --> 00:13:16,959
+de un color la frecuencia aumenta pero
+
+314
+00:13:14,980 --> 00:13:18,579
+el periodo disminuye y nosotros
+
+315
+00:13:16,958 --> 00:13:20,979
+justamente estamos
+
+316
+00:13:18,578 --> 00:13:23,318
+tiempo para que veas nuevamente la
+
+317
+00:13:20,980 --> 00:13:26,139
+diferencia quitó el papel blanco y
+
+318
+00:13:23,318 --> 00:13:30,368
+volvemos al fondo negro los valores rojo
+
+319
+00:13:26,139 --> 00:13:32,860
+y verde rondando los 600 y azul en 200
+
+320
+00:13:30,369 --> 00:13:35,379
+este último tiene un valor más bajo que
+
+321
+00:13:32,860 --> 00:13:38,110
+el resto ya que en los leds blancos no
+
+322
+00:13:35,379 --> 00:13:39,730
+generan un blanco perfecto tienen una
+
+323
+00:13:38,110 --> 00:13:42,149
+tendencia al color azul
+
+324
+00:13:39,730 --> 00:13:44,709
+por eso detectamos más ese color
+
+325
+00:13:42,149 --> 00:13:47,438
+nuevamente el papel blanco para mostrar
+
+326
+00:13:44,708 --> 00:13:49,659
+la diferencia vamos a pasar a colocar un
+
+327
+00:13:47,438 --> 00:13:52,208
+papel de color rojo y de este nos
+
+328
+00:13:49,659 --> 00:13:54,009
+interesa obtener el valor mostrado en la
+
+329
+00:13:52,208 --> 00:13:56,438
+primera columna tenemos la mayor
+
+330
+00:13:54,009 --> 00:13:58,600
+variación ya que corresponde a la luz
+
+331
+00:13:56,438 --> 00:14:01,328
+que incide en las fotos diodos de color
+
+332
+00:13:58,600 --> 00:14:03,819
+rojo tendremos también variaciones en
+
+333
+00:14:01,328 --> 00:14:06,308
+verde y azul pero no en la misma medida
+
+334
+00:14:03,818 --> 00:14:09,159
+ya que no se trata de un color rojo
+
+335
+00:14:06,308 --> 00:14:11,438
+perfecto siempre tendremos componentes
+
+336
+00:14:09,159 --> 00:14:13,298
+del resto de colores vamos a notar los
+
+337
+00:14:11,438 --> 00:14:15,730
+valores aproximados para luego
+
+338
+00:14:13,298 --> 00:14:20,169
+implementar en el segundo programa rojo
+
+339
+00:14:15,730 --> 00:14:23,379
+con valores de cian verde de 400 y azul
+
+340
+00:14:20,169 --> 00:14:25,120
+de 70 sólo de forma aproximada no hace
+
+341
+00:14:23,379 --> 00:14:27,278
+falta gran precisión
+
+342
+00:14:25,120 --> 00:14:29,528
+al quitar el papel rojo verás cómo
+
+343
+00:14:27,278 --> 00:14:31,059
+vuelven los valores a los iniciales del
+
+344
+00:14:29,528 --> 00:14:33,100
+fondo negro
+
+345
+00:14:31,059 --> 00:14:35,319
+si ahora colocó un papel de color verde
+
+346
+00:14:33,100 --> 00:14:37,360
+podrás notar lo que imaginarás que la
+
+347
+00:14:35,320 --> 00:14:40,300
+segunda columna con el valor de color
+
+348
+00:14:37,360 --> 00:14:44,080
+verde es la que más se modifica anotemos
+
+349
+00:14:40,299 --> 00:14:48,159
+entonces los siguientes valores rojo 350
+
+350
+00:14:44,080 --> 00:14:50,620
+verde 200 y azul 100 mismo proceso para
+
+351
+00:14:48,159 --> 00:14:53,019
+el papel de color azul recordad que el
+
+352
+00:14:50,620 --> 00:14:55,629
+color azul varía menos porque nuestra
+
+353
+00:14:53,019 --> 00:14:58,449
+fuente de luz los leds blancos tienen
+
+354
+00:14:55,629 --> 00:15:01,000
+una tendencia al azul podrás notar como
+
+355
+00:14:58,450 --> 00:15:03,400
+al quitar los papeles siempre volvemos a
+
+356
+00:15:01,000 --> 00:15:06,879
+los valores iniciales de referencia para
+
+357
+00:15:03,399 --> 00:15:12,490
+el negro así que anotemos rojos 300
+
+358
+00:15:06,879 --> 00:15:14,769
+verdes 150 y azul 45 muy bien eso estuvo
+
+359
+00:15:12,490 --> 00:15:16,778
+interesante verificamos como el sensor
+
+360
+00:15:14,769 --> 00:15:18,879
+detectan los colores variando la
+
+361
+00:15:16,778 --> 00:15:21,700
+frecuencia de la señal que emite y
+
+362
+00:15:18,879 --> 00:15:23,528
+nosotros mostrando de forma numérica con
+
+363
+00:15:21,700 --> 00:15:25,660
+los valores que anotamos vamos a hacer
+
+364
+00:15:23,528 --> 00:15:28,149
+en este segundo programa que muestre de
+
+365
+00:15:25,659 --> 00:15:30,129
+forma directa en el monitor serie cada
+
+366
+00:15:28,149 --> 00:15:30,980
+vez que detecte alguno de los colores
+
+367
+00:15:30,129 --> 00:15:33,860
+rojo
+
+368
+00:15:30,980 --> 00:15:35,420
+verde o azul de forma muy simple lo
+
+369
+00:15:33,860 --> 00:15:37,820
+implementamos en base del primer
+
+370
+00:15:35,419 --> 00:15:39,889
+programa incorporando este bloque de
+
+371
+00:15:37,820 --> 00:15:42,050
+condicionales hacia el final del loop
+
+372
+00:15:39,889 --> 00:15:44,448
+traigo una nota al margen con los
+
+373
+00:15:42,049 --> 00:15:46,789
+valores anotados y así tener una
+
+374
+00:15:44,448 --> 00:15:49,519
+referencia cuando colocamos el papel de
+
+375
+00:15:46,789 --> 00:15:53,389
+color rojo obtuvimos un valor de rojo
+
+376
+00:15:49,519 --> 00:15:56,600
+cercano hacían uno de verde a 400 y uno
+
+377
+00:15:53,389 --> 00:15:58,970
+de azul de 70 entonces con este simple
+
+378
+00:15:56,600 --> 00:16:01,100
+condicional vamos a consultar si los
+
+379
+00:15:58,970 --> 00:16:03,889
+valores de las variables están dentro de
+
+380
+00:16:01,100 --> 00:16:06,680
+ciertos rangos y así mostrar el texto
+
+381
+00:16:03,889 --> 00:16:08,419
+por ejemplo en este caso rojo el
+
+382
+00:16:06,679 --> 00:16:10,309
+condicional consulta por los tres
+
+383
+00:16:08,419 --> 00:16:12,679
+colores recordad que a medida que se
+
+384
+00:16:10,309 --> 00:16:14,809
+detecta mayor intensidad de un color y
+
+385
+00:16:12,679 --> 00:16:17,328
+el valor que obtenemos que es el tiempo
+
+386
+00:16:14,809 --> 00:16:20,979
+de la señal disminuye por ese motivo
+
+387
+00:16:17,328 --> 00:16:23,838
+consultamos si rojo es menor a 150
+
+388
+00:16:20,980 --> 00:16:25,850
+dejamos un poco de variabilidad ya que
+
+389
+00:16:23,839 --> 00:16:27,589
+no siempre y los valores serán exactos
+
+390
+00:16:25,850 --> 00:16:30,649
+de la nota queda claro que en la
+
+391
+00:16:27,589 --> 00:16:34,160
+práctica leímos un valor de rojo cercano
+
+392
+00:16:30,649 --> 00:16:37,100
+a 100 con lo cual si rojo es menor a 150
+
+393
+00:16:34,159 --> 00:16:38,659
+estamos justo dentro de ese rango
+
+394
+00:16:37,100 --> 00:16:42,019
+bien estamos diciendo que valores
+
+395
+00:16:38,659 --> 00:16:44,600
+menores a 150 serán considerados como
+
+396
+00:16:42,019 --> 00:16:47,299
+válidos pero no basta con solo consultar
+
+397
+00:16:44,600 --> 00:16:50,090
+por un color ya que nunca obtendremos un
+
+398
+00:16:47,299 --> 00:16:52,490
+valor de un rojo perfecto que no refleje
+
+399
+00:16:50,090 --> 00:16:54,889
+parte de otros colores por eso dentro de
+
+400
+00:16:52,490 --> 00:16:57,980
+la condición preguntamos también si
+
+401
+00:16:54,889 --> 00:17:00,649
+verde es mayor a 300 como la condición
+
+402
+00:16:57,980 --> 00:17:03,230
+consulta por tres valores se usa el
+
+403
+00:17:00,649 --> 00:17:05,480
+doble ampersand a esto ya lo vimos en
+
+404
+00:17:03,230 --> 00:17:08,870
+otros programas tendrás que leerlo como
+
+405
+00:17:05,480 --> 00:17:14,420
+un i es decir si traducimos esta línea
+
+406
+00:17:08,869 --> 00:17:18,319
+sería si rojo es menor a 150 y verde es
+
+407
+00:17:14,420 --> 00:17:21,080
+mayor a 300 y azul es mayor a 60
+
+408
+00:17:18,319 --> 00:17:22,849
+entonces la condición es verdadera se
+
+409
+00:17:21,079 --> 00:17:25,309
+tienen que dar las tres condiciones en
+
+410
+00:17:22,849 --> 00:17:27,649
+simultáneo cualquiera de ellas que no se
+
+411
+00:17:25,309 --> 00:17:30,289
+cumplan hace que el condicional evalúe
+
+412
+00:17:27,650 --> 00:17:32,750
+falso tiene entonces el valor de azul
+
+413
+00:17:30,289 --> 00:17:34,789
+que lleva el mismo método de la nota
+
+414
+00:17:32,750 --> 00:17:37,640
+obtuvimos de la práctica un valor de
+
+415
+00:17:34,789 --> 00:17:39,799
+azul de 70 azul es el color que tiene
+
+416
+00:17:37,640 --> 00:17:41,509
+menos variación con lo cual en el
+
+417
+00:17:39,799 --> 00:17:43,379
+condicional para estar dentro de un
+
+418
+00:17:41,509 --> 00:17:46,349
+margen de seguridad diremos
+
+419
+00:17:43,380 --> 00:17:48,750
+azul es mayor a 60 si se cumplen las
+
+420
+00:17:46,349 --> 00:17:51,149
+tres condiciones estamos en presencia de
+
+421
+00:17:48,750 --> 00:17:54,599
+un color rojo por eso escribimos en el
+
+422
+00:17:51,150 --> 00:17:56,940
+monitor serie el texto rojo y así de
+
+423
+00:17:54,599 --> 00:17:59,639
+simple es tomar una acción al detectar
+
+424
+00:17:56,940 --> 00:18:01,559
+un color aquí para simplificar solo
+
+425
+00:17:59,640 --> 00:18:03,960
+escribimos en el monitor serie pero
+
+426
+00:18:01,559 --> 00:18:06,329
+podrías activar un motor o cualquier
+
+427
+00:18:03,960 --> 00:18:08,610
+dispositivo externo sin problemas
+
+428
+00:18:06,329 --> 00:18:10,769
+finalmente haremos el mismo tipo de
+
+429
+00:18:08,609 --> 00:18:12,779
+consulta para los colores verde y azul
+
+430
+00:18:10,769 --> 00:18:15,539
+tomando como referencia los valores
+
+431
+00:18:12,779 --> 00:18:17,759
+anotados del primer programa así que
+
+432
+00:18:15,539 --> 00:18:21,389
+para el verde consultamos si verde es
+
+433
+00:18:17,759 --> 00:18:24,000
+menor a 300 rojo mayor a 300 y azul
+
+434
+00:18:21,390 --> 00:18:26,430
+mayor a 80 verás que lo primero que
+
+435
+00:18:24,000 --> 00:18:29,039
+consultamos es el color que nos interesa
+
+436
+00:18:26,430 --> 00:18:31,500
+y el único donde la condición es que el
+
+437
+00:18:29,039 --> 00:18:34,349
+valor sea menor para los otros dos
+
+438
+00:18:31,500 --> 00:18:36,930
+colores es mayor lo mismo para el azul
+
+439
+00:18:34,349 --> 00:18:39,240
+con estos valores cabe aclarar que estos
+
+440
+00:18:36,930 --> 00:18:41,820
+valores son válidos para la práctica que
+
+441
+00:18:39,240 --> 00:18:44,039
+realice bajo mis condiciones de luz con
+
+442
+00:18:41,819 --> 00:18:45,599
+papeles de color que seguramente no
+
+443
+00:18:44,039 --> 00:18:48,240
+serán los mismos que vayas a utilizar
+
+444
+00:18:45,599 --> 00:18:50,099
+cuando lo realices en la práctica por
+
+445
+00:18:48,240 --> 00:18:52,589
+eso es importante realizar el pri
+
+446
+00:18:50,099 --> 00:18:54,359
+programa anotar los valores que sean los
+
+447
+00:18:52,589 --> 00:18:57,209
+particulares de tu caso y luego
+
+448
+00:18:54,359 --> 00:18:59,339
+aplicarlos al segundo programa si no se
+
+449
+00:18:57,210 --> 00:19:00,690
+da ninguna de las condiciones entonces
+
+450
+00:18:59,339 --> 00:19:03,000
+no hacemos nada
+
+451
+00:19:00,690 --> 00:19:05,279
+en definitiva estaremos mostrando a todo
+
+452
+00:19:03,000 --> 00:19:08,339
+el tiempo los valores leídos del sensor
+
+453
+00:19:05,279 --> 00:19:11,058
+y únicamente cuando detecte rojo verde o
+
+454
+00:19:08,339 --> 00:19:14,220
+azul intercalará el texto descriptivo
+
+455
+00:19:11,058 --> 00:19:17,129
+vamos entonces a verificar subir el
+
+456
+00:19:14,220 --> 00:19:18,990
+programa y abrir el monitor serie vimos
+
+457
+00:19:17,130 --> 00:19:21,330
+que se muestran los valores como los del
+
+458
+00:19:18,990 --> 00:19:24,089
+primer programa cuando el sensor apunta
+
+459
+00:19:21,329 --> 00:19:26,609
+a una superficie de color negro opaco o
+
+460
+00:19:24,089 --> 00:19:29,418
+mate voy a colocar el papel de color
+
+461
+00:19:26,609 --> 00:19:32,009
+rojo y veamos qué sucede efectivamente
+
+462
+00:19:29,419 --> 00:19:35,370
+intercalado con los valores leídos se
+
+463
+00:19:32,009 --> 00:19:37,558
+muestra el texto rojo perfecto el bloque
+
+464
+00:19:35,369 --> 00:19:39,869
+de condicionales detectó que los valores
+
+465
+00:19:37,558 --> 00:19:42,259
+se encontraban en el rango que definimos
+
+466
+00:19:39,869 --> 00:19:45,329
+para el color rojo y ejecutó la acción
+
+467
+00:19:42,259 --> 00:19:47,158
+especificada de mostrar el texto voy a
+
+468
+00:19:45,329 --> 00:19:48,689
+quitar el papel rojo vemos que
+
+469
+00:19:47,159 --> 00:19:51,210
+nuevamente se muestran los valores
+
+470
+00:19:48,690 --> 00:19:53,190
+captados por el sensor no cumple con
+
+471
+00:19:51,210 --> 00:19:55,650
+ninguna de las condiciones por eso no
+
+472
+00:19:53,190 --> 00:19:56,850
+muestra texto adicional si coloco un
+
+473
+00:19:55,650 --> 00:19:59,000
+papel de color verde
+
+474
+00:19:56,849 --> 00:20:01,079
+y ahora muestra el texto verde
+
+475
+00:19:59,000 --> 00:20:03,210
+intercalado con los valores leídos
+
+476
+00:20:01,079 --> 00:20:05,819
+parece que todo funciona según lo
+
+477
+00:20:03,210 --> 00:20:08,970
+programado veamos el último caso que es
+
+478
+00:20:05,819 --> 00:20:11,039
+el papel de color azul nuevamente si no
+
+479
+00:20:08,970 --> 00:20:13,799
+es ninguno de los tres colores no
+
+480
+00:20:11,039 --> 00:20:15,809
+muestra texto adicional y como no podía
+
+481
+00:20:13,799 --> 00:20:18,750
+ser de otra manera se muestra el texto
+
+482
+00:20:15,809 --> 00:20:21,779
+azul al detectar el color en el rango
+
+483
+00:20:18,750 --> 00:20:24,299
+especificado demostramos así que podemos
+
+484
+00:20:21,779 --> 00:20:27,089
+detectar los tres colores y tomar una
+
+485
+00:20:24,299 --> 00:20:29,369
+acción en cada caso con solo una serie
+
+486
+00:20:27,089 --> 00:20:31,829
+de simples condicionales detectar
+
+487
+00:20:29,369 --> 00:20:34,589
+colores puede ser útil para procesos de
+
+488
+00:20:31,829 --> 00:20:37,379
+automatización en líneas de producción o
+
+489
+00:20:34,589 --> 00:20:39,720
+en vehículos motorizados detectar líneas
+
+490
+00:20:37,380 --> 00:20:42,410
+en el piso de distintos colores para
+
+491
+00:20:39,720 --> 00:20:45,360
+tomar distintas rutas o delimitar zonas
+
+492
+00:20:42,410 --> 00:20:47,610
+eso es todo por este capítulo gracias
+
+493
+00:20:45,359 --> 00:20:49,919
+por la visita y como siempre te pido te
+
+494
+00:20:47,609 --> 00:20:52,229
+suscribas si aún no lo has hecho darle
+
+495
+00:20:49,920 --> 00:20:54,660
+un me gusta y activar la campana para
+
+496
+00:20:52,230 --> 00:20:57,089
+recibir una notificación ni bien se
+
+497
+00:20:54,660 --> 00:20:59,670
+publica nuevo material y por cualquier
+
+498
+00:20:57,089 --> 00:21:01,928
+duda o comentario lo podrás hacer debajo
+
+499
+00:20:59,670 --> 00:21:04,769
+que con gusto te responderé
+
+500
+00:21:01,929 --> 00:21:04,769
+y hasta la próxima
+
