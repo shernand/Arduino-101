@@ -1,0 +1,29 @@
+Mediante el sensor BMP280 🌡️ 💨 podremos fácilmente obtener valores de presión atmosférica y temperatura mediante una conexión a Arduino por bus serie SPI o I2C.
+En este capítulo veremos su fácil conexión mediante bus I2C y también como utilizarlo para medir altitud (altímetro).
+
+Recomendable ver Capítulo 35 sobre la comunicación por bus I2C: https://youtu.be/kuLgPLrg-cY
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoPresiónAtmosférica
+#ArduinoTemperatura
+#ArduinoAltitud
+Arduino BMP280
+BMP280 I2C
+Arduino sensor presion
+Pressure sensor Arduino
+Altitude sensor Arduino
+Arduino barometric pressure sensor
+Altimetro Arduino
+
+Marcas de tiempo:
+0:00 Introducción y Características del módulo
+2:15 Qué es la presión atmosférica ?
+3:38 Esquemático del módulo
+7:44 Circuito de conexión con Arduino
+9:10 Instalación librería BMP280
+10:39 Modificando librería
+12:34 Primer programa (visualizando valores)
+17:48 Segundo programa (calculando altitud)
+24:41 Múltiples usos en la vida real

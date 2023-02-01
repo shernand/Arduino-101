@@ -1,0 +1,30 @@
+Veremos en detalle las características del motor paso a paso unipolar 28BYJ-48 y su correspondiente módulo controlador basado en el ULN2003 para su comando desde Arduino.
+Se explicarán los 3 tipos de pasos que existen para energizar las bobinas del motor paso a paso (stepper) unipolar y la necesidad del uso de un controlador o driver.
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoPAP
+#ArduinoUnipolar
+#ArduinoStepper
+Motor paso a paso con Arduino
+Control de motor paso a paso unipolar
+Motor unipolar Arduino
+Arduino stepper motor
+Arduino stepper motor 28byj-48
+Arduino stepper tutorial
+Stepper motor driver
+ULN2003 motor paso a paso
+ULN2003 funcionamiento
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:35 Paso a paso unipolar
+5:16 ULN2003 driver (controlador)
+9:04 Circuito de conexión
+10:25 Diferente secuencias de pasos
+16:12 Primer programa (paso completo simple)
+23:00 Segundo programa (usando una matriz)
+27:51 Tercer programa (paso completo dos bobinas)
+29:30 Cuarto programa (secuencia medio paso)
+30:54 Resumen de lo visto y despedida

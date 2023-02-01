@@ -1,0 +1,2284 @@
+1
+00:00:01,659 --> 00:00:08,019
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,469 --> 00:00:10,210
+36 de arduino desde cero en español
+
+3
+00:00:08,019 --> 00:00:12,359
+en esta oportunidad veremos el uso del
+
+4
+00:00:10,210 --> 00:00:16,359
+sensor de presión atmosférica y
+
+5
+00:00:12,359 --> 00:00:18,698
+temperatura modelo bmp 280 el cual es
+
+6
+00:00:16,359 --> 00:00:23,050
+muy pequeño y mediante una interfaz
+
+7
+00:00:18,699 --> 00:00:24,789
+serie dual speed y 12 podremos conectar
+
+8
+00:00:23,050 --> 00:00:28,570
+lo fácilmente arduino
+
+9
+00:00:24,789 --> 00:00:30,759
+el sensor es muy pequeño sólo tiene 25 x
+
+10
+00:00:28,570 --> 00:00:33,039
+2 milímetros se puede apreciar de
+
+11
+00:00:30,759 --> 00:00:35,649
+referencia como los orificios de
+
+12
+00:00:33,039 --> 00:00:37,869
+fijación para el circuito impreso son
+
+13
+00:00:35,649 --> 00:00:40,359
+más grandes que el propio sensor el
+
+14
+00:00:37,869 --> 00:00:42,849
+circuito impreso solo agrega unos pocos
+
+15
+00:00:40,359 --> 00:00:45,878
+componentes pasivos para configurar el
+
+16
+00:00:42,850 --> 00:00:48,070
+sensor o que son cuatro resistencias y
+
+17
+00:00:45,878 --> 00:00:51,519
+dos capacitores veamos un poco las
+
+18
+00:00:48,070 --> 00:00:54,429
+características técnicas del bm t 280
+
+19
+00:00:51,520 --> 00:00:58,329
+nos permitirá medir presión atmosférica
+
+20
+00:00:54,429 --> 00:01:00,878
+en el rango de 300 a 1100 hectopascales
+
+21
+00:00:58,329 --> 00:01:02,679
+con un error promedio de más menos un
+
+22
+00:01:00,878 --> 00:01:04,899
+hectopascal con respecto a la
+
+23
+00:01:02,679 --> 00:01:07,840
+temperatura podremos medir desde menos
+
+24
+00:01:04,900 --> 00:01:10,600
+40 a 85 grados centígrado
+
+25
+00:01:07,840 --> 00:01:13,179
+también con un error de más/menos un
+
+26
+00:01:10,599 --> 00:01:15,849
+grado centígrado los niveles de error en
+
+27
+00:01:13,179 --> 00:01:18,429
+presión y temperatura son menores a
+
+28
+00:01:15,849 --> 00:01:20,949
+temperaturas promedio de 25 grados
+
+29
+00:01:18,429 --> 00:01:23,379
+centígrados con lo cual en condiciones
+
+30
+00:01:20,950 --> 00:01:25,299
+normales tendremos un error menor la
+
+31
+00:01:23,379 --> 00:01:29,349
+interfaz que nos permitirá conectarlo
+
+32
+00:01:25,299 --> 00:01:32,109
+arduino es dual puede ser mediante espn
+
+33
+00:01:29,349 --> 00:01:34,839
+y 12 esp y es un tipo de interfaces
+
+34
+00:01:32,108 --> 00:01:37,000
+serie que usa tres cables y aún no la
+
+35
+00:01:34,840 --> 00:01:40,179
+vimos pero lo haremos en breve en un
+
+36
+00:01:37,000 --> 00:01:43,539
+próximo capítulo y 12 lo acabamos de ver
+
+37
+00:01:40,179 --> 00:01:45,879
+en el capítulo 35 así que usaremos esta
+
+38
+00:01:43,539 --> 00:01:48,399
+última que ya tenemos experiencia
+
+39
+00:01:45,879 --> 00:01:51,640
+finalmente algo a tener en cuenta es que
+
+40
+00:01:48,399 --> 00:01:53,920
+requiere de una alimentación de 33 volts
+
+41
+00:01:51,640 --> 00:01:56,259
+en lugar de los 5 que estamos
+
+42
+00:01:53,920 --> 00:01:58,719
+acostumbrados lo cual no es ningún tipo
+
+43
+00:01:56,259 --> 00:02:01,750
+de inconveniente ya que arduino uno
+
+44
+00:01:58,718 --> 00:02:04,149
+tiene una salida de 33 world que hasta
+
+45
+00:02:01,750 --> 00:02:06,578
+ahora nunca la habíamos usado debido a
+
+46
+00:02:04,149 --> 00:02:08,618
+que la presión atmosférica disminuye con
+
+47
+00:02:06,578 --> 00:02:11,409
+la lectura aprovechamos dicho fenómeno
+
+48
+00:02:08,618 --> 00:02:13,989
+para hacer cálculos de altura y usar el
+
+49
+00:02:11,409 --> 00:02:15,099
+sensor como un altímetro daremos un
+
+50
+00:02:13,989 --> 00:02:17,920
+vistazo sobre
+
+51
+00:02:15,099 --> 00:02:20,379
+básicas de la presión atmosférica y sus
+
+52
+00:02:17,919 --> 00:02:23,139
+unidades de medida el aire que nos rodea
+
+53
+00:02:20,379 --> 00:02:25,419
+tiene peso aunque no lo notemos por ese
+
+54
+00:02:23,139 --> 00:02:27,639
+motivo ejerce una fuerza sobre la
+
+55
+00:02:25,419 --> 00:02:29,979
+superficie terrestre por acción de la
+
+56
+00:02:27,639 --> 00:02:32,859
+gravedad esta fuerza se lo denomina
+
+57
+00:02:29,979 --> 00:02:34,780
+presión atmosférica o barométrica y la
+
+58
+00:02:32,860 --> 00:02:37,360
+unidad de medida en el sistema
+
+59
+00:02:34,780 --> 00:02:40,270
+internacional es el pascal a medida que
+
+60
+00:02:37,360 --> 00:02:42,570
+nos ubicamos a una mayor altura respecto
+
+61
+00:02:40,270 --> 00:02:45,340
+del nivel del mar la presión atmosférica
+
+62
+00:02:42,569 --> 00:02:45,939
+disminuye ya que la cantidad de aire es
+
+63
+00:02:45,340 --> 00:02:47,830
+menor
+
+64
+00:02:45,939 --> 00:02:50,319
+este fenómeno se aprovecha por un
+
+65
+00:02:47,830 --> 00:02:53,080
+instrumento llamado altímetro que se
+
+66
+00:02:50,319 --> 00:02:55,329
+trata de un barómetro modificado donde
+
+67
+00:02:53,080 --> 00:02:58,090
+la escala es en metros a niveles
+
+68
+00:02:55,330 --> 00:03:00,430
+normales de presión cercanos a la altura
+
+69
+00:02:58,090 --> 00:03:02,979
+del nivel del mar el pascal es una
+
+70
+00:03:00,430 --> 00:03:06,250
+unidad de medida algo grande por ese
+
+71
+00:03:02,979 --> 00:03:09,280
+motivo se utiliza electo pascal equivale
+
+72
+00:03:06,250 --> 00:03:12,340
+a 100 pascal es a su vez un hectopascal
+
+73
+00:03:09,280 --> 00:03:14,140
+es equivalente a un minibar el minibar
+
+74
+00:03:12,340 --> 00:03:16,719
+se sigue utilizando mucho en la
+
+75
+00:03:14,139 --> 00:03:19,269
+actualidad aunque la tendencia es al uso
+
+76
+00:03:16,719 --> 00:03:21,639
+del hectopascal pero como ambos son
+
+77
+00:03:19,270 --> 00:03:24,189
+totalmente equivalentes se pueden
+
+78
+00:03:21,639 --> 00:03:26,679
+de forma indistinta probablemente cuando
+
+79
+00:03:24,189 --> 00:03:29,439
+veas el pronóstico del clima la presión
+
+80
+00:03:26,680 --> 00:03:31,659
+se mostrará en milibares o hectopascales
+
+81
+00:03:29,439 --> 00:03:33,818
+muy bien ahora que estamos de acuerdo en
+
+82
+00:03:31,659 --> 00:03:36,129
+las cuestiones básicas sobre la presión
+
+83
+00:03:33,818 --> 00:03:39,810
+atmosférica volvamos a ver un poco más
+
+84
+00:03:36,129 --> 00:03:42,340
+en detalle el módulo el sensor es el bmp
+
+85
+00:03:39,810 --> 00:03:44,439
+280 pero existen diversos fabricantes
+
+86
+00:03:42,340 --> 00:03:47,229
+que lo incorporan en sus circuitos
+
+87
+00:03:44,439 --> 00:03:51,389
+impresos este que analizaremos es el más
+
+88
+00:03:47,229 --> 00:03:54,819
+sencillo y tiene la denominación g y bmp
+
+89
+00:03:51,389 --> 00:03:57,069
+280 otros modelos incluyen un regulador
+
+90
+00:03:54,819 --> 00:03:59,289
+de tensión para poder alimentarlo
+
+91
+00:03:57,069 --> 00:04:01,659
+directamente con 5 volts y unos
+
+92
+00:03:59,289 --> 00:04:04,479
+transistores como niveladores de señal
+
+93
+00:04:01,659 --> 00:04:06,159
+para la comunicación serie en la imagen
+
+94
+00:04:04,479 --> 00:04:08,229
+de la izquierda viendo en la parte
+
+95
+00:04:06,159 --> 00:04:10,569
+posterior del módulo y tiene las
+
+96
+00:04:08,229 --> 00:04:13,238
+indicaciones de la funcionalidad de cada
+
+97
+00:04:10,569 --> 00:04:15,939
+uno de los terminales será un trabajo de
+
+98
+00:04:13,239 --> 00:04:18,430
+nuestra parte sol darle una hilera de 6
+
+99
+00:04:15,939 --> 00:04:22,029
+pines que suele venir incluido cuando se
+
+100
+00:04:18,430 --> 00:04:25,449
+adquiere el módulo bcc ign de serán la
+
+101
+00:04:22,029 --> 00:04:27,219
+alimentación de 33 volts y más a tierra
+
+102
+00:04:25,449 --> 00:04:31,569
+luego las líneas
+
+103
+00:04:27,220 --> 00:04:33,940
+y scl de la comunicación por base y 12
+
+104
+00:04:31,569 --> 00:04:37,029
+este módulo como además puede funcionar
+
+105
+00:04:33,939 --> 00:04:41,469
+con interfaz esp y tiene dos conexiones
+
+106
+00:04:37,029 --> 00:04:43,509
+adicionales que son csb y sd o para
+
+107
+00:04:41,470 --> 00:04:45,970
+entender mejor veamos el diagrama
+
+108
+00:04:43,509 --> 00:04:50,019
+eléctrico o esquemático tendremos como
+
+109
+00:04:45,970 --> 00:04:52,120
+figura principal al sensor bmp 280 por
+
+110
+00:04:50,019 --> 00:04:56,289
+su parte izquierda recibirá las
+
+111
+00:04:52,120 --> 00:04:59,920
+conexiones es idea y scl del base y 12
+
+112
+00:04:56,290 --> 00:05:03,129
+estas conexiones tienen los nombres sd y
+
+113
+00:04:59,920 --> 00:05:06,189
+es se seca sobre el propio sensor ya que
+
+114
+00:05:03,129 --> 00:05:09,040
+la notación de la interfaz esp es algo
+
+115
+00:05:06,189 --> 00:05:11,860
+diferente y 12 vemos también las dos
+
+116
+00:05:09,040 --> 00:05:14,770
+resistencias de pull up y ya sabemos son
+
+117
+00:05:11,860 --> 00:05:17,470
+necesarias para la comunicación por y 12
+
+118
+00:05:14,769 --> 00:05:20,319
+si no viste el capítulo 35 te lo
+
+119
+00:05:17,470 --> 00:05:23,169
+recomiendo ya que analizamos en detalle
+
+120
+00:05:20,319 --> 00:05:25,269
+esta interfaz de dos cables luego sobre
+
+121
+00:05:23,168 --> 00:05:28,539
+el lado derecho tendremos una conexión
+
+122
+00:05:25,269 --> 00:05:31,149
+denominada csb la cual tiene una
+
+123
+00:05:28,540 --> 00:05:33,289
+resistencia de pull up con lo cual está
+
+124
+00:05:31,149 --> 00:05:36,258
+colocada a un nivel alto
+
+125
+00:05:33,288 --> 00:05:40,158
+csb se utiliza para indicar si vamos a
+
+126
+00:05:36,259 --> 00:05:44,658
+utilizar la interfaz serie en modo s&amp;p y
+
+127
+00:05:40,158 --> 00:05:48,079
+12 aquí vemos que si csb es colocado a
+
+128
+00:05:44,658 --> 00:05:51,408
+un serológico indicamos interfaz esp y
+
+129
+00:05:48,079 --> 00:05:54,709
+si es colocado un uno lógico indicamos
+
+130
+00:05:51,408 --> 00:05:57,199
+interfaz y 12 esta resistencia de pull
+
+131
+00:05:54,709 --> 00:05:59,718
+up ya viene incorporada en el módulo con
+
+132
+00:05:57,199 --> 00:06:02,749
+lo cual por defecto estamos indicando
+
+133
+00:05:59,718 --> 00:06:05,868
+que usaremos el modo y 12 luego la
+
+134
+00:06:02,749 --> 00:06:09,110
+conexión restante con la denominación sd
+
+135
+00:06:05,869 --> 00:06:11,149
+o en modo 12 se utiliza para establecer
+
+136
+00:06:09,110 --> 00:06:14,749
+la dirección del dispositivo un
+
+137
+00:06:11,149 --> 00:06:17,800
+serológico establece a 76 como la
+
+138
+00:06:14,749 --> 00:06:20,778
+dirección un uno lógico como dirección
+
+139
+00:06:17,800 --> 00:06:23,478
+77 vemos que el módulo incluye la
+
+140
+00:06:20,778 --> 00:06:26,449
+resistencia de pull down con lo cual por
+
+141
+00:06:23,478 --> 00:06:29,269
+defecto tiene una dirección de 76
+
+142
+00:06:26,449 --> 00:06:31,569
+recordad que el prefijo 0 x indica que
+
+143
+00:06:29,269 --> 00:06:35,149
+se trata de una dirección en hexadecimal
+
+144
+00:06:31,569 --> 00:06:37,340
+esta línea sd o tiene función si
+
+145
+00:06:35,149 --> 00:06:39,980
+estuviésemos trabajando en modo
+
+146
+00:06:37,339 --> 00:06:42,409
+s&amp;p y en resumen este diagrama nos
+
+147
+00:06:39,980 --> 00:06:44,600
+indica que el sensor está configurado
+
+148
+00:06:42,410 --> 00:06:48,560
+por defecto para funcionamiento con
+
+149
+00:06:44,600 --> 00:06:51,530
+interfaz y 12 en la dirección 76 y no
+
+150
+00:06:48,560 --> 00:06:55,160
+será necesario que conectemos las líneas
+
+151
+00:06:51,529 --> 00:06:57,978
+csb y sd o antes de ir al circuito de
+
+152
+00:06:55,160 --> 00:07:00,590
+conexión deberemos soldar la hilera de 6
+
+153
+00:06:57,978 --> 00:07:02,629
+pines al circuito impreso un pequeño
+
+154
+00:07:00,589 --> 00:07:04,939
+truco para hacer el trabajo de manera
+
+155
+00:07:02,629 --> 00:07:07,909
+simple es colocar primero la hilera de
+
+156
+00:07:04,939 --> 00:07:10,040
+pines en protoboard de esta manera nos
+
+157
+00:07:07,910 --> 00:07:12,979
+quedan los pines rectos luego con un
+
+158
+00:07:10,040 --> 00:07:15,680
+trozo de cartón o papel de una altura de
+
+159
+00:07:12,978 --> 00:07:17,899
+unos 2 milímetros lo colocaremos por
+
+160
+00:07:15,680 --> 00:07:20,629
+debajo del módulo de manera de generar
+
+161
+00:07:17,899 --> 00:07:23,138
+una superficie de apoyo para el mismo
+
+162
+00:07:20,629 --> 00:07:25,610
+ahora sí podremos soldar los pines
+
+163
+00:07:23,139 --> 00:07:28,160
+fácilmente y nos aseguramos que queda
+
+164
+00:07:25,610 --> 00:07:30,500
+bien prolijo será necesario que apliques
+
+165
+00:07:28,160 --> 00:07:33,020
+la punta del soldador con un poco más de
+
+166
+00:07:30,500 --> 00:07:35,449
+tiempo del usual ya que protoboard al
+
+167
+00:07:33,019 --> 00:07:37,759
+hacer contacto con los pines disipa
+
+168
+00:07:35,449 --> 00:07:40,250
+parte del calor del soldador debería
+
+169
+00:07:37,759 --> 00:07:42,740
+quedar algo así con los pines soldados
+
+170
+00:07:40,250 --> 00:07:44,129
+vamos al circuito de conexión que será
+
+171
+00:07:42,740 --> 00:07:46,528
+extremadamente
+
+172
+00:07:44,129 --> 00:07:49,080
+de las indicaciones de los pines nos
+
+173
+00:07:46,528 --> 00:07:51,209
+quedaron ocultos en la parte trasera del
+
+174
+00:07:49,079 --> 00:07:54,028
+módulo con lo cual comenzaremos con el
+
+175
+00:07:51,209 --> 00:07:56,759
+primer pin de la izquierda y será veces
+
+176
+00:07:54,028 --> 00:08:00,178
+se e iremos con un cable directo hacia
+
+177
+00:07:56,759 --> 00:08:02,278
+la salida de 3,3 volts de arduino es muy
+
+178
+00:08:00,178 --> 00:08:04,859
+importante que en este punto no lo
+
+179
+00:08:02,278 --> 00:08:07,528
+conectes a la salida de 5 goltz como
+
+180
+00:08:04,860 --> 00:08:10,889
+venimos acostumbrados debe ir al pin que
+
+181
+00:08:07,528 --> 00:08:13,649
+dice 33 volts el siguiente pincel al de
+
+182
+00:08:10,889 --> 00:08:16,199
+massa con lo cual lo conectaremos a gene
+
+183
+00:08:13,649 --> 00:08:18,899
+de arduino y con eso ya tenemos la
+
+184
+00:08:16,199 --> 00:08:22,468
+alimentación el tercer pin desde la
+
+185
+00:08:18,899 --> 00:08:26,249
+izquierda corresponde a ese cl del base
+
+186
+00:08:22,468 --> 00:08:29,759
+y 12 ssl en arduino uno está sobre el
+
+187
+00:08:26,249 --> 00:08:31,860
+pin analógico a 5 aquí en la nota se
+
+188
+00:08:29,759 --> 00:08:34,408
+muestran también los pines equivalentes
+
+189
+00:08:31,860 --> 00:08:36,870
+en caso de usar el modelo mega como
+
+190
+00:08:34,408 --> 00:08:40,979
+nosotros estamos con el modelo 1 iremos
+
+191
+00:08:36,870 --> 00:08:43,288
+con un cable directo desde a 5 hacia ssl
+
+192
+00:08:40,979 --> 00:08:46,019
+del módulo y el cable de color verde
+
+193
+00:08:43,288 --> 00:08:49,740
+finalmente resta sólo conectar ese día
+
+194
+00:08:46,019 --> 00:08:52,620
+en arduino se presenta sobre a 4 y
+
+195
+00:08:49,740 --> 00:08:55,649
+con un cable directo hacia ese día en el
+
+196
+00:08:52,620 --> 00:08:58,500
+módulo aquí mostrado en color azul y
+
+197
+00:08:55,649 --> 00:09:01,139
+como dijimos antes los últimos dos pines
+
+198
+00:08:58,500 --> 00:09:03,120
+del módulo no los conectaremos y eso es
+
+199
+00:09:01,139 --> 00:09:06,480
+todo muy simple la conexión de
+
+200
+00:09:03,120 --> 00:09:09,089
+periféricos mediante base y 12 con solo
+
+201
+00:09:06,480 --> 00:09:13,110
+dos cables abriremos ahora el id de
+
+202
+00:09:09,089 --> 00:09:15,690
+arduino y para usar el bmp 280 de manera
+
+203
+00:09:13,110 --> 00:09:18,629
+simple deberemos descargar una librería
+
+204
+00:09:15,690 --> 00:09:21,779
+lo haremos de la forma usual ingresando
+
+205
+00:09:18,629 --> 00:09:24,659
+al menú programa incluir librería y
+
+206
+00:09:21,778 --> 00:09:27,028
+luego gestionar librerías aguardamos
+
+207
+00:09:24,659 --> 00:09:29,610
+unos segundos mientras se actualiza el
+
+208
+00:09:27,028 --> 00:09:31,799
+listado cuando haya finalizado en el
+
+209
+00:09:29,610 --> 00:09:32,459
+campo de búsqueda escribiremos todo
+
+210
+00:09:31,799 --> 00:09:37,169
+junto
+
+211
+00:09:32,458 --> 00:09:41,609
+bmp 280 la librería que nos interesa es
+
+212
+00:09:37,169 --> 00:09:44,039
+la que dice aída fruit bmp 280 library
+
+213
+00:09:41,610 --> 00:09:46,230
+yo ya la tengo instalada por eso al
+
+214
+00:09:44,039 --> 00:09:48,208
+seleccionarla no tengo habilitado el
+
+215
+00:09:46,230 --> 00:09:50,850
+botón de instalar pero él estará en tu
+
+216
+00:09:48,208 --> 00:09:53,699
+caso presionando dicho botón en pocos
+
+217
+00:09:50,850 --> 00:09:55,590
+segundos descarga la librería y mostrará
+
+218
+00:09:53,700 --> 00:09:57,960
+el texto instalado
+
+219
+00:09:55,590 --> 00:10:00,540
+sólo es cuestión de cerrar el gestor
+
+220
+00:09:57,960 --> 00:10:02,970
+existe un pequeño inconveniente con esta
+
+221
+00:10:00,539 --> 00:10:05,159
+librería que deberemos corregir antes de
+
+222
+00:10:02,970 --> 00:10:07,560
+comenzar a utilizarla y es que está
+
+223
+00:10:05,159 --> 00:10:11,159
+programada para buscar por defecto al
+
+224
+00:10:07,559 --> 00:10:14,459
+sensor en la dirección 77 y como ya
+
+225
+00:10:11,159 --> 00:10:17,009
+vimos por defecto la dirección en la 76
+
+226
+00:10:14,460 --> 00:10:20,879
+esto se debe a que el modelo más viejo
+
+227
+00:10:17,009 --> 00:10:24,090
+llamado bmp 180 tenía justamente la
+
+228
+00:10:20,879 --> 00:10:27,059
+dirección 77 y al actualizar la librería
+
+229
+00:10:24,090 --> 00:10:28,920
+al nuevo modelo el desarrollador olvidó
+
+230
+00:10:27,059 --> 00:10:30,779
+actualizar la dirección como la
+
+231
+00:10:28,919 --> 00:10:32,789
+dirección no es un parámetro que se
+
+232
+00:10:30,779 --> 00:10:34,919
+puede enviar al momento de crear el
+
+233
+00:10:32,789 --> 00:10:37,230
+objeto no podremos cambiarlo por
+
+234
+00:10:34,919 --> 00:10:39,929
+programación cerraremos por el momento
+
+235
+00:10:37,230 --> 00:10:42,570
+el ide y con botón derecho sobre el
+
+236
+00:10:39,929 --> 00:10:45,569
+acceso directo que yo aquí tengo en el
+
+237
+00:10:42,570 --> 00:10:48,120
+escritorio vamos a seleccionar abrir la
+
+238
+00:10:45,570 --> 00:10:50,010
+ubicación del archivo y esto nos llevará
+
+239
+00:10:48,120 --> 00:10:52,560
+directo a la carpeta en donde se
+
+240
+00:10:50,009 --> 00:10:54,950
+encuentra instalado el id que suele ser
+
+241
+00:10:52,559 --> 00:10:57,569
+archivos de programa o program files
+
+242
+00:10:54,950 --> 00:11:00,629
+arduino y luego ingresaremos a la
+
+243
+00:10:57,570 --> 00:11:01,710
+carpeta library y allí debería estar una
+
+244
+00:11:00,629 --> 00:11:05,909
+que diga
+
+245
+00:11:01,710 --> 00:11:08,220
+bmp 280 es probable que no esté aquí y
+
+246
+00:11:05,909 --> 00:11:10,709
+que la haya guardado en documentos del
+
+247
+00:11:08,220 --> 00:11:14,250
+actual usuario del sistema así que
+
+248
+00:11:10,710 --> 00:11:17,040
+ingresemos a documentos luego arduino y
+
+249
+00:11:14,250 --> 00:11:21,570
+al libraries ahora si tenemos la carpeta
+
+250
+00:11:17,039 --> 00:11:24,539
+de frut bmp 280 library ingresemos en
+
+251
+00:11:21,570 --> 00:11:29,129
+ella y deberemos editar el archivo y dar
+
+252
+00:11:24,539 --> 00:11:31,949
+fruit bmp 280 puntos h con botón derecho
+
+253
+00:11:29,129 --> 00:11:34,860
+tendremos la opción por defecto de abrir
+
+254
+00:11:31,950 --> 00:11:37,440
+con ya que windows por lo general no
+
+255
+00:11:34,860 --> 00:11:40,050
+tiene un programa asociado a la apertura
+
+256
+00:11:37,440 --> 00:11:42,120
+de archivos con extensión h así que
+
+257
+00:11:40,049 --> 00:11:44,370
+seleccionaremos que abra con el word
+
+258
+00:11:42,120 --> 00:11:47,310
+para 2 si bien el bloc de notas también
+
+259
+00:11:44,370 --> 00:11:49,409
+es capaz de abrirlo tiene problemas a la
+
+260
+00:11:47,309 --> 00:11:53,250
+hora de mostrar los saltos de línea
+
+261
+00:11:49,409 --> 00:11:55,709
+seleccionamos wordpad y aceptar se trata
+
+262
+00:11:53,250 --> 00:11:57,809
+de un simple archivo de texto voy a
+
+263
+00:11:55,710 --> 00:12:00,389
+ampliar un poco la vista para que se vea
+
+264
+00:11:57,809 --> 00:12:03,089
+mejor deberá buscar la línea que tenga
+
+265
+00:12:00,389 --> 00:12:06,399
+un numeral -define con una constante de
+
+266
+00:12:03,090 --> 00:12:09,160
+nombre bmp2 80
+
+267
+00:12:06,399 --> 00:12:13,329
+address está que marcó aquí verás que
+
+268
+00:12:09,159 --> 00:12:15,819
+entre paréntesis dice 0 x 77 el error
+
+269
+00:12:13,330 --> 00:12:20,200
+que comentaba recién debemos cambiarlo
+
+270
+00:12:15,820 --> 00:12:22,960
+por 0 x 76 y eso es todo ya podemos
+
+271
+00:12:20,200 --> 00:12:25,270
+salir de word pad y antes nos pregunta
+
+272
+00:12:22,960 --> 00:12:28,150
+si deseamos guardar el cambio daremos
+
+273
+00:12:25,269 --> 00:12:29,980
+que si a guardar y listo ahora sí
+
+274
+00:12:28,149 --> 00:12:32,169
+estamos listos para ver el primer
+
+275
+00:12:29,980 --> 00:12:34,420
+programa que haremos aquí se muestra la
+
+276
+00:12:32,169 --> 00:12:36,879
+totalidad del primer programa que
+
+277
+00:12:34,419 --> 00:12:39,339
+permitirá visualizar mediante el monitor
+
+278
+00:12:36,879 --> 00:12:42,759
+serie los valores de temperatura y
+
+279
+00:12:39,340 --> 00:12:44,560
+presión l del sensor este código y el de
+
+280
+00:12:42,759 --> 00:12:46,750
+todos los capítulos se encuentra
+
+281
+00:12:44,559 --> 00:12:49,119
+disponible para descargar en el enlace
+
+282
+00:12:46,750 --> 00:12:51,309
+de la zona de descripción la primera
+
+283
+00:12:49,120 --> 00:12:54,070
+línea tiene el numeral incluido que
+
+284
+00:12:51,309 --> 00:12:56,500
+incluye la librería wáyar esta librería
+
+285
+00:12:54,070 --> 00:12:59,530
+la deberemos incorporar cada vez que
+
+286
+00:12:56,500 --> 00:13:02,019
+usemos el bass y 12 los siguientes 2
+
+287
+00:12:59,529 --> 00:13:05,919
+numeral incluso incluyen las librerías
+
+288
+00:13:02,019 --> 00:13:08,319
+necesarias para nuestro sensor bmp2 80
+
+289
+00:13:05,919 --> 00:13:10,839
+de las cuales podremos usar funciones
+
+290
+00:13:08,320 --> 00:13:13,180
+para fácilmente obtener los valores de
+
+291
+00:13:10,840 --> 00:13:16,810
+presión y temperatura ahora qué
+
+292
+00:13:13,179 --> 00:13:21,009
+un objeto que lo llamaremos bmp y será
+
+293
+00:13:16,809 --> 00:13:23,229
+del tipo eida fruit bmp 280 como verás
+
+294
+00:13:21,009 --> 00:13:25,389
+al momento de crear el objeto no es
+
+295
+00:13:23,230 --> 00:13:27,940
+necesario asignar ningún tipo de
+
+296
+00:13:25,389 --> 00:13:30,370
+parámetro de inicialización luego
+
+297
+00:13:27,940 --> 00:13:33,580
+declaramos dos variables del tipo flow
+
+298
+00:13:30,370 --> 00:13:34,779
+que serán temperatura y presión serán
+
+299
+00:13:33,580 --> 00:13:37,420
+del tipo flow
+
+300
+00:13:34,779 --> 00:13:40,299
+ya que obtendremos lecturas con punto y
+
+301
+00:13:37,419 --> 00:13:43,959
+coma decimal en el setup inicializa mos
+
+302
+00:13:40,299 --> 00:13:46,990
+la comunicación serie a 9.600 bps
+
+303
+00:13:43,960 --> 00:13:49,480
+escribimos el texto iniciando que es
+
+304
+00:13:46,990 --> 00:13:52,149
+opcional y luego con el condicional y
+
+305
+00:13:49,480 --> 00:13:55,090
+haremos una breve comprobación de que
+
+306
+00:13:52,149 --> 00:13:58,240
+nuestro sensor responde adecuadamente la
+
+307
+00:13:55,090 --> 00:14:01,060
+función begin del recién creado objeto
+
+308
+00:13:58,240 --> 00:14:03,250
+bmp devuelve verdaderos y la
+
+309
+00:14:01,059 --> 00:14:06,759
+comunicación con el sensor ha sido
+
+310
+00:14:03,250 --> 00:14:08,559
+exitosa y falso si no es el caso hacemos
+
+311
+00:14:06,759 --> 00:14:11,350
+esto que nunca viene mal con
+
+312
+00:14:08,559 --> 00:14:14,049
+dispositivos y 12 ya que podríamos tener
+
+313
+00:14:11,350 --> 00:14:16,769
+algún problema con la dirección de hecho
+
+314
+00:14:14,049 --> 00:14:18,549
+si no hubiésemos modificado la librería
+
+315
+00:14:16,769 --> 00:14:20,970
+efectivamente no habría
+
+316
+00:14:18,549 --> 00:14:23,979
+al colocar el signo de admiración
+
+317
+00:14:20,970 --> 00:14:26,680
+delante como ya usamos en muchos otros
+
+318
+00:14:23,980 --> 00:14:29,350
+programas invertimos el valor devuelto
+
+319
+00:14:26,679 --> 00:14:31,870
+esto es porque nos interesa interceptar
+
+320
+00:14:29,350 --> 00:14:34,959
+un valor de falso es decir que si la
+
+321
+00:14:31,870 --> 00:14:37,389
+función begin devuelve falso que
+
+322
+00:14:34,958 --> 00:14:40,179
+equivale a un error de comunicación con
+
+323
+00:14:37,389 --> 00:14:42,759
+el sensor lo invertimos a un verdadero
+
+324
+00:14:40,179 --> 00:14:44,859
+para ingresar al bloque if escribir en
+
+325
+00:14:42,759 --> 00:14:48,370
+el monitor serie que no se ha encontrado
+
+326
+00:14:44,860 --> 00:14:50,320
+el sensor y luego una línea que es while
+
+327
+00:14:48,370 --> 00:14:53,350
+entre paréntesis 1
+
+328
+00:14:50,320 --> 00:14:56,019
+esta línea es un bucle infinito es una
+
+329
+00:14:53,350 --> 00:14:58,570
+forma de detener el flujo de programa ya
+
+330
+00:14:56,019 --> 00:15:00,820
+que no podemos seguir procesando datos y
+
+331
+00:14:58,570 --> 00:15:03,790
+el sensor no responde por eso la
+
+332
+00:15:00,820 --> 00:15:06,640
+condición del bucle while es 1 que
+
+333
+00:15:03,789 --> 00:15:09,338
+equivale a true verdadero con lo cual
+
+334
+00:15:06,639 --> 00:15:12,039
+permanece en esta línea y nunca sale de
+
+335
+00:15:09,339 --> 00:15:14,890
+ella si todo va bien y la comunicación
+
+336
+00:15:12,039 --> 00:15:17,199
+con el sensor es exitosa saltamos el
+
+337
+00:15:14,889 --> 00:15:19,870
+bloque if y vamos directamente al loop
+
+338
+00:15:17,200 --> 00:15:22,390
+lo primero que haremos es asignar en la
+
+339
+00:15:19,870 --> 00:15:24,149
+variable temperatura el valor devuelto
+
+340
+00:15:22,389 --> 00:15:28,049
+por la función ruido
+
+341
+00:15:24,149 --> 00:15:30,389
+temperatura del objeto bmp de esa manera
+
+342
+00:15:28,049 --> 00:15:33,449
+ya tenemos en la variable el valor de
+
+343
+00:15:30,389 --> 00:15:35,370
+temperatura muy fácil gracias al uso de
+
+344
+00:15:33,450 --> 00:15:37,620
+la librería misma acción para la
+
+345
+00:15:35,370 --> 00:15:40,500
+variable presión que asumirá el valor
+
+346
+00:15:37,620 --> 00:15:43,200
+devuelto por la función ruido presión
+
+347
+00:15:40,500 --> 00:15:46,080
+pero aquí hacemos un proceso adicional
+
+348
+00:15:43,200 --> 00:15:48,240
+que es dividir por 100 el valor devuelto
+
+349
+00:15:46,080 --> 00:15:51,629
+por la función esto es porque read
+
+350
+00:15:48,240 --> 00:15:54,409
+presión devuelve el valor en pascales y
+
+351
+00:15:51,629 --> 00:15:56,490
+como vimos al principio estaremos usando
+
+352
+00:15:54,409 --> 00:15:58,620
+hectopascales que a su vez es
+
+353
+00:15:56,490 --> 00:16:01,019
+equivalente a 1000 y bares con lo cual
+
+354
+00:15:58,620 --> 00:16:03,690
+con simplemente es dividir el valor por
+
+355
+00:16:01,019 --> 00:16:06,449
+100 ya nos queda en la variable presión
+
+356
+00:16:03,690 --> 00:16:08,760
+el valor en estos pascal es nos resta
+
+357
+00:16:06,450 --> 00:16:11,310
+sólo mostrar en el monitor serie el
+
+358
+00:16:08,759 --> 00:16:14,309
+texto temperatura y el valor de la
+
+359
+00:16:11,309 --> 00:16:17,459
+variable y la letra c indicando que es
+
+360
+00:16:14,309 --> 00:16:20,250
+en grados centígrados o celsius luego el
+
+361
+00:16:17,460 --> 00:16:23,759
+texto presión y el valor de la variable
+
+362
+00:16:20,250 --> 00:16:26,700
+y hp a indicando que es en hectopascales
+
+363
+00:16:23,759 --> 00:16:29,129
+esta última línea usa sería el punto
+
+364
+00:16:26,700 --> 00:16:31,740
+ping line de manera de dejar
+
+365
+00:16:29,129 --> 00:16:34,409
+un salto de línea al final finalmente
+
+366
+00:16:31,740 --> 00:16:36,450
+aplicaremos una demora de 5 segundos
+
+367
+00:16:34,409 --> 00:16:39,179
+entre lecturas como estaremos mostrando
+
+368
+00:16:36,450 --> 00:16:41,280
+la información por el monitor serie no
+
+369
+00:16:39,179 --> 00:16:44,069
+tiene mucho sentido hacer mediciones
+
+370
+00:16:41,279 --> 00:16:47,039
+cada uno o dos segundos ya que
+
+371
+00:16:44,070 --> 00:16:49,140
+llegaríamos constantemente la ventana si
+
+372
+00:16:47,039 --> 00:16:51,689
+fuésemos a mostrar la información en una
+
+373
+00:16:49,139 --> 00:16:55,049
+pantalla lcd es tranquilamente se podría
+
+374
+00:16:51,690 --> 00:16:57,570
+colocar una demora de un segundo y eso
+
+375
+00:16:55,049 --> 00:17:00,809
+es todo para el primer programa vamos a
+
+376
+00:16:57,570 --> 00:17:03,780
+verificar subirlo y luego a abrir el
+
+377
+00:17:00,809 --> 00:17:06,119
+monitor serie como podrás observar en la
+
+378
+00:17:03,779 --> 00:17:08,670
+ventana del monitor se muestra en una
+
+379
+00:17:06,119 --> 00:17:12,208
+línea los valores leídos de temperatura
+
+380
+00:17:08,670 --> 00:17:14,670
+y presión actualizando cada 5 segundos
+
+381
+00:17:12,209 --> 00:17:17,220
+es normal que haya una pequeña variación
+
+382
+00:17:14,670 --> 00:17:19,890
+en los decimales es una excelente opción
+
+383
+00:17:17,220 --> 00:17:22,410
+si queremos medir temperatura y presión
+
+384
+00:17:19,890 --> 00:17:25,890
+atmosférica ya que la conexión arduino
+
+385
+00:17:22,410 --> 00:17:28,140
+por y 12 es muy simple y el sensor muy
+
+386
+00:17:25,890 --> 00:17:30,420
+compacto cuando hablábamos sobre la
+
+387
+00:17:28,140 --> 00:17:33,270
+presión atmosférica decíamos que la
+
+388
+00:17:30,420 --> 00:17:35,759
+misma decrece con la altura a mayor
+
+389
+00:17:33,269 --> 00:17:38,369
+altura menor presión atmosférica
+
+390
+00:17:35,759 --> 00:17:41,160
+esta variación nos permite utilizar a
+
+391
+00:17:38,369 --> 00:17:43,739
+este sensor como un altímetro y lo
+
+392
+00:17:41,160 --> 00:17:46,110
+podemos hacer muy fácilmente con un par
+
+393
+00:17:43,740 --> 00:17:48,599
+de líneas de código adicional así que
+
+394
+00:17:46,109 --> 00:17:51,119
+volvamos al editor vamos a mostrar la
+
+395
+00:17:48,599 --> 00:17:53,849
+altitud en una nueva línea luego de los
+
+396
+00:17:51,119 --> 00:17:56,759
+valores de temperatura y presión así que
+
+397
+00:17:53,849 --> 00:17:59,490
+copiemos estas tres líneas de código que
+
+398
+00:17:56,759 --> 00:18:01,619
+muestran la temperatura y las pegamos tú
+
+399
+00:17:59,490 --> 00:18:05,190
+antes del delay cambiemos el texto de
+
+400
+00:18:01,619 --> 00:18:07,799
+temperatura por altitud aproximada y
+
+401
+00:18:05,190 --> 00:18:10,680
+luego llamaremos a una nueva función
+
+402
+00:18:07,799 --> 00:18:11,519
+eliminemos temperatura y coloquemos en
+
+403
+00:18:10,680 --> 00:18:15,230
+su lugar
+
+404
+00:18:11,519 --> 00:18:18,089
+ruido altitud esta función reed altitud
+
+405
+00:18:15,230 --> 00:18:20,579
+requiere que le pasemos un parámetro que
+
+406
+00:18:18,089 --> 00:18:22,649
+es la presión de referencia para hacer
+
+407
+00:18:20,579 --> 00:18:25,259
+el cálculo de altitud como la altitud
+
+408
+00:18:22,650 --> 00:18:27,960
+depende de una variación en el valor de
+
+409
+00:18:25,259 --> 00:18:30,299
+presión debemos establecer un valor de
+
+410
+00:18:27,960 --> 00:18:32,700
+referencia para este sensor se suele
+
+411
+00:18:30,299 --> 00:18:35,519
+colocar aquí el valor de presión a nivel
+
+412
+00:18:32,700 --> 00:18:38,100
+del mar para tu ubicación y la función
+
+413
+00:18:35,519 --> 00:18:40,259
+nos devolverá la altitud a la cual te
+
+414
+00:18:38,099 --> 00:18:42,779
+encuentras con respecto al nivel del mar
+
+415
+00:18:40,259 --> 00:18:45,119
+es decir la elevación del terreno
+
+416
+00:18:42,779 --> 00:18:47,519
+obtener la presión atmosférica a nivel
+
+417
+00:18:45,119 --> 00:18:49,889
+del mar para nuestra ubicación no es una
+
+418
+00:18:47,519 --> 00:18:53,099
+tarea fácil ya que la mayoría de páginas
+
+419
+00:18:49,890 --> 00:18:55,470
+del clima no dan esta información ya que
+
+420
+00:18:53,099 --> 00:18:57,929
+no es útil para la mayoría de la gente
+
+421
+00:18:55,470 --> 00:19:00,269
+así que haremos algo más práctico y que
+
+422
+00:18:57,930 --> 00:19:02,930
+podamos implementar en futuros proyectos
+
+423
+00:19:00,269 --> 00:19:06,119
+la idea es tomar la presión atmosférica
+
+424
+00:19:02,930 --> 00:19:08,430
+actual y utilizarla como referencia
+
+425
+00:19:06,119 --> 00:19:11,279
+diremos que la presión actual será
+
+426
+00:19:08,430 --> 00:19:14,310
+equivalente a cero metros de altura de
+
+427
+00:19:11,279 --> 00:19:16,889
+esa manera si elevamos el sensor veremos
+
+428
+00:19:14,309 --> 00:19:19,139
+cómo se incrementa la altitud respecto
+
+429
+00:19:16,890 --> 00:19:21,660
+del inicio por ejemplo si tenemos el
+
+430
+00:19:19,140 --> 00:19:24,090
+sensor sobre nuestro escritorio y luego
+
+431
+00:19:21,660 --> 00:19:26,880
+lo elevamos a un metro veremos que se
+
+432
+00:19:24,089 --> 00:19:29,459
+mostrará una altura de un metro hagamos
+
+433
+00:19:26,880 --> 00:19:31,740
+el programa así se entiende mejor a la
+
+434
+00:19:29,460 --> 00:19:34,079
+función read altitud
+
+435
+00:19:31,740 --> 00:19:36,809
+dijimos que debemos pasarle un valor de
+
+436
+00:19:34,079 --> 00:19:38,669
+presión de referencia será un valor que
+
+437
+00:19:36,809 --> 00:19:40,829
+no va a cambiar con lo cual lo
+
+438
+00:19:38,670 --> 00:19:43,410
+obtendremos en el setup que como ya
+
+439
+00:19:40,829 --> 00:19:45,720
+sabemos se ejecuta por única vez al
+
+440
+00:19:43,410 --> 00:19:47,220
+inicio del programa vamos al principio
+
+441
+00:19:45,720 --> 00:19:48,460
+de la zona de la declaración de las
+
+442
+00:19:47,220 --> 00:19:52,029
+variables y
+
+443
+00:19:48,460 --> 00:19:53,950
+una nueva llamada p 0 es decir la
+
+444
+00:19:52,029 --> 00:19:56,559
+presión de referencia que la
+
+445
+00:19:53,950 --> 00:19:58,660
+consideramos como el tour a 0 como será
+
+446
+00:19:56,559 --> 00:20:01,059
+también en el tip off load podremos
+
+447
+00:19:58,660 --> 00:20:04,570
+optar por la siguiente notación que es
+
+448
+00:20:01,059 --> 00:20:07,450
+ir a float presión y luego colocar una
+
+449
+00:20:04,569 --> 00:20:09,939
+coma y el nombre de la nueva variable p
+
+450
+00:20:07,450 --> 00:20:12,160
+zero de esta manera al separar las
+
+451
+00:20:09,940 --> 00:20:15,549
+variables por comas estamos indicando
+
+452
+00:20:12,160 --> 00:20:18,640
+que tanto presión como p zero son del
+
+453
+00:20:15,549 --> 00:20:21,069
+tipo flow y así nos ahorramos una línea
+
+454
+00:20:18,640 --> 00:20:23,980
+de código antes de la llave de cierre
+
+455
+00:20:21,069 --> 00:20:27,159
+del set up agreguemos una nueva línea y
+
+456
+00:20:23,980 --> 00:20:29,680
+aquí asignaremos en la variable p cero y
+
+457
+00:20:27,160 --> 00:20:32,560
+el valor devuelto por la función read
+
+458
+00:20:29,680 --> 00:20:33,430
+presión dividido por 100 ya que
+
+459
+00:20:32,559 --> 00:20:36,099
+necesitamos
+
+460
+00:20:33,430 --> 00:20:38,980
+el valor en hectopascales en definitiva
+
+461
+00:20:36,099 --> 00:20:42,279
+empezar o queda almacenada la presión
+
+462
+00:20:38,980 --> 00:20:44,710
+atmosférica actual en hectopascales como
+
+463
+00:20:42,279 --> 00:20:47,379
+está dentro del set up se ejecuta una
+
+464
+00:20:44,710 --> 00:20:49,960
+sola vez y será la referencia para en el
+
+465
+00:20:47,380 --> 00:20:52,510
+loop obtener la altitud ahora sí
+
+466
+00:20:49,960 --> 00:20:55,470
+volvamos al loop y completamos la
+
+467
+00:20:52,509 --> 00:20:58,569
+función de altitud entre
+
+468
+00:20:55,470 --> 00:21:00,670
+colocaremos pesero y listo
+
+469
+00:20:58,569 --> 00:21:03,399
+de esta forma simple obtendremos el
+
+470
+00:21:00,670 --> 00:21:06,250
+valor de altitud tomando como referencia
+
+471
+00:21:03,400 --> 00:21:09,550
+la presión actual sólo resta modificar
+
+472
+00:21:06,250 --> 00:21:12,220
+el serial punto print por sería el punto
+
+473
+00:21:09,549 --> 00:21:15,069
+print line ya que deseamos dejar un
+
+474
+00:21:12,220 --> 00:21:18,190
+salto de línea y cambiamos la letra c
+
+475
+00:21:15,069 --> 00:21:21,099
+por m para indicar que es en metros para
+
+476
+00:21:18,190 --> 00:21:23,200
+resumir en el setup y por única vez al
+
+477
+00:21:21,099 --> 00:21:23,829
+iniciar el programa tomamos la presión
+
+478
+00:21:23,200 --> 00:21:26,470
+actual
+
+479
+00:21:23,829 --> 00:21:29,049
+luego mostramos temperatura y presión
+
+480
+00:21:26,470 --> 00:21:31,929
+que se estará actualizando cada cinco
+
+481
+00:21:29,049 --> 00:21:34,960
+segundos y la altitud respecto del
+
+482
+00:21:31,929 --> 00:21:37,330
+inicio si ejecutamos el programa y no
+
+483
+00:21:34,960 --> 00:21:39,819
+movemos el sensor tendremos una
+
+484
+00:21:37,329 --> 00:21:42,579
+indicación de altitud igual a cero
+
+485
+00:21:39,819 --> 00:21:45,069
+metros si movemos el sensor hacia arriba
+
+486
+00:21:42,579 --> 00:21:47,649
+comenzará a mostrar la distancia en
+
+487
+00:21:45,069 --> 00:21:50,409
+metros desde el punto de partida
+
+488
+00:21:47,650 --> 00:21:52,960
+incluso si bajamos el sensor por debajo
+
+489
+00:21:50,410 --> 00:21:55,300
+del punto inicial veríamos un valor
+
+490
+00:21:52,960 --> 00:21:58,000
+negativo de altitud indicando que
+
+491
+00:21:55,299 --> 00:22:00,428
+estamos descendiendo desde el punto de
+
+492
+00:21:58,000 --> 00:22:01,680
+inicio vamos a probarlo y ver cómo
+
+493
+00:22:00,429 --> 00:22:05,320
+funciona
+
+494
+00:22:01,680 --> 00:22:07,509
+subimos y abrimos el monitor serie en el
+
+495
+00:22:05,319 --> 00:22:10,389
+monitor serie vemos la indicación de
+
+496
+00:22:07,509 --> 00:22:13,809
+temperatura y presión y en la segunda
+
+497
+00:22:10,390 --> 00:22:16,180
+línea la altitud que marca 0 metros ya
+
+498
+00:22:13,809 --> 00:22:18,669
+que tomamos como referencia la presión
+
+499
+00:22:16,180 --> 00:22:21,009
+actual como el punto de partida veras
+
+500
+00:22:18,670 --> 00:22:23,680
+pequeñas variaciones de presión que se
+
+501
+00:22:21,009 --> 00:22:26,319
+traducen en variaciones en la altitud es
+
+502
+00:22:23,680 --> 00:22:28,509
+normal pensar que siempre tendremos un
+
+503
+00:22:26,319 --> 00:22:30,669
+margen de error y sobre todo en el
+
+504
+00:22:28,509 --> 00:22:33,789
+cálculo de la altitud y lo hace de forma
+
+505
+00:22:30,670 --> 00:22:35,970
+indirecta con la presión yo arranque el
+
+506
+00:22:33,789 --> 00:22:38,589
+programa con arduino sobre protoboard
+
+507
+00:22:35,970 --> 00:22:40,630
+sostenida con una banda elástica de
+
+508
+00:22:38,589 --> 00:22:44,139
+manera de poder subir todo el conjunto
+
+509
+00:22:40,630 --> 00:22:46,780
+el cable usb tiene un metro y medio de
+
+510
+00:22:44,140 --> 00:22:49,600
+largo a propósito con lo que todo el
+
+511
+00:22:46,779 --> 00:22:52,690
+conjunto en el piso de manera que el
+
+512
+00:22:49,599 --> 00:22:54,939
+mismo equivale a los 0 metros ahora voy
+
+513
+00:22:52,690 --> 00:22:57,519
+a subir protoboard con arduino y el
+
+514
+00:22:54,940 --> 00:23:00,789
+sensor sobre la superficie de mi
+
+515
+00:22:57,519 --> 00:23:02,950
+escritorio que tiene 75 centímetros de
+
+516
+00:23:00,789 --> 00:23:06,168
+altura deberemos ver en el monitor
+
+517
+00:23:02,950 --> 00:23:10,778
+series como la altitud ha cambiado
+
+518
+00:23:06,169 --> 00:23:13,669
+cercana a un promedio a los 0 75 metros
+
+519
+00:23:10,778 --> 00:23:16,190
+perfecto funciona bien con tan poca
+
+520
+00:23:13,669 --> 00:23:19,159
+diferencia de altura el margen de error
+
+521
+00:23:16,190 --> 00:23:21,859
+es alto el sensor está pensado para
+
+522
+00:23:19,159 --> 00:23:25,429
+medir altitud en el orden de los metros
+
+523
+00:23:21,858 --> 00:23:27,710
+y solo lo elevamos 75 centímetros sin
+
+524
+00:23:25,429 --> 00:23:30,169
+embargo pese la poca diferencia de
+
+525
+00:23:27,710 --> 00:23:33,108
+presión existente logramos un valor
+
+526
+00:23:30,169 --> 00:23:35,419
+bastante bueno hagamos esta otra prueba
+
+527
+00:23:33,108 --> 00:23:38,058
+ahora que tengo protoboard con arduino y
+
+528
+00:23:35,419 --> 00:23:40,278
+el sensor sobre el escritorio voy a
+
+529
+00:23:38,058 --> 00:23:42,440
+presionar el botón de reset de arduino
+
+530
+00:23:40,278 --> 00:23:44,839
+esto hará que vuelva a cargarse el
+
+531
+00:23:42,440 --> 00:23:47,119
+programa y se ejecuten nuevamente el
+
+532
+00:23:44,839 --> 00:23:49,608
+setup donde tomamos la presión actual
+
+533
+00:23:47,118 --> 00:23:52,249
+que sería la presión a la altura del
+
+534
+00:23:49,608 --> 00:23:55,548
+escritorio como referencia por eso vemos
+
+535
+00:23:52,249 --> 00:23:57,919
+que nuevamente dice 0 metros ahora voy a
+
+536
+00:23:55,548 --> 00:24:00,408
+colocar todo en el piso y verás que la
+
+537
+00:23:57,919 --> 00:24:03,409
+actitud mostrada tiene un signo negativo
+
+538
+00:24:00,409 --> 00:24:06,950
+ya que efectivamente desde el punto de
+
+539
+00:24:03,409 --> 00:24:08,059
+referencia hemos descendido unos 75
+
+540
+00:24:06,950 --> 00:24:10,038
+centímetros
+
+541
+00:24:08,058 --> 00:24:12,829
+de esta manera verificamos que podemos
+
+542
+00:24:10,038 --> 00:24:15,619
+usar el bmp 280
+
+543
+00:24:12,829 --> 00:24:18,230
+podrías realizar pruebas colocando una
+
+544
+00:24:15,619 --> 00:24:21,349
+pantalla lcd para mostrar la información
+
+545
+00:24:18,230 --> 00:24:23,870
+en ella en lugar del monitor serie y
+
+546
+00:24:21,349 --> 00:24:26,178
+alimentar arduino con baterías y así
+
+547
+00:24:23,869 --> 00:24:28,668
+tener libertad de movimientos podrías
+
+548
+00:24:26,179 --> 00:24:31,429
+por ejemplo estar en planta baja de un
+
+549
+00:24:28,669 --> 00:24:33,919
+edificio y arrancar o presionar el botón
+
+550
+00:24:31,429 --> 00:24:36,380
+de reset para establecer el punto de
+
+551
+00:24:33,919 --> 00:24:38,870
+inicio luego tomar el ascensor o
+
+552
+00:24:36,380 --> 00:24:40,970
+elevador y ver cómo va incrementando la
+
+553
+00:24:38,869 --> 00:24:43,428
+altitud tener el dato de la presión
+
+554
+00:24:40,970 --> 00:24:45,829
+atmosférica es muy útil para variedad de
+
+555
+00:24:43,429 --> 00:24:47,899
+casos en vehículos por ejemplo la
+
+556
+00:24:45,829 --> 00:24:50,119
+computadora que controla el sistema de
+
+557
+00:24:47,898 --> 00:24:52,278
+inyección utiliza información de la
+
+558
+00:24:50,119 --> 00:24:54,979
+presión atmosférica para regular la
+
+559
+00:24:52,278 --> 00:24:56,240
+cantidad de combustible a inyectar en la
+
+560
+00:24:54,980 --> 00:24:58,730
+cámara de combustión
+
+561
+00:24:56,240 --> 00:25:01,038
+también en aviones a radiocontrol se
+
+562
+00:24:58,730 --> 00:25:03,829
+puede colocar un sensor de este tipo
+
+563
+00:25:01,038 --> 00:25:06,798
+para determinar de forma sencilla la
+
+564
+00:25:03,829 --> 00:25:09,259
+altitud máxima a la cual ha llegado o en
+
+565
+00:25:06,798 --> 00:25:11,450
+drones o vehículos autónomos no
+
+566
+00:25:09,259 --> 00:25:14,599
+tripulados eso es todo por este capítulo
+
+567
+00:25:11,450 --> 00:25:16,819
+como siempre te pido te suscribas y si
+
+568
+00:25:14,599 --> 00:25:19,339
+aún no lo has hecho y por cualquier duda
+
+569
+00:25:16,819 --> 00:25:22,339
+o consulta lo podéis hacer
+
+570
+00:25:19,339 --> 00:25:24,970
+bajo que con gusto te responderé chau y
+
+571
+00:25:22,339 --> 00:25:24,970
+hasta la próxima
+

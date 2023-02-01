@@ -1,0 +1,1880 @@
+1
+00:00:01,659 --> 00:00:07,929
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,419 --> 00:00:09,789
+31 de arduino desde cero en español
+
+3
+00:00:07,929 --> 00:00:12,638
+en esta oportunidad aprenderemos a
+
+4
+00:00:09,789 --> 00:00:14,829
+utilizar la librería stepper incluida en
+
+5
+00:00:12,638 --> 00:00:17,169
+el id de arduino para el manejo de
+
+6
+00:00:14,830 --> 00:00:19,660
+motores paso a paso de forma muy
+
+7
+00:00:17,170 --> 00:00:22,029
+sencilla y con una cantidad mínima de
+
+8
+00:00:19,660 --> 00:00:24,429
+código este capítulo es un complemento
+
+9
+00:00:22,028 --> 00:00:27,070
+del número 30 donde vimos en gran
+
+10
+00:00:24,428 --> 00:00:31,868
+detalle el funcionamiento del motor paso
+
+11
+00:00:27,070 --> 00:00:32,770
+a paso unipolar 28 b j 48 y su módulo
+
+12
+00:00:31,868 --> 00:00:36,340
+controlador
+
+13
+00:00:32,770 --> 00:00:38,649
+ln 2003 en dicho capítulo aprendimos que
+
+14
+00:00:36,340 --> 00:00:41,020
+existen tres tipos de secuencias para
+
+15
+00:00:38,649 --> 00:00:43,689
+lograr el giro del motor y verificamos
+
+16
+00:00:41,020 --> 00:00:46,510
+su funcionamiento si no lo viste te lo
+
+17
+00:00:43,689 --> 00:00:48,670
+recomiendo y dejo un enlace directo en
+
+18
+00:00:46,509 --> 00:00:51,009
+la zona de descripción el uso de los
+
+19
+00:00:48,670 --> 00:00:53,649
+motores paso a paso es muy usual en
+
+20
+00:00:51,009 --> 00:00:56,829
+proyectos de arduino y por ese motivo el
+
+21
+00:00:53,649 --> 00:01:00,219
+ide incorpora por defecto a una librería
+
+22
+00:00:56,829 --> 00:01:02,140
+especializada llamada stepper la idea es
+
+23
+00:01:00,219 --> 00:01:04,448
+hacer una serie de programas para
+
+24
+00:01:02,140 --> 00:01:07,329
+demostrar cómo mediante la misma podemos
+
+25
+00:01:04,448 --> 00:01:08,219
+controlar el motor con un solo par de
+
+26
+00:01:07,329 --> 00:01:10,420
+líneas
+
+27
+00:01:08,219 --> 00:01:13,658
+utilizaremos el mismo circuito del
+
+28
+00:01:10,420 --> 00:01:16,390
+capítulo 30 haremos un repaso rápido del
+
+29
+00:01:13,659 --> 00:01:19,510
+mismo conectaremos el pin digital número
+
+30
+00:01:16,390 --> 00:01:24,939
+8 de arduino a la entrada en uno del
+
+31
+00:01:19,510 --> 00:01:29,590
+módulo ln 2003 el pin digital 9 a 2 el
+
+32
+00:01:24,939 --> 00:01:33,549
+pin digital 10 a 3 y el pin digital 11 a
+
+33
+00:01:29,590 --> 00:01:36,159
+4 alimentaremos el módulo con 5 world y
+
+34
+00:01:33,549 --> 00:01:38,649
+genere de arduino y deberemos alimentar
+
+35
+00:01:36,159 --> 00:01:41,800
+arduino mediante una fuente externa de
+
+36
+00:01:38,650 --> 00:01:43,930
+entre 6 y 12 volts para dar una adecuada
+
+37
+00:01:41,799 --> 00:01:46,269
+provisión de corriente al módulo que
+
+38
+00:01:43,930 --> 00:01:48,100
+controlará las bobinas del motor el
+
+39
+00:01:46,269 --> 00:01:50,618
+código del primer programa es el
+
+40
+00:01:48,099 --> 00:01:52,989
+siguiente y como siempre iremos línea
+
+41
+00:01:50,618 --> 00:01:54,909
+por línea pero ya podrás apreciar aquí
+
+42
+00:01:52,989 --> 00:01:57,579
+es muy corto como decíamos al principio
+
+43
+00:01:54,909 --> 00:02:00,399
+la librería que usaremos es la llamada
+
+44
+00:01:57,579 --> 00:02:02,530
+stepper y ya viene incorporada en el id
+
+45
+00:02:00,399 --> 00:02:05,228
+de arduino con lo cual no es necesario
+
+46
+00:02:02,530 --> 00:02:07,689
+descargar la podrás verificar que se
+
+47
+00:02:05,228 --> 00:02:10,780
+encuentra ingresando al menú programa
+
+48
+00:02:07,689 --> 00:02:13,449
+luego incluir librería y seleccionar
+
+49
+00:02:10,780 --> 00:02:14,740
+este per este listado suele ser bastante
+
+50
+00:02:13,449 --> 00:02:17,319
+largo
+
+51
+00:02:14,740 --> 00:02:19,930
+hay que buscarlo yo lo tengo bastante
+
+52
+00:02:17,319 --> 00:02:22,419
+abajo y no se llega a ver en pantalla si
+
+53
+00:02:19,930 --> 00:02:24,670
+seleccionamos incluir la librería este
+
+54
+00:02:22,419 --> 00:02:27,309
+per como ya es usual veremos en la
+
+55
+00:02:24,669 --> 00:02:30,909
+primera línea el numeral incluso con
+
+56
+00:02:27,310 --> 00:02:33,490
+este pero punto h luego debemos crear un
+
+57
+00:02:30,909 --> 00:02:36,609
+objeto del tipo este porque lo
+
+58
+00:02:33,490 --> 00:02:38,680
+llamaremos por ejemplo motor 1 y luego
+
+59
+00:02:36,610 --> 00:02:41,440
+debemos asignarle una serie de
+
+60
+00:02:38,680 --> 00:02:43,599
+parámetros de inicialización el primero
+
+61
+00:02:41,439 --> 00:02:45,729
+de ellos es la cantidad de pasos que
+
+62
+00:02:43,599 --> 00:02:48,400
+requiere nuestro motor para lograr un
+
+63
+00:02:45,729 --> 00:02:52,060
+giro completo del ig para nuestro caso
+
+64
+00:02:48,400 --> 00:02:55,150
+como usamos el 28 b y jota 48 la
+
+65
+00:02:52,060 --> 00:02:57,460
+cantidad de pasos es de 2048 para
+
+66
+00:02:55,150 --> 00:02:59,950
+refrescar la memoria trae a pantalla la
+
+67
+00:02:57,460 --> 00:03:01,750
+tabla con la secuencia de pasos y luego
+
+68
+00:02:59,949 --> 00:03:04,560
+la explicación que hicimos en el
+
+69
+00:03:01,750 --> 00:03:08,169
+capítulo anterior sobre cómo llegamos a
+
+70
+00:03:04,560 --> 00:03:11,349
+2048 que es multiplicar los 4 pasos por
+
+71
+00:03:08,169 --> 00:03:14,199
+8 ciclos por 64 que es la reducción
+
+72
+00:03:11,349 --> 00:03:16,419
+mecánica por engranajes del motor en
+
+73
+00:03:14,199 --> 00:03:18,519
+este punto es importante aclarar que la
+
+74
+00:03:16,419 --> 00:03:21,099
+librería solo nos permite utilizar
+
+75
+00:03:18,520 --> 00:03:23,950
+únicamente la secuencia de pasos
+
+76
+00:03:21,099 --> 00:03:26,439
+con dos bobinas es decir que de las tres
+
+77
+00:03:23,949 --> 00:03:29,019
+posibles secuencias podremos utilizar
+
+78
+00:03:26,439 --> 00:03:31,210
+una sola es una restricción que tiene la
+
+79
+00:03:29,020 --> 00:03:33,909
+librería pero para la mayoría de casos
+
+80
+00:03:31,210 --> 00:03:35,980
+no significa un problema mayor con lo
+
+81
+00:03:33,909 --> 00:03:39,250
+cual el primer parámetro a la hora de
+
+82
+00:03:35,979 --> 00:03:41,649
+crear el objeto será 2048 que es la
+
+83
+00:03:39,250 --> 00:03:44,469
+cantidad de pasos para un giro completo
+
+84
+00:03:41,650 --> 00:03:46,510
+del eje externo del motor luego los
+
+85
+00:03:44,469 --> 00:03:49,000
+cuatro parámetros siguientes serán los
+
+86
+00:03:46,509 --> 00:03:53,229
+pines a los cuales tenemos conectado el
+
+87
+00:03:49,000 --> 00:03:56,770
+módulo o driver del motor es decir 8 9
+
+88
+00:03:53,229 --> 00:03:59,469
+10 y 11 existe un pequeño error en la
+
+89
+00:03:56,770 --> 00:04:01,840
+librería respecto de la secuencia como
+
+90
+00:03:59,469 --> 00:04:06,159
+la librería es de uso genérico si
+
+91
+00:04:01,840 --> 00:04:08,409
+colocamos los pines 8 9 10 y 11 en dicho
+
+92
+00:04:06,159 --> 00:04:10,659
+orden tendremos como resultado una
+
+93
+00:04:08,409 --> 00:04:13,180
+secuencia incorrecta para nuestro motor
+
+94
+00:04:10,659 --> 00:04:15,460
+en particular esto se soluciona muy
+
+95
+00:04:13,180 --> 00:04:18,670
+fácilmente intercambiando el orden de
+
+96
+00:04:15,460 --> 00:04:23,519
+los pines 9 y 10 por eso aquí al crear
+
+97
+00:04:18,670 --> 00:04:26,069
+el objeto pondremos el orden 8 10 9
+
+98
+00:04:23,519 --> 00:04:28,560
+otra forma sería modificar la librería
+
+99
+00:04:26,069 --> 00:04:30,509
+pero yeso significa un trabajo más
+
+100
+00:04:28,560 --> 00:04:32,970
+complicado e iría en contra del
+
+101
+00:04:30,509 --> 00:04:35,280
+propósito del uso de la librería que es
+
+102
+00:04:32,970 --> 00:04:37,500
+simplificar el proceso con lo cual
+
+103
+00:04:35,279 --> 00:04:42,089
+simplemente debes recordar que para el
+
+104
+00:04:37,500 --> 00:04:45,089
+motor 28 bj 48 que es unipolar de cinco
+
+105
+00:04:42,089 --> 00:04:49,439
+hilos la secuencia de pines debe ser 8
+
+106
+00:04:45,089 --> 00:04:51,929
+10 9 y 11 en el setup utilizaremos una
+
+107
+00:04:49,439 --> 00:04:52,769
+de las funciones del objeto que es set
+
+108
+00:04:51,930 --> 00:04:55,379
+speed
+
+109
+00:04:52,769 --> 00:04:57,750
+es decir establecer velocidad el
+
+110
+00:04:55,379 --> 00:05:01,020
+parámetro que requiere esta función es
+
+111
+00:04:57,750 --> 00:05:03,269
+un número entero representado en rpm
+
+112
+00:05:01,019 --> 00:05:05,728
+revoluciones por minuto como
+
+113
+00:05:03,269 --> 00:05:07,799
+explicábamos en el capítulo anterior y
+
+114
+00:05:05,728 --> 00:05:10,978
+el paso a paso requiere de un tiempo
+
+115
+00:05:07,800 --> 00:05:13,650
+mínimo entre paso y paso para energizar
+
+116
+00:05:10,978 --> 00:05:16,199
+las bobinas y el movimiento físico del
+
+117
+00:05:13,649 --> 00:05:18,359
+rotor para llegar a su posición para
+
+118
+00:05:16,199 --> 00:05:20,699
+nuestro motor el tiempo entre paso y
+
+119
+00:05:18,360 --> 00:05:22,830
+paso no debía ser menor a 10
+
+120
+00:05:20,699 --> 00:05:25,259
+milisegundos dicho tiempo lo
+
+121
+00:05:22,829 --> 00:05:27,959
+establecimos mediante una demora con la
+
+122
+00:05:25,259 --> 00:05:29,939
+función delay pero ahora que usamos una
+
+123
+00:05:27,959 --> 00:05:32,099
+librería debemos establecer la
+
+124
+00:05:29,939 --> 00:05:34,560
+ciudad de manera distinta en
+
+125
+00:05:32,100 --> 00:05:37,050
+revoluciones por minutos una revolución
+
+126
+00:05:34,560 --> 00:05:40,230
+por minuto equivale a decir que el eje
+
+127
+00:05:37,050 --> 00:05:42,840
+del motor realiza un giro completo en un
+
+128
+00:05:40,230 --> 00:05:45,720
+tiempo de un minuto o lo que es lo mismo
+
+129
+00:05:42,839 --> 00:05:48,899
+en 60 segundos como nuestro motor
+
+130
+00:05:45,720 --> 00:05:54,270
+requiere de 2048 pasos para dar una
+
+131
+00:05:48,899 --> 00:05:57,209
+vuelta completa si hacemos 60 / 2048 nos
+
+132
+00:05:54,269 --> 00:05:59,370
+dará el tiempo en segundos entre paso y
+
+133
+00:05:57,209 --> 00:06:02,310
+paso si lo multiplicamos por 1000
+
+134
+00:05:59,370 --> 00:06:06,300
+tendremos el tiempo en milisegundos que
+
+135
+00:06:02,310 --> 00:06:08,850
+resulta ser de 29 3 este cálculo es lo
+
+136
+00:06:06,300 --> 00:06:12,180
+hacemos para verificar la relación entre
+
+137
+00:06:08,850 --> 00:06:14,400
+rpm y tiempo entre paso y paso y
+
+138
+00:06:12,180 --> 00:06:17,310
+comprobar que no sea menor a los 10
+
+139
+00:06:14,399 --> 00:06:20,819
+milisegundos de nuestro motor en resumen
+
+140
+00:06:17,310 --> 00:06:24,689
+una rpm equivale a una demora entre paso
+
+141
+00:06:20,819 --> 00:06:26,819
+y paso de 29 3 milisegundos hagamos el
+
+142
+00:06:24,689 --> 00:06:30,600
+mismo cálculo pero para una velocidad de
+
+143
+00:06:26,819 --> 00:06:33,870
+2 rpm o revoluciones por minuto será de
+
+144
+00:06:30,600 --> 00:06:35,939
+dos vueltas en 60 segundos o lo que es
+
+145
+00:06:33,870 --> 00:06:40,769
+lo mismo una vuelta
+
+146
+00:06:35,939 --> 00:06:44,480
+segundos si hacemos 30 / 2048 y luego
+
+147
+00:06:40,769 --> 00:06:47,669
+multiplicamos por 1000 nos da 14 6
+
+148
+00:06:44,480 --> 00:06:49,500
+milisegundos con lo cual con 2 rpm
+
+149
+00:06:47,670 --> 00:06:51,569
+todavía estamos en el rango de
+
+150
+00:06:49,500 --> 00:06:53,879
+funcionamiento de nuestro motor si
+
+151
+00:06:51,569 --> 00:06:56,370
+finalmente vemos el tiempo de demora que
+
+152
+00:06:53,879 --> 00:07:00,209
+tenemos entre paso y paso para el caso
+
+153
+00:06:56,370 --> 00:07:03,209
+de tres rpm tendremos tres vueltas en 60
+
+154
+00:07:00,209 --> 00:07:10,339
+segundos equivale a una vuelta cada 20
+
+155
+00:07:03,209 --> 00:07:12,810
+segundos 20 / 2048 y x mil 229 8
+
+156
+00:07:10,339 --> 00:07:15,719
+milisegundos y ya estamos justo al
+
+157
+00:07:12,810 --> 00:07:17,129
+límite de los 10 milisegundos mínimo que
+
+158
+00:07:15,720 --> 00:07:18,960
+soporta nuestro motor
+
+159
+00:07:17,129 --> 00:07:21,389
+en definitiva llegamos a la conclusión
+
+160
+00:07:18,959 --> 00:07:25,139
+que podremos optar por una velocidad
+
+161
+00:07:21,389 --> 00:07:27,240
+máxima de 3 rpm por ese motivo aquí en
+
+162
+00:07:25,139 --> 00:07:29,399
+el comentario dejamos en claro que los
+
+163
+00:07:27,240 --> 00:07:33,660
+valores que podremos cargarle a la
+
+164
+00:07:29,399 --> 00:07:35,879
+función set speed podrán ser uno dos o
+
+165
+00:07:33,660 --> 00:07:38,760
+tres no tendremos un gran abanico de
+
+166
+00:07:35,879 --> 00:07:41,860
+posibilidades de velocidad para nuestro
+
+167
+00:07:38,759 --> 00:07:44,560
+motor pero esto es debido a la reducción
+
+168
+00:07:41,860 --> 00:07:47,740
+que requiere de muchas vueltas del rotor
+
+169
+00:07:44,560 --> 00:07:50,019
+interno para lograr un giro del externo
+
+170
+00:07:47,740 --> 00:07:52,060
+por un lado es bueno porque aumenta el
+
+171
+00:07:50,019 --> 00:07:54,818
+torque pero por otro lado no podemos
+
+172
+00:07:52,060 --> 00:07:57,399
+obtener una gran velocidad en otros
+
+173
+00:07:54,819 --> 00:08:00,520
+motores donde la relación de reducción
+
+174
+00:07:57,399 --> 00:08:02,529
+es menor o incluso no tiene ningún tipo
+
+175
+00:08:00,519 --> 00:08:05,258
+de reducción podríamos llegar a
+
+176
+00:08:02,529 --> 00:08:08,888
+velocidades mucho más altas como ser de
+
+177
+00:08:05,259 --> 00:08:10,750
+20 o más rpm mucha explicación para
+
+178
+00:08:08,889 --> 00:08:14,199
+llegar a la conclusión que la velocidad
+
+179
+00:08:10,750 --> 00:08:16,449
+máxima de nuestro motor es de 3 rpm pero
+
+180
+00:08:14,199 --> 00:08:18,639
+como siempre la idea es entender el
+
+181
+00:08:16,449 --> 00:08:21,310
+porqué de las cosas y no asumirlo
+
+182
+00:08:18,639 --> 00:08:23,199
+simplemente como un hecho muy bien ya
+
+183
+00:08:21,310 --> 00:08:25,778
+casi terminamos nuestro primer programa
+
+184
+00:08:23,199 --> 00:08:28,120
+en el loop simplemente daremos el
+
+185
+00:08:25,778 --> 00:08:30,579
+comando de la cantidad de pasos que
+
+186
+00:08:28,120 --> 00:08:33,459
+deseamos que dé el motor lo hacemos muy
+
+187
+00:08:30,579 --> 00:08:36,578
+fácil con la función step y entre
+
+188
+00:08:33,458 --> 00:08:39,250
+paréntesis colocamos su único parámetro
+
+189
+00:08:36,578 --> 00:08:42,819
+que es la cantidad de pasos en este caso
+
+190
+00:08:39,250 --> 00:08:44,620
+de 512 lo cual equivale a un cuarto de
+
+191
+00:08:42,820 --> 00:08:47,340
+giro o 90 grados
+
+192
+00:08:44,620 --> 00:08:50,049
+luego aplicamos una demora de 12
+
+193
+00:08:47,340 --> 00:08:52,269
+simplemente para apreciar en la práctica
+
+194
+00:08:50,049 --> 00:08:55,269
+como el motor aplica a la cantidad de
+
+195
+00:08:52,269 --> 00:08:58,210
+pasos y luego de una breve demora repite
+
+196
+00:08:55,269 --> 00:09:00,850
+nuevamente el proceso sin más vamos a
+
+197
+00:08:58,210 --> 00:09:03,820
+verificar y subir el programa podrás
+
+198
+00:09:00,850 --> 00:09:06,310
+verificar que el eje realiza un cuarto
+
+199
+00:09:03,820 --> 00:09:09,340
+de giro o lo que es lo mismo 90 grados
+
+200
+00:09:06,309 --> 00:09:12,009
+se detiene por dos segundos y repite el
+
+201
+00:09:09,340 --> 00:09:14,680
+ciclo como le asignamos una velocidad de
+
+202
+00:09:12,009 --> 00:09:17,259
+dos revoluciones por minuto el cuarto de
+
+203
+00:09:14,679 --> 00:09:20,349
+vuelta demora siete segundos y medio
+
+204
+00:09:17,259 --> 00:09:22,779
+verificamos así que con sólo unas pocas
+
+205
+00:09:20,350 --> 00:09:25,240
+líneas pudimos establecer la velocidad
+
+206
+00:09:22,779 --> 00:09:27,459
+de giro y la cantidad de pasos que
+
+207
+00:09:25,240 --> 00:09:30,399
+deseamos dar pero qué sucede si queremos
+
+208
+00:09:27,460 --> 00:09:33,100
+hacer un giro en sentido contrario
+
+209
+00:09:30,399 --> 00:09:36,220
+muy simple volvemos al código y a la
+
+210
+00:09:33,100 --> 00:09:38,889
+función step le asignamos un valor
+
+211
+00:09:36,220 --> 00:09:41,200
+negativo de cantidad de pasos le
+
+212
+00:09:38,889 --> 00:09:42,490
+indicamos que deseamos un giro en
+
+213
+00:09:41,200 --> 00:09:45,160
+sentido opuesto
+
+214
+00:09:42,490 --> 00:09:47,919
+así que copiamos estas dos líneas las
+
+215
+00:09:45,159 --> 00:09:51,610
+pegamos debajo y le agregamos un signo
+
+216
+00:09:47,919 --> 00:09:52,959
+menos delante del 512 de esta manera el
+
+217
+00:09:51,610 --> 00:09:55,810
+programa hará que el
+
+218
+00:09:52,960 --> 00:09:58,840
+gire un cuarto de vuelta espere dos
+
+219
+00:09:55,809 --> 00:10:01,659
+segundos gire un cuarto de vuelta pero
+
+220
+00:09:58,840 --> 00:10:04,210
+en sentido opuesto y nuevamente veré
+
+221
+00:10:01,659 --> 00:10:07,120
+otros dos segundos antes de comenzar
+
+222
+00:10:04,210 --> 00:10:09,280
+todo el ciclo nuevamente subamos este
+
+223
+00:10:07,120 --> 00:10:12,009
+programa y verifiquemos que funciona
+
+224
+00:10:09,279 --> 00:10:14,919
+correctamente efectivamente tenemos el
+
+225
+00:10:12,009 --> 00:10:17,980
+giro de un cuarto de vuelta espera dos
+
+226
+00:10:14,919 --> 00:10:20,769
+segundos y gira nuevamente un cuarto de
+
+227
+00:10:17,980 --> 00:10:23,170
+vuelta pero en sentido opuesto en cierta
+
+228
+00:10:20,769 --> 00:10:25,000
+forma lo hacemos volver al punto de
+
+229
+00:10:23,169 --> 00:10:29,709
+inicio claro está que estos valores
+
+230
+00:10:25,000 --> 00:10:32,019
+asignados de 512 y menos 512 son solo de
+
+231
+00:10:29,710 --> 00:10:34,269
+prueba podrías asignar cualquier valor
+
+232
+00:10:32,019 --> 00:10:38,049
+de cantidad de pasos que requieras para
+
+233
+00:10:34,269 --> 00:10:40,779
+tu proyecto un valor de 2048 dará una
+
+234
+00:10:38,049 --> 00:10:43,329
+vuelta completa si quisieras que de dos
+
+235
+00:10:40,779 --> 00:10:47,139
+vueltas enteras entonces la cantidad de
+
+236
+00:10:43,330 --> 00:10:49,660
+pasos sería de 4.096 otra ventaja de la
+
+237
+00:10:47,139 --> 00:10:52,659
+librería es que pudimos muy fácilmente
+
+238
+00:10:49,659 --> 00:10:55,120
+cambiar el sentido de giro con solo
+
+239
+00:10:52,659 --> 00:10:57,549
+asignar el signo menos delante de la
+
+240
+00:10:55,120 --> 00:10:58,810
+cantidad de pasos también podrás hacer
+
+241
+00:10:57,549 --> 00:11:01,959
+el cambio de velocidad
+
+242
+00:10:58,809 --> 00:11:05,469
+y probar colocando en cetes steel de un
+
+243
+00:11:01,960 --> 00:11:08,980
+valor de una rpm para un giro más lento
+
+244
+00:11:05,470 --> 00:11:11,620
+o de tres rpm para un giro más rápido en
+
+245
+00:11:08,980 --> 00:11:14,649
+una etapa de prototipo probablemente no
+
+246
+00:11:11,620 --> 00:11:17,289
+sepamos exactamente la cantidad de pasos
+
+247
+00:11:14,649 --> 00:11:20,319
+que debe dar el motor o si el mismo está
+
+248
+00:11:17,289 --> 00:11:22,778
+conectado mediante engranajes poleas o
+
+249
+00:11:20,320 --> 00:11:25,150
+varillas roscadas el desplazamiento
+
+250
+00:11:22,778 --> 00:11:27,639
+lineal es por ese motivo te propongo
+
+251
+00:11:25,149 --> 00:11:30,579
+este otro programa donde la cantidad de
+
+252
+00:11:27,639 --> 00:11:33,519
+pasos se la daremos a arduino en tiempo
+
+253
+00:11:30,580 --> 00:11:35,528
+real mediante el monitor serie esto es
+
+254
+00:11:33,519 --> 00:11:38,439
+muy sencillo gracias al uso de la
+
+255
+00:11:35,528 --> 00:11:40,689
+librería como usaremos el monitor serie
+
+256
+00:11:38,440 --> 00:11:44,740
+debemos agregar la inicialización de la
+
+257
+00:11:40,690 --> 00:11:47,529
+comunicación en el setup a 9.600 bps
+
+258
+00:11:44,740 --> 00:11:51,820
+como siempre lo hacemos con serie al
+
+259
+00:11:47,528 --> 00:11:53,980
+punto bin entre paréntesis 9.600
+
+260
+00:11:51,820 --> 00:11:57,070
+eliminemos el contenido actual dentro
+
+261
+00:11:53,980 --> 00:11:59,680
+del loop y pegar el código completo y
+
+262
+00:11:57,070 --> 00:12:02,170
+ahora lo veremos línea por línea la
+
+263
+00:11:59,679 --> 00:12:03,399
+condición que evalúa el if en la primera
+
+264
+00:12:02,169 --> 00:12:06,189
+línea es
+
+265
+00:12:03,399 --> 00:12:08,439
+sería el punto available la función
+
+266
+00:12:06,190 --> 00:12:11,110
+available la utilizamos cuando
+
+267
+00:12:08,440 --> 00:12:13,300
+trabajamos con bluetooth para saber si
+
+268
+00:12:11,110 --> 00:12:16,300
+existía información disponible en el
+
+269
+00:12:13,299 --> 00:12:18,669
+monitor serie aquí es lo mismo lo que
+
+270
+00:12:16,299 --> 00:12:21,339
+hacemos es esperar a que se introduzca
+
+271
+00:12:18,669 --> 00:12:23,589
+un valor en el monitor serie si no se
+
+272
+00:12:21,340 --> 00:12:27,519
+introducen nada entonces la función
+
+273
+00:12:23,590 --> 00:12:30,639
+available retorna falso y no entramos al
+
+274
+00:12:27,519 --> 00:12:33,370
+if y como verás luego del bloque if no
+
+275
+00:12:30,639 --> 00:12:35,529
+hay más código así que en definitiva no
+
+276
+00:12:33,370 --> 00:12:38,289
+hacemos nada cuando existe algún dato
+
+277
+00:12:35,529 --> 00:12:40,839
+disponible en el monitor serie entonces
+
+278
+00:12:38,289 --> 00:12:43,959
+entraremos a live y lo que hacemos es
+
+279
+00:12:40,840 --> 00:12:46,600
+definir aquí mismo una variable llamado
+
+280
+00:12:43,960 --> 00:12:50,500
+a pasos y le asignamos el valor que
+
+281
+00:12:46,600 --> 00:12:54,100
+retorna la función paros y del objeto
+
+282
+00:12:50,500 --> 00:12:56,230
+serial bars int es una función que nunca
+
+283
+00:12:54,100 --> 00:12:58,570
+usamos antes y lo que hace es
+
+284
+00:12:56,230 --> 00:13:01,570
+simplemente obtener el valor de lo que
+
+285
+00:12:58,570 --> 00:13:03,940
+se haya escrito en el monitor serie en
+
+286
+00:13:01,570 --> 00:13:06,460
+formato de número entero el monitor
+
+287
+00:13:03,940 --> 00:13:08,860
+serie acepta que le ingresemos tanto
+
+288
+00:13:06,460 --> 00:13:10,089
+letras como números pero a nosotros nos
+
+289
+00:13:08,860 --> 00:13:12,879
+interesa obtener
+
+290
+00:13:10,089 --> 00:13:14,860
+el valor en formato numérico por ejemplo
+
+291
+00:13:12,879 --> 00:13:19,389
+si queremos como en el programa anterior
+
+292
+00:13:14,860 --> 00:13:22,629
+que el motor de 512 pasos para int
+
+293
+00:13:19,389 --> 00:13:25,240
+devuelve el valor 512 y lo asignamos a
+
+294
+00:13:22,629 --> 00:13:27,909
+la variable pasos luego con el clásico
+
+295
+00:13:25,240 --> 00:13:30,159
+sería el punto print line escribimos
+
+296
+00:13:27,909 --> 00:13:32,318
+dicho valor simplemente para que se
+
+297
+00:13:30,159 --> 00:13:34,749
+muestre en pantalla no es una línea
+
+298
+00:13:32,318 --> 00:13:37,028
+necesaria para el funcionamiento expresa
+
+299
+00:13:34,749 --> 00:13:39,339
+modo de confirmación del valor que
+
+300
+00:13:37,028 --> 00:13:43,360
+acabamos de ingresar finalmente a la
+
+301
+00:13:39,339 --> 00:13:45,790
+función step del objeto motor 1 le
+
+302
+00:13:43,360 --> 00:13:48,519
+asignamos como parámetro el valor de la
+
+303
+00:13:45,789 --> 00:13:51,129
+variable pasos y ésta se encargará de
+
+304
+00:13:48,519 --> 00:13:53,850
+hacer girar el motor dicha cantidad de
+
+305
+00:13:51,129 --> 00:13:56,920
+pasos y eso es todo vamos a verificar
+
+306
+00:13:53,850 --> 00:13:59,470
+subir el programa y abrir el monitor
+
+307
+00:13:56,919 --> 00:14:02,378
+serie podrás observar que no sucede nada
+
+308
+00:13:59,470 --> 00:14:04,959
+no hay movimiento del motor y eso es
+
+309
+00:14:02,379 --> 00:14:07,569
+correcto porque aún no hemos ingresado
+
+310
+00:14:04,958 --> 00:14:09,458
+ningún valor en el monitor serie para
+
+311
+00:14:07,568 --> 00:14:12,128
+seguir la metodología del anterior
+
+312
+00:14:09,458 --> 00:14:14,000
+programa podemos hacerlo girar un total
+
+313
+00:14:12,129 --> 00:14:17,990
+de 512 pasos
+
+314
+00:14:14,000 --> 00:14:20,809
+eso ingresemos el número 512 en el campo
+
+315
+00:14:17,990 --> 00:14:23,029
+superior del monitor serie quizás se vea
+
+316
+00:14:20,809 --> 00:14:26,149
+algo pequeña en pantalla pero estoy
+
+317
+00:14:23,029 --> 00:14:28,129
+ingresando el número 512 para enviar
+
+318
+00:14:26,149 --> 00:14:31,459
+este número tenemos dos opciones
+
+319
+00:14:28,129 --> 00:14:33,500
+presionar el botón enviar con enter en
+
+320
+00:14:31,460 --> 00:14:35,930
+el teclado de la computadora
+
+321
+00:14:33,500 --> 00:14:38,750
+yo voy a presionar enter verás que ni
+
+322
+00:14:35,929 --> 00:14:41,809
+bien lo hago el motor gira un cuarto de
+
+323
+00:14:38,750 --> 00:14:43,970
+vuelta y se detiene perfecto parece que
+
+324
+00:14:41,809 --> 00:14:46,939
+funciona bien ahora hagamos girar lo en
+
+325
+00:14:43,970 --> 00:14:50,360
+sentido opuesto colocando el signo menos
+
+326
+00:14:46,940 --> 00:14:53,630
+y de forma seguida el número 512 y
+
+327
+00:14:50,360 --> 00:14:56,330
+presionamos enter o el botón enviar
+
+328
+00:14:53,629 --> 00:14:59,179
+vemos cómo el motor ahora gira un cuarto
+
+329
+00:14:56,330 --> 00:15:01,700
+de vuelta en sentido opuesto y se
+
+330
+00:14:59,179 --> 00:15:04,370
+detiene cuando se detiene lo hace de
+
+331
+00:15:01,700 --> 00:15:06,920
+forma indefinida ya que el bloque if
+
+332
+00:15:04,370 --> 00:15:09,710
+evalúa si hay información disponible en
+
+333
+00:15:06,919 --> 00:15:13,490
+el monitor serie le enviamos una vez el
+
+334
+00:15:09,710 --> 00:15:16,250
+valor de menos 512 y luego nada más así
+
+335
+00:15:13,490 --> 00:15:19,310
+que luego de ejecutar los 512 pasos
+
+336
+00:15:16,250 --> 00:15:20,240
+queda a la espera de otro número este
+
+337
+00:15:19,309 --> 00:15:22,729
+método
+
+338
+00:15:20,240 --> 00:15:24,889
+para hacer pruebas rápidas ya que no
+
+339
+00:15:22,730 --> 00:15:27,170
+debemos estar modificando el código de
+
+340
+00:15:24,889 --> 00:15:30,350
+programa con la cantidad de pasos
+
+341
+00:15:27,169 --> 00:15:32,750
+verificar y subirlo arduino cada vez que
+
+342
+00:15:30,350 --> 00:15:35,240
+queremos una cantidad distinta lo
+
+343
+00:15:32,750 --> 00:15:37,850
+hacemos inmediatamente desde el monitor
+
+344
+00:15:35,240 --> 00:15:40,310
+serie algo que habrás notado es que
+
+345
+00:15:37,850 --> 00:15:42,110
+mientras el motor está detenido siempre
+
+346
+00:15:40,309 --> 00:15:44,659
+hay dos leds
+
+347
+00:15:42,110 --> 00:15:47,149
+encendidos en el módulo controlador y
+
+348
+00:15:44,659 --> 00:15:49,159
+este es el comportamiento por defecto
+
+349
+00:15:47,149 --> 00:15:52,070
+que obtendremos al usar la librería
+
+350
+00:15:49,159 --> 00:15:55,189
+luego de ejecutada la función steps
+
+351
+00:15:52,070 --> 00:15:57,920
+queda energizadas las dos bobinas del
+
+352
+00:15:55,190 --> 00:16:00,709
+último paso esto asegura que el rotor
+
+353
+00:15:57,919 --> 00:16:03,259
+quede firmemente en su posición al estar
+
+354
+00:16:00,708 --> 00:16:05,349
+afectado por el campo magnético de las
+
+355
+00:16:03,259 --> 00:16:07,399
+dos bobinas pero como contrapartida
+
+356
+00:16:05,350 --> 00:16:10,820
+tendremos un consumo de energía
+
+357
+00:16:07,399 --> 00:16:15,049
+constante incluso con el motor detenido
+
+358
+00:16:10,820 --> 00:16:16,940
+para nuestro motor 28 b y j 48 no tiene
+
+359
+00:16:15,049 --> 00:16:19,669
+demasiado sentido mantener siempre
+
+360
+00:16:16,940 --> 00:16:22,339
+energizadas dos bobinas con el motor
+
+361
+00:16:19,669 --> 00:16:25,159
+detenido ya que la reducción mecánica
+
+362
+00:16:22,339 --> 00:16:25,900
+hace que aunque no haya ninguna bobina
+
+363
+00:16:25,159 --> 00:16:29,230
+energía
+
+364
+00:16:25,899 --> 00:16:31,360
+el eje quede muy firme en su posición es
+
+365
+00:16:29,230 --> 00:16:34,300
+por ese motivo que te propongo una
+
+366
+00:16:31,360 --> 00:16:37,029
+modificación al código muy rápida para
+
+367
+00:16:34,299 --> 00:16:39,669
+desenergizar las bobinas luego de que se
+
+368
+00:16:37,029 --> 00:16:43,120
+complete la secuencia de pasos así que
+
+369
+00:16:39,669 --> 00:16:46,509
+vamos al código y debajo del motor
+
+370
+00:16:43,120 --> 00:16:50,019
+punto steps pasos coloquemos una serie
+
+371
+00:16:46,509 --> 00:16:51,850
+de cuatro digital raid con valores low a
+
+372
+00:16:50,019 --> 00:16:52,899
+los cuatro team es donde tenemos
+
+373
+00:16:51,850 --> 00:16:57,550
+conectados
+
+374
+00:16:52,899 --> 00:16:59,829
+el módulo que son el 8 9 10 y 11 como no
+
+375
+00:16:57,549 --> 00:17:03,909
+creamos variables para indicar que por
+
+376
+00:16:59,830 --> 00:17:07,420
+ejemplo en 1 es igual al pin 8 en dos al
+
+377
+00:17:03,909 --> 00:17:09,879
+pin 9 y así vamos a simplemente a usar
+
+378
+00:17:07,420 --> 00:17:14,560
+el digital write directamente con el
+
+379
+00:17:09,880 --> 00:17:18,430
+número de pin digital wright 8 logo lo
+
+380
+00:17:14,559 --> 00:17:20,829
+mismo para los pines 9 10 y 11 así que
+
+381
+00:17:18,430 --> 00:17:23,350
+estaré copiando esta línea y pegando las
+
+382
+00:17:20,829 --> 00:17:25,929
+tres veces y cambiando los números de
+
+383
+00:17:23,349 --> 00:17:28,389
+los pines logrando de esa manera enviar
+
+384
+00:17:25,930 --> 00:17:30,970
+niveles bajos a todos los pines del
+
+385
+00:17:28,390 --> 00:17:32,480
+módulo controlador haciendo que se des
+
+386
+00:17:30,970 --> 00:17:36,019
+énergies en las
+
+387
+00:17:32,480 --> 00:17:38,900
+vamos a verificar y subir el programa y
+
+388
+00:17:36,019 --> 00:17:41,298
+nuevamente a abrir el monitor serie el
+
+389
+00:17:38,900 --> 00:17:43,700
+funcionamiento será el mismo pero ahora
+
+390
+00:17:41,298 --> 00:17:46,730
+deberíamos verificar que luego de que el
+
+391
+00:17:43,700 --> 00:17:49,850
+motor de la cantidad de pasos asignados
+
+392
+00:17:46,730 --> 00:17:51,919
+los leds del módulo permanezcan apagados
+
+393
+00:17:49,849 --> 00:17:54,319
+indicando que no hay ninguna bobina
+
+394
+00:17:51,919 --> 00:17:55,250
+energizada mientras el motor está
+
+395
+00:17:54,319 --> 00:17:58,399
+detenido
+
+396
+00:17:55,250 --> 00:18:00,890
+vamos a colocar nuevamente 512 y luego
+
+397
+00:17:58,400 --> 00:18:03,048
+de realizar los pasos indicados verás
+
+398
+00:18:00,890 --> 00:18:06,140
+que ya ningún leds del módulo
+
+399
+00:18:03,048 --> 00:18:08,509
+controlador se encuentra encendido así
+
+400
+00:18:06,140 --> 00:18:10,700
+mientras está detenido el motor no
+
+401
+00:18:08,509 --> 00:18:11,569
+estamos consumiendo ningún tipo de
+
+402
+00:18:10,700 --> 00:18:13,580
+energía
+
+403
+00:18:11,569 --> 00:18:16,069
+el hecho de desenergizar las bobinas
+
+404
+00:18:13,579 --> 00:18:18,470
+mientras está el motor detenido no es
+
+405
+00:18:16,069 --> 00:18:20,259
+una cuestión obligatoria pero no viene
+
+406
+00:18:18,470 --> 00:18:22,640
+mal evitar consumos de energía
+
+407
+00:18:20,259 --> 00:18:25,640
+innecesarios y el regulador de tensión
+
+408
+00:18:22,640 --> 00:18:28,100
+de arduino te lo agradecerá genial la
+
+409
+00:18:25,640 --> 00:18:31,070
+librería stepper nos permite controlar
+
+410
+00:18:28,099 --> 00:18:33,259
+el motor a voluntad con muy poco código
+
+411
+00:18:31,069 --> 00:18:36,200
+pero qué sucede si queremos aplicar la
+
+412
+00:18:33,259 --> 00:18:38,869
+secuencia de medio paso es una secuencia
+
+413
+00:18:36,200 --> 00:18:41,000
+que obtiene la mayor precisión del motor
+
+414
+00:18:38,869 --> 00:18:43,729
+puede ser una necesidad para nuestro
+
+415
+00:18:41,000 --> 00:18:46,369
+proyecto lamentablemente la librería no
+
+416
+00:18:43,730 --> 00:18:49,069
+tiene la capacidad de poder indicarle el
+
+417
+00:18:46,369 --> 00:18:51,769
+tipo de secuencia de pasos es siempre de
+
+418
+00:18:49,069 --> 00:18:54,470
+paso completo con dos bobinas como
+
+419
+00:18:51,769 --> 00:18:56,720
+decíamos al principio así que para medio
+
+420
+00:18:54,470 --> 00:18:59,930
+paso debemos volver al código del
+
+421
+00:18:56,720 --> 00:19:01,880
+capítulo 30 y es este que tengo aquí en
+
+422
+00:18:59,930 --> 00:19:04,610
+el editor no voy a explicar nuevamente
+
+423
+00:19:01,880 --> 00:19:06,980
+este código ya que le dedicamos bastante
+
+424
+00:19:04,609 --> 00:19:08,869
+tiempo en el capítulo anterior lo que
+
+425
+00:19:06,980 --> 00:19:12,140
+quiero agregar es un ejemplo de cómo
+
+426
+00:19:08,869 --> 00:19:14,149
+hacer el giro en sentido opuesto un tema
+
+427
+00:19:12,140 --> 00:19:16,759
+que no quedó cubierto y me parece
+
+428
+00:19:14,150 --> 00:19:19,490
+importante destacar la idea es recorrer
+
+429
+00:19:16,759 --> 00:19:22,970
+la matriz pero en sentido opuesto es
+
+430
+00:19:19,490 --> 00:19:25,910
+decir comenzar desde la fila 7 y columna
+
+431
+00:19:22,970 --> 00:19:29,539
+3 e ir de incrementando hasta llegar a
+
+432
+00:19:25,910 --> 00:19:32,269
+la fila 0 y columna 0 como se puede
+
+433
+00:19:29,539 --> 00:19:35,089
+apreciar en esta imagen de la secuencia
+
+434
+00:19:32,269 --> 00:19:39,079
+de medio paso además comenzaremos con el
+
+435
+00:19:35,089 --> 00:19:40,369
+digital write que controla en 4 luego en
+
+436
+00:19:39,079 --> 00:19:44,000
+3
+
+437
+00:19:40,369 --> 00:19:46,939
+en uno y eso es lo que hacemos en este
+
+438
+00:19:44,000 --> 00:19:50,089
+bloque aquí resaltado comenzamos con el
+
+439
+00:19:46,940 --> 00:19:51,740
+bucle fort con una variable distinta que
+
+440
+00:19:50,089 --> 00:19:53,209
+la llamamos j
+
+441
+00:19:51,740 --> 00:19:56,480
+aunque tranquilamente podríamos
+
+442
+00:19:53,210 --> 00:19:59,269
+reutilizar la variable y aj la inicial
+
+443
+00:19:56,480 --> 00:20:02,660
+izamos con un valor de 7 es decir de la
+
+444
+00:19:59,269 --> 00:20:07,279
+fila 7 y luego comenzamos el primer
+
+445
+00:20:02,660 --> 00:20:09,680
+digital right con un 4 como j vale 7
+
+446
+00:20:07,279 --> 00:20:12,410
+estamos sobre la última fila y el
+
+447
+00:20:09,680 --> 00:20:15,620
+segundo corchete de la matriz el valor
+
+448
+00:20:12,410 --> 00:20:18,890
+de la columna es 3 luego el resto es lo
+
+449
+00:20:15,619 --> 00:20:23,719
+esperable utilizando interés sobre la
+
+450
+00:20:18,890 --> 00:20:28,009
+fila jota y columna 2 luego en 2 sobre
+
+451
+00:20:23,720 --> 00:20:32,299
+fila jota y columna 1 y finalmente en 1
+
+452
+00:20:28,009 --> 00:20:35,390
+sobre fila jota y columna 0 el bucle for
+
+453
+00:20:32,299 --> 00:20:39,349
+en cada iteración de incrementaremos el
+
+454
+00:20:35,390 --> 00:20:41,690
+valor de jota en 1 con jota menos menos
+
+455
+00:20:39,349 --> 00:20:43,789
+con lo cual este programa de ejemplo
+
+456
+00:20:41,690 --> 00:20:46,460
+comienza con un giro completo en un
+
+457
+00:20:43,789 --> 00:20:47,029
+sentido luego un giro completo en
+
+458
+00:20:46,460 --> 00:20:50,420
+sentido
+
+459
+00:20:47,029 --> 00:20:53,139
+opuesto des energiza las bobinas espiras
+
+460
+00:20:50,420 --> 00:20:55,460
+5 segundos y vuelve a repetir el ciclo
+
+461
+00:20:53,140 --> 00:20:57,830
+recordad que el código de todos los
+
+462
+00:20:55,460 --> 00:20:59,930
+programas vistos en este capítulo y el
+
+463
+00:20:57,829 --> 00:21:02,119
+de todos los capítulos se encuentra
+
+464
+00:20:59,930 --> 00:21:04,700
+disponible en el enlace y dejó en la
+
+465
+00:21:02,119 --> 00:21:07,759
+zona de descripción eso es todo por este
+
+466
+00:21:04,700 --> 00:21:10,250
+capítulo si aún no lo hiciste te pido te
+
+467
+00:21:07,759 --> 00:21:12,259
+suscribas para recibir notificaciones y
+
+468
+00:21:10,250 --> 00:21:14,420
+por cualquier duda o comentario lo
+
+469
+00:21:12,259 --> 00:21:19,180
+podéis hacer debajo que con gusto te
+
+470
+00:21:14,420 --> 00:21:19,180
+responderé chao y hasta la próxima
+

@@ -1,0 +1,2740 @@
+1
+00:00:01,879 --> 00:00:08,120
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,629 --> 00:00:10,129
+35 de arduino desde cero en español
+
+3
+00:00:08,119 --> 00:00:13,849
+en esta oportunidad aprenderemos a
+
+4
+00:00:10,130 --> 00:00:16,219
+utilizar el adaptador lcd y 12 el cual
+
+5
+00:00:13,849 --> 00:00:19,730
+permite convertir una conexión para el
+
+6
+00:00:16,219 --> 00:00:22,099
+hilo de una pantalla lcd a una serie que
+
+7
+00:00:19,730 --> 00:00:24,319
+requiere sólo de dos cables este
+
+8
+00:00:22,099 --> 00:00:27,469
+adaptador está especialmente diseñado
+
+9
+00:00:24,318 --> 00:00:30,068
+para conectarse con un módulo lcd como
+
+10
+00:00:27,469 --> 00:00:31,398
+el visto en el capítulo 10 el modelo
+
+11
+00:00:30,068 --> 00:00:34,609
+1602
+
+12
+00:00:31,399 --> 00:00:36,829
+de 16 columnas por dos filas y como
+
+13
+00:00:34,609 --> 00:00:39,079
+vimos de dicho capítulo se requería de
+
+14
+00:00:36,829 --> 00:00:41,449
+una gran cantidad de conexiones para la
+
+15
+00:00:39,079 --> 00:00:44,299
+comunicación con arduino si no viste el
+
+16
+00:00:41,450 --> 00:00:46,790
+capítulo 10 te lo recomiendo y dejo un
+
+17
+00:00:44,299 --> 00:00:49,309
+enlace directo en la zona de descripción
+
+18
+00:00:46,789 --> 00:00:51,950
+como se puede ver el adaptador tiene una
+
+19
+00:00:49,310 --> 00:00:55,100
+hilera de 16 pines que sirven para la
+
+20
+00:00:51,950 --> 00:00:57,290
+conexión de forma directa al módulo lcd
+
+21
+00:00:55,100 --> 00:00:59,329
+el módulo no viene con los pines
+
+22
+00:00:57,289 --> 00:01:02,238
+soldados cuando trabajamos en el
+
+23
+00:00:59,329 --> 00:01:05,030
+capítulo 10 les soldamos los primeros 6
+
+24
+00:01:02,238 --> 00:01:07,158
+pines y los últimos 6 que de forma
+
+25
+00:01:05,030 --> 00:01:08,359
+opcional también podríamos soldar la
+
+26
+00:01:07,159 --> 00:01:11,180
+totalidad de los
+
+27
+00:01:08,359 --> 00:01:13,909
+y 6 pines y así colocar sobre protoboard
+
+28
+00:01:11,180 --> 00:01:16,730
+la conexión la veremos en breve y es muy
+
+29
+00:01:13,909 --> 00:01:19,399
+simple el análisis los centraremos en el
+
+30
+00:01:16,730 --> 00:01:22,490
+adaptador como ya dijimos la hilera de
+
+31
+00:01:19,400 --> 00:01:25,760
+16 pines en la parte superior sirve para
+
+32
+00:01:22,489 --> 00:01:28,009
+la conexión directa al módulo lcd luego
+
+33
+00:01:25,760 --> 00:01:30,710
+tenemos un pre set para la regulación
+
+34
+00:01:28,010 --> 00:01:33,740
+del nivel de contraste de la pantalla y
+
+35
+00:01:30,709 --> 00:01:35,869
+sobre la izquierda un jumper o puente
+
+36
+00:01:33,739 --> 00:01:38,329
+que se utiliza para habilitar o
+
+37
+00:01:35,870 --> 00:01:41,478
+deshabilitar la iluminación posterior
+
+38
+00:01:38,329 --> 00:01:43,159
+del lcd con el jumper colocado la
+
+39
+00:01:41,478 --> 00:01:46,519
+iluminación queda permanentemente
+
+40
+00:01:43,159 --> 00:01:48,439
+encendida esta conexión es útil si por
+
+41
+00:01:46,519 --> 00:01:51,259
+ejemplo estamos con un dispositivo a
+
+42
+00:01:48,439 --> 00:01:53,750
+baterías y el consumo debe ser el mínimo
+
+43
+00:01:51,259 --> 00:01:56,840
+posible con un simple interruptor de
+
+44
+00:01:53,750 --> 00:01:59,509
+encendido apagado on-off podemos
+
+45
+00:01:56,840 --> 00:02:02,780
+habilitar de forma manual la iluminación
+
+46
+00:01:59,509 --> 00:02:04,759
+posterior y así ahorrar batería es una
+
+47
+00:02:02,780 --> 00:02:07,040
+conexión por hardware que de todas
+
+48
+00:02:04,759 --> 00:02:09,349
+maneras veremos luego tendremos la
+
+49
+00:02:07,040 --> 00:02:12,170
+opción de trabajar por software así que
+
+50
+00:02:09,349 --> 00:02:15,400
+en condiciones normales este jumper debe
+
+51
+00:02:12,169 --> 00:02:18,848
+permanecer colocado finalmente y más
+
+52
+00:02:15,400 --> 00:02:21,549
+son los 4 pines a 90 grados que tenemos
+
+53
+00:02:18,848 --> 00:02:24,609
+sobre la derecha dos de ellos serán para
+
+54
+00:02:21,549 --> 00:02:27,430
+alimentar al módulo con 5 goltz y gene
+
+55
+00:02:24,610 --> 00:02:29,670
+de de arduino y mediante solo 2 pines
+
+56
+00:02:27,430 --> 00:02:32,230
+tendremos toda la comunicación de datos
+
+57
+00:02:29,669 --> 00:02:34,839
+necesaria y este adaptador es muy
+
+58
+00:02:32,229 --> 00:02:37,869
+práctico ya que permite ahorrar una gran
+
+59
+00:02:34,840 --> 00:02:40,658
+cantidad de conexiones entre el lcd y
+
+60
+00:02:37,870 --> 00:02:43,090
+arduino aprovecharemos esta oportunidad
+
+61
+00:02:40,658 --> 00:02:46,530
+para ver por primera vez el uso del bass
+
+62
+00:02:43,090 --> 00:02:48,878
+de comunicaciones serie llamado y 12
+
+63
+00:02:46,530 --> 00:02:51,729
+especialmente diseñado para la conexión
+
+64
+00:02:48,878 --> 00:02:54,340
+de múltiples dispositivos o periféricos
+
+65
+00:02:51,729 --> 00:02:56,828
+con tan solo dos líneas de comunicación
+
+66
+00:02:54,340 --> 00:02:59,200
+así nos será de utilidad para cuando
+
+67
+00:02:56,829 --> 00:03:01,599
+veamos en próximos capítulos muchos más
+
+68
+00:02:59,199 --> 00:03:05,018
+dispositivos que utilizan este tipo de
+
+69
+00:03:01,598 --> 00:03:07,238
+interfaz y 12 es el nombre de este base
+
+70
+00:03:05,019 --> 00:03:11,590
+de datos que proviene de inter
+
+71
+00:03:07,239 --> 00:03:14,859
+integrated circuit o dice como la letra
+
+72
+00:03:11,590 --> 00:03:19,090
+i se repite dos veces si lo escribe como
+
+73
+00:03:14,859 --> 00:03:21,250
+12 o también y al cuadrado c en inglés
+
+74
+00:03:19,090 --> 00:03:21,759
+es muy usual que se la pronuncie en el
+
+75
+00:03:21,250 --> 00:03:25,150
+forma
+
+76
+00:03:21,759 --> 00:03:28,060
+y al cuadrado ce hay square
+
+77
+00:03:25,150 --> 00:03:30,789
+por una cuestión fonética para nosotros
+
+78
+00:03:28,060 --> 00:03:33,310
+en español es más fácil decirlo como y
+
+79
+00:03:30,789 --> 00:03:35,889
+12 a esta interfaz también se la conoce
+
+80
+00:03:33,310 --> 00:03:38,920
+con las siglas de w
+
+81
+00:03:35,889 --> 00:03:41,559
+y qué significa tu wire interface
+
+82
+00:03:38,919 --> 00:03:44,649
+interfaz de dos cables en este diagrama
+
+83
+00:03:41,560 --> 00:03:47,310
+vemos resumida la conexión del base y 12
+
+84
+00:03:44,650 --> 00:03:49,120
+las líneas de color azul y verde
+
+85
+00:03:47,310 --> 00:03:50,829
+corresponden a las líneas de
+
+86
+00:03:49,120 --> 00:03:55,239
+comunicación que llevan las
+
+87
+00:03:50,829 --> 00:03:59,170
+denominaciones sda y scl esa idea
+
+88
+00:03:55,239 --> 00:04:02,620
+corresponde a datos serie serial data
+
+89
+00:03:59,169 --> 00:04:05,530
+por su parte scl corresponde a reloj
+
+90
+00:04:02,620 --> 00:04:08,829
+serie sería el block es decir que por la
+
+91
+00:04:05,530 --> 00:04:11,289
+línea sda se moverán los datos de forma
+
+92
+00:04:08,829 --> 00:04:14,769
+bidireccional entre arduino y un
+
+93
+00:04:11,289 --> 00:04:17,409
+dispositivo conectado y por la línea scl
+
+94
+00:04:14,769 --> 00:04:19,449
+arduino se encargará de generar una
+
+95
+00:04:17,410 --> 00:04:21,910
+señal de reloj necesaria para
+
+96
+00:04:19,449 --> 00:04:25,300
+sincronizar el flujo de datos al
+
+97
+00:04:21,910 --> 00:04:27,070
+dispositivo que genera la señal ssl se
+
+98
+00:04:25,300 --> 00:04:29,949
+lo denomina maestro
+
+99
+00:04:27,069 --> 00:04:32,139
+master en nuestro caso es arduino pero
+
+100
+00:04:29,949 --> 00:04:34,420
+todos los conceptos son válidos para
+
+101
+00:04:32,139 --> 00:04:38,649
+otros microcontroladores que utilizan la
+
+102
+00:04:34,420 --> 00:04:41,199
+interfaz y 12 esclavo o slave será el
+
+103
+00:04:38,649 --> 00:04:44,769
+dispositivo que se conecta a las lineas
+
+104
+00:04:41,199 --> 00:04:47,379
+sda y scl y podrá hacer cualquier
+
+105
+00:04:44,769 --> 00:04:50,049
+periférico compatible se dice que ese
+
+106
+00:04:47,379 --> 00:04:52,659
+esclavo ya que recibe las órdenes por
+
+107
+00:04:50,050 --> 00:04:55,240
+parte del maestro ya sea para brindarle
+
+108
+00:04:52,660 --> 00:04:57,850
+los datos de un sensor o para recibir
+
+109
+00:04:55,240 --> 00:05:00,910
+datos a mostrar por ejemplo en una
+
+110
+00:04:57,850 --> 00:05:03,250
+pantalla lcd en el diagrama se puede ver
+
+111
+00:05:00,910 --> 00:05:05,920
+una característica muy importante del
+
+112
+00:05:03,250 --> 00:05:08,740
+base y 12 y es el hecho que permite
+
+113
+00:05:05,920 --> 00:05:12,550
+encadenar dispositivos utilizando las
+
+114
+00:05:08,740 --> 00:05:14,740
+mismas líneas de datos esa idea y scl es
+
+115
+00:05:12,550 --> 00:05:17,560
+decir que no solo podremos conectar un
+
+116
+00:05:14,740 --> 00:05:20,199
+dispositivo sino que muchos más siempre
+
+117
+00:05:17,560 --> 00:05:23,100
+utilizando las mismas líneas de hecho
+
+118
+00:05:20,199 --> 00:05:26,199
+veremos en breve el límite teórico es de
+
+119
+00:05:23,100 --> 00:05:28,090
+127 dispositivos que se pueden conectar
+
+120
+00:05:26,199 --> 00:05:30,610
+a una misma línea
+
+121
+00:05:28,089 --> 00:05:33,189
+para finalizar el aspecto eléctrico de
+
+122
+00:05:30,610 --> 00:05:38,020
+conexión debemos hacer mención que
+
+123
+00:05:33,189 --> 00:05:40,689
+líneas sda y scl son del tipo open drain
+
+124
+00:05:38,019 --> 00:05:43,389
+es un concepto de electrónica que para
+
+125
+00:05:40,689 --> 00:05:45,579
+simplificar significa que la línea no
+
+126
+00:05:43,389 --> 00:05:48,759
+tiene una referencia de la tensión
+
+127
+00:05:45,579 --> 00:05:50,909
+máxima para un uno lógico lo que hace
+
+128
+00:05:48,759 --> 00:05:54,639
+arduino o cualquiera de los dispositivos
+
+129
+00:05:50,910 --> 00:05:57,580
+esclavos exponer a massa o gene de la
+
+130
+00:05:54,639 --> 00:06:00,430
+línea cada vez que quiere enviar un dato
+
+131
+00:05:57,579 --> 00:06:03,609
+de manera que cada esclavo debe colocar
+
+132
+00:06:00,430 --> 00:06:06,250
+las líneas del base y 12 a un nivel alto
+
+133
+00:06:03,610 --> 00:06:08,800
+mediante resistencias de pull up como se
+
+134
+00:06:06,250 --> 00:06:11,680
+muestran aquí quizás parezca lo extraño
+
+135
+00:06:08,800 --> 00:06:14,800
+este tema del open drive pero tiene una
+
+136
+00:06:11,680 --> 00:06:16,660
+buena razón y la flexibilidad piensa que
+
+137
+00:06:14,800 --> 00:06:19,150
+existen en la actualidad muchos
+
+138
+00:06:16,660 --> 00:06:22,570
+dispositivos y sensores que funcionan
+
+139
+00:06:19,149 --> 00:06:25,539
+con 33 volts en lugar de cinco de hecho
+
+140
+00:06:22,569 --> 00:06:27,969
+la industria va hacia el uso de los 3,3
+
+141
+00:06:25,540 --> 00:06:31,660
+volts entonces tenemos arduino que
+
+142
+00:06:27,970 --> 00:06:33,060
+funciona con 5 volts si las líneas sda y
+
+143
+00:06:31,660 --> 00:06:36,300
+scl
+
+144
+00:06:33,060 --> 00:06:39,360
+salieran de arduino con un nivel alto de
+
+145
+00:06:36,300 --> 00:06:42,210
+5 volts y conectamos un sensor que
+
+146
+00:06:39,360 --> 00:06:45,090
+funciona con 33 estaremos en problemas
+
+147
+00:06:42,209 --> 00:06:48,870
+ya que el sensor espera recibir datos
+
+148
+00:06:45,089 --> 00:06:51,000
+con un nivel alto que no supere los 33
+
+149
+00:06:48,870 --> 00:06:53,430
+volts de esa manera podemos tener
+
+150
+00:06:51,000 --> 00:06:56,310
+arduino como dispositivo maestro que
+
+151
+00:06:53,430 --> 00:06:58,800
+funciona con 5 volts y las resistencias
+
+152
+00:06:56,310 --> 00:07:02,430
+de pull up las brinda el sensor está
+
+153
+00:06:58,800 --> 00:07:05,009
+alimentado con 33 volts de esa manera la
+
+154
+00:07:02,430 --> 00:07:08,519
+línea está siempre con un nivel alto de
+
+155
+00:07:05,009 --> 00:07:11,879
+33 y cuando arduino necesita comunicarse
+
+156
+00:07:08,519 --> 00:07:14,129
+solo establece el nivel bajo de 0 volts
+
+157
+00:07:11,879 --> 00:07:17,610
+para haro vino un nivel de tensión que
+
+158
+00:07:14,129 --> 00:07:19,860
+supere los 25 ya lo considera como un
+
+159
+00:07:17,610 --> 00:07:22,020
+uno lógico por supuesto que existen
+
+160
+00:07:19,860 --> 00:07:26,040
+circuitos integrados que hacen una
+
+161
+00:07:22,019 --> 00:07:28,829
+conversión de niveles lógicos de 5 a 33
+
+162
+00:07:26,040 --> 00:07:31,710
+pero la idea es la flexibilidad y poder
+
+163
+00:07:28,829 --> 00:07:33,899
+conectar cualquier dispositivo al base y
+
+164
+00:07:31,709 --> 00:07:37,049
+12 en la menor cantidad de componentes
+
+165
+00:07:33,899 --> 00:07:39,209
+externos posible en definitiva lo que es
+
+166
+00:07:37,050 --> 00:07:41,699
+importante que recuerdes es que
+
+167
+00:07:39,209 --> 00:07:44,310
+dispositivo conectado al base y 12
+
+168
+00:07:41,699 --> 00:07:48,300
+requiere de resistencias de pull up en
+
+169
+00:07:44,310 --> 00:07:50,490
+nuestro caso el adaptador lcd y 12 ya
+
+170
+00:07:48,300 --> 00:07:52,918
+tiene incorporadas dichas resistencias
+
+171
+00:07:50,490 --> 00:07:54,418
+con lo cual no es necesario colocarlas
+
+172
+00:07:52,918 --> 00:07:57,389
+pero antes de conectar cualquier
+
+173
+00:07:54,418 --> 00:07:59,430
+dispositivo es importante que sepas si
+
+174
+00:07:57,389 --> 00:08:02,220
+ya las tiene incorporadas o debemos
+
+175
+00:07:59,430 --> 00:08:06,449
+colocarlas nosotros que generalmente son
+
+176
+00:08:02,220 --> 00:08:08,310
+de entre 1 y 47 k para finalizar la
+
+177
+00:08:06,449 --> 00:08:10,800
+parte teórica te quiero mostrar
+
+178
+00:08:08,310 --> 00:08:12,949
+brevemente cómo se produce en la vida
+
+179
+00:08:10,800 --> 00:08:15,930
+real la comunicación entre dispositivos
+
+180
+00:08:12,949 --> 00:08:18,330
+algo que quizás te estés preguntando es
+
+181
+00:08:15,930 --> 00:08:21,418
+cómo es posible identificar de forma
+
+182
+00:08:18,329 --> 00:08:24,120
+individual cada dispositivo conectado al
+
+183
+00:08:21,418 --> 00:08:26,668
+base y 12 ya que todos comparten las
+
+184
+00:08:24,120 --> 00:08:29,728
+mismas dos líneas y la respuesta es que
+
+185
+00:08:26,668 --> 00:08:31,620
+cada uno de ellos tiene una dirección en
+
+186
+00:08:29,728 --> 00:08:34,468
+este diagrama vemos que el primer
+
+187
+00:08:31,620 --> 00:08:38,490
+dispositivo conectado al bash tiene una
+
+188
+00:08:34,469 --> 00:08:41,729
+dirección 27 en hexadecimal recordar que
+
+189
+00:08:38,490 --> 00:08:43,840
+cuando colocamos el prefijo 0 x estamos
+
+190
+00:08:41,729 --> 00:08:47,290
+diciendo que no se trata de un número
+
+191
+00:08:43,840 --> 00:08:50,050
+en decimal sino que es hexadecimal donde
+
+192
+00:08:47,289 --> 00:08:54,159
+cada dígito está formado por un número
+
+193
+00:08:50,049 --> 00:08:57,279
+de 0 a 9 y las letras a a la f para un
+
+194
+00:08:54,159 --> 00:08:59,110
+total de 16 posibles combinaciones con
+
+195
+00:08:57,279 --> 00:09:01,480
+lo cual este primer dispositivo tiene
+
+196
+00:08:59,110 --> 00:09:03,820
+una dirección de 27 y el otro
+
+197
+00:09:01,480 --> 00:09:07,269
+dispositivo conectado a las mismas
+
+198
+00:09:03,820 --> 00:09:10,150
+líneas tienen una dirección de 76 de esa
+
+199
+00:09:07,269 --> 00:09:12,250
+forma el maestro puede identificar a
+
+200
+00:09:10,149 --> 00:09:14,829
+cada uno de los dispositivos conectados
+
+201
+00:09:12,250 --> 00:09:17,230
+salvadas dichas direcciones son de
+
+202
+00:09:14,830 --> 00:09:20,230
+dispositivos reales nuestro adaptador
+
+203
+00:09:17,230 --> 00:09:23,620
+lcd y 12 tiene por defecto de la
+
+204
+00:09:20,230 --> 00:09:25,539
+dirección 27 en la dirección 76
+
+205
+00:09:23,620 --> 00:09:28,690
+corresponde al de un sensor de
+
+206
+00:09:25,539 --> 00:09:32,139
+temperatura y presión atmosférica modelo
+
+207
+00:09:28,690 --> 00:09:34,150
+bmp 280 que veremos en un próximo
+
+208
+00:09:32,139 --> 00:09:36,610
+capítulo la comunicación entre el
+
+209
+00:09:34,149 --> 00:09:39,220
+maestro y el esclavo se realiza mediante
+
+210
+00:09:36,610 --> 00:09:41,830
+el uso de un protocolo es decir una
+
+211
+00:09:39,220 --> 00:09:45,340
+forma predeterminada de enviar y recibir
+
+212
+00:09:41,830 --> 00:09:47,320
+datos y los dos dispositivos entienden y
+
+213
+00:09:45,340 --> 00:09:50,278
+el proceso es el siguiente
+
+214
+00:09:47,320 --> 00:09:53,699
+tenemos los gráficos de las señales
+
+215
+00:09:50,278 --> 00:09:56,938
+y scl estas dos líneas como ya vimos
+
+216
+00:09:53,698 --> 00:09:59,278
+están puestas a un nivel alto mediante
+
+217
+00:09:56,938 --> 00:10:01,230
+las resistencias de pull up de manera
+
+218
+00:09:59,278 --> 00:10:04,470
+que si no hay comunicación de datos
+
+219
+00:10:01,230 --> 00:10:06,389
+están por defecto a un nivel alto cuando
+
+220
+00:10:04,470 --> 00:10:08,939
+el maestro quiere comunicarse con un
+
+221
+00:10:06,389 --> 00:10:12,120
+esclavo lo primero que hace es poner a
+
+222
+00:10:08,938 --> 00:10:14,698
+un nivel bajo es decir a cero volts la
+
+223
+00:10:12,120 --> 00:10:17,909
+línea sda de forma seguida
+
+224
+00:10:14,698 --> 00:10:20,490
+ssl comienza con la generación de los
+
+225
+00:10:17,909 --> 00:10:23,188
+pulsos de reloj luego el maestro envía
+
+226
+00:10:20,490 --> 00:10:25,948
+mediante un número de 7 bits la
+
+227
+00:10:23,188 --> 00:10:28,139
+dirección del esclavo en definitiva la
+
+228
+00:10:25,948 --> 00:10:30,208
+dirección del dispositivo con el cual le
+
+229
+00:10:28,139 --> 00:10:34,350
+sienta hablar la comunicación por
+
+230
+00:10:30,208 --> 00:10:37,438
+ejemplo el 27 si es el adaptador lcd y
+
+231
+00:10:34,350 --> 00:10:39,509
+12 en el gráfico aparecen como los bits
+
+232
+00:10:37,438 --> 00:10:42,240
+a 6 a 0
+
+233
+00:10:39,509 --> 00:10:45,300
+inmediatamente después establece un bit
+
+234
+00:10:42,240 --> 00:10:47,909
+para decir si desea leer del dispositivo
+
+235
+00:10:45,299 --> 00:10:50,188
+o escribir en el mismo el proceso de
+
+236
+00:10:47,909 --> 00:10:52,528
+lectura o escritura es siempre desde el
+
+237
+00:10:50,188 --> 00:10:53,309
+punto de vista del maestro para nuestro
+
+238
+00:10:52,528 --> 00:10:57,090
+adaptador
+
+239
+00:10:53,309 --> 00:10:59,459
+lcd y 12 queremos escribir ya que es una
+
+240
+00:10:57,090 --> 00:11:02,490
+pantalla pero si fuese un sensor
+
+241
+00:10:59,460 --> 00:11:05,430
+entonces querríamos leer por eso aquí se
+
+242
+00:11:02,490 --> 00:11:09,028
+detalla que si el bit es un 1 queremos
+
+243
+00:11:05,429 --> 00:11:10,769
+leer si es un 0 queremos escribir no te
+
+244
+00:11:09,028 --> 00:11:13,320
+preocupes si te empieza a parecer
+
+245
+00:11:10,769 --> 00:11:15,990
+complicado esto es solo para entender el
+
+246
+00:11:13,320 --> 00:11:18,240
+principio básico de comunicación luego
+
+247
+00:11:15,990 --> 00:11:20,580
+un arduino como es usual mediante el uso
+
+248
+00:11:18,240 --> 00:11:21,899
+de una librería nos olvidaremos de
+
+249
+00:11:20,580 --> 00:11:23,820
+cualquier complejidad
+
+250
+00:11:21,899 --> 00:11:25,709
+entonces enviamos la dirección del
+
+251
+00:11:23,820 --> 00:11:28,410
+dispositivo con el cual nos queremos
+
+252
+00:11:25,710 --> 00:11:31,250
+comunicar y decimos si nuestra intención
+
+253
+00:11:28,409 --> 00:11:34,139
+es leer o escribir a continuación
+
+254
+00:11:31,250 --> 00:11:36,778
+debemos tener una confirmación por parte
+
+255
+00:11:34,139 --> 00:11:40,139
+del esclavo que ha recibido el comando
+
+256
+00:11:36,778 --> 00:11:42,870
+en este punto el esclavo toma control de
+
+257
+00:11:40,139 --> 00:11:45,990
+la línea esa idea y la coloca a un nivel
+
+258
+00:11:42,870 --> 00:11:49,289
+bajo indicando el magno lic
+
+259
+00:11:45,990 --> 00:11:52,049
+es decir un recibido este proceso es muy
+
+260
+00:11:49,289 --> 00:11:55,919
+usual en comunicación serie y utiliza
+
+261
+00:11:52,049 --> 00:11:58,109
+las siglas azteca y n azteca que
+
+262
+00:11:55,919 --> 00:12:01,860
+significa el atc no list
+
+263
+00:11:58,110 --> 00:12:05,310
+recibido o nh can not
+
+264
+00:12:01,860 --> 00:12:07,110
+agnoli es decir no recibido puede darse
+
+265
+00:12:05,309 --> 00:12:09,149
+el caso que nosotros por programación
+
+266
+00:12:07,110 --> 00:12:12,450
+nos queremos comunicar con un
+
+267
+00:12:09,149 --> 00:12:15,000
+dispositivo en la dirección 27 pero ese
+
+268
+00:12:12,450 --> 00:12:15,778
+dispositivo en realidad tiene otra
+
+269
+00:12:15,000 --> 00:12:18,028
+dirección
+
+270
+00:12:15,778 --> 00:12:22,200
+o quizá nos equivocamos y en vez de
+
+271
+00:12:18,028 --> 00:12:24,360
+escribir un 27 escribimos un 37
+
+272
+00:12:22,200 --> 00:12:27,509
+entonces enviamos la dirección si
+
+273
+00:12:24,360 --> 00:12:29,850
+enviamos por ejemplo la dirección 37 no
+
+274
+00:12:27,509 --> 00:12:32,458
+hay ningún dispositivo con esa dirección
+
+275
+00:12:29,850 --> 00:12:35,040
+por ende nadie que responda a nuestro
+
+276
+00:12:32,458 --> 00:12:38,399
+comando como la línea por defecto tiene
+
+277
+00:12:35,039 --> 00:12:42,509
+un nivel alto equivale a una nota no ley
+
+278
+00:12:38,399 --> 00:12:45,659
+aún no recibido entonces el maestro sabe
+
+279
+00:12:42,509 --> 00:12:48,208
+que ese dispositivo no existe y finaliza
+
+280
+00:12:45,659 --> 00:12:50,850
+la comunicación por el contrario si la
+
+281
+00:12:48,208 --> 00:12:53,909
+comunicación es exitosa y enviamos la
+
+282
+00:12:50,850 --> 00:12:57,149
+dirección 27 y el dispositivo en esa
+
+283
+00:12:53,909 --> 00:13:00,389
+dirección pone la línea a un nivel bajo
+
+284
+00:12:57,149 --> 00:13:02,940
+que es un magnolio recibido entonces el
+
+285
+00:13:00,389 --> 00:13:04,379
+maestro sabe que el dispositivo existe y
+
+286
+00:13:02,940 --> 00:13:07,200
+respondió correctamente
+
+287
+00:13:04,379 --> 00:13:09,029
+y así podrá continuar la comunicación
+
+288
+00:13:07,200 --> 00:13:10,980
+ahora que el maestro sabe que fue
+
+289
+00:13:09,029 --> 00:13:13,470
+recibido el comando por parte del
+
+290
+00:13:10,980 --> 00:13:17,690
+esclavo se produce el envío o recepción
+
+291
+00:13:13,470 --> 00:13:20,600
+de 8 bits de datos de envío o recepción
+
+292
+00:13:17,690 --> 00:13:23,070
+ya que depende lo que hayamos solicitado
+
+293
+00:13:20,600 --> 00:13:26,340
+anteriormente si solicitamos una
+
+294
+00:13:23,070 --> 00:13:29,510
+escritura entonces el maestro envía los
+
+295
+00:13:26,340 --> 00:13:32,100
+8 bits de datos como serían llc de
+
+296
+00:13:29,509 --> 00:13:35,340
+corresponderían a un caracter a mostrar
+
+297
+00:13:32,100 --> 00:13:37,620
+en la pantalla si fuese un sensor habría
+
+298
+00:13:35,340 --> 00:13:40,530
+enviado una solicitud de lectura
+
+299
+00:13:37,620 --> 00:13:43,529
+entonces y esos 8 bits de datos nos
+
+300
+00:13:40,529 --> 00:13:46,079
+brindaría el sensor como por ejemplo el
+
+301
+00:13:43,529 --> 00:13:48,569
+valor de la temperatura así que los 8
+
+302
+00:13:46,080 --> 00:13:51,030
+bits de datos pueden ser provistos por
+
+303
+00:13:48,570 --> 00:13:54,960
+el maestro o por el esclavo luego
+
+304
+00:13:51,029 --> 00:13:57,480
+tenemos nuevamente un bit hace k n hace
+
+305
+00:13:54,960 --> 00:14:00,060
+que debemos confirmar que los datos han
+
+306
+00:13:57,480 --> 00:14:03,060
+sido recibidos correctamente al igual
+
+307
+00:14:00,059 --> 00:14:06,389
+que antes colocando la línea sda a un
+
+308
+00:14:03,059 --> 00:14:08,789
+nivel bajo equivale a un recibido y si
+
+309
+00:14:06,389 --> 00:14:10,679
+ya hemos concluido la comunicación se
+
+310
+00:14:08,789 --> 00:14:13,919
+produce el proceso de parada
+
+311
+00:14:10,679 --> 00:14:17,699
+esto te opuesto al de inicio la línea
+
+312
+00:14:13,919 --> 00:14:21,209
+scl pasa a un nivel alto y seguidamente
+
+313
+00:14:17,700 --> 00:14:23,520
+lo mismo para esa idea de bajo alto
+
+314
+00:14:21,210 --> 00:14:26,910
+indicando la finalización de la
+
+315
+00:14:23,519 --> 00:14:28,649
+comunicación muy bien y 12da para una
+
+316
+00:14:26,909 --> 00:14:31,559
+larga charla y no es la intención
+
+317
+00:14:28,649 --> 00:14:33,870
+principal de este capítulo así que vamos
+
+318
+00:14:31,559 --> 00:14:36,778
+al circuito de conexión si vamos a
+
+319
+00:14:33,870 --> 00:14:40,589
+utilizar el módulo lcd del capítulo 10
+
+320
+00:14:36,778 --> 00:14:43,289
+entonces ya tenemos soldados los 12 ó 16
+
+321
+00:14:40,589 --> 00:14:46,920
+pines de conexión paralelo con lo cual
+
+322
+00:14:43,289 --> 00:14:49,559
+el adaptador lcd y 12 lo ubicamos en
+
+323
+00:14:46,919 --> 00:14:52,949
+protoboard como se muestra alineando sus
+
+324
+00:14:49,559 --> 00:14:56,009
+16 pines con los del módulo lcd como
+
+325
+00:14:52,950 --> 00:14:58,140
+referencia el jumper queda apuntando
+
+326
+00:14:56,009 --> 00:15:01,588
+hacia la derecha si tenemos el módulo
+
+327
+00:14:58,139 --> 00:15:04,740
+lcd sin los pines soldados podemos optar
+
+328
+00:15:01,589 --> 00:15:07,110
+por soldar directamente el adaptador en
+
+329
+00:15:04,740 --> 00:15:10,230
+su parte trasera como se muestra en esta
+
+330
+00:15:07,110 --> 00:15:12,899
+imagen así no necesitamos protoboard y
+
+331
+00:15:10,230 --> 00:15:15,180
+conectamos sus 4 pines directamente con
+
+332
+00:15:12,899 --> 00:15:16,559
+cables arduino cualquiera de las dos
+
+333
+00:15:15,179 --> 00:15:19,139
+opciones iguales
+
+334
+00:15:16,559 --> 00:15:21,539
+y dependerá de tu necesidad yo voy a
+
+335
+00:15:19,139 --> 00:15:23,850
+mantener el módulo lcd en formato
+
+336
+00:15:21,539 --> 00:15:26,278
+paralelo así que el adaptador lo
+
+337
+00:15:23,850 --> 00:15:29,790
+colocaré sobre protoboard iremos con un
+
+338
+00:15:26,278 --> 00:15:33,240
+cable directo desde bcc del adaptador a
+
+339
+00:15:29,789 --> 00:15:36,329
+5 goltz de arduino y desde gene de del
+
+340
+00:15:33,240 --> 00:15:38,940
+adaptador a gene de de arduino con eso
+
+341
+00:15:36,330 --> 00:15:42,240
+ya tenemos la alimentación nos resta la
+
+342
+00:15:38,940 --> 00:15:44,880
+conexión del base y 12 quien arduino uno
+
+343
+00:15:42,240 --> 00:15:49,528
+se encuentran sobre los pines analógicos
+
+344
+00:15:44,879 --> 00:15:54,000
+a4 y a5 como se muestra en esta nota a 4
+
+345
+00:15:49,528 --> 00:15:56,338
+corresponde a esa idea y a 5 a ese cl
+
+346
+00:15:54,000 --> 00:15:59,070
+aquí también se muestran los pines que
+
+347
+00:15:56,339 --> 00:16:03,300
+utiliza el modelo de placa mega de
+
+348
+00:15:59,070 --> 00:16:06,330
+arduino que es el pin 20 para ese día y
+
+349
+00:16:03,299 --> 00:16:08,609
+21 para ese es el como nosotros
+
+350
+00:16:06,330 --> 00:16:10,920
+estaremos trabajando con el modelo uno
+
+351
+00:16:08,610 --> 00:16:14,250
+simplemente iremos con un cable directo
+
+352
+00:16:10,919 --> 00:16:19,319
+desde a cuatro a esa idea del adaptador
+
+353
+00:16:14,250 --> 00:16:20,009
+y luego desde a cinco hacia ssl y eso es
+
+354
+00:16:19,320 --> 00:16:22,230
+todo
+
+355
+00:16:20,009 --> 00:16:22,679
+traigo a pantalla el código del primer
+
+356
+00:16:22,230 --> 00:16:24,839
+programa
+
+357
+00:16:22,679 --> 00:16:27,239
+del capítulo 10 vimos en el que el
+
+358
+00:16:24,839 --> 00:16:30,480
+momento era muy fácil trabajar con el
+
+359
+00:16:27,240 --> 00:16:33,690
+lcd gracias a la librería liquid crystal
+
+360
+00:16:30,480 --> 00:16:36,509
+ya incorporada en el idh pero ahora que
+
+361
+00:16:33,690 --> 00:16:38,580
+estaremos utilizando un adaptador donde
+
+362
+00:16:36,509 --> 00:16:41,970
+la comunicación se produce mediante el
+
+363
+00:16:38,580 --> 00:16:44,790
+bass y 12 la librería liquid crystal no
+
+364
+00:16:41,970 --> 00:16:47,160
+nos servirá la solución es instalar una
+
+365
+00:16:44,789 --> 00:16:50,009
+nueva librería que tenga capacidad para
+
+366
+00:16:47,159 --> 00:16:52,199
+la comunicación por y 12 esta nueva
+
+367
+00:16:50,009 --> 00:16:54,539
+librería la deberíamos descargar desde
+
+368
+00:16:52,200 --> 00:16:56,550
+una página web ya que no se encuentra
+
+369
+00:16:54,539 --> 00:16:58,860
+disponible mediante el gestor de
+
+370
+00:16:56,549 --> 00:17:01,349
+librerías con lo cual es un trabajo
+
+371
+00:16:58,860 --> 00:17:03,480
+adicional que deberemos hacer por única
+
+372
+00:17:01,350 --> 00:17:06,838
+vez deberás ingresar con tu navegador
+
+373
+00:17:03,480 --> 00:17:08,818
+web a la siguiente dirección verás una
+
+374
+00:17:06,838 --> 00:17:11,299
+serie de enlaces para descargar
+
+375
+00:17:08,818 --> 00:17:14,279
+librerías creadas por el desarrollador
+
+376
+00:17:11,299 --> 00:17:17,338
+francisco malpartida la primera de la
+
+377
+00:17:14,279 --> 00:17:21,660
+parte superior llamada new liquid
+
+378
+00:17:17,338 --> 00:17:23,849
+crystal 135 puntos y es la que nos
+
+379
+00:17:21,660 --> 00:17:26,550
+interesa es la última versión disponible
+
+380
+00:17:23,849 --> 00:17:28,399
+de la librería en caso de que exista
+
+381
+00:17:26,549 --> 00:17:30,279
+alguna nueva versión de la
+
+382
+00:17:28,400 --> 00:17:34,580
+siempre debes descargar la última
+
+383
+00:17:30,279 --> 00:17:37,399
+actualmente es la 135 simplemente
+
+384
+00:17:34,579 --> 00:17:39,740
+haciendo clic en dicho archivo zip lo
+
+385
+00:17:37,400 --> 00:17:42,050
+descargas yo ya lo tengo aquí en el
+
+386
+00:17:39,740 --> 00:17:45,049
+escritorio y ahora sólo es cuestión de
+
+387
+00:17:42,049 --> 00:17:47,329
+descomprimir el archivo esto creará una
+
+388
+00:17:45,049 --> 00:17:50,240
+carpeta con el mismo nombre esta
+
+389
+00:17:47,329 --> 00:17:53,329
+librería es una extensión de la original
+
+390
+00:17:50,240 --> 00:17:56,029
+liquid crystal es decir que cumple la
+
+391
+00:17:53,329 --> 00:17:58,970
+misma función pero está ampliada para
+
+392
+00:17:56,029 --> 00:18:01,519
+por ejemplo poder usar y 12 que es el
+
+393
+00:17:58,970 --> 00:18:03,500
+caso que nos interesa a nosotros el tema
+
+394
+00:18:01,519 --> 00:18:05,869
+es que esta nueva librería no puede
+
+395
+00:18:03,500 --> 00:18:08,119
+coexistir con la original la original
+
+396
+00:18:05,869 --> 00:18:10,579
+deberemos quitarla del directorio de
+
+397
+00:18:08,119 --> 00:18:13,250
+librerías de arduino y colocar en su
+
+398
+00:18:10,579 --> 00:18:15,529
+lugar esta que acabamos de descargar la
+
+399
+00:18:13,250 --> 00:18:18,079
+forma más simple si estás utilizando el
+
+400
+00:18:15,529 --> 00:18:20,930
+sistema operativo windows es ir al
+
+401
+00:18:18,079 --> 00:18:23,629
+enlace directo para abrir el id de
+
+402
+00:18:20,930 --> 00:18:25,970
+arduino y con botón derecho seleccionar
+
+403
+00:18:23,630 --> 00:18:28,700
+la opción a abrir la ubicación del
+
+404
+00:18:25,970 --> 00:18:30,950
+archivo esto abre directamente una
+
+405
+00:18:28,700 --> 00:18:32,779
+ventana con el directorio en donde se
+
+406
+00:18:30,950 --> 00:18:35,990
+encuentra instalado el
+
+407
+00:18:32,779 --> 00:18:39,109
+de arduino si estás utilizando un mac o
+
+408
+00:18:35,990 --> 00:18:41,390
+linux deberás ingresar al directorio en
+
+409
+00:18:39,109 --> 00:18:43,669
+donde se encuentra instalado en windows
+
+410
+00:18:41,390 --> 00:18:46,790
+suele estar dentro de archivos de
+
+411
+00:18:43,670 --> 00:18:49,160
+programa o program files arduino
+
+412
+00:18:46,789 --> 00:18:51,220
+lo primero es quitar la librería liquid
+
+413
+00:18:49,160 --> 00:18:54,529
+crystal de dentro del directorio
+
+414
+00:18:51,220 --> 00:18:56,450
+libraries así que entremos allí verás
+
+415
+00:18:54,529 --> 00:18:59,180
+que cada librería tiene su propia
+
+416
+00:18:56,450 --> 00:19:01,480
+carpeta seleccionaremos la que dice el
+
+417
+00:18:59,180 --> 00:19:04,670
+liquid crystal y con botón derecho
+
+418
+00:19:01,480 --> 00:19:07,309
+cortar luego volvemos al directorio
+
+419
+00:19:04,670 --> 00:19:10,070
+principal y con botón derecho ahora
+
+420
+00:19:07,309 --> 00:19:12,829
+pegar esta librería no le estaremos
+
+421
+00:19:10,069 --> 00:19:14,990
+eliminando por si a futuro deseamos
+
+422
+00:19:12,829 --> 00:19:17,509
+volver a usarla sólo basta que esté
+
+423
+00:19:14,990 --> 00:19:20,150
+fuera del directorio libraries para que
+
+424
+00:19:17,509 --> 00:19:22,609
+el ide al iniciar no la cargue
+
+425
+00:19:20,150 --> 00:19:25,820
+opcionalmente podemos cambiarle el
+
+426
+00:19:22,609 --> 00:19:28,609
+nombre y agregarle al final
+
+427
+00:19:25,819 --> 00:19:31,189
+original como una forma de saber qué es
+
+428
+00:19:28,609 --> 00:19:33,559
+la librería original por último sólo nos
+
+429
+00:19:31,190 --> 00:19:37,548
+resta copiar la carpeta de la nueva
+
+430
+00:19:33,559 --> 00:19:40,460
+librería la llamada new liquid crystal
+
+431
+00:19:37,548 --> 00:19:43,668
+que descargamos la copiamos ingresamos
+
+432
+00:19:40,460 --> 00:19:45,710
+al directorio libraries y la pegamos de
+
+433
+00:19:43,669 --> 00:19:48,350
+esa manera cuando arranque el id de
+
+434
+00:19:45,710 --> 00:19:50,749
+arduino cargará está nueva librería y
+
+435
+00:19:48,349 --> 00:19:53,569
+luego la podremos importar con el
+
+436
+00:19:50,749 --> 00:19:56,118
+numeral include desde el código el
+
+437
+00:19:53,569 --> 00:19:58,519
+reemplazo por esta librería nueva es
+
+438
+00:19:56,118 --> 00:20:00,589
+totalmente compatible con la vieja es
+
+439
+00:19:58,519 --> 00:20:03,319
+decir que podéis trabajar con esta nueva
+
+440
+00:20:00,589 --> 00:20:06,439
+librería y utilizar exactamente el mismo
+
+441
+00:20:03,319 --> 00:20:08,480
+código visto en el capítulo 10 esta
+
+442
+00:20:06,440 --> 00:20:11,210
+nueva es sólo una ampliación del
+
+443
+00:20:08,480 --> 00:20:14,298
+original que agrega funcionalidad ahora
+
+444
+00:20:11,210 --> 00:20:16,970
+sí estamos listos para abrir el ide y
+
+445
+00:20:14,298 --> 00:20:19,730
+ver el código del programa aquí se
+
+446
+00:20:16,970 --> 00:20:21,589
+muestra la totalidad del código recordad
+
+447
+00:20:19,730 --> 00:20:23,599
+que el código visto en este capítulo y
+
+448
+00:20:21,589 --> 00:20:25,368
+el de todos los capítulos está
+
+449
+00:20:23,599 --> 00:20:28,009
+disponible para descargar desde el
+
+450
+00:20:25,368 --> 00:20:29,749
+enlace en la zona de descripción en la
+
+451
+00:20:28,009 --> 00:20:32,509
+primera línea tenemos el numeral
+
+452
+00:20:29,749 --> 00:20:35,058
+incluido que incluye la librería wáyar
+
+453
+00:20:32,509 --> 00:20:37,489
+esta librería ya viene incorporada en el
+
+454
+00:20:35,058 --> 00:20:40,579
+idea de arduino y se utiliza para el
+
+455
+00:20:37,489 --> 00:20:43,489
+manejo de forma simple de la interfaz y
+
+456
+00:20:40,579 --> 00:20:44,329
+12 de esta manera nos despreocupamos de
+
+457
+00:20:43,489 --> 00:20:47,298
+todas las
+
+458
+00:20:44,329 --> 00:20:49,849
+complicadas de la comunicación por 12
+
+459
+00:20:47,298 --> 00:20:54,109
+luego incorporamos otras dos librerías
+
+460
+00:20:49,849 --> 00:20:57,709
+que son lcd y liquid crystal
+
+461
+00:20:54,109 --> 00:21:00,259
+y 12 estas librerías forman parte de la
+
+462
+00:20:57,710 --> 00:21:02,240
+que acabamos de descargar lcd e
+
+463
+00:21:00,259 --> 00:21:05,658
+incorpora las funciones para el manejo
+
+464
+00:21:02,240 --> 00:21:08,599
+de la pantalla lcd y liquid crystal
+
+465
+00:21:05,659 --> 00:21:12,289
+y 12 lo necesario para enviar los datos
+
+466
+00:21:08,599 --> 00:21:14,480
+pool bass y 12 de esta forma con estos 3
+
+467
+00:21:12,288 --> 00:21:16,700
+numeral e incluso ya tenemos todo lo
+
+468
+00:21:14,480 --> 00:21:20,240
+necesario para la comunicación con el
+
+469
+00:21:16,700 --> 00:21:22,639
+adaptador lcd y 12 y también las
+
+470
+00:21:20,240 --> 00:21:25,099
+funciones para mostrar información en la
+
+471
+00:21:22,638 --> 00:21:28,638
+pantalla a continuación y como ya es
+
+472
+00:21:25,099 --> 00:21:32,388
+usual crearemos un objeto llamado lcd
+
+473
+00:21:28,638 --> 00:21:35,058
+que será del tipo liquid crystal y 12 y
+
+474
+00:21:32,388 --> 00:21:37,819
+le pasaremos una serie de parámetros el
+
+475
+00:21:35,058 --> 00:21:40,278
+primero de ellos es la dirección como ya
+
+476
+00:21:37,819 --> 00:21:43,759
+dijimos el adaptador tiene por defecto
+
+477
+00:21:40,278 --> 00:21:47,298
+la dirección 27 en hexadecimal por eso
+
+478
+00:21:43,759 --> 00:21:50,028
+colocaremos aquí 0 x 27 luego se
+
+479
+00:21:47,298 --> 00:21:52,628
+requiere indicar en números de puerto
+
+480
+00:21:50,028 --> 00:21:58,669
+del circuito integrado del adaptador
+
+481
+00:21:52,628 --> 00:22:03,798
+corresponden a los pines y r w rs de 4
+
+482
+00:21:58,669 --> 00:22:06,259
+de 5 de 6 y de 7 del lcd es muy similar
+
+483
+00:22:03,798 --> 00:22:09,019
+a cuando en el capítulo 10 creamos un
+
+484
+00:22:06,259 --> 00:22:11,659
+objeto del tipo liquid crystal y
+
+485
+00:22:09,019 --> 00:22:13,940
+debíamos pasarle los pines de arduino a
+
+486
+00:22:11,659 --> 00:22:16,219
+los cuales se encontraban conectadas las
+
+487
+00:22:13,940 --> 00:22:18,080
+líneas de control para que se entienda
+
+488
+00:22:16,219 --> 00:22:20,139
+bien el significado de estos números
+
+489
+00:22:18,079 --> 00:22:23,778
+traigo a la pantalla un diagrama
+
+490
+00:22:20,138 --> 00:22:25,819
+eléctrico o esquemático del adaptador no
+
+491
+00:22:23,778 --> 00:22:28,548
+es la versión completa es solo de
+
+492
+00:22:25,819 --> 00:22:33,288
+referencia el circuito integrado es el
+
+493
+00:22:28,548 --> 00:22:37,009
+modelo pcf 8 574 y lo que hace es tomar
+
+494
+00:22:33,288 --> 00:22:40,819
+los datos serie del base y 12 mediante
+
+495
+00:22:37,009 --> 00:22:43,940
+las líneas sda y scl y convertirlos en
+
+496
+00:22:40,819 --> 00:22:47,838
+datos paralelos de 8 bits mediante las
+
+497
+00:22:43,940 --> 00:22:51,320
+salidas p zero ap-7 de paso vemos como
+
+498
+00:22:47,838 --> 00:22:52,969
+sobre las líneas sda y scl están las
+
+499
+00:22:51,319 --> 00:22:55,489
+resistencias de pull up que
+
+500
+00:22:52,969 --> 00:22:55,910
+mencionábamos antes necesarias para el
+
+501
+00:22:55,489 --> 00:22:59,059
+vaso
+
+502
+00:22:55,910 --> 00:23:01,100
+y 12 y el adaptador ya incorpora pero
+
+503
+00:22:59,059 --> 00:23:03,470
+vamos a los parámetros al momento de
+
+504
+00:23:01,099 --> 00:23:06,049
+crear el objeto luego de la dirección
+
+505
+00:23:03,470 --> 00:23:08,750
+debemos colocar aquí número de puerto
+
+506
+00:23:06,049 --> 00:23:13,009
+para el hilo se encuentra conectado a
+
+507
+00:23:08,750 --> 00:23:15,500
+enable del lcd aquí en el diagrama vemos
+
+508
+00:23:13,009 --> 00:23:17,629
+que él se encuentra conectado al puerto
+
+509
+00:23:15,500 --> 00:23:20,569
+paralelo número dos del circuito
+
+510
+00:23:17,630 --> 00:23:22,790
+integrado por eso al crear el objeto
+
+511
+00:23:20,569 --> 00:23:25,250
+colocamos el número 2 luego debemos
+
+512
+00:23:22,789 --> 00:23:28,759
+indicar el número de puerto al cual se
+
+513
+00:23:25,250 --> 00:23:31,670
+encuentra conectado r w read write del
+
+514
+00:23:28,759 --> 00:23:33,650
+lcd si seguimos la línea de conexión en
+
+515
+00:23:31,670 --> 00:23:36,500
+el diagrama vemos que se encuentra
+
+516
+00:23:33,650 --> 00:23:38,750
+conectado al puerto número uno por eso
+
+517
+00:23:36,500 --> 00:23:42,980
+colocamos dicho número al crear el
+
+518
+00:23:38,750 --> 00:23:47,059
+objeto lo mismo para las líneas rs de 4
+
+519
+00:23:42,980 --> 00:23:50,150
+de 5 de 6 y de 7 existen algunos
+
+520
+00:23:47,059 --> 00:23:52,369
+adaptadores y 12 lcd donde las
+
+521
+00:23:50,150 --> 00:23:54,590
+conexiones son algo distintos pero en la
+
+522
+00:23:52,369 --> 00:23:57,079
+mayoría de los casos son como estas de
+
+523
+00:23:54,589 --> 00:23:59,659
+aquí he visto mucha documentación donde
+
+524
+00:23:57,079 --> 00:24:00,319
+dice simplemente colocar todos esos
+
+525
+00:23:59,660 --> 00:24:01,700
+números
+
+526
+00:24:00,319 --> 00:24:04,609
+luego de la dirección
+
+527
+00:24:01,700 --> 00:24:06,710
+y parece una secuencia sin sentido con
+
+528
+00:24:04,609 --> 00:24:09,349
+lo cual me pareció interesante dedicarle
+
+529
+00:24:06,710 --> 00:24:11,690
+unos instantes para entenderlo con este
+
+530
+00:24:09,349 --> 00:24:14,388
+simple diagrama si ahora vamos al setup
+
+531
+00:24:11,690 --> 00:24:16,820
+veremos dos líneas que no existían
+
+532
+00:24:14,388 --> 00:24:19,819
+cuando trabajábamos con el lcd en
+
+533
+00:24:16,819 --> 00:24:23,689
+formato paralelo en esta línea usamos la
+
+534
+00:24:19,819 --> 00:24:27,109
+función set backlight pin del reciente
+
+535
+00:24:23,690 --> 00:24:29,450
+creado objeto lcd para indicar el número
+
+536
+00:24:27,109 --> 00:24:31,729
+de puerto paralelo que se usará para
+
+537
+00:24:29,450 --> 00:24:34,399
+habilitar la iluminación trasera de la
+
+538
+00:24:31,730 --> 00:24:36,679
+pantalla y que se activa con una tensión
+
+539
+00:24:34,398 --> 00:24:39,109
+positiva esto se entiende mejor si
+
+540
+00:24:36,679 --> 00:24:41,750
+volvemos al diagrama como podrás ver
+
+541
+00:24:39,109 --> 00:24:44,209
+desde el puerto número 3 salimos con una
+
+542
+00:24:41,750 --> 00:24:45,109
+línea que controla la base de un
+
+543
+00:24:44,210 --> 00:24:48,350
+transistor
+
+544
+00:24:45,109 --> 00:24:51,168
+np en un transistor del tipo n pn
+
+545
+00:24:48,349 --> 00:24:53,778
+requiere que su base sea positiva para
+
+546
+00:24:51,169 --> 00:24:56,630
+conducir corriente entre emisor y
+
+547
+00:24:53,778 --> 00:25:00,470
+colector como el emisor está conectado a
+
+548
+00:24:56,630 --> 00:25:02,140
+masa geneve y el colector al cátodo del
+
+549
+00:25:00,470 --> 00:25:05,230
+lcd la letra
+
+550
+00:25:02,140 --> 00:25:08,740
+si aplicamos una atención positiva a su
+
+551
+00:25:05,230 --> 00:25:11,620
+base el cátodo del lcd quedará conectado
+
+552
+00:25:08,740 --> 00:25:14,200
+a massa y así lograremos encender la
+
+553
+00:25:11,619 --> 00:25:17,109
+iluminación posterior de paso también
+
+554
+00:25:14,200 --> 00:25:19,870
+vemos aquí el jumper del adaptador que
+
+555
+00:25:17,109 --> 00:25:22,240
+sólo interrumpe la conexión entre veces
+
+556
+00:25:19,869 --> 00:25:25,119
+y el ánodo de la iluminación posterior
+
+557
+00:25:22,240 --> 00:25:27,759
+es por eso que se lo puede utilizar como
+
+558
+00:25:25,119 --> 00:25:30,009
+una forma por hardware de activar o
+
+559
+00:25:27,759 --> 00:25:32,559
+desactivar la iluminación posterior
+
+560
+00:25:30,009 --> 00:25:34,900
+mientras que podemos ejecutar esa misma
+
+561
+00:25:32,559 --> 00:25:37,690
+opción por software en la siguiente
+
+562
+00:25:34,900 --> 00:25:40,960
+línea con la función set backlight y
+
+563
+00:25:37,690 --> 00:25:43,660
+enviando un nivel alto hide encendemos
+
+564
+00:25:40,960 --> 00:25:46,509
+la iluminación posterior básicamente lo
+
+565
+00:25:43,660 --> 00:25:49,210
+que hacemos es colocar un nivel alto en
+
+566
+00:25:46,509 --> 00:25:52,599
+el puerto 3 el cual a su vez activa el
+
+567
+00:25:49,210 --> 00:25:54,850
+transistor y este conecta a gene de el
+
+568
+00:25:52,599 --> 00:25:57,759
+cátodo otra cuestión que surge del
+
+569
+00:25:54,849 --> 00:26:00,669
+circuito eléctrico es que de los 16
+
+570
+00:25:57,759 --> 00:26:03,129
+pines del adaptador se utilizan sólo 8
+
+571
+00:26:00,670 --> 00:26:05,500
+ya que el circuito integrado solo tiene
+
+572
+00:26:03,130 --> 00:26:08,540
+8 bits paralelos pero son suficientes
+
+573
+00:26:05,500 --> 00:26:11,359
+para controlar perfectamente al módulo
+
+574
+00:26:08,539 --> 00:26:15,049
+lcd ya que sólo requiere de cuatro
+
+575
+00:26:11,359 --> 00:26:17,449
+líneas de control y cuatro de datos de 0
+
+576
+00:26:15,049 --> 00:26:20,389
+a de 3 no se conectan
+
+577
+00:26:17,450 --> 00:26:23,750
+finalmente inicializa mos el lcd con el
+
+578
+00:26:20,390 --> 00:26:26,810
+tamaño de 16 columnas por 2 filas ya que
+
+579
+00:26:23,750 --> 00:26:29,210
+nuestro modelo es un 16 0 2 este
+
+580
+00:26:26,809 --> 00:26:34,250
+adaptador se puede utilizar también para
+
+581
+00:26:29,210 --> 00:26:38,090
+módulos lcd del tipo 2002 de 20 columnas
+
+582
+00:26:34,250 --> 00:26:41,029
+por 2 filas y también de 16 columnas por
+
+583
+00:26:38,089 --> 00:26:44,359
+4 filas en definitiva cualquier módulo
+
+584
+00:26:41,029 --> 00:26:47,329
+lcd que tenga 16 pines de conexión
+
+585
+00:26:44,359 --> 00:26:50,000
+aplicamos de forma opcional la función
+
+586
+00:26:47,329 --> 00:26:51,949
+clear que borra cualquier contenido que
+
+587
+00:26:50,000 --> 00:26:54,380
+pudiese mostrarse en la pantalla
+
+588
+00:26:51,950 --> 00:26:56,630
+mientras arranca el sistema o si quedó
+
+589
+00:26:54,380 --> 00:26:58,880
+información de algún programa anterior
+
+590
+00:26:56,630 --> 00:27:01,280
+toda la parte del loop ahora es
+
+591
+00:26:58,880 --> 00:27:03,740
+exactamente igual que en el capítulo 10
+
+592
+00:27:01,279 --> 00:27:07,250
+con el módulo lcd en paralelo
+
+593
+00:27:03,740 --> 00:27:09,410
+utilizaremos la función set cursor para
+
+594
+00:27:07,250 --> 00:27:13,099
+ubicarnos donde deseamos que comience a
+
+595
+00:27:09,410 --> 00:27:16,730
+escribir la información con 0 0 ubica
+
+596
+00:27:13,099 --> 00:27:18,980
+en la columna 0 y fila 0 es decir en la
+
+597
+00:27:16,730 --> 00:27:21,259
+esquina superior izquierda haremos el
+
+598
+00:27:18,980 --> 00:27:24,110
+mismo programa de aquel capítulo que
+
+599
+00:27:21,259 --> 00:27:26,750
+consta en mostrar el texto o la han
+
+600
+00:27:24,109 --> 00:27:29,689
+pasado y en la segunda fila con la
+
+601
+00:27:26,750 --> 00:27:32,269
+función milis dividida por mil la
+
+602
+00:27:29,690 --> 00:27:34,910
+cantidad de segundos transcurridos desde
+
+603
+00:27:32,269 --> 00:27:37,819
+la ejecución del programa nada nuevo en
+
+604
+00:27:34,910 --> 00:27:40,038
+el loop así que vamos a verificar y
+
+605
+00:27:37,819 --> 00:27:43,220
+subir el programa como se puede apreciar
+
+606
+00:27:40,038 --> 00:27:45,769
+en la pantalla se muestra el texto o la
+
+607
+00:27:43,220 --> 00:27:47,960
+han pasado y debajo la cantidad de
+
+608
+00:27:45,769 --> 00:27:50,599
+segundos es probable que necesites
+
+609
+00:27:47,960 --> 00:27:52,819
+ajustar el nivel de contraste con el
+
+610
+00:27:50,599 --> 00:27:55,308
+presente de color azul yo ya lo tengo
+
+611
+00:27:52,819 --> 00:27:58,158
+regulado pero lo voy a cambiar para que
+
+612
+00:27:55,308 --> 00:28:01,158
+veas que en un sentido los caracteres se
+
+613
+00:27:58,159 --> 00:28:03,559
+desvanecen y en el otro extremo sólo se
+
+614
+00:28:01,159 --> 00:28:06,049
+ven bloques sólidos buscando un punto
+
+615
+00:28:03,558 --> 00:28:08,629
+intermedio lograremos una correcta
+
+616
+00:28:06,048 --> 00:28:11,058
+visualización podrás utilizar cualquiera
+
+617
+00:28:08,630 --> 00:28:14,450
+de los ejemplos vistos en el capítulo 10
+
+618
+00:28:11,058 --> 00:28:17,269
+sobre cómo mostrar texto que parpadea un
+
+619
+00:28:14,450 --> 00:28:19,519
+cursor o la función de desplazamiento
+
+620
+00:28:17,269 --> 00:28:21,859
+cuando el texto es muy largo
+
+621
+00:28:19,519 --> 00:28:24,559
+el código visto dentro del loop del
+
+622
+00:28:21,859 --> 00:28:27,139
+capítulo 10 se puede utilizar de forma
+
+623
+00:28:24,559 --> 00:28:29,480
+directa aquí de todas maneras dejaré
+
+624
+00:28:27,140 --> 00:28:31,880
+estos ejemplos para que los descargues
+
+625
+00:28:29,480 --> 00:28:34,430
+ya modificados para el uso con el
+
+626
+00:28:31,880 --> 00:28:36,200
+adaptador y 12 para finalizar el
+
+627
+00:28:34,430 --> 00:28:38,630
+capítulo te quiero mostrar una
+
+628
+00:28:36,200 --> 00:28:40,700
+característica más del adaptador y es la
+
+629
+00:28:38,630 --> 00:28:41,480
+posibilidad de modificar la dirección
+
+630
+00:28:40,700 --> 00:28:44,420
+del mismo
+
+631
+00:28:41,480 --> 00:28:47,000
+por defecto viene con la dirección 27
+
+632
+00:28:44,420 --> 00:28:49,580
+pero como ya sabemos a esta altura el
+
+633
+00:28:47,000 --> 00:28:52,240
+base y 12 permite conectar muchos
+
+634
+00:28:49,579 --> 00:28:54,799
+dispositivos sobre una misma línea
+
+635
+00:28:52,240 --> 00:28:57,500
+identificando los mediante una dirección
+
+636
+00:28:54,799 --> 00:28:59,389
+podría ser una necesidad que debamos
+
+637
+00:28:57,500 --> 00:29:01,700
+cambiar la dirección de nuestro
+
+638
+00:28:59,390 --> 00:29:04,610
+adaptador o incluso podríamos colocar
+
+639
+00:29:01,700 --> 00:29:06,740
+varias pantallas sobre el base para
+
+640
+00:29:04,609 --> 00:29:09,439
+cambiar la dirección del adaptador se
+
+641
+00:29:06,740 --> 00:29:12,890
+utiliza un simple método que consiste en
+
+642
+00:29:09,440 --> 00:29:14,720
+puentear mediante soldadura las pistas
+
+643
+00:29:12,890 --> 00:29:19,250
+del circuito impreso con las
+
+644
+00:29:14,720 --> 00:29:21,620
+denominaciones a 0 a1 y a2 son estas que
+
+645
+00:29:19,250 --> 00:29:23,690
+se muestran aquí y luego en la tabla
+
+646
+00:29:21,619 --> 00:29:25,939
+vemos las distintas direcciones que
+
+647
+00:29:23,690 --> 00:29:31,460
+obtenemos con distintas combinación
+
+648
+00:29:25,940 --> 00:29:35,538
+es de acero a1 y a2 por defecto a 0 a 1
+
+649
+00:29:31,460 --> 00:29:38,360
+y a 2 tienen un nivel alto o un 1 lógico
+
+650
+00:29:35,538 --> 00:29:41,480
+con lo cual la acción de puentear hace
+
+651
+00:29:38,359 --> 00:29:44,269
+que pase a un nivel lógico bajo por eso
+
+652
+00:29:41,480 --> 00:29:48,500
+vemos que en la primer fila con un 1
+
+653
+00:29:44,269 --> 00:29:51,980
+lógico en acero a1 y a2 obtenemos la
+
+654
+00:29:48,500 --> 00:29:55,220
+dirección 27 si ahora planteamos con un
+
+655
+00:29:51,980 --> 00:29:58,009
+poco de soldadura las pistas de acero
+
+656
+00:29:55,220 --> 00:30:02,089
+logramos ponerla a 0 quedando la
+
+657
+00:29:58,009 --> 00:30:05,659
+combinación 0 11 lo que se traduce en
+
+658
+00:30:02,089 --> 00:30:07,638
+una dirección 26 y así con las distintas
+
+659
+00:30:05,659 --> 00:30:10,960
+combinaciones de las tres líneas
+
+660
+00:30:07,638 --> 00:30:13,969
+obtenemos un total de ocho combinaciones
+
+661
+00:30:10,960 --> 00:30:16,548
+incluyendo la que es por defecto si por
+
+662
+00:30:13,970 --> 00:30:19,190
+ejemplo queremos colocar dos pantallas
+
+663
+00:30:16,548 --> 00:30:21,710
+sobre el base y 12 es tan simple como
+
+664
+00:30:19,190 --> 00:30:25,009
+colocar una tal cual viene por defecto
+
+665
+00:30:21,710 --> 00:30:27,798
+con la dirección 27 para la segunda
+
+666
+00:30:25,009 --> 00:30:31,170
+pantalla fuente amos a 0 logrando
+
+667
+00:30:27,798 --> 00:30:34,980
+cambiar la dirección de la misma a 26
+
+668
+00:30:31,170 --> 00:30:39,450
+por programación creamos dos objetos lcd
+
+669
+00:30:34,980 --> 00:30:42,509
+uno con la dirección 27 y lcd 2 con la
+
+670
+00:30:39,450 --> 00:30:44,960
+dirección 26 de esa forma desde el loop
+
+671
+00:30:42,509 --> 00:30:49,619
+podemos escribir de forma independiente
+
+672
+00:30:44,960 --> 00:30:53,370
+una pantalla u otra con el s de 1 punto
+
+673
+00:30:49,619 --> 00:30:55,529
+a print o lcd 2 punto print y eso es
+
+674
+00:30:53,369 --> 00:30:57,809
+todo por este capítulo vimos una gran
+
+675
+00:30:55,529 --> 00:31:00,779
+cantidad de conceptos que no sólo te
+
+676
+00:30:57,809 --> 00:31:03,089
+permitirán operar un lcd mediante el
+
+677
+00:31:00,779 --> 00:31:05,579
+adaptador y 12 sino también las
+
+678
+00:31:03,089 --> 00:31:08,009
+características del propio bass de dos
+
+679
+00:31:05,579 --> 00:31:10,710
+cables que lo utilizaremos en futuros
+
+680
+00:31:08,009 --> 00:31:13,349
+capítulos en variedades de sensores como
+
+681
+00:31:10,710 --> 00:31:15,450
+siempre te pido te suscribas y si aún no
+
+682
+00:31:13,349 --> 00:31:18,119
+lo hiciste y por cualquier duda o
+
+683
+00:31:15,450 --> 00:31:21,120
+comentario lo podéis hacer debajo que
+
+684
+00:31:18,119 --> 00:31:23,359
+con gusto te responderé chao y hasta la
+
+685
+00:31:21,119 --> 00:31:23,359
+próxima
+

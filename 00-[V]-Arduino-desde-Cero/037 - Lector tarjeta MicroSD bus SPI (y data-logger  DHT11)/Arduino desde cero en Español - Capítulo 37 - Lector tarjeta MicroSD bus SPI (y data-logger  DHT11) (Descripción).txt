@@ -1,0 +1,29 @@
+Mediante el módulo lector de memoria MicroSD podremos almacenar datos en una tarjeta de memoria MicroSD con Arduino, extraer la misma y llevarla a nuestra computadora para analisis o generación de gráficos.
+Se explicará el funcionamiento de la interfaz serie (bus) SPI que permite la comunicación del módulo con Arduino y como mediante un módulo sensor de temperatura y humedad DHT11, podremos almacenar datos y luego generar un gráfico mediante una planilla de cálculos.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoMicroSD
+#ArduinoDataLogger
+#ArduinoSPI
+Arduino SPI multiple devices
+Arduino SPI tutorial
+Arduino micro sd
+Microsd module
+Arduino micro sd card
+Arduino data logger
+Arduino datalogger sd
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:41 Pines y funciones
+1:36 Bus SPI (introducción a su funcionamiento)
+7:01 Circuito de conexión
+8:35 Adaptadores MicroSD (y conversores)
+9:27 Formateo adecuado desde PC
+11:10 Primer programa (creando un archivo)
+23:05 Circuito de conexión (incorporando DHT11)
+24:27 Segundo programa (grabando datos del sensor)
+30:00 Hoja de cálculos (visualización gráfica de datos)

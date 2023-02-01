@@ -1,0 +1,25 @@
+Mediante la variación de resistencia del Termistor podremos usarlo para medir temperatura en un amplio rango de valores con gran precisión y gran utilidad en Arduino.
+Analizaremos los tipos NTC y PTC de termistores y la aplicación de la ecuación de Steinhart-Hart para una fácil conversión del valor de resistencia a temperatura. También una forma simple de obtener los coeficientes de la ecuación sin necesidad de la hoja de datos del termistor.
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoControlDeTemperatura
+#ArduinoTermistor
+#ArduinoNTC
+Formula Termistor
+Ecuacion Termistor
+Arduino Thermistor
+Termistor NTC Arduino
+Termistores
+Arduino thermistor temperature sensor
+Steinhart Hart equation
+
+Marcas de tiempo:
+0:00 Introducción
+0:42 Características de los termistores
+3:37 NTC valores (típicos)
+7:03 Circuito de conexión
+10:09 Primer programa (obteniendo temperatura)
+12:00 Página para obtención de coeficientes
+17:58 Impresora 3D aplicación práctica

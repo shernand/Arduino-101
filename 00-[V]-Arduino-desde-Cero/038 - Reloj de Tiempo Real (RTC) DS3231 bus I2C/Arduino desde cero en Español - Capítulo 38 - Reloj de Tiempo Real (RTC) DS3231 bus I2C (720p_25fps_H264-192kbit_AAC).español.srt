@@ -1,0 +1,2648 @@
+1
+00:00:01,669 --> 00:00:08,179
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,400 --> 00:00:10,130
+38 de arduino desde cero en español
+
+3
+00:00:08,179 --> 00:00:12,740
+en esta oportunidad aprenderemos a
+
+4
+00:00:10,130 --> 00:00:16,339
+trabajar con el módulo reloj de tiempo
+
+5
+00:00:12,740 --> 00:00:19,219
+real modelo ds3 231 el cual nos
+
+6
+00:00:16,339 --> 00:00:20,899
+permitirá obtener fecha y horario para
+
+7
+00:00:19,219 --> 00:00:23,809
+cualquiera de nuestros proyectos
+
+8
+00:00:20,899 --> 00:00:25,909
+incorpora una batería de respaldo en su
+
+9
+00:00:23,809 --> 00:00:28,038
+parte posterior la cual mantiene
+
+10
+00:00:25,910 --> 00:00:30,170
+alimentado el circuito integrado y
+
+11
+00:00:28,039 --> 00:00:32,780
+permite llevar la cuenta del paso del
+
+12
+00:00:30,170 --> 00:00:35,179
+tiempo incluso si el módulo no está
+
+13
+00:00:32,780 --> 00:00:37,429
+siendo alimentado obtener el dato de la
+
+14
+00:00:35,179 --> 00:00:39,469
+fecha y horario es muy útil para una
+
+15
+00:00:37,429 --> 00:00:41,569
+gran cantidad de proyectos donde se
+
+16
+00:00:39,469 --> 00:00:44,120
+requieren realizar tareas de forma
+
+17
+00:00:41,569 --> 00:00:46,039
+programada o para guardar información de
+
+18
+00:00:44,119 --> 00:00:48,378
+la ocurrencia de un determinado evento
+
+19
+00:00:46,039 --> 00:00:50,539
+la precisión es también un factor
+
+20
+00:00:48,378 --> 00:00:52,808
+importante y para aplicaciones donde
+
+21
+00:00:50,539 --> 00:00:55,100
+arduino debe funcionar de forma
+
+22
+00:00:52,808 --> 00:00:58,009
+desatendida por largos periodos de
+
+23
+00:00:55,100 --> 00:01:01,518
+tiempo y el circuito integrado de ese
+
+24
+00:00:58,009 --> 00:01:04,250
+3231 corazón de este módulo está
+
+25
+00:01:01,518 --> 00:01:06,468
+diseñado para tal fin tendremos 6 pines
+
+26
+00:01:04,250 --> 00:01:08,090
+para una fácil conexión con arduino
+
+27
+00:01:06,468 --> 00:01:09,678
+donde sólo 4
+
+28
+00:01:08,090 --> 00:01:12,500
+son los necesarios para su normal
+
+29
+00:01:09,679 --> 00:01:16,368
+operación dos pines corresponden a la
+
+30
+00:01:12,500 --> 00:01:19,009
+alimentación que puede ser entre 3 3 y 5
+
+31
+00:01:16,368 --> 00:01:20,950
+volts haciéndolo apto no solo para el
+
+32
+00:01:19,009 --> 00:01:23,358
+uso con arduino sino con otros
+
+33
+00:01:20,950 --> 00:01:26,629
+microcontroladores que utilizan tensión
+
+34
+00:01:23,358 --> 00:01:29,359
+de 33 volts nosotros lo alimentamos de
+
+35
+00:01:26,629 --> 00:01:30,949
+forma directa con la salida de 5 volts
+
+36
+00:01:29,359 --> 00:01:34,459
+luego tenemos los 2 pines
+
+37
+00:01:30,950 --> 00:01:37,569
+correspondientes al bass y 12 que sda y
+
+38
+00:01:34,459 --> 00:01:40,789
+scl tal cual se introdujo en el capítulo
+
+39
+00:01:37,569 --> 00:01:43,368
+35 de esa manera con solo dos cables
+
+40
+00:01:40,789 --> 00:01:45,920
+tendremos la comunicación entre arduino
+
+41
+00:01:43,368 --> 00:01:48,109
+y el módulo los últimos dos pines
+
+42
+00:01:45,920 --> 00:01:50,868
+corresponden a salidas que se pueden
+
+43
+00:01:48,109 --> 00:01:53,899
+activar de forma opcional una de ellas
+
+44
+00:01:50,868 --> 00:01:56,509
+corresponde a los 32 kilos hertz a los
+
+45
+00:01:53,899 --> 00:01:59,209
+cuales funciona el oscilador interno es
+
+46
+00:01:56,509 --> 00:02:01,819
+útil para desde este módulo generar una
+
+47
+00:01:59,209 --> 00:02:03,679
+señal de reloj muy precisa para otros
+
+48
+00:02:01,819 --> 00:02:05,659
+circuitos en un proyecto más grande
+
+49
+00:02:03,679 --> 00:02:07,810
+también dispone de una salida
+
+50
+00:02:05,659 --> 00:02:09,950
+programable a distintas frecuencias
+
+51
+00:02:07,810 --> 00:02:12,829
+también para conectar a otros
+
+52
+00:02:09,949 --> 00:02:14,419
+dispositivos o generar interrupciones en
+
+53
+00:02:12,829 --> 00:02:16,640
+breve veremos un poco
+
+54
+00:02:14,419 --> 00:02:19,219
+de estas salidas en la parte posterior
+
+55
+00:02:16,639 --> 00:02:23,000
+se encuentra un zócalo para colocar una
+
+56
+00:02:19,219 --> 00:02:26,568
+batería del tipo cr 2032
+
+57
+00:02:23,000 --> 00:02:28,669
+cr 2025 estas baterías tienen una
+
+58
+00:02:26,568 --> 00:02:30,859
+tensión nominal de 3 volts y
+
+59
+00:02:28,669 --> 00:02:33,708
+probablemente ya las habrás visto por
+
+60
+00:02:30,860 --> 00:02:36,410
+ejemplo en placas madre madre words de
+
+61
+00:02:33,709 --> 00:02:38,750
+computadoras controles remotos y muchos
+
+62
+00:02:36,409 --> 00:02:41,359
+otros dispositivos electrónicos esta
+
+63
+00:02:38,750 --> 00:02:45,289
+batería permite mantener alimentado al
+
+64
+00:02:41,360 --> 00:02:48,140
+ds3 231 mientras el módulo no recibe
+
+65
+00:02:45,289 --> 00:02:50,599
+tensión de forma externa de esta forma
+
+66
+00:02:48,139 --> 00:02:53,268
+permite que se pueda mantener cuenta del
+
+67
+00:02:50,599 --> 00:02:55,879
+paso del tiempo incluso sin siquiera
+
+68
+00:02:53,269 --> 00:02:57,920
+estar conectado arduino en la tabla
+
+69
+00:02:55,879 --> 00:03:02,780
+vemos que la única diferencia entre las
+
+70
+00:02:57,919 --> 00:03:05,298
+baterías 20 32 y 2025 es el espesor los
+
+71
+00:03:02,780 --> 00:03:08,150
+primeros dos dígitos de ambos modelos es
+
+72
+00:03:05,299 --> 00:03:11,269
+20 indicando el diámetro de la batería
+
+73
+00:03:08,150 --> 00:03:14,209
+20 milímetros y luego los últimos dos
+
+74
+00:03:11,269 --> 00:03:18,069
+dígitos corresponden al espesor siendo
+
+75
+00:03:14,209 --> 00:03:20,240
+de 32 milímetros para la serie 20 32 y
+
+76
+00:03:18,069 --> 00:03:24,259
+25 milímetros para
+
+77
+00:03:20,240 --> 00:03:27,680
+cr 2025 ambas baterías son compatibles
+
+78
+00:03:24,259 --> 00:03:30,319
+con el zócalo del módulo láser de 2025
+
+79
+00:03:27,680 --> 00:03:32,569
+al ser ligeramente más delgada tiene
+
+80
+00:03:30,319 --> 00:03:35,299
+también una capacidad de suministro de
+
+81
+00:03:32,569 --> 00:03:37,370
+corriente algo menor veamos entonces un
+
+82
+00:03:35,300 --> 00:03:40,160
+resumen de las capacidades de este
+
+83
+00:03:37,370 --> 00:03:42,469
+módulo permite mantener fecha y horario
+
+84
+00:03:40,159 --> 00:03:46,490
+es decir que una vez conectado arduino
+
+85
+00:03:42,469 --> 00:03:51,139
+podremos consultarle el año mes día hora
+
+86
+00:03:46,490 --> 00:03:53,600
+minutos y segundos el ds3 231 y de alta
+
+87
+00:03:51,139 --> 00:03:56,509
+precisión ya que incorpora un oscilador
+
+88
+00:03:53,599 --> 00:04:00,319
+de cristal compensado por temperatura
+
+89
+00:03:56,509 --> 00:04:02,389
+cuyas siglas son de cx o muchos
+
+90
+00:04:00,319 --> 00:04:05,629
+circuitos integrados como nuestro
+
+91
+00:04:02,389 --> 00:04:08,329
+microcontrolador at mega 328 para el aro
+
+92
+00:04:05,629 --> 00:04:10,879
+vino uno tiene un cristal de cuarzo que
+
+93
+00:04:08,330 --> 00:04:13,520
+se utiliza formando parte de un circuito
+
+94
+00:04:10,879 --> 00:04:15,979
+oscilador el cual genera los pulsos de
+
+95
+00:04:13,520 --> 00:04:17,900
+reloj internos para el procesamiento de
+
+96
+00:04:15,979 --> 00:04:20,089
+instrucciones y el hecho de tener el
+
+97
+00:04:17,899 --> 00:04:22,370
+oscilador de forma externa lo hace
+
+98
+00:04:20,089 --> 00:04:26,209
+susceptible a cambios de temperatura que
+
+99
+00:04:22,370 --> 00:04:27,350
+disminuye la precisión el ds3 231 está
+
+100
+00:04:26,209 --> 00:04:30,680
+diseñado
+
+101
+00:04:27,350 --> 00:04:33,439
+para ser de alta precisión incorporando
+
+102
+00:04:30,680 --> 00:04:35,900
+el cristal de cuarzo dentro del propio
+
+103
+00:04:33,439 --> 00:04:38,420
+encapsulado y además dispone de un
+
+104
+00:04:35,899 --> 00:04:40,819
+sensor de temperatura de esta forma el
+
+105
+00:04:38,420 --> 00:04:43,280
+oscilador interno puede compensar por
+
+106
+00:04:40,819 --> 00:04:45,769
+cambios en la temperatura ambiente y
+
+107
+00:04:43,279 --> 00:04:48,229
+mantener una alta precisión a lo largo
+
+108
+00:04:45,769 --> 00:04:50,719
+del tiempo de hecho una característica
+
+109
+00:04:48,230 --> 00:04:53,420
+destacable es que justamente el nivel de
+
+110
+00:04:50,720 --> 00:04:55,970
+error que exhibe es de más menos dos
+
+111
+00:04:53,420 --> 00:04:58,790
+partes por millón lo cual significa que
+
+112
+00:04:55,970 --> 00:05:01,220
+el error será de unos pocos minutos al
+
+113
+00:04:58,790 --> 00:05:03,890
+año la batería de respaldo en la parte
+
+114
+00:05:01,220 --> 00:05:06,350
+posterior alimenta al integrado cuando
+
+115
+00:05:03,889 --> 00:05:09,229
+no recibe alimentación mediante sus
+
+116
+00:05:06,350 --> 00:05:13,460
+pines veces se higiene y con una batería
+
+117
+00:05:09,230 --> 00:05:15,920
+del tipo cr 2032 se asegura al menos una
+
+118
+00:05:13,459 --> 00:05:18,409
+duración de 5 años ya que el circuito
+
+119
+00:05:15,920 --> 00:05:20,390
+integrado tiene muy bajo consumo
+
+120
+00:05:18,410 --> 00:05:23,300
+el módulo conmuta entre alimentación
+
+121
+00:05:20,389 --> 00:05:25,729
+externa y batería de respaldo de forma
+
+122
+00:05:23,300 --> 00:05:27,170
+automática con lo cual aunque arduino
+
+123
+00:05:25,730 --> 00:05:29,600
+pierde alimentación
+
+124
+00:05:27,170 --> 00:05:31,910
+el módulo seguirá tomando cuenta del
+
+125
+00:05:29,600 --> 00:05:33,460
+paso del tiempo debido a que tenemos un
+
+126
+00:05:31,910 --> 00:05:35,319
+oscilador de muy alta
+
+127
+00:05:33,459 --> 00:05:37,719
+visión puede ser útil para generar
+
+128
+00:05:35,319 --> 00:05:40,110
+pulsos de reloj para otros dispositivos
+
+129
+00:05:37,720 --> 00:05:43,330
+para ello cuenta con una salida
+
+130
+00:05:40,110 --> 00:05:48,520
+identificada con el nombre 32 k que
+
+131
+00:05:43,329 --> 00:05:50,800
+genera una señal cuadrada de 32.700 68
+
+132
+00:05:48,519 --> 00:05:53,288
+kilos hertz exactamente la misma
+
+133
+00:05:50,800 --> 00:05:55,650
+frecuencia que utiliza el integrado para
+
+134
+00:05:53,288 --> 00:05:57,969
+llevar cuenta de la fecha y horario
+
+135
+00:05:55,649 --> 00:06:00,098
+finalmente existe una salida de
+
+136
+00:05:57,970 --> 00:06:03,639
+frecuencia programable para generar
+
+137
+00:06:00,098 --> 00:06:06,490
+pulsos de un hearts 1 kilohertz 4 quiroz
+
+138
+00:06:03,639 --> 00:06:08,949
+hertz y 8 kilos hearts vale aclarar que
+
+139
+00:06:06,490 --> 00:06:11,228
+estas salidas nosotros no las estaremos
+
+140
+00:06:08,949 --> 00:06:13,478
+usando ya que no tenemos ningún circuito
+
+141
+00:06:11,228 --> 00:06:16,360
+adicional que las requieran pero son del
+
+142
+00:06:13,478 --> 00:06:19,629
+tipo o pendrive es decir que no tienen
+
+143
+00:06:16,360 --> 00:06:22,389
+referencia del nivel alto y por eso
+
+144
+00:06:19,629 --> 00:06:24,879
+deben colocarse a veces mediante una
+
+145
+00:06:22,389 --> 00:06:27,069
+resistencia de pull up la conexión
+
+146
+00:06:24,879 --> 00:06:30,279
+arduino será extremadamente fácil
+
+147
+00:06:27,069 --> 00:06:31,750
+gracias al bash y 12 de dos cables así
+
+148
+00:06:30,279 --> 00:06:33,969
+que nuestra primera tarea será
+
+149
+00:06:31,750 --> 00:06:36,189
+conectarlo arduino de acuerdo al
+
+150
+00:06:33,970 --> 00:06:39,220
+siguiente diagrama iremos con un cable
+
+151
+00:06:36,189 --> 00:06:40,240
+directo desde bcc del módulo a la salida
+
+152
+00:06:39,220 --> 00:06:43,509
+de 5 volt
+
+153
+00:06:40,240 --> 00:06:46,509
+de arduino y desde general del módulo a
+
+154
+00:06:43,509 --> 00:06:49,000
+gene de de arduino el bass y 12 está
+
+155
+00:06:46,509 --> 00:06:55,000
+presente en arduino 1 en los pines
+
+156
+00:06:49,000 --> 00:06:58,449
+analógicos a4 y a5 siendo a 4 sda y a 5
+
+157
+00:06:55,000 --> 00:07:01,269
+s cl aquí también se muestran los pines
+
+158
+00:06:58,449 --> 00:07:03,550
+en caso de usar el modelo mega entonces
+
+159
+00:07:01,269 --> 00:07:07,538
+sólo nos resta conectar esa idea del
+
+160
+00:07:03,550 --> 00:07:11,348
+módulo aa cuatro de arduino y scl del
+
+161
+00:07:07,538 --> 00:07:13,418
+módulo a cinco de arduino y eso es todo
+
+162
+00:07:11,348 --> 00:07:15,728
+para poder usar el módulo de forma
+
+163
+00:07:13,418 --> 00:07:18,250
+simple debemos descargar una librería
+
+164
+00:07:15,728 --> 00:07:20,949
+específica lo haremos de la forma usual
+
+165
+00:07:18,250 --> 00:07:23,978
+ingresando al menú programa incluir
+
+166
+00:07:20,949 --> 00:07:26,530
+librería y luego gestionar librerías
+
+167
+00:07:23,978 --> 00:07:28,389
+aguardamos unos instantes mientras se
+
+168
+00:07:26,529 --> 00:07:30,269
+actualiza el listado cuando haya
+
+169
+00:07:28,389 --> 00:07:32,530
+finalizado en el campo de búsqueda
+
+170
+00:07:30,269 --> 00:07:35,769
+escribiremos todo junto
+
+171
+00:07:32,529 --> 00:07:39,219
+rtc libre la librería que nos interesa
+
+172
+00:07:35,769 --> 00:07:41,529
+es la que dice rts live by a idea fruto
+
+173
+00:07:39,220 --> 00:07:43,599
+yo ya la tengo instalada por eso al
+
+174
+00:07:41,529 --> 00:07:45,668
+seleccionarla no tengo habilitado el
+
+175
+00:07:43,598 --> 00:07:46,599
+botón de instalar pero lo estará en tu
+
+176
+00:07:45,668 --> 00:07:49,329
+caso
+
+177
+00:07:46,600 --> 00:07:51,400
+dicho botón en pocos segundos descarga
+
+178
+00:07:49,329 --> 00:07:53,859
+la librería y mostrará el texto
+
+179
+00:07:51,399 --> 00:07:56,169
+instalado luego sólo es cuestión de
+
+180
+00:07:53,860 --> 00:07:58,420
+cerrar el gestor estaré pegando en el
+
+181
+00:07:56,170 --> 00:08:01,000
+editor el código completo del primer
+
+182
+00:07:58,420 --> 00:08:03,400
+programa y como siempre lo veremos línea
+
+183
+00:08:01,000 --> 00:08:05,949
+por línea la idea de este programa es
+
+184
+00:08:03,399 --> 00:08:08,409
+primero y principal establecer la hora
+
+185
+00:08:05,949 --> 00:08:10,959
+actual en el módulo y luego mostrar la
+
+186
+00:08:08,410 --> 00:08:12,910
+misma en el monitor serie en las dos
+
+187
+00:08:10,959 --> 00:08:15,699
+primeras líneas incorporamos las
+
+188
+00:08:12,910 --> 00:08:18,790
+librerías wáyar para la comunicación por
+
+189
+00:08:15,699 --> 00:08:22,269
+interfaz y 12 y la reciente descargada
+
+190
+00:08:18,790 --> 00:08:26,110
+librería rtc live luego creamos un
+
+191
+00:08:22,269 --> 00:08:31,149
+objeto llamado rtc que será del tipo rtc
+
+192
+00:08:26,110 --> 00:08:33,250
+guión bajo de ese 3 231 vale aclarar que
+
+193
+00:08:31,149 --> 00:08:36,970
+esta librería también es compatible con
+
+194
+00:08:33,250 --> 00:08:39,220
+el modelo de s 13 0 7 que es también un
+
+195
+00:08:36,970 --> 00:08:41,860
+reloj de tiempo real pero que tiene el
+
+196
+00:08:39,220 --> 00:08:44,320
+cristal de cuarzo de forma externa y no
+
+197
+00:08:41,860 --> 00:08:47,580
+está compensado por temperatura lo que
+
+198
+00:08:44,320 --> 00:08:50,290
+lo hace menos preciso que nuestros ds3
+
+199
+00:08:47,580 --> 00:08:52,930
+231 en el setup inicial izamos la
+
+200
+00:08:50,289 --> 00:08:55,719
+comunicación serie a 9.600
+
+201
+00:08:52,929 --> 00:08:58,179
+y luego una verificación de que tenemos
+
+202
+00:08:55,720 --> 00:09:01,480
+comunicación con el módulo la función
+
+203
+00:08:58,179 --> 00:09:04,209
+begin del recién creado objeto rtc
+
+204
+00:09:01,480 --> 00:09:07,509
+devuelve verdaderos y la comunicación
+
+205
+00:09:04,210 --> 00:09:09,160
+con el módulo es exitosa y falso en caso
+
+206
+00:09:07,509 --> 00:09:12,159
+contrario con el signo de admiración
+
+207
+00:09:09,159 --> 00:09:14,919
+delante invertimos el valor de manera
+
+208
+00:09:12,159 --> 00:09:17,708
+que en caso de retornar falso ingresamos
+
+209
+00:09:14,919 --> 00:09:20,919
+al condicional if y mostramos la leyenda
+
+210
+00:09:17,708 --> 00:09:23,739
+en el monitor serie módulo rtc no
+
+211
+00:09:20,919 --> 00:09:25,750
+encontrado y finalmente damos fin a la
+
+212
+00:09:23,740 --> 00:09:29,259
+ejecución del programa con un bucle
+
+213
+00:09:25,750 --> 00:09:31,450
+wilde cuya condición es 1 que equivale a
+
+214
+00:09:29,259 --> 00:09:34,208
+true es decir que se trata de un bucle
+
+215
+00:09:31,450 --> 00:09:37,060
+infinito que detiene el programa ya que
+
+216
+00:09:34,208 --> 00:09:39,338
+no podemos proseguir si no tenemos una
+
+217
+00:09:37,059 --> 00:09:41,708
+comunicación con el módulo si todo va
+
+218
+00:09:39,339 --> 00:09:44,110
+bien saltamos el bloque ir y vamos
+
+219
+00:09:41,708 --> 00:09:46,479
+directamente a establecer la fecha y
+
+220
+00:09:44,110 --> 00:09:49,120
+hora de nuestro módulo esto se lleva a
+
+221
+00:09:46,480 --> 00:09:49,899
+cabo mediante la función adjust la
+
+222
+00:09:49,120 --> 00:09:52,570
+función at
+
+223
+00:09:49,899 --> 00:09:55,240
+just requiere pasarle como parámetro la
+
+224
+00:09:52,570 --> 00:09:56,520
+fecha y horario en un formato del tipo
+
+225
+00:09:55,240 --> 00:09:59,789
+dates time
+
+226
+00:09:56,519 --> 00:10:03,539
+qué es una clase de la librería rts live
+
+227
+00:09:59,789 --> 00:10:07,919
+por eso tenemos day time y luego el año
+
+228
+00:10:03,539 --> 00:10:11,129
+el mes el día la hora los minutos y los
+
+229
+00:10:07,919 --> 00:10:13,289
+segundos todos separados por comas y ese
+
+230
+00:10:11,129 --> 00:10:15,960
+es todo el proceso para asignar una
+
+231
+00:10:13,289 --> 00:10:18,719
+fecha y hora al módulo esto es necesario
+
+232
+00:10:15,960 --> 00:10:21,210
+ejecutarlo una sola vez ya que luego el
+
+233
+00:10:18,720 --> 00:10:23,430
+módulo continuará llevando cuenta de
+
+234
+00:10:21,210 --> 00:10:25,530
+fecha y horario por sí solo
+
+235
+00:10:23,429 --> 00:10:28,289
+incluso sin alimentación de arduino
+
+236
+00:10:25,529 --> 00:10:30,750
+mediante su batería de respaldo existe
+
+237
+00:10:28,289 --> 00:10:33,360
+también una forma simple de colocar la
+
+238
+00:10:30,750 --> 00:10:35,460
+fecha y hora actual utilizando unas
+
+239
+00:10:33,360 --> 00:10:38,100
+directivas al compilador y son las
+
+240
+00:10:35,460 --> 00:10:41,490
+siguientes vamos a seleccionar el año
+
+241
+00:10:38,100 --> 00:10:45,600
+mes y día y eliminarlo en su lugar
+
+242
+00:10:41,490 --> 00:10:47,970
+escribiremos lo siguiente y en bajo
+
+243
+00:10:45,600 --> 00:10:51,120
+nate y un bajo
+
+244
+00:10:47,970 --> 00:10:55,279
+luego de la coma eliminamos la hora
+
+245
+00:10:51,120 --> 00:10:59,610
+minutos y segundos y reemplazamos por
+
+246
+00:10:55,279 --> 00:11:02,639
+guión bajo time guión bajo guión bajo
+
+247
+00:10:59,610 --> 00:11:05,820
+debe escribirse tal cual con los dos
+
+248
+00:11:02,639 --> 00:11:06,750
+bajo luego de todo en mayúscula y de
+
+249
+00:11:05,820 --> 00:11:09,600
+forma seguida
+
+250
+00:11:06,750 --> 00:11:11,909
+otros dos guiones bajo los mismos para
+
+251
+00:11:09,600 --> 00:11:14,610
+time estas directivas le indican al
+
+252
+00:11:11,909 --> 00:11:16,649
+compilador que reemplace rate por la
+
+253
+00:11:14,610 --> 00:11:19,769
+fecha actual que obtiene de nuestra
+
+254
+00:11:16,649 --> 00:11:21,899
+computadora y time por el horario de esa
+
+255
+00:11:19,769 --> 00:11:23,730
+forma de manera muy cómoda no es
+
+256
+00:11:21,899 --> 00:11:26,399
+necesario que estemos cargando cada
+
+257
+00:11:23,730 --> 00:11:28,139
+valor de forma individual si bien esto
+
+258
+00:11:26,399 --> 00:11:30,840
+se hace por única vez es algo
+
+259
+00:11:28,139 --> 00:11:33,029
+conveniente que nos brinda el ide y vale
+
+260
+00:11:30,840 --> 00:11:35,399
+la pena aprovecharlo algo a tener en
+
+261
+00:11:33,029 --> 00:11:37,319
+cuenta es que la fecha y horario van a
+
+262
+00:11:35,399 --> 00:11:39,990
+quedar fijados al momento en que
+
+263
+00:11:37,320 --> 00:11:42,690
+nosotros damos el comando de subir el
+
+264
+00:11:39,990 --> 00:11:45,480
+programa arduino en dicho instante el
+
+265
+00:11:42,690 --> 00:11:48,450
+compilador toma la fecha y horario y
+
+266
+00:11:45,480 --> 00:11:50,159
+coloca dentro de la función af esto
+
+267
+00:11:48,450 --> 00:11:52,650
+quiere decir que tendremos una
+
+268
+00:11:50,159 --> 00:11:54,959
+diferencia de unos segundos entre la
+
+269
+00:11:52,649 --> 00:11:57,659
+hora que vemos del módulo y la hora de
+
+270
+00:11:54,960 --> 00:12:00,030
+nuestra computadora de unos segundos que
+
+271
+00:11:57,659 --> 00:12:02,939
+es el tiempo que demora en compilar el
+
+272
+00:12:00,029 --> 00:12:04,289
+programa y subirlo arduino dependerá un
+
+273
+00:12:02,940 --> 00:12:06,730
+poco de la velocidad de nuestra
+
+274
+00:12:04,289 --> 00:12:08,259
+computadora para compilar el programa
+
+275
+00:12:06,730 --> 00:12:11,670
+se puede decir que en promedio
+
+276
+00:12:08,259 --> 00:12:14,110
+estaríamos de unos cinco a diez segundos
+
+277
+00:12:11,669 --> 00:12:16,000
+retrasados del horario de nuestra
+
+278
+00:12:14,110 --> 00:12:18,459
+computadora pero es lo suficientemente
+
+279
+00:12:16,000 --> 00:12:20,500
+bueno para operar sin problemas de
+
+280
+00:12:18,458 --> 00:12:22,719
+manera que con la función adjust
+
+281
+00:12:20,500 --> 00:12:25,659
+establecemos la fecha y horario en el
+
+282
+00:12:22,720 --> 00:12:28,149
+módulo ya sea ingresando cada valor por
+
+283
+00:12:25,659 --> 00:12:30,549
+separado o mediante las directivas al
+
+284
+00:12:28,149 --> 00:12:33,490
+compilador para que coloque dichos datos
+
+285
+00:12:30,549 --> 00:12:35,979
+de forma automática al momento de la
+
+286
+00:12:33,490 --> 00:12:37,778
+compilación del programa en el loop lo
+
+287
+00:12:35,980 --> 00:12:40,778
+que haremos es mostrar por el monitor
+
+288
+00:12:37,778 --> 00:12:43,360
+serie la fecha y horario actualizados
+
+289
+00:12:40,778 --> 00:12:46,600
+cada 1 segundo para obtener la fecha y
+
+290
+00:12:43,360 --> 00:12:50,079
+horario se usa la función now del objeto
+
+291
+00:12:46,600 --> 00:12:53,620
+rtc el valor devuelto es del tipo day
+
+292
+00:12:50,078 --> 00:12:56,559
+time por eso definimos a fecha del tipo
+
+293
+00:12:53,620 --> 00:12:59,948
+day time es decir que en fecha tenemos
+
+294
+00:12:56,559 --> 00:13:03,729
+los datos completos del año mes día
+
+295
+00:12:59,948 --> 00:13:05,859
+horas minutos y segundos usaremos varios
+
+296
+00:13:03,730 --> 00:13:08,170
+sería el punto print para ir mostrando
+
+297
+00:13:05,860 --> 00:13:10,959
+en el monitor serie los valores
+
+298
+00:13:08,169 --> 00:13:13,509
+individuales de la fecha y horario por
+
+299
+00:13:10,958 --> 00:13:17,199
+eso en el primero imprimimos
+
+300
+00:13:13,509 --> 00:13:19,929
+devuelto por fecha punto de y recordad
+
+301
+00:13:17,200 --> 00:13:23,140
+qué fecha tiene el contenido completo de
+
+302
+00:13:19,929 --> 00:13:25,839
+la fecha y horario la función de lo que
+
+303
+00:13:23,139 --> 00:13:28,629
+hace es solamente extraer el valor del
+
+304
+00:13:25,840 --> 00:13:30,790
+día de la fecha completa y así haremos
+
+305
+00:13:28,629 --> 00:13:33,279
+con el resto de los valores luego del
+
+306
+00:13:30,789 --> 00:13:35,740
+día con otro serial punto print
+
+307
+00:13:33,279 --> 00:13:38,289
+colocamos el carácter de la barra como
+
+308
+00:13:35,740 --> 00:13:41,590
+separador para luego imprimir el valor
+
+309
+00:13:38,289 --> 00:13:44,469
+de la fecha punto mans que será el valor
+
+310
+00:13:41,590 --> 00:13:47,230
+del mes nuevamente una barra separadora
+
+311
+00:13:44,470 --> 00:13:49,690
+y fecha punto y erc para el año
+
+312
+00:13:47,230 --> 00:13:51,879
+estaremos mostrando también el horario
+
+313
+00:13:49,690 --> 00:13:54,100
+en la misma línea que la fecha como
+
+314
+00:13:51,879 --> 00:13:56,830
+separador usaremos un espacio en blanco
+
+315
+00:13:54,100 --> 00:13:59,590
+por eso aquí tenemos un serial punto
+
+316
+00:13:56,830 --> 00:14:02,800
+print y un espacio en blanco con ficha
+
+317
+00:13:59,590 --> 00:14:05,500
+punto our imprimimos el valor de la hora
+
+318
+00:14:02,799 --> 00:14:08,229
+como separador ahora usaremos el dos
+
+319
+00:14:05,500 --> 00:14:11,350
+puntos luego el valor de los minutos con
+
+320
+00:14:08,230 --> 00:14:14,590
+fecha punto minuto nuevamente unos dos
+
+321
+00:14:11,350 --> 00:14:16,930
+puntos y los segundos con fecha punto
+
+322
+00:14:14,590 --> 00:14:19,000
+second y estaremos actualizando los
+
+323
+00:14:16,929 --> 00:14:19,778
+valores cada un segundo con lo cual
+
+324
+00:14:19,000 --> 00:14:23,019
+basta con
+
+325
+00:14:19,778 --> 00:14:25,870
+simple delay de 1000 milisegundos y eso
+
+326
+00:14:23,019 --> 00:14:28,688
+es todo vamos a verificar subir el
+
+327
+00:14:25,870 --> 00:14:30,850
+programa y abrir el monitor serie verás
+
+328
+00:14:28,688 --> 00:14:33,818
+que la ventana se muestra fecha y
+
+329
+00:14:30,850 --> 00:14:36,399
+horario actualizados cada un segundo el
+
+330
+00:14:33,818 --> 00:14:38,948
+propósito de este programa es establecer
+
+331
+00:14:36,399 --> 00:14:41,379
+fecha y horario iniciales para que el
+
+332
+00:14:38,948 --> 00:14:42,128
+módulo comienza a llevar cuenta del paso
+
+333
+00:14:41,379 --> 00:14:44,289
+del tiempo
+
+334
+00:14:42,129 --> 00:14:46,300
+ahora que verificamos que funciona todo
+
+335
+00:14:44,289 --> 00:14:49,629
+correcto es conveniente cerrar el
+
+336
+00:14:46,299 --> 00:14:52,479
+monitor serie y comentar la línea de rtc
+
+337
+00:14:49,629 --> 00:14:55,058
+punto adjust y volver a subir el
+
+338
+00:14:52,480 --> 00:14:57,220
+programa ya que la fecha y horario ya
+
+339
+00:14:55,058 --> 00:15:00,068
+quedaron establecidos y no tiene sentido
+
+340
+00:14:57,220 --> 00:15:02,470
+que se ejecute esta función cada vez que
+
+341
+00:15:00,068 --> 00:15:04,778
+iniciamos arruina de esta forma vemos
+
+342
+00:15:02,470 --> 00:15:07,209
+como el módulo lleva cuenta de la fecha
+
+343
+00:15:04,778 --> 00:15:08,169
+y horario por sí solo si desconectamos
+
+344
+00:15:07,208 --> 00:15:10,119
+arduino
+
+345
+00:15:08,169 --> 00:15:12,789
+el módulo mantendrá fecha y horario
+
+346
+00:15:10,120 --> 00:15:15,039
+mediante su batería de respaldo muy bien
+
+347
+00:15:12,789 --> 00:15:17,528
+ahora que tenemos una forma simple de
+
+348
+00:15:15,039 --> 00:15:19,599
+obtener fecha y horario podemos hacer
+
+349
+00:15:17,528 --> 00:15:22,799
+programas que realizan determinadas
+
+350
+00:15:19,600 --> 00:15:25,449
+tareas por ejemplo un horario específico
+
+351
+00:15:22,799 --> 00:15:26,208
+básicamente lo que haremos es establecer
+
+352
+00:15:25,448 --> 00:15:28,969
+una
+
+353
+00:15:26,208 --> 00:15:31,338
+en este segundo programa veremos cómo
+
+354
+00:15:28,970 --> 00:15:33,949
+establecer una alarma para que dispare
+
+355
+00:15:31,339 --> 00:15:36,649
+un evento a un horario determinado lo
+
+356
+00:15:33,948 --> 00:15:38,568
+haremos simplemente mostrando un texto
+
+357
+00:15:36,649 --> 00:15:41,119
+en el monitor serie en el horario
+
+358
+00:15:38,568 --> 00:15:43,578
+indicado pero sienta las bases para
+
+359
+00:15:41,119 --> 00:15:46,129
+luego en unos minutos utilizarlo para
+
+360
+00:15:43,578 --> 00:15:48,318
+activar un módulo de relay con el cual
+
+361
+00:15:46,129 --> 00:15:51,170
+podremos activar cualquier dispositivo
+
+362
+00:15:48,318 --> 00:15:53,539
+externo veamos entonces el código que lo
+
+363
+00:15:51,169 --> 00:15:55,729
+encontrarás muy fácil de interpretar y
+
+364
+00:15:53,539 --> 00:15:57,919
+se basa en un condicional if para
+
+365
+00:15:55,730 --> 00:16:00,139
+comparar el horario actual con el
+
+366
+00:15:57,919 --> 00:16:02,719
+establecido para la alarma antes del
+
+367
+00:16:00,139 --> 00:16:05,448
+setup crearemos una variable llamada
+
+368
+00:16:02,720 --> 00:16:08,089
+alarma que será del tipo bull y le
+
+369
+00:16:05,448 --> 00:16:10,878
+asignaremos un valor de true la variable
+
+370
+00:16:08,089 --> 00:16:14,720
+del tipo bull o booleana puede asumir
+
+371
+00:16:10,879 --> 00:16:18,019
+sólo dos estados posibles verdadero true
+
+372
+00:16:14,720 --> 00:16:20,540
+o falso force es muy útil como variable
+
+373
+00:16:18,019 --> 00:16:22,879
+de control y veremos ya pronto que se
+
+374
+00:16:20,539 --> 00:16:25,278
+utilizará para activar o desactivar la
+
+375
+00:16:22,879 --> 00:16:27,409
+alarma lo importante por el momento es
+
+376
+00:16:25,278 --> 00:16:28,990
+que para este nuevo tipo de variable que
+
+377
+00:16:27,409 --> 00:16:32,009
+hasta ahora nunca habíamos utilizado
+
+378
+00:16:28,990 --> 00:16:35,129
+sólo pueden asumir 2
+
+379
+00:16:32,009 --> 00:16:37,080
+estruch of force en el setup no tenemos
+
+380
+00:16:35,129 --> 00:16:39,689
+ningún cambio respecto del anterior
+
+381
+00:16:37,080 --> 00:16:41,670
+programa inicial izamos la comunicación
+
+382
+00:16:39,690 --> 00:16:43,830
+serie y verificamos que exista
+
+383
+00:16:41,669 --> 00:16:46,319
+comunicación con el módulo como ya
+
+384
+00:16:43,830 --> 00:16:49,350
+establecimos la fecha y horario no es
+
+385
+00:16:46,320 --> 00:16:53,040
+necesario usar la función hachas en el
+
+386
+00:16:49,350 --> 00:16:55,889
+loop definimos fecha del tipo datetime y
+
+387
+00:16:53,039 --> 00:17:00,000
+obtenemos la fecha y horario actual con
+
+388
+00:16:55,889 --> 00:17:02,669
+rtc punto now la idea es establecer una
+
+389
+00:17:00,000 --> 00:17:05,699
+alarma para las 14 horas y 30 minutos
+
+390
+00:17:02,669 --> 00:17:07,490
+para las 2 y media de la tarde para
+
+391
+00:17:05,699 --> 00:17:10,350
+saber si hemos llegado a ese horario
+
+392
+00:17:07,490 --> 00:17:13,470
+simplemente implementamos un condicional
+
+393
+00:17:10,349 --> 00:17:17,399
+y donde la condición a evaluar es si
+
+394
+00:17:13,470 --> 00:17:20,699
+fecha punto hour la hora actual es igual
+
+395
+00:17:17,400 --> 00:17:24,060
+a 14 y los minutos actuales son iguales
+
+396
+00:17:20,699 --> 00:17:26,640
+a 30 así de simple es comparar la hora y
+
+397
+00:17:24,059 --> 00:17:29,099
+minutos que nos brinda el módulo con un
+
+398
+00:17:26,640 --> 00:17:32,640
+horario preestablecido en nuestro caso
+
+399
+00:17:29,099 --> 00:17:34,730
+de ejemplo las 14 30 el doble ampersand
+
+400
+00:17:32,640 --> 00:17:37,200
+ya lo usamos en otras oportunidades
+
+401
+00:17:34,730 --> 00:17:39,960
+sirve para indicar que ambas
+
+402
+00:17:37,200 --> 00:17:40,860
+condiciones deben ser verdaderas dentro
+
+403
+00:17:39,960 --> 00:17:43,259
+de este bloque
+
+404
+00:17:40,859 --> 00:17:45,509
+consultaremos adicionalmente si la
+
+405
+00:17:43,259 --> 00:17:48,028
+variable alarma que definimos al
+
+406
+00:17:45,509 --> 00:17:50,460
+principio tiene un valor verdadero true
+
+407
+00:17:48,028 --> 00:17:53,490
+y si es así entonces simplemente
+
+408
+00:17:50,460 --> 00:17:56,130
+escribimos el monitor serie el texto
+
+409
+00:17:53,490 --> 00:17:58,620
+alarma e inmediatamente colocamos la
+
+410
+00:17:56,130 --> 00:18:01,919
+variable de control alarma con un valor
+
+411
+00:17:58,619 --> 00:18:04,018
+falso force te preguntarás entonces cuál
+
+412
+00:18:01,919 --> 00:18:06,090
+es el motivo de la necesidad de la
+
+413
+00:18:04,019 --> 00:18:09,179
+variable alarma sucede que cuando
+
+414
+00:18:06,089 --> 00:18:10,859
+comparamos la hora y minutos lo hacemos
+
+415
+00:18:09,179 --> 00:18:14,220
+dentro del loop que repite
+
+416
+00:18:10,859 --> 00:18:16,648
+constantemente luego de los mirage todos
+
+417
+00:18:14,220 --> 00:18:18,929
+los sería el punto print al igual que el
+
+418
+00:18:16,648 --> 00:18:22,079
+anterior programa que muestran la fecha
+
+419
+00:18:18,929 --> 00:18:24,120
+y horario un bloque que luego veremos y
+
+420
+00:18:22,079 --> 00:18:26,548
+una demora de un segundo
+
+421
+00:18:24,119 --> 00:18:28,918
+esto significa que luego de la demora se
+
+422
+00:18:26,548 --> 00:18:30,269
+vuelve a ejecutar todo el código desde
+
+423
+00:18:28,919 --> 00:18:32,880
+la primera línea del loop
+
+424
+00:18:30,269 --> 00:18:34,980
+nosotros estamos comparando horas y
+
+425
+00:18:32,880 --> 00:18:37,528
+minutos pero no los segundos
+
+426
+00:18:34,980 --> 00:18:40,139
+arduino es muy rápido para procesar cada
+
+427
+00:18:37,528 --> 00:18:42,960
+línea de código el tiempo mayor lo
+
+428
+00:18:40,138 --> 00:18:45,569
+consume el delay de 1000 milisegundos
+
+429
+00:18:42,960 --> 00:18:48,509
+llegaremos al bloque y una vez cada
+
+430
+00:18:45,569 --> 00:18:51,210
+segundo transcurrido ingresaremos siendo
+
+431
+00:18:48,509 --> 00:18:54,450
+las 14 30 con 0 segundos
+
+432
+00:18:51,210 --> 00:18:58,798
+ingresaremos nuevamente a las 14 30 con
+
+433
+00:18:54,450 --> 00:19:02,278
+un segundo y así 59 veces hasta que sean
+
+434
+00:18:58,798 --> 00:19:04,710
+14 horas y 31 minutos donde ya la
+
+435
+00:19:02,278 --> 00:19:07,829
+condición de lift no se cumple para
+
+436
+00:19:04,710 --> 00:19:10,740
+evitar escribir en el monitor serie 59
+
+437
+00:19:07,829 --> 00:19:13,740
+veces el texto alarma es que entra en
+
+438
+00:19:10,740 --> 00:19:16,409
+juego la variable alarma esta variable
+
+439
+00:19:13,740 --> 00:19:19,380
+la asignamos true en el set up con lo
+
+440
+00:19:16,409 --> 00:19:20,220
+cual cuando sean las 14 30 con 0
+
+441
+00:19:19,380 --> 00:19:22,950
+segundos
+
+442
+00:19:20,220 --> 00:19:25,200
+ingresamos al bloque y consultamos si
+
+443
+00:19:22,950 --> 00:19:27,990
+alarma tiene un valor true lo cual es
+
+444
+00:19:25,200 --> 00:19:30,840
+cierto imprimimos el texto alarma e
+
+445
+00:19:27,990 --> 00:19:33,028
+inmediatamente colocamos alarma en force
+
+446
+00:19:30,839 --> 00:19:35,849
+lo que va a ocurrir es que cuando el
+
+447
+00:19:33,028 --> 00:19:39,898
+loop vuelva a ejecutar el código pasado
+
+448
+00:19:35,849 --> 00:19:42,329
+un segundo a las 1430 y un segundo el
+
+449
+00:19:39,898 --> 00:19:45,000
+primer y es verdadero ya que estamos
+
+450
+00:19:42,329 --> 00:19:47,609
+consultando solo por hora y minutos
+
+451
+00:19:45,000 --> 00:19:49,470
+luego consulta por alarma pero esta vez
+
+452
+00:19:47,609 --> 00:19:52,619
+alarma tiene un valor de falta
+
+453
+00:19:49,470 --> 00:19:54,960
+con lo cual no imprime el texto al arma
+
+454
+00:19:52,619 --> 00:19:57,239
+de esa forma nos aseguramos que se
+
+455
+00:19:54,960 --> 00:20:00,750
+ejecute una sola vez luego que
+
+456
+00:19:57,240 --> 00:20:03,900
+transcurra otro segundo y sean las 14 30
+
+457
+00:20:00,750 --> 00:20:06,538
+con dos segundos nuevamente el primer if
+
+458
+00:20:03,900 --> 00:20:09,480
+es cierto pero el segundo sigue siendo
+
+459
+00:20:06,538 --> 00:20:11,669
+falso con lo cual no escribimos nada de
+
+460
+00:20:09,480 --> 00:20:14,279
+esta manera la variable nos ayuda para
+
+461
+00:20:11,669 --> 00:20:17,009
+ingresar una sola vez y escribir el
+
+462
+00:20:14,279 --> 00:20:19,619
+texto alarma para terminar el programa
+
+463
+00:20:17,009 --> 00:20:22,408
+nos resta una sola cuestión que es
+
+464
+00:20:19,619 --> 00:20:24,629
+restablecer el valor de alarma a true
+
+465
+00:20:22,409 --> 00:20:27,630
+en algún momento ya que queremos que la
+
+466
+00:20:24,630 --> 00:20:30,840
+alarma se active todos los días a las 14
+
+467
+00:20:27,630 --> 00:20:33,419
+30 horas si no se ejecutaría una sola
+
+468
+00:20:30,839 --> 00:20:36,000
+vez y luego nunca más esto se hace de
+
+469
+00:20:33,419 --> 00:20:38,610
+manera simple restableciendo el valor de
+
+470
+00:20:36,000 --> 00:20:41,069
+la variable alarma actúa en algún
+
+471
+00:20:38,609 --> 00:20:44,158
+momento del día por ejemplo a las 2 de
+
+472
+00:20:41,069 --> 00:20:47,099
+la mañana a las 2 horas con 0 minutos
+
+473
+00:20:44,159 --> 00:20:50,700
+por eso este bloque ir consulta si la
+
+474
+00:20:47,099 --> 00:20:52,798
+hora es igual a 2 y los minutos a 0 si
+
+475
+00:20:50,700 --> 00:20:54,779
+dicha condición es verdadero
+
+476
+00:20:52,798 --> 00:20:56,250
+simplemente reactivamos la alarma
+
+477
+00:20:54,779 --> 00:20:59,220
+colocando la variable
+
+478
+00:20:56,250 --> 00:21:02,160
+alarma con un valor dentro de esa manera
+
+479
+00:20:59,220 --> 00:21:04,319
+cuando lleguen las 14 30 horas alarma
+
+480
+00:21:02,160 --> 00:21:06,900
+vuelve a tener un valor verdadero y
+
+481
+00:21:04,319 --> 00:21:09,179
+muestra el texto en el monitor serie en
+
+482
+00:21:06,900 --> 00:21:11,970
+definitiva lo que hacemos es escribir en
+
+483
+00:21:09,180 --> 00:21:15,509
+el monitor serie el texto alarma todos
+
+484
+00:21:11,970 --> 00:21:18,360
+los días exactamente a las 1430 y nos
+
+485
+00:21:15,509 --> 00:21:21,299
+aseguramos que sea una sola vez con la
+
+486
+00:21:18,359 --> 00:21:23,459
+variable de control alarma este programa
+
+487
+00:21:21,299 --> 00:21:26,190
+muestra cómo podemos establecer una
+
+488
+00:21:23,460 --> 00:21:28,620
+alarma para que se ejecute una acción a
+
+489
+00:21:26,190 --> 00:21:31,110
+un determinado horario nosotros sólo
+
+490
+00:21:28,619 --> 00:21:33,479
+mostramos el texto en el monitor serie
+
+491
+00:21:31,109 --> 00:21:35,549
+lo podemos tomar cualquier otra acción
+
+492
+00:21:33,480 --> 00:21:38,039
+que necesitemos y eso lo logramos
+
+493
+00:21:35,549 --> 00:21:40,019
+simplemente consultando al módulo el
+
+494
+00:21:38,039 --> 00:21:42,750
+horario actual y con un simple y
+
+495
+00:21:40,019 --> 00:21:44,670
+condicional if y ese horario coincide
+
+496
+00:21:42,750 --> 00:21:47,460
+con el establecido para la alarma
+
+497
+00:21:44,670 --> 00:21:50,130
+la variable booleana alarma nos sirve
+
+498
+00:21:47,460 --> 00:21:53,039
+para ingresar una sola vez lo único que
+
+499
+00:21:50,130 --> 00:21:55,950
+deberás recordar y de volver a habilitar
+
+500
+00:21:53,039 --> 00:21:58,440
+la alarma en algún momento del día para
+
+501
+00:21:55,950 --> 00:22:00,870
+que la alarma se ejecute todos los días
+
+502
+00:21:58,440 --> 00:22:02,370
+en vez de por única vez por supuesto que
+
+503
+00:22:00,869 --> 00:22:04,589
+podrás cambiar el horario
+
+504
+00:22:02,369 --> 00:22:06,899
+en el cual disparamos el evento y el
+
+505
+00:22:04,589 --> 00:22:09,000
+horario para restablecer la alarma para
+
+506
+00:22:06,900 --> 00:22:12,030
+el siguiente día y ese es todo el
+
+507
+00:22:09,000 --> 00:22:13,710
+programa como establecimos las 14 30
+
+508
+00:22:12,029 --> 00:22:16,529
+para el evento de la alarma en el
+
+509
+00:22:13,710 --> 00:22:19,230
+monitor se y veremos los datos de fecha
+
+510
+00:22:16,529 --> 00:22:22,799
+y horario actualizados cada un segundo
+
+511
+00:22:19,230 --> 00:22:25,950
+recién cuando sean exactamente las 14 30
+
+512
+00:22:22,799 --> 00:22:28,950
+horas y 0 segundos se mostrará el texto
+
+513
+00:22:25,950 --> 00:22:31,410
+alarma como sería bastante inconveniente
+
+514
+00:22:28,950 --> 00:22:34,319
+esperar a que sean las 14 30 horas
+
+515
+00:22:31,410 --> 00:22:36,870
+haremos una pequeña trampa estableciendo
+
+516
+00:22:34,319 --> 00:22:40,169
+un horario en el módulo que sea 30
+
+517
+00:22:36,869 --> 00:22:42,750
+segundos antes de las 14 30 horas
+
+518
+00:22:40,170 --> 00:22:44,640
+así cuando subimos el programa a los 30
+
+519
+00:22:42,750 --> 00:22:47,549
+segundos podremos comprobar si
+
+520
+00:22:44,640 --> 00:22:49,590
+efectivamente se muestra el texto alarma
+
+521
+00:22:47,549 --> 00:22:53,460
+lo haremos en el setup con la función
+
+522
+00:22:49,589 --> 00:22:56,490
+rtc punto just colocaremos la fecha
+
+523
+00:22:53,460 --> 00:23:00,319
+actual de forma manual y el horario en
+
+524
+00:22:56,490 --> 00:23:03,109
+14 horas 29 minutos y 30 segundos
+
+525
+00:23:00,319 --> 00:23:06,240
+entonces ahora sí vamos a verificar
+
+526
+00:23:03,109 --> 00:23:08,639
+subir el programa y abrir el monitor
+
+527
+00:23:06,240 --> 00:23:08,999
+serie podrás observar que se muestra el
+
+528
+00:23:08,640 --> 00:23:12,538
+hora
+
+529
+00:23:08,999 --> 00:23:15,538
+comenzando desde las 14 29 con 30
+
+530
+00:23:12,538 --> 00:23:18,568
+segundos actualizando cada un segundo a
+
+531
+00:23:15,538 --> 00:23:21,088
+las 14 30 con cero segundos deberíamos
+
+532
+00:23:18,568 --> 00:23:23,729
+ver que se muestra el texto alarma una
+
+533
+00:23:21,088 --> 00:23:26,249
+sola vez y luego seguirá mostrando el
+
+534
+00:23:23,729 --> 00:23:29,568
+horario veamos si es cierto esperamos
+
+535
+00:23:26,249 --> 00:23:29,568
+unos segundos más
+
+536
+00:23:32,519 --> 00:23:38,859
+perfecto vemos que efectivamente a las
+
+537
+00:23:35,579 --> 00:23:41,319
+1430 con 0 segundos se mostró el texto
+
+538
+00:23:38,859 --> 00:23:43,719
+alarma en la ventana por única vez
+
+539
+00:23:41,319 --> 00:23:45,789
+verificamos también la utilidad de la
+
+540
+00:23:43,720 --> 00:23:48,220
+variable de control para que se ejecute
+
+541
+00:23:45,789 --> 00:23:50,409
+la impresión del texto por única vez
+
+542
+00:23:48,220 --> 00:23:52,930
+claro está que ahora para que este
+
+543
+00:23:50,410 --> 00:23:55,570
+programa funciona adecuadamente debemos
+
+544
+00:23:52,930 --> 00:23:57,970
+establecer fecha y horario actuales al
+
+545
+00:23:55,569 --> 00:24:00,099
+igual que antes reemplazamos todos los
+
+546
+00:23:57,970 --> 00:24:03,910
+datos por las directivas al compilador
+
+547
+00:24:00,099 --> 00:24:06,609
+rate y time volvemos a subir el programa
+
+548
+00:24:03,910 --> 00:24:09,400
+ahora se mostrará correctamente fecha y
+
+549
+00:24:06,609 --> 00:24:11,949
+horario actuales finalmente comentaremos
+
+550
+00:24:09,400 --> 00:24:15,460
+esta línea y volveremos a subirlo
+
+551
+00:24:11,950 --> 00:24:17,680
+arduino genial eso estuvo interesante te
+
+552
+00:24:15,460 --> 00:24:20,529
+propongo un último programa donde la
+
+553
+00:24:17,680 --> 00:24:23,080
+idea es activar un módulo de relé y que
+
+554
+00:24:20,529 --> 00:24:26,559
+se mantenga activo por el periodo de una
+
+555
+00:24:23,079 --> 00:24:29,500
+hora desde las 14 30 hasta las 15 30
+
+556
+00:24:26,559 --> 00:24:32,289
+verá que es muy simple primero vamos al
+
+557
+00:24:29,500 --> 00:24:33,549
+circuito de conexión para este tercer y
+
+558
+00:24:32,289 --> 00:24:35,500
+último programa
+
+559
+00:24:33,549 --> 00:24:39,308
+ahora que conectaremos un módulo de
+
+560
+00:24:35,500 --> 00:24:42,069
+relés pasemos el módulo rtc a protoboard
+
+561
+00:24:39,308 --> 00:24:44,589
+alimentamos la misma con cinco bolsas y
+
+562
+00:24:42,069 --> 00:24:48,009
+genere de arduino el módulo de relé que
+
+563
+00:24:44,589 --> 00:24:51,428
+estaré usando es el ccai 19 que forma
+
+564
+00:24:48,009 --> 00:24:53,679
+parte del kit de sensores 37 en uno este
+
+565
+00:24:51,429 --> 00:24:56,080
+módulo es activo con un nivel alto a
+
+566
+00:24:53,679 --> 00:24:59,230
+diferencia de cuando vimos el módulo de
+
+567
+00:24:56,079 --> 00:25:01,749
+relé doble del capítulo 8 que era activo
+
+568
+00:24:59,230 --> 00:25:04,240
+bajo con lo cual a este módulo con un
+
+569
+00:25:01,749 --> 00:25:07,298
+nivel alto en su pin denominado con la
+
+570
+00:25:04,240 --> 00:25:09,788
+letra s lograremos energizar la bobina
+
+571
+00:25:07,298 --> 00:25:12,819
+su conexión es muy simple con el pin de
+
+572
+00:25:09,788 --> 00:25:16,269
+la derecha a gene de del riel de tensión
+
+573
+00:25:12,819 --> 00:25:18,819
+el pin del medio a bcc y el pin de la
+
+574
+00:25:16,269 --> 00:25:21,730
+izquierda con un cable directo al pin
+
+575
+00:25:18,819 --> 00:25:24,128
+digital número 3 de arduino y eso es
+
+576
+00:25:21,730 --> 00:25:27,159
+todo aquí se muestra la totalidad del
+
+577
+00:25:24,128 --> 00:25:29,769
+código es muy similar al anterior sólo
+
+578
+00:25:27,159 --> 00:25:32,889
+que esta vez tendremos dos eventos uno
+
+579
+00:25:29,769 --> 00:25:36,490
+que sucederá a las 1430 para activar el
+
+580
+00:25:32,888 --> 00:25:39,008
+módulo de relé y otro las 15 30 una hora
+
+581
+00:25:36,490 --> 00:25:41,798
+más tarde para desactivarlo en vez de
+
+582
+00:25:39,009 --> 00:25:45,250
+definir una sola variable del tipo bul
+
+583
+00:25:41,798 --> 00:25:48,549
+definiremos dos y las llamaremos
+
+584
+00:25:45,250 --> 00:25:51,369
+en el inicio y evento fin y les
+
+585
+00:25:48,549 --> 00:25:53,559
+asignamos un valor de true de la misma
+
+586
+00:25:51,369 --> 00:25:56,409
+forma que habíamos hecho con la alarma
+
+587
+00:25:53,559 --> 00:25:59,230
+antes con numeral design creamos una
+
+588
+00:25:56,410 --> 00:26:01,810
+constante llamada relee con un valor de
+
+589
+00:25:59,230 --> 00:26:04,210
+3 ya que en ese número de pin digital
+
+590
+00:26:01,809 --> 00:26:07,210
+tenemos conectado el módulo de relé
+
+591
+00:26:04,210 --> 00:26:10,329
+luego tenemos la fecha actual con rtc
+
+592
+00:26:07,210 --> 00:26:13,329
+punto now y vamos al primer condicional
+
+593
+00:26:10,329 --> 00:26:17,259
+y donde consultamos si la hora es igual
+
+594
+00:26:13,329 --> 00:26:19,990
+a 14 y los minutos a 30 luego el segundo
+
+595
+00:26:17,259 --> 00:26:23,019
+para la variable de control evento
+
+596
+00:26:19,990 --> 00:26:26,140
+inicio si tiene un valor de true si es
+
+597
+00:26:23,019 --> 00:26:28,299
+así significa que es momento de activar
+
+598
+00:26:26,140 --> 00:26:31,870
+el módulo de relé simplemente con
+
+599
+00:26:28,299 --> 00:26:34,809
+digital raid relé height lo activamos
+
+600
+00:26:31,869 --> 00:26:37,599
+luego mostramos por el monitor serie el
+
+601
+00:26:34,809 --> 00:26:40,629
+texto relé encendido e inmediatamente
+
+602
+00:26:37,599 --> 00:26:43,899
+cargamos un valor force para evento
+
+603
+00:26:40,630 --> 00:26:45,730
+inicio y así evitamos ingresar más de
+
+604
+00:26:43,900 --> 00:26:47,950
+una vez el siguiente bloque de
+
+605
+00:26:45,730 --> 00:26:50,289
+condicionales será muy similar
+
+606
+00:26:47,950 --> 00:26:51,110
+consultaremos si el horario corresponde
+
+607
+00:26:50,289 --> 00:26:54,019
+a las 15
+
+608
+00:26:51,109 --> 00:26:56,750
+horas y 30 minutos luego si la variable
+
+609
+00:26:54,019 --> 00:26:59,990
+de control evento fin tiene un valor
+
+610
+00:26:56,750 --> 00:27:02,929
+verdadero y con un digital white relé
+
+611
+00:26:59,990 --> 00:27:06,440
+löw desactivamos el módulo e
+
+612
+00:27:02,929 --> 00:27:08,870
+inmediatamente asignamos falls a evento
+
+613
+00:27:06,440 --> 00:27:11,298
+fin al igual que antes estaremos
+
+614
+00:27:08,869 --> 00:27:14,269
+mostrando cada un segundo la fecha y
+
+615
+00:27:11,298 --> 00:27:16,460
+horario actual y por último elegimos las
+
+616
+00:27:14,269 --> 00:27:18,410
+2 de la mañana para restablecer las
+
+617
+00:27:16,460 --> 00:27:20,960
+variables de control con un valor de
+
+618
+00:27:18,410 --> 00:27:23,929
+verdadero y así logramos que todos los
+
+619
+00:27:20,960 --> 00:27:26,600
+días a las 14 30 horas se active el
+
+620
+00:27:23,929 --> 00:27:29,630
+módulo de relé y permanezca activo hasta
+
+621
+00:27:26,599 --> 00:27:32,029
+las 15 30 donde lo desactivamos como
+
+622
+00:27:29,630 --> 00:27:34,520
+verás es muy simple establecer distintos
+
+623
+00:27:32,029 --> 00:27:37,369
+eventos para que sucedan a distintos
+
+624
+00:27:34,519 --> 00:27:40,250
+horarios vamos a verificar subir el
+
+625
+00:27:37,369 --> 00:27:42,558
+programa y abrir el monitor serie para
+
+626
+00:27:40,250 --> 00:27:45,079
+el propósito de demostración no estaría
+
+627
+00:27:42,558 --> 00:27:47,210
+conectando ningún circuito externo que
+
+628
+00:27:45,079 --> 00:27:49,730
+maneje el relé pero como ya vimos el
+
+629
+00:27:47,210 --> 00:27:52,789
+capítulo 8 podemos activar cualquier
+
+630
+00:27:49,730 --> 00:27:54,950
+circuito externo incluso con tensión de
+
+631
+00:27:52,789 --> 00:27:56,750
+red siempre tomando las medidas de
+
+632
+00:27:54,950 --> 00:27:59,630
+precaución del caso como él
+
+633
+00:27:56,750 --> 00:28:01,940
+incluye un pequeño led que se enciende
+
+634
+00:27:59,630 --> 00:28:04,100
+cuando se energiza la bobina no servirá
+
+635
+00:28:01,940 --> 00:28:06,320
+de referencia para verificar si se
+
+636
+00:28:04,099 --> 00:28:08,959
+activa y desactiva a los horarios
+
+637
+00:28:06,319 --> 00:28:12,619
+programados en el monitor serie veremos
+
+638
+00:28:08,960 --> 00:28:15,529
+que a las 14 30 con 0 segundos aparece
+
+639
+00:28:12,619 --> 00:28:18,439
+el texto relé encendido y en la imagen
+
+640
+00:28:15,529 --> 00:28:21,529
+del módulo encienden led de color rojo
+
+641
+00:28:18,440 --> 00:28:24,950
+así permanecerá activo durante una hora
+
+642
+00:28:21,529 --> 00:28:27,049
+completa hasta llegar a las 15 30 con la
+
+643
+00:28:24,950 --> 00:28:29,750
+magia de la edición de vídeo vamos a
+
+644
+00:28:27,049 --> 00:28:33,409
+posicionarnos unos segundos antes de las
+
+645
+00:28:29,750 --> 00:28:37,160
+15 30 el led permanece encendido y así
+
+646
+00:28:33,410 --> 00:28:40,460
+lo estuvo desde las 14 30 ahora a las 15
+
+647
+00:28:37,160 --> 00:28:42,950
+30 se mostrará el texto relé apagado y
+
+648
+00:28:40,460 --> 00:28:45,650
+veremos qué led del módulo se apaga
+
+649
+00:28:42,950 --> 00:28:47,930
+perfecto funciona bien para resumir
+
+650
+00:28:45,650 --> 00:28:50,360
+vimos que el reloj de tiempo real nos
+
+651
+00:28:47,930 --> 00:28:53,090
+permite obtener fecha y horario para
+
+652
+00:28:50,359 --> 00:28:55,609
+poder tomar acciones en base a cualquier
+
+653
+00:28:53,089 --> 00:28:57,740
+condición que asignemos esta fecha y
+
+654
+00:28:55,609 --> 00:29:00,979
+horario es módulo la mantendrá de forma
+
+655
+00:28:57,740 --> 00:29:03,109
+precisa e incluso sin estar alimentado
+
+656
+00:29:00,980 --> 00:29:05,150
+por arduino gracias a su bate
+
+657
+00:29:03,109 --> 00:29:07,579
+de respaldo eso es todo por este
+
+658
+00:29:05,150 --> 00:29:09,860
+capítulo como siempre te pido te
+
+659
+00:29:07,579 --> 00:29:12,558
+suscribas si aún no lo has hecho y por
+
+660
+00:29:09,859 --> 00:29:14,959
+cualquier duda o comentario lo podrás
+
+661
+00:29:12,558 --> 00:29:18,670
+hacer debajo que con gusto te responderé
+
+662
+00:29:14,960 --> 00:29:18,670
+chao y hasta la próxima
+

@@ -1,0 +1,29 @@
+Veremos como un módulo Reloj de Tiempo Real (RTC) nos permite obtener fecha y horario de forma muy precisa para realizar con Arduino tareas en horarios programados, establecer alarmas o activar dispositivos.
+El modelo DS3231 con su oscilador compensado por temperatura (TCXO) asegura una alta precisión y su batería de respaldo la capacidad de mantener cuenta del paso del tiempo aún sin alimentación externa.
+Utilizaremos funciones para establecer fecha y hora actuales y programar la activación de un módulo de relé a un horario específico.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoRTC
+#ArduinoReloj
+Reloj tiempo real Arduino
+Interruptor horario con arduino
+DS3231 Arduino
+DS3231 real time clock module for Arduino
+DS3231 arduino uno
+Arduino temporizador rele
+Interruptor horario arduino
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:22 Bateria de respaldo
+0:58 Pines y funciones
+6:33 Circuito de conexión
+7:14 Instalación de librería
+7:58 Primer programa (establecer y mostrar horario)
+15:26 Segundo programa (estableciendo una alarma)
+24:30 Circuito de conexión (incorpora relé)
+25:25 Tercer programa (accionando relé)
+28:45 Resumen y despedida

@@ -1,0 +1,27 @@
+Veremos como utilizar la Librería Stepper incluida en el IDE de Arduino para controlar el motor con solo una pocas líneas de código utilizando el 28BYJ-48 y driver ULN2003.
+A modo de complemento del Capítulo 30, en esta oportunidad se realizan varios programas de ejemplo para el control preciso del motor, cambio de giro, velocidad y cantidad de pasos ingresados mediante monitor serie.
+
+Recomendable ver Capítulo 30: https://www.youtube.com/watch?v=2-nVV9S7leM
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoPAP
+#ArduinoUnipolar
+#ArduinoStepper
+Arduino stepper motor
+Arduino step motor 28byj-48
+Arduino stepper motor tutorial
+Motor unipolar Arduino
+Arduino ULN2003 stepper motor driver
+Modulo ULN2003 Arduino
+
+Marcas de tiempo:
+0:00 Introducción
+0:54 Librería Stepper
+1:11 Circuito de conexión
+1:48 Primer programa (simples funciones de la librería)
+9:30 Segundo programa (cambio sentido de giro)
+11:25 Tercer programa (pasos por monitor serie)
+16:42 Cuarto programa (desenergizando bobinas)
+19:00 Quinto programa (cambio de giro del capítulo 30)

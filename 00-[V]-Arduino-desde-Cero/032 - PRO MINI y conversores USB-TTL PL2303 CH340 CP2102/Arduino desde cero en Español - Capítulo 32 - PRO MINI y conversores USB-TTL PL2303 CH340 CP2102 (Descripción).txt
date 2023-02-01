@@ -1,0 +1,30 @@
+La versión de placa Arduino PRO MINI es ideal para miniaturizar nuestros proyectos, mantiene los atributos del modelo UNO al usar el mismo microcontrolador ATmega328p.
+Veremos la distribución de pines, ventajas y desventajas respecto del modelo UNO y el ingreso con tensión no regulada al pin RAW.
+
+También como utilizar un conversor USB-TTL (USB-UART) para cargar programas en la Arduino Pro Mini y los diferentes modelos (PL2303 CH340 CP2102) con sus respectivos drivers.
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoProMini
+#ArduinoUSBTTL
+#ArduinoUSBUART
+#ArduinoMini
+Conversor UART
+Conversor USB UART
+Conversor usb a ttl
+Conversor usb a serial
+Pro Mini Review
+Pro mini programming
+Arduino pro mini programar
+Arduino pro mini ftdi
+
+
+Marcas de tiempo:
+0:00 Introducción (miniaturizando proyectos)
+1:19 Componentes de la placa
+3:28 Pines y sus funciones (pinout)
+7:55 Conversores USB-TTL (USB-UART)
+12:18 Circuito de conexión
+15:06 Primer programa
+18:56 Alimentación (mediante pin RAW)

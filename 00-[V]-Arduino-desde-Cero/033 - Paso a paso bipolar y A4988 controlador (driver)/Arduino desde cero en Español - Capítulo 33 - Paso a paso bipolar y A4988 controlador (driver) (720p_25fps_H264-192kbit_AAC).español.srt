@@ -1,0 +1,2632 @@
+1
+00:00:01,669 --> 00:00:07,790
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,370 --> 00:00:09,769
+33 de arduino desde cero en español
+
+3
+00:00:07,790 --> 00:00:12,710
+en esta oportunidad aprenderemos a
+
+4
+00:00:09,769 --> 00:00:15,589
+controlar un motor paso a paso del tipo
+
+5
+00:00:12,710 --> 00:00:19,160
+bipolar mediante un driver o controlador
+
+6
+00:00:15,589 --> 00:00:22,160
+ampliamente usado como es el modelo a 49
+
+7
+00:00:19,160 --> 00:00:24,710
+88 la introducción al motor paso a paso
+
+8
+00:00:22,160 --> 00:00:28,730
+la realizamos en el capítulo 30 con el
+
+9
+00:00:24,710 --> 00:00:31,160
+28 ve y jota 48 y del tipo unipolar
+
+10
+00:00:28,730 --> 00:00:35,179
+ideal para iniciarse en esta oportunidad
+
+11
+00:00:31,160 --> 00:00:38,299
+veremos el motor bipolar tipo nem a 17
+
+12
+00:00:35,179 --> 00:00:40,940
+para trabajos más serios y pesados en
+
+13
+00:00:38,299 --> 00:00:43,548
+esta imagen podemos ver un despiece con
+
+14
+00:00:40,939 --> 00:00:46,099
+sus partes principales el estator que
+
+15
+00:00:43,548 --> 00:00:48,649
+tiene las bobinas y el rotor con el imán
+
+16
+00:00:46,100 --> 00:00:50,808
+permanente unido al eje exterior
+
+17
+00:00:48,649 --> 00:00:52,759
+aplicando atención a las bobinas del
+
+18
+00:00:50,808 --> 00:00:55,939
+estatut lograremos generar de forma
+
+19
+00:00:52,759 --> 00:00:57,978
+temporal un electroimán que interactuará
+
+20
+00:00:55,939 --> 00:01:00,198
+con el campo magnético del imán
+
+21
+00:00:57,978 --> 00:01:02,149
+permanente del rotor aplicando una
+
+22
+00:01:00,198 --> 00:01:04,939
+determinada secuencia las bobinas
+
+23
+00:01:02,149 --> 00:01:07,629
+lograremos el giro del rotor como indica
+
+24
+00:01:04,939 --> 00:01:10,868
+su nombre un motor paso a paso gira
+
+25
+00:01:07,629 --> 00:01:13,599
+pequeños pasos con gran fuerza o torque
+
+26
+00:01:10,868 --> 00:01:16,000
+y precisión haciéndolo ideal para gran
+
+27
+00:01:13,599 --> 00:01:18,339
+variedad de propósitos veamos algunas de
+
+28
+00:01:16,000 --> 00:01:20,859
+las características más importantes de
+
+29
+00:01:18,340 --> 00:01:22,899
+este motor que lleva la denominación nem
+
+30
+00:01:20,859 --> 00:01:25,269
+a 17m
+
+31
+00:01:22,899 --> 00:01:27,819
+no es la marca de un fabricante sino que
+
+32
+00:01:25,269 --> 00:01:30,069
+corresponde a las siglas de un estándar
+
+33
+00:01:27,819 --> 00:01:32,200
+industrial que establece ciertas
+
+34
+00:01:30,069 --> 00:01:34,990
+cuestiones mecánicas en otras palabras
+
+35
+00:01:32,200 --> 00:01:36,879
+no importa el fabricante del motor si
+
+36
+00:01:34,989 --> 00:01:39,848
+está realizado bajo las normas que
+
+37
+00:01:36,879 --> 00:01:42,609
+establece nema será compatible con otros
+
+38
+00:01:39,849 --> 00:01:44,618
+motores de otros fabricantes vemos que
+
+39
+00:01:42,609 --> 00:01:46,539
+se indica que es de dos fases que se
+
+40
+00:01:44,618 --> 00:01:49,149
+representan aquí en el diagrama
+
+41
+00:01:46,539 --> 00:01:51,459
+eléctrico las dos bobinas no tienen
+
+42
+00:01:49,149 --> 00:01:54,009
+ningún punto en común como sucedía con
+
+43
+00:01:51,459 --> 00:01:56,560
+el motor unipolar ya visto aquí
+
+44
+00:01:54,009 --> 00:01:59,438
+tendremos las dos bobinas totalmente
+
+45
+00:01:56,560 --> 00:02:01,689
+expuestas mediante cuatro cables cuyos
+
+46
+00:01:59,438 --> 00:02:04,629
+colores indican que el torque será
+
+47
+00:02:01,688 --> 00:02:07,238
+considerable de 44 kilogramos por
+
+48
+00:02:04,629 --> 00:02:09,909
+centímetro haciéndolo apto para variedad
+
+49
+00:02:07,239 --> 00:02:13,379
+de trabajos pesados como ser mover ejes
+
+50
+00:02:09,909 --> 00:02:17,579
+roscados o poleas la corriente por fácil
+
+51
+00:02:13,379 --> 00:02:19,079
+de 168 am pero es el valor máximo y no
+
+52
+00:02:17,580 --> 00:02:21,390
+quiere decir que siempre estará
+
+53
+00:02:19,080 --> 00:02:24,420
+consumiendo eso el motor girando en
+
+54
+00:02:21,389 --> 00:02:26,189
+vacío o con poca carga consumirá mucho
+
+55
+00:02:24,419 --> 00:02:30,479
+menos corriente y el valor de la
+
+56
+00:02:26,189 --> 00:02:33,030
+resistencia por fase es de 165 oms con
+
+57
+00:02:30,479 --> 00:02:35,879
+lo cual si deseas colocar un tester o
+
+58
+00:02:33,030 --> 00:02:38,400
+multímetro entre una fase por ejemplo
+
+59
+00:02:35,879 --> 00:02:41,280
+entre los cables de color negro y verde
+
+60
+00:02:38,400 --> 00:02:45,750
+o rojo y azul me dirías un valor cercano
+
+61
+00:02:41,280 --> 00:02:48,330
+a los 160 y 511 luego tenemos un valor
+
+62
+00:02:45,750 --> 00:02:51,750
+muy importante que es el ángulo de paso
+
+63
+00:02:48,330 --> 00:02:54,990
+usualmente de 18 grados pero puede ser
+
+64
+00:02:51,750 --> 00:02:57,629
+también de 09 grados dependiendo del
+
+65
+00:02:54,990 --> 00:03:00,540
+modelo y el ángulo de paso nos indica
+
+66
+00:02:57,629 --> 00:03:02,849
+cuántos grados se mueve el eje del rotor
+
+67
+00:03:00,539 --> 00:03:05,219
+en cada paso y lo podemos ver
+
+68
+00:03:02,849 --> 00:03:06,960
+representado en este gráfico si
+
+69
+00:03:05,219 --> 00:03:09,870
+comenzamos desde una posición de
+
+70
+00:03:06,960 --> 00:03:13,140
+referencia de 0 grados y aplicamos un
+
+71
+00:03:09,870 --> 00:03:15,990
+pulso de manera de generar un único paso
+
+72
+00:03:13,139 --> 00:03:19,259
+en el motor veríamos que el eje gira
+
+73
+00:03:15,990 --> 00:03:20,340
+unos 8 grados de esa manera así por
+
+74
+00:03:19,259 --> 00:03:23,429
+ejemplo deseamos
+
+75
+00:03:20,340 --> 00:03:25,409
+el eje gire media vuelta completa es
+
+76
+00:03:23,430 --> 00:03:28,349
+decir 180 grados
+
+77
+00:03:25,409 --> 00:03:30,900
+debemos necesitar 100 pasos para
+
+78
+00:03:28,348 --> 00:03:33,539
+lograrlo de la misma manera si el motor
+
+79
+00:03:30,900 --> 00:03:37,159
+tiene un ángulo de paso de 09 grados
+
+80
+00:03:33,539 --> 00:03:40,590
+cada paso hará que el eje del rotor gire
+
+81
+00:03:37,159 --> 00:03:44,969
+09 grados necesitando en este caso un
+
+82
+00:03:40,590 --> 00:03:47,640
+total de 200 pasos para ir desde 0 a 180
+
+83
+00:03:44,969 --> 00:03:49,530
+grados o lo que es lo mismo media vuelta
+
+84
+00:03:47,639 --> 00:03:52,409
+completa finalmente tenemos la
+
+85
+00:03:49,530 --> 00:03:54,989
+alimentación que será entre 12 y 24
+
+86
+00:03:52,409 --> 00:03:57,810
+volts de continua nosotros en la
+
+87
+00:03:54,989 --> 00:04:00,209
+práctica trabajaremos con 12 volts como
+
+88
+00:03:57,810 --> 00:04:02,489
+ya sabemos no podemos manejar el motor
+
+89
+00:04:00,209 --> 00:04:05,159
+paso a paso de forma directa desde
+
+90
+00:04:02,489 --> 00:04:07,500
+arduino necesitamos de un controlador o
+
+91
+00:04:05,159 --> 00:04:09,568
+driver y eso es lo que analizaremos
+
+92
+00:04:07,500 --> 00:04:11,729
+ahora existe gran variedad de
+
+93
+00:04:09,568 --> 00:04:15,389
+controladores para motores bipolares
+
+94
+00:04:11,729 --> 00:04:17,939
+pero el modelo a 4988 es ampliamente
+
+95
+00:04:15,389 --> 00:04:21,269
+utilizado por tener muchos años en el
+
+96
+00:04:17,939 --> 00:04:23,279
+mercado por su fiabilidad y bajo costo
+
+97
+00:04:21,269 --> 00:04:25,649
+el módulo recibe la denominación del
+
+98
+00:04:23,279 --> 00:04:26,099
+circuito integrado que lo compone y es
+
+99
+00:04:25,649 --> 00:04:30,060
+el
+
+100
+00:04:26,100 --> 00:04:32,490
+49 88 aquí indicado sobre el circuito
+
+101
+00:04:30,060 --> 00:04:35,459
+impreso del módulo a los módulos que
+
+102
+00:04:32,490 --> 00:04:39,660
+tienen como circuito integrado al a 49
+
+103
+00:04:35,459 --> 00:04:42,299
+88 se los suele llamar polo polo lo es
+
+104
+00:04:39,660 --> 00:04:44,910
+una marca comercial que popularizó el
+
+105
+00:04:42,300 --> 00:04:46,819
+uso de este circuito integrado y por ese
+
+106
+00:04:44,910 --> 00:04:49,050
+motivo por una cuestión de costumbre
+
+107
+00:04:46,819 --> 00:04:52,259
+encontrarás información sobre este
+
+108
+00:04:49,050 --> 00:04:54,840
+módulo con el nombre de polo luz por eso
+
+109
+00:04:52,259 --> 00:04:58,800
+hago su mención pero de forma genérica
+
+110
+00:04:54,839 --> 00:05:01,139
+es el a 49 88 por parte de diversos
+
+111
+00:04:58,800 --> 00:05:03,629
+fabricantes sobre el circuito impreso
+
+112
+00:05:01,139 --> 00:05:05,879
+del módulo tendremos un pequeño preset
+
+113
+00:05:03,629 --> 00:05:08,189
+que servirá para establecer la corriente
+
+114
+00:05:05,879 --> 00:05:09,930
+máxima por fase esta es una
+
+115
+00:05:08,189 --> 00:05:12,029
+característica de seguridad muy
+
+116
+00:05:09,930 --> 00:05:15,000
+importante y si por algún motivo se
+
+117
+00:05:12,029 --> 00:05:17,459
+excede dicha corriente máxima el módulo
+
+118
+00:05:15,000 --> 00:05:20,250
+interrumpe de forma automática la
+
+119
+00:05:17,459 --> 00:05:22,829
+alimentación al motor preservándolo en
+
+120
+00:05:20,250 --> 00:05:25,350
+breve veremos cómo ajustarlo de forma
+
+121
+00:05:22,829 --> 00:05:27,930
+apropiada el módulo tiene dos hileras de
+
+122
+00:05:25,350 --> 00:05:30,510
+pines que hace muy fácil su conexión a
+
+123
+00:05:27,930 --> 00:05:31,860
+protoboard analicemos ahora la función
+
+124
+00:05:30,509 --> 00:05:34,348
+de cada uno
+
+125
+00:05:31,860 --> 00:05:37,348
+el primero de la hilera de la izquierda
+
+126
+00:05:34,348 --> 00:05:40,139
+es el denominado enable y notarás que
+
+127
+00:05:37,348 --> 00:05:42,240
+tiene una línea recta justo por arriba
+
+128
+00:05:40,139 --> 00:05:44,370
+de la indicación que esta línea se
+
+129
+00:05:42,240 --> 00:05:46,379
+encuentra también en otros pines como
+
+130
+00:05:44,370 --> 00:05:48,959
+ser reset y slip
+
+131
+00:05:46,379 --> 00:05:51,389
+esta es una denominación utilizada en
+
+132
+00:05:48,959 --> 00:05:54,120
+digitales para indicar que la función es
+
+133
+00:05:51,389 --> 00:05:56,728
+activa baja es decir que para realizar
+
+134
+00:05:54,120 --> 00:06:00,269
+la función indicada debe aplicarse un
+
+135
+00:05:56,728 --> 00:06:02,399
+nivel lógico bajo o lou de manera que si
+
+136
+00:06:00,269 --> 00:06:05,098
+vemos que el primer pin dice
+
+137
+00:06:02,399 --> 00:06:07,258
+enable con una línea por encima nos
+
+138
+00:06:05,098 --> 00:06:08,009
+indica que para que se ejecute la
+
+139
+00:06:07,259 --> 00:06:10,800
+función
+
+140
+00:06:08,009 --> 00:06:13,169
+debemos aplicarle un nivel bajo si la
+
+141
+00:06:10,800 --> 00:06:16,050
+indicación de la función no tiene una
+
+142
+00:06:13,168 --> 00:06:17,968
+línea es porque se activa alto como la
+
+143
+00:06:16,050 --> 00:06:20,490
+mayoría de los casos te encontrarás
+
+144
+00:06:17,968 --> 00:06:22,949
+muchas veces que las hojas de datos de
+
+145
+00:06:20,490 --> 00:06:25,199
+componentes con este tipo de indicación
+
+146
+00:06:22,949 --> 00:06:28,740
+por eso vale la pena mencionarlo
+
+147
+00:06:25,199 --> 00:06:31,348
+entonces enable es activo bajo es el pin
+
+148
+00:06:28,740 --> 00:06:34,019
+de habilitación lo que hace es habilitar
+
+149
+00:06:31,348 --> 00:06:35,699
+las salidas los transistores de potencia
+
+150
+00:06:34,019 --> 00:06:37,799
+que tiene incorporado el circuito
+
+151
+00:06:35,699 --> 00:06:38,189
+integrado de manera que en condiciones
+
+152
+00:06:37,800 --> 00:06:40,949
+normales
+
+153
+00:06:38,189 --> 00:06:43,500
+de operación este pin debe estar puesto
+
+154
+00:06:40,949 --> 00:06:46,319
+a massa para habilitar su salida y
+
+155
+00:06:43,500 --> 00:06:48,990
+energizar las bobinas del motor luego le
+
+156
+00:06:46,319 --> 00:06:51,629
+siguen 3 pines que tendrán una función
+
+157
+00:06:48,990 --> 00:06:55,110
+específica para establecer el tipo de
+
+158
+00:06:51,629 --> 00:06:58,230
+paso a aplicar al motor las siglas ms
+
+159
+00:06:55,110 --> 00:07:00,689
+viene del inglés micro este ping es
+
+160
+00:06:58,230 --> 00:07:03,090
+decir micro pasos con distintas
+
+161
+00:07:00,689 --> 00:07:06,089
+combinaciones de niveles altos y bajos
+
+162
+00:07:03,089 --> 00:07:09,299
+en estos tres pines lograremos distintos
+
+163
+00:07:06,089 --> 00:07:12,719
+tipos de pasos desde paso completo medio
+
+164
+00:07:09,300 --> 00:07:15,090
+paso y hasta un 16 a bode pasos por el
+
+165
+00:07:12,720 --> 00:07:18,000
+momento no te preocupes ya que no lo
+
+166
+00:07:15,089 --> 00:07:20,489
+usaremos ni tampoco es una necesidad de
+
+167
+00:07:18,000 --> 00:07:23,269
+todas maneras la veremos al finalizar el
+
+168
+00:07:20,490 --> 00:07:26,759
+capítulo luego tenemos un pin de reset
+
+169
+00:07:23,269 --> 00:07:29,579
+activo bajo para restablecer el circuito
+
+170
+00:07:26,759 --> 00:07:32,670
+integrado a cero y por debajo la función
+
+171
+00:07:29,579 --> 00:07:35,579
+sleep también activa abajo que permite
+
+172
+00:07:32,670 --> 00:07:38,340
+colocar el circuito integrado en modo de
+
+173
+00:07:35,579 --> 00:07:41,579
+bajo consumo finalmente en esta hilera
+
+174
+00:07:38,339 --> 00:07:44,128
+instalan los dos pines más importantes
+
+175
+00:07:41,579 --> 00:07:47,368
+que controlaremos desde arduino
+
+176
+00:07:44,129 --> 00:07:50,580
+y deal step se utiliza para enviar un
+
+177
+00:07:47,369 --> 00:07:52,709
+pulso para que el motor realice un paso
+
+178
+00:07:50,579 --> 00:07:56,399
+a diferencia del controlador que vimos
+
+179
+00:07:52,709 --> 00:07:59,249
+en el capítulo 30 el vélez en 2003 que
+
+180
+00:07:56,399 --> 00:08:02,728
+es un array de transistores darlington y
+
+181
+00:07:59,249 --> 00:08:04,919
+a 49 88 es un circuito integrado con
+
+182
+00:08:02,728 --> 00:08:07,348
+secciones lógicas lo que permite
+
+183
+00:08:04,918 --> 00:08:09,658
+simplificar la interfaz core arduino no
+
+184
+00:08:07,348 --> 00:08:11,639
+debemos preocuparnos por la secuencia
+
+185
+00:08:09,658 --> 00:08:14,459
+adecuada para energizar las bobinas del
+
+186
+00:08:11,639 --> 00:08:16,769
+motor ni crear matrices o importar
+
+187
+00:08:14,459 --> 00:08:19,079
+librerías gracias a la inteligencia del
+
+188
+00:08:16,769 --> 00:08:22,800
+circuito integrado con suele enviarle un
+
+189
+00:08:19,079 --> 00:08:25,800
+pulso al pin step lograremos un paso del
+
+190
+00:08:22,800 --> 00:08:28,860
+motor y luego con el día que se dé
+
+191
+00:08:25,800 --> 00:08:32,278
+dirección indicaremos el sentido de giro
+
+192
+00:08:28,860 --> 00:08:34,560
+así que este pin dir lo manejaremos con
+
+193
+00:08:32,278 --> 00:08:38,009
+un pin digital de arduino y si le
+
+194
+00:08:34,559 --> 00:08:40,948
+enviamos un nivel alto o high lograremos
+
+195
+00:08:38,009 --> 00:08:43,918
+el giro en un sentido y si le enviamos
+
+196
+00:08:40,948 --> 00:08:46,948
+un nivel bajo o lou el giro será en
+
+197
+00:08:43,918 --> 00:08:49,230
+sentido opuesto con lo cual con sólo dos
+
+198
+00:08:46,948 --> 00:08:50,219
+líneas tenemos el control total del
+
+199
+00:08:49,230 --> 00:08:53,188
+motor
+
+200
+00:08:50,220 --> 00:08:56,939
+ahora a la fila de la derecha comenzando
+
+201
+00:08:53,188 --> 00:08:59,099
+desde abajo tendremos los pines vdd ign
+
+202
+00:08:56,938 --> 00:09:01,230
+de para la alimentación del módulo
+
+203
+00:08:59,100 --> 00:09:03,300
+también llamada alimentación de la
+
+204
+00:09:01,230 --> 00:09:07,709
+sección lógica que puede ser
+
+205
+00:09:03,299 --> 00:09:10,649
+contenciones entre 3 y 55 volts nosotros
+
+206
+00:09:07,708 --> 00:09:12,929
+utilizaremos 5volts que los obtendremos
+
+207
+00:09:10,649 --> 00:09:15,958
+directamente desde arduino ya que el
+
+208
+00:09:12,929 --> 00:09:18,419
+consumo de corriente es bajo los 4 pines
+
+209
+00:09:15,958 --> 00:09:20,399
+siguientes corresponden a la conexión de
+
+210
+00:09:18,419 --> 00:09:21,479
+las bobinas del motor paso a paso
+
+211
+00:09:20,399 --> 00:09:24,899
+bipolar
+
+212
+00:09:21,480 --> 00:09:29,819
+1a y 1b corresponden a los extremos de
+
+213
+00:09:24,899 --> 00:09:32,009
+la bobina 1 y 2a y 2b a los extremos de
+
+214
+00:09:29,818 --> 00:09:34,409
+la bobina 2 luego en el circuito de
+
+215
+00:09:32,009 --> 00:09:36,720
+conexión veremos que es muy simple su
+
+216
+00:09:34,409 --> 00:09:40,588
+conexión para finalizar tendremos los
+
+217
+00:09:36,720 --> 00:09:42,720
+pines de mod y gene de que servirán para
+
+218
+00:09:40,589 --> 00:09:46,740
+alimentar al motor las tensiones que
+
+219
+00:09:42,720 --> 00:09:49,410
+permite varían de 8 a 35 volts nosotros
+
+220
+00:09:46,740 --> 00:09:51,060
+utilizaremos una atención de 12 volts
+
+221
+00:09:49,409 --> 00:09:53,759
+que será provistas por una fuente
+
+222
+00:09:51,059 --> 00:09:56,759
+externa de 2 samper de manera de tener
+
+223
+00:09:53,759 --> 00:09:59,639
+un adecuado suministro de corriente para
+
+224
+00:09:56,759 --> 00:10:01,919
+y las bobinas del motor queda claro que
+
+225
+00:09:59,639 --> 00:10:04,679
+toda la parte izquierda del módulo
+
+226
+00:10:01,919 --> 00:10:07,229
+corresponde a pines de control y toda la
+
+227
+00:10:04,679 --> 00:10:10,109
+parte derecha para alimentación y
+
+228
+00:10:07,230 --> 00:10:12,269
+conexión del motor tendremos 2 pines
+
+229
+00:10:10,110 --> 00:10:15,620
+para alimentar la parte lógica del
+
+230
+00:10:12,269 --> 00:10:17,970
+módulo con 5 volts y otros 2 pines
+
+231
+00:10:15,620 --> 00:10:20,519
+independientes para alimentar al motor
+
+232
+00:10:17,970 --> 00:10:23,820
+con 12 volts un detalle importante a
+
+233
+00:10:20,519 --> 00:10:26,279
+tener en cuenta es que el módulo a 4988
+
+234
+00:10:23,820 --> 00:10:28,650
+viene con un disipador de aluminio
+
+235
+00:10:26,279 --> 00:10:32,069
+dentro del paquete cuando se lo adquiere
+
+236
+00:10:28,649 --> 00:10:34,620
+este disipador tiene en su base un trozo
+
+237
+00:10:32,070 --> 00:10:37,050
+de cinta del estilo de doble faz donde
+
+238
+00:10:34,620 --> 00:10:40,440
+se puede remover la tira plástica
+
+239
+00:10:37,049 --> 00:10:43,549
+quedando expuesta la zona con adhesivo y
+
+240
+00:10:40,440 --> 00:10:46,800
+la 4988 funcionará correctamente
+
+241
+00:10:43,549 --> 00:10:49,589
+disipando calor sin deteriorarse hasta
+
+242
+00:10:46,799 --> 00:10:52,169
+un amper de corriente para llegar a su
+
+243
+00:10:49,590 --> 00:10:54,480
+máximo de 2 samper hizo obligatorio
+
+244
+00:10:52,169 --> 00:10:56,549
+adherirle el disipador en su parte
+
+245
+00:10:54,480 --> 00:10:59,430
+superior antes de ir al circuito de
+
+246
+00:10:56,549 --> 00:11:01,919
+conexión debemos hacer un trabajo previo
+
+247
+00:10:59,429 --> 00:11:03,269
+necesario para establecer la posición
+
+248
+00:11:01,919 --> 00:11:05,219
+del presente
+
+249
+00:11:03,269 --> 00:11:07,799
+un lado de corriente máxima el
+
+250
+00:11:05,220 --> 00:11:10,230
+fabricante del circuito integrado brinda
+
+251
+00:11:07,799 --> 00:11:13,259
+una fórmula que es la siguiente la
+
+252
+00:11:10,230 --> 00:11:16,950
+corriente máxima será igual a una
+
+253
+00:11:13,259 --> 00:11:21,929
+tensión de referencia denominada de red
+
+254
+00:11:16,950 --> 00:11:26,490
+/ 8 x el valor de una resistencia de
+
+255
+00:11:21,929 --> 00:11:28,589
+sensado o sensibilidad denominada rs de
+
+256
+00:11:26,490 --> 00:11:31,080
+esta fórmula nos interesa obtener el
+
+257
+00:11:28,590 --> 00:11:33,750
+valor de la tensión de referencia con lo
+
+258
+00:11:31,080 --> 00:11:35,940
+cual todo el denominador lo pasaremos al
+
+259
+00:11:33,750 --> 00:11:39,090
+otro lado multiplicando quedando
+
+260
+00:11:35,940 --> 00:11:43,500
+finalmente que b ref es igual a la
+
+261
+00:11:39,090 --> 00:11:46,320
+corriente máxima por 8 por rs y el valor
+
+262
+00:11:43,500 --> 00:11:48,990
+de la corriente máxima y max lo
+
+263
+00:11:46,320 --> 00:11:52,440
+estableceremos a nuestra necesidad de la
+
+264
+00:11:48,990 --> 00:11:55,220
+hoja de datos del motor nemak 17 sabemos
+
+265
+00:11:52,440 --> 00:11:58,320
+que la corriente máxima por fase es de
+
+266
+00:11:55,220 --> 00:12:01,590
+168 amper con lo cual podemos establecer
+
+267
+00:11:58,320 --> 00:12:05,190
+una corriente máxima algo menor para no
+
+268
+00:12:01,590 --> 00:12:07,259
+trabajar al límite de por ejemplo 15 am
+
+269
+00:12:05,190 --> 00:12:09,540
+pero es importante aclarar que esta
+
+270
+00:12:07,259 --> 00:12:11,939
+corriente máxima que establecimos
+
+271
+00:12:09,539 --> 00:12:14,519
+la de seguridad y en caso de que sea
+
+272
+00:12:11,940 --> 00:12:16,620
+superada el circuito integrado corta de
+
+273
+00:12:14,519 --> 00:12:18,750
+forma automática la alimentación de las
+
+274
+00:12:16,620 --> 00:12:21,629
+bobinas para evitar que se deteriore el
+
+275
+00:12:18,750 --> 00:12:24,089
+motor existen modelos de nema 17 que
+
+276
+00:12:21,629 --> 00:12:26,309
+tienen una sección de bobinas que es más
+
+277
+00:12:24,089 --> 00:12:28,889
+pequeño que el que utilizaremos en este
+
+278
+00:12:26,309 --> 00:12:31,500
+caso y por ejemplo indica la hoja de
+
+279
+00:12:28,889 --> 00:12:35,519
+datos que la corriente máxima por fase
+
+280
+00:12:31,500 --> 00:12:38,159
+puede ser de 06 04 amper con lo cual
+
+281
+00:12:35,519 --> 00:12:40,440
+esta fórmula es genérica y deberás
+
+282
+00:12:38,159 --> 00:12:42,509
+utilizar el valor de corriente máxima
+
+283
+00:12:40,440 --> 00:12:45,149
+que sea el adecuado para tu tipo de
+
+284
+00:12:42,509 --> 00:12:47,190
+motor entonces ya tenemos el valor de la
+
+285
+00:12:45,149 --> 00:12:50,039
+corriente máxima que deseamos establecer
+
+286
+00:12:47,190 --> 00:12:53,970
+sólo nos resta colocar en la fórmula el
+
+287
+00:12:50,039 --> 00:12:55,799
+valor de rs rss esta resistencia que se
+
+288
+00:12:53,970 --> 00:12:58,470
+encuentra aquí indicada es una
+
+289
+00:12:55,799 --> 00:13:00,778
+resistencia de montaje superficial para
+
+290
+00:12:58,470 --> 00:13:03,089
+saber el valor de esta resistencia no
+
+291
+00:13:00,778 --> 00:13:04,769
+podremos utilizar el clásico código de
+
+292
+00:13:03,089 --> 00:13:06,750
+colores de las resistencias
+
+293
+00:13:04,769 --> 00:13:09,539
+convencionales por una cuestión de
+
+294
+00:13:06,750 --> 00:13:11,698
+espacio físico en este módulo el valor
+
+295
+00:13:09,539 --> 00:13:16,259
+que se puede leer es r
+
+296
+00:13:11,698 --> 00:13:18,778
+y equivalen a un valor de 01 am este es
+
+297
+00:13:16,259 --> 00:13:21,539
+un valor típico pero deberás verificar
+
+298
+00:13:18,778 --> 00:13:24,418
+en tu módulo el valor de la misma ya que
+
+299
+00:13:21,539 --> 00:13:27,778
+como dijimos hay distintos fabricantes y
+
+300
+00:13:24,418 --> 00:13:32,548
+el valor de rs puede variar por ejemplo
+
+301
+00:13:27,778 --> 00:13:34,828
+puede ser una r 200 que equivale a 0 211
+
+302
+00:13:32,548 --> 00:13:37,438
+el circuito integrado para determinar la
+
+303
+00:13:34,828 --> 00:13:40,378
+corriente que circula por cada fase del
+
+304
+00:13:37,438 --> 00:13:43,948
+motor lo hace midiendo la tensión que
+
+305
+00:13:40,379 --> 00:13:46,168
+cae en esta resistencia rs x eso verás
+
+306
+00:13:43,948 --> 00:13:48,628
+que hay dos resistencias de idéntico
+
+307
+00:13:46,168 --> 00:13:51,208
+valor ya que tenemos dos fases en el
+
+308
+00:13:48,629 --> 00:13:53,039
+motor es un método muy utilizado el de
+
+309
+00:13:51,208 --> 00:13:56,039
+medir la atención que cae en una
+
+310
+00:13:53,039 --> 00:13:58,349
+resistencia en serie con la carga ya que
+
+311
+00:13:56,039 --> 00:14:01,558
+la atención sea proporcional a la
+
+312
+00:13:58,350 --> 00:14:04,409
+corriente que circula por ley d hondt en
+
+313
+00:14:01,558 --> 00:14:06,838
+fin toda esta explicación es parte del
+
+314
+00:14:04,409 --> 00:14:08,629
+propósito del curso de además de
+
+315
+00:14:06,839 --> 00:14:10,919
+aprender a trabajar con arduino
+
+316
+00:14:08,629 --> 00:14:13,499
+aprendemos conceptos de electrónica
+
+317
+00:14:10,918 --> 00:14:16,139
+útiles para el tema tratado y que te
+
+318
+00:14:13,499 --> 00:14:18,119
+servirá para muchos otros casos entonces
+
+319
+00:14:16,139 --> 00:14:18,629
+vamos directo a obtener el valor de la
+
+320
+00:14:18,119 --> 00:14:25,019
+atención
+
+321
+00:14:18,629 --> 00:14:28,110
+referencia que será de 15 x 8 x 0 1 esto
+
+322
+00:14:25,019 --> 00:14:30,720
+nos da un valor de 12 volts para
+
+323
+00:14:28,110 --> 00:14:32,940
+establecer dicho valor de 12 volts
+
+324
+00:14:30,720 --> 00:14:35,759
+mediante el presente debemos armar el
+
+325
+00:14:32,940 --> 00:14:38,310
+siguiente circuito que consiste en solo
+
+326
+00:14:35,759 --> 00:14:41,009
+alimentar el módulo con arduino el pin
+
+327
+00:14:38,309 --> 00:14:44,819
+de 5 volts de arduino con un cable
+
+328
+00:14:41,009 --> 00:14:47,189
+directo a vdd del módulo y de genere de
+
+329
+00:14:44,820 --> 00:14:50,100
+arduino también un con cable directo a
+
+330
+00:14:47,190 --> 00:14:52,860
+gene de del módulo como se puede ver en
+
+331
+00:14:50,100 --> 00:14:55,470
+esta imagen el módulo está colocado
+
+332
+00:14:52,860 --> 00:14:58,800
+sobre protoboard de manera que quede por
+
+333
+00:14:55,470 --> 00:15:01,410
+encima del surco o canal así se ubica
+
+334
+00:14:58,799 --> 00:15:04,439
+una hilera de pines en la parte superior
+
+335
+00:15:01,409 --> 00:15:06,929
+y una hilera en la parte inferior los
+
+336
+00:15:04,440 --> 00:15:09,930
+pines de conexión son el primero de la
+
+337
+00:15:06,929 --> 00:15:12,899
+derecha que es gene de y el siguiente a
+
+338
+00:15:09,929 --> 00:15:15,689
+su izquierda vdd es decir que solo
+
+339
+00:15:12,899 --> 00:15:18,329
+alimentamos la sección lógica del módulo
+
+340
+00:15:15,690 --> 00:15:20,850
+luego debemos utilizar un tester o
+
+341
+00:15:18,330 --> 00:15:23,879
+multímetro para poder medir la atención
+
+342
+00:15:20,850 --> 00:15:26,580
+de referencia y girar el presente hasta
+
+343
+00:15:23,879 --> 00:15:29,730
+el valor correcto en el negativo del
+
+344
+00:15:26,580 --> 00:15:31,980
+tester se conecta genere y el positivo
+
+345
+00:15:29,730 --> 00:15:34,590
+al eje metálico del propio
+
+346
+00:15:31,980 --> 00:15:37,440
+destornillador en este vídeo vemos el
+
+347
+00:15:34,590 --> 00:15:39,990
+proceso el tester debe estar colocado
+
+348
+00:15:37,440 --> 00:15:42,840
+para medir tensiones continua y en una
+
+349
+00:15:39,990 --> 00:15:45,690
+escala de hasta 2 volts para tener una
+
+350
+00:15:42,840 --> 00:15:48,840
+mayor precisión en negativo con el cable
+
+351
+00:15:45,690 --> 00:15:52,200
+negro a masa y el positivo con el cable
+
+352
+00:15:48,840 --> 00:15:54,750
+rojo al eje de un destornillador pequeño
+
+353
+00:15:52,200 --> 00:15:57,240
+para girar el presets el presente se
+
+354
+00:15:54,750 --> 00:15:59,490
+puede dañar con facilidad así que será
+
+355
+00:15:57,240 --> 00:16:01,680
+necesario que lo hagas con cuidado al
+
+356
+00:15:59,490 --> 00:16:02,430
+tocar la punta del destornillador con el
+
+357
+00:16:01,679 --> 00:16:04,829
+pri set
+
+358
+00:16:02,429 --> 00:16:07,620
+verás una atención que se muestra en la
+
+359
+00:16:04,830 --> 00:16:11,340
+pantalla del texto a mi me muestra justo
+
+360
+00:16:07,620 --> 00:16:13,860
+12 world ya que lo tengo regulado pero
+
+361
+00:16:11,340 --> 00:16:16,530
+lo voy a girar para sacarlo de valor y
+
+362
+00:16:13,860 --> 00:16:18,840
+así verás cómo va variando la tensión
+
+363
+00:16:16,529 --> 00:16:21,870
+leída con lo cual deberás de girar el
+
+364
+00:16:18,840 --> 00:16:24,990
+presente hasta que muestre 12 volts
+
+365
+00:16:21,870 --> 00:16:27,450
+recordad que estos 12 volts salen de la
+
+366
+00:16:24,990 --> 00:16:29,730
+fórmula vista recién y depende de la
+
+367
+00:16:27,450 --> 00:16:33,149
+corriente máxima que se desee estable
+
+368
+00:16:29,730 --> 00:16:35,820
+y del valor rc del módulo con lo cual en
+
+369
+00:16:33,149 --> 00:16:37,860
+tu caso puede ser un valor distinto
+
+370
+00:16:35,820 --> 00:16:40,079
+una vez regulado puedes quitar el
+
+371
+00:16:37,860 --> 00:16:42,389
+destornillador y ya no verás ninguna
+
+372
+00:16:40,078 --> 00:16:44,489
+indicación en el tester ya que el propio
+
+373
+00:16:42,389 --> 00:16:46,740
+destornillador nos brinda la conexión
+
+374
+00:16:44,490 --> 00:16:48,659
+eléctrica para medir la tensión sobre el
+
+375
+00:16:46,740 --> 00:16:51,539
+presente puedes volver a colocar el
+
+376
+00:16:48,659 --> 00:16:54,360
+destornillador verificar y hacer algún
+
+377
+00:16:51,539 --> 00:16:56,639
+ajuste adicional si fuera necesario me
+
+378
+00:16:54,360 --> 00:16:58,620
+olvidaba de decirte que arduino lo debes
+
+379
+00:16:56,639 --> 00:17:01,860
+conectar a la computadora mediante el
+
+380
+00:16:58,620 --> 00:17:04,828
+cable usb para obtenerlos 5volts en sus
+
+381
+00:17:01,860 --> 00:17:06,750
+pines no es necesario abrir el y de solo
+
+382
+00:17:04,828 --> 00:17:09,418
+alimentar la placa para a su vez
+
+383
+00:17:06,750 --> 00:17:11,910
+alimentar el módulo y eso es todo para
+
+384
+00:17:09,419 --> 00:17:14,549
+la regulación si siempre vas a utilizar
+
+385
+00:17:11,910 --> 00:17:17,189
+el mismo motor es un proceso por única
+
+386
+00:17:14,548 --> 00:17:19,828
+vez claro está que para otro motor u
+
+387
+00:17:17,189 --> 00:17:22,860
+otro valor de corriente máxima deberás
+
+388
+00:17:19,828 --> 00:17:25,649
+hacer este proceso nuevamente ahora si
+
+389
+00:17:22,859 --> 00:17:28,168
+vamos al circuito de conexión y luego al
+
+390
+00:17:25,650 --> 00:17:29,820
+código que será muy simple parte del
+
+391
+00:17:28,169 --> 00:17:31,890
+circuito ya lo hicimos para la
+
+392
+00:17:29,819 --> 00:17:34,678
+regulación del presente de corriente
+
+393
+00:17:31,890 --> 00:17:35,940
+máxima así que ya tenemos los cables que
+
+394
+00:17:34,679 --> 00:17:39,750
+van desde 5
+
+395
+00:17:35,940 --> 00:17:42,120
+y genere de arduino ave de de higiene de
+
+396
+00:17:39,750 --> 00:17:45,898
+del módulo luego conectaremos mediante
+
+397
+00:17:42,119 --> 00:17:49,199
+un cable directo el pin digital número 4
+
+398
+00:17:45,898 --> 00:17:51,989
+de arduino al pin denominado step en el
+
+399
+00:17:49,200 --> 00:17:54,629
+módulo es el anteúltimo de la fila de
+
+400
+00:17:51,990 --> 00:17:57,298
+abajo mediante esta conexión enviaremos
+
+401
+00:17:54,628 --> 00:18:00,000
+el pulso para indicarle al módulo que
+
+402
+00:17:57,298 --> 00:18:02,038
+deseamos que el motor de un paso luego
+
+403
+00:18:00,000 --> 00:18:04,409
+con otro cable directo desde el pin
+
+404
+00:18:02,038 --> 00:18:06,750
+digital número 5 de arduino
+
+405
+00:18:04,409 --> 00:18:10,289
+iremos al último pin de la hilera de
+
+406
+00:18:06,750 --> 00:18:12,450
+abajo que corresponde al ir de esta
+
+407
+00:18:10,288 --> 00:18:15,210
+manera podremos establecer por
+
+408
+00:18:12,450 --> 00:18:18,330
+programación el sentido de giro del eje
+
+409
+00:18:15,210 --> 00:18:21,600
+ahora mediante un cable debemos unir los
+
+410
+00:18:18,329 --> 00:18:23,788
+pines reset y sleep estos que estoy
+
+411
+00:18:21,599 --> 00:18:26,519
+marcando aquí resulta que todos los
+
+412
+00:18:23,788 --> 00:18:29,700
+pines que sirven de control utilizan
+
+413
+00:18:26,519 --> 00:18:32,519
+resistencias internas de pull up o pulga
+
+414
+00:18:29,700 --> 00:18:34,798
+aún menos el reset como ya vimos de
+
+415
+00:18:32,519 --> 00:18:38,220
+otras oportunidades no conviene dejar
+
+416
+00:18:34,798 --> 00:18:39,960
+pines al aire sin conexión como sleep es
+
+417
+00:18:38,220 --> 00:18:42,839
+activa con un nivel
+
+418
+00:18:39,960 --> 00:18:45,900
+o internamente tiene una resistencia de
+
+419
+00:18:42,839 --> 00:18:48,000
+pull up que tira el pin a un nivel alto
+
+420
+00:18:45,900 --> 00:18:50,280
+si no lo conectamos entonces
+
+421
+00:18:48,000 --> 00:18:52,769
+aprovechamos el pin de slip para
+
+422
+00:18:50,279 --> 00:18:56,009
+conectarlo con un puente directo a reset
+
+423
+00:18:52,769 --> 00:18:58,319
+de esa manera reset también queda con un
+
+424
+00:18:56,009 --> 00:19:01,319
+nivel alto al igual que slim no
+
+425
+00:18:58,319 --> 00:19:04,799
+ejecutando ninguna función para un uso
+
+426
+00:19:01,319 --> 00:19:08,069
+normal tanto slip como reset deben estar
+
+427
+00:19:04,799 --> 00:19:13,079
+a un nivel alto y viviendo sus funciones
+
+428
+00:19:08,069 --> 00:19:15,689
+el resto de los pines enable ms 1 ms 2 y
+
+429
+00:19:13,079 --> 00:19:18,509
+ms 3 también tienen resistencias
+
+430
+00:19:15,690 --> 00:19:21,090
+internas con lo cual no es necesario
+
+431
+00:19:18,509 --> 00:19:23,009
+conectarlos si no los vamos a usar para
+
+432
+00:19:21,089 --> 00:19:26,639
+resumir de la hilera de abajo
+
+433
+00:19:23,009 --> 00:19:29,309
+conectaremos los pines de step y dile a
+
+434
+00:19:26,640 --> 00:19:33,030
+pines digitales de arduino y haremos un
+
+435
+00:19:29,309 --> 00:19:35,159
+puente entre slip y reset de forma que
+
+436
+00:19:33,029 --> 00:19:36,809
+el módulo esté siempre habilitado
+
+437
+00:19:35,160 --> 00:19:40,019
+pasando a la hilera superior
+
+438
+00:19:36,809 --> 00:19:42,659
+conectaremos los 4 pines del motor el
+
+439
+00:19:40,019 --> 00:19:44,940
+motor incluye un cable con un conector
+
+440
+00:19:42,660 --> 00:19:46,590
+del tipo hembra con el cual para
+
+441
+00:19:44,940 --> 00:19:48,720
+conectar la protoboard
+
+442
+00:19:46,589 --> 00:19:51,869
+necesitaremos cuatro cables con
+
+443
+00:19:48,720 --> 00:19:54,569
+terminación macho en ambos extremos y
+
+444
+00:19:51,869 --> 00:19:56,879
+los conectamos como se muestra el color
+
+445
+00:19:54,569 --> 00:20:01,200
+de los cables del lado del motor es
+
+446
+00:19:56,880 --> 00:20:02,760
+negro verde rojo y azul finalmente resta
+
+447
+00:20:01,200 --> 00:20:07,110
+brindar la alimentación del motor
+
+448
+00:20:02,759 --> 00:20:09,089
+mediante los pines de mod y gene de esta
+
+449
+00:20:07,109 --> 00:20:11,599
+tensión será provista por una fuente
+
+450
+00:20:09,089 --> 00:20:14,459
+externa de 12 volts y una corriente
+
+451
+00:20:11,599 --> 00:20:17,158
+recomendada de 2 samper recordad que
+
+452
+00:20:14,460 --> 00:20:20,669
+este motor puede generar un consumo de
+
+453
+00:20:17,159 --> 00:20:24,149
+unos 68 amper por fase que nosotros lo
+
+454
+00:20:20,669 --> 00:20:26,278
+limitamos a 15 con lo cual para no
+
+455
+00:20:24,148 --> 00:20:29,278
+trabajar con la fuente al límite un
+
+456
+00:20:26,278 --> 00:20:32,038
+valor de 2 samper es lo ideal aunque se
+
+457
+00:20:29,278 --> 00:20:34,048
+puede utilizar una de menor amperaje si
+
+458
+00:20:32,038 --> 00:20:36,869
+es que el motor no estará haciendo gran
+
+459
+00:20:34,048 --> 00:20:38,579
+fuerza por largos periodos de tiempo un
+
+460
+00:20:36,869 --> 00:20:41,428
+último elemento para completar el
+
+461
+00:20:38,579 --> 00:20:43,230
+circuito es un capacitor de 100 micro
+
+462
+00:20:41,429 --> 00:20:47,429
+farah dios' que recomienda el fabricante
+
+463
+00:20:43,230 --> 00:20:50,069
+del a 49 88 este capacitor debe
+
+464
+00:20:47,429 --> 00:20:52,620
+colocarse en paralelo con la fuente de
+
+465
+00:20:50,069 --> 00:20:53,669
+12 volts sin micro farah dios es un
+
+466
+00:20:52,619 --> 00:20:56,539
+valor relativo
+
+467
+00:20:53,670 --> 00:20:59,370
+grande y los capacitores son del tipo
+
+468
+00:20:56,539 --> 00:21:01,409
+electrolítico que poseen polaridad es
+
+469
+00:20:59,369 --> 00:21:03,539
+decir que nunca deben conectarse al
+
+470
+00:21:01,410 --> 00:21:05,970
+revés la polaridad de un capacitor
+
+471
+00:21:03,539 --> 00:21:08,700
+electrolítico está marcado mediante una
+
+472
+00:21:05,970 --> 00:21:11,069
+franja de un color claro como ser el
+
+473
+00:21:08,700 --> 00:21:13,500
+blanco siendo el resto del encapsulado
+
+474
+00:21:11,069 --> 00:21:17,039
+de distintos colores dependiendo del
+
+475
+00:21:13,500 --> 00:21:19,079
+fabricante negro marrón celeste o
+
+476
+00:21:17,039 --> 00:21:21,960
+naranja lo importante es que siempre
+
+477
+00:21:19,079 --> 00:21:24,629
+identifiques la pata del capacitor del
+
+478
+00:21:21,960 --> 00:21:27,480
+lado de la banda de color claro dicha
+
+479
+00:21:24,630 --> 00:21:29,190
+banda indica el negativo aquí se puede
+
+480
+00:21:27,480 --> 00:21:32,190
+ver cómo se coloque al capacitó sobre
+
+481
+00:21:29,190 --> 00:21:35,700
+protoboard con el lado de la franja al
+
+482
+00:21:32,190 --> 00:21:38,759
+negativo y la otra pata al positivo este
+
+483
+00:21:35,700 --> 00:21:41,160
+capacitor sirve para almacenar energía y
+
+484
+00:21:38,759 --> 00:21:43,500
+brindar la por breves períodos si el
+
+485
+00:21:41,160 --> 00:21:45,090
+motor lo requiere en caso de que nunca
+
+486
+00:21:43,500 --> 00:21:47,430
+hayas trabajado con capacitores
+
+487
+00:21:45,089 --> 00:21:49,980
+electrolíticos y no estés seguro de
+
+488
+00:21:47,430 --> 00:21:52,200
+poder identificar su polaridad te
+
+489
+00:21:49,980 --> 00:21:54,960
+recomiendo que no lo conectes o pidas
+
+490
+00:21:52,200 --> 00:21:57,390
+ayuda a otra persona conectarlo al revés
+
+491
+00:21:54,960 --> 00:21:59,940
+lleva a su destrucción en cuestión de
+
+492
+00:21:57,390 --> 00:22:02,129
+segundos y puede ser peligroso
+
+493
+00:21:59,940 --> 00:22:05,000
+con eso tenemos todo el circuito listo
+
+494
+00:22:02,128 --> 00:22:07,980
+vamos a la programación que encontrarás
+
+495
+00:22:05,000 --> 00:22:11,099
+extremadamente simple sin necesidad de
+
+496
+00:22:07,980 --> 00:22:13,319
+definir secuencia de pasos matrices o
+
+497
+00:22:11,099 --> 00:22:15,839
+incluir librerías podemos controlar
+
+498
+00:22:13,319 --> 00:22:18,750
+fácilmente el motor primero definiremos
+
+499
+00:22:15,839 --> 00:22:21,778
+dos constantes que representan los pines
+
+500
+00:22:18,750 --> 00:22:25,409
+a los cuales tenemos conectados step y
+
+501
+00:22:21,778 --> 00:22:29,460
+dir que son el pin 4 para step y el pin
+
+502
+00:22:25,409 --> 00:22:35,220
+5 para decir aquí no usaremos el clásico
+
+503
+00:22:29,460 --> 00:22:37,440
+ink step igual a 4 que han de ir igual 5
+
+504
+00:22:35,220 --> 00:22:40,440
+ya que no tienen sentido crear una
+
+505
+00:22:37,440 --> 00:22:42,509
+variable de 16 bits de longitud para
+
+506
+00:22:40,440 --> 00:22:45,509
+almacenar un número de un solo dígito
+
+507
+00:22:42,509 --> 00:22:48,329
+además no estaremos cambiando su valor
+
+508
+00:22:45,509 --> 00:22:51,690
+así que usaremos el numeral -define que
+
+509
+00:22:48,329 --> 00:22:54,089
+vimos en el capítulo 26 es una directiva
+
+510
+00:22:51,690 --> 00:22:57,509
+al compilador para que reemplace toda
+
+511
+00:22:54,089 --> 00:22:59,278
+ocurrencia de este por el número 4 y dir
+
+512
+00:22:57,509 --> 00:23:01,679
+por el número 5
+
+513
+00:22:59,278 --> 00:23:04,138
+de esa manera ahorramos memoria para
+
+514
+00:23:01,679 --> 00:23:06,240
+este caso no es una necesidad pero viene
+
+515
+00:23:04,138 --> 00:23:06,869
+bien acostumbrarse para proyectos a
+
+516
+00:23:06,240 --> 00:23:09,630
+futuro
+
+517
+00:23:06,869 --> 00:23:12,929
+más complejos en el setup lo único que
+
+518
+00:23:09,630 --> 00:23:16,290
+haremos es definir a los pines 4 y 5
+
+519
+00:23:12,930 --> 00:23:18,840
+como salida con el clásico pin mode el
+
+520
+00:23:16,289 --> 00:23:21,509
+pin de dir es el que establece el
+
+521
+00:23:18,839 --> 00:23:24,449
+sentido de giro del motor que puede ser
+
+522
+00:23:21,509 --> 00:23:27,420
+high con low comenzaremos con un digital
+
+523
+00:23:24,450 --> 00:23:29,880
+right enviando un nivel alto al fin de
+
+524
+00:23:27,420 --> 00:23:32,070
+día para obtener el giro en un sentido
+
+525
+00:23:29,880 --> 00:23:34,830
+no hablo de sentido horario o
+
+526
+00:23:32,069 --> 00:23:37,349
+antihorario porque depende de como bic
+
+527
+00:23:34,829 --> 00:23:41,308
+es físicamente el motor luego debemos
+
+528
+00:23:37,349 --> 00:23:43,889
+enviar pulsos al pin de step para que el
+
+529
+00:23:41,308 --> 00:23:47,099
+motor ejecute un paso por un simple
+
+530
+00:23:43,890 --> 00:23:50,610
+digital raid con un nivel alto una
+
+531
+00:23:47,099 --> 00:23:53,579
+demora de 10 milisegundos luego un nivel
+
+532
+00:23:50,609 --> 00:23:56,159
+bajo y nuevamente una demora de 10
+
+533
+00:23:53,579 --> 00:23:59,308
+milisegundos lograremos generar una
+
+534
+00:23:56,160 --> 00:24:01,920
+señal cuadrada el módulo lo interpreta
+
+535
+00:23:59,308 --> 00:24:05,759
+como un paso que debe dar el motor un
+
+536
+00:24:01,920 --> 00:24:08,490
+solo paso será de 18 o 0,9 grados
+
+537
+00:24:05,759 --> 00:24:10,589
+dependiendo del motor que utilicemos yo
+
+538
+00:24:08,490 --> 00:24:12,750
+te comentaba al principio que el motor
+
+539
+00:24:10,589 --> 00:24:13,439
+que usaré en la práctica tiene un ángulo
+
+540
+00:24:12,750 --> 00:24:16,440
+de paso
+
+541
+00:24:13,440 --> 00:24:19,379
+09 grados con lo cual si deseamos que
+
+542
+00:24:16,440 --> 00:24:23,038
+gire por ejemplo media vuelta es decir
+
+543
+00:24:19,378 --> 00:24:25,859
+180 grados debemos enviar 200 de estos
+
+544
+00:24:23,038 --> 00:24:28,440
+pulsos es por eso que este bloque está
+
+545
+00:24:25,859 --> 00:24:32,459
+encerrado en un simple bucle foro que
+
+546
+00:24:28,440 --> 00:24:35,370
+repite cada paso 200 veces en caso de
+
+547
+00:24:32,460 --> 00:24:37,679
+que estés trabajando con un motor de 18
+
+548
+00:24:35,369 --> 00:24:40,288
+grados de paso entonces deberás cambiar
+
+549
+00:24:37,679 --> 00:24:43,889
+el valor de la condición del bucle de
+
+550
+00:24:40,288 --> 00:24:46,798
+200 a 100 pasos ya que ahora con 100
+
+551
+00:24:43,888 --> 00:24:49,500
+pasos se llega a un giro de 180 grados
+
+552
+00:24:46,798 --> 00:24:53,548
+con esto logramos que el motor ejecute
+
+553
+00:24:49,500 --> 00:24:57,298
+200 pasos equivalente a 180 grados en mi
+
+554
+00:24:53,548 --> 00:24:59,940
+motor de 09 grados por paso ahora para
+
+555
+00:24:57,298 --> 00:25:02,819
+hacerlo un poco más interesante copiamos
+
+556
+00:24:59,940 --> 00:25:05,129
+todo el bloque y pegamos lo debajo para
+
+557
+00:25:02,819 --> 00:25:08,759
+cambiar el sentido de giro solo es
+
+558
+00:25:05,128 --> 00:25:11,819
+necesario cambiar el valor ay por lou en
+
+559
+00:25:08,759 --> 00:25:14,878
+el digital write decir y nada más los
+
+560
+00:25:11,819 --> 00:25:17,849
+200 pulsos serán los mismos sólo que
+
+561
+00:25:14,878 --> 00:25:18,778
+ahora al poner el pin de dif a un nivel
+
+562
+00:25:17,849 --> 00:25:19,919
+bajo
+
+563
+00:25:18,778 --> 00:25:22,769
+logramos el giro
+
+564
+00:25:19,920 --> 00:25:25,620
+en sentido opuesto agreguemos una demora
+
+565
+00:25:22,769 --> 00:25:27,930
+de 2 segundos luego de cada bucle para
+
+566
+00:25:25,619 --> 00:25:30,509
+que el motor se detenga brevemente y
+
+567
+00:25:27,930 --> 00:25:33,390
+podamos apreciar mejor el cambio del
+
+568
+00:25:30,509 --> 00:25:36,299
+sentido de giro en resumen este simple
+
+569
+00:25:33,390 --> 00:25:39,600
+programa comienza haciendo girar el eje
+
+570
+00:25:36,299 --> 00:25:43,319
+del motor 180 grados en un sentido
+
+571
+00:25:39,599 --> 00:25:46,109
+espera 2 segundos y gira 180 grados en
+
+572
+00:25:43,319 --> 00:25:49,200
+sentido opuesto volviendo a la posición
+
+573
+00:25:46,109 --> 00:25:52,159
+inicial para esperar nuevamente 2
+
+574
+00:25:49,200 --> 00:25:55,860
+segundos y así todo el tiempo perfecto
+
+575
+00:25:52,160 --> 00:25:58,740
+vamos a verificar y subir el programa no
+
+576
+00:25:55,859 --> 00:26:01,279
+olvides alimentar el módulo con 12 volts
+
+577
+00:25:58,740 --> 00:26:04,440
+de la fuente externa como ya es usual
+
+578
+00:26:01,279 --> 00:26:07,230
+colocando un trozo de cinta en el eje
+
+579
+00:26:04,440 --> 00:26:10,049
+del motor nos facilita apreciar el giro
+
+580
+00:26:07,230 --> 00:26:13,500
+vemos como realiza sus 200 pasos
+
+581
+00:26:10,049 --> 00:26:16,190
+equivalentes a un giro de 180 grados se
+
+582
+00:26:13,500 --> 00:26:19,680
+detiene por dos segundos gira nuevamente
+
+583
+00:26:16,190 --> 00:26:21,529
+180 grados en sentido opuesto y se
+
+584
+00:26:19,680 --> 00:26:23,880
+detiene para comenzar nuevamente
+
+585
+00:26:21,529 --> 00:26:25,769
+recordad que si estás trabajando con un
+
+586
+00:26:23,880 --> 00:26:28,980
+motor de 18
+
+587
+00:26:25,769 --> 00:26:32,519
+de ángulo de paso el bucle ford debe
+
+588
+00:26:28,980 --> 00:26:34,529
+repetir 100 veces en vez de 200 si no
+
+589
+00:26:32,519 --> 00:26:37,710
+estás seguro del ángulo de paso de tu
+
+590
+00:26:34,529 --> 00:26:40,099
+motor puedes dejarlo al bucle en 200 y
+
+591
+00:26:37,710 --> 00:26:44,039
+si el eje gira una vuelta completa
+
+592
+00:26:40,099 --> 00:26:47,759
+entonces es de 18 grados si da medio
+
+593
+00:26:44,039 --> 00:26:51,509
+giro entonces es de 0,9 el fabricante
+
+594
+00:26:47,759 --> 00:26:53,339
+del 49 88 recomienda no manipular las
+
+595
+00:26:51,509 --> 00:26:56,099
+conexiones de las bobinas del motor
+
+596
+00:26:53,339 --> 00:26:58,409
+mientras está alimentado el módulo de
+
+597
+00:26:56,099 --> 00:27:00,779
+manera que si debes desconectar el motor
+
+598
+00:26:58,410 --> 00:27:02,460
+por algún motivo o te das cuenta que
+
+599
+00:27:00,779 --> 00:27:04,950
+algún cable no está correctamente
+
+600
+00:27:02,460 --> 00:27:07,170
+conectado es conveniente quitar la
+
+601
+00:27:04,950 --> 00:27:09,990
+alimentación del módulo para finalizar
+
+602
+00:27:07,170 --> 00:27:11,460
+el capítulo deseo mostrarte rápidamente
+
+603
+00:27:09,990 --> 00:27:14,279
+la utilidad de los pines de
+
+604
+00:27:11,460 --> 00:27:16,710
+configuración de paso y no conectamos en
+
+605
+00:27:14,279 --> 00:27:19,349
+el circuito de manera que no quede un
+
+606
+00:27:16,710 --> 00:27:23,880
+velo de misterio sobre los mismos los
+
+607
+00:27:19,349 --> 00:27:26,759
+fines son los denominados ms 1 ms 2 y ms
+
+608
+00:27:23,880 --> 00:27:29,160
+3 en la tabla se muestra cinco tipos de
+
+609
+00:27:26,759 --> 00:27:31,470
+combinaciones posibles de configuración
+
+610
+00:27:29,160 --> 00:27:34,350
+cuando se muestra una letra
+
+611
+00:27:31,470 --> 00:27:36,380
+corresponde a un nivel bajo o lobo
+
+612
+00:27:34,349 --> 00:27:39,869
+cuando se muestra una letra h
+
+613
+00:27:36,380 --> 00:27:42,030
+corresponde a un nivel alto o high en la
+
+614
+00:27:39,869 --> 00:27:44,879
+primera fila podemos ver que si todos
+
+615
+00:27:42,029 --> 00:27:46,918
+los pines están a un nivel bajo estamos
+
+616
+00:27:44,880 --> 00:27:49,590
+con una resolución de paso completo
+
+617
+00:27:46,919 --> 00:27:52,169
+estos tres pines tienen resistencias
+
+618
+00:27:49,589 --> 00:27:54,959
+internas de pull down por eso podemos
+
+619
+00:27:52,169 --> 00:27:57,390
+dejarlas sin conectar y equivalen a un
+
+620
+00:27:54,960 --> 00:28:00,179
+nivel bajo así es como hicimos la
+
+621
+00:27:57,390 --> 00:28:03,150
+práctica con una configuración de paso
+
+622
+00:28:00,179 --> 00:28:04,950
+completo es decir que con cada pulso que
+
+623
+00:28:03,150 --> 00:28:09,090
+enviamos al pin step
+
+624
+00:28:04,950 --> 00:28:11,669
+el eje se movía 18 grados o 09
+
+625
+00:28:09,089 --> 00:28:15,209
+dependiendo del motor en la segunda fila
+
+626
+00:28:11,669 --> 00:28:17,730
+vemos que si ahora colocamos el pin ms 1
+
+627
+00:28:15,210 --> 00:28:21,419
+a un nivel alto esto lo haremos
+
+628
+00:28:17,730 --> 00:28:23,849
+directamente con un cable vdd o cinco
+
+629
+00:28:21,419 --> 00:28:26,429
+bolsas de arduino la resolución es de
+
+630
+00:28:23,849 --> 00:28:29,158
+medio paso eso significa que el módulo
+
+631
+00:28:26,429 --> 00:28:31,769
+hará una modulación de la corriente de
+
+632
+00:28:29,159 --> 00:28:36,030
+las bobinas para lograr que el eje gire
+
+633
+00:28:31,769 --> 00:28:37,450
+en la mitad de lo normal es decir 0 90 a
+
+634
+00:28:36,029 --> 00:28:39,908
+45 grados
+
+635
+00:28:37,450 --> 00:28:42,069
+y esto lo puedes comprobar fácilmente en
+
+636
+00:28:39,909 --> 00:28:44,769
+la práctica si estás ejecutando el
+
+637
+00:28:42,069 --> 00:28:48,038
+programa de prueba y el motor gira 180
+
+638
+00:28:44,769 --> 00:28:52,450
+grados conectando mediante un cable el
+
+639
+00:28:48,038 --> 00:28:55,119
+pin ms 1 a b de veras inmediatamente que
+
+640
+00:28:52,450 --> 00:28:57,580
+ahora el giro del motor será de 90
+
+641
+00:28:55,119 --> 00:29:00,668
+grados evidenciando que estamos en
+
+642
+00:28:57,579 --> 00:29:02,949
+resolución de medio paso y luego sigue
+
+643
+00:29:00,669 --> 00:29:06,669
+la tabla de la combinación para lograr
+
+644
+00:29:02,950 --> 00:29:09,220
+hasta un 16 ago de paso en teoría parece
+
+645
+00:29:06,669 --> 00:29:11,740
+una brillante idea pero en la práctica
+
+646
+00:29:09,220 --> 00:29:14,528
+hay una gran limitación y es la pérdida
+
+647
+00:29:11,740 --> 00:29:16,630
+de torque o fuerza del motor a medida
+
+648
+00:29:14,528 --> 00:29:19,179
+que se incrementa la resolución el
+
+649
+00:29:16,630 --> 00:29:22,299
+torque baja por eso se recomienda que en
+
+650
+00:29:19,179 --> 00:29:25,059
+la práctica se utilice paso completo o
+
+651
+00:29:22,298 --> 00:29:27,940
+medio paso no mucho más de allí para no
+
+652
+00:29:25,058 --> 00:29:30,849
+perder tanto torque eso es todo por este
+
+653
+00:29:27,940 --> 00:29:33,370
+capítulo si aún no lo hiciste te pido te
+
+654
+00:29:30,849 --> 00:29:35,589
+suscribas para recibir notificaciones y
+
+655
+00:29:33,369 --> 00:29:37,629
+por cualquier duda o comentario lo
+
+656
+00:29:35,589 --> 00:29:40,329
+podéis hacer debajo que con gusto te
+
+657
+00:29:37,630 --> 00:29:42,990
+responderé chao
+
+658
+00:29:40,329 --> 00:29:42,990
+próxima
+

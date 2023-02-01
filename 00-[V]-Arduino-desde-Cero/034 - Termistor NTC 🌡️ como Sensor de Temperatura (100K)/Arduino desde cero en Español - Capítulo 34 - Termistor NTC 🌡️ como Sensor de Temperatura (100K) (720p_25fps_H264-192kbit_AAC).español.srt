@@ -1,0 +1,1824 @@
+1
+00:00:01,679 --> 00:00:07,859
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,370 --> 00:00:09,780
+34 de arduino desde cero en español
+
+3
+00:00:07,859 --> 00:00:12,419
+en esta oportunidad aprenderemos a
+
+4
+00:00:09,779 --> 00:00:15,390
+utilizar un sensor denominado ter mixto
+
+5
+00:00:12,419 --> 00:00:17,579
+el cual varía su resistencia en función
+
+6
+00:00:15,390 --> 00:00:19,830
+de la temperatura a la cual se encuentra
+
+7
+00:00:17,579 --> 00:00:21,779
+expuesto si bien ya vimos en anteriores
+
+8
+00:00:19,829 --> 00:00:26,009
+capítulos otros sensores de temperatura
+
+9
+00:00:21,780 --> 00:00:29,490
+como es el de ht 11 de ht 22 ambos
+
+10
+00:00:26,010 --> 00:00:31,650
+digitales el l m 35 analógico la
+
+11
+00:00:29,489 --> 00:00:34,409
+medición de temperatura es un proceso
+
+12
+00:00:31,649 --> 00:00:36,539
+muy usual en variedad de situaciones por
+
+13
+00:00:34,409 --> 00:00:39,328
+eso le dedicaremos un poco de tiempo
+
+14
+00:00:36,539 --> 00:00:41,549
+para entender esta otra variante en la
+
+15
+00:00:39,329 --> 00:00:44,219
+imagen se muestra un término con un
+
+16
+00:00:41,549 --> 00:00:46,769
+encapsulado muy pequeño de vidrio que
+
+17
+00:00:44,219 --> 00:00:49,710
+tiene en su interior un material es un
+
+18
+00:00:46,770 --> 00:00:52,170
+óxido de semiconductor el cual varía el
+
+19
+00:00:49,710 --> 00:00:54,450
+valor de su resistencia en función de la
+
+20
+00:00:52,170 --> 00:00:56,460
+temperatura debajo podemos ver el
+
+21
+00:00:54,450 --> 00:00:59,340
+símbolo genérico que se asigna el
+
+22
+00:00:56,460 --> 00:01:02,820
+término precisamente genérico porque
+
+23
+00:00:59,340 --> 00:01:06,240
+existen de dos tipos los en etc y los
+
+24
+00:01:02,820 --> 00:01:08,430
+ptc en este se proviene de las siglas de
+
+25
+00:01:06,239 --> 00:01:11,280
+coeficiente negativo de
+
+26
+00:01:08,430 --> 00:01:13,740
+y vemos su representación simbólica muy
+
+27
+00:01:11,280 --> 00:01:16,469
+similar a lo que sería una resistencia
+
+28
+00:01:13,739 --> 00:01:19,439
+variable y delante de la letra t en
+
+29
+00:01:16,469 --> 00:01:22,019
+grados vemos un signo menos indicando
+
+30
+00:01:19,439 --> 00:01:24,269
+que se trata justamente de un término de
+
+31
+00:01:22,019 --> 00:01:27,239
+coeficiente negativo de temperatura
+
+32
+00:01:24,269 --> 00:01:29,699
+veamos el otro tipo que es el ptc cuyas
+
+33
+00:01:27,239 --> 00:01:31,469
+siglas son de coeficientes positivos de
+
+34
+00:01:29,700 --> 00:01:35,040
+temperatura y su representación
+
+35
+00:01:31,469 --> 00:01:37,049
+simbólica es muy similar al em etc solo
+
+36
+00:01:35,040 --> 00:01:39,320
+que en este caso vemos que aparece el
+
+37
+00:01:37,049 --> 00:01:41,728
+signo de + indicando un coeficiente
+
+38
+00:01:39,319 --> 00:01:43,949
+positivo pero a qué se refiere con un
+
+39
+00:01:41,728 --> 00:01:47,129
+coeficiente negativo o positivo de
+
+40
+00:01:43,950 --> 00:01:49,170
+temperatura muy simple un en etc con
+
+41
+00:01:47,129 --> 00:01:51,449
+coeficiente negativo de temperatura
+
+42
+00:01:49,170 --> 00:01:53,340
+indica que a medida que se incrementa la
+
+43
+00:01:51,450 --> 00:01:56,520
+temperatura y el valor de la resistencia
+
+44
+00:01:53,340 --> 00:01:59,670
+baja es decir que existe una relación
+
+45
+00:01:56,519 --> 00:02:02,789
+inversamente proporcional de temperatura
+
+46
+00:01:59,670 --> 00:02:05,519
+y resistencia cuando un parámetro sube y
+
+47
+00:02:02,790 --> 00:02:08,729
+el otro baja y viceversa como podrás
+
+48
+00:02:05,519 --> 00:02:10,829
+imaginar un pts con coeficiente positivo
+
+49
+00:02:08,729 --> 00:02:13,410
+de temperatura indica que un incremento
+
+50
+00:02:10,830 --> 00:02:14,920
+de temperatura se traduce en un
+
+51
+00:02:13,409 --> 00:02:17,020
+incremento de
+
+52
+00:02:14,919 --> 00:02:19,869
+lo primero que es importante destacar
+
+53
+00:02:17,020 --> 00:02:22,150
+del término es que su respuesta no es
+
+54
+00:02:19,870 --> 00:02:24,189
+lineal con la temperatura y eso lo
+
+55
+00:02:22,150 --> 00:02:27,189
+podemos ver claramente en el siguiente
+
+56
+00:02:24,189 --> 00:02:30,340
+gráfico con color naranja vimos la curva
+
+57
+00:02:27,189 --> 00:02:33,909
+característica del tér mixto en etc y
+
+58
+00:02:30,340 --> 00:02:36,789
+con color azul la curva de un ptc si nos
+
+59
+00:02:33,909 --> 00:02:38,020
+centramos en la curva del mtc la de
+
+60
+00:02:36,789 --> 00:02:40,389
+color naranja
+
+61
+00:02:38,020 --> 00:02:42,819
+vemos que claramente no es lineal sobre
+
+62
+00:02:40,389 --> 00:02:45,518
+el eje horizontal tendremos los valores
+
+63
+00:02:42,818 --> 00:02:48,369
+de temperatura que arranca desde los 25
+
+64
+00:02:45,519 --> 00:02:51,009
+grados centígrados o grados celsius y el
+
+65
+00:02:48,370 --> 00:02:53,310
+eje vertical es el valor que asume la
+
+66
+00:02:51,009 --> 00:02:55,419
+resistencia a medida que la temperatura
+
+67
+00:02:53,310 --> 00:02:56,920
+aumenta vimos que el valor de la
+
+68
+00:02:55,419 --> 00:02:58,809
+resistencia baja
+
+69
+00:02:56,919 --> 00:03:01,509
+justamente el comportamiento que
+
+70
+00:02:58,810 --> 00:03:03,069
+describíamos recién de un término del
+
+71
+00:03:01,509 --> 00:03:05,409
+tipo en etc
+
+72
+00:03:03,068 --> 00:03:07,810
+en la curva azul vemos el comportamiento
+
+73
+00:03:05,409 --> 00:03:10,299
+del ptc donde el incremento de
+
+74
+00:03:07,810 --> 00:03:12,459
+temperatura lleva a un incremento del
+
+75
+00:03:10,299 --> 00:03:15,670
+valor de resistencia este comportamiento
+
+76
+00:03:12,459 --> 00:03:17,500
+no lineal de la resistencia en función
+
+77
+00:03:15,669 --> 00:03:20,139
+de la temperatura es la principal
+
+78
+00:03:17,500 --> 00:03:21,219
+desventaja a la hora de usar un término
+
+79
+00:03:20,139 --> 00:03:23,979
+en la pac
+
+80
+00:03:21,219 --> 00:03:26,500
+ya que no podemos aplicar una simple
+
+81
+00:03:23,979 --> 00:03:29,019
+ecuación lineal para inferir el valor de
+
+82
+00:03:26,500 --> 00:03:31,360
+temperatura en función del valor leído
+
+83
+00:03:29,020 --> 00:03:33,909
+de resistencia pero en breve veremos que
+
+84
+00:03:31,360 --> 00:03:37,030
+resolveremos esta cuestión analizaremos
+
+85
+00:03:33,909 --> 00:03:39,370
+en particular el término del tipo en etc
+
+86
+00:03:37,030 --> 00:03:41,710
+ya que es el más comúnmente usado en la
+
+87
+00:03:39,370 --> 00:03:44,379
+mayoría de aplicaciones y existen de
+
+88
+00:03:41,710 --> 00:03:51,310
+distintos tipos de resistencias típicos
+
+89
+00:03:44,379 --> 00:03:54,280
+son estos listados de 5k 10k 25 k 50 k y
+
+90
+00:03:51,310 --> 00:03:56,530
+cinca un término de por ejemplo 10 que
+
+91
+00:03:54,280 --> 00:03:59,530
+significa que presenta un valor de
+
+92
+00:03:56,530 --> 00:04:02,680
+resistencia de 10000 oms a una
+
+93
+00:03:59,530 --> 00:04:04,569
+temperatura de 25 grados centígrados y
+
+94
+00:04:02,680 --> 00:04:06,610
+de esa forma es que se definen los
+
+95
+00:04:04,569 --> 00:04:09,699
+distintos tipos por el valor de su
+
+96
+00:04:06,610 --> 00:04:12,880
+resistencia siempre a 25 grados de
+
+97
+00:04:09,699 --> 00:04:15,939
+temperatura entonces un término de 100 k
+
+98
+00:04:12,879 --> 00:04:19,269
+tendrá un valor de resistencia de 100
+
+99
+00:04:15,939 --> 00:04:21,939
+kilos oms a 25 grados ya que estamos
+
+100
+00:04:19,269 --> 00:04:25,680
+hablando de temperatura el rango típico
+
+101
+00:04:21,939 --> 00:04:27,699
+de los tér místeres es de menos 55 hasta
+
+102
+00:04:25,680 --> 00:04:29,860
+260 grados
+
+103
+00:04:27,699 --> 00:04:32,680
+y haciendo lo ideal sobre todo en
+
+104
+00:04:29,860 --> 00:04:34,330
+aplicaciones de alta temperatura aquí se
+
+105
+00:04:32,680 --> 00:04:36,879
+muestra el término que estaremos
+
+106
+00:04:34,329 --> 00:04:39,370
+utilizando en la práctica es uno de 100
+
+107
+00:04:36,879 --> 00:04:42,040
+k ella se lo puede adquirir con el par
+
+108
+00:04:39,370 --> 00:04:44,740
+de cables soldados y un terminal para
+
+109
+00:04:42,040 --> 00:04:47,170
+una fácil conexión si vas a adquirir un
+
+110
+00:04:44,740 --> 00:04:49,600
+término te recomiendo que lo hagas con
+
+111
+00:04:47,170 --> 00:04:52,360
+los cables ya soldados debido a que los
+
+112
+00:04:49,600 --> 00:04:54,790
+mismos disponen de una aislación que
+
+113
+00:04:52,360 --> 00:04:57,250
+soporta mayores temperaturas que los
+
+114
+00:04:54,790 --> 00:04:58,990
+cables convencionales en aplicaciones
+
+115
+00:04:57,250 --> 00:05:01,720
+donde debemos monitorear altas
+
+116
+00:04:58,990 --> 00:05:04,269
+temperaturas y el cable de conexión debe
+
+117
+00:05:01,720 --> 00:05:06,880
+ser también el adecuado entonces ya
+
+118
+00:05:04,269 --> 00:05:09,219
+sabemos que el valor de unter mixto está
+
+119
+00:05:06,879 --> 00:05:11,709
+dado por la resistencia que presenta a
+
+120
+00:05:09,220 --> 00:05:14,470
+una temperatura de 25 grados centígrados
+
+121
+00:05:11,709 --> 00:05:17,139
+pero muchas veces podemos entrar en
+
+122
+00:05:14,470 --> 00:05:19,930
+contacto con un término del cual no
+
+123
+00:05:17,139 --> 00:05:21,629
+sabemos su valor al ser tan pequeño es
+
+124
+00:05:19,930 --> 00:05:24,550
+también difícil su identificación
+
+125
+00:05:21,629 --> 00:05:27,459
+incluso podemos ni siquiera saber si ese
+
+126
+00:05:24,550 --> 00:05:29,590
+coeficiente negativo o positivo para eso
+
+127
+00:05:27,459 --> 00:05:32,169
+te propongo hacer la siguiente prueba
+
+128
+00:05:29,589 --> 00:05:34,319
+con nuestro tester con multímetro
+
+129
+00:05:32,170 --> 00:05:37,170
+ajustado para medio resiste
+
+130
+00:05:34,319 --> 00:05:39,930
+por ejemplo en la escala de 200 acá
+
+131
+00:05:37,170 --> 00:05:42,000
+vamos a conectarlo al término y veamos
+
+132
+00:05:39,930 --> 00:05:44,040
+la indicación que aparece en este
+
+133
+00:05:42,000 --> 00:05:46,680
+proceso lo puedes realizar en una
+
+134
+00:05:44,040 --> 00:05:49,980
+habitación a temperatura ambiente en mi
+
+135
+00:05:46,680 --> 00:05:51,810
+caso se muestra un valor de 90 y 42
+
+136
+00:05:49,980 --> 00:05:54,420
+casas por estas latitudes
+
+137
+00:05:51,810 --> 00:05:56,519
+hace calor por ser verano y no tengo el
+
+138
+00:05:54,420 --> 00:05:58,530
+aire acondicionado encendido con lo cual
+
+139
+00:05:56,519 --> 00:06:03,209
+la temperatura en la habitación y de
+
+140
+00:05:58,529 --> 00:06:06,659
+algo más de 25 grados por eso vemos 94 2
+
+141
+00:06:03,209 --> 00:06:09,209
+algo menor a 100 k si toco el sensor con
+
+142
+00:06:06,660 --> 00:06:11,820
+la mano logró elevar la temperatura y se
+
+143
+00:06:09,209 --> 00:06:13,879
+puede ver como en el tester se muestra
+
+144
+00:06:11,819 --> 00:06:16,769
+un valor de resistencia que va
+
+145
+00:06:13,879 --> 00:06:19,139
+incrementando su valor luego al soltarlo
+
+146
+00:06:16,769 --> 00:06:22,229
+volverá lentamente a su valor inicial
+
+147
+00:06:19,139 --> 00:06:24,930
+con esta simple prueba pudimos comprobar
+
+148
+00:06:22,230 --> 00:06:27,720
+que se trata de un término de 100k ya
+
+149
+00:06:24,930 --> 00:06:30,389
+que a temperatura cercana a los 25
+
+150
+00:06:27,720 --> 00:06:33,210
+grados nos dio un valor cercano a los
+
+151
+00:06:30,389 --> 00:06:35,699
+100 k y también comprobamos que se trata
+
+152
+00:06:33,209 --> 00:06:38,549
+de un end etc ya que al incrementar la
+
+153
+00:06:35,699 --> 00:06:39,629
+temperatura vimos como bajaba y el valor
+
+154
+00:06:38,550 --> 00:06:41,250
+de resistencia
+
+155
+00:06:39,629 --> 00:06:43,709
+indicando que el coeficiente de
+
+156
+00:06:41,250 --> 00:06:46,649
+temperatura es negativo si por ejemplo
+
+157
+00:06:43,709 --> 00:06:49,409
+en tu caso ves que muestra inicialmente
+
+158
+00:06:46,649 --> 00:06:52,349
+un valor cercano a los 10.000 oms
+
+159
+00:06:49,410 --> 00:06:54,390
+entonces se trata de un término de 10 k
+
+160
+00:06:52,350 --> 00:06:56,939
+aunque lo hayamos adquirido nuevo y
+
+161
+00:06:54,389 --> 00:06:59,430
+sepamos exactamente de qué valor se
+
+162
+00:06:56,939 --> 00:07:02,040
+trata no es mala idea hacerle una prueba
+
+163
+00:06:59,430 --> 00:07:04,680
+rápida como esta muy bien vamos entonces
+
+164
+00:07:02,040 --> 00:07:07,290
+al circuito de conexión arduino como no
+
+165
+00:07:04,680 --> 00:07:10,079
+podemos medir un valor de resistencia de
+
+166
+00:07:07,290 --> 00:07:12,780
+forma directa aplicaremos un método ya
+
+167
+00:07:10,079 --> 00:07:15,719
+utilizado con anterioridad que es el de
+
+168
+00:07:12,779 --> 00:07:19,079
+divisor de tensión la idea es colocar en
+
+169
+00:07:15,720 --> 00:07:21,060
+serie con el término una resistencia a
+
+170
+00:07:19,079 --> 00:07:23,939
+aplicar tensión en el extremo del
+
+171
+00:07:21,060 --> 00:07:26,009
+conjunto y desde el punto medio ir con
+
+172
+00:07:23,939 --> 00:07:28,350
+un cable a la entrada analógica de
+
+173
+00:07:26,009 --> 00:07:30,930
+arduino es conveniente usar un valor de
+
+174
+00:07:28,350 --> 00:07:33,629
+resistencia en serie con el término de
+
+175
+00:07:30,930 --> 00:07:35,970
+valor idéntico a la del propio término
+
+176
+00:07:33,629 --> 00:07:38,939
+si tenemos un término de 10 k
+
+177
+00:07:35,970 --> 00:07:41,730
+colocaremos en seguir una resistencia de
+
+178
+00:07:38,939 --> 00:07:44,610
+10 k en este caso como el término es de
+
+179
+00:07:41,730 --> 00:07:47,580
+100 k colocaremos una resistencia
+
+180
+00:07:44,610 --> 00:07:50,669
+100k cuya banda de colores es marrón
+
+181
+00:07:47,579 --> 00:07:53,250
+negro y amarillo uno de los extremos del
+
+182
+00:07:50,668 --> 00:07:55,978
+término lo conectaremos al positivo del
+
+183
+00:07:53,250 --> 00:07:58,829
+riel de tensión en serie colocaremos la
+
+184
+00:07:55,978 --> 00:08:01,529
+resistencia de 100k y su extremo al
+
+185
+00:07:58,829 --> 00:08:03,899
+negativo del riel de tensión del punto a
+
+186
+00:08:01,529 --> 00:08:06,538
+medio iremos con un cable directo a la
+
+187
+00:08:03,899 --> 00:08:09,269
+entrada analógica a 0 y como siempre
+
+188
+00:08:06,538 --> 00:08:11,938
+alimentaremos protoboard con 5 gold
+
+189
+00:08:09,269 --> 00:08:14,279
+higiene de de arduino de esa manera con
+
+190
+00:08:11,939 --> 00:08:16,349
+el divisor de tensión traducimos un
+
+191
+00:08:14,279 --> 00:08:19,438
+cambio en el valor de resistencia del
+
+192
+00:08:16,348 --> 00:08:21,778
+término en una variación de tensión que
+
+193
+00:08:19,439 --> 00:08:23,909
+si podemos leer desde arduino y eso es
+
+194
+00:08:21,778 --> 00:08:25,949
+todo para el circuito muy fácil de
+
+195
+00:08:23,908 --> 00:08:27,899
+implementar antes de ir al código
+
+196
+00:08:25,949 --> 00:08:30,090
+debemos encargarnos del tema de
+
+197
+00:08:27,899 --> 00:08:32,968
+convertir la variación de resistencia
+
+198
+00:08:30,089 --> 00:08:35,519
+del término en temperatura aquí traigo a
+
+199
+00:08:32,969 --> 00:08:38,070
+pantalla la curva que vimos antes la de
+
+200
+00:08:35,519 --> 00:08:41,009
+color naranja que corresponde al término
+
+201
+00:08:38,070 --> 00:08:44,339
+en etc como la respuesta no es lineal
+
+202
+00:08:41,009 --> 00:08:46,740
+debemos aplicar un modelo matemático una
+
+203
+00:08:44,339 --> 00:08:48,630
+ecuación que nos permita obtener el
+
+204
+00:08:46,740 --> 00:08:50,980
+valor de temperatura dicha ecuación
+
+205
+00:08:48,629 --> 00:08:52,958
+recibe el nombre de éste
+
+206
+00:08:50,980 --> 00:08:56,019
+art heart desarrollada por los
+
+207
+00:08:52,958 --> 00:08:58,629
+profesores son steinhardt y stanley
+
+208
+00:08:56,019 --> 00:09:01,120
+heart la ecuación que aquí vemos permite
+
+209
+00:08:58,629 --> 00:09:03,009
+obtener el valor de temperatura en base
+
+210
+00:09:01,120 --> 00:09:05,649
+a la variación de resistencia del
+
+211
+00:09:03,009 --> 00:09:07,899
+término esta ecuación le implementaremos
+
+212
+00:09:05,649 --> 00:09:09,759
+en el programa y no te preocupes por la
+
+213
+00:09:07,899 --> 00:09:11,799
+complejidad lo que interesa es
+
+214
+00:09:09,759 --> 00:09:15,338
+distinguir tres partes que la componen
+
+215
+00:09:11,799 --> 00:09:17,859
+que es la temperatura pero medida en
+
+216
+00:09:15,339 --> 00:09:19,779
+grados kelvin así que en programación
+
+217
+00:09:17,860 --> 00:09:22,120
+convertiremos su valor a grados
+
+218
+00:09:19,778 --> 00:09:24,458
+centígrados que r es el valor de la
+
+219
+00:09:22,120 --> 00:09:27,959
+resistencia en homs que brinda el
+
+220
+00:09:24,458 --> 00:09:30,939
+término a b y c son los llamados
+
+221
+00:09:27,958 --> 00:09:33,069
+coeficientes de stein hard hard y
+
+222
+00:09:30,940 --> 00:09:35,079
+dependen del modelo del término que
+
+223
+00:09:33,070 --> 00:09:37,839
+utilicemos y en el material con el cual
+
+224
+00:09:35,078 --> 00:09:39,519
+está fabricado determinará cómo modifica
+
+225
+00:09:37,839 --> 00:09:42,010
+el valor de resistencia con la
+
+226
+00:09:39,519 --> 00:09:43,810
+temperatura estos coeficientes son
+
+227
+00:09:42,009 --> 00:09:46,360
+provistos en la hoja de datos del
+
+228
+00:09:43,809 --> 00:09:48,939
+fabricante del término pero no siempre
+
+229
+00:09:46,360 --> 00:09:51,550
+es información fácil de obtener la otra
+
+230
+00:09:48,940 --> 00:09:53,949
+forma es utilizar una página web que
+
+231
+00:09:51,549 --> 00:09:56,799
+permite obtener dichos coeficientes de
+
+232
+00:09:53,948 --> 00:09:57,199
+una manera muy simple esta última es la
+
+233
+00:09:56,799 --> 00:10:00,079
+que
+
+234
+00:09:57,200 --> 00:10:02,600
+en resumen debemos utilizar la ecuación
+
+235
+00:10:00,080 --> 00:10:04,730
+de stein heart para obtener la
+
+236
+00:10:02,600 --> 00:10:07,100
+temperatura debido a la falta de
+
+237
+00:10:04,730 --> 00:10:09,980
+linealidad en la respuesta del término
+
+238
+00:10:07,100 --> 00:10:12,620
+ahora si vamos al código aquí en el
+
+239
+00:10:09,980 --> 00:10:14,870
+editor del id de arduino se encuentra el
+
+240
+00:10:12,620 --> 00:10:17,389
+código completo del programa simplemente
+
+241
+00:10:14,870 --> 00:10:19,310
+mostraremos por el monitor serie el
+
+242
+00:10:17,389 --> 00:10:21,740
+valor de temperatura que nos brinda el
+
+243
+00:10:19,309 --> 00:10:23,899
+término recordad que el código de este
+
+244
+00:10:21,740 --> 00:10:26,299
+programa se encuentra en el enlace que
+
+245
+00:10:23,899 --> 00:10:28,549
+dejó en la zona de descripción en las
+
+246
+00:10:26,299 --> 00:10:31,969
+primeras líneas declaramos las variables
+
+247
+00:10:28,549 --> 00:10:35,089
+que estaremos usando b 0 es la atención
+
+248
+00:10:31,970 --> 00:10:38,269
+leída en la entrada a 0 luego la
+
+249
+00:10:35,090 --> 00:10:40,730
+variable r 1 se declara del tipo float
+
+250
+00:10:38,269 --> 00:10:43,129
+es decir de punto flotante ya que
+
+251
+00:10:40,730 --> 00:10:46,279
+deberemos usar su valor dentro de una
+
+252
+00:10:43,129 --> 00:10:49,070
+ecuación que requiere valores con coma o
+
+253
+00:10:46,279 --> 00:10:51,529
+punto decimal r1 es el valor de la
+
+254
+00:10:49,070 --> 00:10:53,930
+resistencia que colocamos en el circuito
+
+255
+00:10:51,529 --> 00:10:56,990
+y forma parte del divisor de tensión
+
+256
+00:10:53,929 --> 00:10:59,989
+colocamos r1 de 100k porque nuestro
+
+257
+00:10:56,990 --> 00:11:02,480
+transmisor es de 100 k aquí el valor lo
+
+258
+00:10:59,990 --> 00:11:03,350
+expresamos en homs por eso le asignamos
+
+259
+00:11:02,480 --> 00:11:05,450
+1
+
+260
+00:11:03,350 --> 00:11:07,909
+de 100.000 luego en esta línea
+
+261
+00:11:05,450 --> 00:11:12,770
+declaramos en simultáneo tres variables
+
+262
+00:11:07,909 --> 00:11:16,129
+del tipo flow que serán los r 2 r2 y
+
+263
+00:11:12,769 --> 00:11:18,559
+temperatura aquí r 2 representa al valor
+
+264
+00:11:16,129 --> 00:11:20,720
+de resistencia del término recordad que
+
+265
+00:11:18,559 --> 00:11:22,909
+para la ecuación que aplicaremos en la
+
+266
+00:11:20,720 --> 00:11:25,370
+sección del loop debemos tener el valor
+
+267
+00:11:22,909 --> 00:11:27,289
+de la resistencia del término luego
+
+268
+00:11:25,370 --> 00:11:30,110
+también como float declaramos las
+
+269
+00:11:27,289 --> 00:11:33,919
+constantes de este en hard hard con las
+
+270
+00:11:30,110 --> 00:11:37,519
+denominaciones c1 c2 y c3 son el
+
+271
+00:11:33,919 --> 00:11:39,649
+equivalente a las constantes a b y c de
+
+272
+00:11:37,519 --> 00:11:43,519
+la ecuación que vimos antes estos
+
+273
+00:11:39,649 --> 00:11:45,649
+valores de c1 c2 y c3 son fundamentales
+
+274
+00:11:43,519 --> 00:11:48,230
+para la ecuación y aquí debajo en el
+
+275
+00:11:45,649 --> 00:11:50,929
+comentario dejo un enlace a una página
+
+276
+00:11:48,230 --> 00:11:53,779
+web donde se puede obtener dichos
+
+277
+00:11:50,929 --> 00:11:56,239
+coeficientes de manera muy simple sin
+
+278
+00:11:53,779 --> 00:11:58,850
+necesidad de ninguna hoja de datos y
+
+279
+00:11:56,240 --> 00:12:00,769
+esta página la abrimos ya mismo para que
+
+280
+00:11:58,850 --> 00:12:03,320
+entiendan los valores asignados a los
+
+281
+00:12:00,769 --> 00:12:06,439
+coeficientes esta página creada por
+
+282
+00:12:03,320 --> 00:12:08,000
+stanford research systems y de extrema
+
+283
+00:12:06,440 --> 00:12:09,620
+utilidad para determinar los
+
+284
+00:12:08,000 --> 00:12:12,889
+coeficientes de este
+
+285
+00:12:09,620 --> 00:12:15,289
+hart ingresando unos pocos datos en la
+
+286
+00:12:12,889 --> 00:12:18,620
+columna derecha podrás observar la curva
+
+287
+00:12:15,289 --> 00:12:21,349
+característica de un permiso en etc la
+
+288
+00:12:18,620 --> 00:12:23,450
+misma curva que vimos antes luego en la
+
+289
+00:12:21,350 --> 00:12:25,610
+columna izquierda podremos ingresar
+
+290
+00:12:23,450 --> 00:12:28,278
+valores para nuestro término en
+
+291
+00:12:25,610 --> 00:12:31,310
+particular por defecto la página carga
+
+292
+00:12:28,278 --> 00:12:34,189
+valores para un término de 10 k esto se
+
+293
+00:12:31,309 --> 00:12:38,059
+puede ver porque el valor de r2 es de 10
+
+294
+00:12:34,190 --> 00:12:40,580
+mil a una temperatura de 2 de 25 grados
+
+295
+00:12:38,059 --> 00:12:44,929
+centígrados es importante no confundir
+
+296
+00:12:40,580 --> 00:12:47,839
+los valores aquí mostrados de r1 r2 y r3
+
+297
+00:12:44,929 --> 00:12:50,028
+que no son los mismos que para nuestro
+
+298
+00:12:47,839 --> 00:12:52,700
+circuito todos los nombres que veas en
+
+299
+00:12:50,028 --> 00:12:55,580
+la página sirven únicamente para obtener
+
+300
+00:12:52,700 --> 00:12:57,950
+los valores de los coeficientes r1
+
+301
+00:12:55,580 --> 00:12:59,930
+corresponde al valor de la resistencia
+
+302
+00:12:57,950 --> 00:13:03,020
+que presenta el término a una
+
+303
+00:12:59,929 --> 00:13:05,659
+temperatura de 1 de 5 grados
+
+304
+00:13:03,019 --> 00:13:09,049
+r2 y el valor de resistencia a una
+
+305
+00:13:05,659 --> 00:13:12,409
+temperatura de 2 y r3 a una temperatura
+
+306
+00:13:09,049 --> 00:13:14,269
+de 3 la idea es tomar tres mediciones de
+
+307
+00:13:12,409 --> 00:13:15,860
+resistencia a tres temperaturas
+
+308
+00:13:14,269 --> 00:13:18,470
+distintas
+
+309
+00:13:15,860 --> 00:13:21,200
+la forma obtenemos los coeficientes la
+
+310
+00:13:18,470 --> 00:13:24,860
+curva se encuentra identificada como ese
+
+311
+00:13:21,200 --> 00:13:26,870
+guión h en color azul data son los tres
+
+312
+00:13:24,860 --> 00:13:29,180
+valores de resistencia a tres
+
+313
+00:13:26,870 --> 00:13:31,850
+temperaturas distintas si estuviésemos
+
+314
+00:13:29,179 --> 00:13:33,979
+trabajando con un término de 10 k no es
+
+315
+00:13:31,850 --> 00:13:37,759
+necesario hacer ningún cambio los
+
+316
+00:13:33,980 --> 00:13:39,769
+valores de los coeficientes a b y c son
+
+317
+00:13:37,759 --> 00:13:42,230
+estos de aquí podríamos copiar y pegar
+
+318
+00:13:39,769 --> 00:13:46,700
+dichos valores en nuestro programa de
+
+319
+00:13:42,230 --> 00:13:49,039
+arduino sobre las variables c1 c2 y c3 y
+
+320
+00:13:46,700 --> 00:13:51,230
+listo pero nosotros tenemos un término
+
+321
+00:13:49,039 --> 00:13:53,240
+de 100 k entonces haremos una
+
+322
+00:13:51,230 --> 00:13:55,579
+modificación muy simple
+
+323
+00:13:53,240 --> 00:13:59,089
+agregaremos un cero que equivale
+
+324
+00:13:55,578 --> 00:14:02,778
+multiplicar por 10 los valores de r1 r2
+
+325
+00:13:59,089 --> 00:14:06,230
+y r3 comenzamos con r2 que es el valor
+
+326
+00:14:02,778 --> 00:14:09,019
+de resistencia a 25 grados para nosotros
+
+327
+00:14:06,230 --> 00:14:11,500
+debe ser de 100 mil ya está precargado
+
+328
+00:14:09,019 --> 00:14:14,690
+el valor de 10.000 así que simplemente
+
+329
+00:14:11,500 --> 00:14:17,059
+agregamos un 0 al final de manera que
+
+330
+00:14:14,690 --> 00:14:19,310
+quede el número 100.000 ahora
+
+331
+00:14:17,059 --> 00:14:21,289
+modificaremos el valor de r1
+
+332
+00:14:19,309 --> 00:14:24,528
+verás que cuando coloques el cursor
+
+333
+00:14:21,289 --> 00:14:27,139
+sobre el final del número 25.000 la
+
+334
+00:14:24,528 --> 00:14:29,899
+curva cambia de forma esto es porque aún
+
+335
+00:14:27,139 --> 00:14:32,330
+no terminamos de cargar los tres valores
+
+336
+00:14:29,899 --> 00:14:35,659
+así que no te preocupes al igual que con
+
+337
+00:14:32,330 --> 00:14:39,200
+r2 vamos a agregar un cero al final de
+
+338
+00:14:35,659 --> 00:14:42,409
+manera que quede un valor de 250.000 y
+
+339
+00:14:39,200 --> 00:14:44,690
+finalmente lo mismo para r3 agregamos un
+
+340
+00:14:42,409 --> 00:14:48,409
+cero al final que equivale multiplicar
+
+341
+00:14:44,690 --> 00:14:50,630
+por 10 el actual valor quedando en 40000
+
+342
+00:14:48,409 --> 00:14:53,209
+un detalle importante es que cada vez
+
+343
+00:14:50,629 --> 00:14:55,399
+que modificamos un valor en la página
+
+344
+00:14:53,210 --> 00:14:57,980
+debemos cambiar el cursor a cualquier
+
+345
+00:14:55,399 --> 00:15:00,199
+otro campo disponible para que se pueden
+
+346
+00:14:57,980 --> 00:15:03,050
+actualizar los datos no debes presionar
+
+347
+00:15:00,200 --> 00:15:05,420
+la tecla enter ya que estamos dentro de
+
+348
+00:15:03,049 --> 00:15:08,479
+la página web por eso hay una aclaración
+
+349
+00:15:05,419 --> 00:15:10,490
+en inglés que indica justamente que no
+
+350
+00:15:08,480 --> 00:15:12,769
+debemos presionar el botón enter
+
+351
+00:15:10,490 --> 00:15:16,120
+simplemente lo que haremos es ir al
+
+352
+00:15:12,769 --> 00:15:19,460
+anteúltimo campo de r entre paréntesis
+
+353
+00:15:16,120 --> 00:15:21,649
+25 grados y eso es suficiente para que
+
+354
+00:15:19,460 --> 00:15:24,259
+actualice los datos técnicamente lo que
+
+355
+00:15:21,649 --> 00:15:25,938
+hacemos es quitar el foco del último
+
+356
+00:15:24,259 --> 00:15:28,879
+campo que modificamos
+
+357
+00:15:25,938 --> 00:15:32,748
+el script de la página web actualice los
+
+358
+00:15:28,879 --> 00:15:34,938
+datos ahora si tenemos en a b y c los
+
+359
+00:15:32,749 --> 00:15:37,428
+valores de los coeficientes que debemos
+
+360
+00:15:34,938 --> 00:15:40,399
+utilizar en nuestro programa esta página
+
+361
+00:15:37,428 --> 00:15:42,438
+es realmente el as bajo la manga que nos
+
+362
+00:15:40,399 --> 00:15:45,229
+permite obtener los coeficientes de
+
+363
+00:15:42,438 --> 00:15:46,219
+manera muy simple sin ningún tipo de
+
+364
+00:15:45,229 --> 00:15:48,139
+hoja de datos
+
+365
+00:15:46,220 --> 00:15:50,918
+volvamos entonces al código y
+
+366
+00:15:48,139 --> 00:15:52,908
+finalicemos la explicación en el setup
+
+367
+00:15:50,918 --> 00:15:56,778
+simplemente inicializa mos la
+
+368
+00:15:52,908 --> 00:15:59,359
+comunicación serie a 9.600 bps como ya
+
+369
+00:15:56,778 --> 00:16:02,028
+hicimos muchas veces luego las primeras
+
+370
+00:15:59,359 --> 00:16:04,449
+cinco líneas del look leen el valor de
+
+371
+00:16:02,028 --> 00:16:07,519
+la entrada analógica a cero de arduino
+
+372
+00:16:04,448 --> 00:16:10,519
+convierte el valor de tensión a un valor
+
+373
+00:16:07,519 --> 00:16:12,948
+de resistencia se obtiene el logaritmo
+
+374
+00:16:10,519 --> 00:16:16,188
+de dicho valor y se aplica la ecuación
+
+375
+00:16:12,948 --> 00:16:17,748
+de ésta en hard heart estas líneas son
+
+376
+00:16:16,188 --> 00:16:20,629
+siempre las mismas para cualquier
+
+377
+00:16:17,749 --> 00:16:22,999
+término así que no lo pienses demasiado
+
+378
+00:16:20,629 --> 00:16:26,688
+cada vez que quieras usar un término en
+
+379
+00:16:22,999 --> 00:16:29,089
+etc solo deberás asignar el valor de r1
+
+380
+00:16:26,688 --> 00:16:31,009
+del divisor de atención del circuito
+
+381
+00:16:29,089 --> 00:16:32,510
+obtener los valores de los coeficientes
+
+382
+00:16:31,009 --> 00:16:35,480
+de la página
+
+383
+00:16:32,509 --> 00:16:37,700
+y usar estas cinco líneas de código para
+
+384
+00:16:35,480 --> 00:16:39,980
+obtener el valor de temperatura luego
+
+385
+00:16:37,700 --> 00:16:43,730
+solo nos resta imprimir en el monitor
+
+386
+00:16:39,980 --> 00:16:45,920
+serie el texto temperatura dos puntos un
+
+387
+00:16:43,730 --> 00:16:48,740
+espacio el valor de la variable
+
+388
+00:16:45,919 --> 00:16:51,049
+temperatura y luego un espacio y la
+
+389
+00:16:48,740 --> 00:16:53,600
+letra se indicando que es en grados
+
+390
+00:16:51,049 --> 00:16:56,509
+centígrados finalmente una demora de
+
+391
+00:16:53,600 --> 00:16:59,240
+medio segundo entre lecturas y listo
+
+392
+00:16:56,509 --> 00:17:02,149
+vamos a verificar y subir el programa
+
+393
+00:16:59,240 --> 00:17:04,670
+luego a abrir el monitor serie podrás
+
+394
+00:17:02,149 --> 00:17:07,250
+ver cómo se muestra la temperatura y se
+
+395
+00:17:04,670 --> 00:17:09,800
+actualiza cada medio segundo es normal
+
+396
+00:17:07,250 --> 00:17:12,109
+una variación de los decimales podrías
+
+397
+00:17:09,799 --> 00:17:14,720
+modificar el delay de la última línea
+
+398
+00:17:12,109 --> 00:17:17,479
+para por ejemplo tomar lecturas cada un
+
+399
+00:17:14,720 --> 00:17:20,240
+segundo o aplicar el método visto en el
+
+400
+00:17:17,480 --> 00:17:23,059
+capítulo 23 que consiste en tomar por
+
+401
+00:17:20,240 --> 00:17:25,130
+ejemplo 5 lecturas y hacer el promedio
+
+402
+00:17:23,059 --> 00:17:27,139
+de las mismas para obtener una variación
+
+403
+00:17:25,130 --> 00:17:29,810
+menor podrán verificar el correcto
+
+404
+00:17:27,140 --> 00:17:32,060
+funcionamiento del sensor tocándolo con
+
+405
+00:17:29,809 --> 00:17:35,059
+la mano y ver cómo incrementa el valor
+
+406
+00:17:32,059 --> 00:17:38,000
+de temperatura y luego al soltar vuelve
+
+407
+00:17:35,059 --> 00:17:39,048
+lentamente al valor inicial por supuesto
+
+408
+00:17:38,000 --> 00:17:41,388
+que una vez que tenemos
+
+409
+00:17:39,048 --> 00:17:43,158
+en la variable el valor de temperatura
+
+410
+00:17:41,388 --> 00:17:45,648
+podemos aplicar la lógica que
+
+411
+00:17:43,159 --> 00:17:47,600
+necesitemos con un simple if
+
+412
+00:17:45,648 --> 00:17:50,178
+si la temperatura es mayor a un
+
+413
+00:17:47,599 --> 00:17:50,839
+determinado valor activar un módulo de
+
+414
+00:17:50,179 --> 00:17:53,269
+relé
+
+415
+00:17:50,839 --> 00:17:55,730
+ge su vez enciendo un ventilador u otro
+
+416
+00:17:53,269 --> 00:17:58,249
+dispositivo o cualquier otra acción
+
+417
+00:17:55,730 --> 00:18:00,440
+requerida para finalizar el capítulo te
+
+418
+00:17:58,249 --> 00:18:03,019
+quiero mostrar una aplicación práctica
+
+419
+00:18:00,440 --> 00:18:05,210
+del término en mi impresora 3d que estoy
+
+420
+00:18:03,019 --> 00:18:07,159
+armando uno de los transmisores que usa
+
+421
+00:18:05,210 --> 00:18:10,489
+la impresora se encuentra sobre la
+
+422
+00:18:07,159 --> 00:18:12,649
+denominada cama caliente o hot bird que
+
+423
+00:18:10,489 --> 00:18:15,079
+sirve para mantener una superficie
+
+424
+00:18:12,648 --> 00:18:18,138
+caliente donde se va depositando el
+
+425
+00:18:15,079 --> 00:18:20,839
+filamento se puede ver cómo del centro
+
+426
+00:18:18,138 --> 00:18:23,719
+de este dispositivo sale un término de
+
+427
+00:18:20,839 --> 00:18:26,298
+100k como el de la práctica otro punto
+
+428
+00:18:23,720 --> 00:18:29,450
+donde se utiliza un permiso es sobre el
+
+429
+00:18:26,298 --> 00:18:32,509
+pico caliente o hot and de dónde sale un
+
+430
+00:18:29,450 --> 00:18:35,179
+pequeño hilo de filamento plástico este
+
+431
+00:18:32,509 --> 00:18:37,548
+pico debe fundir el filamento y por ese
+
+432
+00:18:35,179 --> 00:18:40,460
+motivo debe mantener una temperatura
+
+433
+00:18:37,548 --> 00:18:42,798
+promedio de unos 200 grados centígrados
+
+434
+00:18:40,460 --> 00:18:44,869
+así que el término en este caso se
+
+435
+00:18:42,798 --> 00:18:45,798
+utiliza para monitorear el valor de
+
+436
+00:18:44,868 --> 00:18:48,349
+temperatura
+
+437
+00:18:45,798 --> 00:18:51,319
+y mantener el sistema dentro del rango
+
+438
+00:18:48,349 --> 00:18:53,898
+adecuado esta impresora 3d utiliza una
+
+439
+00:18:51,319 --> 00:18:57,079
+placa arduino mega que aquí no llega a
+
+440
+00:18:53,898 --> 00:19:00,109
+verse bien ya que tiene un field llamado
+
+441
+00:18:57,079 --> 00:19:02,329
+ramps el cual permite controlar hasta 6
+
+442
+00:19:00,109 --> 00:19:06,558
+motores y utiliza el driver que vimos en
+
+443
+00:19:02,329 --> 00:19:09,288
+el capítulo 33 el a 49 88 que aquí se
+
+444
+00:19:06,558 --> 00:19:11,418
+aprecia como tres módulos de color verde
+
+445
+00:19:09,288 --> 00:19:14,210
+con su correspondiente disipador
+
+446
+00:19:11,419 --> 00:19:17,028
+colocado es solo para mostrarte un uso
+
+447
+00:19:14,210 --> 00:19:19,399
+práctico y de paso un vistazo a lo que
+
+448
+00:19:17,028 --> 00:19:21,858
+en un tiempo si todo va bien espero
+
+449
+00:19:19,398 --> 00:19:24,528
+poder hacer una serie de vídeos sobre la
+
+450
+00:19:21,858 --> 00:19:27,378
+impresión 3d con arduino eso es todo por
+
+451
+00:19:24,528 --> 00:19:29,019
+este capítulo si aún no lo hiciste te
+
+452
+00:19:27,378 --> 00:19:31,278
+pido te suscribas para recibir
+
+453
+00:19:29,019 --> 00:19:33,649
+notificaciones y por cualquier duda o
+
+454
+00:19:31,278 --> 00:19:37,190
+consulta como siempre lo podrás hacer
+
+455
+00:19:33,648 --> 00:19:39,788
+debajo y con gusto te responderé chau y
+
+456
+00:19:37,190 --> 00:19:39,788
+hasta la próxima
+

@@ -1,0 +1,2860 @@
+1
+00:00:01,679 --> 00:00:08,370
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,549 --> 00:00:10,320
+37 de arduino desde cero en español
+
+3
+00:00:08,369 --> 00:00:12,509
+en esta oportunidad aprenderemos a
+
+4
+00:00:10,320 --> 00:00:15,150
+trabajar con el módulo el lector de
+
+5
+00:00:12,509 --> 00:00:18,269
+memoria microsd mediante el cual
+
+6
+00:00:15,150 --> 00:00:21,060
+podremos leer y escribir información en
+
+7
+00:00:18,269 --> 00:00:23,339
+la tarjeta de memoria y luego extraerla
+
+8
+00:00:21,059 --> 00:00:25,948
+dando la flexibilidad de llevar datos
+
+9
+00:00:23,339 --> 00:00:28,350
+que arduino grabé en ella y luego
+
+10
+00:00:25,949 --> 00:00:29,868
+leerlos en una computadora con los datos
+
+11
+00:00:28,350 --> 00:00:32,759
+en la computadora o dispositivo
+
+12
+00:00:29,868 --> 00:00:34,880
+compatible podremos realizar un análisis
+
+13
+00:00:32,759 --> 00:00:37,859
+de la información por ejemplo
+
+14
+00:00:34,880 --> 00:00:41,070
+proveniente de distintos sensores y con
+
+15
+00:00:37,859 --> 00:00:43,200
+ello generar tablas o gráficos el módulo
+
+16
+00:00:41,070 --> 00:00:46,020
+que aquí se muestra consta del zócalo
+
+17
+00:00:43,200 --> 00:00:49,079
+donde se inserta la tarjeta de memoria y
+
+18
+00:00:46,020 --> 00:00:52,290
+pines de conexión para alimentación y
+
+19
+00:00:49,079 --> 00:00:55,710
+conexión arduino mediante interfaz serie
+
+20
+00:00:52,289 --> 00:00:58,530
+esp y la tarjeta de memoria funciona con
+
+21
+00:00:55,710 --> 00:01:00,870
+una atención de 33 volts con lo cual
+
+22
+00:00:58,530 --> 00:01:03,480
+sobre el circuito impreso del módulo
+
+23
+00:01:00,869 --> 00:01:07,140
+tendremos un regulador lineal de tensión
+
+24
+00:01:03,479 --> 00:01:08,039
+de 5 a 33 volts y un circuito integrado
+
+25
+00:01:07,140 --> 00:01:12,329
+nivel
+
+26
+00:01:08,040 --> 00:01:14,400
+de señal también de 5 a 33 volts de esta
+
+27
+00:01:12,329 --> 00:01:17,340
+manera podemos conectarlo de forma
+
+28
+00:01:14,400 --> 00:01:20,310
+directa arduino con alimentación de 5
+
+29
+00:01:17,340 --> 00:01:22,590
+volts sin problemas los primeros 4 pines
+
+30
+00:01:20,310 --> 00:01:25,829
+de la parte superior corresponden a la
+
+31
+00:01:22,590 --> 00:01:28,740
+interfaz esp y los dos últimos a la
+
+32
+00:01:25,829 --> 00:01:31,049
+alimentación aprovecharemos este módulo
+
+33
+00:01:28,739 --> 00:01:34,169
+para hacer una breve introducción a la
+
+34
+00:01:31,049 --> 00:01:36,239
+comunicación serie mediante el cpi que
+
+35
+00:01:34,170 --> 00:01:39,900
+proviene de las siglas en inglés de
+
+36
+00:01:36,239 --> 00:01:42,359
+serial peripheral interface interfaz de
+
+37
+00:01:39,900 --> 00:01:45,270
+periféricos serie ya vimos en el
+
+38
+00:01:42,359 --> 00:01:48,478
+capítulo 35 que el vino tiene otra
+
+39
+00:01:45,269 --> 00:01:50,789
+interfaz serie llamada y 12 la cual
+
+40
+00:01:48,478 --> 00:01:53,450
+requiere de solo dos cables de conexión
+
+41
+00:01:50,790 --> 00:01:56,130
+y permite encadenar dispositivos
+
+42
+00:01:53,450 --> 00:01:58,978
+identificando los cada uno mediante una
+
+43
+00:01:56,129 --> 00:02:01,560
+dirección en el caso de la interfaz esp
+
+44
+00:01:58,978 --> 00:02:04,530
+y tendremos cuatro conexiones entre
+
+45
+00:02:01,560 --> 00:02:07,320
+arduino que tomará el rol de maestro y
+
+46
+00:02:04,530 --> 00:02:10,179
+un dispositivo esclavo como sería para
+
+47
+00:02:07,319 --> 00:02:12,789
+nosotros el lector de memoria micro
+
+48
+00:02:10,179 --> 00:02:19,810
+de la nomenclatura que se utiliza es la
+
+49
+00:02:12,789 --> 00:02:23,530
+siguiente mos y miso s seca y ss músico
+
+50
+00:02:19,810 --> 00:02:28,209
+responde a las siglas master out es life
+
+51
+00:02:23,530 --> 00:02:30,549
+in es decir maestros al esclavo ingresa
+
+52
+00:02:28,209 --> 00:02:32,979
+en otras palabras lo que indica el
+
+53
+00:02:30,549 --> 00:02:35,799
+sentido de circulación de los datos que
+
+54
+00:02:32,979 --> 00:02:38,229
+saldrán desde el maestro e ingresarán en
+
+55
+00:02:35,799 --> 00:02:41,019
+el esclavo aquí en el diagrama lo vemos
+
+56
+00:02:38,229 --> 00:02:45,908
+representado por la flecha de color azul
+
+57
+00:02:41,019 --> 00:02:50,049
+miso por su parte será master in slave
+
+58
+00:02:45,908 --> 00:02:52,479
+out maestro ingresa esclavo sale
+
+59
+00:02:50,049 --> 00:02:55,150
+nuevamente indicando el sentido de la
+
+60
+00:02:52,479 --> 00:02:58,358
+circulación de datos mostrado aquí con
+
+61
+00:02:55,150 --> 00:03:01,539
+la flecha de color verde y se seca será
+
+62
+00:02:58,359 --> 00:03:03,939
+el reloj es serie sería el bloc el cual
+
+63
+00:03:01,539 --> 00:03:06,158
+genera los pulsos de reloj para la
+
+64
+00:03:03,938 --> 00:03:09,789
+sincronización de los datos entre
+
+65
+00:03:06,158 --> 00:03:12,969
+maestro y esclavo y finalmente ese es el
+
+66
+00:03:09,789 --> 00:03:16,000
+que corresponde a slave select
+
+67
+00:03:12,969 --> 00:03:18,550
+de esclavo que es una línea activa con
+
+68
+00:03:16,000 --> 00:03:22,360
+nivel bajo por eso tiene encima de la
+
+69
+00:03:18,550 --> 00:03:25,000
+indicación una línea recta ss permite
+
+70
+00:03:22,360 --> 00:03:27,520
+habilitar al dispositivo esclavo y es
+
+71
+00:03:25,000 --> 00:03:29,710
+necesario aunque tengamos a un solo
+
+72
+00:03:27,520 --> 00:03:31,570
+esclavo hablando del tema
+
+73
+00:03:29,710 --> 00:03:34,570
+s&amp;p y también permite encadenar
+
+74
+00:03:31,569 --> 00:03:38,590
+múltiples dispositivos compartiendo las
+
+75
+00:03:34,569 --> 00:03:41,859
+mismas líneas mos y miso y ese seca pero
+
+76
+00:03:38,590 --> 00:03:44,770
+a diferencia de 12 cada esclavo debe ser
+
+77
+00:03:41,860 --> 00:03:47,530
+seleccionado de forma independiente con
+
+78
+00:03:44,770 --> 00:03:50,380
+una línea dedicada aquí vemos un segundo
+
+79
+00:03:47,530 --> 00:03:53,289
+dispositivo conectado al base sp y
+
+80
+00:03:50,379 --> 00:03:55,389
+comparte las dos líneas de datos y el
+
+81
+00:03:53,289 --> 00:03:58,389
+reloj pero requiere que el maestro le
+
+82
+00:03:55,389 --> 00:04:02,199
+dedique una línea separada de slave
+
+83
+00:03:58,389 --> 00:04:04,899
+select que aquí asume el nombre de ss 2
+
+84
+00:04:02,199 --> 00:04:08,299
+entonces para resumir la conexión por
+
+85
+00:04:04,900 --> 00:04:11,719
+base esp requiere de las líneas
+
+86
+00:04:08,300 --> 00:04:15,290
+miso que se seca y por cada dispositivo
+
+87
+00:04:11,719 --> 00:04:18,620
+esclavo conectado una línea exclusiva de
+
+88
+00:04:15,289 --> 00:04:21,469
+slide select dos dispositivos requerirán
+
+89
+00:04:18,620 --> 00:04:24,590
+de dos líneas independientes de slave
+
+90
+00:04:21,470 --> 00:04:27,350
+select un tercer dispositivo una tercer
+
+91
+00:04:24,589 --> 00:04:29,629
+línea como ya podrás ir imaginando este
+
+92
+00:04:27,350 --> 00:04:32,270
+tipo de conexión requiere de más líneas
+
+93
+00:04:29,629 --> 00:04:34,610
+que 12 pero tiene de bueno que no
+
+94
+00:04:32,269 --> 00:04:36,919
+debemos preocuparnos por la dirección de
+
+95
+00:04:34,610 --> 00:04:39,710
+cada esclavo como tenemos una línea
+
+96
+00:04:36,920 --> 00:04:41,990
+dedicada a cada dispositivo cada vez que
+
+97
+00:04:39,709 --> 00:04:44,599
+arduino requiere comunicarse con alguno
+
+98
+00:04:41,990 --> 00:04:48,050
+de ellos solo tiene que colocar un nivel
+
+99
+00:04:44,600 --> 00:04:50,840
+bajo low en la línea slide select que le
+
+100
+00:04:48,050 --> 00:04:53,300
+corresponda y listo me olvidaba de
+
+101
+00:04:50,839 --> 00:04:56,029
+mencionar que la indicación de slave
+
+102
+00:04:53,300 --> 00:04:59,000
+select del lado del esclavo también
+
+103
+00:04:56,029 --> 00:05:02,269
+suele llamarse chip select por eso entre
+
+104
+00:04:59,000 --> 00:05:03,689
+paréntesis al lado de ss están las
+
+105
+00:05:02,269 --> 00:05:06,359
+letras
+
+106
+00:05:03,689 --> 00:05:09,539
+de manera que cuando veas documentación
+
+107
+00:05:06,360 --> 00:05:12,329
+o escuches el término chip select es lo
+
+108
+00:05:09,538 --> 00:05:14,848
+mismo que es live select el hecho de
+
+109
+00:05:12,329 --> 00:05:18,028
+tener dos líneas independientes para la
+
+110
+00:05:14,848 --> 00:05:20,488
+recepción y envío de datos entre maestro
+
+111
+00:05:18,028 --> 00:05:22,949
+y esclavo permite una alta velocidad de
+
+112
+00:05:20,488 --> 00:05:25,618
+comunicación y además el envío y
+
+113
+00:05:22,949 --> 00:05:28,679
+recepción en simultáneo que lleva el
+
+114
+00:05:25,619 --> 00:05:30,959
+nombre de full duplex esta es una
+
+115
+00:05:28,678 --> 00:05:33,899
+característica que hace relevante a la
+
+116
+00:05:30,959 --> 00:05:36,059
+interfaz esp y que es más rápida que ha
+
+117
+00:05:33,899 --> 00:05:37,860
+ido se y está en el orden de los
+
+118
+00:05:36,059 --> 00:05:40,319
+megabits por segundo
+
+119
+00:05:37,860 --> 00:05:42,838
+algunos dispositivos esclavos no tienen
+
+120
+00:05:40,319 --> 00:05:45,718
+la necesidad de enviar y recibir datos
+
+121
+00:05:42,838 --> 00:05:48,389
+puede ser que sólo necesiten recibir del
+
+122
+00:05:45,718 --> 00:05:50,968
+maestro o solo enviarle con lo cual
+
+123
+00:05:48,389 --> 00:05:53,579
+podremos conectarlo con sólo tres líneas
+
+124
+00:05:50,968 --> 00:05:56,218
+en vez de cuatro en el primer ejemplo de
+
+125
+00:05:53,579 --> 00:05:58,949
+la izquierda tenemos un esclavo que sólo
+
+126
+00:05:56,218 --> 00:06:01,168
+recibe datos por parte del maestro con
+
+127
+00:05:58,949 --> 00:06:05,639
+lo cual solo requiere de la conexión
+
+128
+00:06:01,168 --> 00:06:07,799
+moss y las conexiones a ese seca y ss
+
+129
+00:06:05,639 --> 00:06:10,168
+son obligatorias ya que siempre se
+
+130
+00:06:07,800 --> 00:06:12,629
+necesita de una línea de reloj
+
+131
+00:06:10,168 --> 00:06:15,329
+y una de selección del esclavo cuando el
+
+132
+00:06:12,629 --> 00:06:18,479
+dispositivo tiene una única línea ya sea
+
+133
+00:06:15,329 --> 00:06:20,668
+para recibir o enviar datos se suele
+
+134
+00:06:18,478 --> 00:06:24,028
+utilizar un tipo de nomenclatura
+
+135
+00:06:20,668 --> 00:06:27,269
+reducida en este caso donde sólo recibe
+
+136
+00:06:24,028 --> 00:06:29,999
+datos del maestro se lo indica como ese
+
+137
+00:06:27,269 --> 00:06:32,878
+y en lugar de moshi ya que se
+
+138
+00:06:29,999 --> 00:06:37,169
+sobreentiende que si el esclavo recibe
+
+139
+00:06:32,879 --> 00:06:39,990
+datos es live in el maestro envía master
+
+140
+00:06:37,168 --> 00:06:42,448
+out en definitiva se deja solo la parte
+
+141
+00:06:39,990 --> 00:06:44,610
+que corresponde al esclavo en el segundo
+
+142
+00:06:42,449 --> 00:06:47,490
+ejemplo tenemos un esclavo que sólo
+
+143
+00:06:44,610 --> 00:06:51,088
+envía datos al maestro con lo cual la
+
+144
+00:06:47,490 --> 00:06:53,759
+nomenclatura es simplemente eso es live
+
+145
+00:06:51,088 --> 00:06:56,189
+out de esa manera sabemos que desde el
+
+146
+00:06:53,759 --> 00:06:58,860
+punto de vista de arduino se trata de la
+
+147
+00:06:56,189 --> 00:07:00,900
+conexión miso vamos al circuito de
+
+148
+00:06:58,860 --> 00:07:03,150
+conexión para ver en qué pines de
+
+149
+00:07:00,899 --> 00:07:07,498
+arduino tendremos los correspondientes
+
+150
+00:07:03,149 --> 00:07:10,949
+al interfaz esp y en arduino 1 mod si se
+
+151
+00:07:07,499 --> 00:07:15,810
+encuentra sobre el pin digital número 11
+
+152
+00:07:10,949 --> 00:07:18,449
+en el pin 12 y se seca en el pin 13 y es
+
+153
+00:07:15,810 --> 00:07:21,269
+leiby select o lo que es lo mismo chip
+
+154
+00:07:18,449 --> 00:07:23,939
+select sobre el 10 cuando se conecta un
+
+155
+00:07:21,269 --> 00:07:26,879
+solo dispositivo al bash esp y es
+
+156
+00:07:23,939 --> 00:07:29,040
+conveniente utilizar el 10 como slide
+
+157
+00:07:26,879 --> 00:07:31,439
+select luego a medida que se van
+
+158
+00:07:29,040 --> 00:07:34,260
+conectando a otros dispositivos podemos
+
+159
+00:07:31,439 --> 00:07:35,790
+definir otros pines para ese live select
+
+160
+00:07:34,259 --> 00:07:37,800
+de cada uno de ellos
+
+161
+00:07:35,790 --> 00:07:40,200
+en esta nota tenemos también los pines
+
+162
+00:07:37,800 --> 00:07:42,600
+que corresponden en caso de usar el
+
+163
+00:07:40,199 --> 00:07:45,029
+modelo mega con lo cual la conexión
+
+164
+00:07:42,600 --> 00:07:48,210
+entre arduino y el módulo el lector de
+
+165
+00:07:45,029 --> 00:07:50,669
+memoria microsd es muy simple y no se
+
+166
+00:07:48,209 --> 00:07:53,430
+requiere pasar por protoboard podremos
+
+167
+00:07:50,670 --> 00:07:57,000
+utilizar cables directos que serán uno
+
+168
+00:07:53,430 --> 00:08:00,420
+desde el chip select del módulo al pin
+
+169
+00:07:57,000 --> 00:08:05,399
+digital número 10 de arduino que se seca
+
+170
+00:08:00,420 --> 00:08:08,819
+del módulo al pin 13 mos y al pin 11 y
+
+171
+00:08:05,399 --> 00:08:11,339
+miso al pin 12 voy a traer a pantalla la
+
+172
+00:08:08,819 --> 00:08:13,319
+imagen del módulo para que veas un error
+
+173
+00:08:11,339 --> 00:08:16,138
+que aparece en la indicación de los
+
+174
+00:08:13,319 --> 00:08:19,810
+pines vemos que debajo de moshi
+
+175
+00:08:16,139 --> 00:08:22,960
+moso claramente es un error debe decir
+
+176
+00:08:19,810 --> 00:08:26,079
+miso de manera que si tu módulo es como
+
+177
+00:08:22,959 --> 00:08:29,259
+el mío y ves que dice mos o en realidad
+
+178
+00:08:26,079 --> 00:08:32,168
+es miso hecha la aclaración solo nos
+
+179
+00:08:29,259 --> 00:08:34,750
+resta conectar veces a la salida de
+
+180
+00:08:32,168 --> 00:08:37,960
+cinco bolsas de arduino higiene del
+
+181
+00:08:34,750 --> 00:08:40,690
+módulo a gene de arduino y eso es todo
+
+182
+00:08:37,960 --> 00:08:42,940
+la tarjeta de memoria microsd tiene un
+
+183
+00:08:40,690 --> 00:08:45,550
+tamaño muy pequeño y es ideal para
+
+184
+00:08:42,940 --> 00:08:47,890
+dispositivos portátiles para conectarla
+
+185
+00:08:45,549 --> 00:08:50,469
+a nuestra computadora podemos optar por
+
+186
+00:08:47,889 --> 00:08:54,850
+dos métodos uno de ellos es un adaptador
+
+187
+00:08:50,470 --> 00:08:57,040
+de micro sd o sd de tamaño completo si
+
+188
+00:08:54,850 --> 00:08:59,110
+tu computadora o notebook tiene el
+
+189
+00:08:57,039 --> 00:09:01,629
+lector de memorias podrás usar este
+
+190
+00:08:59,110 --> 00:09:04,570
+adaptador otra forma es utilizar un
+
+191
+00:09:01,629 --> 00:09:06,820
+adaptador de micro sd o usb
+
+192
+00:09:04,570 --> 00:09:09,870
+de esta manera podremos acceder a la
+
+193
+00:09:06,820 --> 00:09:12,940
+memoria utilizando cualquier puerto usb
+
+194
+00:09:09,870 --> 00:09:14,919
+disponible así que dependerá un poco de
+
+195
+00:09:12,940 --> 00:09:17,200
+los puertos que tengas disponibles en tu
+
+196
+00:09:14,919 --> 00:09:21,039
+computadora yo voy a usar el conversor
+
+197
+00:09:17,200 --> 00:09:22,360
+micro sd a usb antes de colocar la
+
+198
+00:09:21,039 --> 00:09:24,969
+memoria en el modo
+
+199
+00:09:22,360 --> 00:09:27,039
+debemos verificar que se encuentre en el
+
+200
+00:09:24,970 --> 00:09:29,200
+formato adecuado para saberlo
+
+201
+00:09:27,039 --> 00:09:31,689
+conectaremos la memoria a la computadora
+
+202
+00:09:29,200 --> 00:09:34,240
+nos aparecerá como un dispositivo de
+
+203
+00:09:31,690 --> 00:09:36,279
+almacenamiento extraíble con botón
+
+204
+00:09:34,240 --> 00:09:38,950
+derecho podemos ver las propiedades de
+
+205
+00:09:36,278 --> 00:09:42,450
+la misma existen distintos formatos para
+
+206
+00:09:38,950 --> 00:09:47,140
+almacenamiento extraíble puede ser fat
+
+207
+00:09:42,450 --> 00:09:50,320
+fat32 y ntfs para windows y muchos otros
+
+208
+00:09:47,139 --> 00:09:52,838
+para mac o linux arduino necesita que la
+
+209
+00:09:50,320 --> 00:09:56,740
+memoria tenga un sistema de archivos en
+
+210
+00:09:52,839 --> 00:09:59,560
+formato fat of fat32 aquí se puede ver
+
+211
+00:09:56,740 --> 00:10:02,470
+en mi caso se trata de una memoria de un
+
+212
+00:09:59,559 --> 00:10:04,479
+giga y el formato es fat deberás
+
+213
+00:10:02,470 --> 00:10:08,829
+verificar que la memoria que vayas a
+
+214
+00:10:04,480 --> 00:10:10,990
+utilizar esté en formato fat o fat32 si
+
+215
+00:10:08,828 --> 00:10:13,989
+está en algún otro deberás utilizar la
+
+216
+00:10:10,990 --> 00:10:17,350
+función de formatear y elegir fat o
+
+217
+00:10:13,990 --> 00:10:19,329
+fat32 mi memoria de un giga es de muy
+
+218
+00:10:17,350 --> 00:10:21,720
+baja capacidad para los estándares
+
+219
+00:10:19,328 --> 00:10:25,208
+actuales de hecho es casi imposible
+
+220
+00:10:21,720 --> 00:10:27,550
+adquirir una nueva memoria de menos de 4
+
+221
+00:10:25,208 --> 00:10:28,599
+gigabytes pero para arruinó las de baja
+
+222
+00:10:27,549 --> 00:10:31,120
+capacidad
+
+223
+00:10:28,600 --> 00:10:33,399
+son ideales y posiblemente incluso
+
+224
+00:10:31,120 --> 00:10:36,909
+tengas algunas de un viejo teléfono
+
+225
+00:10:33,399 --> 00:10:39,370
+móvil ella no uses para memorias de un
+
+226
+00:10:36,909 --> 00:10:41,708
+giga o dos gigabytes se recomienda el
+
+227
+00:10:39,370 --> 00:10:45,399
+sistema de archivos fat para aquellas de
+
+228
+00:10:41,708 --> 00:10:47,318
+mayor capacidad fat32 si la tarjeta de
+
+229
+00:10:45,399 --> 00:10:50,679
+memoria tiene contenido como ser
+
+230
+00:10:47,318 --> 00:10:52,719
+archivos fotos música no es necesario
+
+231
+00:10:50,679 --> 00:10:54,669
+que elimines dicho contenido no es
+
+232
+00:10:52,720 --> 00:10:57,040
+obligatorio que la memoria esté vacía
+
+233
+00:10:54,669 --> 00:10:59,860
+desde arduino seremos capaces de crear
+
+234
+00:10:57,039 --> 00:11:02,649
+nuestros propios archivos sin interferir
+
+235
+00:10:59,860 --> 00:11:05,350
+con los ya existentes muy bien ahora si
+
+236
+00:11:02,649 --> 00:11:08,049
+ya tenemos lista la tarjeta de memoria y
+
+237
+00:11:05,350 --> 00:11:10,389
+el circuito de conexión vamos al primer
+
+238
+00:11:08,049 --> 00:11:13,508
+programa aquí se muestra la totalidad
+
+239
+00:11:10,389 --> 00:11:16,120
+del mismo y como siempre iremos línea
+
+240
+00:11:13,509 --> 00:11:18,490
+por línea usaremos dos librerías que ya
+
+241
+00:11:16,120 --> 00:11:20,799
+vienen incorporadas en el id de arduino
+
+242
+00:11:18,490 --> 00:11:23,709
+con lo cual no es necesario descargar
+
+243
+00:11:20,799 --> 00:11:27,039
+las que serán sp y para la comunicación
+
+244
+00:11:23,708 --> 00:11:28,559
+por dicho bases de datos y sd para el
+
+245
+00:11:27,039 --> 00:11:32,439
+manejo de la tarjeta de memoria
+
+246
+00:11:28,559 --> 00:11:35,469
+definiremos una constante llamada ss pin
+
+247
+00:11:32,440 --> 00:11:38,530
+con el número 10 ya que usaremos el
+
+248
+00:11:35,470 --> 00:11:41,110
+digital número 10 para el slave select
+
+249
+00:11:38,529 --> 00:11:43,689
+el slave select puede definirse en
+
+250
+00:11:41,110 --> 00:11:45,820
+cualquier otro pin digital pero cuando
+
+251
+00:11:43,690 --> 00:11:48,640
+tenemos un solo dispositivo conectado
+
+252
+00:11:45,820 --> 00:11:51,670
+conviene usar el 10 por eso lo definimos
+
+253
+00:11:48,639 --> 00:11:54,370
+aquí al principio como constante por si
+
+254
+00:11:51,669 --> 00:11:56,949
+optáramos por usar un pin diferente
+
+255
+00:11:54,370 --> 00:12:00,340
+luego creamos un objeto del tipo file
+
+256
+00:11:56,950 --> 00:12:02,890
+llamado archivo al declarar archivo del
+
+257
+00:12:00,340 --> 00:12:05,740
+tipo file que forma parte de la librería
+
+258
+00:12:02,889 --> 00:12:08,230
+sd podremos utilizar sus funciones
+
+259
+00:12:05,740 --> 00:12:10,990
+asociadas que nos permitirán de manera
+
+260
+00:12:08,230 --> 00:12:13,420
+muy simple interactuar con la tarjeta de
+
+261
+00:12:10,990 --> 00:12:15,940
+memoria ahora comenzaremos con el setup
+
+262
+00:12:13,419 --> 00:12:18,459
+y una característica de este programa es
+
+263
+00:12:15,940 --> 00:12:20,890
+que todo el código lo colocaremos aquí
+
+264
+00:12:18,460 --> 00:12:23,410
+dentro a diferencia de como veníamos
+
+265
+00:12:20,889 --> 00:12:26,350
+trabajando esto es porque deseamos que
+
+266
+00:12:23,409 --> 00:12:29,379
+se ejecute el código una sola vez y no
+
+267
+00:12:26,350 --> 00:12:32,139
+se repita constantemente más abajo el
+
+268
+00:12:29,379 --> 00:12:34,659
+loop es obligatorio declararlo aunque no
+
+269
+00:12:32,139 --> 00:12:37,000
+tenga ningún contenido dentro en la
+
+270
+00:12:34,659 --> 00:12:40,870
+primer línea de setup inicializa moss la
+
+271
+00:12:37,000 --> 00:12:42,070
+comunicación serie a 9.600 bps como ya
+
+272
+00:12:40,870 --> 00:12:45,009
+es usual en
+
+273
+00:12:42,070 --> 00:12:47,350
+vimos el texto inicial izando tarjeta
+
+274
+00:12:45,009 --> 00:12:49,539
+inmediatamente tendremos un bloque
+
+275
+00:12:47,350 --> 00:12:52,060
+condicional if que nos servirá para
+
+276
+00:12:49,539 --> 00:12:54,639
+iniciar izar la tarjeta de memoria y
+
+277
+00:12:52,059 --> 00:12:57,369
+escribir en el monitor serie si se ha
+
+278
+00:12:54,639 --> 00:12:59,889
+logrado con éxito o ha fallado el
+
+279
+00:12:57,370 --> 00:13:03,879
+proceso de inicialización lo realiza la
+
+280
+00:12:59,889 --> 00:13:07,149
+función begin del objeto sd y colocando
+
+281
+00:13:03,879 --> 00:13:09,669
+como parámetro el pin del slide select
+
+282
+00:13:07,149 --> 00:13:11,980
+que nosotros lo definimos como constante
+
+283
+00:13:09,669 --> 00:13:14,620
+al principio pueden darse varias
+
+284
+00:13:11,980 --> 00:13:17,980
+situaciones donde la inicialización de
+
+285
+00:13:14,620 --> 00:13:20,379
+la tarjeta fase 1 sería simplemente que
+
+286
+00:13:17,980 --> 00:13:22,779
+la tarjeta no esté presente es decir que
+
+287
+00:13:20,379 --> 00:13:25,090
+tenemos conectado el módulo lector pero
+
+288
+00:13:22,779 --> 00:13:28,000
+olvidamos insertar la tarjeta de memoria
+
+289
+00:13:25,090 --> 00:13:29,830
+también podría darse el caso de que no
+
+290
+00:13:28,000 --> 00:13:33,639
+estuviese en alguno de los formatos
+
+291
+00:13:29,830 --> 00:13:35,920
+compatibles fat o fat32 con lo cual
+
+292
+00:13:33,639 --> 00:13:39,879
+siempre debemos hacer esta verificación
+
+293
+00:13:35,919 --> 00:13:42,360
+el valor devuelto por s de punto begin
+
+294
+00:13:39,879 --> 00:13:45,759
+lo invertimos con el signo de admiración
+
+295
+00:13:42,360 --> 00:13:47,560
+delante de manera que si retorna falso
+
+296
+00:13:45,759 --> 00:13:50,110
+lo que indicaría un
+
+297
+00:13:47,559 --> 00:13:52,389
+de inicialización lo convertimos en
+
+298
+00:13:50,110 --> 00:13:55,750
+verdadero y escribimos en el monitor
+
+299
+00:13:52,389 --> 00:13:59,169
+serie falla en inicialización y la
+
+300
+00:13:55,750 --> 00:14:01,929
+siguiente línea dice return return se
+
+301
+00:13:59,169 --> 00:14:04,599
+utiliza para salir de una función en
+
+302
+00:14:01,929 --> 00:14:07,019
+este caso salimos del set up en el loop
+
+303
+00:14:04,600 --> 00:14:09,730
+no hay código con lo cual básicamente
+
+304
+00:14:07,019 --> 00:14:11,799
+detenemos el programa ya que si no
+
+305
+00:14:09,730 --> 00:14:14,220
+podemos inicializar la tarjeta de
+
+306
+00:14:11,799 --> 00:14:17,319
+memoria entonces no podemos realizar
+
+307
+00:14:14,220 --> 00:14:20,410
+ninguna tarea por el contrario si la
+
+308
+00:14:17,320 --> 00:14:23,260
+inicialización fue exitosa escribimos en
+
+309
+00:14:20,409 --> 00:14:25,809
+el monitor serie el texto inicialización
+
+310
+00:14:23,259 --> 00:14:28,210
+correcta y seguimos con el resto del
+
+311
+00:14:25,809 --> 00:14:30,879
+programa luego en archivo que lo
+
+312
+00:14:28,210 --> 00:14:33,820
+definimos antes como un objeto del tipo
+
+313
+00:14:30,879 --> 00:14:37,450
+file le asignamos el valor devuelto por
+
+314
+00:14:33,820 --> 00:14:39,970
+la función open del objeto s de esta
+
+315
+00:14:37,450 --> 00:14:43,540
+función como su nombre lo indica abre un
+
+316
+00:14:39,970 --> 00:14:47,350
+archivo con el nombre prueba a punto txt
+
+317
+00:14:43,539 --> 00:14:50,319
+y lo hace en el modo file write el modo
+
+318
+00:14:47,350 --> 00:14:52,740
+file write significa que abriremos el
+
+319
+00:14:50,320 --> 00:14:55,980
+archivo prueba de x
+
+320
+00:14:52,740 --> 00:14:58,169
+para su lectura o escritura y además si
+
+321
+00:14:55,980 --> 00:15:01,320
+el archivo no existe como en este caso
+
+322
+00:14:58,169 --> 00:15:04,889
+lo crea en definitiva lo que hacemos es
+
+323
+00:15:01,320 --> 00:15:07,770
+abrir un archivo llamado prueba txt para
+
+324
+00:15:04,889 --> 00:15:10,350
+lectura o escritura si dicho archivo no
+
+325
+00:15:07,769 --> 00:15:12,899
+existe lo crea el resultado de la
+
+326
+00:15:10,350 --> 00:15:16,589
+operación open devuelve un valor
+
+327
+00:15:12,899 --> 00:15:19,289
+verdadero si se tuvo éxito o falso en
+
+328
+00:15:16,589 --> 00:15:22,589
+caso contrario con lo cual si el archivo
+
+329
+00:15:19,289 --> 00:15:25,110
+tiene un valor true verdadero todo está
+
+330
+00:15:22,589 --> 00:15:27,720
+en orden si tiene un valor falso ha
+
+331
+00:15:25,110 --> 00:15:30,750
+fallado y aquí en el bloque else
+
+332
+00:15:27,720 --> 00:15:34,230
+imprimimos en el monitor serie el texto
+
+333
+00:15:30,750 --> 00:15:36,360
+error en apertura de prueba txt como
+
+334
+00:15:34,230 --> 00:15:39,389
+seguramente nuestra tarjeta se portará
+
+335
+00:15:36,360 --> 00:15:42,240
+bien con nosotros ingresaremos al bloque
+
+336
+00:15:39,389 --> 00:15:45,299
+if en la condición verdadero y aquí
+
+337
+00:15:42,240 --> 00:15:48,028
+escribiremos un texto de prueba escribir
+
+338
+00:15:45,299 --> 00:15:50,789
+un texto en el reciente creado archivo
+
+339
+00:15:48,028 --> 00:15:53,610
+prueba txt es muy fácil
+
+340
+00:15:50,789 --> 00:15:55,980
+usaremos las mismas funciones print y
+
+341
+00:15:53,610 --> 00:15:58,680
+print line que usamos en el monitor
+
+342
+00:15:55,980 --> 00:16:02,310
+serie sólo que en vez de usar el auge
+
+343
+00:15:58,679 --> 00:16:04,919
+serial usaremos el objeto archivo con lo
+
+344
+00:16:02,309 --> 00:16:07,799
+cual esta línea de código escribe en la
+
+345
+00:16:04,919 --> 00:16:12,629
+primera línea del archivo prueba punto
+
+346
+00:16:07,799 --> 00:16:15,149
+txt probando 1 2 3 la escritura de texto
+
+347
+00:16:12,629 --> 00:16:17,338
+en el archivo se realiza sobre la propia
+
+348
+00:16:15,149 --> 00:16:19,730
+tarjeta de memoria de manera que no
+
+349
+00:16:17,339 --> 00:16:22,620
+podremos ver qué es lo que está haciendo
+
+350
+00:16:19,730 --> 00:16:25,230
+simplemente le dimos el comando que
+
+351
+00:16:22,620 --> 00:16:27,720
+escriba una línea de texto por eso de
+
+352
+00:16:25,230 --> 00:16:30,990
+forma seguida escribiremos en el monitor
+
+353
+00:16:27,720 --> 00:16:34,350
+serie el texto escribiendo en archivo
+
+354
+00:16:30,990 --> 00:16:37,019
+prueba txt debe quedar claro que cuando
+
+355
+00:16:34,350 --> 00:16:39,690
+usamos archivo punto print line
+
+356
+00:16:37,019 --> 00:16:42,838
+escribimos en la tarjeta de memoria con
+
+357
+00:16:39,690 --> 00:16:45,390
+serial punto print line escribimos en la
+
+358
+00:16:42,839 --> 00:16:48,120
+ventana del monitor serie este último
+
+359
+00:16:45,389 --> 00:16:50,278
+sólo lo usamos para referencia y mostrar
+
+360
+00:16:48,120 --> 00:16:53,879
+cualquier error finalmente debemos
+
+361
+00:16:50,278 --> 00:16:56,519
+cerrar el archivo prueba punto txt con
+
+362
+00:16:53,879 --> 00:16:59,159
+la función close ya que en este primer
+
+363
+00:16:56,519 --> 00:17:00,958
+programa deseamos escribir una sola
+
+364
+00:16:59,159 --> 00:17:03,480
+línea para verificar el correcto
+
+365
+00:17:00,958 --> 00:17:04,679
+funcionamiento esto es algo obligatorio
+
+366
+00:17:03,480 --> 00:17:08,190
+cada vez
+
+367
+00:17:04,680 --> 00:17:11,310
+un archivo con la función open luego de
+
+368
+00:17:08,190 --> 00:17:14,250
+escribir o leer debemos cerrar con
+
+369
+00:17:11,309 --> 00:17:16,500
+clouds la función close asegura que los
+
+370
+00:17:14,250 --> 00:17:19,079
+datos que escribimos en la tarjeta ya se
+
+371
+00:17:16,500 --> 00:17:21,569
+encuentran almacenados y es seguro por
+
+372
+00:17:19,079 --> 00:17:23,759
+ejemplo remover la tarjeta si bien
+
+373
+00:17:21,569 --> 00:17:25,950
+escribimos una sola línea y es un
+
+374
+00:17:23,759 --> 00:17:28,710
+proceso muy rápido en otras
+
+375
+00:17:25,950 --> 00:17:30,960
+circunstancias podríamos demorar mucho
+
+376
+00:17:28,710 --> 00:17:33,690
+más en escribir los datos en la tarjeta
+
+377
+00:17:30,960 --> 00:17:36,269
+y si no aplicamos la función close y
+
+378
+00:17:33,690 --> 00:17:38,580
+removemos la tarjeta del módulo podría
+
+379
+00:17:36,269 --> 00:17:41,099
+quedar truncado el archivo pudiendo
+
+380
+00:17:38,579 --> 00:17:43,349
+perderse datos en el camino es muy
+
+381
+00:17:41,099 --> 00:17:46,019
+similar a cuando colocamos un pendrive
+
+382
+00:17:43,349 --> 00:17:49,289
+en la computadora antes de extraerlo
+
+383
+00:17:46,019 --> 00:17:51,720
+debemos expulsarlo por software esto
+
+384
+00:17:49,289 --> 00:17:55,159
+asegura que cualquier proceso de lectura
+
+385
+00:17:51,720 --> 00:17:58,200
+o escritura haya finalizado y es seguro
+
+386
+00:17:55,160 --> 00:18:00,390
+desconectarlo físicamente muy bien ya
+
+387
+00:17:58,200 --> 00:18:02,970
+vimos cómo almacenar datos en un archivo
+
+388
+00:18:00,390 --> 00:18:05,340
+de texto ahora vamos a ver el proceso de
+
+389
+00:18:02,970 --> 00:18:08,069
+lectura del mismo de manera muy similar
+
+390
+00:18:05,339 --> 00:18:09,439
+lo que haremos en esta línea es usar la
+
+391
+00:18:08,069 --> 00:18:11,778
+función open
+
+392
+00:18:09,440 --> 00:18:15,110
+indicando el nombre del archivo que en
+
+393
+00:18:11,778 --> 00:18:17,869
+nuestro caso es prueba punto txt luego
+
+394
+00:18:15,109 --> 00:18:20,869
+el bloque que verifica que el proceso de
+
+395
+00:18:17,869 --> 00:18:23,719
+apertura ha sido exitoso si todo va bien
+
+396
+00:18:20,869 --> 00:18:26,058
+ya tenemos abierto el archivo prueba y
+
+397
+00:18:23,720 --> 00:18:30,169
+procederemos a imprimir en el monitor
+
+398
+00:18:26,058 --> 00:18:33,528
+serie contenido de prueba punto txt y a
+
+399
+00:18:30,169 --> 00:18:36,139
+continuación un bucle while para leer la
+
+400
+00:18:33,528 --> 00:18:39,259
+totalidad del contenido del archivo la
+
+401
+00:18:36,138 --> 00:18:42,378
+condición que evalúa el while es archivo
+
+402
+00:18:39,259 --> 00:18:45,079
+punto available la función available
+
+403
+00:18:42,378 --> 00:18:47,569
+retorna verdadero mientras que exista
+
+404
+00:18:45,079 --> 00:18:49,428
+contenido dentro del archivo como la
+
+405
+00:18:47,569 --> 00:18:52,009
+longitud de un archivo puede ser
+
+406
+00:18:49,429 --> 00:18:55,190
+desconocido entonces debemos usar un
+
+407
+00:18:52,009 --> 00:18:57,558
+bucle que repita infinitamente mientras
+
+408
+00:18:55,190 --> 00:19:00,048
+que la condición sea verdadera con lo
+
+409
+00:18:57,558 --> 00:19:02,720
+cual mientras haya contenido dentro del
+
+410
+00:19:00,048 --> 00:19:04,849
+archivo repetirá el código entre sus
+
+411
+00:19:02,720 --> 00:19:07,730
+llaves la lectura del contenido se
+
+412
+00:19:04,849 --> 00:19:10,730
+realiza con la función ruido del objeto
+
+413
+00:19:07,730 --> 00:19:13,009
+archivo la misma retorna de un carácter
+
+414
+00:19:10,730 --> 00:19:15,170
+por vez es decir que la primera vez que
+
+415
+00:19:13,009 --> 00:19:18,559
+se ejecuta archivo punto
+
+416
+00:19:15,170 --> 00:19:21,860
+y devolver a la letra p en mayúscula ya
+
+417
+00:19:18,559 --> 00:19:24,319
+que escribimos la línea probando 123 con
+
+418
+00:19:21,859 --> 00:19:27,349
+lo cual el primer carácter de la cadena
+
+419
+00:19:24,319 --> 00:19:29,539
+es la letra p mayúscula dicho carácter
+
+420
+00:19:27,349 --> 00:19:32,689
+lo imprimimos en el monitor serie para
+
+421
+00:19:29,539 --> 00:19:35,569
+poder visualizarlo y así el bucle while
+
+422
+00:19:32,690 --> 00:19:37,309
+se mantendrá y tirando de un caracter
+
+423
+00:19:35,569 --> 00:19:40,189
+por beige hasta que no haya más
+
+424
+00:19:37,309 --> 00:19:43,190
+contenido en el archivo en ese caso se
+
+425
+00:19:40,190 --> 00:19:45,830
+sale del bucle y cerramos el archivo con
+
+426
+00:19:43,190 --> 00:19:48,830
+la función close y ese es todo el
+
+427
+00:19:45,829 --> 00:19:51,079
+programa la parte del el es en caso de
+
+428
+00:19:48,829 --> 00:19:53,419
+que hubiese surgido algún error en la
+
+429
+00:19:51,079 --> 00:19:56,119
+apertura del archivo así que para la
+
+430
+00:19:53,420 --> 00:19:59,450
+lectura verá que es muy fácil se abre el
+
+431
+00:19:56,119 --> 00:20:01,729
+archivo y con el bucle while se le da un
+
+432
+00:19:59,450 --> 00:20:03,860
+carácter por ves hasta que no existan
+
+433
+00:20:01,730 --> 00:20:06,980
+más contenidos vamos entonces a
+
+434
+00:20:03,859 --> 00:20:09,199
+verificar y subir el programa en este
+
+435
+00:20:06,980 --> 00:20:11,809
+caso va a ser necesario que abras el
+
+436
+00:20:09,200 --> 00:20:14,660
+monitor serie antes de que finalice de
+
+437
+00:20:11,809 --> 00:20:17,269
+subir el código arduino y ya te explicó
+
+438
+00:20:14,660 --> 00:20:21,230
+el motivo muy bien en la ventana vimos
+
+439
+00:20:17,269 --> 00:20:23,450
+el texto de inicial izando tarjeta luego
+
+440
+00:20:21,230 --> 00:20:25,730
+eso ha sido correcto ya esta altura
+
+441
+00:20:23,450 --> 00:20:26,269
+estamos escribiendo en la tarjeta de
+
+442
+00:20:25,730 --> 00:20:30,200
+memoria
+
+443
+00:20:26,269 --> 00:20:32,619
+el texto probando 1 2 3 y por el monitor
+
+444
+00:20:30,200 --> 00:20:36,048
+serie tendremos un mensaje de
+
+445
+00:20:32,619 --> 00:20:38,959
+escribiendo en archivos prueba punto txt
+
+446
+00:20:36,048 --> 00:20:41,539
+y finalmente escritura correcta ahora
+
+447
+00:20:38,960 --> 00:20:44,390
+procedemos a abrir el archivo prueba
+
+448
+00:20:41,539 --> 00:20:46,808
+punto txt y mostrar el contenido del
+
+449
+00:20:44,390 --> 00:20:49,070
+mismo que es la única línea de texto
+
+450
+00:20:46,808 --> 00:20:51,168
+probando 1 2 3
+
+451
+00:20:49,069 --> 00:20:53,509
+de esta forma verificamos que pudimos
+
+452
+00:20:51,169 --> 00:20:56,390
+acceder correctamente la tarjeta de
+
+453
+00:20:53,509 --> 00:20:59,000
+memoria creamos un archivo de texto y
+
+454
+00:20:56,390 --> 00:21:01,340
+guardamos una línea en el mismo luego lo
+
+455
+00:20:59,000 --> 00:21:03,259
+abrimos nuevamente esta vez para su
+
+456
+00:21:01,339 --> 00:21:05,779
+lectura te decía que al subir el
+
+457
+00:21:03,259 --> 00:21:08,269
+programa por primera vez era necesario
+
+458
+00:21:05,779 --> 00:21:10,339
+ya ir teniendo el monitor sería abierto
+
+459
+00:21:08,269 --> 00:21:12,740
+el motivo es que cuando se abre el
+
+460
+00:21:10,339 --> 00:21:16,039
+monitor serie de forma automática
+
+461
+00:21:12,740 --> 00:21:18,440
+arduino genera un reset iniciando
+
+462
+00:21:16,039 --> 00:21:21,079
+nuevamente el programa si subimos el
+
+463
+00:21:18,440 --> 00:21:23,720
+código y luego de unos segundos abrimos
+
+464
+00:21:21,079 --> 00:21:27,048
+el monitor serie veríamos que el texto
+
+465
+00:21:23,720 --> 00:21:30,048
+probando 123 aparece duplicado
+
+466
+00:21:27,048 --> 00:21:32,690
+una vez lo ejecuta inmediatamente subido
+
+467
+00:21:30,048 --> 00:21:35,868
+el programa y luego al abrir la ventana
+
+468
+00:21:32,690 --> 00:21:37,639
+del monitor serie se genera un reset que
+
+469
+00:21:35,868 --> 00:21:40,368
+vuelve a ejecutar el programa por
+
+470
+00:21:37,638 --> 00:21:42,678
+segunda vez escribiendo una nueva línea
+
+471
+00:21:40,368 --> 00:21:46,308
+de texto en el archivo como el archivo
+
+472
+00:21:42,679 --> 00:21:49,159
+prueba punto txt ya existe lo que hace
+
+473
+00:21:46,308 --> 00:21:51,528
+el parámetro file right es agregar el
+
+474
+00:21:49,159 --> 00:21:54,289
+contenido al final del contenido
+
+475
+00:21:51,528 --> 00:21:57,319
+existente veamos este proceso de manera
+
+476
+00:21:54,288 --> 00:21:59,749
+simple cerremos el monitor serie
+
+477
+00:21:57,319 --> 00:22:01,428
+ahora vamos a abrirlo nuevamente verás
+
+478
+00:21:59,749 --> 00:22:03,858
+que aparecen los textos de
+
+479
+00:22:01,429 --> 00:22:07,129
+inicialización y luego en la parte de
+
+480
+00:22:03,858 --> 00:22:10,939
+lectura del archivo prueba punto txt e
+
+481
+00:22:07,128 --> 00:22:13,459
+ir probando 1 2 3 aparece dos veces con
+
+482
+00:22:10,940 --> 00:22:16,278
+lo cual si aplicamos el reset sobre la
+
+483
+00:22:13,460 --> 00:22:19,220
+placa o cerramos y abrimos el monitor
+
+484
+00:22:16,278 --> 00:22:21,648
+serie agrega siempre una línea al final
+
+485
+00:22:19,220 --> 00:22:23,868
+la idea de este programa es verificar
+
+486
+00:22:21,648 --> 00:22:26,928
+que podemos inicializar la tarjeta
+
+487
+00:22:23,868 --> 00:22:29,569
+escribir en ella y también leerla luego
+
+488
+00:22:26,929 --> 00:22:32,298
+podría por ejemplo remover la tarjeta de
+
+489
+00:22:29,569 --> 00:22:33,409
+memoria conectarla a la computadora y
+
+490
+00:22:32,298 --> 00:22:36,410
+abrir el archivo
+
+491
+00:22:33,410 --> 00:22:38,450
+prueba punto txt y verías estas dos
+
+492
+00:22:36,410 --> 00:22:40,880
+líneas de texto para el segundo programa
+
+493
+00:22:38,450 --> 00:22:43,940
+haremos algo más cercano a una situación
+
+494
+00:22:40,880 --> 00:22:47,420
+real que podría ser leer los valores de
+
+495
+00:22:43,940 --> 00:22:49,970
+temperatura y humedad de un sensor de ht
+
+496
+00:22:47,420 --> 00:22:52,700
+11 guardar los datos en la tarjeta de
+
+497
+00:22:49,970 --> 00:22:54,710
+memoria y luego llevar esos datos a
+
+498
+00:22:52,700 --> 00:22:57,319
+nuestra computadora y mediante una
+
+499
+00:22:54,710 --> 00:22:59,809
+planilla de cálculos generar un gráfico
+
+500
+00:22:57,319 --> 00:23:01,970
+así que vamos al circuito de conexión
+
+501
+00:22:59,809 --> 00:23:03,609
+para este nuevo programa como debemos
+
+502
+00:23:01,970 --> 00:23:06,230
+conectar un nuevo dispositivo
+
+503
+00:23:03,609 --> 00:23:08,869
+utilizaremos de protoboard el riel de
+
+504
+00:23:06,230 --> 00:23:10,880
+tensión y así alimentamos tanto el
+
+505
+00:23:08,869 --> 00:23:14,509
+módulo del lector de memoria como el
+
+506
+00:23:10,880 --> 00:23:16,670
+módulo sensor de ht 11 del módulo lector
+
+507
+00:23:14,509 --> 00:23:19,220
+de memoria sólo debemos reubicar los
+
+508
+00:23:16,670 --> 00:23:21,680
+cables de alimentación y colocarlos
+
+509
+00:23:19,220 --> 00:23:24,440
+sobre el riel detención de protoboard de
+
+510
+00:23:21,680 --> 00:23:27,080
+arduino salimos con los cables de 5
+
+511
+00:23:24,440 --> 00:23:29,779
+volts y gene de protoboard para el
+
+512
+00:23:27,079 --> 00:23:33,259
+sensor de temperatura y humedad usaremos
+
+513
+00:23:29,779 --> 00:23:36,410
+el módulo calle 15 que forma parte del
+
+514
+00:23:33,259 --> 00:23:38,750
+kit de sensores 37 en 1 el módulo
+
+515
+00:23:36,410 --> 00:23:41,450
+incluye el sensor de ht o
+
+516
+00:23:38,750 --> 00:23:44,210
+sobre una placa de circuito impreso y la
+
+517
+00:23:41,450 --> 00:23:47,750
+resistencia de pull up necesaria entre
+
+518
+00:23:44,210 --> 00:23:50,660
+señal y bsc vimos en detalle este tipo
+
+519
+00:23:47,750 --> 00:23:52,519
+de sensor en el capítulo 7 de manera que
+
+520
+00:23:50,660 --> 00:23:55,640
+por cualquier duda te recomiendo que
+
+521
+00:23:52,519 --> 00:23:58,670
+veas dicho capítulo su conexión es muy
+
+522
+00:23:55,640 --> 00:24:01,460
+simple el pin de la derecha a gene de
+
+523
+00:23:58,670 --> 00:24:04,400
+del riel de tensión el pin del medio a
+
+524
+00:24:01,460 --> 00:24:06,799
+bcc y el pin de la izquierda que es la
+
+525
+00:24:04,400 --> 00:24:09,650
+señal lo conectaremos con un cable
+
+526
+00:24:06,799 --> 00:24:11,869
+directo al pin digital número 4 de
+
+527
+00:24:09,650 --> 00:24:14,030
+arduino es importante aclarar que la
+
+528
+00:24:11,869 --> 00:24:17,599
+distribución de pines es para este
+
+529
+00:24:14,029 --> 00:24:20,299
+modelo kay 15 y puede ser distinto para
+
+530
+00:24:17,599 --> 00:24:22,549
+otros modelos de módulos basados en de
+
+531
+00:24:20,299 --> 00:24:24,909
+ht 11 y eso es todo
+
+532
+00:24:22,549 --> 00:24:26,919
+ya tenemos ambos dispositivos conectados
+
+533
+00:24:24,910 --> 00:24:31,190
+comenzaremos este nuevo programa
+
+534
+00:24:26,920 --> 00:24:33,259
+incorporando las librerías esp y sd como
+
+535
+00:24:31,190 --> 00:24:36,680
+en el programa anterior y agregaremos
+
+536
+00:24:33,259 --> 00:24:39,230
+las de ht para manejar el sensor las
+
+537
+00:24:36,680 --> 00:24:41,420
+librerías de ht deben ser descargadas
+
+538
+00:24:39,230 --> 00:24:43,130
+mediante el gestor de librerías por
+
+539
+00:24:41,420 --> 00:24:44,450
+cualquier duda podrás visitar el
+
+540
+00:24:43,130 --> 00:24:47,990
+capítulo 7
+
+541
+00:24:44,450 --> 00:24:51,110
+dedicado exclusivamente al día 7 22 y de
+
+542
+00:24:47,990 --> 00:24:54,259
+ht 11 declaramos una constante llamada
+
+543
+00:24:51,109 --> 00:24:56,689
+sensor con el valor 4 ya que en dicho
+
+544
+00:24:54,259 --> 00:24:57,589
+número de pin tenemos conectada la señal
+
+545
+00:24:56,690 --> 00:24:59,930
+del sensor
+
+546
+00:24:57,589 --> 00:25:02,480
+luego las variables donde almacenar
+
+547
+00:24:59,930 --> 00:25:04,580
+hemos los valores leídos de temperatura
+
+548
+00:25:02,480 --> 00:25:07,849
+y humedad al igual que el programa
+
+549
+00:25:04,579 --> 00:25:11,359
+anterior definimos la constante ss pin
+
+550
+00:25:07,849 --> 00:25:14,869
+con el valor 10 para el slide select y
+
+551
+00:25:11,359 --> 00:25:17,929
+creamos el objeto archivo del tipo file
+
+552
+00:25:14,869 --> 00:25:20,689
+ahora crearemos un objeto del tipo de ht
+
+553
+00:25:17,930 --> 00:25:23,210
+donde el primer parámetro es el pin de
+
+554
+00:25:20,690 --> 00:25:25,759
+señal que lo definimos como constante
+
+555
+00:25:23,210 --> 00:25:29,210
+con el nombre del sensor y el modelo de
+
+556
+00:25:25,759 --> 00:25:31,369
+sensor que para nosotros es el de ht 11
+
+557
+00:25:29,210 --> 00:25:33,860
+teniendo en cuenta que la librería es
+
+558
+00:25:31,369 --> 00:25:36,319
+válida también para el de ht 22
+
+559
+00:25:33,859 --> 00:25:40,519
+inicializa mos la comunicación serie
+
+560
+00:25:36,319 --> 00:25:44,359
+para el monitor a 9.600 bps y la función
+
+561
+00:25:40,519 --> 00:25:46,789
+begin del objeto de ht para inicializar
+
+562
+00:25:44,359 --> 00:25:49,339
+el sensor luego tendremos el mismo
+
+563
+00:25:46,789 --> 00:25:50,750
+proceso de inicialización de la tarjeta
+
+564
+00:25:49,339 --> 00:25:52,959
+de memoria delante
+
+565
+00:25:50,750 --> 00:25:55,700
+el programa verificando que no hay
+
+566
+00:25:52,960 --> 00:25:57,680
+inconvenientes luego haremos la apertura
+
+567
+00:25:55,700 --> 00:26:01,610
+de un nuevo archivo que esta vez lo
+
+568
+00:25:57,680 --> 00:26:03,830
+llamaremos datos punto txt también en
+
+569
+00:26:01,609 --> 00:26:06,589
+modo firefight es decir que si el
+
+570
+00:26:03,829 --> 00:26:09,049
+archivo no existe lo crea veras que ya
+
+571
+00:26:06,589 --> 00:26:12,109
+no usamos el anterior archivo prueba
+
+572
+00:26:09,049 --> 00:26:14,480
+punto txt elegimos usar otro archivo
+
+573
+00:26:12,109 --> 00:26:16,339
+independiente y también sirve como
+
+574
+00:26:14,480 --> 00:26:18,920
+ejemplo para mostrar que podemos
+
+575
+00:26:16,339 --> 00:26:21,769
+trabajar con múltiples archivos si la
+
+576
+00:26:18,920 --> 00:26:24,860
+apertura de datos punto txt ha sido
+
+577
+00:26:21,769 --> 00:26:27,379
+exitosa ingresamos al bloque if y lo que
+
+578
+00:26:24,859 --> 00:26:30,829
+haremos es un simple bucle foro que
+
+579
+00:26:27,380 --> 00:26:33,890
+repetirá 30 veces la idea es tomar 30
+
+580
+00:26:30,829 --> 00:26:36,199
+muestras de temperatura y humedad a
+
+581
+00:26:33,890 --> 00:26:38,360
+intervalos de un segundo lo haremos
+
+582
+00:26:36,200 --> 00:26:41,480
+corto ya que sólo es una demostración
+
+583
+00:26:38,359 --> 00:26:43,819
+pero podrías cambiar sin problemas la
+
+584
+00:26:41,480 --> 00:26:46,579
+cantidad de muestras y el tiempo entre
+
+585
+00:26:43,819 --> 00:26:49,279
+ellas como ya es usual declaramos aquí
+
+586
+00:26:46,579 --> 00:26:52,039
+mismo la variable de iteración y le
+
+587
+00:26:49,279 --> 00:26:54,019
+cargamos un valor inicial de 1 la
+
+588
+00:26:52,039 --> 00:26:55,269
+condición para mantenerse dentro del
+
+589
+00:26:54,019 --> 00:26:58,629
+bucle
+
+590
+00:26:55,269 --> 00:27:02,259
+y sea menor a 31 lo que equivale a decir
+
+591
+00:26:58,630 --> 00:27:05,320
+que debe ser menor o igual a 30 y con
+
+592
+00:27:02,259 --> 00:27:08,619
+cada iteración incrementamos la variable
+
+593
+00:27:05,319 --> 00:27:11,009
+en 1 con y más más lo que haremos es muy
+
+594
+00:27:08,619 --> 00:27:13,329
+simple en la variable temperatura
+
+595
+00:27:11,009 --> 00:27:16,779
+almacenamos el valor que devuelve la
+
+596
+00:27:13,329 --> 00:27:20,109
+función read temperatura del objeto de
+
+597
+00:27:16,779 --> 00:27:23,349
+ht y en humedad el valor devuelto por la
+
+598
+00:27:20,109 --> 00:27:25,389
+función ruido yumi de ti con lo cual en
+
+599
+00:27:23,349 --> 00:27:27,730
+ambas variables tenemos los valores de
+
+600
+00:27:25,390 --> 00:27:30,430
+temperatura y humedad leídos por el
+
+601
+00:27:27,730 --> 00:27:32,349
+sensor sólo resta escribir en la tarjeta
+
+602
+00:27:30,430 --> 00:27:34,960
+de memoria en los valores como luego
+
+603
+00:27:32,349 --> 00:27:37,480
+extraeremos la memoria y cargaremos los
+
+604
+00:27:34,960 --> 00:27:39,819
+valores en una planilla de cálculos en
+
+605
+00:27:37,480 --> 00:27:43,900
+la computadora debemos guardar los datos
+
+606
+00:27:39,819 --> 00:27:47,019
+en un formato estándar llamado csb que
+
+607
+00:27:43,900 --> 00:27:49,690
+es valores separados por coma de forma
+
+608
+00:27:47,019 --> 00:27:52,509
+muy simple con la función print del
+
+609
+00:27:49,690 --> 00:27:55,390
+objeto archivo primero escribimos el
+
+610
+00:27:52,509 --> 00:27:58,299
+valor del índice que la primera vez será
+
+611
+00:27:55,390 --> 00:28:00,009
+de 1 luego una coma y el valor de la
+
+612
+00:27:58,299 --> 00:28:01,538
+variable temperatura
+
+613
+00:28:00,009 --> 00:28:04,210
+nuevamente una coma
+
+614
+00:28:01,538 --> 00:28:06,278
+y finalmente el valor de humedad como
+
+615
+00:28:04,210 --> 00:28:09,190
+este es el último valor de la línea
+
+616
+00:28:06,278 --> 00:28:11,710
+usamos la función print line para dejar
+
+617
+00:28:09,190 --> 00:28:13,269
+un salto de línea al final para poder
+
+618
+00:28:11,710 --> 00:28:15,009
+visualizar lo mismo que se está
+
+619
+00:28:13,269 --> 00:28:17,649
+escribiendo en la tarjeta de memoria
+
+620
+00:28:15,009 --> 00:28:20,319
+repetiremos el proceso pero esta vez
+
+621
+00:28:17,648 --> 00:28:22,329
+escribiendo en el monitor serie como
+
+622
+00:28:20,319 --> 00:28:25,298
+estaremos tomando muestras cada un
+
+623
+00:28:22,329 --> 00:28:28,628
+segundo simplemente aplicamos un delay
+
+624
+00:28:25,298 --> 00:28:30,668
+de 1000 milisegundos en resumen cada un
+
+625
+00:28:28,628 --> 00:28:32,949
+segundo grabamos en la tarjeta de
+
+626
+00:28:30,669 --> 00:28:35,440
+memoria el valor de temperatura y
+
+627
+00:28:32,950 --> 00:28:37,808
+humedad de leídos del sensor y también
+
+628
+00:28:35,440 --> 00:28:40,840
+los mostramos en la ventana del monitor
+
+629
+00:28:37,808 --> 00:28:43,960
+serie ya finalizado el bucle por resta
+
+630
+00:28:40,839 --> 00:28:46,178
+cerrar el archivo con la función close y
+
+631
+00:28:43,960 --> 00:28:49,179
+escribimos en el monitor serie la
+
+632
+00:28:46,179 --> 00:28:51,129
+leyenda escritura correcta al igual que
+
+633
+00:28:49,179 --> 00:28:53,619
+el primer programa todo el código lo
+
+634
+00:28:51,128 --> 00:28:56,108
+colocamos dentro del set-up de manera
+
+635
+00:28:53,618 --> 00:28:58,388
+que se ejecute una sola vez solo
+
+636
+00:28:56,108 --> 00:29:01,538
+declarando el loop pero sin contenido
+
+637
+00:28:58,388 --> 00:29:04,449
+vamos entonces a verificar subir el
+
+638
+00:29:01,538 --> 00:29:06,819
+programa e ir abriendo el monitor serie
+
+639
+00:29:04,450 --> 00:29:07,600
+una vez cargado el programa cuando se
+
+640
+00:29:06,819 --> 00:29:10,359
+ejecute
+
+641
+00:29:07,599 --> 00:29:12,969
+mira el texto de inicialización de la
+
+642
+00:29:10,359 --> 00:29:15,389
+tarjeta de memoria y luego cada un
+
+643
+00:29:12,970 --> 00:29:18,100
+segundo una línea con el índice
+
+644
+00:29:15,390 --> 00:29:20,650
+comenzando desde 1 y los valores de
+
+645
+00:29:18,099 --> 00:29:22,899
+temperatura y humedad separados por
+
+646
+00:29:20,650 --> 00:29:25,269
+comas voy a colocar la mano alrededor
+
+647
+00:29:22,900 --> 00:29:27,220
+del sensor de manera de generar un
+
+648
+00:29:25,269 --> 00:29:30,609
+cambio en los valores por el tipo de
+
+649
+00:29:27,220 --> 00:29:33,038
+encapsulado del dht 11 demora un poco en
+
+650
+00:29:30,609 --> 00:29:35,079
+incrementarse la temperatura el valor
+
+651
+00:29:33,038 --> 00:29:37,960
+que incrementa más rápido es el de
+
+652
+00:29:35,079 --> 00:29:40,329
+humedad y luego la temperatura levemente
+
+653
+00:29:37,960 --> 00:29:42,329
+ahora quito la mano y dejo que vuelva
+
+654
+00:29:40,329 --> 00:29:45,129
+lentamente a los valores iniciales
+
+655
+00:29:42,329 --> 00:29:47,859
+recordad que estaremos tomando sólo 30
+
+656
+00:29:45,130 --> 00:29:50,590
+muestras en total una vez finalizado el
+
+657
+00:29:47,859 --> 00:29:52,869
+proceso tendremos el texto escritura
+
+658
+00:29:50,589 --> 00:29:55,359
+correcta en este punto ya podemos
+
+659
+00:29:52,869 --> 00:29:57,389
+remover la tarjeta de memoria del módulo
+
+660
+00:29:55,359 --> 00:30:00,279
+y mediante algunos de los adaptadores
+
+661
+00:29:57,390 --> 00:30:02,440
+conectarla a nuestra computadora yo te
+
+662
+00:30:00,279 --> 00:30:04,480
+estaré mostrando cómo importar los datos
+
+663
+00:30:02,440 --> 00:30:06,820
+en la planilla de cálculos de
+
+664
+00:30:04,480 --> 00:30:09,490
+libreoffice pero es válido para
+
+665
+00:30:06,819 --> 00:30:12,579
+cualquier otro programa una vez abierto
+
+666
+00:30:09,490 --> 00:30:13,298
+el libro fiscal -que iremos al menú
+
+667
+00:30:12,579 --> 00:30:15,278
+abrir
+
+668
+00:30:13,298 --> 00:30:18,759
+y seleccionamos la unidad de disco
+
+669
+00:30:15,278 --> 00:30:21,909
+extraíble de nuestra tarjeta microsd y
+
+670
+00:30:18,759 --> 00:30:24,009
+el archivo datos punto txt a
+
+671
+00:30:21,909 --> 00:30:26,789
+continuación debemos verificar que esté
+
+672
+00:30:24,009 --> 00:30:30,610
+seleccionada la opción separado por
+
+673
+00:30:26,788 --> 00:30:32,378
+debajo seleccionado únicamente coma ya
+
+674
+00:30:30,609 --> 00:30:35,648
+que nosotros tenemos los datos guardados
+
+675
+00:30:32,378 --> 00:30:38,618
+en formatos separados por comas y luego
+
+676
+00:30:35,648 --> 00:30:41,618
+el botón aceptar ya en la planilla verás
+
+677
+00:30:38,618 --> 00:30:45,249
+cómo quedan cargadas las celdas de filas
+
+678
+00:30:41,618 --> 00:30:47,798
+y columnas con los datos del índice de 1
+
+679
+00:30:45,249 --> 00:30:49,629
+a 30 y los valores de temperatura y
+
+680
+00:30:47,798 --> 00:30:52,179
+humedad que le corresponden a cada
+
+681
+00:30:49,628 --> 00:30:55,418
+muestra seleccionamos la totalidad de
+
+682
+00:30:52,179 --> 00:30:58,960
+las celdas de las columnas b&amp;c y del
+
+683
+00:30:55,419 --> 00:31:01,809
+menú insertar seleccionamos diagrama
+
+684
+00:30:58,960 --> 00:31:04,960
+luego la opción línea y finalmente
+
+685
+00:31:01,808 --> 00:31:07,778
+puntos y líneas y el botón finalizar
+
+686
+00:31:04,960 --> 00:31:09,489
+esto nos genera un bonito gráfico con
+
+687
+00:31:07,778 --> 00:31:12,159
+los valores de temperatura y humedad
+
+688
+00:31:09,489 --> 00:31:15,100
+sobre la parte más baja tendremos la
+
+689
+00:31:12,159 --> 00:31:17,619
+temperatura y sus fríos pocos cambios a
+
+690
+00:31:15,099 --> 00:31:19,298
+lo largo de las 30 muestras con lo cual
+
+691
+00:31:17,618 --> 00:31:22,058
+es casi una línea recta
+
+692
+00:31:19,298 --> 00:31:25,210
+y más arriba la humedad que modificó sus
+
+693
+00:31:22,058 --> 00:31:27,308
+valores de forma rápida y queda así
+
+694
+00:31:25,210 --> 00:31:30,069
+representado con lo cual pudimos
+
+695
+00:31:27,308 --> 00:31:32,319
+almacenar los datos leídos del sensor y
+
+696
+00:31:30,069 --> 00:31:35,499
+llevarlos a la computadora para generar
+
+697
+00:31:32,319 --> 00:31:37,808
+rápidamente un gráfico claro está que es
+
+698
+00:31:35,499 --> 00:31:40,600
+ideal para tomar una gran cantidad de
+
+699
+00:31:37,808 --> 00:31:43,178
+muestras y por ejemplo analizar cómo ha
+
+700
+00:31:40,599 --> 00:31:45,189
+variado la temperatura y humedad a lo
+
+701
+00:31:43,179 --> 00:31:48,429
+largo de un día entero tomando muestras
+
+702
+00:31:45,190 --> 00:31:50,798
+por ejemplo cada 1 minuto en un próximo
+
+703
+00:31:48,429 --> 00:31:53,889
+capítulo estaremos hablando del reloj de
+
+704
+00:31:50,798 --> 00:31:54,759
+tiempo real que permite obtener la fecha
+
+705
+00:31:53,888 --> 00:31:57,038
+y hora
+
+706
+00:31:54,759 --> 00:31:59,769
+incluso si arduino no se encuentra
+
+707
+00:31:57,038 --> 00:32:02,648
+alimentado con el rts podríamos
+
+708
+00:31:59,769 --> 00:32:05,169
+fácilmente reemplazar el índice por la
+
+709
+00:32:02,648 --> 00:32:07,238
+fecha y hora en que fue tomada cada
+
+710
+00:32:05,169 --> 00:32:10,389
+muestra eso es todo por este capítulo
+
+711
+00:32:07,239 --> 00:32:12,429
+como siempre te pido te suscribas si aún
+
+712
+00:32:10,388 --> 00:32:15,248
+no lo has hecho y por cualquier duda o
+
+713
+00:32:12,429 --> 00:32:18,249
+comentario lo puedes hacer debajo que
+
+714
+00:32:15,249 --> 00:32:20,489
+con gusto te responderé chao y hasta la
+
+715
+00:32:18,249 --> 00:32:20,489
+próxima
+

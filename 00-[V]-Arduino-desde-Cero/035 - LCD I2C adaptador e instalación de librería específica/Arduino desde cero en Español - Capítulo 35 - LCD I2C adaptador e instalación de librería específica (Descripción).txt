@@ -1,0 +1,33 @@
+Aprenderemos a utilizar el adaptador de módulo LCD a interfaz I2C que permite comandar la pantalla con solo dos líneas de comunicación serie.
+También se verá en detalle el principio de funcionamiento del bus I2C muy útil para conexión de múltiples dispositivos mediante solo dos líneas y la instalación de la librería LiquidCrystal_I2C
+
+* Enlace actualizado para descarga de librería:
+https://github.com/fmalpartida/New-LiquidCrystal
+Pasos:
+1) Descarga de archivo New-LiquidCrystal-master.zip (botón verde Code, Download ZIP)
+2) Descomprimir y copiar la carpeta "New-LiquidCrystal-master" a documentos/arduino/libraries
+
+Recomendable ver Capítulo 10 (LCD paralelo): https://youtu.be/JEZiHQY-JPI
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoLCDI2C
+#ArduinoI2C
+#ArduinoDisplay
+Arduino LCD 16x2 I2C tutorial
+Arduino LCD I2C
+LCD I2C Arduino UNO
+Bus I2C Arduino
+PCF8574
+Que es I2C
+Comunicación I2C
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:48 Características del módulo
+3:02 Funcionamiento de Bus I2C
+14:33 Circuito de conexión
+16:20 NewLiquidCrystal (instalación de librería)
+20:27 Primer programa (segundos transcurridos)
+28:34 Direcciones I2C (cambio de dirección I2C)

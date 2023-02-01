@@ -1,0 +1,26 @@
+Analizaremos el motor paso a paso bipolar NEMA 17 y un popular controlador (driver) que es el A4988 con sus conexiones a Arduino.
+Se verá en detalle las funciones del controlador A4988 y como regularlo adecuadamente para comandar un motor paso a paso bipolar NEMA 17 de manera muy simple y las funciones adicionales de micro pasos (útil para CNC e impresoras 3D)
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoPAP
+#ArduinoMotorBipolar
+#ArduinoA4988
+Arduino motor paso a paso
+Motor bipolar Arduino
+Bipolar stepper motor
+A4988 Arduino calibrar
+A4988 Vref
+A4988 microstepping
+Nema 17 Arduino
+Nema 17 driver
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:34 NEMA 17 (funcionamiento y construcción)
+4:04 Pines A4988 (driver Pololu)
+11:01 Cálculo de Vref (ajuste de corriente)
+17:24 Circuito de conexión
+22:06 Primer programa (ejemplo de giro en ambos sentidos)
+27:07 Micropasos (MS1, MS2, MS3)

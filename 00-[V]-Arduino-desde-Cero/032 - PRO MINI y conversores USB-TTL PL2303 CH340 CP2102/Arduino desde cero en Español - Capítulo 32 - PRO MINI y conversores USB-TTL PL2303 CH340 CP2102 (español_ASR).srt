@@ -1,0 +1,1908 @@
+1
+00:00:01,669 --> 00:00:07,820
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,339 --> 00:00:09,800
+32 de arduino desde cero en español
+
+3
+00:00:07,820 --> 00:00:12,320
+en esta oportunidad analizaremos el
+
+4
+00:00:09,800 --> 00:00:14,570
+modelo de placa pro mini que podemos ver
+
+5
+00:00:12,320 --> 00:00:16,820
+en esta imagen y nos permitirá llevar a
+
+6
+00:00:14,570 --> 00:00:19,670
+la práctica proyectos donde el tamaño
+
+7
+00:00:16,820 --> 00:00:22,039
+del modelo no es demasiado grande o
+
+8
+00:00:19,670 --> 00:00:24,710
+incluso si deseamos llevar adelante un
+
+9
+00:00:22,039 --> 00:00:27,020
+emprendimiento comercial a baja escala
+
+10
+00:00:24,710 --> 00:00:30,019
+para poner en contexto el tamaño de la
+
+11
+00:00:27,019 --> 00:00:32,539
+placa pro mini respecto del modelo 1 en
+
+12
+00:00:30,018 --> 00:00:35,388
+esta imagen se puede apreciar ambas a
+
+13
+00:00:32,539 --> 00:00:39,228
+escala es bien notorio que con tan solo
+
+14
+00:00:35,389 --> 00:00:42,139
+33 x 18 milímetros el modelo pro mini es
+
+15
+00:00:39,228 --> 00:00:44,838
+realmente bien pequeño arduino 1 es
+
+16
+00:00:42,139 --> 00:00:47,059
+ideal para la etapa de prototipo donde
+
+17
+00:00:44,838 --> 00:00:48,978
+tenemos mucho espacio para conexiones
+
+18
+00:00:47,058 --> 00:00:51,558
+cada uno de sus fines se encuentra
+
+19
+00:00:48,978 --> 00:00:54,408
+perfectamente identificado y con sólo
+
+20
+00:00:51,558 --> 00:00:56,988
+conectar un cable usb a la computadora
+
+21
+00:00:54,408 --> 00:00:59,478
+tenemos todo lo necesario pero su tamaño
+
+22
+00:00:56,988 --> 00:01:01,849
+hace que no sea conveniente para muchos
+
+23
+00:00:59,478 --> 00:01:04,338
+casos de la práctica donde el espacio
+
+24
+00:01:01,850 --> 00:01:06,618
+disponible suele ser un lujo para esos
+
+25
+00:01:04,338 --> 00:01:07,489
+casos el modelo pro mini viene al
+
+26
+00:01:06,618 --> 00:01:10,129
+rescate
+
+27
+00:01:07,489 --> 00:01:12,560
+con una versión absolutamente mínima de
+
+28
+00:01:10,129 --> 00:01:14,149
+arduino pero que retiene todas las
+
+29
+00:01:12,560 --> 00:01:17,060
+cualidades que ya estamos acostumbrados
+
+30
+00:01:14,149 --> 00:01:19,640
+de la plataforma al adquirir el modelo
+
+31
+00:01:17,060 --> 00:01:22,728
+pro mini suelen incluirse dos tiras de
+
+32
+00:01:19,640 --> 00:01:25,189
+pines rectos y una tira de pines a 90
+
+33
+00:01:22,728 --> 00:01:26,959
+grados esto nos permite libertad a la
+
+34
+00:01:25,188 --> 00:01:29,478
+hora de soldar los mismos por ejemplo
+
+35
+00:01:26,959 --> 00:01:32,030
+podemos soldar los pines a los lados de
+
+36
+00:01:29,478 --> 00:01:33,739
+la placa de forma que queden apuntando
+
+37
+00:01:32,030 --> 00:01:35,239
+hacia arriba ideal para una
+
+38
+00:01:33,739 --> 00:01:37,879
+configuración similar
+
+39
+00:01:35,239 --> 00:01:40,728
+arduino uno donde podemos conectarle
+
+40
+00:01:37,879 --> 00:01:43,189
+pines con cables otra posibilidad es
+
+41
+00:01:40,728 --> 00:01:45,259
+soldar los pines pero hacia abajo ideal
+
+42
+00:01:43,189 --> 00:01:48,109
+para montar la placa sobre protoboard
+
+43
+00:01:45,259 --> 00:01:50,269
+los pines a 90 grados se utilizarán para
+
+44
+00:01:48,109 --> 00:01:52,759
+la comunicación entre pro mini y la
+
+45
+00:01:50,269 --> 00:01:55,099
+computadora en breve veremos pero la
+
+46
+00:01:52,759 --> 00:01:58,039
+realidad es que difícilmente terminemos
+
+47
+00:01:55,099 --> 00:01:59,839
+por soldar la totalidad de los pines ya
+
+48
+00:01:58,039 --> 00:02:02,450
+que no estamos buscando reemplazar
+
+49
+00:01:59,840 --> 00:02:05,659
+arduino uno como placa principal de
+
+50
+00:02:02,450 --> 00:02:08,569
+desarrollo en su lugar prometió llevar a
+
+51
+00:02:05,659 --> 00:02:11,060
+la práctica proyectos ya aprobados donde
+
+52
+00:02:08,568 --> 00:02:12,969
+quizás sólo necesitemos algunos de los
+
+53
+00:02:11,060 --> 00:02:16,000
+pines digitales o análogo
+
+54
+00:02:12,969 --> 00:02:18,580
+y directamente óptimos por solar de
+
+55
+00:02:16,000 --> 00:02:21,159
+forma directa los cables que conectan a
+
+56
+00:02:18,580 --> 00:02:23,140
+diversos sensores o dispositivos
+
+57
+00:02:21,159 --> 00:02:25,719
+analicemos un poco los componentes que
+
+58
+00:02:23,139 --> 00:02:29,369
+forman parte de la placa el corazón será
+
+59
+00:02:25,719 --> 00:02:32,229
+el microcontrolador at mega 328 p
+
+60
+00:02:29,370 --> 00:02:34,360
+exactamente el mismo que usa el modelo 1
+
+61
+00:02:32,229 --> 00:02:36,849
+pero que aquí se encuentra en su versión
+
+62
+00:02:34,360 --> 00:02:39,070
+de montaje superficial haciendo una
+
+63
+00:02:36,849 --> 00:02:41,769
+enorme diferencia en relación al espacio
+
+64
+00:02:39,069 --> 00:02:45,310
+ocupado luego tendremos un botón de
+
+65
+00:02:41,770 --> 00:02:47,830
+reset dos leds uno de encendido y el
+
+66
+00:02:45,310 --> 00:02:50,590
+clásico denominado el que es el
+
+67
+00:02:47,830 --> 00:02:53,050
+incorporado y conectado de forma interna
+
+68
+00:02:50,590 --> 00:02:55,509
+al pin digital número 13 y que
+
+69
+00:02:53,050 --> 00:02:57,760
+utilizamos en varias ocasiones más
+
+70
+00:02:55,509 --> 00:03:00,579
+arriba tendremos un pequeño regulador de
+
+71
+00:02:57,759 --> 00:03:02,709
+tensión que al igual que el modelo 1 nos
+
+72
+00:03:00,580 --> 00:03:05,980
+servirá para alimentar la placa con una
+
+73
+00:03:02,709 --> 00:03:08,650
+fuente externa de diversas tensiones y
+
+74
+00:03:05,979 --> 00:03:11,019
+para conectar dispositivos externos de
+
+75
+00:03:08,650 --> 00:03:13,330
+bajo consumo sobre cada uno de los lados
+
+76
+00:03:11,020 --> 00:03:15,730
+de la placa notaremos multitud de
+
+77
+00:03:13,330 --> 00:03:18,519
+orificios para soldar pines o
+
+78
+00:03:15,729 --> 00:03:19,599
+directamente cables recién vimos que los
+
+79
+00:03:18,519 --> 00:03:22,210
+pines vienen
+
+80
+00:03:19,599 --> 00:03:23,949
+el 2 en tiras permitiendo disponer de
+
+81
+00:03:22,210 --> 00:03:26,830
+los mismos de acuerdo a nuestra
+
+82
+00:03:23,949 --> 00:03:29,019
+necesidad veamos entonces la función de
+
+83
+00:03:26,830 --> 00:03:31,570
+cada uno de ellos es el tamaño reducido
+
+84
+00:03:29,020 --> 00:03:33,790
+de la placa tendremos todas las entradas
+
+85
+00:03:31,569 --> 00:03:36,519
+y salidas digitales que estamos
+
+86
+00:03:33,789 --> 00:03:39,370
+acostumbrados de arduino 1 las entradas
+
+87
+00:03:36,520 --> 00:03:41,230
+analógicas y comunicación serie la
+
+88
+00:03:39,370 --> 00:03:43,060
+indicación de la funcionalidad de cada
+
+89
+00:03:41,229 --> 00:03:45,729
+uno de los pines se encuentra en la
+
+90
+00:03:43,060 --> 00:03:48,310
+parte trasera del circuito impreso y en
+
+91
+00:03:45,729 --> 00:03:50,799
+distintas orientaciones haciendo que sea
+
+92
+00:03:48,310 --> 00:03:53,469
+algo tedioso estar dando vuelta a la
+
+93
+00:03:50,800 --> 00:03:55,570
+placa una y otra vez para identificar la
+
+94
+00:03:53,469 --> 00:03:58,150
+función de cada pin así que para
+
+95
+00:03:55,569 --> 00:04:00,069
+facilitar se muestra la imagen de frente
+
+96
+00:03:58,150 --> 00:04:01,900
+muy bien comenzando desde la parte
+
+97
+00:04:00,069 --> 00:04:04,389
+izquierda tendremos los dos primeros
+
+98
+00:04:01,900 --> 00:04:07,180
+pines que serán los de transmisión y
+
+99
+00:04:04,389 --> 00:04:09,219
+recepción para la comunicación serie
+
+100
+00:04:07,180 --> 00:04:12,670
+estos mismos pines están disponibles en
+
+101
+00:04:09,219 --> 00:04:15,759
+arduino 1 sobre los pines digitales 0 y
+
+102
+00:04:12,669 --> 00:04:18,579
+1 luego tendremos uno de reset y uno de
+
+103
+00:04:15,759 --> 00:04:21,009
+massa o gene de y ya vemos nuestros
+
+104
+00:04:18,579 --> 00:04:24,009
+queridos pines digitales comenzando con
+
+105
+00:04:21,009 --> 00:04:25,649
+el número 2 hasta el 9 estos pines
+
+106
+00:04:24,009 --> 00:04:27,629
+tienen la funcionalidad
+
+107
+00:04:25,649 --> 00:04:30,418
+siempre los podemos utilizar como
+
+108
+00:04:27,629 --> 00:04:33,659
+entradas o salidas digitales con digital
+
+109
+00:04:30,418 --> 00:04:37,109
+ruido digital right and ala white para p
+
+110
+00:04:33,660 --> 00:04:39,600
+w m todos como el modelo 1 ya pasando a
+
+111
+00:04:37,110 --> 00:04:42,150
+la hilera de la derecha desde abajo
+
+112
+00:04:39,600 --> 00:04:44,669
+seguimos con los pines digitales en 10 a
+
+113
+00:04:42,149 --> 00:04:50,250
+13 y luego comenzamos con las entradas
+
+114
+00:04:44,668 --> 00:04:53,099
+analógicas a 0 a 3 veces y un reset más
+
+115
+00:04:50,250 --> 00:04:56,310
+y también un pin de masa de este lado
+
+116
+00:04:53,100 --> 00:04:59,879
+luego un nuevo pin cuya denominación es
+
+117
+00:04:56,310 --> 00:05:02,490
+row stepping row es la entrada del
+
+118
+00:04:59,879 --> 00:05:05,370
+regulador de tensión como en la pro mini
+
+119
+00:05:02,490 --> 00:05:07,410
+no tenemos un jack de alimentación una
+
+120
+00:05:05,370 --> 00:05:10,139
+tensión de entrada provista por una
+
+121
+00:05:07,410 --> 00:05:12,660
+fuente o baterías será aplicado a este
+
+122
+00:05:10,139 --> 00:05:14,668
+pin hacia el fin del capítulo lo veremos
+
+123
+00:05:12,660 --> 00:05:16,889
+en detalle los tienes de la parte
+
+124
+00:05:14,668 --> 00:05:18,899
+superior de la placa nos permitirán la
+
+125
+00:05:16,889 --> 00:05:21,750
+comunicación serie con la computadora
+
+126
+00:05:18,899 --> 00:05:25,019
+quizás hayas notado esta altura que no
+
+127
+00:05:21,750 --> 00:05:27,300
+tenemos un conector usb en pro mini con
+
+128
+00:05:25,019 --> 00:05:28,879
+lo cual no podemos conectarla de forma
+
+129
+00:05:27,300 --> 00:05:31,829
+directa a nuestra computadora
+
+130
+00:05:28,879 --> 00:05:34,079
+necesitaremos un dispositivo adicional
+
+131
+00:05:31,829 --> 00:05:36,930
+que nos haga de enlace esto es una
+
+132
+00:05:34,079 --> 00:05:39,329
+desventaja respecto al modelo 1 pero
+
+133
+00:05:36,930 --> 00:05:41,040
+también tiene su razón de ser la pro
+
+134
+00:05:39,329 --> 00:05:43,949
+minitti ne la intención de ser la
+
+135
+00:05:41,040 --> 00:05:47,060
+versión más reducida posible de arduino
+
+136
+00:05:43,949 --> 00:05:49,709
+donde no será constante la carga y
+
+137
+00:05:47,060 --> 00:05:51,569
+modificación de código por eso no
+
+138
+00:05:49,709 --> 00:05:53,639
+incluyo el circuito integrado y
+
+139
+00:05:51,569 --> 00:05:56,370
+componentes adicionales para una
+
+140
+00:05:53,639 --> 00:05:58,680
+conexión directa por usb además de
+
+141
+00:05:56,370 --> 00:06:02,040
+reducir el costo en su lugar tendremos
+
+142
+00:05:58,680 --> 00:06:05,819
+una fila de 6 pines para aprovisionar
+
+143
+00:06:02,040 --> 00:06:09,569
+veces se genere y la comunicación serie
+
+144
+00:06:05,819 --> 00:06:12,839
+de un dispositivo llamado conversor usb
+
+145
+00:06:09,569 --> 00:06:15,300
+ttl que ya pronto veremos así que por
+
+146
+00:06:12,839 --> 00:06:17,279
+ahora lo importante que deberás saber es
+
+147
+00:06:15,300 --> 00:06:19,710
+que no tenemos una forma directa de
+
+148
+00:06:17,279 --> 00:06:22,439
+cargar un programa en pro mini como
+
+149
+00:06:19,709 --> 00:06:24,659
+sucede con arduino 1 para finalizar el
+
+150
+00:06:22,439 --> 00:06:27,750
+análisis de los pines vamos a la parte
+
+151
+00:06:24,660 --> 00:06:33,150
+baja de la placa donde existen 6 pines
+
+152
+00:06:27,750 --> 00:06:35,310
+cuya denominación es y csp y csp es la
+
+153
+00:06:33,149 --> 00:06:37,799
+sigla de un chip
+
+154
+00:06:35,310 --> 00:06:40,649
+el programa y permite grabar
+
+155
+00:06:37,800 --> 00:06:43,620
+directamente desde la computadora al
+
+156
+00:06:40,649 --> 00:06:46,049
+microcontrolador cualquier programa sin
+
+157
+00:06:43,620 --> 00:06:48,540
+necesidad de una comunicación serie
+
+158
+00:06:46,050 --> 00:06:51,360
+aunque parezca una buena idea para la
+
+159
+00:06:48,540 --> 00:06:55,080
+promin y no lo utilizaremos ya que el
+
+160
+00:06:51,360 --> 00:06:57,379
+conversor usb ttl es más simple luego
+
+161
+00:06:55,079 --> 00:07:01,889
+tendremos dos pines de entrada analógica
+
+162
+00:06:57,379 --> 00:07:05,550
+a4 y a5 al igual que arduino 1 y otras 2
+
+163
+00:07:01,889 --> 00:07:08,099
+entradas adicionales a6 y a7 estas
+
+164
+00:07:05,550 --> 00:07:10,980
+últimas entradas no están disponibles en
+
+165
+00:07:08,100 --> 00:07:13,439
+el modelo 1 y es interesante ver cómo se
+
+166
+00:07:10,980 --> 00:07:16,280
+incorporan aquí es el reducido espacio
+
+167
+00:07:13,439 --> 00:07:19,079
+así que dos entradas analógicas
+
+168
+00:07:16,279 --> 00:07:21,359
+adicionales nunca vienen mal en este
+
+169
+00:07:19,079 --> 00:07:23,939
+punto es importante aclarar que no todas
+
+170
+00:07:21,360 --> 00:07:27,449
+las placas bromean y tienen esta hilera
+
+171
+00:07:23,939 --> 00:07:30,689
+de pines para el csp y las entradas
+
+172
+00:07:27,449 --> 00:07:33,060
+analógicas dependerá del fabricante lo
+
+173
+00:07:30,689 --> 00:07:35,310
+que sí es estándar en todos los casos
+
+174
+00:07:33,060 --> 00:07:38,519
+son los pines a los lados y los
+
+175
+00:07:35,310 --> 00:07:40,500
+superiores genial para resumir vimos que
+
+176
+00:07:38,519 --> 00:07:43,349
+tenemos la misma funcionalidad
+
+177
+00:07:40,500 --> 00:07:45,329
+uno a nivel de entradas y salidas
+
+178
+00:07:43,350 --> 00:07:47,640
+digitales y también de entradas
+
+179
+00:07:45,329 --> 00:07:50,279
+analógicas lo que falta es la
+
+180
+00:07:47,639 --> 00:07:53,039
+incorporación de la comunicación por usb
+
+181
+00:07:50,279 --> 00:07:55,469
+y eso es exactamente lo que te invito a
+
+182
+00:07:53,040 --> 00:07:58,830
+que analicemos ahora en la imagen se
+
+183
+00:07:55,470 --> 00:08:01,200
+muestra un conversor usb ttl este
+
+184
+00:07:58,829 --> 00:08:03,300
+dispositivo nos permitirá enlazar la pro
+
+185
+00:08:01,199 --> 00:08:05,159
+mini con la computadora permitiendo
+
+186
+00:08:03,300 --> 00:08:08,040
+cargarle programas y brindar
+
+187
+00:08:05,160 --> 00:08:11,610
+alimentación en un extremo del conversor
+
+188
+00:08:08,040 --> 00:08:14,250
+tendremos un conector usb estándar del
+
+189
+00:08:11,610 --> 00:08:17,370
+tipo a que conectaremos a la computadora
+
+190
+00:08:14,250 --> 00:08:19,800
+y del extremo opuesto una serie de pines
+
+191
+00:08:17,370 --> 00:08:22,379
+los cuales darán alimentación a la placa
+
+192
+00:08:19,800 --> 00:08:24,870
+y también brindará la comunicación serie
+
+193
+00:08:22,379 --> 00:08:27,379
+para la carga de un programa y monitoreo
+
+194
+00:08:24,870 --> 00:08:30,540
+usb es un protocolo de comunicación
+
+195
+00:08:27,379 --> 00:08:33,809
+serie genérico que viene en reemplazo
+
+196
+00:08:30,540 --> 00:08:36,330
+del rs 232 que se encontraba en viejas
+
+197
+00:08:33,809 --> 00:08:39,929
+computadoras con un conector del tipo de
+
+198
+00:08:36,330 --> 00:08:42,090
+uve 9 al ser genérico usb requiere que
+
+199
+00:08:39,929 --> 00:08:44,759
+el dispositivo que conectemos tenga
+
+200
+00:08:42,090 --> 00:08:45,570
+inteligencia suficiente para notificarle
+
+201
+00:08:44,759 --> 00:08:48,509
+al juego
+
+202
+00:08:45,570 --> 00:08:51,150
+en este caso la computadora de qué tipo
+
+203
+00:08:48,509 --> 00:08:54,629
+de dispositivo se trata por ejemplo debe
+
+204
+00:08:51,149 --> 00:08:57,720
+decir hola soy un teclado hola soy una
+
+205
+00:08:54,629 --> 00:09:00,299
+impresora o en este caso hola soy un
+
+206
+00:08:57,720 --> 00:09:02,790
+puerto de comunicación serie por eso es
+
+207
+00:09:00,299 --> 00:09:05,370
+que el conversor incorpora este circuito
+
+208
+00:09:02,789 --> 00:09:07,889
+integrado existen muchos fabricantes de
+
+209
+00:09:05,370 --> 00:09:10,139
+conversores y cada uno de ellos también
+
+210
+00:09:07,889 --> 00:09:12,600
+usan distintos modelos de circuitos
+
+211
+00:09:10,139 --> 00:09:14,879
+integrados este que muestro en la imagen
+
+212
+00:09:12,600 --> 00:09:17,490
+es el que estaré usando para la práctica
+
+213
+00:09:14,879 --> 00:09:19,710
+y vemos su parte posterior donde aparece
+
+214
+00:09:17,490 --> 00:09:23,039
+la indicación de la funcionalidad de
+
+215
+00:09:19,710 --> 00:09:28,410
+cada uno de los pines el modelo es el pl
+
+216
+00:09:23,039 --> 00:09:34,500
+23 03 h x otros modelos populares son s
+
+217
+00:09:28,409 --> 00:09:36,870
+h 340 el cp 21 02 y el speed y hay 232
+
+218
+00:09:34,500 --> 00:09:39,570
+hago mención de estos modelos ya que
+
+219
+00:09:36,870 --> 00:09:41,730
+cuando adquieras el tuyo dependerá del
+
+220
+00:09:39,570 --> 00:09:44,550
+distribuidor el modelo que esté a la
+
+221
+00:09:41,730 --> 00:09:47,279
+venta el conversor requiere de un driver
+
+222
+00:09:44,549 --> 00:09:49,349
+y debe instalarse en la computadora para
+
+223
+00:09:47,279 --> 00:09:51,059
+su correcto funcionamiento y es un
+
+224
+00:09:49,350 --> 00:09:51,960
+pequeño trabajo que deberemos tomar
+
+225
+00:09:51,059 --> 00:09:54,149
+antes de
+
+226
+00:09:51,960 --> 00:09:56,879
+comenzar a utilizarlo y cargar programas
+
+227
+00:09:54,149 --> 00:09:59,610
+a la pro mini la mejor forma es
+
+228
+00:09:56,879 --> 00:10:02,220
+descargar el driver o controlador desde
+
+229
+00:09:59,610 --> 00:10:04,769
+la página del fabricante y para nuestro
+
+230
+00:10:02,220 --> 00:10:08,160
+sistema operativo en particular ya sea
+
+231
+00:10:04,769 --> 00:10:10,259
+windows mac o linux aquí en pantalla se
+
+232
+00:10:08,159 --> 00:10:14,939
+muestra la página del fabricante del
+
+233
+00:10:10,259 --> 00:10:17,580
+modelo pl 23 03 h xy en tu caso estás
+
+234
+00:10:14,940 --> 00:10:19,950
+trabajando con un conversor que usa un
+
+235
+00:10:17,580 --> 00:10:22,350
+modelo de circuito integrado distinto
+
+236
+00:10:19,950 --> 00:10:25,020
+deberás buscar la página colocando el
+
+237
+00:10:22,350 --> 00:10:27,360
+modelo en tu motor de búsqueda favorito
+
+238
+00:10:25,019 --> 00:10:28,439
+e ingresar a la página web que
+
+239
+00:10:27,360 --> 00:10:30,690
+corresponda
+
+240
+00:10:28,440 --> 00:10:33,210
+es importante que aún no conecte es el
+
+241
+00:10:30,690 --> 00:10:35,430
+conversor a la computadora primero debe
+
+242
+00:10:33,210 --> 00:10:38,009
+estar instalado el controlador haciendo
+
+243
+00:10:35,429 --> 00:10:40,229
+clic en el siguiente enlace descarga un
+
+244
+00:10:38,009 --> 00:10:42,480
+archivo comprimido que aquí se muestra
+
+245
+00:10:40,230 --> 00:10:45,600
+en el escritorio de windows un botón
+
+246
+00:10:42,480 --> 00:10:48,210
+derecho y la opción extraer todo se
+
+247
+00:10:45,600 --> 00:10:50,940
+descomprime el contenido dentro de una
+
+248
+00:10:48,210 --> 00:10:53,430
+carpeta del mismo nombre luego con doble
+
+249
+00:10:50,940 --> 00:10:55,250
+clic en el archivo ejecutable tendremos
+
+250
+00:10:53,429 --> 00:10:58,709
+el clásico proceso de instalación
+
+251
+00:10:55,250 --> 00:11:01,110
+mediante el asistente es un proceso
+
+252
+00:10:58,710 --> 00:11:03,150
+demorar varios minutos y cuando aparece
+
+253
+00:11:01,110 --> 00:11:05,850
+la confirmación de finalización del
+
+254
+00:11:03,149 --> 00:11:08,309
+proceso es sólo cuestión de presionar en
+
+255
+00:11:05,850 --> 00:11:10,680
+finish ahora así podrás conectar el
+
+256
+00:11:08,309 --> 00:11:13,319
+conversor a la computadora deberas ver
+
+257
+00:11:10,679 --> 00:11:15,809
+como el asistente del nuevo hardware lo
+
+258
+00:11:13,320 --> 00:11:18,390
+detecta e instala el controlador que
+
+259
+00:11:15,809 --> 00:11:20,729
+recién descargamos finalizado el proceso
+
+260
+00:11:18,389 --> 00:11:23,309
+que es rápido nos aparecerá que el
+
+261
+00:11:20,730 --> 00:11:26,399
+dispositivo está listo para usarse y
+
+262
+00:11:23,309 --> 00:11:30,059
+entre paréntesis el puerto com asignado
+
+263
+00:11:26,399 --> 00:11:32,669
+en mi caso es el con 5 este número de
+
+264
+00:11:30,059 --> 00:11:34,859
+puerto luego lo deberemos seleccionar en
+
+265
+00:11:32,669 --> 00:11:37,769
+el id de manera que te conviene
+
+266
+00:11:34,860 --> 00:11:40,259
+recordarlo o anotarlo momentáneamente
+
+267
+00:11:37,769 --> 00:11:42,689
+ese fue el proceso más tedioso y por
+
+268
+00:11:40,259 --> 00:11:44,789
+suerte es por única vez ahora sólo nos
+
+269
+00:11:42,690 --> 00:11:47,190
+resta conectar mediante cables el
+
+270
+00:11:44,789 --> 00:11:49,019
+conversor con la pro mini de acuerdo al
+
+271
+00:11:47,190 --> 00:11:51,750
+siguiente diagrama pero primero
+
+272
+00:11:49,019 --> 00:11:54,269
+deberemos soldar le la hilera de pines a
+
+273
+00:11:51,750 --> 00:11:57,029
+90 grados para poder conectar con
+
+274
+00:11:54,269 --> 00:11:59,399
+comodidad los cables hacia el conversor
+
+275
+00:11:57,029 --> 00:12:01,860
+si bien existen formas de conectar de
+
+276
+00:11:59,399 --> 00:12:04,079
+forma temporal los cuatro cables te
+
+277
+00:12:01,860 --> 00:12:04,499
+recomiendo que sueltes los pines para
+
+278
+00:12:04,080 --> 00:12:07,169
+hacer
+
+279
+00:12:04,499 --> 00:12:09,928
+una buena conexión y ahora mediante
+
+280
+00:12:07,168 --> 00:12:12,749
+cables de terminación tipo hembra en
+
+281
+00:12:09,928 --> 00:12:15,448
+ambos extremos conectaremos el conversor
+
+282
+00:12:12,749 --> 00:12:17,969
+con la promedio algo que no dije antes
+
+283
+00:12:15,448 --> 00:12:21,149
+es que existe un modelo de pro mini que
+
+284
+00:12:17,969 --> 00:12:24,119
+funciona con 33 volts es por ese motivo
+
+285
+00:12:21,149 --> 00:12:26,759
+que en el conversor el primer pin de
+
+286
+00:12:24,119 --> 00:12:29,908
+arriba es para alimentar pro mini de
+
+287
+00:12:26,759 --> 00:12:32,579
+dicho voltaje la nuestra es de 5 volts
+
+288
+00:12:29,908 --> 00:12:35,369
+con lo cual conectaremos dicha salida a
+
+289
+00:12:32,578 --> 00:12:38,098
+veces sede pro mini como se muestra con
+
+290
+00:12:35,369 --> 00:12:41,099
+este cable de color rojo luego genere
+
+291
+00:12:38,099 --> 00:12:43,709
+del conversor a genia de de pro mini con
+
+292
+00:12:41,099 --> 00:12:46,349
+el cable de color negro y con eso ya
+
+293
+00:12:43,708 --> 00:12:48,868
+tenemos la alimentación luego nos restan
+
+294
+00:12:46,349 --> 00:12:51,749
+los cables de la comunicación serie al
+
+295
+00:12:48,869 --> 00:12:54,749
+igual que cuando vimos en el capítulo 24
+
+296
+00:12:51,749 --> 00:12:55,829
+la conexión entre arduino 1 y el módulo
+
+297
+00:12:54,749 --> 00:13:00,298
+bluetooth
+
+298
+00:12:55,828 --> 00:13:03,118
+hc 05 el pin de transmisión de x desde
+
+299
+00:13:00,298 --> 00:13:07,379
+el conversor aquí en color amarillo irá
+
+300
+00:13:03,119 --> 00:13:10,110
+conectado a r xd de pro mini y luego con
+
+301
+00:13:07,379 --> 00:13:14,039
+el cable blanco rx d
+
+302
+00:13:10,110 --> 00:13:16,769
+el conversor hazte x de de pro mini ya
+
+303
+00:13:14,039 --> 00:13:19,828
+que cuando un dispositivo transmite y el
+
+304
+00:13:16,769 --> 00:13:21,899
+otro recibe y viceversa ya con eso
+
+305
+00:13:19,828 --> 00:13:24,359
+tenemos la conexión mínima necesaria
+
+306
+00:13:21,899 --> 00:13:26,669
+para poder descargar un programa las
+
+307
+00:13:24,360 --> 00:13:27,509
+conexiones se encuentran resumidas en
+
+308
+00:13:26,669 --> 00:13:29,819
+esta tabla
+
+309
+00:13:27,509 --> 00:13:32,338
+vemos una conexión que es posible
+
+310
+00:13:29,820 --> 00:13:34,980
+realizar sólo con modelos de conversores
+
+311
+00:13:32,339 --> 00:13:37,860
+que tienen la posibilidad del receta
+
+312
+00:13:34,980 --> 00:13:40,889
+automático en pro mini existe un pin
+
+313
+00:13:37,860 --> 00:13:42,839
+denominado dtr y si nuestro conversor
+
+314
+00:13:40,889 --> 00:13:43,889
+también tiene un pin con la misma
+
+315
+00:13:42,839 --> 00:13:46,320
+denominación
+
+316
+00:13:43,889 --> 00:13:48,958
+entonces los conectaremos entre sí el
+
+317
+00:13:46,320 --> 00:13:52,140
+reset a automático es conveniente ya que
+
+318
+00:13:48,958 --> 00:13:54,689
+de forma automática enviamos el programa
+
+319
+00:13:52,139 --> 00:13:56,759
+desde la computadora y se carga en pro
+
+320
+00:13:54,690 --> 00:14:00,089
+mini de la misma manera que con el
+
+321
+00:13:56,759 --> 00:14:02,970
+modelo 1 mi conversor no tiene un pin de
+
+322
+00:14:00,089 --> 00:14:05,519
+dtr así que será necesario aplicar el
+
+323
+00:14:02,970 --> 00:14:08,040
+reset de forma manual presionando el
+
+324
+00:14:05,519 --> 00:14:10,200
+botón sobre la placa y eso lo veremos en
+
+325
+00:14:08,039 --> 00:14:13,199
+breve en definitiva con estas cuatro
+
+326
+00:14:10,200 --> 00:14:16,140
+conexiones tenemos todo lo necesario y
+
+327
+00:14:13,200 --> 00:14:19,020
+adicionalmente el conversor tiene un pin
+
+328
+00:14:16,139 --> 00:14:21,029
+r lo conectaremos y nos facilitará el
+
+329
+00:14:19,019 --> 00:14:22,799
+proceso de carga de manera que ya
+
+330
+00:14:21,029 --> 00:14:25,319
+podemos conectar el conversor a la
+
+331
+00:14:22,799 --> 00:14:28,229
+computadora junto con los cables que
+
+332
+00:14:25,320 --> 00:14:31,320
+enlazan a pro mini otra recomendación es
+
+333
+00:14:28,230 --> 00:14:32,430
+que estos cuatro o cinco cables no sean
+
+334
+00:14:31,320 --> 00:14:34,530
+muy largos
+
+335
+00:14:32,429 --> 00:14:36,539
+si tenéis la computadora algo en lejos
+
+336
+00:14:34,529 --> 00:14:39,809
+de pro mini conviene utilizar una
+
+337
+00:14:36,539 --> 00:14:42,419
+extensión de cable usb de por ejemplo un
+
+338
+00:14:39,809 --> 00:14:45,000
+metro y medio o dos metros siempre que
+
+339
+00:14:42,419 --> 00:14:47,669
+alarguemos un cable conviene que sea el
+
+340
+00:14:45,000 --> 00:14:50,370
+de usb de la computadora ya que es un
+
+341
+00:14:47,669 --> 00:14:52,799
+cable con una malla metálica que evita
+
+342
+00:14:50,370 --> 00:14:55,769
+el ingreso de ruidos eléctricos con lo
+
+343
+00:14:52,799 --> 00:14:56,549
+cual el cable de extensión usb puede ser
+
+344
+00:14:55,769 --> 00:14:59,009
+largo
+
+345
+00:14:56,549 --> 00:15:01,620
+los cables individuales que conectan el
+
+346
+00:14:59,009 --> 00:15:04,649
+conversor compro mini conviene que sean
+
+347
+00:15:01,620 --> 00:15:07,409
+cortos de no más de 30 centímetros
+
+348
+00:15:04,649 --> 00:15:09,329
+vamos a abrir el ide de arduino e iremos
+
+349
+00:15:07,409 --> 00:15:12,169
+al menú herramientas
+
+350
+00:15:09,330 --> 00:15:16,860
+luego placa y seleccionamos la opción
+
+351
+00:15:12,169 --> 00:15:19,349
+arduino pro org pro mini luego volvemos
+
+352
+00:15:16,860 --> 00:15:21,149
+a ingresar al menú herramientas y esta
+
+353
+00:15:19,350 --> 00:15:23,580
+vez a puerto
+
+354
+00:15:21,149 --> 00:15:25,769
+seleccionamos el puerto de comunicación
+
+355
+00:15:23,580 --> 00:15:28,759
+en donde tenemos conectado el conversor
+
+356
+00:15:25,769 --> 00:15:30,720
+en mi caso es con 5 finalmente
+
+357
+00:15:28,759 --> 00:15:33,210
+volveremos a ingresar al menú
+
+358
+00:15:30,720 --> 00:15:37,019
+herramientas y ahora verás que aparece
+
+359
+00:15:33,210 --> 00:15:38,610
+un nuevo submenú y dice procesador allí
+
+360
+00:15:37,019 --> 00:15:42,269
+deberemos verificar que esté
+
+361
+00:15:38,610 --> 00:15:46,470
+seleccionado at mega 328 entre
+
+362
+00:15:42,269 --> 00:15:48,750
+paréntesis 5volts 16 megahertz como hay
+
+363
+00:15:46,470 --> 00:15:50,250
+varias versiones de pro mini debemos
+
+364
+00:15:48,750 --> 00:15:52,860
+seleccionar la nuestra
+
+365
+00:15:50,250 --> 00:15:55,009
+antes decía que existe un modelo de 33
+
+366
+00:15:52,860 --> 00:15:58,080
+volts que utiliza el mismo
+
+367
+00:15:55,009 --> 00:16:01,289
+microcontrolador at mega 328 pero
+
+368
+00:15:58,080 --> 00:16:03,389
+funciona a 8 megahertz de velocidad e
+
+369
+00:16:01,289 --> 00:16:07,500
+incluso hay una versión con un
+
+370
+00:16:03,389 --> 00:16:09,480
+microcontrolador at mega 168 y ahora si
+
+371
+00:16:07,500 --> 00:16:11,399
+estamos listos para subir el primer
+
+372
+00:16:09,480 --> 00:16:14,129
+programa como no tenemos un circuito
+
+373
+00:16:11,399 --> 00:16:16,829
+externo utilizaremos el mismo programa
+
+374
+00:16:14,129 --> 00:16:20,340
+del capítulo 2 que hace parpadear el led
+
+375
+00:16:16,830 --> 00:16:22,970
+integrado l a intervalos de un segundo
+
+376
+00:16:20,340 --> 00:16:25,259
+la idea es verificar que podemos cargar
+
+377
+00:16:22,970 --> 00:16:25,920
+satisfactoriamente un programa en la
+
+378
+00:16:25,259 --> 00:16:28,620
+provincia
+
+379
+00:16:25,919 --> 00:16:31,110
+pegaré el código que ya esta altura no
+
+380
+00:16:28,620 --> 00:16:32,789
+requiere explicación antes de subirlo
+
+381
+00:16:31,110 --> 00:16:35,399
+hay que tener en cuenta que este
+
+382
+00:16:32,789 --> 00:16:38,039
+conversor como ya vimos no tiene la
+
+383
+00:16:35,399 --> 00:16:41,159
+función de receta automático mediante el
+
+384
+00:16:38,039 --> 00:16:44,370
+pin dtr y durante el proceso de reset
+
+385
+00:16:41,159 --> 00:16:46,860
+que el microcontrolador mira si hay un
+
+386
+00:16:44,370 --> 00:16:49,110
+nuevo programa a cargar quizás podrías
+
+387
+00:16:46,860 --> 00:16:51,659
+pensar que el reset debe producirse
+
+388
+00:16:49,110 --> 00:16:54,659
+luego de la carga del programa pero en
+
+389
+00:16:51,659 --> 00:16:57,539
+realidad es durante la misma con lo cual
+
+390
+00:16:54,659 --> 00:17:00,360
+cuando seleccionemos subir el programa
+
+391
+00:16:57,539 --> 00:17:03,509
+desde el id en la barra de estado dirá
+
+392
+00:17:00,360 --> 00:17:06,808
+en principio compilando y luego cambiará
+
+393
+00:17:03,509 --> 00:17:09,298
+a subiendo justo en este instante es
+
+394
+00:17:06,808 --> 00:17:12,269
+cuando debemos presionar el botón de
+
+395
+00:17:09,298 --> 00:17:15,119
+reset en la placa lo presionamos durante
+
+396
+00:17:12,269 --> 00:17:17,668
+un segundo de esa forma le hacemos saber
+
+397
+00:17:15,119 --> 00:17:20,789
+a la pro mini que busque por un programa
+
+398
+00:17:17,669 --> 00:17:23,220
+nuevo así que hagamos ese proceso subir
+
+399
+00:17:20,789 --> 00:17:25,980
+el programa aguardamos unos segundos
+
+400
+00:17:23,220 --> 00:17:28,860
+mientras compila y ya tenemos el dedo
+
+401
+00:17:25,980 --> 00:17:32,190
+preparado para ejecutar el reset ni bien
+
+402
+00:17:28,859 --> 00:17:34,979
+veas que cambia de compilando programa
+
+403
+00:17:32,190 --> 00:17:38,160
+subiendo presiona el botón durante un
+
+404
+00:17:34,980 --> 00:17:40,460
+segundo y soltar y eso es todo ya
+
+405
+00:17:38,160 --> 00:17:43,440
+podemos ver como el led incorporado
+
+406
+00:17:40,460 --> 00:17:45,480
+parpadea a intervalos de un segundo
+
+407
+00:17:43,440 --> 00:17:48,120
+indicando que el programa se está
+
+408
+00:17:45,480 --> 00:17:51,240
+ejecutando si por algún motivo presionas
+
+409
+00:17:48,119 --> 00:17:53,399
+el botón demasiado tarde el ivry dará un
+
+410
+00:17:51,240 --> 00:17:56,039
+mensaje de error en la carga no hay
+
+411
+00:17:53,400 --> 00:17:58,140
+problema es cuestión de volver a subir y
+
+412
+00:17:56,039 --> 00:18:00,720
+estar bien atentos a cuando dice
+
+413
+00:17:58,140 --> 00:18:02,850
+subiendo para presionar el botón de
+
+414
+00:18:00,720 --> 00:18:05,850
+reset queda claro que los conversores
+
+415
+00:18:02,849 --> 00:18:08,490
+que disponen del pin dtr hacen el
+
+416
+00:18:05,849 --> 00:18:11,159
+proceso mucho más práctico probemos de
+
+417
+00:18:08,490 --> 00:18:13,500
+nuevo el proceso de carga para saber si
+
+418
+00:18:11,160 --> 00:18:16,170
+lo hicimos bien modifiquemos en el
+
+419
+00:18:13,500 --> 00:18:19,710
+código las líneas de delay y apliquemos
+
+420
+00:18:16,170 --> 00:18:22,860
+una demora de 500 milisegundos de esa
+
+421
+00:18:19,710 --> 00:18:24,870
+manera el led parpadeará más rápidamente
+
+422
+00:18:22,859 --> 00:18:27,329
+y sabremos que la modificación al
+
+423
+00:18:24,869 --> 00:18:30,379
+programa fue cargada en la pro mini
+
+424
+00:18:27,329 --> 00:18:33,389
+vamos a subir atentos a cuando cambia a
+
+425
+00:18:30,380 --> 00:18:36,090
+subiendo presionamos un segundo el botón
+
+426
+00:18:33,390 --> 00:18:38,788
+de reset y ya apreciamos como él
+
+427
+00:18:36,089 --> 00:18:41,129
+parpadea a intervalos de medio segundo
+
+428
+00:18:38,788 --> 00:18:43,650
+podrás cargar cualquier programa que
+
+429
+00:18:41,130 --> 00:18:46,200
+desees cualquiera de los vistos en este
+
+430
+00:18:43,650 --> 00:18:48,269
+curso funcionará correctamente pero
+
+431
+00:18:46,200 --> 00:18:51,240
+deberás tener en cuenta una limitación
+
+432
+00:18:48,269 --> 00:18:54,480
+en los casos donde se alimentaba algún
+
+433
+00:18:51,240 --> 00:18:56,940
+sensor o dispositivo externo con fuente
+
+434
+00:18:54,480 --> 00:18:59,190
+de alimentación en arduino 1 el
+
+435
+00:18:56,940 --> 00:19:02,400
+regulador de tensión era capaz de
+
+436
+00:18:59,190 --> 00:19:04,919
+entregar 500 mil jumper pero aquí en pro
+
+437
+00:19:02,400 --> 00:19:08,038
+mini por el reducido tamaño de la placa
+
+438
+00:19:04,919 --> 00:19:11,610
+y también el regulador esa corriente es
+
+439
+00:19:08,038 --> 00:19:14,220
+de sólo 150 mil jumper en arduino 1
+
+440
+00:19:11,609 --> 00:19:17,189
+disponemos de un jack de alimentación
+
+441
+00:19:14,220 --> 00:19:19,710
+muy cómodo para aplicar una alimentación
+
+442
+00:19:17,190 --> 00:19:23,009
+externa en pro mini tendremos en su
+
+443
+00:19:19,710 --> 00:19:25,259
+lugar el pin denominado roe lo vimos al
+
+444
+00:19:23,009 --> 00:19:27,990
+principio y ahora para finalizar el
+
+445
+00:19:25,259 --> 00:19:31,288
+capítulo decidió explicar un poco más en
+
+446
+00:19:27,990 --> 00:19:33,569
+detalle este pin lo alimenta de forma
+
+447
+00:19:31,288 --> 00:19:36,079
+directa al regulador de tensión
+
+448
+00:19:33,569 --> 00:19:38,668
+aquí indicado permite que le ingresemos
+
+449
+00:19:36,079 --> 00:19:42,000
+variedad de tensiones pero la limitación
+
+450
+00:19:38,669 --> 00:19:46,320
+más importante es la corriente de salida
+
+451
+00:19:42,000 --> 00:19:48,599
+que será de 150 ml máximo con lo cual
+
+452
+00:19:46,319 --> 00:19:51,480
+podremos alimentar dispositivos externos
+
+453
+00:19:48,599 --> 00:19:55,859
+por ejemplo utilizando pilas para
+
+454
+00:19:51,480 --> 00:19:58,140
+generar 6 volts baterías de 9 o 12 sin
+
+455
+00:19:55,859 --> 00:20:01,409
+problemas y a la salida al regulador
+
+456
+00:19:58,140 --> 00:20:03,150
+tendremos de forma estable 5volts sólo
+
+457
+00:20:01,410 --> 00:20:05,640
+tendremos que tener en cuenta la
+
+458
+00:20:03,150 --> 00:20:08,280
+limitación en la corriente si comparamos
+
+459
+00:20:05,640 --> 00:20:10,680
+el tamaño del regulador en pro mini con
+
+460
+00:20:08,279 --> 00:20:13,710
+el regulador en arduino 1 la diferencia
+
+461
+00:20:10,680 --> 00:20:16,049
+es notable y por eso no puede drenar
+
+462
+00:20:13,710 --> 00:20:18,660
+tanta corriente como en su modelo más
+
+463
+00:20:16,049 --> 00:20:21,659
+grande en aplicaciones donde el consumo
+
+464
+00:20:18,660 --> 00:20:24,840
+de corriente es considerable como ser la
+
+465
+00:20:21,660 --> 00:20:27,120
+tira neo pixel con el regulador interno
+
+466
+00:20:24,839 --> 00:20:29,490
+de arduino era suficiente pero sí
+
+467
+00:20:27,119 --> 00:20:32,309
+quisiéramos implementar la misma
+
+468
+00:20:29,490 --> 00:20:33,990
+solución compro mini el regulador no es
+
+469
+00:20:32,309 --> 00:20:36,750
+capaz de suministrar la corriente
+
+470
+00:20:33,990 --> 00:20:40,170
+necesaria y deberías utilizar una fuente
+
+471
+00:20:36,750 --> 00:20:43,109
+regulada de 5 volts externa lo mismo que
+
+472
+00:20:40,170 --> 00:20:46,110
+por ejemplo motores eso es todo por este
+
+473
+00:20:43,109 --> 00:20:48,490
+capítulo si aún no lo hiciste te pido te
+
+474
+00:20:46,109 --> 00:20:51,159
+suscribas para recibir notificaciones
+
+475
+00:20:48,490 --> 00:20:53,200
+y por cualquier duda o comentario lo
+
+476
+00:20:51,160 --> 00:20:57,929
+podéis hacer debajo que con gusto te
+
+477
+00:20:53,200 --> 00:20:57,929
+responderé chao y hasta la próxima
+

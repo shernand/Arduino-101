@@ -1,0 +1,21 @@
+La memoria EEPROM incorporada en el micro controlador de Arduino permitirá almacenar datos en tiempo de ejecución y poder recuperarlos luego de un reinicio o pérdida de alimentación.
+Ideal para guardar configuraciones personalizadas que se establecen mientras se ejecuta el programa y no se perderán luego de un reinicio o falta de alimentación externa a la placa Arduino. 
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoEEPROM
+#ArduinoMemoriaNoVolátil
+Arduino EEPROM read
+Arduino EEPROM put
+Arduino EEPROM get
+Arduino EEPROM tutorial
+Arduino memoria EEPROM
+
+Marcas de tiempo:
+0:00 Introducción
+0:32 Capacidades según modelos
+2:33 Organización de celdas de memoria
+5:45 Primer programa (lectura y escritura)
+12:36 Distintas longitudes (int, float, char)
+17:12 Segundo programa (funciones get y put)
