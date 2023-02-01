@@ -1,0 +1,2728 @@
+1
+00:00:01,480 --> 00:00:06,730
+todos y bienvenidos al capítulo 54 de
+
+2
+00:00:04,509 --> 00:00:08,529
+arduino desde cero en español
+
+3
+00:00:06,730 --> 00:00:11,708
+en esta oportunidad veremos cómo
+
+4
+00:00:08,529 --> 00:00:14,558
+utilizar una pantalla tfc con conexión
+
+5
+00:00:11,708 --> 00:00:18,099
+por ovas esp y basada en el controlador
+
+6
+00:00:14,558 --> 00:00:20,618
+y 93 41 que nos permitirá mostrar
+
+7
+00:00:18,099 --> 00:00:22,899
+información de texto y gráficos a color
+
+8
+00:00:20,618 --> 00:00:25,059
+para diversidad de proyectos
+
+9
+00:00:22,899 --> 00:00:27,698
+esta imagen frontal muestra la pantalla
+
+10
+00:00:25,059 --> 00:00:30,338
+en sí y los pines de conexión para
+
+11
+00:00:27,699 --> 00:00:32,920
+alimentación y datos si vamos a la parte
+
+12
+00:00:30,338 --> 00:00:34,509
+posterior nos detendremos unos instantes
+
+13
+00:00:32,920 --> 00:00:37,030
+para analizar un par de cuestiones
+
+14
+00:00:34,509 --> 00:00:39,429
+importantes existen varios modelos de
+
+15
+00:00:37,030 --> 00:00:41,920
+pantallas en el mercado y algunas tienen
+
+16
+00:00:39,429 --> 00:00:43,840
+capacidad táctil esa capacidad se
+
+17
+00:00:41,920 --> 00:00:46,269
+obtiene con el circuito integrado que
+
+18
+00:00:43,840 --> 00:00:50,800
+estaría en esta ubicación y es el modelo
+
+19
+00:00:46,268 --> 00:00:52,530
+x pt 2046 en mi caso no está incorporado
+
+20
+00:00:50,799 --> 00:00:55,869
+con lo cual es sólo una pantalla
+
+21
+00:00:52,530 --> 00:00:58,448
+convencional sin capacidad táctil los
+
+22
+00:00:55,869 --> 00:01:00,280
+pines asociados en esta sección no se
+
+23
+00:00:58,448 --> 00:01:02,890
+utilizarán sobre la parte inferior
+
+24
+00:01:00,280 --> 00:01:05,799
+existe un zócalo para insertar una
+
+25
+00:01:02,890 --> 00:01:07,989
+tarjeta del tipo sd y se puede usar de
+
+26
+00:01:05,799 --> 00:01:08,439
+forma independiente como por ejemplo
+
+27
+00:01:07,989 --> 00:01:10,899
+vimos
+
+28
+00:01:08,439 --> 00:01:12,399
+en el capítulo 37 con el lector de
+
+29
+00:01:10,900 --> 00:01:14,400
+tarjetas microsd
+
+30
+00:01:12,400 --> 00:01:16,719
+en este capítulo nos centraremos
+
+31
+00:01:14,400 --> 00:01:19,540
+únicamente en la funcionalidad de la
+
+32
+00:01:16,719 --> 00:01:21,429
+pantalla los pines de este lado son para
+
+33
+00:01:19,540 --> 00:01:23,710
+el acceso a la tarjeta que tampoco
+
+34
+00:01:21,430 --> 00:01:26,260
+usaremos finalmente para destacar y
+
+35
+00:01:23,709 --> 00:01:30,099
+tener en cuenta es este componente un
+
+36
+00:01:26,260 --> 00:01:32,260
+regulador lineal de tensión de 5 a 33
+
+37
+00:01:30,099 --> 00:01:35,140
+volts nos permitirá alimentar a la
+
+38
+00:01:32,260 --> 00:01:37,120
+pantalla directamente con 5 volts este
+
+39
+00:01:35,140 --> 00:01:40,390
+es un tema importante ya que el
+
+40
+00:01:37,120 --> 00:01:42,400
+controlador de la pantalla y link 93 41
+
+41
+00:01:40,390 --> 00:01:45,489
+incorporados sobre el vidrio de la
+
+42
+00:01:42,400 --> 00:01:47,620
+propia pantalla funciona con 33 volts
+
+43
+00:01:45,489 --> 00:01:49,959
+existen modelos de pantallas que no
+
+44
+00:01:47,620 --> 00:01:53,200
+incorporan este regulador y deben ser
+
+45
+00:01:49,959 --> 00:01:54,639
+alimentados únicamente con 3-3 con lo
+
+46
+00:01:53,200 --> 00:01:56,769
+cual para total seguridad
+
+47
+00:01:54,640 --> 00:01:59,019
+es conveniente antes de conectar una
+
+48
+00:01:56,769 --> 00:02:01,449
+pantalla de este tipo que verifiques la
+
+49
+00:01:59,019 --> 00:02:04,689
+presencia de este regulador si es el
+
+50
+00:02:01,450 --> 00:02:06,640
+caso entonces podrás conectar a 5 volts
+
+51
+00:02:04,689 --> 00:02:08,740
+de arduino sin problemas
+
+52
+00:02:06,640 --> 00:02:11,590
+adicionalmente debajo del regulador
+
+53
+00:02:08,740 --> 00:02:14,350
+existen unos puntos de soldadura con la
+
+54
+00:02:11,590 --> 00:02:17,530
+identificación j 1 jump
+
+55
+00:02:14,349 --> 00:02:20,349
+está pensado para estando abierto la
+
+56
+00:02:17,530 --> 00:02:22,689
+alimentación al pin de veces e ingresé
+
+57
+00:02:20,349 --> 00:02:26,409
+al regulador y de esa manera convierte a
+
+58
+00:02:22,689 --> 00:02:29,050
+los 5 a 33 volts si nuestro proyecto
+
+59
+00:02:26,409 --> 00:02:31,870
+está basado por completo en un modelo de
+
+60
+00:02:29,050 --> 00:02:34,770
+arduino con 33 volts y no hay forma
+
+61
+00:02:31,870 --> 00:02:37,150
+simple de generar 5 entonces es posible
+
+62
+00:02:34,770 --> 00:02:40,450
+puentear con un pequeño punto de
+
+63
+00:02:37,150 --> 00:02:42,819
+soldadura aj 1 esto hace que veces se
+
+64
+00:02:40,449 --> 00:02:46,689
+presente en el pin ingrese de forma
+
+65
+00:02:42,819 --> 00:02:49,000
+directa a lily 93 41 sin pasar por el
+
+66
+00:02:46,689 --> 00:02:51,789
+regulador esto también es importante que
+
+67
+00:02:49,000 --> 00:02:54,550
+lo revises antes de conectarlo arduino
+
+68
+00:02:51,789 --> 00:02:58,060
+si por ejemplo el regulador no estuviese
+
+69
+00:02:54,550 --> 00:02:59,920
+presente o j1 este puenteado entonces
+
+70
+00:02:58,060 --> 00:03:03,129
+significa que únicamente podremos
+
+71
+00:02:59,919 --> 00:03:05,919
+alimentar con 33 volts y si le aplicamos
+
+72
+00:03:03,129 --> 00:03:07,990
+5 por error quemaremos el controlador
+
+73
+00:03:05,919 --> 00:03:11,679
+muy bien volviendo a la vista frontal
+
+74
+00:03:07,990 --> 00:03:14,320
+los 28 pulgadas de la pantalla se midió
+
+75
+00:03:11,680 --> 00:03:16,540
+de forma diagonal como probablemente ya
+
+76
+00:03:14,319 --> 00:03:19,919
+sepas existen modelos con el mismo
+
+77
+00:03:16,539 --> 00:03:24,179
+controlador pero en tamaños más pequeños
+
+78
+00:03:19,919 --> 00:03:28,269
+24 o 22 pulgadas la resolución será de
+
+79
+00:03:24,180 --> 00:03:31,090
+320 píxeles de ancho x 240 píxeles de
+
+80
+00:03:28,270 --> 00:03:33,520
+alto la definición de alto y ancho en
+
+81
+00:03:31,090 --> 00:03:35,890
+realidad es relativa y de hecho en la
+
+82
+00:03:33,520 --> 00:03:38,890
+práctica la usaremos de forma vertical
+
+83
+00:03:35,889 --> 00:03:41,049
+para la conexión arduino vamos a pasar
+
+84
+00:03:38,889 --> 00:03:43,779
+previo a la vista de proto guard por un
+
+85
+00:03:41,050 --> 00:03:46,330
+diagrama eléctrico o esquemático ya que
+
+86
+00:03:43,780 --> 00:03:49,090
+nos facilitará la visualización como te
+
+87
+00:03:46,330 --> 00:03:52,750
+comentaba antes el controlador y lee 93
+
+88
+00:03:49,090 --> 00:03:55,629
+41 al trabajar con 33 volts podemos
+
+89
+00:03:52,750 --> 00:03:57,460
+alimentar con 5 de arduino gracias al
+
+90
+00:03:55,629 --> 00:03:59,259
+regulador incorporado pero este
+
+91
+00:03:57,460 --> 00:04:01,570
+regulador es sólo para la parte de
+
+92
+00:03:59,259 --> 00:04:04,149
+alimentación los pines de datos que
+
+93
+00:04:01,569 --> 00:04:06,489
+llevarán información desde arduino hacia
+
+94
+00:04:04,150 --> 00:04:09,700
+la pantalla deben ser nivelados por
+
+95
+00:04:06,490 --> 00:04:12,010
+nuestra parte a 33 esto lo logramos como
+
+96
+00:04:09,699 --> 00:04:14,500
+ya hicimos varias veces con un divisor
+
+97
+00:04:12,009 --> 00:04:17,500
+resistivo de tensión de esa forma
+
+98
+00:04:14,500 --> 00:04:20,949
+reducimos los 5 volts del nivel lógico
+
+99
+00:04:17,500 --> 00:04:24,399
+alto de arduino a 33 lo logramos con la
+
+100
+00:04:20,949 --> 00:04:26,110
+combinación de una resistencia de 47 k y
+
+101
+00:04:24,399 --> 00:04:27,818
+una resistencia de 10
+
+102
+00:04:26,110 --> 00:04:29,650
+pero primero comencemos con la
+
+103
+00:04:27,819 --> 00:04:31,449
+alimentación en estas filas se
+
+104
+00:04:29,649 --> 00:04:33,788
+encuentran los pines que usaremos del
+
+105
+00:04:31,449 --> 00:04:36,218
+módulo de la pantalla veces lo
+
+106
+00:04:33,788 --> 00:04:39,399
+conectaremos a la salida de 5 volts de
+
+107
+00:04:36,218 --> 00:04:41,079
+arduino gene de gene de de arduino como
+
+108
+00:04:39,399 --> 00:04:43,718
+hay varias conexiones a gene de
+
+109
+00:04:41,079 --> 00:04:45,579
+colocamos el símbolo de masa de manera
+
+110
+00:04:43,718 --> 00:04:47,949
+que cada vez que veamos el símbolo
+
+111
+00:04:45,579 --> 00:04:48,519
+sabemos que son puntos conectados entre
+
+112
+00:04:47,949 --> 00:04:51,669
+sí
+
+113
+00:04:48,519 --> 00:04:53,649
+nd y nos evitamos cruzar conexiones y
+
+114
+00:04:51,668 --> 00:04:56,769
+complicar la vista el pin con la
+
+115
+00:04:53,649 --> 00:04:59,288
+denominación de ese chip select de la
+
+116
+00:04:56,769 --> 00:05:01,750
+pantalla lo conectaremos al punto medio
+
+117
+00:04:59,288 --> 00:05:04,750
+del divisor resistivo que irá luego al
+
+118
+00:05:01,750 --> 00:05:07,990
+pin digital número 10 de arduino verás
+
+119
+00:05:04,750 --> 00:05:11,168
+que del pin cs existe una unión por un
+
+120
+00:05:07,990 --> 00:05:13,840
+lado con una resistencia de 47 que irá
+
+121
+00:05:11,168 --> 00:05:16,568
+al pin digital 10 de arduino y por otro
+
+122
+00:05:13,839 --> 00:05:19,329
+lado mediante una resistencia de 10 k a
+
+123
+00:05:16,569 --> 00:05:21,490
+gene d en definitiva 7 es más fácil
+
+124
+00:05:19,329 --> 00:05:23,649
+podrás ver el camino de la conexión en
+
+125
+00:05:21,490 --> 00:05:26,408
+orden inverso si salimos desde el pin
+
+126
+00:05:23,649 --> 00:05:29,829
+digital número 10 de arduino pasamos por
+
+127
+00:05:26,408 --> 00:05:32,439
+una resistencia de 47 k en serie de su
+
+128
+00:05:29,829 --> 00:05:33,430
+extremo iremos por dos caminos uno que
+
+129
+00:05:32,439 --> 00:05:35,769
+lleva al pin d
+
+130
+00:05:33,430 --> 00:05:37,269
+chip select de la pantalla y el otro
+
+131
+00:05:35,769 --> 00:05:40,689
+camino que nos lleva mediante la
+
+132
+00:05:37,269 --> 00:05:43,029
+resistencia de 10k nd de esa forma
+
+133
+00:05:40,689 --> 00:05:46,689
+nivelamos los cinco bolsos del nivel
+
+134
+00:05:43,029 --> 00:05:48,909
+lógico alto de arduino a 33 que acepta
+
+135
+00:05:46,689 --> 00:05:50,980
+el controlador usaremos exactamente el
+
+136
+00:05:48,910 --> 00:05:53,110
+mismo método para nivelar el resto de
+
+137
+00:05:50,980 --> 00:05:55,960
+las líneas de datos el pin que le sigue
+
+138
+00:05:53,110 --> 00:05:58,030
+a chip select es el de reset este pin es
+
+139
+00:05:55,959 --> 00:06:00,189
+activo bajo con lo cual para que la
+
+140
+00:05:58,029 --> 00:06:02,829
+pantalla funcione de forma normal
+
+141
+00:06:00,189 --> 00:06:05,800
+debemos forzarlo a un nivel alto lo
+
+142
+00:06:02,829 --> 00:06:08,919
+hacemos con esta resistencia de 47 k a
+
+143
+00:06:05,800 --> 00:06:11,350
+veces se o lo que es lo mismo a 5 volts
+
+144
+00:06:08,920 --> 00:06:13,449
+reset no es necesario controlarlos desde
+
+145
+00:06:11,350 --> 00:06:15,970
+arduino por eso lo conectamos de forma
+
+146
+00:06:13,449 --> 00:06:18,009
+permanente con la resistencia le sigue
+
+147
+00:06:15,970 --> 00:06:21,160
+una línea especial de la pantalla con la
+
+148
+00:06:18,009 --> 00:06:23,560
+denominación de barras necesaria para el
+
+149
+00:06:21,160 --> 00:06:25,450
+control de la misma esta línea debe ser
+
+150
+00:06:23,560 --> 00:06:28,000
+controlada por arduino por ese motivo
+
+151
+00:06:25,449 --> 00:06:31,449
+usaremos el mismo método del divisor de
+
+152
+00:06:28,000 --> 00:06:34,180
+tensión con una resistencia de 47 k al
+
+153
+00:06:31,449 --> 00:06:36,879
+pin digital número 9 de arduino y
+
+154
+00:06:34,180 --> 00:06:39,009
+también la resistencia de 10 k a gene de
+
+155
+00:06:36,879 --> 00:06:40,120
+quedan sólo dos líneas más para
+
+156
+00:06:39,009 --> 00:06:43,019
+completar el
+
+157
+00:06:40,120 --> 00:06:45,519
+s&amp;p y el pin con la denominación s de
+
+158
+00:06:43,019 --> 00:06:48,399
+mushing mediante el mismo divisor
+
+159
+00:06:45,519 --> 00:06:51,459
+resistivo al pin digital número 11 de
+
+160
+00:06:48,399 --> 00:06:54,099
+arduino el pin se seca mediante otro
+
+161
+00:06:51,459 --> 00:06:55,239
+divisor resistivo al pin digital número
+
+162
+00:06:54,100 --> 00:06:57,010
+13 de arduino
+
+163
+00:06:55,240 --> 00:06:59,889
+finalmente el pin con la denominación
+
+164
+00:06:57,009 --> 00:07:02,139
+led para brindar la alimentación de la
+
+165
+00:06:59,889 --> 00:07:04,000
+iluminación trasera de la pantalla lo
+
+166
+00:07:02,139 --> 00:07:07,210
+conectaremos mediante una resistencia de
+
+167
+00:07:04,000 --> 00:07:09,490
+100 oms a veces esta resistencia es para
+
+168
+00:07:07,209 --> 00:07:12,370
+limitar la corriente y también controlar
+
+169
+00:07:09,490 --> 00:07:14,560
+el brillo y ese es toda la conexión no
+
+170
+00:07:12,370 --> 00:07:16,600
+es complicada solo que debemos usar
+
+171
+00:07:14,560 --> 00:07:19,720
+varios pares de resistencias para
+
+172
+00:07:16,600 --> 00:07:23,650
+nivelar los 5 volts del base ese pay de
+
+173
+00:07:19,720 --> 00:07:26,350
+arduino a los 33 que acepta el hilo 93
+
+174
+00:07:23,649 --> 00:07:28,448
+41 ahora vamos al diagrama de protoboard
+
+175
+00:07:26,350 --> 00:07:31,449
+donde se implementa lo mismo pero no
+
+176
+00:07:28,449 --> 00:07:33,340
+queda tan claro y por eso es que pasamos
+
+177
+00:07:31,449 --> 00:07:35,530
+primero por un diagrama eléctrico
+
+178
+00:07:33,339 --> 00:07:37,750
+ubicaremos la pantalla de forma vertical
+
+179
+00:07:35,529 --> 00:07:39,638
+por una cuestión de conveniencia de las
+
+180
+00:07:37,750 --> 00:07:42,009
+conexiones luego en la programación
+
+181
+00:07:39,639 --> 00:07:44,110
+verás que si tu intención es trabajar en
+
+182
+00:07:42,009 --> 00:07:46,659
+formato horizontal es muy fácil de
+
+183
+00:07:44,110 --> 00:07:49,360
+establecer el primer pin de la izquierda
+
+184
+00:07:46,660 --> 00:07:49,810
+con un cable directo a 5 volts de
+
+185
+00:07:49,360 --> 00:07:52,840
+arduino
+
+186
+00:07:49,810 --> 00:07:55,660
+kennedy con un cable directo a genere de
+
+187
+00:07:52,839 --> 00:07:58,389
+arduino el pin de cs chip select
+
+188
+00:07:55,660 --> 00:08:01,840
+conectamos un extremo de una resistencia
+
+189
+00:07:58,389 --> 00:08:04,959
+de 47 k con franjas de colores amarillo
+
+190
+00:08:01,839 --> 00:08:07,149
+violeta y rojo aprovechamos el surco o
+
+191
+00:08:04,959 --> 00:08:09,310
+canal de proto guard para ubicarlas de
+
+192
+00:08:07,149 --> 00:08:11,500
+forma vertical luego con un cable
+
+193
+00:08:09,310 --> 00:08:14,199
+directo en este caso uno de color
+
+194
+00:08:11,500 --> 00:08:16,449
+naranja vamos al pin digital número 10
+
+195
+00:08:14,199 --> 00:08:19,329
+de arduino nos falta la resistencia de
+
+196
+00:08:16,449 --> 00:08:21,579
+10k de bandas de colores marrón negro
+
+197
+00:08:19,329 --> 00:08:23,379
+naranja para completar el divisor de
+
+198
+00:08:21,579 --> 00:08:25,959
+tensión como vimos en el diagrama
+
+199
+00:08:23,379 --> 00:08:28,750
+eléctrico todas las resistencias de 10k
+
+200
+00:08:25,959 --> 00:08:31,209
+tienen uno de sus extremos a gene de de
+
+201
+00:08:28,750 --> 00:08:34,000
+manera que podemos ubicarlas aquí una al
+
+202
+00:08:31,209 --> 00:08:36,340
+lado de la otra y con puentes conectamos
+
+203
+00:08:34,000 --> 00:08:38,918
+sus extremos inferiores a gene de
+
+204
+00:08:36,340 --> 00:08:41,200
+entonces desde el pin de chip select con
+
+205
+00:08:38,918 --> 00:08:43,809
+este cable azul vamos a la primera
+
+206
+00:08:41,200 --> 00:08:46,360
+resistencia de 10k y ya tenemos todo
+
+207
+00:08:43,809 --> 00:08:49,269
+listo para esa línea de datos para reset
+
+208
+00:08:46,360 --> 00:08:51,879
+podemos colocar la resistencia de 47 k
+
+209
+00:08:49,269 --> 00:08:53,049
+de forma directa a veces que aquí se
+
+210
+00:08:51,879 --> 00:08:55,269
+muestra en ángulo
+
+211
+00:08:53,049 --> 00:08:57,250
+para evitar cables tendrás que ver la
+
+212
+00:08:55,269 --> 00:08:59,950
+forma de ubicar los componentes en tu
+
+213
+00:08:57,250 --> 00:09:01,570
+caso como te parezca más cómodo siempre
+
+214
+00:08:59,950 --> 00:09:04,330
+teniendo en cuenta el diagrama de
+
+215
+00:09:01,570 --> 00:09:06,970
+conexión que vimos antes el pin de
+
+216
+00:09:04,330 --> 00:09:10,450
+barras el mismo trabajo para el divisor
+
+217
+00:09:06,970 --> 00:09:13,480
+detención de 47 k cable directo al pin
+
+218
+00:09:10,450 --> 00:09:15,820
+digital número 9 de arduino y con este
+
+219
+00:09:13,480 --> 00:09:19,360
+cable verde a la segunda resistencia de
+
+220
+00:09:15,820 --> 00:09:22,450
+10 k para ese de moshi y es ese acá
+
+221
+00:09:19,360 --> 00:09:24,490
+mismo método sólo resta led que lo
+
+222
+00:09:22,450 --> 00:09:26,740
+conectaremos a veces mediante una
+
+223
+00:09:24,490 --> 00:09:29,799
+resistencia de 100 11 con bandas de
+
+224
+00:09:26,740 --> 00:09:31,990
+colores marrón negro marrón aquí con lo
+
+225
+00:09:29,799 --> 00:09:34,059
+que este cable de color gris por
+
+226
+00:09:31,990 --> 00:09:36,159
+cuestiones de organización visual pero
+
+227
+00:09:34,059 --> 00:09:38,649
+podrás conectar de forma directa ya que
+
+228
+00:09:36,159 --> 00:09:40,719
+la resistencia suele tener terminales
+
+229
+00:09:38,649 --> 00:09:42,700
+largos como siempre en la nota se
+
+230
+00:09:40,720 --> 00:09:44,920
+encuentra el resumen de conexiones por
+
+231
+00:09:42,700 --> 00:09:47,079
+cualquier duda podrás volver a ver el
+
+232
+00:09:44,919 --> 00:09:49,509
+esquemático y también los pines a
+
+233
+00:09:47,078 --> 00:09:52,629
+utilizar en el caso de usar el modelo de
+
+234
+00:09:49,509 --> 00:09:55,059
+placa mega genial vamos entonces a la
+
+235
+00:09:52,629 --> 00:09:57,338
+programación que se nos facilitará por
+
+236
+00:09:55,059 --> 00:09:59,439
+el uso de unas librerías específicas
+
+237
+00:09:57,339 --> 00:10:02,230
+iremos como es usual al menú
+
+238
+00:09:59,440 --> 00:10:04,150
+a incluir librería y administrar
+
+239
+00:10:02,230 --> 00:10:08,470
+bibliotecas en el campo de búsqueda
+
+240
+00:10:04,149 --> 00:10:10,509
+escribiremos el 93 41 aguardamos acá se
+
+241
+00:10:08,470 --> 00:10:14,710
+actualiza el listado y seleccionamos
+
+242
+00:10:10,509 --> 00:10:17,049
+ayuda fruit el 93 41 by ahí de frutos
+
+243
+00:10:14,710 --> 00:10:19,060
+luego el botón instalar yo ya la tengo
+
+244
+00:10:17,049 --> 00:10:20,949
+instalada por eso no me aparece
+
+245
+00:10:19,059 --> 00:10:23,439
+habilitado pero lo estará en tu caso
+
+246
+00:10:20,950 --> 00:10:26,350
+luego de unos segundos verás el texto
+
+247
+00:10:23,440 --> 00:10:28,840
+install nos resta una librería más que
+
+248
+00:10:26,350 --> 00:10:31,450
+la usamos en el capítulo 47 con la
+
+249
+00:10:28,840 --> 00:10:34,720
+pantalla oled escribimos en el campo de
+
+250
+00:10:31,450 --> 00:10:36,870
+búsqueda ayuda fruit fx y luego
+
+251
+00:10:34,720 --> 00:10:40,509
+seleccionamos la que dice ayuda fruit
+
+252
+00:10:36,870 --> 00:10:42,580
+gfx library by jay de frutos mismo
+
+253
+00:10:40,509 --> 00:10:45,069
+procedimiento que antes con el botón de
+
+254
+00:10:42,580 --> 00:10:47,350
+instalar en caso de que esta librería ya
+
+255
+00:10:45,070 --> 00:10:49,330
+la tengas instalada es importante que se
+
+256
+00:10:47,350 --> 00:10:51,909
+encuentre actualizada a la última
+
+257
+00:10:49,330 --> 00:10:53,920
+versión disponible aparece un botón de
+
+258
+00:10:51,909 --> 00:10:56,319
+actualizar si fuera el caso
+
+259
+00:10:53,919 --> 00:10:58,269
+es importante que actualices a la última
+
+260
+00:10:56,320 --> 00:11:00,490
+versión de esta librería para que todo
+
+261
+00:10:58,269 --> 00:11:02,889
+funcione correctamente luego sólo es
+
+262
+00:11:00,490 --> 00:11:04,600
+cuestión de cerrar la ventana del gestor
+
+263
+00:11:02,889 --> 00:11:05,949
+para demostrar las capacidades gráficas
+
+264
+00:11:04,600 --> 00:11:08,259
+de la pantalla
+
+265
+00:11:05,950 --> 00:11:10,690
+vamos a ejecutar un programa de ejemplo
+
+266
+00:11:08,259 --> 00:11:12,549
+incluido en la librería simplemente para
+
+267
+00:11:10,690 --> 00:11:14,920
+ver si todo se encuentra conectado
+
+268
+00:11:12,549 --> 00:11:16,659
+correctamente y jugaremos un par de
+
+269
+00:11:14,919 --> 00:11:19,120
+programas por nuestra cuenta y
+
+270
+00:11:16,659 --> 00:11:21,339
+explicaremos cómo siempre línea por
+
+271
+00:11:19,120 --> 00:11:24,399
+línea pero por ahora vamos al menú
+
+272
+00:11:21,340 --> 00:11:28,540
+archivo ejemplos buscamos por el submenú
+
+273
+00:11:24,399 --> 00:11:31,990
+ayuda fruit y 93 41 y seleccionamos el
+
+274
+00:11:28,539 --> 00:11:33,879
+programa con el nombre graphic text este
+
+275
+00:11:31,990 --> 00:11:35,860
+programa no requiere ningún tipo de
+
+276
+00:11:33,879 --> 00:11:39,070
+modificación con lo cual directamente
+
+277
+00:11:35,860 --> 00:11:41,710
+iremos a subirlo deberás ver en pantalla
+
+278
+00:11:39,070 --> 00:11:44,370
+la siguiente demostración con textos y
+
+279
+00:11:41,710 --> 00:11:47,470
+gráficos de distintos colores líneas
+
+280
+00:11:44,370 --> 00:11:49,600
+rectángulos triángulos en definitiva si
+
+281
+00:11:47,470 --> 00:11:52,180
+se muestra correctamente es que tenemos
+
+282
+00:11:49,600 --> 00:11:54,040
+todo bien conectado como así también las
+
+283
+00:11:52,179 --> 00:11:56,109
+librerías en la parte final de la
+
+284
+00:11:54,039 --> 00:11:59,379
+demostración es un texto que va rotando
+
+285
+00:11:56,110 --> 00:12:01,779
+cada un par de segundos y queda así todo
+
+286
+00:11:59,379 --> 00:12:04,210
+el tiempo podrás volver a verlo desde el
+
+287
+00:12:01,779 --> 00:12:06,429
+inicio al presionar el botón de reset de
+
+288
+00:12:04,210 --> 00:12:08,530
+arduino bonito pero vamos a hacer
+
+289
+00:12:06,429 --> 00:12:11,829
+nuestros propios programas y entender
+
+290
+00:12:08,529 --> 00:12:13,139
+cómo mostrar información en pantalla en
+
+291
+00:12:11,830 --> 00:12:15,239
+este primer programa
+
+292
+00:12:13,139 --> 00:12:17,669
+es realizar la tradición que venimos
+
+293
+00:12:15,239 --> 00:12:20,970
+haciendo desde el capítulo 10 con la
+
+294
+00:12:17,669 --> 00:12:23,488
+pantalla lcd mostrar el texto o la han
+
+295
+00:12:20,970 --> 00:12:25,589
+pasado y la cantidad de segundos desde
+
+296
+00:12:23,489 --> 00:12:28,109
+iniciado el programa incluimos la
+
+297
+00:12:25,589 --> 00:12:32,129
+librería esp y para comunicación por
+
+298
+00:12:28,109 --> 00:12:37,079
+dicho base serie aida fruit gfx i lleida
+
+299
+00:12:32,129 --> 00:12:39,359
+fruit y 93 41 con 2 numeral design damos
+
+300
+00:12:37,078 --> 00:12:42,208
+las instrucciones al compilador para que
+
+301
+00:12:39,359 --> 00:12:46,168
+reemplace todo ocurrencia del texto tfc
+
+302
+00:12:42,208 --> 00:12:48,928
+y un bajo de ese por el número 9 y te ft
+
+303
+00:12:46,168 --> 00:12:50,698
+cs por el número 10 ya que en dichos
+
+304
+00:12:48,928 --> 00:12:53,578
+pines 9 y 10
+
+305
+00:12:50,698 --> 00:12:55,258
+tenemos respectivamente de barras y chip
+
+306
+00:12:53,578 --> 00:12:57,568
+select la pantalla
+
+307
+00:12:55,259 --> 00:13:00,119
+estos pines pueden cambiarse si fuera
+
+308
+00:12:57,568 --> 00:13:02,759
+necesario por eso los declaramos aquí al
+
+309
+00:13:00,119 --> 00:13:06,689
+principio luego creamos un objeto con el
+
+310
+00:13:02,759 --> 00:13:09,480
+nombre de ft del tipo e idea fruit y 93
+
+311
+00:13:06,688 --> 00:13:12,899
+41 y le pasamos los parámetros de los
+
+312
+00:13:09,480 --> 00:13:14,970
+pines de barras y chip select el resto
+
+313
+00:13:12,899 --> 00:13:17,178
+de los pines son los por defectos del
+
+314
+00:13:14,970 --> 00:13:19,560
+base de cpi con lo cual no es necesario
+
+315
+00:13:17,178 --> 00:13:22,049
+pasarlos como parámetros
+
+316
+00:13:19,559 --> 00:13:24,509
+en el capítulo 37 vimos el
+
+317
+00:13:22,049 --> 00:13:27,179
+funcionamiento de la base sp y por si te
+
+318
+00:13:24,509 --> 00:13:29,189
+surge alguna duda ya ha creado el objeto
+
+319
+00:13:27,179 --> 00:13:32,189
+podríamos usar sus funciones asociadas
+
+320
+00:13:29,190 --> 00:13:34,500
+para en pocas líneas lograr el objetivo
+
+321
+00:13:32,190 --> 00:13:37,710
+propuesto en el setup inicial izamos la
+
+322
+00:13:34,500 --> 00:13:41,429
+pantalla con la función begin del objeto
+
+323
+00:13:37,710 --> 00:13:43,350
+t ft luego con set rotation la posición
+
+324
+00:13:41,429 --> 00:13:45,750
+de la pantalla y para entender mejor
+
+325
+00:13:43,350 --> 00:13:48,330
+esta función enviamos esta nota al
+
+326
+00:13:45,750 --> 00:13:51,509
+margen se trata de jon tiene un solo
+
+327
+00:13:48,330 --> 00:13:55,528
+parámetro que puede ser el número 0 1 2
+
+328
+00:13:51,509 --> 00:13:58,080
+ó 3 0 equivale a 0 grados iniciando en
+
+329
+00:13:55,528 --> 00:14:00,659
+posición vertical aquí debajo estas
+
+330
+00:13:58,080 --> 00:14:02,370
+imágenes sirven de referencia podrás ver
+
+331
+00:14:00,659 --> 00:14:04,500
+que la posición de cero grados
+
+332
+00:14:02,370 --> 00:14:07,019
+corresponde a la pantalla ubicada de
+
+333
+00:14:04,500 --> 00:14:09,600
+forma vertical con sus pines de conexión
+
+334
+00:14:07,019 --> 00:14:12,269
+apuntando hacia abajo justo como lo
+
+335
+00:14:09,600 --> 00:14:14,610
+tenemos conectado en protoboard si haced
+
+336
+00:14:12,269 --> 00:14:17,069
+rotation le pasamos un valor de 1
+
+337
+00:14:14,610 --> 00:14:19,200
+significa que usaremos la pantalla en
+
+338
+00:14:17,070 --> 00:14:22,560
+posición horizontal o lo que es lo mismo
+
+339
+00:14:19,200 --> 00:14:25,570
+girar a 90 grados en sentido antihorario
+
+340
+00:14:22,559 --> 00:14:28,359
+un valor de 2 vuelve a rotar
+
+341
+00:14:25,570 --> 00:14:30,400
+90 grados quedando nuevamente vertical
+
+342
+00:14:28,360 --> 00:14:32,980
+pero con los pines de conexión hacia
+
+343
+00:14:30,399 --> 00:14:35,679
+arriba y finalmente con un valor de 3
+
+344
+00:14:32,980 --> 00:14:37,060
+para posición horizontal con los pines
+
+345
+00:14:35,679 --> 00:14:39,129
+hacia la izquierda
+
+346
+00:14:37,059 --> 00:14:41,649
+nosotros en el programa le pasaremos un
+
+347
+00:14:39,129 --> 00:14:43,990
+valor de 0 a la función pero si tu
+
+348
+00:14:41,649 --> 00:14:46,389
+proyecto requiere mostrar información en
+
+349
+00:14:43,990 --> 00:14:49,509
+formato horizontal podrás elegir los
+
+350
+00:14:46,389 --> 00:14:52,149
+valores 1 o 3 dependiendo de qué lado de
+
+351
+00:14:49,509 --> 00:14:54,879
+la pantalla queden los pines de conexión
+
+352
+00:14:52,149 --> 00:14:57,069
+le sigue la función fill screen que
+
+353
+00:14:54,879 --> 00:14:59,470
+establece el color de relleno de la
+
+354
+00:14:57,070 --> 00:15:02,350
+pantalla básicamente el color de fondo
+
+355
+00:14:59,470 --> 00:15:04,690
+de toda la pantalla tiene un solo
+
+356
+00:15:02,350 --> 00:15:07,540
+parámetro y se trata de una constante
+
+357
+00:15:04,690 --> 00:15:09,430
+que hace referencia a un color en una
+
+358
+00:15:07,539 --> 00:15:11,649
+paleta que la librería tiene pre
+
+359
+00:15:09,429 --> 00:15:14,709
+configurada esta es la paleta de colores
+
+360
+00:15:11,649 --> 00:15:17,500
+a nuestra disposición son 19 en total
+
+361
+00:15:14,710 --> 00:15:19,810
+nosotros siempre deberemos trabajar con
+
+362
+00:15:17,500 --> 00:15:21,669
+el nombre de la constante en este caso
+
+363
+00:15:19,809 --> 00:15:26,289
+como decimos que queremos un color de
+
+364
+00:15:21,669 --> 00:15:29,559
+relleno rojo la constante será el 93 41
+
+365
+00:15:26,289 --> 00:15:31,870
+guión bajo red al lado de cada constante
+
+366
+00:15:29,559 --> 00:15:34,179
+se encuentra una traducción al español
+
+367
+00:15:31,870 --> 00:15:36,310
+del color que representa se pueden crear
+
+368
+00:15:34,179 --> 00:15:38,829
+colores a medida pero eso lo dejaremos
+
+369
+00:15:36,309 --> 00:15:40,299
+para otra oportunidad con esta paleta de
+
+370
+00:15:38,830 --> 00:15:42,639
+colores nos podremos manejar
+
+371
+00:15:40,299 --> 00:15:43,689
+perfectamente bien para la mayoría de
+
+372
+00:15:42,639 --> 00:15:46,149
+nuestros proyectos
+
+373
+00:15:43,690 --> 00:15:48,300
+entonces indicamos que queremos un color
+
+374
+00:15:46,149 --> 00:15:51,579
+de relleno o color de fondo de pantalla
+
+375
+00:15:48,299 --> 00:15:53,528
+rojo quizás no muy profesional pero
+
+376
+00:15:51,580 --> 00:15:56,410
+llamativo luego usaremos varias
+
+377
+00:15:53,528 --> 00:15:58,720
+funciones que ya vimos del capítulo 47
+
+378
+00:15:56,409 --> 00:16:00,610
+con la pantalla oled como debemos
+
+379
+00:15:58,720 --> 00:16:02,740
+escribir un texto primero debemos
+
+380
+00:16:00,610 --> 00:16:05,289
+indicar el color del mismo
+
+381
+00:16:02,740 --> 00:16:08,080
+por eso la función set texto color
+
+382
+00:16:05,289 --> 00:16:11,079
+realiza dicha tarea y le indicamos el
+
+383
+00:16:08,080 --> 00:16:14,950
+color en nuestro caso un blanco por eso
+
+384
+00:16:11,080 --> 00:16:18,480
+entre paréntesis colocaremos el 93 41
+
+385
+00:16:14,950 --> 00:16:21,220
+guión bajo white con 7 texto 6
+
+386
+00:16:18,480 --> 00:16:23,649
+establecemos el tamaño del texto y el
+
+387
+00:16:21,220 --> 00:16:26,528
+parámetro de la función en este caso es
+
+388
+00:16:23,649 --> 00:16:28,539
+de 2 indica el factor de escala en la
+
+389
+00:16:26,528 --> 00:16:31,120
+nota al margen vemos el tamaño en
+
+390
+00:16:28,539 --> 00:16:34,059
+píxeles que ocupa un carácter que es de
+
+391
+00:16:31,120 --> 00:16:36,549
+6 de ancho por 8 de alto donde la
+
+392
+00:16:34,059 --> 00:16:37,759
+columna derecha queda en blanco como así
+
+393
+00:16:36,549 --> 00:16:40,039
+también la fila
+
+394
+00:16:37,759 --> 00:16:42,889
+fer your de esa manera al colocar un
+
+395
+00:16:40,039 --> 00:16:45,649
+carácter a su lado o debajo siempre
+
+396
+00:16:42,889 --> 00:16:48,769
+queda al menos un píxel de separación un
+
+397
+00:16:45,649 --> 00:16:52,189
+tamaño de 1 indica justamente 6 por 8
+
+398
+00:16:48,769 --> 00:16:55,189
+píxeles un tamaño de 2 exactamente el
+
+399
+00:16:52,190 --> 00:16:57,710
+doble de 12 por 16 y así vamos
+
+400
+00:16:55,190 --> 00:17:00,080
+multiplicando el valor base incluso
+
+401
+00:16:57,710 --> 00:17:04,130
+podemos colocar textos de gran tamaño
+
+402
+00:17:00,080 --> 00:17:05,120
+con una escala de 8 que es de 48 por 64
+
+403
+00:17:04,130 --> 00:17:07,040
+píxeles
+
+404
+00:17:05,119 --> 00:17:09,159
+de hecho usaremos este valor de escala
+
+405
+00:17:07,039 --> 00:17:11,449
+para mostrar los segundos transcurridos
+
+406
+00:17:09,160 --> 00:17:13,699
+finalmente antes de escribir el texto
+
+407
+00:17:11,449 --> 00:17:16,160
+debemos indicar las coordenadas en la
+
+408
+00:17:13,699 --> 00:17:19,100
+pantalla en donde debe comenzar lo
+
+409
+00:17:16,160 --> 00:17:22,459
+hacemos con la función set cursor entre
+
+410
+00:17:19,099 --> 00:17:24,559
+paréntesis 0 0 que corresponde a la
+
+411
+00:17:22,459 --> 00:17:26,180
+esquina superior izquierda esto es
+
+412
+00:17:24,559 --> 00:17:28,519
+cierto para cualquier pantalla que
+
+413
+00:17:26,180 --> 00:17:30,560
+utilicemos siempre el origen es la
+
+414
+00:17:28,519 --> 00:17:33,410
+esquina superior izquierda como se
+
+415
+00:17:30,559 --> 00:17:35,779
+muestra en esta imagen la coordenada x
+
+416
+00:17:33,410 --> 00:17:38,750
+incrementa hacia la derecha y la
+
+417
+00:17:35,779 --> 00:17:43,099
+coordenada y hacia abajo por eso por
+
+418
+00:17:38,750 --> 00:17:44,359
+ejemplo las coordenadas 75 250 indican
+
+419
+00:17:43,099 --> 00:17:47,259
+que estaremos
+
+420
+00:17:44,359 --> 00:17:50,058
+5 píxeles desde el borde izquierdo y a
+
+421
+00:17:47,259 --> 00:17:51,710
+250 píxeles del superior
+
+422
+00:17:50,058 --> 00:17:53,349
+es importante entender el sistema de
+
+423
+00:17:51,710 --> 00:17:55,759
+coordenadas ya que lo usaremos
+
+424
+00:17:53,349 --> 00:17:57,769
+constantemente para ubicar contenido en
+
+425
+00:17:55,759 --> 00:18:00,230
+la pantalla y ya estamos en condiciones
+
+426
+00:17:57,769 --> 00:18:03,349
+de imprimir el texto con la función
+
+427
+00:18:00,230 --> 00:18:06,679
+print y entre paréntesis comillas o la
+
+428
+00:18:03,349 --> 00:18:08,719
+coma han pasado dos puntos verás que
+
+429
+00:18:06,679 --> 00:18:11,330
+todo lo hecho hasta el momento y dentro
+
+430
+00:18:08,720 --> 00:18:13,490
+del set-up el cual se ejecuta por única
+
+431
+00:18:11,329 --> 00:18:16,099
+vez al inicio del programa y aquí
+
+432
+00:18:13,490 --> 00:18:18,859
+colocaremos toda la información que no
+
+433
+00:18:16,099 --> 00:18:21,199
+va a ser actualizada de forma permanente
+
+434
+00:18:18,859 --> 00:18:23,089
+solo los segundos transcurridos son
+
+435
+00:18:21,200 --> 00:18:25,519
+aquellos que se actualizarán pero el
+
+436
+00:18:23,089 --> 00:18:27,678
+texto o la han pasado es siempre el
+
+437
+00:18:25,519 --> 00:18:30,859
+mismo de igual manera el texto que
+
+438
+00:18:27,679 --> 00:18:32,900
+colocaremos al final de segundos con
+
+439
+00:18:30,859 --> 00:18:35,240
+pantallas de este tipo no es posible
+
+440
+00:18:32,900 --> 00:18:37,820
+estar actualizando la totalidad de la
+
+441
+00:18:35,240 --> 00:18:40,190
+misma porque lo vas esp y no es lo
+
+442
+00:18:37,819 --> 00:18:42,558
+suficientemente rápido para que no se
+
+443
+00:18:40,190 --> 00:18:45,169
+perciba cómo se va dibujando en la
+
+444
+00:18:42,558 --> 00:18:47,779
+pantalla por eso todo lo que no cambia
+
+445
+00:18:45,169 --> 00:18:49,630
+lo colocamos en el setup y reservamos
+
+446
+00:18:47,779 --> 00:18:51,410
+para el loop el contenido dinámico
+
+447
+00:18:49,630 --> 00:18:54,560
+entonces lo que nos
+
+448
+00:18:51,410 --> 00:18:58,519
+es escribir el texto segundos por eso lo
+
+449
+00:18:54,559 --> 00:19:01,700
+vamos a ubicar en las coordenadas 75 250
+
+450
+00:18:58,519 --> 00:19:02,930
+con seth cursor y luego pintó el texto
+
+451
+00:19:01,700 --> 00:19:04,819
+segundos
+
+452
+00:19:02,930 --> 00:19:07,310
+ahora cuando subamos el programa verás
+
+453
+00:19:04,819 --> 00:19:09,470
+cómo queda todo organizado por cierto
+
+454
+00:19:07,309 --> 00:19:11,569
+notarás que no aplicamos las funciones
+
+455
+00:19:09,470 --> 00:19:14,450
+para establecer el color de texto y
+
+456
+00:19:11,569 --> 00:19:16,970
+tamaño ya que como la palabra segundos
+
+457
+00:19:14,450 --> 00:19:19,850
+la queremos con el mismo color de texto
+
+458
+00:19:16,970 --> 00:19:21,789
+blanco y tamaño de 2 no es necesario
+
+459
+00:19:19,849 --> 00:19:24,169
+volver a establecer esos parámetros
+
+460
+00:19:21,789 --> 00:19:26,389
+nuevamente ahora para finalizar el
+
+461
+00:19:24,170 --> 00:19:28,519
+programa vamos a colocar el código de
+
+462
+00:19:26,390 --> 00:19:30,920
+loop que muestra la cantidad de segundos
+
+463
+00:19:28,519 --> 00:19:33,289
+transcurridos desde iniciado el programa
+
+464
+00:19:30,920 --> 00:19:36,110
+lo haremos con un color azul así que
+
+465
+00:19:33,289 --> 00:19:37,849
+aplicamos set text color y entre
+
+466
+00:19:36,109 --> 00:19:43,519
+paréntesis la constante que lo
+
+467
+00:19:37,849 --> 00:19:45,949
+representa el 93 41 blues con 7 text 6
+
+468
+00:19:43,519 --> 00:19:48,769
+establecemos una escala de 8 para
+
+469
+00:19:45,950 --> 00:19:51,259
+mostrar un texto bien grande ubicamos el
+
+470
+00:19:48,769 --> 00:19:53,990
+cursor en las coordenadas 30 100
+
+471
+00:19:51,259 --> 00:19:55,970
+finalmente con la función print el
+
+472
+00:19:53,990 --> 00:19:56,769
+resultado que nos devuelve la función
+
+473
+00:19:55,970 --> 00:20:00,130
+1000
+
+474
+00:19:56,769 --> 00:20:02,500
+/ 1000 recordad que emily se devuelve la
+
+475
+00:20:00,130 --> 00:20:04,270
+cantidad de milisegundos desde iniciado
+
+476
+00:20:02,500 --> 00:20:06,789
+el programa de manera que se ha dicho
+
+477
+00:20:04,269 --> 00:20:08,829
+valor lo dividimos por 1000 pasamos a
+
+478
+00:20:06,789 --> 00:20:11,440
+segundos la última línea de este
+
+479
+00:20:08,829 --> 00:20:13,689
+programa será una pequeña demora de 10
+
+480
+00:20:11,440 --> 00:20:16,120
+milisegundos de manera de actualizar los
+
+481
+00:20:13,690 --> 00:20:18,789
+datos de los segundos transcurridos de
+
+482
+00:20:16,119 --> 00:20:21,069
+forma que no se perciba un parpadeo y
+
+483
+00:20:18,789 --> 00:20:23,440
+ese es todo el programa si bien son
+
+484
+00:20:21,069 --> 00:20:26,859
+muchas líneas es básicamente el mismo
+
+485
+00:20:23,440 --> 00:20:29,230
+proceso establecer color tamaño y
+
+486
+00:20:26,859 --> 00:20:32,049
+ubicación antes del texto propiamente
+
+487
+00:20:29,230 --> 00:20:34,509
+dicho vamos a verificar y subir el
+
+488
+00:20:32,049 --> 00:20:36,730
+programa vemos en principio que aparece
+
+489
+00:20:34,509 --> 00:20:39,490
+el color rojo que establecimos de fondo
+
+490
+00:20:36,730 --> 00:20:41,110
+la imagen no es perfecta pero es causado
+
+491
+00:20:39,490 --> 00:20:44,019
+por la cámara que captura la imagen
+
+492
+00:20:41,109 --> 00:20:46,719
+siempre hay algún tipo de distorsión al
+
+493
+00:20:44,019 --> 00:20:49,029
+filmar una pantalla en la vida real se
+
+494
+00:20:46,720 --> 00:20:51,759
+ve perfectamente bien tenemos el texto
+
+495
+00:20:49,029 --> 00:20:54,369
+en color blanco de hola han pasado y
+
+496
+00:20:51,759 --> 00:20:55,990
+hacia el final el texto segundos pero
+
+497
+00:20:54,369 --> 00:20:58,479
+claramente hay un problema con los
+
+498
+00:20:55,990 --> 00:21:00,759
+segundos que deberían mostrarse en color
+
+499
+00:20:58,480 --> 00:21:03,279
+azul en su lugar tenemos unos bloques
+
+500
+00:21:00,759 --> 00:21:05,680
+sólidos que se fueron llenando con él
+
+501
+00:21:03,279 --> 00:21:08,079
+el tiempo es un problema que ahora lo
+
+502
+00:21:05,680 --> 00:21:09,940
+vamos a solucionar fácilmente pero que
+
+503
+00:21:08,079 --> 00:21:11,409
+ella que lo veas primero ya que una
+
+504
+00:21:09,940 --> 00:21:14,980
+imagen vale más que mil palabras
+
+505
+00:21:11,410 --> 00:21:17,259
+entonces qué sucede el texto estático se
+
+506
+00:21:14,980 --> 00:21:19,120
+muestra sin problemas pero el texto en
+
+507
+00:21:17,259 --> 00:21:21,910
+el loop no esto se debe al
+
+508
+00:21:19,119 --> 00:21:23,799
+funcionamiento de siete textos color en
+
+509
+00:21:21,910 --> 00:21:26,800
+realidad la función acepta dos
+
+510
+00:21:23,799 --> 00:21:29,019
+parámetros nosotros le pasamos uno solo
+
+511
+00:21:26,799 --> 00:21:31,509
+el color del texto pero el segundo
+
+512
+00:21:29,019 --> 00:21:34,269
+parámetro establece el color de fondo
+
+513
+00:21:31,509 --> 00:21:36,970
+del texto resulta que si pasamos un solo
+
+514
+00:21:34,269 --> 00:21:39,069
+parámetro al imprimirse el texto solo se
+
+515
+00:21:36,970 --> 00:21:41,350
+encienden en pantalla los píxeles
+
+516
+00:21:39,069 --> 00:21:43,379
+necesarios para mostrar el número uno
+
+517
+00:21:41,349 --> 00:21:46,419
+luego el número dos y así sucesivamente
+
+518
+00:21:43,380 --> 00:21:49,030
+pero se superponen generando lo que
+
+519
+00:21:46,420 --> 00:21:51,460
+recién vimos la forma de solucionarlo es
+
+520
+00:21:49,029 --> 00:21:53,619
+muy fácil vamos a agregar el segundo
+
+521
+00:21:51,460 --> 00:21:56,529
+parámetro de la función con el mismo
+
+522
+00:21:53,619 --> 00:21:59,079
+color de fondo de la pantalla el rojo de
+
+523
+00:21:56,529 --> 00:22:01,569
+esa manera cuando se imprime un texto lo
+
+524
+00:21:59,079 --> 00:22:04,179
+hace con el color azul y también coloca
+
+525
+00:22:01,569 --> 00:22:06,579
+todos los píxeles del bloque del texto
+
+526
+00:22:04,180 --> 00:22:08,920
+con el color rojo quedando como se
+
+527
+00:22:06,579 --> 00:22:10,089
+muestra en la imagen como el fondo de
+
+528
+00:22:08,920 --> 00:22:12,880
+pantalla también
+
+529
+00:22:10,089 --> 00:22:14,889
+rojo entonces queda todo perfecto voy a
+
+530
+00:22:12,880 --> 00:22:17,890
+copiar la constante que representa el
+
+531
+00:22:14,890 --> 00:22:21,340
+color rojo de la función fill screen y
+
+532
+00:22:17,890 --> 00:22:23,440
+en 7 text color agregó una coma y pego
+
+533
+00:22:21,339 --> 00:22:25,689
+el valor de esta manera no sólo
+
+534
+00:22:23,440 --> 00:22:28,360
+establecemos el color de texto sino
+
+535
+00:22:25,690 --> 00:22:30,548
+también su color de fondo sumamos este
+
+536
+00:22:28,359 --> 00:22:33,038
+pequeño cambio y veamos si funciona
+
+537
+00:22:30,548 --> 00:22:34,269
+efectivamente ya ahora se muestra
+
+538
+00:22:33,038 --> 00:22:36,220
+perfectamente bien
+
+539
+00:22:34,269 --> 00:22:38,230
+en definitiva deberás recordar que
+
+540
+00:22:36,220 --> 00:22:40,630
+cuando se trabaja con texto dinámico
+
+541
+00:22:38,230 --> 00:22:43,329
+además del color del propio texto es
+
+542
+00:22:40,630 --> 00:22:45,669
+necesario aplicar el segundo parámetro
+
+543
+00:22:43,329 --> 00:22:47,889
+de color de fondo para que coincida con
+
+544
+00:22:45,669 --> 00:22:49,929
+el color que se haya elegido para fondo
+
+545
+00:22:47,890 --> 00:22:51,970
+de pantalla puedo asegurarte que este
+
+546
+00:22:49,929 --> 00:22:53,798
+pequeño detalle te ahorrará muchos
+
+547
+00:22:51,970 --> 00:22:56,288
+dolores de cabeza genial
+
+548
+00:22:53,798 --> 00:22:58,509
+veamos el segundo y último programa
+
+549
+00:22:56,288 --> 00:23:00,240
+donde la idea es crear una interfaz de
+
+550
+00:22:58,509 --> 00:23:02,648
+usuario para mostrar información
+
+551
+00:23:00,240 --> 00:23:04,538
+proveniente de sensores sólo nos
+
+552
+00:23:02,648 --> 00:23:07,599
+centraremos en la tarea de armar la
+
+553
+00:23:04,538 --> 00:23:09,490
+interfaz no será un proyecto completo a
+
+554
+00:23:07,599 --> 00:23:11,439
+diferencia del usual primero te voy a
+
+555
+00:23:09,490 --> 00:23:14,019
+mostrar cómo va a quedar la interfaz en
+
+556
+00:23:11,440 --> 00:23:16,028
+la pantalla y vamos línea por línea para
+
+557
+00:23:14,019 --> 00:23:18,128
+entender su construcción la idea
+
+558
+00:23:16,028 --> 00:23:21,638
+es mostrar los datos de temperatura y
+
+559
+00:23:18,128 --> 00:23:25,178
+humedad de los sensores tipo de ht 11 o
+
+560
+00:23:21,638 --> 00:23:27,608
+dht 22 como vimos en el capítulo 7 o
+
+561
+00:23:25,179 --> 00:23:29,710
+cualquier otro sensor este programa es
+
+562
+00:23:27,608 --> 00:23:32,168
+solo como demostración para que luego lo
+
+563
+00:23:29,710 --> 00:23:34,538
+adapte a tu caso particular en la parte
+
+564
+00:23:32,169 --> 00:23:36,940
+superior un título de panel de control
+
+565
+00:23:34,538 --> 00:23:39,519
+sobre un fondo azul el fondo de la
+
+566
+00:23:36,940 --> 00:23:42,729
+pantalla será negro para lograr un buen
+
+567
+00:23:39,519 --> 00:23:44,950
+contraste luego los textos de zona 1 y
+
+568
+00:23:42,729 --> 00:23:47,348
+valores de temperatura y humedad una
+
+569
+00:23:44,950 --> 00:23:50,080
+línea separadora y lo mismo para mostrar
+
+570
+00:23:47,348 --> 00:23:52,058
+temperatura y humedad de la zona 2 al
+
+571
+00:23:50,079 --> 00:23:54,098
+igual que el primer programa la idea es
+
+572
+00:23:52,058 --> 00:23:56,348
+colocar en el setup todo el contenido
+
+573
+00:23:54,098 --> 00:23:58,989
+estático y dejar para el loop el
+
+574
+00:23:56,348 --> 00:24:02,319
+dinámico entonces iniciamos con begin
+
+575
+00:23:58,989 --> 00:24:04,838
+set rotation y fill screen que será
+
+576
+00:24:02,319 --> 00:24:06,878
+negro para el fondo de pantalla haremos
+
+577
+00:24:04,838 --> 00:24:09,009
+la barra superior dibujando un
+
+578
+00:24:06,878 --> 00:24:12,459
+rectángulo que se lleva a cabo con la
+
+579
+00:24:09,009 --> 00:24:15,009
+función field rect rectángulo relleno el
+
+580
+00:24:12,460 --> 00:24:17,769
+primer parámetro es la coordenada x de
+
+581
+00:24:15,009 --> 00:24:21,038
+inicio y segundo parámetro la coordenada
+
+582
+00:24:17,769 --> 00:24:22,118
+y también de inicio en nuestro caso 0 y
+
+583
+00:24:21,038 --> 00:24:23,949
+0
+
+584
+00:24:22,118 --> 00:24:27,188
+desde la esquina superior izquierda
+
+585
+00:24:23,949 --> 00:24:29,919
+luego como tercer parámetro la longitud
+
+586
+00:24:27,189 --> 00:24:32,889
+sobre el eje x el ancho que tendrá el
+
+587
+00:24:29,919 --> 00:24:35,589
+rectángulo colocamos 240 para ir de
+
+588
+00:24:32,888 --> 00:24:38,228
+extremo a extremo luego el valor de 30
+
+589
+00:24:35,588 --> 00:24:39,548
+para la extensión sobre el eje y el alto
+
+590
+00:24:38,229 --> 00:24:42,068
+que tendrá el rectángulo
+
+591
+00:24:39,548 --> 00:24:44,499
+finalmente el color que elegí que es el
+
+592
+00:24:42,068 --> 00:24:49,449
+azul naval con la constante
+
+593
+00:24:44,499 --> 00:24:52,058
+93 41 navy ahora para ubicar el texto de
+
+594
+00:24:49,449 --> 00:24:55,149
+panel de control lo que ya vimos del
+
+595
+00:24:52,058 --> 00:24:58,209
+programa anterior con set texto color el
+
+596
+00:24:55,148 --> 00:25:01,268
+color que será blanco y el tamaño de 2 y
+
+597
+00:24:58,209 --> 00:25:03,729
+la ubicación del cursor a 25 píxeles
+
+598
+00:25:01,269 --> 00:25:06,429
+desde la izquierda y 6 píxeles desde el
+
+599
+00:25:03,729 --> 00:25:08,259
+borde superior finalmente el texto panel
+
+600
+00:25:06,429 --> 00:25:10,569
+de control el valor de las coordenadas
+
+601
+00:25:08,259 --> 00:25:12,848
+se obtiene por prueba y error es
+
+602
+00:25:10,568 --> 00:25:15,519
+cuestión de aproximadamente ubicar el
+
+603
+00:25:12,848 --> 00:25:17,528
+texto y ejecutar el programa y ver cómo
+
+604
+00:25:15,519 --> 00:25:20,499
+se muestra y luego ir haciendo ajustes
+
+605
+00:25:17,528 --> 00:25:23,078
+ahora vamos a escribir el texto zona 1
+
+606
+00:25:20,499 --> 00:25:25,479
+como será también de color blanco no es
+
+607
+00:25:23,078 --> 00:25:27,578
+necesario volver a establecerlo lo mismo
+
+608
+00:25:25,479 --> 00:25:28,390
+para el tamaño que lo mantendremos en 2
+
+609
+00:25:27,578 --> 00:25:31,899
+solo
+
+610
+00:25:28,390 --> 00:25:35,020
+donde ubicar el cursor en 0 35 bien
+
+611
+00:25:31,900 --> 00:25:38,380
+sobre el borde izquierdo y a 35 píxeles
+
+612
+00:25:35,019 --> 00:25:40,329
+desde arriba y el texto son a 1 misma
+
+613
+00:25:38,380 --> 00:25:43,330
+tarea para mostrar temperatura y humedad
+
+614
+00:25:40,329 --> 00:25:45,099
+ubicamos el cursor y luego el texto
+
+615
+00:25:43,329 --> 00:25:47,169
+recuerda que aquí en el setup
+
+616
+00:25:45,099 --> 00:25:49,929
+colocaremos todo el contenido estático
+
+617
+00:25:47,170 --> 00:25:51,820
+así que por ahora pasaremos por alto los
+
+618
+00:25:49,930 --> 00:25:54,490
+propios valores de temperatura y humedad
+
+619
+00:25:51,819 --> 00:25:56,889
+lo que sigue es la línea divisoria de
+
+620
+00:25:54,490 --> 00:26:00,370
+color rojo que se realiza con la función
+
+621
+00:25:56,890 --> 00:26:03,640
+drone line coordenadas x y de inicio
+
+622
+00:26:00,369 --> 00:26:06,489
+coordenadas x lite el final y el color
+
+623
+00:26:03,640 --> 00:26:08,530
+rojo para finalizar el setup mismo
+
+624
+00:26:06,490 --> 00:26:11,230
+trabajo para la zona 2 solo con
+
+625
+00:26:08,529 --> 00:26:13,750
+coordenadas de valores más altos del eje
+
+626
+00:26:11,230 --> 00:26:15,789
+y ya que estaremos más abajo en la
+
+627
+00:26:13,750 --> 00:26:17,799
+pantalla en el look colocaremos el
+
+628
+00:26:15,789 --> 00:26:20,440
+contenido dinámico lo haremos con un
+
+629
+00:26:17,799 --> 00:26:23,139
+texto de color amarillo y el fondo del
+
+630
+00:26:20,440 --> 00:26:25,029
+texto negro aquí es donde se aplica el
+
+631
+00:26:23,140 --> 00:26:27,790
+truco de colocar el fondo del texto
+
+632
+00:26:25,029 --> 00:26:29,980
+igual que el fondo de pantalla para
+
+633
+00:26:27,789 --> 00:26:31,809
+evitar la superposición que vimos del
+
+634
+00:26:29,980 --> 00:26:33,700
+primer programa la idea es que los
+
+635
+00:26:31,809 --> 00:26:34,389
+valores mostrados se puedan ver a
+
+636
+00:26:33,700 --> 00:26:36,700
+distancia
+
+637
+00:26:34,390 --> 00:26:39,790
+con un simple vistazo por eso le daremos
+
+638
+00:26:36,700 --> 00:26:43,240
+un tamaño de 6 concept text de 6
+
+639
+00:26:39,789 --> 00:26:45,849
+ubicamos el cursor en coordenadas 30 90
+
+640
+00:26:43,240 --> 00:26:48,400
+y luego el texto en sí que aquí es un
+
+641
+00:26:45,849 --> 00:26:50,169
+valor estático a modo de ejemplo pero la
+
+642
+00:26:48,400 --> 00:26:52,660
+idea es que cuando sea parte de un
+
+643
+00:26:50,170 --> 00:26:55,240
+proyecto donde obtengan los datos desde
+
+644
+00:26:52,660 --> 00:26:58,210
+el sensor sea tan simple como reemplazar
+
+645
+00:26:55,240 --> 00:27:02,140
+este 25 entre comillas por la variable
+
+646
+00:26:58,210 --> 00:27:04,180
+por ejemplo temperatura de dht 11 misma
+
+647
+00:27:02,140 --> 00:27:07,509
+tarea para la humedad del mismo sensor
+
+648
+00:27:04,180 --> 00:27:10,120
+que sería el de la zona 1 por ejemplo si
+
+649
+00:27:07,509 --> 00:27:12,339
+colocan el valor de 64 pero nuevamente
+
+650
+00:27:10,119 --> 00:27:14,619
+aquí iría la variable en donde se
+
+651
+00:27:12,339 --> 00:27:17,919
+almacenó el valor de humedad leído del
+
+652
+00:27:14,619 --> 00:27:20,289
+sensor ya lista la zona 1 la misma tarea
+
+653
+00:27:17,920 --> 00:27:23,170
+para la zona 2 si tenemos un segundo
+
+654
+00:27:20,289 --> 00:27:25,809
+sensor como verás la idea es que tengas
+
+655
+00:27:23,170 --> 00:27:28,120
+como referencia como armar un interfaz
+
+656
+00:27:25,809 --> 00:27:29,529
+ubicando los valores en pantalla de
+
+657
+00:27:28,119 --> 00:27:31,449
+acuerdo a tus necesidades
+
+658
+00:27:29,529 --> 00:27:33,700
+si ahora verificamos y subimos el
+
+659
+00:27:31,450 --> 00:27:36,220
+programa claramente tendremos la imagen
+
+660
+00:27:33,700 --> 00:27:38,440
+que ya vimos mientras explicamos cómo
+
+661
+00:27:36,220 --> 00:27:40,808
+crearla en definitiva la pantalla
+
+662
+00:27:38,440 --> 00:27:42,879
+equivale a un lienzo en blanco
+
+663
+00:27:40,808 --> 00:27:45,308
+los programas que vimos podrás crear un
+
+664
+00:27:42,878 --> 00:27:46,719
+interfaz que se adapte para mostrar todo
+
+665
+00:27:45,308 --> 00:27:48,908
+tipo de información
+
+666
+00:27:46,720 --> 00:27:51,610
+para finalizar te dejo un enlace en la
+
+667
+00:27:48,909 --> 00:27:54,009
+zona de descripción al sitio de la fruta
+
+668
+00:27:51,609 --> 00:27:57,189
+donde se explican más funciones de la
+
+669
+00:27:54,009 --> 00:27:58,990
+librería gfx y así aprender más sobre
+
+670
+00:27:57,190 --> 00:28:01,149
+funciones disponibles para hacer
+
+671
+00:27:58,990 --> 00:28:03,519
+gráficos recordad que el código fuente
+
+672
+00:28:01,148 --> 00:28:05,408
+de todos los programas vistos en este
+
+673
+00:28:03,519 --> 00:28:07,659
+capítulo y el de todos los capítulos
+
+674
+00:28:05,409 --> 00:28:10,059
+está disponible para descargar desde el
+
+675
+00:28:07,659 --> 00:28:12,429
+enlace también en la zona de descripción
+
+676
+00:28:10,058 --> 00:28:14,798
+y eso es todo por este capítulo como
+
+677
+00:28:12,429 --> 00:28:16,990
+siempre te pido te suscribas si aún no
+
+678
+00:28:14,798 --> 00:28:19,329
+lo has hecho darle un me gusta si te
+
+679
+00:28:16,990 --> 00:28:21,638
+pareció interesante y por cualquier duda
+
+680
+00:28:19,329 --> 00:28:24,308
+o consulta al respecto lo podrás hacer
+
+681
+00:28:21,638 --> 00:28:27,479
+debajo que con gusto te responderé chao
+
+682
+00:28:24,308 --> 00:28:27,480
+y hasta la próxima
+

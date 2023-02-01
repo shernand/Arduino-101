@@ -1,0 +1,21 @@
+Analizaremos en detalle el relé de estado sólido (SSR) para la conmutación de cargas de corriente alterna con Arduino. Se detalla la forma en que el SSR permite conmutar cargas de alterna mediante el TRIAC y conceptos sobre cruce por cero de la tensión de suministro de red y los componentes asociados en el módulo que lo integra.
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoRele
+#ArduinoSSR
+#ReleEstadoSolido
+Rele electronico
+Solid state relay
+Relay alterna
+Arduino TRIAC
+Arduino cruce por cero
+SSR schematic
+
+Marcas de tiempo:
+0:00 Introducción y Principio de funcionamiento
+7:15 Componentes del módulo en detalle
+11:12 Circuito de conexión
+12:40 Primer programa (lámpara de 220 VAC)
+14:26 Variante Módulo de alta corriente

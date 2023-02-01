@@ -1,0 +1,2992 @@
+1
+00:00:01,139 --> 00:00:07,439
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,798 --> 00:00:09,330
+57 de arduino desde cero en español en
+
+3
+00:00:07,439 --> 00:00:11,879
+esta oportunidad nos centraremos en la
+
+4
+00:00:09,330 --> 00:00:13,919
+capacidad h idea del modelo de placas
+
+5
+00:00:11,880 --> 00:00:17,189
+promicro para la emulación de un teclado
+
+6
+00:00:13,919 --> 00:00:19,140
+mouse y joystick o mando de juegos se
+
+7
+00:00:17,189 --> 00:00:21,660
+trata de una continuación del capítulo
+
+8
+00:00:19,140 --> 00:00:23,130
+56 donde hicimos la introducción de la
+
+9
+00:00:21,660 --> 00:00:25,498
+pro micro características
+
+10
+00:00:23,129 --> 00:00:28,858
+diferenciadoras de su microcontrolador
+
+11
+00:00:25,498 --> 00:00:31,018
+32 o 4 instalación de controladores y
+
+12
+00:00:28,859 --> 00:00:32,940
+carga de un primer programa muchas
+
+13
+00:00:31,018 --> 00:00:34,589
+cuestiones para experimentar en este
+
+14
+00:00:32,939 --> 00:00:36,718
+capítulo así que sin más demora
+
+15
+00:00:34,590 --> 00:00:39,510
+iniciemos para las primeras prácticas
+
+16
+00:00:36,719 --> 00:00:42,268
+armaremos el siguiente simple circuito
+
+17
+00:00:39,509 --> 00:00:44,429
+de la pro micro y dos pulsadores estaré
+
+18
+00:00:42,268 --> 00:00:47,100
+usando unos pulsadores de 4 pines
+
+19
+00:00:44,429 --> 00:00:49,170
+ubicados justo sobre el surco o canal de
+
+20
+00:00:47,100 --> 00:00:51,600
+protoboard de manera que queden dos
+
+21
+00:00:49,170 --> 00:00:54,120
+pines en la parte inferior y dos en la
+
+22
+00:00:51,600 --> 00:00:55,890
+parte superior del pulsador izquierdo
+
+23
+00:00:54,119 --> 00:00:58,678
+iremos con un cable directo al pin
+
+24
+00:00:55,890 --> 00:01:00,539
+digital número 4 de la pro micro del
+
+25
+00:00:58,679 --> 00:01:03,359
+pulsador de la derecha también con un
+
+26
+00:01:00,539 --> 00:01:05,579
+cable directo pero el pin número 5 los
+
+27
+00:01:03,359 --> 00:01:07,769
+pines libres de la parte superior de los
+
+28
+00:01:05,578 --> 00:01:10,649
+pulsadores los conectaremos entre sí
+
+29
+00:01:07,769 --> 00:01:12,390
+mediante un cable y a su vez genere en
+
+30
+00:01:10,649 --> 00:01:15,390
+definitiva al presionar un pulsador
+
+31
+00:01:12,390 --> 00:01:17,310
+enviaremos un nivel lógico bajo low al
+
+32
+00:01:15,390 --> 00:01:19,590
+pin que definiremos como entrada con
+
+33
+00:01:17,310 --> 00:01:21,780
+resistencia de pull up mismo método
+
+34
+00:01:19,590 --> 00:01:23,789
+utilizado en muchos otros capítulos y
+
+35
+00:01:21,780 --> 00:01:25,349
+eso es todo para el circuito para el
+
+36
+00:01:23,789 --> 00:01:27,659
+primer programa comenzaremos con la
+
+37
+00:01:25,349 --> 00:01:29,759
+emulación de un teclado básicamente al
+
+38
+00:01:27,659 --> 00:01:31,890
+cargar este programa a la pro micro y
+
+39
+00:01:29,759 --> 00:01:34,019
+conectar la computadora el sistema
+
+40
+00:01:31,890 --> 00:01:36,509
+operativo ya sea windows o mac o linux
+
+41
+00:01:34,019 --> 00:01:39,239
+la detectará como un teclado que es un
+
+42
+00:01:36,509 --> 00:01:41,188
+dispositivo de interfaz humana hd por
+
+43
+00:01:39,239 --> 00:01:43,259
+sus siglas en inglés simplemente
+
+44
+00:01:41,188 --> 00:01:45,598
+incluiremos la librería keyboard con
+
+45
+00:01:43,259 --> 00:01:47,579
+este numeral incluido y usaremos las
+
+46
+00:01:45,599 --> 00:01:50,280
+funciones asociadas para enviar textos
+
+47
+00:01:47,578 --> 00:01:52,408
+caracteres individuales o combinaciones
+
+48
+00:01:50,280 --> 00:01:54,118
+de teclas para que sea más legible el
+
+49
+00:01:52,409 --> 00:01:56,549
+código daremos la dirección al
+
+50
+00:01:54,118 --> 00:01:58,228
+compilador mediante numeral de find para
+
+51
+00:01:56,549 --> 00:02:00,630
+que reemplace todo ocurrencia de
+
+52
+00:01:58,228 --> 00:02:03,269
+pulsador guión bajo izquierdo por el
+
+53
+00:02:00,629 --> 00:02:05,670
+número 4 y pulsador guión bajo derecho
+
+54
+00:02:03,269 --> 00:02:08,189
+por el número 5 ya que en dichos pines
+
+55
+00:02:05,670 --> 00:02:11,340
+tenemos conectados los pulsadores en el
+
+56
+00:02:08,189 --> 00:02:13,590
+setup estableceremos a los pines 4 y 5
+
+57
+00:02:11,340 --> 00:02:14,310
+como entradas con resistencia de pull up
+
+58
+00:02:13,590 --> 00:02:17,189
+con
+
+59
+00:02:14,310 --> 00:02:19,530
+but pull up de manera que cuando hagamos
+
+60
+00:02:17,189 --> 00:02:22,439
+una lectura de dichos pines tendremos
+
+61
+00:02:19,530 --> 00:02:24,479
+siempre un nivel alto high y únicamente
+
+62
+00:02:22,439 --> 00:02:27,000
+al presionar el pulsador pasaremos a un
+
+63
+00:02:24,479 --> 00:02:29,280
+nivel bajo low la última línea del set
+
+64
+00:02:27,000 --> 00:02:32,580
+up es la inicialización de la emulación
+
+65
+00:02:29,280 --> 00:02:34,709
+del teclado con keyboard punto bien la
+
+66
+00:02:32,580 --> 00:02:36,510
+función bean se encargará de todas las
+
+67
+00:02:34,709 --> 00:02:38,569
+cuestiones necesarias para la emulación
+
+68
+00:02:36,509 --> 00:02:41,250
+y de nuestra parte nos despreocupamos
+
+69
+00:02:38,568 --> 00:02:43,409
+vale aclarar que la librería keyboard ya
+
+70
+00:02:41,250 --> 00:02:45,419
+viene incluida con el id de arduino por
+
+71
+00:02:43,409 --> 00:02:47,729
+lo que no es necesario descargar la
+
+72
+00:02:45,419 --> 00:02:50,458
+instalar con el look de manera muy
+
+73
+00:02:47,729 --> 00:02:52,829
+simple con el condicional consultamos si
+
+74
+00:02:50,459 --> 00:02:55,019
+el valor leído de pulsador izquierdo es
+
+75
+00:02:52,830 --> 00:02:57,600
+igual a low lo que significaría que el
+
+76
+00:02:55,019 --> 00:03:00,239
+pulsador ha sido presionado si no fuera
+
+77
+00:02:57,599 --> 00:03:02,549
+el caso saltamos el condicional y vamos
+
+78
+00:03:00,239 --> 00:03:05,219
+al siguiente donde hacemos la consulta
+
+79
+00:03:02,549 --> 00:03:07,799
+por el pulsador derecho nuevamente si no
+
+80
+00:03:05,219 --> 00:03:09,568
+estuviese presionado lo saltamos y ya no
+
+81
+00:03:07,799 --> 00:03:12,030
+hay más código en el loop por ende
+
+82
+00:03:09,568 --> 00:03:13,949
+volvemos al principio y estamos todo el
+
+83
+00:03:12,030 --> 00:03:15,780
+tiempo consultando por el estado de los
+
+84
+00:03:13,949 --> 00:03:18,750
+pulsadores sin ninguno ha sido
+
+85
+00:03:15,780 --> 00:03:20,520
+presionado entonces no tomamos ninguna
+
+86
+00:03:18,750 --> 00:03:22,770
+si por el contrario en el primer
+
+87
+00:03:20,520 --> 00:03:24,960
+condicional pulsador izquierdo tiene un
+
+88
+00:03:22,770 --> 00:03:27,300
+valor del low entonces sabemos que se ha
+
+89
+00:03:24,960 --> 00:03:29,370
+presionado el pulsador es hora de hacer
+
+90
+00:03:27,300 --> 00:03:31,620
+algo al respecto usaremos la función
+
+91
+00:03:29,370 --> 00:03:34,349
+print line de keyboard con el texto
+
+92
+00:03:31,620 --> 00:03:36,659
+pulsador izquierdo presionado ver a la
+
+93
+00:03:34,349 --> 00:03:38,669
+similitud con el mismo nombre de función
+
+94
+00:03:36,659 --> 00:03:40,530
+pero que usamos muchas veces para
+
+95
+00:03:38,669 --> 00:03:43,259
+escribir sobre el monitor serie con
+
+96
+00:03:40,530 --> 00:03:45,509
+seria el punto print en este caso al
+
+97
+00:03:43,259 --> 00:03:47,549
+usar keyboard estaremos indicando que
+
+98
+00:03:45,509 --> 00:03:49,979
+debe escribir el texto mencionado y
+
+99
+00:03:47,550 --> 00:03:52,380
+dejar un salto de línea al final también
+
+100
+00:03:49,979 --> 00:03:55,169
+existe la función print que escribe el
+
+101
+00:03:52,379 --> 00:03:57,689
+texto pero no deja el salto de línea muy
+
+102
+00:03:55,169 --> 00:03:59,369
+simple realmente estaremos enviando esa
+
+103
+00:03:57,689 --> 00:04:00,989
+cadena de caracteres como si lo
+
+104
+00:03:59,370 --> 00:04:03,360
+hubiésemos escrito en un teclado
+
+105
+00:04:00,989 --> 00:04:05,640
+verdadero luego aplicamos una demora de
+
+106
+00:04:03,360 --> 00:04:07,980
+200 milisegundos a modo de evitar
+
+107
+00:04:05,639 --> 00:04:10,049
+rebotes en el pulsador misma metodología
+
+108
+00:04:07,979 --> 00:04:12,299
+para el pulsador derecho pero
+
+109
+00:04:10,050 --> 00:04:14,880
+escribiendo el texto pulsador derecho
+
+110
+00:04:12,300 --> 00:04:16,918
+presionado ese es todo el programa antes
+
+111
+00:04:14,879 --> 00:04:18,899
+de subirlo a la placa es importante
+
+112
+00:04:16,918 --> 00:04:21,149
+tener en cuenta que los comandos deben
+
+113
+00:04:18,899 --> 00:04:23,279
+ser siempre disparados luego de alguna
+
+114
+00:04:21,149 --> 00:04:25,199
+acción en concreto en este caso al
+
+115
+00:04:23,279 --> 00:04:27,779
+presionar se un pulsador
+
+116
+00:04:25,199 --> 00:04:29,699
+por ejemplo usar la función print line y
+
+117
+00:04:27,779 --> 00:04:31,500
+que esté escribiendo constantemente en
+
+118
+00:04:29,699 --> 00:04:33,629
+un bucle pero ahora que estamos en el
+
+119
+00:04:31,500 --> 00:04:35,970
+entorno del sistema operativo esto
+
+120
+00:04:33,629 --> 00:04:37,949
+podría generar grandes problemas sería
+
+121
+00:04:35,970 --> 00:04:40,650
+como si estuviésemos escribiendo sin
+
+122
+00:04:37,949 --> 00:04:43,649
+pausa en un teclado ni bien ejecutado el
+
+123
+00:04:40,649 --> 00:04:45,299
+programa por eso con hd se debe tomar la
+
+124
+00:04:43,649 --> 00:04:48,029
+precaución de que la acción a ejecutar
+
+125
+00:04:45,300 --> 00:04:50,490
+siempre sea generada por una condición
+
+126
+00:04:48,029 --> 00:04:52,469
+particular bien establecida este
+
+127
+00:04:50,490 --> 00:04:55,170
+concepto es válido también para cuando
+
+128
+00:04:52,470 --> 00:04:57,840
+envolvemos un mouse vamos a verificar y
+
+129
+00:04:55,170 --> 00:04:59,759
+subir el programa muy bien para probarlo
+
+130
+00:04:57,839 --> 00:05:01,919
+podemos por ejemplo abrir el bloc de
+
+131
+00:04:59,759 --> 00:05:03,719
+notas de windows o cualquier editor de
+
+132
+00:05:01,920 --> 00:05:05,819
+texto que quieras aquí tengo un
+
+133
+00:05:03,720 --> 00:05:07,230
+documento en blanco y ahora al presionar
+
+134
+00:05:05,819 --> 00:05:09,269
+el pulsador izquierdo
+
+135
+00:05:07,230 --> 00:05:11,640
+vemos que aparece el texto pulsador
+
+136
+00:05:09,269 --> 00:05:13,919
+izquierdo presionado y ya ubica el
+
+137
+00:05:11,639 --> 00:05:16,079
+cursor en la próxima línea probemos con
+
+138
+00:05:13,920 --> 00:05:18,509
+el pulsador derecho como no podría ser
+
+139
+00:05:16,079 --> 00:05:20,399
+de otra manera aparece el texto pulsador
+
+140
+00:05:18,509 --> 00:05:22,469
+derecho ha presionado funciona
+
+141
+00:05:20,399 --> 00:05:24,810
+correctamente y efectivamente el sistema
+
+142
+00:05:22,470 --> 00:05:26,940
+operativo trata a la pro micro como un
+
+143
+00:05:24,810 --> 00:05:29,639
+teclado y toma la acción que programamos
+
+144
+00:05:26,939 --> 00:05:31,860
+en los pulsadores esto no invalida al
+
+145
+00:05:29,639 --> 00:05:34,168
+teclado ya conectado a la computadora
+
+146
+00:05:31,860 --> 00:05:38,729
+voy a escribir con mi teclado el texto
+
+147
+00:05:34,168 --> 00:05:41,098
+esto es una prueba y enter verás que el
+
+148
+00:05:38,728 --> 00:05:43,228
+teclado en un lado de la pro micro no
+
+149
+00:05:41,098 --> 00:05:45,300
+inválida la entrada de datos del teclado
+
+150
+00:05:43,228 --> 00:05:48,029
+convencional probemos nuevamente si
+
+151
+00:05:45,300 --> 00:05:50,879
+siguen funcionando los botones
+
+152
+00:05:48,029 --> 00:05:53,429
+perfecto ningún problema hagamos un
+
+153
+00:05:50,879 --> 00:05:55,620
+segundo programa usando otras funciones
+
+154
+00:05:53,430 --> 00:05:57,660
+de la librería keyboard esta vez para
+
+155
+00:05:55,620 --> 00:06:00,180
+emular la presión de dos teclas en
+
+156
+00:05:57,660 --> 00:06:03,030
+simultáneo para los atajos de teclado de
+
+157
+00:06:00,180 --> 00:06:05,160
+copiar y pegar el hardware será el mismo
+
+158
+00:06:03,029 --> 00:06:07,439
+solo cambiaremos la acción de los
+
+159
+00:06:05,160 --> 00:06:09,510
+pulsadores aquí aparecen unas líneas
+
+160
+00:06:07,439 --> 00:06:12,120
+comentadas ya que hay una mínima
+
+161
+00:06:09,509 --> 00:06:14,610
+diferencia si estamos en windows mac o
+
+162
+00:06:12,120 --> 00:06:17,550
+linux declaramos a la variable control
+
+163
+00:06:14,610 --> 00:06:19,560
+que del tipo card y le asignamos un
+
+164
+00:06:17,550 --> 00:06:23,310
+valor que está predefinido en la
+
+165
+00:06:19,560 --> 00:06:25,139
+librería y es que el control es la tecla
+
+166
+00:06:23,310 --> 00:06:27,720
+control a la izquierda de la barra
+
+167
+00:06:25,139 --> 00:06:29,729
+espaciadora si estuvieras en mac los
+
+168
+00:06:27,720 --> 00:06:32,310
+atajos de teclado se realizan con la
+
+169
+00:06:29,730 --> 00:06:34,560
+tecla command en vez de control por eso
+
+170
+00:06:32,310 --> 00:06:37,199
+tendrías que comentar esta línea y
+
+171
+00:06:34,560 --> 00:06:38,970
+quitar el comentario de esta otra hacia
+
+172
+00:06:37,199 --> 00:06:42,360
+la variable se le carga un valor
+
+173
+00:06:38,970 --> 00:06:45,000
+ligeramente distinto que la ftc uy que
+
+174
+00:06:42,360 --> 00:06:47,009
+corresponde a la tecla comando yo como
+
+175
+00:06:45,000 --> 00:06:49,829
+estoy en windows vuelvo a dejar como
+
+176
+00:06:47,009 --> 00:06:52,980
+estaba el principio cargando que leaf
+
+177
+00:06:49,829 --> 00:06:54,359
+control usaremos 2 numeral -define pero
+
+178
+00:06:52,980 --> 00:06:56,610
+esta vez con dos nombres
+
+179
+00:06:54,360 --> 00:06:58,800
+distintos ya que lo que era el pulsador
+
+180
+00:06:56,610 --> 00:07:01,590
+izquierdo ahora se convertirá en
+
+181
+00:06:58,800 --> 00:07:04,348
+pulsador copiar y el anterior pulsador
+
+182
+00:07:01,589 --> 00:07:07,408
+derecho en pulsador pegar van a los
+
+183
+00:07:04,348 --> 00:07:10,110
+mismos pines 4 y 5 solo los renombrados
+
+184
+00:07:07,408 --> 00:07:12,389
+para clarificar la acción que llevarán a
+
+185
+00:07:10,110 --> 00:07:14,340
+cabo en el setup establecemos a los
+
+186
+00:07:12,389 --> 00:07:16,918
+pines de los pulsadores como entradas
+
+187
+00:07:14,339 --> 00:07:19,348
+con resistencia de pull up e iniciamos
+
+188
+00:07:16,918 --> 00:07:21,930
+la emulación de teclado con la función
+
+189
+00:07:19,348 --> 00:07:23,728
+bin el primer condicional será para
+
+190
+00:07:21,930 --> 00:07:25,860
+determinar si se ha presionado el
+
+191
+00:07:23,728 --> 00:07:28,199
+pulsador de copiar si es el caso
+
+192
+00:07:25,860 --> 00:07:31,080
+usaremos una nueva función de la
+
+193
+00:07:28,199 --> 00:07:33,270
+librería que expresa esta función emula
+
+194
+00:07:31,079 --> 00:07:35,579
+la presión de una tecla en un teclado
+
+195
+00:07:33,269 --> 00:07:37,889
+convencional entre paréntesis la
+
+196
+00:07:35,579 --> 00:07:40,198
+variable que almacena la constante y
+
+197
+00:07:37,889 --> 00:07:41,968
+representa a la tecla control en
+
+198
+00:07:40,199 --> 00:07:44,819
+definitiva estamos diciendo que queremos
+
+199
+00:07:41,968 --> 00:07:47,370
+emular la prisión de la tecla control
+
+200
+00:07:44,819 --> 00:07:49,500
+del teclado en mac sería la tecla
+
+201
+00:07:47,370 --> 00:07:51,478
+comanda un dato importante de esta
+
+202
+00:07:49,500 --> 00:07:53,939
+función es que emula en la presión de la
+
+203
+00:07:51,478 --> 00:07:56,370
+tecla y mantiene presionada es como
+
+204
+00:07:53,939 --> 00:07:58,319
+presionar la tecla sin soltar la la
+
+205
+00:07:56,370 --> 00:08:00,920
+línea siguiente vuelve a invocar a la
+
+206
+00:07:58,319 --> 00:08:02,810
+función presa pero esta vez con la letra
+
+207
+00:08:00,920 --> 00:08:05,240
+si miras que la letra está entre
+
+208
+00:08:02,810 --> 00:08:07,250
+comillas simples lo que hacen estas dos
+
+209
+00:08:05,240 --> 00:08:09,980
+líneas de código es la presión en
+
+210
+00:08:07,250 --> 00:08:12,439
+simultáneo de control y la letra c que
+
+211
+00:08:09,980 --> 00:08:14,270
+es justamente el atajo de teclado para
+
+212
+00:08:12,439 --> 00:08:16,339
+la función de copiar del sistema
+
+213
+00:08:14,269 --> 00:08:18,919
+operativo ahora luego de una demora de
+
+214
+00:08:16,339 --> 00:08:22,189
+100 milisegundos aplicamos otra nueva
+
+215
+00:08:18,920 --> 00:08:24,470
+función denominada release all esta
+
+216
+00:08:22,189 --> 00:08:26,540
+función deja de presionar es decir
+
+217
+00:08:24,470 --> 00:08:29,360
+suelta todas las teclas que hemos
+
+218
+00:08:26,540 --> 00:08:31,700
+presionado antes con 3 recordarás que
+
+219
+00:08:29,360 --> 00:08:34,220
+mencionaba que press presiona la tecla y
+
+220
+00:08:31,699 --> 00:08:36,620
+mantiene presionada luego debemos dar la
+
+221
+00:08:34,220 --> 00:08:38,660
+orden de dejar de presionar o soltar
+
+222
+00:08:36,620 --> 00:08:41,419
+como nosotros indicamos presionar
+
+223
+00:08:38,659 --> 00:08:43,610
+control y la tecla c con release all
+
+224
+00:08:41,419 --> 00:08:46,370
+estamos diciendo que deje de presionar
+
+225
+00:08:43,610 --> 00:08:48,470
+todas las teclas anteriores finalmente
+
+226
+00:08:46,370 --> 00:08:50,240
+una demora de un segundo ya que no
+
+227
+00:08:48,470 --> 00:08:50,750
+estaremos haciendo nada más por el
+
+228
+00:08:50,240 --> 00:08:53,210
+momento
+
+229
+00:08:50,750 --> 00:08:56,059
+en definitiva vimos la función press
+
+230
+00:08:53,210 --> 00:08:58,009
+para presionar una tecla como usarla
+
+231
+00:08:56,059 --> 00:09:00,259
+para presionar dos teclas al mismo
+
+232
+00:08:58,009 --> 00:09:03,200
+tiempo y en este caso para emular la
+
+233
+00:09:00,259 --> 00:09:05,240
+combinación control más se para emular
+
+234
+00:09:03,200 --> 00:09:07,699
+el atajo de copiar el siguiente
+
+235
+00:09:05,240 --> 00:09:09,379
+condicional es la misma mecánica pero de
+
+236
+00:09:07,698 --> 00:09:11,599
+terminando si se ha presionado el
+
+237
+00:09:09,379 --> 00:09:14,600
+pulsador de pegar y con la función
+
+238
+00:09:11,600 --> 00:09:17,149
+express aplicamos control y la tecla be
+
+239
+00:09:14,600 --> 00:09:19,759
+corta que corresponde al atajo de pegar
+
+240
+00:09:17,149 --> 00:09:21,828
+vamos a verificar y subir el programa
+
+241
+00:09:19,759 --> 00:09:24,438
+para probar podemos abrir un nuevo
+
+242
+00:09:21,828 --> 00:09:26,328
+documento de texto y escribir algo yo
+
+243
+00:09:24,438 --> 00:09:28,578
+voy a traer a pantalla el documento del
+
+244
+00:09:26,328 --> 00:09:30,888
+programa anterior seleccionar la palabra
+
+245
+00:09:28,578 --> 00:09:33,019
+prueba y presionar de protoboard el
+
+246
+00:09:30,889 --> 00:09:35,329
+pulsador izquierdo que le asignamos la
+
+247
+00:09:33,019 --> 00:09:37,489
+función de copiar muy bien ya tenemos
+
+248
+00:09:35,328 --> 00:09:40,219
+copiado el texto prueba ahora dijo un
+
+249
+00:09:37,489 --> 00:09:42,649
+espacio al final del propio documento y
+
+250
+00:09:40,220 --> 00:09:45,079
+presionó el pulsador derecho que debe
+
+251
+00:09:42,649 --> 00:09:47,389
+ejecutar la acción de pegar y vimos que
+
+252
+00:09:45,078 --> 00:09:48,948
+efectivamente aparece el texto prueba
+
+253
+00:09:47,389 --> 00:09:51,168
+que copiamos con anterioridad
+
+254
+00:09:48,948 --> 00:09:53,328
+verificamos así que los pulsadores
+
+255
+00:09:51,168 --> 00:09:55,818
+realizan los atajos de teclado de
+
+256
+00:09:53,328 --> 00:09:58,008
+control se para copiar y control be
+
+257
+00:09:55,818 --> 00:10:00,168
+corta para pegar claro está que podrá
+
+258
+00:09:58,009 --> 00:10:02,659
+simular cualquier otro atajo de teclado
+
+259
+00:10:00,168 --> 00:10:04,818
+por ejemplo si quisieras el de nuevo
+
+260
+00:10:02,659 --> 00:10:06,708
+documento verás que en el menú del bloc
+
+261
+00:10:04,818 --> 00:10:09,769
+de notas se realiza con la combinación
+
+262
+00:10:06,708 --> 00:10:12,138
+de control y la tecla n así que en el
+
+263
+00:10:09,769 --> 00:10:13,570
+código sólo sería cuestión de cambiar en
+
+264
+00:10:12,139 --> 00:10:16,389
+la función press
+
+265
+00:10:13,570 --> 00:10:18,400
+la letra c por la n y de esa manera al
+
+266
+00:10:16,389 --> 00:10:20,980
+presionar el pulsador realizaría la
+
+267
+00:10:18,399 --> 00:10:22,750
+acción de crear un nuevo documento esto
+
+268
+00:10:20,980 --> 00:10:24,610
+es válido para cualquier atajo de
+
+269
+00:10:22,750 --> 00:10:26,830
+teclado en cualquier programa que
+
+270
+00:10:24,610 --> 00:10:29,500
+estemos ejecutando no estamos limitados
+
+271
+00:10:26,830 --> 00:10:31,420
+al bloc de notas que se usó sólo a modo
+
+272
+00:10:29,500 --> 00:10:33,940
+de ejemplo hay más funciones de la
+
+273
+00:10:31,419 --> 00:10:36,099
+librería keyboard y dejaré un enlace en
+
+274
+00:10:33,940 --> 00:10:37,810
+la zona de descripción a la referencia
+
+275
+00:10:36,100 --> 00:10:40,779
+oficial de arduino pero en definitiva
+
+276
+00:10:37,809 --> 00:10:43,239
+vimos las más relevantes suficiente de
+
+277
+00:10:40,779 --> 00:10:45,879
+teclado por este capítulo vamos ahora a
+
+278
+00:10:43,240 --> 00:10:48,610
+emular un mouse y tomar control del
+
+279
+00:10:45,879 --> 00:10:51,009
+puntero del sistema incluso veremos cómo
+
+280
+00:10:48,610 --> 00:10:53,230
+emular la presión de botones izquierdo y
+
+281
+00:10:51,009 --> 00:10:55,600
+derecho del mismo en este tercer
+
+282
+00:10:53,230 --> 00:10:57,850
+programa nuevamente no haremos cambios
+
+283
+00:10:55,600 --> 00:10:59,440
+en el hardware sólo cambiaremos las
+
+284
+00:10:57,850 --> 00:11:01,750
+funciones de los pulsadores para
+
+285
+00:10:59,440 --> 00:11:03,820
+desplazar a izquierda y derecha el
+
+286
+00:11:01,750 --> 00:11:06,220
+puntero del sistema con este numeral
+
+287
+00:11:03,820 --> 00:11:08,500
+include importamos la librería mouse
+
+288
+00:11:06,220 --> 00:11:10,840
+esta también es una librería que ya
+
+289
+00:11:08,500 --> 00:11:12,570
+viene incorporada en el id usaremos sus
+
+290
+00:11:10,840 --> 00:11:15,310
+funciones para distintas acciones
+
+291
+00:11:12,570 --> 00:11:17,110
+declaramos con estos numeral design para
+
+292
+00:11:15,309 --> 00:11:19,959
+que sean acordes a la función que
+
+293
+00:11:17,110 --> 00:11:22,870
+realizarán los pulsadores en pines 4 y
+
+294
+00:11:19,960 --> 00:11:25,540
+que serán izquierda y derecha luego
+
+295
+00:11:22,870 --> 00:11:28,870
+otros 2 numeral design con los nombres
+
+296
+00:11:25,539 --> 00:11:31,120
+rango y un valor de 5 y de mora y un
+
+297
+00:11:28,870 --> 00:11:32,700
+valor de 10 en citas como veníamos
+
+298
+00:11:31,120 --> 00:11:34,389
+haciendo en los anteriores programas
+
+299
+00:11:32,700 --> 00:11:36,730
+estableciendo los pines de los
+
+300
+00:11:34,389 --> 00:11:38,919
+pulsadores como entrada con resistencia
+
+301
+00:11:36,730 --> 00:11:41,920
+de pull up y ahora inicializa mos la
+
+302
+00:11:38,919 --> 00:11:44,589
+emulación de mouse con la función bin la
+
+303
+00:11:41,919 --> 00:11:46,479
+pro micro en este punto será reconocida
+
+304
+00:11:44,590 --> 00:11:49,149
+por nuestro sistema operativo como un
+
+305
+00:11:46,480 --> 00:11:51,430
+mouse o dispositivo señalador en el
+
+306
+00:11:49,149 --> 00:11:53,799
+condicional para determinar si se ha
+
+307
+00:11:51,429 --> 00:11:56,229
+presionado el botón izquierdo que debe
+
+308
+00:11:53,799 --> 00:11:58,479
+ejecutar la acción de mover o desplazar
+
+309
+00:11:56,230 --> 00:12:00,700
+el puntero hacia la izquierda si es el
+
+310
+00:11:58,480 --> 00:12:03,159
+caso ingresamos y vemos aquí la
+
+311
+00:12:00,700 --> 00:12:05,470
+aplicación de la función mujer del
+
+312
+00:12:03,159 --> 00:12:06,039
+objeto mouse para entender bien esta
+
+313
+00:12:05,470 --> 00:12:08,740
+función
+
+314
+00:12:06,039 --> 00:12:11,529
+vamos brevemente a una nota al margen la
+
+315
+00:12:08,740 --> 00:12:13,330
+función móvil tiene tres parámetros el
+
+316
+00:12:11,529 --> 00:12:15,299
+primero denominado con la letra x
+
+317
+00:12:13,330 --> 00:12:16,990
+corresponde al movimiento o
+
+318
+00:12:15,299 --> 00:12:19,929
+desplazamiento sobre el eje horizontal
+
+319
+00:12:16,990 --> 00:12:22,240
+es decir el desplazamiento a izquierda y
+
+320
+00:12:19,929 --> 00:12:26,349
+derecha el rango de valores permitidos
+
+321
+00:12:22,240 --> 00:12:28,539
+va de menos 127 a 127 en 1
+
+322
+00:12:26,350 --> 00:12:30,460
+nos veremos el motivo de dichos valores
+
+323
+00:12:28,539 --> 00:12:32,679
+pero quiero terminar de explicarte el
+
+324
+00:12:30,460 --> 00:12:35,800
+resto de los parámetros el segundo con
+
+325
+00:12:32,679 --> 00:12:37,989
+la letra y corresponde al eje vertical y
+
+326
+00:12:35,799 --> 00:12:40,149
+permitirá el desplazamiento hacia arriba
+
+327
+00:12:37,990 --> 00:12:44,200
+y hacia abajo también con rango de
+
+328
+00:12:40,149 --> 00:12:46,240
+valores de menos 127 a 127 el último
+
+329
+00:12:44,200 --> 00:12:48,910
+parámetro se utiliza para emular la
+
+330
+00:12:46,240 --> 00:12:50,470
+rueda de desplazamiento o scroll del
+
+331
+00:12:48,909 --> 00:12:52,779
+mouse usuarios de mac
+
+332
+00:12:50,470 --> 00:12:54,399
+seguramente no están familiarizados con
+
+333
+00:12:52,779 --> 00:12:57,129
+una rueda física para el desplazamiento
+
+334
+00:12:54,399 --> 00:12:59,350
+pero nosotros usuarios de windows o
+
+335
+00:12:57,129 --> 00:13:04,120
+linux es común también el rango de
+
+336
+00:12:59,350 --> 00:13:06,610
+valores permitidos de menos 127 a 127 en
+
+337
+00:13:04,120 --> 00:13:09,610
+definitiva con la función móvil podemos
+
+338
+00:13:06,610 --> 00:13:11,769
+tomar control de todas las direcciones e
+
+339
+00:13:09,610 --> 00:13:15,480
+incluso el desplazamiento con la rueda
+
+340
+00:13:11,769 --> 00:13:18,730
+ahora el tema de ese rango menos 127 a
+
+341
+00:13:15,480 --> 00:13:20,800
+127 aquí te muestro estas imágenes para
+
+342
+00:13:18,730 --> 00:13:22,450
+que quede claro si comenzamos con el eje
+
+343
+00:13:20,799 --> 00:13:24,699
+x el horizontal
+
+344
+00:13:22,450 --> 00:13:26,530
+vemos una flecha apuntando hacia la
+
+345
+00:13:24,700 --> 00:13:29,080
+izquierda donde indica que se deben
+
+346
+00:13:26,529 --> 00:13:31,419
+aplicar valores negativos y la flecha
+
+347
+00:13:29,080 --> 00:13:32,830
+apuntando hacia la derecha indica que se
+
+348
+00:13:31,419 --> 00:13:35,139
+deben aplicar valores
+
+349
+00:13:32,830 --> 00:13:38,080
+positivos resulta que la posición del
+
+350
+00:13:35,139 --> 00:13:40,389
+puntero no es absoluta es relativa la
+
+351
+00:13:38,080 --> 00:13:42,270
+pro micro solo le indica al sistema
+
+352
+00:13:40,389 --> 00:13:45,279
+operativo que se desplace a por ejemplo
+
+353
+00:13:42,269 --> 00:13:47,860
+derecha o izquierda desde el punto en
+
+354
+00:13:45,279 --> 00:13:50,230
+donde se encuentre actualmente si con el
+
+355
+00:13:47,860 --> 00:13:52,509
+primer parámetro de la función mujer le
+
+356
+00:13:50,230 --> 00:13:54,310
+decimos que se desplace menos 5
+
+357
+00:13:52,509 --> 00:13:57,819
+indicamos que haga un desplazamiento
+
+358
+00:13:54,309 --> 00:14:00,849
+hacia la izquierda de 5 posiciones si le
+
+359
+00:13:57,820 --> 00:14:02,920
+pasamos un valor positivo de 5 le
+
+360
+00:14:00,850 --> 00:14:05,560
+indicaremos que se desplace hacia la
+
+361
+00:14:02,919 --> 00:14:07,299
+derecha 5 posiciones con lo cual en el
+
+362
+00:14:05,559 --> 00:14:09,129
+eje horizontal lo único que deberás
+
+363
+00:14:07,299 --> 00:14:11,529
+recordar es que valores negativos
+
+364
+00:14:09,129 --> 00:14:13,960
+generan un desplazamiento hacia la
+
+365
+00:14:11,529 --> 00:14:16,179
+izquierda y valores positivos hacia la
+
+366
+00:14:13,960 --> 00:14:18,370
+derecha con el mismo concepto si vamos
+
+367
+00:14:16,179 --> 00:14:20,349
+al eje vertical tendremos que valores
+
+368
+00:14:18,370 --> 00:14:23,440
+negativos generan un desplazamiento
+
+369
+00:14:20,350 --> 00:14:25,659
+hacia arriba y valores positivos hacia
+
+370
+00:14:23,440 --> 00:14:28,300
+abajo es importante aclarar que no
+
+371
+00:14:25,659 --> 00:14:30,909
+podemos indicar un desplazamiento de una
+
+372
+00:14:28,299 --> 00:14:32,649
+cantidad exacta de píxeles en pantalla
+
+373
+00:14:30,909 --> 00:14:36,338
+por ese motivo cuando daba el ejemplo
+
+374
+00:14:32,649 --> 00:14:38,708
+decía que nos movíamos cinco posiciones
+
+375
+00:14:36,339 --> 00:14:40,930
+5 píxeles eso es porque el sistema
+
+376
+00:14:38,708 --> 00:14:42,729
+operativo se encarga del desplazamiento
+
+377
+00:14:40,929 --> 00:14:44,258
+del puntero en pantalla como las
+
+378
+00:14:42,730 --> 00:14:46,569
+pantallas pueden tener distintas
+
+379
+00:14:44,259 --> 00:14:49,120
+resoluciones relaciones de aspecto
+
+380
+00:14:46,568 --> 00:14:51,490
+etcétera la pro micro ni se entera de
+
+381
+00:14:49,120 --> 00:14:53,379
+todas esas cuestiones específicas esto
+
+382
+00:14:51,490 --> 00:14:55,629
+lo determina el sistema operativo en
+
+383
+00:14:53,379 --> 00:14:57,339
+base a la resolución de pantalla y otros
+
+384
+00:14:55,629 --> 00:14:59,649
+parámetros si que no es del todo
+
+385
+00:14:57,339 --> 00:15:01,449
+intuitivo pero así es el tema igual
+
+386
+00:14:59,649 --> 00:15:03,610
+cuando hagamos la práctica quedará más
+
+387
+00:15:01,448 --> 00:15:05,708
+claro volvamos al código ahora
+
+388
+00:15:03,610 --> 00:15:08,438
+entendemos el numeral design con un
+
+389
+00:15:05,708 --> 00:15:10,388
+rango y un valor de 5 este será las
+
+390
+00:15:08,438 --> 00:15:12,278
+posiciones que nos desplazaremos a
+
+391
+00:15:10,389 --> 00:15:15,100
+izquierda o derecha en este programa
+
+392
+00:15:12,278 --> 00:15:17,350
+podrás cambiar fácilmente este valor
+
+393
+00:15:15,100 --> 00:15:20,019
+para que al presionar el pulsador se
+
+394
+00:15:17,350 --> 00:15:22,058
+desplace más o menos distancia sólo
+
+395
+00:15:20,019 --> 00:15:25,509
+recordad que el valor no puede ser mayor
+
+396
+00:15:22,058 --> 00:15:28,058
+a 127 entonces con esta línea invocamos
+
+397
+00:15:25,509 --> 00:15:31,539
+a la función móvil el primer parámetro
+
+398
+00:15:28,058 --> 00:15:34,328
+es menos rango como rango vale 5 es
+
+399
+00:15:31,539 --> 00:15:36,399
+equivalente a escribir menos 5 indicamos
+
+400
+00:15:34,328 --> 00:15:39,338
+que deseamos desplazarnos hacia la
+
+401
+00:15:36,399 --> 00:15:41,889
+izquierda 5 posiciones como tenemos sólo
+
+402
+00:15:39,339 --> 00:15:42,850
+dos pulsadores el eje vertical no lo
+
+403
+00:15:41,889 --> 00:15:45,190
+usaremos
+
+404
+00:15:42,850 --> 00:15:47,199
+le cargamos un valor de 0 y lo mismo
+
+405
+00:15:45,190 --> 00:15:49,660
+para la rueda de desplazamiento claro
+
+406
+00:15:47,198 --> 00:15:52,028
+que podrías hacer un proyecto con cuatro
+
+407
+00:15:49,659 --> 00:15:54,490
+pulsadores y generar desplazamiento en
+
+408
+00:15:52,028 --> 00:15:56,259
+todos los sentidos ahora el mismo bloque
+
+409
+00:15:54,490 --> 00:15:58,720
+de condicional pero para la acción de
+
+410
+00:15:56,259 --> 00:16:01,028
+cuando se presione el pulsador derecho
+
+411
+00:15:58,720 --> 00:16:03,399
+que debe desplazar el puntero hacia la
+
+412
+00:16:01,028 --> 00:16:06,129
+derecha la función nube con el primer
+
+413
+00:16:03,399 --> 00:16:07,059
+parámetro rango que equivale a 5 es un
+
+414
+00:16:06,129 --> 00:16:09,220
+valor positivo
+
+415
+00:16:07,059 --> 00:16:11,138
+por eso el desplazamiento será hacia la
+
+416
+00:16:09,220 --> 00:16:13,300
+derecha 5 posiciones
+
+417
+00:16:11,139 --> 00:16:15,940
+finalmente aplicamos una demora de un
+
+418
+00:16:13,299 --> 00:16:18,099
+valor de 10 milisegundos aquí arriba con
+
+419
+00:16:15,940 --> 00:16:19,480
+el numeral -define le cargamos a demorar
+
+420
+00:16:18,100 --> 00:16:21,550
+un valor de 10
+
+421
+00:16:19,480 --> 00:16:23,860
+esto es para también poder ajustarlo a
+
+422
+00:16:21,549 --> 00:16:26,799
+tu necesidad esta demora es básicamente
+
+423
+00:16:23,860 --> 00:16:28,899
+cada cuánto estaremos repitiendo la
+
+424
+00:16:26,799 --> 00:16:31,448
+acción de desplazamiento si presionamos
+
+425
+00:16:28,899 --> 00:16:34,179
+el botón izquierdo nos desplazamos cinco
+
+426
+00:16:31,448 --> 00:16:36,250
+posiciones espera 10 milisegundos y el
+
+427
+00:16:34,179 --> 00:16:38,078
+loop vuelve a ejecutar desde la primera
+
+428
+00:16:36,250 --> 00:16:40,720
+línea si seguimos presionando el
+
+429
+00:16:38,078 --> 00:16:43,448
+pulsador desplazamos otras 5 posiciones
+
+430
+00:16:40,720 --> 00:16:45,850
+hacia la izquierda y así todo el tiempo
+
+431
+00:16:43,448 --> 00:16:47,799
+para resumir la cantidad de código es
+
+432
+00:16:45,850 --> 00:16:49,329
+realmente mínima lo único que es
+
+433
+00:16:47,799 --> 00:16:51,849
+necesario entender solo
+
+434
+00:16:49,328 --> 00:16:53,948
+metros de la función movie y el rango de
+
+435
+00:16:51,850 --> 00:16:56,499
+valores que acepta vamos entonces a
+
+436
+00:16:53,948 --> 00:16:58,118
+verificar y subir el programa voy al
+
+437
+00:16:56,499 --> 00:17:00,548
+escritorio para que se vea bien el
+
+438
+00:16:58,119 --> 00:17:02,290
+puntero lo voy a ubicar con el mouse más
+
+439
+00:17:00,548 --> 00:17:04,990
+o menos por el medio y ahora al
+
+440
+00:17:02,289 --> 00:17:06,578
+presionar una vez el pulsador izquierdo
+
+441
+00:17:04,990 --> 00:17:08,890
+vemos el desplazamiento hacia la
+
+442
+00:17:06,578 --> 00:17:10,990
+izquierda el rango que le cargamos tiene
+
+443
+00:17:08,890 --> 00:17:13,240
+un valor bajo por eso el movimiento es
+
+444
+00:17:10,990 --> 00:17:14,620
+pequeño voy a presionar varias veces
+
+445
+00:17:13,240 --> 00:17:15,909
+para que veas que se va desplazando
+
+446
+00:17:14,619 --> 00:17:17,798
+hacia la izquierda
+
+447
+00:17:15,909 --> 00:17:20,199
+si ahora presionó el botón derecho
+
+448
+00:17:17,798 --> 00:17:22,509
+tendremos un desplazamiento hacia la
+
+449
+00:17:20,199 --> 00:17:24,759
+derecha presionando varias veces nos
+
+450
+00:17:22,509 --> 00:17:27,338
+vamos desplazando voy a presionar y
+
+451
+00:17:24,759 --> 00:17:29,528
+mantener presionado el botón izquierdo y
+
+452
+00:17:27,338 --> 00:17:31,240
+verás que el puntero se moverá hasta
+
+453
+00:17:29,528 --> 00:17:33,940
+llegar al extremo izquierdo de la
+
+454
+00:17:31,240 --> 00:17:35,950
+pantalla aquí empieza a jugar el valor
+
+455
+00:17:33,940 --> 00:17:38,500
+de la demora que asignamos en 10
+
+456
+00:17:35,950 --> 00:17:40,569
+milisegundos si presionó y mantengo
+
+457
+00:17:38,500 --> 00:17:42,308
+presionado el botón derecho iremos al
+
+458
+00:17:40,569 --> 00:17:44,710
+extremo derecho de la pantalla
+
+459
+00:17:42,308 --> 00:17:46,778
+en definitiva repitiendo la acción de
+
+460
+00:17:44,710 --> 00:17:49,120
+desplazamiento hasta llegar al límite
+
+461
+00:17:46,778 --> 00:17:52,000
+derecho muy bien con todo lo analizado
+
+462
+00:17:49,119 --> 00:17:54,369
+verás que sería muy fácil moverse sobre
+
+463
+00:17:52,000 --> 00:17:55,599
+el eje vertical sólo deberías colocar la
+
+464
+00:17:54,369 --> 00:17:57,969
+variable rango
+
+465
+00:17:55,599 --> 00:18:00,519
+el segundo parámetro de la función movie
+
+466
+00:17:57,970 --> 00:18:02,950
+y 0 en el primero creo que queda claro
+
+467
+00:18:00,519 --> 00:18:05,288
+el concepto pero vamos a un programa más
+
+468
+00:18:02,950 --> 00:18:07,330
+el cuarto de este capítulo para tomar
+
+469
+00:18:05,288 --> 00:18:08,558
+control de los botones izquierdo y
+
+470
+00:18:07,329 --> 00:18:10,928
+derecho del mouse
+
+471
+00:18:08,558 --> 00:18:12,788
+el programa nuevamente muy similar con
+
+472
+00:18:10,929 --> 00:18:15,190
+los numerales de find para asignar a los
+
+473
+00:18:12,788 --> 00:18:17,619
+pulsadores los nombres del izquierdo y
+
+474
+00:18:15,190 --> 00:18:19,929
+derecho otro numeral design para la
+
+475
+00:18:17,619 --> 00:18:21,879
+demora que en este caso será de 100
+
+476
+00:18:19,929 --> 00:18:24,610
+milisegundos en el anterior programa
+
+477
+00:18:21,880 --> 00:18:26,620
+asignamos a demora un valor de 10 porque
+
+478
+00:18:24,609 --> 00:18:28,569
+el desplazamiento del puntero puede ser
+
+479
+00:18:26,619 --> 00:18:31,418
+bien rápido pero ahora con los botones
+
+480
+00:18:28,569 --> 00:18:33,730
+los tiempos serán más extensos en el
+
+481
+00:18:31,419 --> 00:18:35,919
+setup igual como ya analizamos y
+
+482
+00:18:33,730 --> 00:18:38,230
+directamente al loop a la acción del
+
+483
+00:18:35,919 --> 00:18:40,929
+pulsador izquierdo usaremos la función
+
+484
+00:18:38,230 --> 00:18:43,360
+press del objeto mouse que emulará la
+
+485
+00:18:40,929 --> 00:18:46,030
+presión de un botón el parámetro será
+
+486
+00:18:43,359 --> 00:18:48,519
+justamente cual botón debe ser en este
+
+487
+00:18:46,029 --> 00:18:51,339
+caso en la constante mouse y un bajo
+
+488
+00:18:48,519 --> 00:18:53,440
+left ya está definida en la librería
+
+489
+00:18:51,339 --> 00:18:55,599
+así de simple emulamos la presión del
+
+490
+00:18:53,440 --> 00:18:57,370
+botón izquierdo del mouse al igual que
+
+491
+00:18:55,599 --> 00:18:59,829
+cuando trabajamos con el teclado la
+
+492
+00:18:57,369 --> 00:19:02,049
+función press presiona y mantiene
+
+493
+00:18:59,829 --> 00:19:04,389
+presionado aplicamos la demora
+
+494
+00:19:02,049 --> 00:19:07,000
+y luego con la función release entre
+
+495
+00:19:04,390 --> 00:19:09,700
+paréntesis mouse left indicamos que
+
+496
+00:19:07,000 --> 00:19:12,519
+suelte o deje de presionar ese botón
+
+497
+00:19:09,700 --> 00:19:14,590
+similar a cuando usamos release all del
+
+498
+00:19:12,519 --> 00:19:17,289
+teclado ahora la misma tarea para el
+
+499
+00:19:14,589 --> 00:19:20,500
+botón derecho con la función press y la
+
+500
+00:19:17,289 --> 00:19:23,319
+constante mouse right demora y release
+
+501
+00:19:20,500 --> 00:19:25,690
+aplicaremos una última demora como final
+
+502
+00:19:23,319 --> 00:19:28,149
+del loop para evitar alguna repetición
+
+503
+00:19:25,690 --> 00:19:30,130
+indeseable y eso es todo para emular la
+
+504
+00:19:28,150 --> 00:19:33,220
+presión de botones izquierdo y derecho
+
+505
+00:19:30,130 --> 00:19:35,350
+muy simple vamos a verificar y subir el
+
+506
+00:19:33,220 --> 00:19:37,660
+programa aquí en el escritorio podemos
+
+507
+00:19:35,349 --> 00:19:39,669
+probar primero con botón derecho al
+
+508
+00:19:37,660 --> 00:19:41,980
+presionar el pulsador derecho vemos que
+
+509
+00:19:39,670 --> 00:19:44,200
+nos aparece el menú contextual para
+
+510
+00:19:41,980 --> 00:19:45,880
+tomar diferentes acciones verificamos
+
+511
+00:19:44,200 --> 00:19:47,860
+que el sistema operativo detectó
+
+512
+00:19:45,880 --> 00:19:50,020
+correctamente la presión del botón
+
+513
+00:19:47,859 --> 00:19:53,169
+derecho podemos seleccionar por ejemplo
+
+514
+00:19:50,019 --> 00:19:55,089
+nuevo y carpeta esto claro está con el
+
+515
+00:19:53,170 --> 00:19:56,740
+mouse de la computadora con el apero
+
+516
+00:19:55,089 --> 00:19:58,539
+micro solo tenemos control de los
+
+517
+00:19:56,740 --> 00:20:00,370
+botones no podemos desplazarnos
+
+518
+00:19:58,539 --> 00:20:02,950
+presionando el botón izquierdo de
+
+519
+00:20:00,369 --> 00:20:05,679
+protoboard seleccionamos carpeta genial
+
+520
+00:20:02,950 --> 00:20:07,809
+verificamos que nuevamente el sistema
+
+521
+00:20:05,680 --> 00:20:09,009
+operativo detectó correctamente la
+
+522
+00:20:07,809 --> 00:20:11,799
+presión del botón
+
+523
+00:20:09,009 --> 00:20:13,299
+del teclado podemos presionar enter y
+
+524
+00:20:11,799 --> 00:20:15,519
+dejar el nombre de la carpeta por
+
+525
+00:20:13,299 --> 00:20:17,529
+defecto vamos a abrirla con un doble
+
+526
+00:20:15,519 --> 00:20:20,079
+clic presionando dos veces de forma
+
+527
+00:20:17,529 --> 00:20:22,480
+rápida el botón izquierdo ahora podemos
+
+528
+00:20:20,079 --> 00:20:24,970
+cerrar la ventana con una única presión
+
+529
+00:20:22,480 --> 00:20:26,799
+del botón izquierdo nuevamente y eso
+
+530
+00:20:24,970 --> 00:20:29,500
+concluye lo relacionado con la emulación
+
+531
+00:20:26,799 --> 00:20:31,480
+de mouse nuevamente dejaré un enlace a
+
+532
+00:20:29,500 --> 00:20:34,029
+la referencia oficial de la librería
+
+533
+00:20:31,480 --> 00:20:36,490
+mouse para que te interioricen de otras
+
+534
+00:20:34,029 --> 00:20:39,220
+funciones pero vimos las más relevantes
+
+535
+00:20:36,490 --> 00:20:41,529
+nos resta ver cómo emular un joystick o
+
+536
+00:20:39,220 --> 00:20:43,600
+mando de juegos para eso vamos a agregar
+
+537
+00:20:41,529 --> 00:20:47,049
+al circuito un módulo de joystick
+
+538
+00:20:43,599 --> 00:20:48,969
+analógico modelo calle 23 este módulo lo
+
+539
+00:20:47,049 --> 00:20:51,579
+vimos en detalle hace tiempo en el
+
+540
+00:20:48,970 --> 00:20:54,039
+capítulo 17 es básicamente dos
+
+541
+00:20:51,579 --> 00:20:56,230
+potenciómetros conectados a una palanca
+
+542
+00:20:54,039 --> 00:20:58,420
+y un mecanismo que permite que la misma
+
+543
+00:20:56,230 --> 00:21:00,789
+quede centrada también tiene un pulsador
+
+544
+00:20:58,420 --> 00:21:03,160
+integrado pero a nosotros nos interesa
+
+545
+00:21:00,789 --> 00:21:05,379
+emular la parte del joystick y ya
+
+546
+00:21:03,160 --> 00:21:06,940
+tenemos dos botones conectados de los
+
+547
+00:21:05,380 --> 00:21:09,130
+programas anteriores que no
+
+548
+00:21:06,940 --> 00:21:11,230
+desaprovecharemos el primer pin de la
+
+549
+00:21:09,130 --> 00:21:13,960
+izquierda corresponde a gene y lo
+
+550
+00:21:11,230 --> 00:21:15,099
+conectaremos a gente con este cable le
+
+551
+00:21:13,960 --> 00:21:17,319
+sigue 5
+
+552
+00:21:15,099 --> 00:21:21,069
+que conectaremos con un cable directo a
+
+553
+00:21:17,319 --> 00:21:24,399
+veces de la pro micro br x a la entrada
+
+554
+00:21:21,069 --> 00:21:27,250
+analógica a 1 vr y a la entrada
+
+555
+00:21:24,400 --> 00:21:29,350
+analógica a 0 y eso es todo para el
+
+556
+00:21:27,250 --> 00:21:32,048
+circuito antes del programa deberemos
+
+557
+00:21:29,349 --> 00:21:34,569
+descargar una librería ya que el ide no
+
+558
+00:21:32,048 --> 00:21:36,700
+incluye una como sucedía con el teclado
+
+559
+00:21:34,569 --> 00:21:39,308
+y mouse ingresamos a la siguiente página
+
+560
+00:21:36,700 --> 00:21:41,740
+web que dejaré un enlace directo en la
+
+561
+00:21:39,308 --> 00:21:43,928
+zona de descripción recomiendo luego le
+
+562
+00:21:41,740 --> 00:21:45,788
+pegues una leída ya que es una librería
+
+563
+00:21:43,929 --> 00:21:48,009
+muy completa con gran cantidad de
+
+564
+00:21:45,788 --> 00:21:49,900
+funciones nosotros veremos son las
+
+565
+00:21:48,009 --> 00:21:52,538
+necesarias para el control del joystick
+
+566
+00:21:49,900 --> 00:21:54,490
+analógico y un par de botones pero se
+
+567
+00:21:52,538 --> 00:21:57,190
+pueden conectar potenciómetros para
+
+568
+00:21:54,490 --> 00:21:59,950
+emular una pedalera para aceleración y
+
+569
+00:21:57,190 --> 00:22:02,169
+frenado volante para automóviles y mucho
+
+570
+00:21:59,950 --> 00:22:04,330
+más para juegos de simulación desde el
+
+571
+00:22:02,169 --> 00:22:07,210
+botón verde clone or download
+
+572
+00:22:04,329 --> 00:22:09,369
+seleccionamos download zip podemos
+
+573
+00:22:07,210 --> 00:22:12,100
+seleccionar abrir con el explorador de
+
+574
+00:22:09,369 --> 00:22:14,168
+windows ingresamos a la carpeta arduino
+
+575
+00:22:12,099 --> 00:22:16,569
+joystick lautner y master
+
+576
+00:22:14,169 --> 00:22:19,000
+seleccionamos la carpeta joystick y la
+
+577
+00:22:16,569 --> 00:22:20,678
+copiamos y este trabajo manual es
+
+578
+00:22:19,000 --> 00:22:21,308
+necesario ya que la estructura de
+
+579
+00:22:20,679 --> 00:22:23,559
+directorio
+
+580
+00:22:21,308 --> 00:22:25,928
+no es apta para agregarlas desde el aire
+
+581
+00:22:23,558 --> 00:22:27,970
+con el gestor pero es muy simple ahora
+
+582
+00:22:25,929 --> 00:22:30,429
+que tenemos copia de la carpeta joystick
+
+583
+00:22:27,970 --> 00:22:32,769
+nos dirigimos a la carpeta de librerías
+
+584
+00:22:30,429 --> 00:22:33,669
+de arduino usualmente ubicada en
+
+585
+00:22:32,769 --> 00:22:37,509
+documentos
+
+586
+00:22:33,669 --> 00:22:40,149
+arduino libraries aquí pegamos y listo
+
+587
+00:22:37,509 --> 00:22:42,519
+entonces ahora en el programa incluimos
+
+588
+00:22:40,148 --> 00:22:45,398
+la librería joystick los 2 numeral
+
+589
+00:22:42,519 --> 00:22:48,490
+design para los pines 4 y 5 que servirán
+
+590
+00:22:45,398 --> 00:22:50,469
+de botón 1 y botón 2 y 1 para la demora
+
+591
+00:22:48,490 --> 00:22:52,808
+con un valor decían que servirá como
+
+592
+00:22:50,470 --> 00:22:54,999
+valor de sensibilidad que ya pronto
+
+593
+00:22:52,808 --> 00:22:56,918
+veremos en el loop aquí debemos crear el
+
+594
+00:22:54,999 --> 00:22:58,329
+objeto de esta manera específica con
+
+595
+00:22:56,919 --> 00:23:01,570
+joystick
+
+596
+00:22:58,329 --> 00:23:03,668
+es importante no olvidar el guión bajo y
+
+597
+00:23:01,569 --> 00:23:05,439
+la instancia del objeto puede adquirir
+
+598
+00:23:03,669 --> 00:23:07,690
+cualquier nombre en este caso
+
+599
+00:23:05,440 --> 00:23:09,879
+simplemente le pondremos joystick
+
+600
+00:23:07,690 --> 00:23:12,548
+usaremos las funciones asociadas para
+
+601
+00:23:09,878 --> 00:23:14,138
+fácilmente tomar acciones en el setup
+
+602
+00:23:12,548 --> 00:23:16,599
+como es usual de los anteriores
+
+603
+00:23:14,138 --> 00:23:18,849
+programas con los pines 4 y 5 como
+
+604
+00:23:16,599 --> 00:23:21,009
+entradas con resistencia de pull up la
+
+605
+00:23:18,849 --> 00:23:23,949
+inicialización del objeto joystick con
+
+606
+00:23:21,009 --> 00:23:26,230
+bin y aquí debía agregar algo específico
+
+607
+00:23:23,950 --> 00:23:28,090
+de mi módulo casi 23 que por algún
+
+608
+00:23:26,230 --> 00:23:30,640
+motivo toman los valores del
+
+609
+00:23:28,089 --> 00:23:32,949
+vertical de forma invertida cuando probé
+
+610
+00:23:30,640 --> 00:23:34,778
+este mismo programa pero sin esta línea
+
+611
+00:23:32,950 --> 00:23:36,970
+al mover la palanca hacia arriba
+
+612
+00:23:34,778 --> 00:23:38,980
+generaba un movimiento hacia abajo y
+
+613
+00:23:36,970 --> 00:23:42,548
+viceversa es decir con los valores
+
+614
+00:23:38,980 --> 00:23:45,610
+invertidos esta función set why axis
+
+615
+00:23:42,548 --> 00:23:48,579
+rain que significa establecer el rango
+
+616
+00:23:45,609 --> 00:23:51,579
+del eje y tiene dos parámetros que por
+
+617
+00:23:48,579 --> 00:23:54,129
+defecto son cero y 1.023 pero como mi
+
+618
+00:23:51,579 --> 00:23:56,288
+módulo y quizás también el tuyo
+
+619
+00:23:54,130 --> 00:23:59,679
+tengo el eje invertido sólo es cuestión
+
+620
+00:23:56,288 --> 00:24:02,259
+de colocar 1.023 como primer parámetro y
+
+621
+00:23:59,679 --> 00:24:04,390
+cero como segundo en teoría no debería
+
+622
+00:24:02,259 --> 00:24:07,000
+ser necesario pero así es la vida real
+
+623
+00:24:04,390 --> 00:24:09,460
+fuera de un entorno simulado a veces las
+
+624
+00:24:07,000 --> 00:24:11,769
+cosas simplemente no son como deberían
+
+625
+00:24:09,460 --> 00:24:14,380
+pero es muy simple de solucionar el eje
+
+626
+00:24:11,769 --> 00:24:17,048
+x no tuvo ningún problema de inversión
+
+627
+00:24:14,380 --> 00:24:19,659
+muy bien vamos al loop y en pocas líneas
+
+628
+00:24:17,048 --> 00:24:21,849
+tendremos un joystick analógico con dos
+
+629
+00:24:19,659 --> 00:24:24,590
+botones totalmente funcionales la
+
+630
+00:24:21,849 --> 00:24:28,819
+primera línea utiliza la función
+
+631
+00:24:24,589 --> 00:24:31,069
+ex axis equivalente a establecer eje x y
+
+632
+00:24:28,819 --> 00:24:33,649
+eso es lo que haremos simplemente como
+
+633
+00:24:31,069 --> 00:24:36,200
+parámetro le colocamos el valor leído de
+
+634
+00:24:33,650 --> 00:24:39,380
+la entrada analógica a 0 con anal o
+
+635
+00:24:36,200 --> 00:24:42,110
+green entre paréntesis a 0 y eso es todo
+
+636
+00:24:39,380 --> 00:24:44,630
+para el eje x el valor leído de acero
+
+637
+00:24:42,109 --> 00:24:47,629
+aplicado de forma directa a la función
+
+638
+00:24:44,630 --> 00:24:50,570
+haremos lo mismo pero para el eje y con
+
+639
+00:24:47,630 --> 00:24:53,090
+set white axis y el valor leído de la
+
+640
+00:24:50,569 --> 00:24:55,250
+entrada analógica a1 ahora para los
+
+641
+00:24:53,089 --> 00:24:57,829
+botones consultamos con el condicional
+
+642
+00:24:55,250 --> 00:25:00,648
+si el pulsador que emula el botón 1
+
+643
+00:24:57,829 --> 00:25:03,168
+tiene un valor bajo low indicando que ha
+
+644
+00:25:00,648 --> 00:25:05,719
+sido presionado si es el caso aplicamos
+
+645
+00:25:03,169 --> 00:25:08,450
+otra función denominada set
+
+646
+00:25:05,720 --> 00:25:11,058
+button donde el primer parámetro es el
+
+647
+00:25:08,450 --> 00:25:12,679
+número de botón a emular los botones se
+
+648
+00:25:11,058 --> 00:25:15,558
+enumeran comenzando desde cero
+
+649
+00:25:12,679 --> 00:25:18,409
+por eso el botón 1 del joystick emulado
+
+650
+00:25:15,558 --> 00:25:20,778
+tendrá el índice 0 el segundo parámetro
+
+651
+00:25:18,409 --> 00:25:23,720
+de la función corresponde al estado en
+
+652
+00:25:20,778 --> 00:25:26,028
+este caso 1 que equivale a botón estando
+
+653
+00:25:23,720 --> 00:25:28,308
+presionado aquí estamos hablando del
+
+654
+00:25:26,028 --> 00:25:31,358
+botón emulado no el pulsador de
+
+655
+00:25:28,308 --> 00:25:34,940
+protoboard en definitiva con set
+
+656
+00:25:31,358 --> 00:25:37,730
+01 damos la instrucción de emular la
+
+657
+00:25:34,940 --> 00:25:40,159
+presión del botón 1 del joystick a la
+
+658
+00:25:37,730 --> 00:25:41,028
+condición falsa del condicional llegamos
+
+659
+00:25:40,159 --> 00:25:43,278
+con el else
+
+660
+00:25:41,028 --> 00:25:45,528
+si el pulsador no ha sido presionado
+
+661
+00:25:43,278 --> 00:25:48,230
+entonces usamos la misma función pero
+
+662
+00:25:45,528 --> 00:25:50,778
+con el segundo parámetro en 0 indicando
+
+663
+00:25:48,230 --> 00:25:52,849
+que el botón no está presionado haremos
+
+664
+00:25:50,778 --> 00:25:54,888
+exactamente lo mismo con este bloque de
+
+665
+00:25:52,849 --> 00:25:57,259
+condicional que consulta si está
+
+666
+00:25:54,888 --> 00:25:59,959
+presionado el pulsador kimura el botón
+
+667
+00:25:57,259 --> 00:26:03,889
+número 2 si es el caso con la función
+
+668
+00:25:59,960 --> 00:26:06,108
+set button 11 indicamos que emule la
+
+669
+00:26:03,888 --> 00:26:08,658
+presión del botón 2 recordad que el
+
+670
+00:26:06,108 --> 00:26:10,788
+primer parámetro en este caso 1 es el
+
+671
+00:26:08,659 --> 00:26:13,399
+que corresponde al botón 2 porque
+
+672
+00:26:10,788 --> 00:26:16,190
+comenzamos a contar o enumerar desde
+
+673
+00:26:13,398 --> 00:26:18,079
+cero la condición de falso es igual pero
+
+674
+00:26:16,190 --> 00:26:21,230
+con un segundo parámetro en cero
+
+675
+00:26:18,079 --> 00:26:23,418
+indicando la no presión del botón 2 la
+
+676
+00:26:21,230 --> 00:26:25,579
+última línea del loop será una demora
+
+677
+00:26:23,419 --> 00:26:27,590
+con un valor de 100 milisegundos que
+
+678
+00:26:25,579 --> 00:26:29,569
+declaramos con el numeral de find de las
+
+679
+00:26:27,589 --> 00:26:31,730
+primeras líneas cada 100 milisegundos
+
+680
+00:26:29,569 --> 00:26:34,460
+estaremos actualizando los valores
+
+681
+00:26:31,730 --> 00:26:36,829
+leídos del joystick y botones este valor
+
+682
+00:26:34,460 --> 00:26:37,509
+lo podrás ajustar y funciona a modo de
+
+683
+00:26:36,829 --> 00:26:39,759
+sensible
+
+684
+00:26:37,509 --> 00:26:42,009
+a valores más bajos generan una
+
+685
+00:26:39,759 --> 00:26:44,140
+actualización más rápida de los valores
+
+686
+00:26:42,009 --> 00:26:46,539
+leídos y ese es todo el programa
+
+687
+00:26:44,140 --> 00:26:48,880
+realmente muy pocas líneas para emular
+
+688
+00:26:46,539 --> 00:26:51,490
+un mando de joystick analógico y dos
+
+689
+00:26:48,880 --> 00:26:53,470
+botones vamos a verificar y subir el
+
+690
+00:26:51,490 --> 00:26:55,420
+programa para verificar que el sistema
+
+691
+00:26:53,470 --> 00:26:58,420
+operativo detecta correctamente el
+
+692
+00:26:55,420 --> 00:27:01,230
+dispositivo hd deberemos ingresar en el
+
+693
+00:26:58,420 --> 00:27:04,360
+caso de windows 10 a configuración
+
+694
+00:27:01,230 --> 00:27:06,250
+dispositivos en la sección impresoras y
+
+695
+00:27:04,359 --> 00:27:08,709
+escáneres hacia el final sobre
+
+696
+00:27:06,250 --> 00:27:11,049
+dispositivos e impresoras bajo la
+
+697
+00:27:08,710 --> 00:27:13,150
+sección dispositivos debe mostrarse el
+
+698
+00:27:11,049 --> 00:27:16,210
+icono de un mando de juegos con el
+
+699
+00:27:13,150 --> 00:27:18,460
+nombre spark fan pro micro si estuvieras
+
+700
+00:27:16,210 --> 00:27:20,680
+con alguna versión anterior de windows y
+
+701
+00:27:18,460 --> 00:27:22,240
+el acceso a esta misma sección sería a
+
+702
+00:27:20,680 --> 00:27:24,430
+través del panel de control y
+
+703
+00:27:22,240 --> 00:27:27,099
+dispositivos de juegos un botón derecho
+
+704
+00:27:24,430 --> 00:27:28,900
+seleccionamos la opción configuración de
+
+705
+00:27:27,099 --> 00:27:31,990
+control de juego debe aparecer
+
+706
+00:27:28,900 --> 00:27:34,150
+seleccionado spark fan pro micro ahora
+
+707
+00:27:31,990 --> 00:27:36,670
+con el botón propiedades se abrirá una
+
+708
+00:27:34,150 --> 00:27:38,860
+ventana y en la solapa prueba tendremos
+
+709
+00:27:36,670 --> 00:27:41,380
+una forma de visualizar el movimiento
+
+710
+00:27:38,859 --> 00:27:43,509
+del mando analógico y los botones esta
+
+711
+00:27:41,380 --> 00:27:44,980
+cruz en el medio indica que el joystick
+
+712
+00:27:43,509 --> 00:27:47,379
+está en su posición
+
+713
+00:27:44,980 --> 00:27:48,460
+es normal si aparecen algunas leves
+
+714
+00:27:47,380 --> 00:27:49,960
+desviaciones
+
+715
+00:27:48,460 --> 00:27:52,179
+si ahora muevo la palanca hacia la
+
+716
+00:27:49,960 --> 00:27:54,970
+izquierda veremos que la cruz se mueve
+
+717
+00:27:52,179 --> 00:27:56,919
+justamente hacia ese punto soltando
+
+718
+00:27:54,970 --> 00:27:59,048
+vuelve al centro lo mismo para
+
+719
+00:27:56,919 --> 00:28:01,600
+movimientos de la palanca a derecha
+
+720
+00:27:59,048 --> 00:28:04,808
+arriba y abajo que se deben ver
+
+721
+00:28:01,599 --> 00:28:06,459
+reflejados en esta sección genial parece
+
+722
+00:28:04,808 --> 00:28:08,410
+que funciona correctamente para
+
+723
+00:28:06,460 --> 00:28:11,079
+verificar los botones tenemos estos
+
+724
+00:28:08,410 --> 00:28:13,330
+círculos de color rojo que se iluminarán
+
+725
+00:28:11,079 --> 00:28:15,099
+con el número del botón presionado si
+
+726
+00:28:13,329 --> 00:28:17,529
+presiona el pulsador izquierdo que le
+
+727
+00:28:15,099 --> 00:28:20,079
+asignamos la función de botón 1 vemos
+
+728
+00:28:17,529 --> 00:28:22,599
+que se enciende y al soltar se apaga
+
+729
+00:28:20,079 --> 00:28:24,879
+perfecto ningún problema lo mismo para
+
+730
+00:28:22,599 --> 00:28:27,369
+el botón número 2 así que con esta
+
+731
+00:28:24,880 --> 00:28:29,440
+interfaz podrás verificar tanto el mando
+
+732
+00:28:27,369 --> 00:28:32,109
+analógico del joystick como los botones
+
+733
+00:28:29,440 --> 00:28:34,539
+que nosotros solo configuramos dos de
+
+734
+00:28:32,109 --> 00:28:36,759
+ellos pero podrían ser muchos más para
+
+735
+00:28:34,539 --> 00:28:40,240
+resumir vimos como la pro micro con su
+
+736
+00:28:36,759 --> 00:28:42,308
+microcontrolador at mega 32 o 4 permite
+
+737
+00:28:40,240 --> 00:28:45,130
+su utilización como dispositivos de
+
+738
+00:28:42,308 --> 00:28:47,859
+interfaz humana y exitosamente logramos
+
+739
+00:28:45,130 --> 00:28:50,290
+emular un teclado un mouse y un joystick
+
+740
+00:28:47,859 --> 00:28:51,579
+o mando de juegos y eso es todo por este
+
+741
+00:28:50,289 --> 00:28:53,799
+capítulo gracias
+
+742
+00:28:51,579 --> 00:28:56,470
+la visita y espero haya sido de tu
+
+743
+00:28:53,799 --> 00:28:58,750
+interés si es el caso recuerda dejar un
+
+744
+00:28:56,470 --> 00:29:01,000
+me gusta y suscribirte si aún no lo has
+
+745
+00:28:58,750 --> 00:29:03,309
+hecho y como siempre por cualquier duda
+
+746
+00:29:01,000 --> 00:29:06,039
+o comentario lo podrás hacer debajo que
+
+747
+00:29:03,309 --> 00:29:08,279
+con gusto te responderé chao y hasta la
+
+748
+00:29:06,039 --> 00:29:08,279
+próxima
+

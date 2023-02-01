@@ -1,0 +1,1076 @@
+1
+00:00:00,690 --> 00:00:07,019
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,200 --> 00:00:09,179
+53 de arduino desde cero en español
+
+3
+00:00:07,019 --> 00:00:11,609
+en esta oportunidad veremos un simple
+
+4
+00:00:09,179 --> 00:00:13,888
+sensor de agua que suele incorporarse en
+
+5
+00:00:11,609 --> 00:00:15,388
+gran cantidad de kits de desarrollo de
+
+6
+00:00:13,888 --> 00:00:17,820
+arduino para realizar las primeras
+
+7
+00:00:15,388 --> 00:00:20,369
+experiencias nos permitirá de manera
+
+8
+00:00:17,820 --> 00:00:22,740
+simple y rápida detectar la presencia de
+
+9
+00:00:20,370 --> 00:00:24,120
+agua en la superficie del sensor si
+
+10
+00:00:22,739 --> 00:00:26,399
+estás siguiendo el curso desde el
+
+11
+00:00:24,120 --> 00:00:28,410
+principio podrás pensar que se trata de
+
+12
+00:00:26,399 --> 00:00:30,779
+un sensor demasiado simple pero
+
+13
+00:00:28,410 --> 00:00:33,480
+realmente cumple una función específica
+
+14
+00:00:30,780 --> 00:00:35,518
+útil para variedad de casos y vale la
+
+15
+00:00:33,479 --> 00:00:38,158
+pena analizarlo podemos ver aquí las
+
+16
+00:00:35,518 --> 00:00:40,049
+imágenes frontal y posterior del sensor
+
+17
+00:00:38,158 --> 00:00:42,359
+todos los componentes los tendremos
+
+18
+00:00:40,049 --> 00:00:45,238
+sobre la parte frontal y en la parte
+
+19
+00:00:42,359 --> 00:00:47,429
+posterior básicamente nada está diseñado
+
+20
+00:00:45,238 --> 00:00:49,678
+para hacer de bajo precio y por eso se
+
+21
+00:00:47,429 --> 00:00:52,440
+incluye en gran cantidad de kits de
+
+22
+00:00:49,679 --> 00:00:54,960
+desarrollo tendremos 3 pines 2 de
+
+23
+00:00:52,439 --> 00:00:56,698
+alimentación y uno de señal que luego
+
+24
+00:00:54,960 --> 00:00:59,219
+veremos se conecta a una entrada
+
+25
+00:00:56,698 --> 00:01:01,588
+analógica dado y no debajo una serie de
+
+26
+00:00:59,219 --> 00:01:03,899
+componentes entre ellos un led que se
+
+27
+00:01:01,588 --> 00:01:06,150
+encenderá al aplicar alimentación y
+
+28
+00:01:03,899 --> 00:01:06,849
+permanecerá encendido con la presencia
+
+29
+00:01:06,150 --> 00:01:08,650
+de la misma
+
+30
+00:01:06,849 --> 00:01:11,169
+por debajo existe un área de detección
+
+31
+00:01:08,650 --> 00:01:13,118
+del agua se trata simplemente de una
+
+32
+00:01:11,170 --> 00:01:15,969
+serie de pistas paralelas con su
+
+33
+00:01:13,118 --> 00:01:18,430
+superficie no cubierta por la máscara de
+
+34
+00:01:15,969 --> 00:01:20,618
+soldadura de manera que el agua permita
+
+35
+00:01:18,430 --> 00:01:22,299
+una conducción eléctrica entre ellas
+
+36
+00:01:20,618 --> 00:01:24,368
+ahora veremos en detalle su
+
+37
+00:01:22,299 --> 00:01:27,039
+funcionamiento pero ya que estamos aquí
+
+38
+00:01:24,368 --> 00:01:29,200
+es importante aclarar que el sensor no
+
+39
+00:01:27,039 --> 00:01:31,420
+es sumergible en su totalidad sólo
+
+40
+00:01:29,200 --> 00:01:34,030
+podemos exponer el área de detección al
+
+41
+00:01:31,420 --> 00:01:35,920
+líquido unos cuatro centímetros desde la
+
+42
+00:01:34,030 --> 00:01:39,069
+base todo lo que se encuentra por arriba
+
+43
+00:01:35,920 --> 00:01:41,500
+de la misma no debe mojarse ya que si no
+
+44
+00:01:39,069 --> 00:01:43,569
+se arruinará vamos al circuito eléctrico
+
+45
+00:01:41,500 --> 00:01:45,789
+o esquemático para entender mejor su
+
+46
+00:01:43,569 --> 00:01:48,069
+funcionamiento aquí tendremos los tres
+
+47
+00:01:45,789 --> 00:01:50,140
+pines de conexión enmarcado en el
+
+48
+00:01:48,069 --> 00:01:52,439
+circuito impreso con el símbolo de más
+
+49
+00:01:50,140 --> 00:01:55,569
+será el positivo de la alimentación
+
+50
+00:01:52,439 --> 00:01:58,179
+5volts el marcado con el signo menos el
+
+51
+00:01:55,569 --> 00:02:01,269
+negativo o geneve y el marcado con la
+
+52
+00:01:58,179 --> 00:02:03,549
+letra s el de señal las pistas paralelas
+
+53
+00:02:01,269 --> 00:02:06,310
+servirán para detectar el agua son estas
+
+54
+00:02:03,549 --> 00:02:08,799
+marcadas con un trazo más grueso son 10
+
+55
+00:02:06,310 --> 00:02:11,259
+en total cinco de ellas están conectadas
+
+56
+00:02:08,799 --> 00:02:13,390
+entre sí y a su vez a la base de un
+
+57
+00:02:11,259 --> 00:02:16,340
+transistor del tipo n
+
+58
+00:02:13,389 --> 00:02:18,949
+intercaladas existen otras cinco pistas
+
+59
+00:02:16,340 --> 00:02:21,560
+que están conectadas entre sí y mediante
+
+60
+00:02:18,949 --> 00:02:23,869
+una resistencia de 100 oms al positivo
+
+61
+00:02:21,560 --> 00:02:26,330
+de alimentación el emisor del transistor
+
+62
+00:02:23,870 --> 00:02:29,420
+está conectado mediante otra resistencia
+
+63
+00:02:26,330 --> 00:02:31,850
+de 100 oms a gene d y ese es el circuito
+
+64
+00:02:29,419 --> 00:02:34,519
+básico solo resta una simple conexión
+
+65
+00:02:31,849 --> 00:02:37,159
+para el led de encendido mediante una
+
+66
+00:02:34,520 --> 00:02:39,950
+resistencia en serie de un k entre 5
+
+67
+00:02:37,159 --> 00:02:42,799
+volts ign de básicamente se tiene la
+
+68
+00:02:39,949 --> 00:02:45,409
+base del transistor conectado a 5 pistas
+
+69
+00:02:42,800 --> 00:02:47,900
+en la zona de detección y a su lado de
+
+70
+00:02:45,409 --> 00:02:49,699
+forma muy cercana el positivo de
+
+71
+00:02:47,900 --> 00:02:51,860
+alimentación para que el transistor
+
+72
+00:02:49,699 --> 00:02:54,349
+comienza a conducir debe llegarle una
+
+73
+00:02:51,860 --> 00:02:57,140
+tensión positiva a su base por ser del
+
+74
+00:02:54,349 --> 00:02:59,479
+tipo n pn y dicha acción es la que se
+
+75
+00:02:57,139 --> 00:03:01,489
+provocará cuando sumergimos el sensor en
+
+76
+00:02:59,479 --> 00:03:03,619
+agua y el agua es un conductor de
+
+77
+00:03:01,490 --> 00:03:06,260
+electricidad como probablemente ya lo
+
+78
+00:03:03,620 --> 00:03:08,840
+sepas no es muy bueno y tiene una
+
+79
+00:03:06,259 --> 00:03:10,909
+resistencia relativamente alta pero sólo
+
+80
+00:03:08,840 --> 00:03:13,069
+requerimos de una pequeña corriente en
+
+81
+00:03:10,909 --> 00:03:15,919
+la base del transistor para que comience
+
+82
+00:03:13,069 --> 00:03:18,889
+a conducir y de esa manera el emisor que
+
+83
+00:03:15,919 --> 00:03:19,649
+está siendo forzado a genere mediante la
+
+84
+00:03:18,889 --> 00:03:22,078
+resistencia
+
+85
+00:03:19,650 --> 00:03:24,420
+y no comience a adquirir una atención
+
+86
+00:03:22,079 --> 00:03:26,400
+positiva y dicha atención estará
+
+87
+00:03:24,419 --> 00:03:28,919
+presente en el terminal de señal del
+
+88
+00:03:26,400 --> 00:03:31,500
+sensor y así podremos leerla desde
+
+89
+00:03:28,919 --> 00:03:33,780
+arduino un circuito simple pero efectivo
+
+90
+00:03:31,500 --> 00:03:35,789
+el agua es la que permite que la base
+
+91
+00:03:33,780 --> 00:03:38,729
+del transistor reciba una tensión
+
+92
+00:03:35,789 --> 00:03:40,650
+positiva y así conduzca por eso cuando
+
+93
+00:03:38,729 --> 00:03:42,750
+hagamos la práctica iniciaremos con un
+
+94
+00:03:40,650 --> 00:03:44,760
+programa que muestra el valor leído de
+
+95
+00:03:42,750 --> 00:03:46,889
+una entrada analógica de arduino
+
+96
+00:03:44,759 --> 00:03:49,438
+si estás viendo este capítulo y recién
+
+97
+00:03:46,889 --> 00:03:51,479
+comenzando no te preocupes si algo no se
+
+98
+00:03:49,438 --> 00:03:53,729
+entiende bien el esquemático en los
+
+99
+00:03:51,479 --> 00:03:55,919
+capítulos anteriores estuvimos de a poco
+
+100
+00:03:53,729 --> 00:03:57,840
+incorporando conceptos sobre cómo
+
+101
+00:03:55,919 --> 00:04:00,000
+interpretarlos vamos al circuito de
+
+102
+00:03:57,840 --> 00:04:02,939
+conexión de manera muy simple
+
+103
+00:04:00,000 --> 00:04:05,848
+conectaremos el terminal s del sensor a
+
+104
+00:04:02,939 --> 00:04:09,030
+la entrada analógica a 0 de arduino el
+
+105
+00:04:05,848 --> 00:04:11,488
+positivo a 5 volts y el negativo a gene
+
+106
+00:04:09,030 --> 00:04:14,009
+de como siempre en esta nota se muestra
+
+107
+00:04:11,489 --> 00:04:16,019
+el resumen de conexión es muy simple
+
+108
+00:04:14,009 --> 00:04:18,449
+será también la programación que es la
+
+109
+00:04:16,019 --> 00:04:20,459
+siguiente la idea del primer programa es
+
+110
+00:04:18,449 --> 00:04:23,129
+mostrar mediante el monitor serie el
+
+111
+00:04:20,459 --> 00:04:25,379
+valor leído en la entrada analógica a 0
+
+112
+00:04:23,129 --> 00:04:25,930
+por ende los valores que nos envía el
+
+113
+00:04:25,379 --> 00:04:27,788
+censo
+
+114
+00:04:25,930 --> 00:04:29,918
+de agua hicimos una introducción al
+
+115
+00:04:27,788 --> 00:04:32,288
+concepto de la entrada analógica hace
+
+116
+00:04:29,918 --> 00:04:34,870
+tiempo en el capítulo 4 de manera que
+
+117
+00:04:32,288 --> 00:04:37,478
+podrás volver a verlo si necesitarás una
+
+118
+00:04:34,870 --> 00:04:39,519
+refrescada pero básicamente se trata de
+
+119
+00:04:37,478 --> 00:04:42,519
+un conversor analógico digital
+
+120
+00:04:39,519 --> 00:04:46,569
+adese de 10 bits que nos brinda un rango
+
+121
+00:04:42,519 --> 00:04:50,589
+de valores de 0 a 1.023 donde 0 equivale
+
+122
+00:04:46,569 --> 00:04:52,839
+a ser volts y 1000 23 a 5 volts con
+
+123
+00:04:50,589 --> 00:04:55,359
+todos sus valores intermedios declaramos
+
+124
+00:04:52,839 --> 00:04:57,549
+la variable sensor del tipo entera en
+
+125
+00:04:55,360 --> 00:05:00,069
+ella almacenaremos el valor leído del
+
+126
+00:04:57,550 --> 00:05:03,879
+sensor en el setup inicializa mos el
+
+127
+00:05:00,069 --> 00:05:06,728
+monitor serie a 9.600 bps y jan el loop
+
+128
+00:05:03,879 --> 00:05:09,098
+asignamos a la variable sensor el valor
+
+129
+00:05:06,728 --> 00:05:11,829
+leído de la entrada analógica a 0
+
+130
+00:05:09,098 --> 00:05:13,659
+mediante la función analog ruido sólo
+
+131
+00:05:11,829 --> 00:05:16,329
+resta mostrar el valor en el monitor
+
+132
+00:05:13,660 --> 00:05:19,000
+serie mediante cereal punto pin line
+
+133
+00:05:16,329 --> 00:05:21,008
+finalmente una demora de un segundo es
+
+134
+00:05:19,000 --> 00:05:23,348
+decir que cada un segundo estaremos
+
+135
+00:05:21,009 --> 00:05:25,870
+mostrando por el monitor serie el valor
+
+136
+00:05:23,348 --> 00:05:28,060
+leído de la entrada analógica a 0 a la
+
+137
+00:05:25,870 --> 00:05:31,030
+cual se encuentra conectado el sensor de
+
+138
+00:05:28,060 --> 00:05:32,379
+agua vamos a verificar subir el programa
+
+139
+00:05:31,029 --> 00:05:34,419
+y abrir el monitor
+
+140
+00:05:32,379 --> 00:05:36,279
+y cómo trabajaremos con agua es
+
+141
+00:05:34,420 --> 00:05:38,319
+conveniente que utilices un contenedor
+
+142
+00:05:36,279 --> 00:05:40,899
+transparente para ver mientras se
+
+143
+00:05:38,319 --> 00:05:43,240
+introduce el sensor y como precaución un
+
+144
+00:05:40,899 --> 00:05:45,819
+plato plástico en caso de que algún
+
+145
+00:05:43,240 --> 00:05:48,370
+derrame no llegue arduino en el monitor
+
+146
+00:05:45,819 --> 00:05:50,680
+serie vemos todos valores de 0 lo cual
+
+147
+00:05:48,370 --> 00:05:53,230
+es correcto ya que no detecta presencia
+
+148
+00:05:50,680 --> 00:05:55,300
+de agua si ahora introducimos de a poco
+
+149
+00:05:53,230 --> 00:05:57,400
+el sensor en el contenedor con agua
+
+150
+00:05:55,300 --> 00:05:59,560
+diremos que las lecturas mostradas en el
+
+151
+00:05:57,399 --> 00:06:02,529
+monitor serie cambian rápidamente a
+
+152
+00:05:59,560 --> 00:06:05,530
+valores cercanos a 600 recordad que los
+
+153
+00:06:02,529 --> 00:06:07,419
+valores posibles serán entre 0 y 1000 23
+
+154
+00:06:05,529 --> 00:06:09,849
+así que estamos con un valor bastante
+
+155
+00:06:07,420 --> 00:06:12,129
+intermedio estos valores tendrán una
+
+156
+00:06:09,850 --> 00:06:14,170
+variación y es normal porque estoy
+
+157
+00:06:12,129 --> 00:06:15,909
+sosteniendo el sensor con la mano y la
+
+158
+00:06:14,170 --> 00:06:18,189
+superficie que cubre la zona de
+
+159
+00:06:15,910 --> 00:06:20,950
+detección va variando levemente
+
+160
+00:06:18,189 --> 00:06:22,899
+recordarnos sumergirlo más allá de los 4
+
+161
+00:06:20,949 --> 00:06:25,000
+centímetros desde la base del sensor
+
+162
+00:06:22,899 --> 00:06:27,129
+puede que los valores sean distintos en
+
+163
+00:06:25,000 --> 00:06:29,529
+tu caso ya que depende de la salinidad
+
+164
+00:06:27,129 --> 00:06:31,180
+del agua en la ubicación geográfica en
+
+165
+00:06:29,529 --> 00:06:33,789
+donde te encuentres si ahora vamos
+
+166
+00:06:31,180 --> 00:06:36,459
+quitando lentamente el sensor verás unas
+
+167
+00:06:33,790 --> 00:06:38,620
+leves variaciones a valores algo menores
+
+168
+00:06:36,459 --> 00:06:40,659
+pero no un gran cambio una vez
+
+169
+00:06:38,620 --> 00:06:42,310
+fuera del contenedor de agua verás que
+
+170
+00:06:40,660 --> 00:06:45,389
+en el monitor serie siguen apareciendo
+
+171
+00:06:42,310 --> 00:06:48,189
+valores esta vez más bajos rondando los
+
+172
+00:06:45,389 --> 00:06:50,620
+250 y esto es porque en la superficie
+
+173
+00:06:48,189 --> 00:06:51,310
+del sensor aún quedan algunas gotas de
+
+174
+00:06:50,620 --> 00:06:53,680
+agua
+
+175
+00:06:51,310 --> 00:06:56,319
+si ahora secamos el sensor con un paño o
+
+176
+00:06:53,680 --> 00:06:58,660
+papel y lo dejamos sin ningún resto de
+
+177
+00:06:56,319 --> 00:07:01,180
+agua miremos en el monitor serie que
+
+178
+00:06:58,660 --> 00:07:03,040
+vuelve a un valor de 0 perfecto la
+
+179
+00:07:01,180 --> 00:07:05,530
+condición inicial que indica la ausencia
+
+180
+00:07:03,040 --> 00:07:07,780
+de agua podrá volver a sumergirlo y
+
+181
+00:07:05,529 --> 00:07:09,939
+hacer experiencias cuando los saques
+
+182
+00:07:07,779 --> 00:07:12,909
+deberás secarlo bien para que vuelve a
+
+183
+00:07:09,939 --> 00:07:15,459
+mostrar 0 nuevamente entonces podríamos
+
+184
+00:07:12,910 --> 00:07:17,530
+hacer una segunda experiencia esta vez
+
+185
+00:07:15,459 --> 00:07:20,138
+con el sensor sobre el plato plástico
+
+186
+00:07:17,529 --> 00:07:22,119
+para evitar derrames y ahora aportando
+
+187
+00:07:20,139 --> 00:07:24,400
+algunas gotas de agua sobre la
+
+188
+00:07:22,120 --> 00:07:26,709
+superficie de detección comienza con
+
+189
+00:07:24,399 --> 00:07:28,779
+valores de 0 y al recibir unas pocas
+
+190
+00:07:26,709 --> 00:07:32,589
+gotas vemos cómo cambia el valor a
+
+191
+00:07:28,779 --> 00:07:34,989
+aproximadamente 450 unas gotas más y
+
+192
+00:07:32,589 --> 00:07:37,418
+sube un poco más el valor mostrado en el
+
+193
+00:07:34,990 --> 00:07:39,759
+monitor serie de todo esto podemos sacar
+
+194
+00:07:37,418 --> 00:07:43,029
+una conclusión si obtenemos un valor
+
+195
+00:07:39,759 --> 00:07:44,560
+mayor a 0 cualquiera sea es suficiente
+
+196
+00:07:43,029 --> 00:07:46,929
+para determinar que hay 3
+
+197
+00:07:44,560 --> 00:07:48,879
+de agua entonces podríamos armar un
+
+198
+00:07:46,930 --> 00:07:51,550
+circuito con un led que encienda al
+
+199
+00:07:48,879 --> 00:07:53,649
+detectar agua en vez de mostrar datos en
+
+200
+00:07:51,550 --> 00:07:55,750
+el monitor serie modifiquemos el
+
+201
+00:07:53,649 --> 00:07:57,759
+circuito original incorporando a proto
+
+202
+00:07:55,750 --> 00:08:00,060
+jugar un led en serie con una
+
+203
+00:07:57,759 --> 00:08:04,509
+resistencia y limitadora de corriente de
+
+204
+00:08:00,060 --> 00:08:06,490
+330 11 a súa nodos el cátodo a gene del
+
+205
+00:08:04,509 --> 00:08:09,129
+riel de tensión y desde el otro extremo
+
+206
+00:08:06,490 --> 00:08:11,980
+de la resistencia con un cable directo
+
+207
+00:08:09,129 --> 00:08:14,319
+al pin digital número 2 resta alimentar
+
+208
+00:08:11,980 --> 00:08:16,840
+protoboard con 5 goltz y genes de
+
+209
+00:08:14,319 --> 00:08:18,879
+arduino vamos a reubicar la alimentación
+
+210
+00:08:16,839 --> 00:08:20,949
+del sensor de agua para que tome la
+
+211
+00:08:18,879 --> 00:08:23,110
+misma desde el riel de proto board y
+
+212
+00:08:20,949 --> 00:08:25,569
+dejamos el cable de señal al entrada
+
+213
+00:08:23,110 --> 00:08:28,030
+analógica a 0 en definitiva lo que
+
+214
+00:08:25,569 --> 00:08:30,969
+haremos en programación es enviar un
+
+215
+00:08:28,029 --> 00:08:33,788
+nivel alto height al pin digital número
+
+216
+00:08:30,970 --> 00:08:35,800
+2 cuando detectemos presencia de agua en
+
+217
+00:08:33,788 --> 00:08:38,528
+el sensor aquí está el segundo programa
+
+218
+00:08:35,799 --> 00:08:40,838
+donde usaremos la misma variable sensor
+
+219
+00:08:38,528 --> 00:08:43,149
+para almacenar el valor leído del mismo
+
+220
+00:08:40,839 --> 00:08:45,130
+luego con numeral design la adictiva el
+
+221
+00:08:43,149 --> 00:08:46,929
+compilador para que reemplace toda
+
+222
+00:08:45,129 --> 00:08:49,360
+ocurrencia de la palabra
+
+223
+00:08:46,929 --> 00:08:51,009
+por el número 2 y así hacer el código
+
+224
+00:08:49,360 --> 00:08:53,649
+más legible y poder
+
+225
+00:08:51,009 --> 00:08:56,740
+el número del pin desde aquí si usáramos
+
+226
+00:08:53,649 --> 00:08:59,889
+uno distinto en el setup establecemos al
+
+227
+00:08:56,740 --> 00:09:02,440
+pin número dos como salida output con
+
+228
+00:08:59,889 --> 00:09:04,569
+pin mode y jan el loop al igual que el
+
+229
+00:09:02,440 --> 00:09:07,180
+primer programa leemos la entrada
+
+230
+00:09:04,570 --> 00:09:09,850
+analógica a cero con analog ruiz y
+
+231
+00:09:07,179 --> 00:09:12,009
+asignamos a la variable sensor aquí
+
+232
+00:09:09,850 --> 00:09:14,290
+consultamos y sensor tiene un valor
+
+233
+00:09:12,009 --> 00:09:17,200
+mayor a cero si es así entonces
+
+234
+00:09:14,289 --> 00:09:20,110
+encendemos el led lo hacemos muy fácil
+
+235
+00:09:17,200 --> 00:09:22,780
+enviando un nivel lógico alto height con
+
+236
+00:09:20,110 --> 00:09:24,940
+digital raid la condición de falso es
+
+237
+00:09:22,779 --> 00:09:27,759
+decir si sensor tiene un valor de 0
+
+238
+00:09:24,940 --> 00:09:30,640
+equivalente a ausencia de agua apagamos
+
+239
+00:09:27,759 --> 00:09:33,429
+el led con un nivel bajo low mediante
+
+240
+00:09:30,639 --> 00:09:35,500
+otro digital write nuevamente una demora
+
+241
+00:09:33,429 --> 00:09:38,019
+de un segundo ya que este programa es
+
+242
+00:09:35,500 --> 00:09:40,120
+muy corto así estaremos interrogando el
+
+243
+00:09:38,019 --> 00:09:42,730
+valor de la entrada analógica cada un
+
+244
+00:09:40,120 --> 00:09:45,580
+segundo para determinar si encender o no
+
+245
+00:09:42,730 --> 00:09:47,620
+el led vamos entonces a verificar y
+
+246
+00:09:45,580 --> 00:09:50,020
+subir el programa podemos ubicar el
+
+247
+00:09:47,620 --> 00:09:52,360
+sensor sobre el plato plástico en el
+
+248
+00:09:50,019 --> 00:09:54,189
+sobre protoboard estar apagado ahora
+
+249
+00:09:52,360 --> 00:09:56,050
+incorporamos agua sobre el área de
+
+250
+00:09:54,190 --> 00:09:56,950
+detección del sensor y vemos que
+
+251
+00:09:56,049 --> 00:09:59,379
+efectivamente
+
+252
+00:09:56,950 --> 00:10:01,810
+él le enciende y permanece encendido
+
+253
+00:09:59,379 --> 00:10:04,240
+pese que alguna gota ya haya escurrido
+
+254
+00:10:01,809 --> 00:10:06,309
+por fuera del área igual que hará
+
+255
+00:10:04,240 --> 00:10:08,919
+algunas sobre el sensor por ese motivo
+
+256
+00:10:06,309 --> 00:10:11,769
+el led permanece encendido genial
+
+257
+00:10:08,919 --> 00:10:13,839
+funciona correctamente en definitiva un
+
+258
+00:10:11,769 --> 00:10:16,090
+sensor simple pero que cumple con la
+
+259
+00:10:13,840 --> 00:10:18,340
+función específica de detectar presencia
+
+260
+00:10:16,090 --> 00:10:20,980
+de agua y una manera más de demostrar
+
+261
+00:10:18,340 --> 00:10:23,950
+como arduino nos permite interactuar con
+
+262
+00:10:20,980 --> 00:10:26,080
+el mundo físico y tomar una acción y eso
+
+263
+00:10:23,950 --> 00:10:28,030
+es todo por este capítulo como siempre
+
+264
+00:10:26,080 --> 00:10:30,370
+te pido te suscribas y si aún no lo has
+
+265
+00:10:28,029 --> 00:10:32,289
+hecho dale un me gusta si te pareció
+
+266
+00:10:30,370 --> 00:10:34,779
+interesante y por cualquier duda o
+
+267
+00:10:32,289 --> 00:10:37,509
+comentario lo podrás hacer debajo que
+
+268
+00:10:34,779 --> 00:10:39,720
+con gusto te responderé chau y hasta la
+
+269
+00:10:37,509 --> 00:10:39,720
+próxima
+

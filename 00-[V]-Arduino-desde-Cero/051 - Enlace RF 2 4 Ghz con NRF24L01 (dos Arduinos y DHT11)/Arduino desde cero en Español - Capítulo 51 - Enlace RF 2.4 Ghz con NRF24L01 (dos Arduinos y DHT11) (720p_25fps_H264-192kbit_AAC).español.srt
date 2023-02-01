@@ -1,0 +1,3420 @@
+1
+00:00:00,830 --> 00:00:07,278
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,399 --> 00:00:08,869
+51 de arduino desde cero en español
+
+3
+00:00:07,278 --> 00:00:11,530
+en esta oportunidad veremos cómo
+
+4
+00:00:08,869 --> 00:00:16,879
+realizar un enlace de radiofrecuencia a
+
+5
+00:00:11,529 --> 00:00:20,390
+2.4 giga hertz con el módulo nrf 24 l 01
+
+6
+00:00:16,879 --> 00:00:22,729
+de reducido tamaño económico y fácil de
+
+7
+00:00:20,390 --> 00:00:24,380
+conectar para diversidad de proyectos
+
+8
+00:00:22,730 --> 00:00:27,439
+donde se requiere conectividad
+
+9
+00:00:24,379 --> 00:00:29,928
+inalámbrica bidireccional este pequeño
+
+10
+00:00:27,439 --> 00:00:32,329
+módulo de tan solo 15 x 30 milímetros
+
+11
+00:00:29,928 --> 00:00:34,579
+incluye el circuito integrado que le da
+
+12
+00:00:32,329 --> 00:00:37,219
+nombre y es fabricado por la empresa
+
+13
+00:00:34,579 --> 00:00:39,679
+nórdica semiconductor el circuito
+
+14
+00:00:37,219 --> 00:00:41,439
+impreso incluye la antena y pines
+
+15
+00:00:39,679 --> 00:00:43,820
+mediante los cuales aplicaremos
+
+16
+00:00:41,439 --> 00:00:47,149
+alimentación y la comunicación
+
+17
+00:00:43,820 --> 00:00:49,310
+arduino forbes serie esp y algunas de
+
+18
+00:00:47,149 --> 00:00:51,619
+las características más notables se
+
+19
+00:00:49,310 --> 00:00:53,719
+encuentran aquí listadas se trata de un
+
+20
+00:00:51,619 --> 00:00:56,000
+transceptor término que se usa para
+
+21
+00:00:53,719 --> 00:00:58,909
+referir a un dispositivo que permite
+
+22
+00:00:56,000 --> 00:01:02,600
+tanto transmitir como recibir y lo hará
+
+23
+00:00:58,909 --> 00:01:05,238
+en la banda y sm en la frecuencia de 2.4
+
+24
+00:01:02,600 --> 00:01:07,019
+gigahertz la banda y sm cuyas siglas
+
+25
+00:01:05,239 --> 00:01:10,200
+devienen del inglés
+
+26
+00:01:07,019 --> 00:01:12,539
+general científico y médico es una banda
+
+27
+00:01:10,200 --> 00:01:15,060
+de frecuencia libre para su uso sin
+
+28
+00:01:12,539 --> 00:01:17,280
+necesidad de una licencia especial a
+
+29
+00:01:15,060 --> 00:01:19,769
+bajos niveles de potencia permite
+
+30
+00:01:17,280 --> 00:01:21,899
+establecer una comunicación con una tasa
+
+31
+00:01:19,769 --> 00:01:24,810
+de transferencia de datos de hasta 2
+
+32
+00:01:21,899 --> 00:01:27,569
+megabits por segundo el rango o alcance
+
+33
+00:01:24,810 --> 00:01:30,118
+es de hasta 20 metros y de forma típica
+
+34
+00:01:27,569 --> 00:01:32,490
+de 10 metros cuando no hay línea de
+
+35
+00:01:30,118 --> 00:01:34,978
+visión por ejemplo si tiene que
+
+36
+00:01:32,489 --> 00:01:38,129
+atravesar algún objeto contundente como
+
+37
+00:01:34,978 --> 00:01:41,640
+ser una pared la modulación es del tipo
+
+38
+00:01:38,129 --> 00:01:43,978
+efe sk modulación por frecuencia que
+
+39
+00:01:41,640 --> 00:01:46,259
+logra una alta inmunidad al ruido a
+
+40
+00:01:43,978 --> 00:01:48,899
+diferencia de por ejemplo el módulo que
+
+41
+00:01:46,259 --> 00:01:51,929
+vimos del capítulo 46 que modula va en
+
+42
+00:01:48,899 --> 00:01:54,569
+amplitud a sk aquí vemos al módulo de
+
+43
+00:01:51,929 --> 00:01:56,689
+frente y en la parte inferior tiene una
+
+44
+00:01:54,569 --> 00:01:59,189
+hilera doble de pines macho
+
+45
+00:01:56,688 --> 00:02:01,500
+lamentablemente esta distribución hace
+
+46
+00:01:59,188 --> 00:02:04,199
+que no podamos conectarlo a proto board
+
+47
+00:02:01,500 --> 00:02:06,509
+sin poner en cortocircuito sus pines así
+
+48
+00:02:04,200 --> 00:02:09,269
+que lo conectaremos mediante cables de
+
+49
+00:02:06,509 --> 00:02:11,609
+forma directa arduino veremos en breve
+
+50
+00:02:09,269 --> 00:02:13,039
+el circuito de conexión pero aquí se
+
+51
+00:02:11,609 --> 00:02:16,769
+muestran las designa
+
+52
+00:02:13,039 --> 00:02:20,068
+tendremos veces e higiene para alimentar
+
+53
+00:02:16,769 --> 00:02:24,150
+con una tensión de 33 goltz luego el gas
+
+54
+00:02:20,068 --> 00:02:26,689
+spp y mediante hemos y miso y se seca y
+
+55
+00:02:24,150 --> 00:02:29,939
+chip select que aquí lleva el nombre de
+
+56
+00:02:26,689 --> 00:02:33,479
+csn luego necesitaremos una línea
+
+57
+00:02:29,939 --> 00:02:35,759
+adicional de ese chip enable necesaria
+
+58
+00:02:33,479 --> 00:02:38,639
+para comandar la conmutación entre modo
+
+59
+00:02:35,759 --> 00:02:41,548
+de transmisión y recepción finalmente y
+
+60
+00:02:38,639 --> 00:02:43,919
+recogen o la utilizaremos y corresponde
+
+61
+00:02:41,549 --> 00:02:46,530
+al requerimiento de interrupción útil
+
+62
+00:02:43,919 --> 00:02:47,899
+para algunos casos específicos y para
+
+63
+00:02:46,530 --> 00:02:49,860
+compatibilidad con otros
+
+64
+00:02:47,900 --> 00:02:51,299
+microcontroladores para que quede claro
+
+65
+00:02:49,860 --> 00:02:53,760
+en los programas que haremos en la
+
+66
+00:02:51,299 --> 00:02:55,459
+práctica te muestro este diagrama el
+
+67
+00:02:53,759 --> 00:02:57,568
+primer programa tiene como propósito
+
+68
+00:02:55,459 --> 00:03:00,180
+verificar el funcionamiento del sistema
+
+69
+00:02:57,568 --> 00:03:03,359
+a modo de referencia usaremos las
+
+70
+00:03:00,180 --> 00:03:05,159
+designaciones base para referirnos a uno
+
+71
+00:03:03,360 --> 00:03:07,470
+de los extremos del enlace
+
+72
+00:03:05,159 --> 00:03:10,889
+yo estaría usando un modelo de arduino 1
+
+73
+00:03:07,469 --> 00:03:13,289
+con el módulo nrf en el otro extremo que
+
+74
+00:03:10,889 --> 00:03:16,799
+denominaremos remoto tendremos un
+
+75
+00:03:13,289 --> 00:03:18,840
+arduino nano y otro módulo nrf
+
+76
+00:03:16,800 --> 00:03:21,630
+y que quede claro que tendremos una base
+
+77
+00:03:18,840 --> 00:03:24,780
+y un remoto y de esa forma enviaremos
+
+78
+00:03:21,629 --> 00:03:27,419
+unos mensajes de texto la base iniciará
+
+79
+00:03:24,780 --> 00:03:30,030
+en espera por un mensaje del remoto el
+
+80
+00:03:27,419 --> 00:03:32,759
+cual es hola desde lejos para emular el
+
+81
+00:03:30,030 --> 00:03:35,039
+programa que hicimos en el capítulo 46
+
+82
+00:03:32,759 --> 00:03:37,500
+una vez recibido por parte de la base
+
+83
+00:03:35,039 --> 00:03:40,679
+del mensaje responderemos es decir
+
+84
+00:03:37,500 --> 00:03:43,979
+transmitiremos hacia el remoto el texto
+
+85
+00:03:40,680 --> 00:03:46,170
+hola amigo remoto y así todo el tiempo
+
+86
+00:03:43,979 --> 00:03:48,449
+ideal para verificar que todo se
+
+87
+00:03:46,169 --> 00:03:50,729
+encuentra bien conectado y también para
+
+88
+00:03:48,449 --> 00:03:52,979
+hacer pruebas de alcance si alimentamos
+
+89
+00:03:50,729 --> 00:03:56,039
+el remoto por ejemplo con una batería
+
+90
+00:03:52,979 --> 00:03:58,500
+tipo power bank y así logramos movilidad
+
+91
+00:03:56,039 --> 00:04:01,379
+en el segundo programa incluiremos en el
+
+92
+00:03:58,500 --> 00:04:04,379
+remoto un módulo sensor de temperatura y
+
+93
+00:04:01,379 --> 00:04:06,990
+humedad de ht 11 el cual enviará los
+
+94
+00:04:04,379 --> 00:04:09,180
+datos que adquiera a la base y en la
+
+95
+00:04:06,990 --> 00:04:11,730
+misma los mostraremos en el monitor
+
+96
+00:04:09,180 --> 00:04:14,129
+serie aclarado el panorama vamos al
+
+97
+00:04:11,729 --> 00:04:15,449
+circuito de conexión comenzaremos con la
+
+98
+00:04:14,129 --> 00:04:17,759
+sección de la base
+
+99
+00:04:15,449 --> 00:04:19,949
+yo estaré usando un modelo de arduino 1
+
+100
+00:04:17,759 --> 00:04:22,949
+pero podría ser un mega
+
+101
+00:04:19,949 --> 00:04:25,949
+o una provincia en esta nota aparece la
+
+102
+00:04:22,949 --> 00:04:28,800
+distribución y designación de cada uno
+
+103
+00:04:25,949 --> 00:04:31,229
+de los pines del módulo nrf y en
+
+104
+00:04:28,800 --> 00:04:33,449
+protoboard usaremos un regulador lineal
+
+105
+00:04:31,230 --> 00:04:36,420
+de tensión para brindar al módulo la
+
+106
+00:04:33,449 --> 00:04:39,149
+alimentación de 33 volts primero veamos
+
+107
+00:04:36,420 --> 00:04:41,939
+la conexión del módulo arduino el pin
+
+108
+00:04:39,149 --> 00:04:44,339
+con la designación se lo conectaremos
+
+109
+00:04:41,939 --> 00:04:46,740
+con este cable de color gris al pin
+
+110
+00:04:44,339 --> 00:04:49,919
+digital número 8 de arduino
+
+111
+00:04:46,740 --> 00:04:55,769
+luego se seca el pin 13 con este cable
+
+112
+00:04:49,920 --> 00:04:58,680
+violeta mismo al pin 12 csn al pin 10 y
+
+113
+00:04:55,769 --> 00:05:00,930
+moss y al 11 en esta nota está el
+
+114
+00:04:58,680 --> 00:05:03,269
+resumen de las conexiones y también los
+
+115
+00:05:00,930 --> 00:05:05,340
+pines que corresponden en caso de usar
+
+116
+00:05:03,269 --> 00:05:08,219
+un modelo mega sólo resta la
+
+117
+00:05:05,339 --> 00:05:11,609
+alimentación que debe ser de 3,3 volts
+
+118
+00:05:08,220 --> 00:05:13,920
+arduino uno tiene una salida de 33 y la
+
+119
+00:05:11,610 --> 00:05:16,110
+podríamos usar de forma directa pero
+
+120
+00:05:13,920 --> 00:05:18,180
+resulta que el módulo ene efe puede
+
+121
+00:05:16,110 --> 00:05:20,699
+generar picos grandes de consumo de
+
+122
+00:05:18,180 --> 00:05:23,370
+corriente que pueden superar los 100 mil
+
+123
+00:05:20,699 --> 00:05:26,519
+jumper si bien arduino uno en su riel de
+
+124
+00:05:23,370 --> 00:05:28,500
+33 volts sería capaz de brindar lo
+
+125
+00:05:26,519 --> 00:05:30,889
+sería el caso de por ejemplo un modelo
+
+126
+00:05:28,500 --> 00:05:34,949
+nano que como analizamos en el capítulo
+
+127
+00:05:30,889 --> 00:05:38,550
+44 el riel de 33 puede suministrar como
+
+128
+00:05:34,949 --> 00:05:41,250
+máximo 50.000 jumper entonces la idea es
+
+129
+00:05:38,550 --> 00:05:43,408
+usar el riel de 5 goltz que tanto en el
+
+130
+00:05:41,250 --> 00:05:46,470
+modelo 1 como en sus hermanos menores
+
+131
+00:05:43,408 --> 00:05:49,680
+nano y pero mini brindan un suministro
+
+132
+00:05:46,470 --> 00:05:52,650
+de 500000 amper solo debemos reducir esa
+
+133
+00:05:49,680 --> 00:05:55,530
+atención de 5 a 3,3
+
+134
+00:05:52,649 --> 00:05:59,848
+por eso usaremos un regulador lineal que
+
+135
+00:05:55,529 --> 00:06:01,948
+lleva el nombre de l de 11 17 33 de
+
+136
+00:05:59,848 --> 00:06:05,699
+corta también lo encontrarás con la
+
+137
+00:06:01,949 --> 00:06:08,908
+denominación l de 33 de corta de hecho
+
+138
+00:06:05,699 --> 00:06:11,819
+el de 11 17 es toda una familia de
+
+139
+00:06:08,908 --> 00:06:16,829
+reguladores existen de valores fijos de
+
+140
+00:06:11,819 --> 00:06:19,259
+5 33 18 volts y también ajustables para
+
+141
+00:06:16,829 --> 00:06:22,889
+un variado rango a nosotros nos interesa
+
+142
+00:06:19,259 --> 00:06:25,319
+el modelo de valor fijo de 33 en esta
+
+143
+00:06:22,889 --> 00:06:27,569
+imagen vemos este regulador muy útil
+
+144
+00:06:25,319 --> 00:06:31,080
+para todo tipo de proyectos donde
+
+145
+00:06:27,569 --> 00:06:32,939
+debemos reducir de cinco a 33 el primer
+
+146
+00:06:31,079 --> 00:06:36,120
+pin de la izquierda corresponde
+
+147
+00:06:32,939 --> 00:06:38,759
+genere el pin del medio de out a la
+
+148
+00:06:36,120 --> 00:06:42,780
+atención de salida que será siempre de
+
+149
+00:06:38,759 --> 00:06:45,719
+33 world y el último pin 20 la tensión
+
+150
+00:06:42,779 --> 00:06:47,189
+de entrada que puede ser el rango de 5 a
+
+151
+00:06:45,720 --> 00:06:49,110
+15 volts
+
+152
+00:06:47,189 --> 00:06:50,850
+volviendo al diagrama de fritz y vemos
+
+153
+00:06:49,110 --> 00:06:52,830
+que el regulador lo tenemos sobre
+
+154
+00:06:50,850 --> 00:06:55,050
+protoboard y al primer pin de la
+
+155
+00:06:52,829 --> 00:06:57,839
+izquierda llegamos con un cable directo
+
+156
+00:06:55,050 --> 00:07:01,740
+desde gene de arduino desde este mismo
+
+157
+00:06:57,839 --> 00:07:04,229
+punto iremos a gene d del módulo nrf
+
+158
+00:07:01,740 --> 00:07:07,590
+luego el pin del medio será la tensión
+
+159
+00:07:04,230 --> 00:07:09,509
+de salida de out de 3,3 volts lo
+
+160
+00:07:07,589 --> 00:07:12,119
+conectaremos con un cable de forma
+
+161
+00:07:09,509 --> 00:07:13,949
+directa a veces en el módulo es
+
+162
+00:07:12,120 --> 00:07:18,629
+importante recordar que podemos
+
+163
+00:07:13,949 --> 00:07:22,199
+alimentar al nrf 24 l 01 únicamente con
+
+164
+00:07:18,629 --> 00:07:24,600
+33 si por error lo conectamos a 5 lo
+
+165
+00:07:22,199 --> 00:07:27,689
+arruinaremos el último pin de la derecha
+
+166
+00:07:24,600 --> 00:07:30,180
+en el regulador será 20 la tensión de
+
+167
+00:07:27,689 --> 00:07:32,610
+entrada que conectaremos a 5 volts de
+
+168
+00:07:30,180 --> 00:07:35,189
+arduino en definitiva debe quedar claro
+
+169
+00:07:32,610 --> 00:07:37,830
+que usamos el riel de 5 volts porque es
+
+170
+00:07:35,189 --> 00:07:39,000
+capaz de brindar hasta 500.000 jumper de
+
+171
+00:07:37,829 --> 00:07:42,839
+corriente
+
+172
+00:07:39,000 --> 00:07:45,360
+el regulador lo reducimos a 33 de forma
+
+173
+00:07:42,839 --> 00:07:48,269
+precisa para este caso donde la base es
+
+174
+00:07:45,360 --> 00:07:50,819
+un modelo uno o si fuese un modelo mega
+
+175
+00:07:48,269 --> 00:07:53,370
+podríamos prescindir del regulador y
+
+176
+00:07:50,819 --> 00:07:55,560
+usar la salida propia de la placa pero
+
+177
+00:07:53,370 --> 00:07:58,470
+como veremos ahora en el remoto donde
+
+178
+00:07:55,560 --> 00:08:00,899
+usaré en mi caso un modelo nano no sería
+
+179
+00:07:58,470 --> 00:08:03,540
+suficiente de manera que para no estar
+
+180
+00:08:00,899 --> 00:08:06,479
+pensando cuándo usar el regulador o no
+
+181
+00:08:03,540 --> 00:08:08,340
+simplemente lo usamos siempre muy bien
+
+182
+00:08:06,480 --> 00:08:10,710
+vamos entonces a la sección que
+
+183
+00:08:08,339 --> 00:08:12,929
+denominamos remoto será la misma
+
+184
+00:08:10,709 --> 00:08:15,599
+conexión pero esta vez con una placa de
+
+185
+00:08:12,930 --> 00:08:17,639
+modelo nano aquí en la nota verás que
+
+186
+00:08:15,600 --> 00:08:19,590
+las conexiones son exactamente las
+
+187
+00:08:17,639 --> 00:08:21,899
+mismas que para la base solo que
+
+188
+00:08:19,589 --> 00:08:24,929
+deberemos ubicar los números de pines
+
+189
+00:08:21,899 --> 00:08:27,659
+sobre la placa nano lo mismo sucede con
+
+190
+00:08:24,930 --> 00:08:29,699
+el regulador lineal que tomará los 5
+
+191
+00:08:27,660 --> 00:08:33,060
+volts del riel de la placa y los
+
+192
+00:08:29,699 --> 00:08:35,759
+reducirá a 33 para el módulo teniendo
+
+193
+00:08:33,059 --> 00:08:38,250
+ambos extremos del enlace ya preparados
+
+194
+00:08:35,759 --> 00:08:40,439
+vamos a la programación usaremos la
+
+195
+00:08:38,250 --> 00:08:43,440
+librería radiohead al igual que el
+
+196
+00:08:40,440 --> 00:08:45,720
+capítulo 46 para instalarla debemos
+
+197
+00:08:43,440 --> 00:08:48,089
+ingresar a la siguiente página web
+
+198
+00:08:45,720 --> 00:08:51,000
+desarrollador dejaré un enlace directo
+
+199
+00:08:48,089 --> 00:08:53,220
+debajo en la zona de descripción hacemos
+
+200
+00:08:51,000 --> 00:08:55,980
+clic en el primer enlace para descargar
+
+201
+00:08:53,220 --> 00:08:58,170
+el archivo comprimido punto zip y luego
+
+202
+00:08:55,980 --> 00:09:01,139
+desde el id de arduino mediante el menú
+
+203
+00:08:58,169 --> 00:09:03,838
+programa incluir librería y añadir
+
+204
+00:09:01,139 --> 00:09:06,480
+biblioteca punto zip seleccionamos el
+
+205
+00:09:03,839 --> 00:09:09,000
+archivo que acabamos de descargar y así
+
+206
+00:09:06,480 --> 00:09:11,009
+queda todo listo como siempre podrás
+
+207
+00:09:09,000 --> 00:09:13,230
+verificar que la librería ha quedado
+
+208
+00:09:11,009 --> 00:09:16,409
+bien instalada ingresando al menú
+
+209
+00:09:13,230 --> 00:09:19,019
+archivo ejemplos y buscar por radiohead
+
+210
+00:09:16,409 --> 00:09:21,240
+deberás ver una buena cantidad de
+
+211
+00:09:19,019 --> 00:09:22,799
+archivos de ejemplo en caso de que ya
+
+212
+00:09:21,240 --> 00:09:25,620
+tengas instalada la librería del
+
+213
+00:09:22,799 --> 00:09:28,049
+capítulo 46 seguramente ya hay una
+
+214
+00:09:25,620 --> 00:09:29,698
+versión más moderna en ese caso tendrá
+
+215
+00:09:28,049 --> 00:09:31,979
+que eliminar la versión que tengas
+
+216
+00:09:29,698 --> 00:09:34,919
+instalada usualmente en el directorio
+
+217
+00:09:31,980 --> 00:09:37,709
+libraries dentro de documentos
+
+218
+00:09:34,919 --> 00:09:39,929
+arduino y descargar la última disponible
+
+219
+00:09:37,708 --> 00:09:41,758
+desde el sitio web en este primer
+
+220
+00:09:39,929 --> 00:09:44,758
+programa comenzaremos del lado de la
+
+221
+00:09:41,759 --> 00:09:47,278
+base incluimos la librería cpi para
+
+222
+00:09:44,759 --> 00:09:51,539
+tener conectividad mediante dicho base
+
+223
+00:09:47,278 --> 00:09:53,850
+serie luego rh y un bajo nrf
+
+224
+00:09:51,539 --> 00:09:56,759
+4 que es una parte de la librería
+
+225
+00:09:53,850 --> 00:09:58,889
+radiohead específica para trabajar con
+
+226
+00:09:56,759 --> 00:10:01,769
+nuestro módulo recordad que cuando
+
+227
+00:09:58,889 --> 00:10:05,879
+trabajamos en el capítulo 46 la librería
+
+228
+00:10:01,769 --> 00:10:10,409
+llevaba el nombre rh bajo a sk creamos
+
+229
+00:10:05,879 --> 00:10:14,458
+un objeto del tipo rh nrf 24 con el
+
+230
+00:10:10,409 --> 00:10:16,649
+nombre nrf 24 de allí usaremos las
+
+231
+00:10:14,458 --> 00:10:19,138
+funciones asociadas y en pocas líneas
+
+232
+00:10:16,649 --> 00:10:21,528
+lograr el objetivo que necesita
+
+233
+00:10:19,139 --> 00:10:24,899
+inicializa mos en el monitor serie a
+
+234
+00:10:21,528 --> 00:10:27,778
+9.600 bps y luego consultamos por el
+
+235
+00:10:24,899 --> 00:10:30,059
+valor devuelto de la función init esta
+
+236
+00:10:27,778 --> 00:10:32,759
+función devuelve es verdadero si la
+
+237
+00:10:30,059 --> 00:10:34,439
+inicialización del módulo fue exitosa
+
+238
+00:10:32,759 --> 00:10:37,440
+por eso verás que con el signo de
+
+239
+00:10:34,440 --> 00:10:39,899
+admiración obtenemos el valor opuesto en
+
+240
+00:10:37,440 --> 00:10:42,240
+definitiva estamos diciendo si la
+
+241
+00:10:39,899 --> 00:10:44,578
+inicialización ha fallado
+
+242
+00:10:42,240 --> 00:10:48,180
+entonces mostraremos en el monitor serie
+
+243
+00:10:44,578 --> 00:10:51,028
+el mensaje fallo de inicialización si
+
+244
+00:10:48,179 --> 00:10:53,338
+todo fue bien saltamos el condicional y
+
+245
+00:10:51,028 --> 00:10:55,169
+vamos a la siguiente línea aquí lo que
+
+246
+00:10:53,339 --> 00:10:57,690
+haremos es establecer un par de
+
+247
+00:10:55,169 --> 00:11:00,839
+parámetros relacionados con el enlace
+
+248
+00:10:57,690 --> 00:11:03,270
+frecuencia con la función set channel y
+
+249
+00:11:00,840 --> 00:11:06,030
+establecimos el canal que usaremos un
+
+250
+00:11:03,269 --> 00:11:08,340
+canal es una frecuencia específica que
+
+251
+00:11:06,029 --> 00:11:11,039
+tendrá que ser igual tanto para el lado
+
+252
+00:11:08,340 --> 00:11:13,410
+de la base como del remoto algo similar
+
+253
+00:11:11,039 --> 00:11:16,379
+a sintonizar una determinada frecuencia
+
+254
+00:11:13,409 --> 00:11:20,699
+en una radio para escuchar a una emisora
+
+255
+00:11:16,379 --> 00:11:23,429
+canal 2 significa que estaremos a 2402
+
+256
+00:11:20,700 --> 00:11:26,520
+megahertz nuevamente aquí se usa el
+
+257
+00:11:23,429 --> 00:11:28,769
+método de colocar la función negarla y
+
+258
+00:11:26,519 --> 00:11:30,750
+luego dentro de la condición del if de
+
+259
+00:11:28,769 --> 00:11:33,779
+manera que si la aplicación de la
+
+260
+00:11:30,750 --> 00:11:36,809
+función no ha sido exitosa mostramos el
+
+261
+00:11:33,779 --> 00:11:38,939
+mensaje fallo en establecer canal si
+
+262
+00:11:36,809 --> 00:11:41,399
+todo fue bien pasamos a la siguiente
+
+263
+00:11:38,940 --> 00:11:44,490
+línea aquí con la función set
+
+264
+00:11:41,399 --> 00:11:47,129
+rf estableceremos dos parámetros más
+
+265
+00:11:44,490 --> 00:11:49,409
+para la comunicación que serán la tasa
+
+266
+00:11:47,129 --> 00:11:51,600
+de velocidad de datos y la potencia de
+
+267
+00:11:49,409 --> 00:11:53,909
+transmisión nos detendremos unos
+
+268
+00:11:51,600 --> 00:11:56,250
+instantes para analizar estos parámetros
+
+269
+00:11:53,909 --> 00:11:58,679
+con una nota al margen el primer
+
+270
+00:11:56,250 --> 00:12:01,500
+parámetro la velocidad indicaremos
+
+271
+00:11:58,679 --> 00:12:03,888
+mediante una constante declarada dentro
+
+272
+00:12:01,500 --> 00:12:06,078
+de la librería podremos optar por
+
+273
+00:12:03,889 --> 00:12:11,149
+niveles de taza de transferencia de
+
+274
+00:12:06,078 --> 00:12:13,758
+datos 250 kbps un megabit por segundo y
+
+275
+00:12:11,149 --> 00:12:15,889
+2 megabits por segundo en el código
+
+276
+00:12:13,759 --> 00:12:20,869
+verás que se carga con este formato
+
+277
+00:12:15,889 --> 00:12:24,918
+rh y un bajo nrf 24 dos puntos dos
+
+278
+00:12:20,869 --> 00:12:27,519
+puntos data rate 250 kbps
+
+279
+00:12:24,918 --> 00:12:30,379
+en ese caso indicamos la velocidad de
+
+280
+00:12:27,519 --> 00:12:32,720
+250 kilobits por segundo que para
+
+281
+00:12:30,379 --> 00:12:35,480
+nosotros es más que suficiente pero
+
+282
+00:12:32,720 --> 00:12:37,730
+podemos incrementar hasta 2 megabits por
+
+283
+00:12:35,480 --> 00:12:38,239
+segundo y luego el segundo parámetro de
+
+284
+00:12:37,730 --> 00:12:41,480
+set
+
+285
+00:12:38,239 --> 00:12:45,619
+rf establece el nivel de potencia medido
+
+286
+00:12:41,480 --> 00:12:48,499
+en bbm la letra m indica 1000 igual a
+
+287
+00:12:45,619 --> 00:12:50,749
+1000 y batió una milésima parte de watt
+
+288
+00:12:48,499 --> 00:12:54,139
+el nivel de potencia siempre se
+
+289
+00:12:50,749 --> 00:12:56,869
+relaciona con 0 de evm que equivale a un
+
+290
+00:12:54,139 --> 00:12:59,298
+mil watts ya sé que parece raro pero es
+
+291
+00:12:56,869 --> 00:13:02,149
+el método utilizado en radiofrecuencia
+
+292
+00:12:59,298 --> 00:13:05,688
+cero de evm equivale a un 1000 igual
+
+293
+00:13:02,149 --> 00:13:08,509
+entonces valores negativos de dvm que es
+
+294
+00:13:05,688 --> 00:13:10,818
+una escala logarítmica no significa que
+
+295
+00:13:08,509 --> 00:13:13,369
+tendremos potencia negativa sino
+
+296
+00:13:10,818 --> 00:13:16,368
+estaremos por debajo de la referencia
+
+297
+00:13:13,369 --> 00:13:21,109
+que es 0 de evm por eso la constante
+
+298
+00:13:16,369 --> 00:13:25,809
+transmite power m 6 de evm equivale a
+
+299
+00:13:21,109 --> 00:13:29,059
+menos 6 de evm o lo que es lo mismo 0
+
+300
+00:13:25,808 --> 00:13:31,999
+251 mil watts en definitiva lo que es
+
+301
+00:13:29,058 --> 00:13:34,668
+importante que recuerdes es que 0 de vm
+
+302
+00:13:31,999 --> 00:13:37,788
+corresponde a un mil watts y valores
+
+303
+00:13:34,668 --> 00:13:41,389
+negativos es decir que se alejan de 0
+
+304
+00:13:37,788 --> 00:13:44,749
+indican menor potencia de hecho menos 6
+
+305
+00:13:41,389 --> 00:13:47,119
+de evm es prácticamente una cuarta parte
+
+306
+00:13:44,749 --> 00:13:49,939
+de un mil watts y así podremos también
+
+307
+00:13:47,119 --> 00:13:53,449
+establecer potencias aún menores de
+
+308
+00:13:49,938 --> 00:13:55,998
+menos 12 y menos 18 de evm donde ya
+
+309
+00:13:53,448 --> 00:13:58,399
+estamos en el rango de los micro watts
+
+310
+00:13:55,999 --> 00:14:00,589
+parece poca potencia pero deberás tener
+
+311
+00:13:58,399 --> 00:14:03,308
+en cuenta que estamos en una banda libre
+
+312
+00:14:00,589 --> 00:14:05,559
+de licencia y es importante no generar
+
+313
+00:14:03,308 --> 00:14:08,058
+interferencias con otros dispositivos
+
+314
+00:14:05,558 --> 00:14:10,219
+trabajando a frecuencias cercanas a la
+
+315
+00:14:08,058 --> 00:14:12,499
+nuestra y entonces volviendo al código
+
+316
+00:14:10,220 --> 00:14:16,399
+establecemos con la función set
+
+317
+00:14:12,499 --> 00:14:17,450
+rf una velocidad de 250 kilobits por
+
+318
+00:14:16,399 --> 00:14:20,659
+segundo
+
+319
+00:14:17,450 --> 00:14:23,120
+la potencia máxima de 0 de evm al igual
+
+320
+00:14:20,659 --> 00:14:24,769
+que antes todo dentro del condicional de
+
+321
+00:14:23,120 --> 00:14:28,340
+manera que si falla el proceso
+
+322
+00:14:24,769 --> 00:14:31,549
+mostraremos el mensaje fallo en opciones
+
+323
+00:14:28,340 --> 00:14:33,980
+rf para finalizar el setup simplemente
+
+324
+00:14:31,549 --> 00:14:36,769
+escribimos en el monitor serie base
+
+325
+00:14:33,980 --> 00:14:39,289
+iniciada esto es porque la base inicia
+
+326
+00:14:36,769 --> 00:14:41,419
+esperando por un mensaje del remoto y
+
+327
+00:14:39,289 --> 00:14:44,120
+como veremos ahora en el loop no toma
+
+328
+00:14:41,419 --> 00:14:45,979
+ninguna acción hasta que ello suceda de
+
+329
+00:14:44,120 --> 00:14:48,019
+manera que para no iniciar con una
+
+330
+00:14:45,980 --> 00:14:51,019
+ventana de monitor seria en blanco
+
+331
+00:14:48,019 --> 00:14:53,419
+imprimimos dicho texto ya en el loop
+
+332
+00:14:51,019 --> 00:14:56,419
+esperamos por información proveniente
+
+333
+00:14:53,419 --> 00:14:58,479
+del remoto con la función available de
+
+334
+00:14:56,419 --> 00:15:00,949
+manera que si hay información disponible
+
+335
+00:14:58,480 --> 00:15:03,620
+entramos en la condición de verdadero
+
+336
+00:15:00,950 --> 00:15:05,600
+del condicional si no es el caso no
+
+337
+00:15:03,620 --> 00:15:08,659
+hacemos nada miras que la llave de
+
+338
+00:15:05,600 --> 00:15:10,820
+apertura del condicional if está aquí y
+
+339
+00:15:08,659 --> 00:15:12,919
+que la llave de cierre es la última
+
+340
+00:15:10,820 --> 00:15:15,530
+línea de loop si no hay información
+
+341
+00:15:12,919 --> 00:15:18,139
+disponible no hacemos nada si la hay
+
+342
+00:15:15,529 --> 00:15:20,389
+entonces nos preparamos para recibir los
+
+343
+00:15:18,139 --> 00:15:23,220
+datos este proceso es igual que el
+
+344
+00:15:20,389 --> 00:15:25,799
+capítulo 46 creamos un array
+
+345
+00:15:23,220 --> 00:15:28,769
+almacenar la información recibida con el
+
+346
+00:15:25,799 --> 00:15:31,049
+nombre de buff buffer en inglés y será
+
+347
+00:15:28,769 --> 00:15:33,810
+del tipo windows 8
+
+348
+00:15:31,049 --> 00:15:36,269
+que es la forma que requiere la librería
+
+349
+00:15:33,809 --> 00:15:38,758
+que declaremos la variable sería el
+
+350
+00:15:36,269 --> 00:15:41,370
+equivalente a la variable tipo byte que
+
+351
+00:15:38,759 --> 00:15:43,769
+estamos acostumbrados entre corchetes
+
+352
+00:15:41,370 --> 00:15:47,009
+el tamaño donde si no lo sabemos
+
+353
+00:15:43,769 --> 00:15:49,110
+exactamente podemos usar una constante y
+
+354
+00:15:47,009 --> 00:15:54,509
+provista por la librería con el nombre
+
+355
+00:15:49,110 --> 00:15:57,870
+rh nrf 24 max message leen el tamaño
+
+356
+00:15:54,509 --> 00:16:00,539
+máximo permitido que es de 32 bytes en
+
+357
+00:15:57,870 --> 00:16:03,089
+definitiva en buff almacenaremos el
+
+358
+00:16:00,539 --> 00:16:05,519
+texto enviado por el remoto también al
+
+359
+00:16:03,089 --> 00:16:08,399
+igual que el capítulo 46 declaramos la
+
+360
+00:16:05,519 --> 00:16:09,179
+variable en contracción de longitud en
+
+361
+00:16:08,399 --> 00:16:11,730
+inglés
+
+362
+00:16:09,179 --> 00:16:15,479
+el valor devuelto por la función size of
+
+363
+00:16:11,730 --> 00:16:17,610
+tamaño de la variable buff recordad que
+
+364
+00:16:15,480 --> 00:16:19,759
+el remoto no se estará enviando el texto
+
+365
+00:16:17,610 --> 00:16:22,860
+hola desde lejos así que en buf
+
+366
+00:16:19,759 --> 00:16:25,409
+almacenar hemos dicho texto y en el en
+
+367
+00:16:22,860 --> 00:16:27,449
+la longitud de dicha cadena
+
+368
+00:16:25,409 --> 00:16:28,980
+todo esto en preparación para la función
+
+369
+00:16:27,448 --> 00:16:31,500
+receive
+
+370
+00:16:28,980 --> 00:16:33,930
+verdadero una vez que el buffer está
+
+371
+00:16:31,500 --> 00:16:35,759
+chino con la información esta función
+
+372
+00:16:33,929 --> 00:16:38,388
+también verifica la integridad de los
+
+373
+00:16:35,759 --> 00:16:41,009
+datos recibidos devolverá verdadero
+
+374
+00:16:38,389 --> 00:16:43,379
+únicamente si los datos son válidos
+
+375
+00:16:41,009 --> 00:16:45,720
+cuando el remoto envía el texto hola
+
+376
+00:16:43,379 --> 00:16:48,539
+desde el hijos además del propio texto
+
+377
+00:16:45,720 --> 00:16:52,139
+agrega un preámbulo y un código de
+
+378
+00:16:48,539 --> 00:16:54,750
+redundancia cíclica crc el cual es
+
+379
+00:16:52,139 --> 00:16:56,610
+verificado así si la información no
+
+380
+00:16:54,750 --> 00:16:59,490
+llega completa por alguna interferencia
+
+381
+00:16:56,610 --> 00:17:02,039
+en el enlace o cualquier otro motivo se
+
+382
+00:16:59,490 --> 00:17:02,639
+puede saber si los datos son válidos o
+
+383
+00:17:02,039 --> 00:17:04,678
+no
+
+384
+00:17:02,639 --> 00:17:07,169
+en definitiva si todo va bien entraremos
+
+385
+00:17:04,679 --> 00:17:09,870
+en este condicional y simplemente
+
+386
+00:17:07,169 --> 00:17:12,839
+escribimos en el monitor serie el texto
+
+387
+00:17:09,869 --> 00:17:15,629
+recibido dos puntos y a continuación un
+
+388
+00:17:12,838 --> 00:17:18,418
+puntero al buffer con el texto tema que
+
+389
+00:17:15,630 --> 00:17:20,309
+también lo vimos en el capítulo 46 que
+
+390
+00:17:18,419 --> 00:17:22,410
+recomiendo lo veas si nunca has
+
+391
+00:17:20,308 --> 00:17:25,259
+trabajado con la librería radiohead
+
+392
+00:17:22,410 --> 00:17:27,750
+luego de mostrar el texto recibido desde
+
+393
+00:17:25,259 --> 00:17:30,720
+el remoto nos preparamos para enviarle
+
+394
+00:17:27,750 --> 00:17:33,779
+un texto de respuesta hola amigo remoto
+
+395
+00:17:30,720 --> 00:17:35,870
+el cual lo guardamos en el array data y
+
+396
+00:17:33,779 --> 00:17:39,149
+simplemente aplicamos la función
+
+397
+00:17:35,869 --> 00:17:41,489
+con dicha variable y la longitud de la
+
+398
+00:17:39,150 --> 00:17:44,850
+misma a continuación invocamos a la
+
+399
+00:17:41,490 --> 00:17:47,190
+función weight packet send que espera
+
+400
+00:17:44,849 --> 00:17:49,079
+hasta que la información ha sido enviada
+
+401
+00:17:47,190 --> 00:17:51,630
+como el tiempo puede variar dependiendo
+
+402
+00:17:49,079 --> 00:17:53,849
+de la longitud de datos y la velocidad
+
+403
+00:17:51,630 --> 00:17:56,790
+de transmisión siempre después de
+
+404
+00:17:53,849 --> 00:17:58,829
+aplicar send debemos usar esta función
+
+405
+00:17:56,789 --> 00:18:00,869
+weight packet send
+
+406
+00:17:58,829 --> 00:18:03,960
+finalmente escribimos en el monitor
+
+407
+00:18:00,869 --> 00:18:06,539
+serie respondiendo a modo de indicación
+
+408
+00:18:03,960 --> 00:18:09,299
+que se realizó el proceso correctamente
+
+409
+00:18:06,539 --> 00:18:11,430
+así que para resumir primero esperamos
+
+410
+00:18:09,299 --> 00:18:13,919
+por la información disponible luego
+
+411
+00:18:11,430 --> 00:18:16,440
+creamos un buffer para almacenar la
+
+412
+00:18:13,920 --> 00:18:18,960
+información recibida y la mostramos en
+
+413
+00:18:16,440 --> 00:18:20,730
+el monitor serie luego pasamos a enviar
+
+414
+00:18:18,960 --> 00:18:22,799
+un texto al remoto
+
+415
+00:18:20,730 --> 00:18:25,319
+de esa manera vemos como el módulo
+
+416
+00:18:22,799 --> 00:18:28,470
+permite fácilmente conmutar entre
+
+417
+00:18:25,319 --> 00:18:31,079
+recepción y transmisión la última línea
+
+418
+00:18:28,470 --> 00:18:34,259
+del código es la condición falsa del
+
+419
+00:18:31,079 --> 00:18:36,869
+condicional de la función recibe al cual
+
+420
+00:18:34,259 --> 00:18:39,960
+llegaríamos únicamente llevó a un fallo
+
+421
+00:18:36,869 --> 00:18:42,329
+inesperado en el proceso de recepción y
+
+422
+00:18:39,960 --> 00:18:44,370
+ese es todo el programa para el lado
+
+423
+00:18:42,329 --> 00:18:46,829
+deberás seleccionar desde el menú
+
+424
+00:18:44,369 --> 00:18:49,408
+herramientas y placas el modelo que
+
+425
+00:18:46,829 --> 00:18:52,259
+vayas a usar para la base en mi caso es
+
+426
+00:18:49,409 --> 00:18:55,470
+un modelo 1 y en puerto el com que
+
+427
+00:18:52,259 --> 00:18:57,960
+corresponda y ahora sí verificar y subir
+
+428
+00:18:55,470 --> 00:18:59,909
+recordad que todos los programas vistos
+
+429
+00:18:57,960 --> 00:19:01,919
+en este capítulo y el de todos los
+
+430
+00:18:59,909 --> 00:19:04,169
+capítulos se encuentra para descargar
+
+431
+00:19:01,919 --> 00:19:06,149
+desde el enlace que dejó en la zona de
+
+432
+00:19:04,169 --> 00:19:08,490
+descripción ahora debemos hacer el
+
+433
+00:19:06,148 --> 00:19:11,278
+programa del lado del remoto el cual
+
+434
+00:19:08,490 --> 00:19:14,009
+será muy similar incluimos las librerías
+
+435
+00:19:11,278 --> 00:19:16,440
+creamos el objeto y en el setup la
+
+436
+00:19:14,009 --> 00:19:18,990
+inicialización todo igual que la base
+
+437
+00:19:16,440 --> 00:19:21,298
+ahora en el loop iniciamos enviando el
+
+438
+00:19:18,990 --> 00:19:23,579
+mensaje hacia la base escribimos en el
+
+439
+00:19:21,298 --> 00:19:26,250
+monitor serie enviando un mensaje a la
+
+440
+00:19:23,579 --> 00:19:28,138
+base simplemente para tener noción del
+
+441
+00:19:26,250 --> 00:19:31,048
+proceso que se está realizando
+
+442
+00:19:28,138 --> 00:19:33,569
+luego en la variable data almacenamos el
+
+443
+00:19:31,048 --> 00:19:36,418
+mensaje enviar hola desde lejos y
+
+444
+00:19:33,569 --> 00:19:37,798
+aplicamos la función sen con la variable
+
+445
+00:19:36,419 --> 00:19:40,919
+y la longitud
+
+446
+00:19:37,798 --> 00:19:43,019
+luego weight packet send preparamos la
+
+447
+00:19:40,919 --> 00:19:45,630
+variable buff para la recepción del
+
+448
+00:19:43,019 --> 00:19:48,240
+mensaje que enviará a la base y len con
+
+449
+00:19:45,630 --> 00:19:50,130
+la longitud el condicional que espera
+
+450
+00:19:48,240 --> 00:19:52,740
+a que haya información válida en el
+
+451
+00:19:50,130 --> 00:19:55,890
+buffer y escribimos en el monitor serie
+
+452
+00:19:52,740 --> 00:19:58,319
+recibido dos puntos y el texto recibido
+
+453
+00:19:55,890 --> 00:20:01,259
+con el puntero a buff nuevamente la
+
+454
+00:19:58,319 --> 00:20:04,039
+condición falsa de risible con el texto
+
+455
+00:20:01,259 --> 00:20:06,690
+fallo en recepción tuvo algún problema
+
+456
+00:20:04,039 --> 00:20:09,000
+aquí aplicaremos una demora de un
+
+457
+00:20:06,690 --> 00:20:11,429
+segundo ya que a diferencia de la base
+
+458
+00:20:09,000 --> 00:20:13,859
+no iniciamos esperando por información
+
+459
+00:20:11,429 --> 00:20:16,140
+directamente enviamos cada uno segundo
+
+460
+00:20:13,859 --> 00:20:17,969
+el texto y esperamos luego por la
+
+461
+00:20:16,140 --> 00:20:20,220
+respuesta así que ya teniendo
+
+462
+00:20:17,970 --> 00:20:22,289
+experiencia con la sección de la base y
+
+463
+00:20:20,220 --> 00:20:24,870
+esta parte del remoto ya se entiende
+
+464
+00:20:22,289 --> 00:20:27,119
+rápidamente ahora deberíamos conectar la
+
+465
+00:20:24,869 --> 00:20:29,669
+placa que usaremos para el remoto en mi
+
+466
+00:20:27,119 --> 00:20:32,489
+caso un modelo nano que seleccionar en
+
+467
+00:20:29,670 --> 00:20:34,830
+el menú herramientas placas y el puerto
+
+468
+00:20:32,490 --> 00:20:37,410
+como que le corresponda verificado y
+
+469
+00:20:34,829 --> 00:20:39,750
+subido el programa ya tenemos las dos
+
+470
+00:20:37,410 --> 00:20:42,029
+partes del enlace para poder probar el
+
+471
+00:20:39,750 --> 00:20:44,460
+alcance efectivo del enlace es
+
+472
+00:20:42,029 --> 00:20:46,920
+conveniente alimentar el circuito remoto
+
+473
+00:20:44,460 --> 00:20:50,370
+con por ejemplo una batería tipo power
+
+474
+00:20:46,920 --> 00:20:52,679
+bank como vimos en el capítulo 50 de esa
+
+475
+00:20:50,369 --> 00:20:54,178
+manera podemos dejar la base conectada a
+
+476
+00:20:52,679 --> 00:20:57,179
+la computadora y él
+
+477
+00:20:54,179 --> 00:20:59,610
+y alejarlo y así poder verificar hasta
+
+478
+00:20:57,179 --> 00:21:02,070
+qué distancia todo funciona correcto
+
+479
+00:20:59,609 --> 00:21:05,038
+aquí te muestro la ventana del monitor
+
+480
+00:21:02,069 --> 00:21:07,528
+serie de la base como verás aparece base
+
+481
+00:21:05,038 --> 00:21:10,019
+iniciada y luego nada más y esto es
+
+482
+00:21:07,528 --> 00:21:12,359
+porque a propósito no tengo conectada la
+
+483
+00:21:10,019 --> 00:21:14,429
+alimentación al remoto que no se muestre
+
+484
+00:21:12,359 --> 00:21:16,558
+nada es justamente el comportamiento que
+
+485
+00:21:14,429 --> 00:21:18,659
+programamos recordarás que la primera
+
+486
+00:21:16,558 --> 00:21:21,089
+línea del loop es un condicional que
+
+487
+00:21:18,659 --> 00:21:23,340
+espera por información disponible y si
+
+488
+00:21:21,089 --> 00:21:25,378
+no la hay no hace nada ahora voy a
+
+489
+00:21:23,339 --> 00:21:28,019
+conectar el remoto a la batería tipo
+
+490
+00:21:25,378 --> 00:21:31,038
+power bank y verás en unos segundos como
+
+491
+00:21:28,019 --> 00:21:34,528
+ya ahora si aparece en el monitor serie
+
+492
+00:21:31,038 --> 00:21:37,230
+recibido dos puntos hola desde lejos y
+
+493
+00:21:34,528 --> 00:21:39,778
+en la siguiente línea respondiendo así
+
+494
+00:21:37,230 --> 00:21:42,538
+todo el tiempo a intervalos aproximados
+
+495
+00:21:39,778 --> 00:21:44,700
+de un segundo ese mensaje hola desde
+
+496
+00:21:42,538 --> 00:21:46,859
+lejos lo está enviando el remoto y
+
+497
+00:21:44,700 --> 00:21:49,619
+nosotros le estamos respondiendo con
+
+498
+00:21:46,859 --> 00:21:51,959
+hola amigo remoto como el monitor se y
+
+499
+00:21:49,618 --> 00:21:54,329
+está sobre la base sólo vemos la parte
+
+500
+00:21:51,960 --> 00:21:56,819
+que corresponde a este extremo del
+
+501
+00:21:54,329 --> 00:21:58,888
+enlace ahora es momento de hacer pruebas
+
+502
+00:21:56,819 --> 00:22:00,808
+de alcance y ubicar el remoto en
+
+503
+00:21:58,888 --> 00:22:02,758
+distintas ubicaciones para ver
+
+504
+00:22:00,808 --> 00:22:05,369
+en el monitor serie seguimos viendo
+
+505
+00:22:02,759 --> 00:22:07,409
+actividad si no se actualiza la ventana
+
+506
+00:22:05,369 --> 00:22:09,329
+con el texto hola desde lejos y
+
+507
+00:22:07,409 --> 00:22:12,360
+respondiendo es porque hemos perdido
+
+508
+00:22:09,329 --> 00:22:15,148
+conectividad fue probado sin problemas a
+
+509
+00:22:12,359 --> 00:22:18,209
+una distancia de unos 7 metros entre
+
+510
+00:22:15,148 --> 00:22:20,459
+base y remoto y sin línea de visión con
+
+511
+00:22:18,210 --> 00:22:22,649
+una gruesa pared entre ellos por eso
+
+512
+00:22:20,460 --> 00:22:25,590
+como regla general se puede decir que
+
+513
+00:22:22,648 --> 00:22:28,079
+unos 10 metros es el alcance si la señal
+
+514
+00:22:25,589 --> 00:22:31,619
+debe atravesar algún objeto contundente
+
+515
+00:22:28,079 --> 00:22:34,558
+muy bien verificamos que tanto base como
+
+516
+00:22:31,619 --> 00:22:37,168
+remoto funcionan adecuadamente y tenemos
+
+517
+00:22:34,558 --> 00:22:39,210
+una comunicación bidireccional ahora
+
+518
+00:22:37,169 --> 00:22:41,190
+para el segundo programa usaremos el
+
+519
+00:22:39,210 --> 00:22:43,288
+remoto para enviar a la base la
+
+520
+00:22:41,190 --> 00:22:45,840
+información adquirida de un sensor de
+
+521
+00:22:43,288 --> 00:22:48,210
+temperatura y humedad para eso vamos al
+
+522
+00:22:45,839 --> 00:22:50,730
+circuito de conexión del lado del remoto
+
+523
+00:22:48,210 --> 00:22:53,129
+no haremos cambios de hardware en la
+
+524
+00:22:50,730 --> 00:22:55,378
+base sólo actualizaremos su programa
+
+525
+00:22:53,128 --> 00:22:57,509
+pero aquí en el remoto debemos conectar
+
+526
+00:22:55,378 --> 00:23:00,658
+un módulo acá y 15
+
+527
+00:22:57,509 --> 00:23:03,690
+basado en el sensor de ht 11 que forma
+
+528
+00:23:00,659 --> 00:23:06,480
+parte del kit de sensores 37 en uno como
+
+529
+00:23:03,690 --> 00:23:07,950
+vimos hace tiempo en el capítulo 7 y en
+
+530
+00:23:06,480 --> 00:23:09,659
+otros capítulos posteriores
+
+531
+00:23:07,950 --> 00:23:12,058
+el primer pin de la izquierda
+
+532
+00:23:09,659 --> 00:23:14,340
+corresponde a la señal que conectaremos
+
+533
+00:23:12,058 --> 00:23:17,579
+con un cable directo al pin digital
+
+534
+00:23:14,339 --> 00:23:20,250
+número 4 de arduino nano el pin del
+
+535
+00:23:17,579 --> 00:23:22,528
+medio es el positivo de la alimentación
+
+536
+00:23:20,250 --> 00:23:25,470
+por eso conectamos mediante un cable a
+
+537
+00:23:22,528 --> 00:23:28,288
+bein del regulador de tensión en
+
+538
+00:23:25,470 --> 00:23:30,569
+definitiva a los 5 volts que suministra
+
+539
+00:23:28,288 --> 00:23:33,658
+la nano y por último el pin de la
+
+540
+00:23:30,569 --> 00:23:36,898
+derecha geneve a gene de del regulador
+
+541
+00:23:33,659 --> 00:23:39,360
+que también es gene de de la nano y esa
+
+542
+00:23:36,898 --> 00:23:41,339
+es toda la modificación al circuito del
+
+543
+00:23:39,359 --> 00:23:43,168
+remoto para la programación
+
+544
+00:23:41,339 --> 00:23:45,839
+esta vez comenzaremos del lado del
+
+545
+00:23:43,169 --> 00:23:48,299
+remoto por eso aquí el comentario de que
+
+546
+00:23:45,839 --> 00:23:50,970
+se trata del segundo programa el lado
+
+547
+00:23:48,298 --> 00:23:53,759
+remoto la idea es obtener los valores de
+
+548
+00:23:50,970 --> 00:23:55,980
+temperatura y humedad y enviarlos a la
+
+549
+00:23:53,759 --> 00:23:58,619
+base vamos a incluir las librerías
+
+550
+00:23:55,980 --> 00:24:00,870
+necesarias para usar el sensor esto lo
+
+551
+00:23:58,619 --> 00:24:03,239
+vimos en detalle en el capítulo 7
+
+552
+00:24:00,869 --> 00:24:04,979
+deberás instalar las librerías en caso
+
+553
+00:24:03,240 --> 00:24:07,440
+de que no las tengas con el numeral
+
+554
+00:24:04,980 --> 00:24:10,740
+design establecemos ascensor con el
+
+555
+00:24:07,440 --> 00:24:13,860
+número 4 el pin donde tenemos la señal y
+
+556
+00:24:10,740 --> 00:24:15,960
+creamos un objeto con el nombre de htc
+
+557
+00:24:13,859 --> 00:24:18,449
+dos variables enteras para almacenar
+
+558
+00:24:15,960 --> 00:24:21,480
+temperatura y humedad y tres variables
+
+559
+00:24:18,450 --> 00:24:22,200
+tipo string o cadena de caracteres con
+
+560
+00:24:21,480 --> 00:24:26,849
+los nombres
+
+561
+00:24:22,200 --> 00:24:30,779
+str humedad str y guión bajo temperatura
+
+562
+00:24:26,849 --> 00:24:33,178
+y str bajo datos este último se usará
+
+563
+00:24:30,779 --> 00:24:35,579
+para combinar los datos de temperatura y
+
+564
+00:24:33,179 --> 00:24:38,040
+humedad en una única cadena de
+
+565
+00:24:35,579 --> 00:24:40,409
+caracteres y separados por comas verás
+
+566
+00:24:38,039 --> 00:24:42,659
+ya pronto que el proceso es muy simple
+
+567
+00:24:40,410 --> 00:24:44,820
+el setup exactamente igual que en los
+
+568
+00:24:42,660 --> 00:24:48,210
+demás programas pero incorporando la
+
+569
+00:24:44,819 --> 00:24:50,939
+inicialización del sensor con dht puntos
+
+570
+00:24:48,210 --> 00:24:52,470
+begin y una demora de dos segundos que
+
+571
+00:24:50,940 --> 00:24:54,360
+es conveniente y para estabilizar la
+
+572
+00:24:52,470 --> 00:24:56,400
+lectura del sensor no es algo
+
+573
+00:24:54,359 --> 00:24:58,798
+obligatorio pero no viene mal y lo
+
+574
+00:24:56,400 --> 00:25:00,960
+ejecutamos por única vez en el loop de
+
+575
+00:24:58,798 --> 00:25:03,058
+inmediato usamos la función read
+
+576
+00:25:00,960 --> 00:25:05,640
+temperature para obtener el valor de
+
+577
+00:25:03,058 --> 00:25:08,308
+temperatura del sensor y lo guardamos en
+
+578
+00:25:05,640 --> 00:25:10,980
+la variable temperatura mismo proceso
+
+579
+00:25:08,308 --> 00:25:13,740
+para obtener y almacenar el valor de
+
+580
+00:25:10,980 --> 00:25:15,900
+humedad con ruiz yum edith y como los
+
+581
+00:25:13,740 --> 00:25:18,058
+valores son el tipo entero
+
+582
+00:25:15,900 --> 00:25:20,769
+debemos convertirlos a string para
+
+583
+00:25:18,058 --> 00:25:24,039
+enviarlos como mensaje a través de él
+
+584
+00:25:20,769 --> 00:25:26,500
+efe entonces de manera simple con string
+
+585
+00:25:24,039 --> 00:25:29,980
+entre paréntesis temperatura lo
+
+586
+00:25:26,500 --> 00:25:32,230
+asignamos a str temperatura y mismo
+
+587
+00:25:29,980 --> 00:25:34,509
+proceso con humedad convertimos las
+
+588
+00:25:32,230 --> 00:25:37,150
+variables del tipo entero a cadena de
+
+589
+00:25:34,509 --> 00:25:39,250
+caracteres por último debemos unir en un
+
+590
+00:25:37,150 --> 00:25:42,220
+único string los valores de temperatura
+
+591
+00:25:39,250 --> 00:25:44,500
+y humedad ambos valores los podemos
+
+592
+00:25:42,220 --> 00:25:47,049
+separar mediante una coma que es un
+
+593
+00:25:44,500 --> 00:25:49,450
+carácter muy usado para separar valores
+
+594
+00:25:47,049 --> 00:25:52,000
+este carácter nos servirá como método de
+
+595
+00:25:49,450 --> 00:25:54,640
+separar los valores una vez recibidos en
+
+596
+00:25:52,000 --> 00:25:57,819
+la base para concatenar los valores y
+
+597
+00:25:54,640 --> 00:25:59,290
+agregar el carácter separador la coma lo
+
+598
+00:25:57,819 --> 00:26:03,309
+hacemos con esta línea
+
+599
+00:25:59,289 --> 00:26:04,359
+str temperatura más entre comillas coma
+
+600
+00:26:03,309 --> 00:26:09,309
+más
+
+601
+00:26:04,359 --> 00:26:12,129
+str humedad y asignamos a str datos en
+
+602
+00:26:09,309 --> 00:26:14,169
+definitiva en str datos tendremos la
+
+603
+00:26:12,130 --> 00:26:16,780
+cadena de enviar si por ejemplo la
+
+604
+00:26:14,170 --> 00:26:20,170
+temperatura leída por el sensor fuese de
+
+605
+00:26:16,779 --> 00:26:25,269
+21 grados y la humedad de 63 por ciento
+
+606
+00:26:20,170 --> 00:26:27,070
+en st relatos tendríamos 21 63 por una
+
+607
+00:26:25,269 --> 00:26:29,619
+cuestión de la propia librería
+
+608
+00:26:27,069 --> 00:26:32,619
+hacer una conversión adicional con la
+
+609
+00:26:29,619 --> 00:26:35,168
+función de spring y el resultado se
+
+610
+00:26:32,619 --> 00:26:37,778
+aplica el puntero datos convierte al
+
+611
+00:26:35,169 --> 00:26:40,269
+string en un puntero en formato del
+
+612
+00:26:37,778 --> 00:26:42,609
+lenguaje c luego solo procedemos a
+
+613
+00:26:40,269 --> 00:26:45,638
+aplicar la función send para enviar el
+
+614
+00:26:42,609 --> 00:26:48,250
+string y una demora de un segundo muy
+
+615
+00:26:45,638 --> 00:26:50,408
+simple para adquirir los datos y ese es
+
+616
+00:26:48,250 --> 00:26:52,509
+todo el programa recordad seleccionar
+
+617
+00:26:50,409 --> 00:26:55,090
+desde herramientas el modelo de placa
+
+618
+00:26:52,509 --> 00:26:57,548
+del remoto y puerto con luego podrás
+
+619
+00:26:55,089 --> 00:27:00,308
+verificar y subir el programa ahora
+
+620
+00:26:57,548 --> 00:27:02,740
+vamos al segundo programa del lado base
+
+621
+00:27:00,308 --> 00:27:05,230
+aquí recibiremos el mensaje enviado del
+
+622
+00:27:02,740 --> 00:27:07,859
+remoto y separaremos los valores para
+
+623
+00:27:05,230 --> 00:27:09,610
+mostrarlos en el monitor serie podíamos
+
+624
+00:27:07,859 --> 00:27:12,038
+simplemente mostrar los valores
+
+625
+00:27:09,609 --> 00:27:14,229
+separados por coma pero la idea es que
+
+626
+00:27:12,038 --> 00:27:16,628
+este programa sirva de ejemplo para
+
+627
+00:27:14,230 --> 00:27:19,089
+otros proyectos donde sea cómodo tener
+
+628
+00:27:16,628 --> 00:27:21,250
+en variables separadas los valores para
+
+629
+00:27:19,089 --> 00:27:24,069
+un procesamiento o mostrar en una
+
+630
+00:27:21,250 --> 00:27:26,409
+pantalla lcd declaramos las mismas
+
+631
+00:27:24,069 --> 00:27:28,628
+variables que el remoto para almacenar
+
+632
+00:27:26,409 --> 00:27:31,539
+el valor separado por comas
+
+633
+00:27:28,628 --> 00:27:34,000
+str datos y posteriormente los valores
+
+634
+00:27:31,538 --> 00:27:37,629
+individuales de temperatura en
+
+635
+00:27:34,000 --> 00:27:40,569
+de temperatura y humedad en str humedad
+
+636
+00:27:37,630 --> 00:27:42,760
+lz como siempre igual para establecer
+
+637
+00:27:40,569 --> 00:27:45,159
+los valores de inicialización y
+
+638
+00:27:42,759 --> 00:27:47,829
+mostraremos un texto en el monitor serie
+
+639
+00:27:45,160 --> 00:27:50,230
+base iniciada simplemente para no
+
+640
+00:27:47,829 --> 00:27:52,659
+arrancar con la ventana vacía si no hay
+
+641
+00:27:50,230 --> 00:27:55,390
+datos provenientes del remoto creamos un
+
+642
+00:27:52,660 --> 00:27:58,060
+array de 5 posiciones a modo de buffer
+
+643
+00:27:55,390 --> 00:28:00,070
+es de 5 posiciones ya que sabemos que
+
+644
+00:27:58,059 --> 00:28:02,649
+dos caracteres corresponden a la
+
+645
+00:28:00,069 --> 00:28:05,200
+temperatura un carácter separador que es
+
+646
+00:28:02,650 --> 00:28:07,750
+la coma y luego otros dos caracteres que
+
+647
+00:28:05,200 --> 00:28:10,960
+corresponden a la humedad en buff leen
+
+648
+00:28:07,750 --> 00:28:13,000
+el tamaño del buffer que ya sabemos será
+
+649
+00:28:10,960 --> 00:28:15,279
+de 5 pero la idea es que puedas
+
+650
+00:28:13,000 --> 00:28:17,109
+modificarlo para otros proyectos con
+
+651
+00:28:15,279 --> 00:28:19,539
+distintas longitudes de datos
+
+652
+00:28:17,109 --> 00:28:21,849
+luego la función recibe que como ya
+
+653
+00:28:19,539 --> 00:28:23,710
+vimos devolverá verdaderos y hay datos
+
+654
+00:28:21,849 --> 00:28:26,889
+válidos y en el stream
+
+655
+00:28:23,710 --> 00:28:29,380
+str de datos guardamos los mismos aquí
+
+656
+00:28:26,890 --> 00:28:32,890
+en esete heredados tendremos el por
+
+657
+00:28:29,380 --> 00:28:35,770
+ejemplo 21 63 con temperatura y humedad
+
+658
+00:28:32,890 --> 00:28:37,750
+separados por una coma para separarlos y
+
+659
+00:28:35,769 --> 00:28:40,599
+asignar a variables individuales
+
+660
+00:28:37,750 --> 00:28:41,140
+usaremos este bucle foro que recorre el
+
+661
+00:28:40,599 --> 00:28:44,259
+string
+
+662
+00:28:41,140 --> 00:28:46,630
+desde el índice 0 hasta el final que se
+
+663
+00:28:44,259 --> 00:28:49,569
+obtiene con la función lens que para
+
+664
+00:28:46,630 --> 00:28:52,750
+nuestro caso sería 5 en definitiva desde
+
+665
+00:28:49,569 --> 00:28:55,089
+el índice cero hasta el índice 4 para
+
+666
+00:28:52,750 --> 00:28:57,099
+clarificar el tema veamos esta nota al
+
+667
+00:28:55,089 --> 00:29:00,129
+margen cuando se tienen datos separados
+
+668
+00:28:57,099 --> 00:29:03,009
+por un carácter una coma en nuestro caso
+
+669
+00:29:00,130 --> 00:29:05,380
+se lo suele llamar una trama entonces lo
+
+670
+00:29:03,009 --> 00:29:07,539
+que queremos es separar la trama para
+
+671
+00:29:05,380 --> 00:29:09,970
+obtener los valores individuales la
+
+672
+00:29:07,539 --> 00:29:13,240
+función sabes string sirve para tomar
+
+673
+00:29:09,970 --> 00:29:16,390
+una parte o sección de un string y tiene
+
+674
+00:29:13,240 --> 00:29:19,150
+dos parámetros el índice de inicio desde
+
+675
+00:29:16,390 --> 00:29:21,730
+donde comenzará en el string a evaluar y
+
+676
+00:29:19,150 --> 00:29:23,560
+como segundo parámetro el índice de fin
+
+677
+00:29:21,730 --> 00:29:26,620
+aquí se notan unas características
+
+678
+00:29:23,559 --> 00:29:29,799
+importantes y es que el índice de inicio
+
+679
+00:29:26,619 --> 00:29:33,099
+es inclusivo mientras que el índice fin
+
+680
+00:29:29,799 --> 00:29:35,859
+o índice final es un valor objetivo y
+
+681
+00:29:33,099 --> 00:29:37,809
+además no inclusivo ahora verás que es
+
+682
+00:29:35,859 --> 00:29:40,990
+muy simple de entender con un ejemplo
+
+683
+00:29:37,809 --> 00:29:44,799
+tenemos str datos con la trama completa
+
+684
+00:29:40,990 --> 00:29:46,990
+por ejemplo de 21 63 claro que la
+
+685
+00:29:44,799 --> 00:29:47,950
+práctica serán los valores leídos de
+
+686
+00:29:46,990 --> 00:29:50,109
+temperatura
+
+687
+00:29:47,950 --> 00:29:52,840
+humedad del sensor esta flecha roja
+
+688
+00:29:50,109 --> 00:29:54,928
+indica el índice que como ya sabrás a
+
+689
+00:29:52,839 --> 00:29:56,500
+esta altura siempre comienza desde cero
+
+690
+00:29:54,929 --> 00:29:59,919
+entonces la cadena
+
+691
+00:29:56,500 --> 00:30:03,730
+str datos tiene en su índice cero el
+
+692
+00:29:59,919 --> 00:30:06,490
+número dos en su índice 1 el número 1 en
+
+693
+00:30:03,730 --> 00:30:10,028
+su índice 2 la coma el carácter
+
+694
+00:30:06,490 --> 00:30:12,730
+separador en el índice 3 el número 6 y
+
+695
+00:30:10,028 --> 00:30:15,130
+finalmente en el índice 4 el número 3
+
+696
+00:30:12,730 --> 00:30:17,440
+volviendo al programa decíamos que el
+
+697
+00:30:15,130 --> 00:30:20,230
+bucle foro con la variable de iteración
+
+698
+00:30:17,440 --> 00:30:23,528
+y comenzando desde cero recorre la
+
+699
+00:30:20,230 --> 00:30:25,899
+totalidad del string str datos dentro
+
+700
+00:30:23,528 --> 00:30:28,509
+del bucle lo que hacemos es consultar
+
+701
+00:30:25,898 --> 00:30:31,569
+con el condicional si el índice en el
+
+702
+00:30:28,509 --> 00:30:34,419
+cual se encuentra es igual a la coma lo
+
+703
+00:30:31,569 --> 00:30:36,428
+hacemos aplicando la función string el
+
+704
+00:30:34,419 --> 00:30:39,340
+primer parámetro será la variable de
+
+705
+00:30:36,429 --> 00:30:42,100
+iteración y que ahora vale 0 y como
+
+706
+00:30:39,339 --> 00:30:43,928
+segundo parámetro y más uno aquí es
+
+707
+00:30:42,099 --> 00:30:46,058
+donde entra en funcionamiento esto que
+
+708
+00:30:43,929 --> 00:30:49,360
+indicaba en la nota al margen el primer
+
+709
+00:30:46,058 --> 00:30:51,609
+parámetro que ahora vale 0 es inclusivo
+
+710
+00:30:49,359 --> 00:30:53,979
+es decir lo contamos el segundo
+
+711
+00:30:51,609 --> 00:30:54,819
+parámetro si bien es optativo aquí lo
+
+712
+00:30:53,980 --> 00:30:57,220
+aplicamos
+
+713
+00:30:54,819 --> 00:31:00,009
+y no es inclusivo eso significa en pocas
+
+714
+00:30:57,220 --> 00:31:03,220
+palabras que decimos en el índice cero
+
+715
+00:31:00,009 --> 00:31:05,230
+hay una coma la respuesta es no en el
+
+716
+00:31:03,220 --> 00:31:08,019
+índice cero hay un número 2
+
+717
+00:31:05,230 --> 00:31:09,659
+por eso saltamos el condicional y como
+
+718
+00:31:08,019 --> 00:31:13,480
+no es ninguna otra línea de código
+
+719
+00:31:09,659 --> 00:31:17,169
+volvemos al bucle e incrementamos y en 1
+
+720
+00:31:13,480 --> 00:31:20,889
+ahora vale 1 y hacemos la misma consulta
+
+721
+00:31:17,169 --> 00:31:23,919
+en el índice 1 hay una coma no no la hay
+
+722
+00:31:20,888 --> 00:31:26,158
+hay un número 1 entonces nuevamente no
+
+723
+00:31:23,919 --> 00:31:29,740
+hacemos nada y volvemos al bucle
+
+724
+00:31:26,159 --> 00:31:32,740
+incrementando y en 1 ahora y válidos
+
+725
+00:31:29,740 --> 00:31:36,038
+volvemos a preguntar en el índice 2 hay
+
+726
+00:31:32,740 --> 00:31:38,859
+una coma esta vez la respuesta es sí en
+
+727
+00:31:36,038 --> 00:31:40,929
+el índice 2 hay una coma entonces por
+
+728
+00:31:38,859 --> 00:31:43,658
+primera vez ingresamos al valor
+
+729
+00:31:40,929 --> 00:31:45,700
+verdadero del condicional como verás la
+
+730
+00:31:43,659 --> 00:31:48,039
+intención es ubicar la posición de la
+
+731
+00:31:45,700 --> 00:31:50,558
+coma quizás te parezca innecesario ya
+
+732
+00:31:48,038 --> 00:31:53,950
+que claramente la coma está siempre en
+
+733
+00:31:50,558 --> 00:31:56,079
+el índice 2 de str datos pero la idea es
+
+734
+00:31:53,950 --> 00:31:58,720
+hacer el programa genérico donde puedas
+
+735
+00:31:56,079 --> 00:32:00,819
+enviar distintas longitudes de datos por
+
+736
+00:31:58,720 --> 00:32:03,579
+ejemplo podrías enviar un número d
+
+737
+00:32:00,819 --> 00:32:06,460
+4 caracteres entonces la coma ya no
+
+738
+00:32:03,579 --> 00:32:08,949
+estaría en el índice 2 muy bien entonces
+
+739
+00:32:06,460 --> 00:32:10,929
+que ya tenemos identificada la posición
+
+740
+00:32:08,950 --> 00:32:13,690
+del carácter separador aplicamos
+
+741
+00:32:10,929 --> 00:32:16,960
+nuevamente upstream donde el primer
+
+742
+00:32:13,690 --> 00:32:19,419
+parámetro es 0 ya que necesitamos desde
+
+743
+00:32:16,960 --> 00:32:22,778
+el principio del string y como segundo
+
+744
+00:32:19,419 --> 00:32:25,269
+parámetro y donde tiene un valor de 2
+
+745
+00:32:22,778 --> 00:32:29,169
+esto es porque el segundo parámetro no
+
+746
+00:32:25,269 --> 00:32:31,000
+es inclusivo al decir sab string 0 2 le
+
+747
+00:32:29,169 --> 00:32:32,860
+estamos diciendo a la función que nos
+
+748
+00:32:31,000 --> 00:32:36,490
+devuelva la parte del string que
+
+749
+00:32:32,859 --> 00:32:40,119
+comienza con índice 0 y termina en 1 la
+
+750
+00:32:36,490 --> 00:32:42,128
+posición anterior al índice 2 justamente
+
+751
+00:32:40,119 --> 00:32:44,829
+porque el segundo parámetro es no
+
+752
+00:32:42,128 --> 00:32:47,230
+inclusivo no lo considera a la hora de
+
+753
+00:32:44,829 --> 00:32:49,119
+devolver la parte del string sé que
+
+754
+00:32:47,230 --> 00:32:51,339
+puede parecer complicado pero es una
+
+755
+00:32:49,119 --> 00:32:53,349
+función muy usada en todo tipo de
+
+756
+00:32:51,339 --> 00:32:55,869
+proyectos donde es necesario separar
+
+757
+00:32:53,349 --> 00:32:58,599
+datos de una trama el hecho de que el
+
+758
+00:32:55,869 --> 00:33:01,089
+segundo parámetro no sea inclusivo tiene
+
+759
+00:32:58,599 --> 00:33:02,980
+lógica ya que ese segundo parámetro de
+
+760
+00:33:01,089 --> 00:33:05,709
+la función representa el carácter
+
+761
+00:33:02,980 --> 00:33:06,940
+separador el carácter en sí no nos
+
+762
+00:33:05,710 --> 00:33:09,160
+interesa solo
+
+763
+00:33:06,940 --> 00:33:11,440
+el valor que se encuentra antes o
+
+764
+00:33:09,160 --> 00:33:14,230
+después del mismo una vez que tenemos la
+
+765
+00:33:11,440 --> 00:33:17,440
+parte del string posterior a la coma la
+
+766
+00:33:14,230 --> 00:33:20,019
+asignamos a str temperatura de manera
+
+767
+00:33:17,440 --> 00:33:22,930
+similar en la siguiente línea aplicamos
+
+768
+00:33:20,019 --> 00:33:25,539
+nuevamente string pero con un solo
+
+769
+00:33:22,930 --> 00:33:28,810
+parámetro el primero y le decimos que
+
+770
+00:33:25,539 --> 00:33:31,480
+comience desde iu + 1 recordad que y
+
+771
+00:33:28,809 --> 00:33:34,299
+sigue valiendo 2 entonces decimos que
+
+772
+00:33:31,480 --> 00:33:37,420
+queremos comenzar desde el índice 3 este
+
+773
+00:33:34,299 --> 00:33:39,639
+primer parámetro es inclusivo ahora ya
+
+774
+00:33:37,420 --> 00:33:42,730
+no nos interesa indicar cuál es el final
+
+775
+00:33:39,640 --> 00:33:45,340
+ya que la función string si se le pasa
+
+776
+00:33:42,730 --> 00:33:48,009
+un solo parámetro devuelve desde el
+
+777
+00:33:45,339 --> 00:33:50,679
+índice de inicio hasta el final del
+
+778
+00:33:48,009 --> 00:33:54,069
+string a evaluar luego asignamos
+
+779
+00:33:50,680 --> 00:33:56,410
+str humedad en definitiva le decimos que
+
+780
+00:33:54,069 --> 00:33:59,679
+queremos los caracteres desde el índice
+
+781
+00:33:56,410 --> 00:34:01,930
+3 hasta el final del string str datos
+
+782
+00:33:59,680 --> 00:34:04,570
+ahora que tenemos en las variables los
+
+783
+00:34:01,930 --> 00:34:06,700
+valores ya separados no tiene sentido
+
+784
+00:34:04,569 --> 00:34:09,219
+continuar dentro del bucle for para
+
+785
+00:34:06,700 --> 00:34:12,099
+salir del mismo se usa el comando break
+
+786
+00:34:09,219 --> 00:34:13,480
+lo que hace es salir del bucle aunque no
+
+787
+00:34:12,099 --> 00:34:15,279
+haya finalizado
+
+788
+00:34:13,480 --> 00:34:18,099
+de manera que este bloque con el bucle
+
+789
+00:34:15,280 --> 00:34:21,010
+for el condicional que consulta se
+
+790
+00:34:18,099 --> 00:34:23,259
+encuentra la coma y la función string
+
+791
+00:34:21,010 --> 00:34:25,690
+nos permite extraer los datos de la
+
+792
+00:34:23,260 --> 00:34:28,359
+trama sólo resta mostrar en el monitor
+
+793
+00:34:25,690 --> 00:34:31,269
+serie los mismos con sería el punto
+
+794
+00:34:28,358 --> 00:34:33,489
+print temperatura dos puntos luego otro
+
+795
+00:34:31,269 --> 00:34:36,668
+sería el punto print con el valor de la
+
+796
+00:34:33,489 --> 00:34:39,069
+variable str temperatura y lo mismo para
+
+797
+00:34:36,668 --> 00:34:41,918
+humedad con el texto y el valor de la
+
+798
+00:34:39,070 --> 00:34:44,590
+variable este último será sería el punto
+
+799
+00:34:41,918 --> 00:34:46,509
+print line de manera que dije un salto
+
+800
+00:34:44,590 --> 00:34:48,940
+de línea al final haber tomado el
+
+801
+00:34:46,510 --> 00:34:51,850
+trabajo extra de separar los valores de
+
+802
+00:34:48,940 --> 00:34:54,429
+la trama y asignar a variables no tiene
+
+803
+00:34:51,849 --> 00:34:57,489
+una gran ventaja si sólo mostramos en el
+
+804
+00:34:54,429 --> 00:34:59,889
+monitor serie pero significa mucho si
+
+805
+00:34:57,489 --> 00:35:02,409
+quisiéramos mostrar en una pantalla lcd
+
+806
+00:34:59,889 --> 00:35:04,719
+o usar las variables para hacer algún
+
+807
+00:35:02,409 --> 00:35:07,329
+tipo de procesamiento como activar una
+
+808
+00:35:04,719 --> 00:35:10,269
+salida si la temperatura es mayor a
+
+809
+00:35:07,329 --> 00:35:12,579
+determinado valor genial ahora sólo
+
+810
+00:35:10,269 --> 00:35:16,119
+resta seleccionar el modelo de placa que
+
+811
+00:35:12,579 --> 00:35:18,400
+uses para la base el puerto verificar y
+
+812
+00:35:16,119 --> 00:35:20,140
+subir nuevamente podrás alimentar el
+
+813
+00:35:18,400 --> 00:35:22,599
+remoto con una batería tipo
+
+814
+00:35:20,139 --> 00:35:25,059
+our bank y se abrimos el monitor serie
+
+815
+00:35:22,599 --> 00:35:27,210
+veremos inmediatamente que recibimos los
+
+816
+00:35:25,059 --> 00:35:29,559
+valores de temperatura y humedad
+
+817
+00:35:27,210 --> 00:35:32,470
+actualizando constantemente cada
+
+818
+00:35:29,559 --> 00:35:34,650
+aproximadamente un segundo para resumir
+
+819
+00:35:32,469 --> 00:35:38,559
+vimos cómo realizar un enlace de
+
+820
+00:35:34,650 --> 00:35:41,280
+radiofrecuencia con los módulos nrf 24 l
+
+821
+00:35:38,559 --> 00:35:43,900
+01 permitiendo una comunicación
+
+822
+00:35:41,280 --> 00:35:46,390
+bidireccional y también cómo adquirir
+
+823
+00:35:43,900 --> 00:35:48,579
+datos de un sensor para finalizar el
+
+824
+00:35:46,389 --> 00:35:51,549
+capítulo te quiero mostrar una variante
+
+825
+00:35:48,579 --> 00:35:53,650
+del módulo en esta imagen que consta del
+
+826
+00:35:51,550 --> 00:35:56,680
+mismo circuito integrado pero que
+
+827
+00:35:53,650 --> 00:35:59,829
+incorpora un amplificador denominado l
+
+828
+00:35:56,679 --> 00:36:02,199
+enea o amplificador de bajo ruido y una
+
+829
+00:35:59,829 --> 00:36:04,799
+antena externa removible con esta
+
+830
+00:36:02,199 --> 00:36:07,779
+configuración se incrementa el rango en
+
+831
+00:36:04,800 --> 00:36:10,180
+aproximadamente 200 metros con línea de
+
+832
+00:36:07,780 --> 00:36:12,580
+visión la conexión y programación es
+
+833
+00:36:10,179 --> 00:36:15,009
+exactamente igual a la analizada en este
+
+834
+00:36:12,579 --> 00:36:17,230
+capítulo también existe la posibilidad
+
+835
+00:36:15,010 --> 00:36:20,080
+de que varios módulos puedan enviar
+
+836
+00:36:17,230 --> 00:36:22,360
+datos a un único receptor usando el
+
+837
+00:36:20,079 --> 00:36:24,789
+mismo canal aquí vemos un módulo
+
+838
+00:36:22,360 --> 00:36:26,200
+funcionando como receptor sobre el canal
+
+839
+00:36:24,789 --> 00:36:29,289
+número 2 y 1
+
+840
+00:36:26,199 --> 00:36:31,598
+dirección también llamada living de uno
+
+841
+00:36:29,289 --> 00:36:34,269
+luego trabajando sobre el mismo canal
+
+842
+00:36:31,599 --> 00:36:36,430
+podríamos tener hasta seis módulos que
+
+843
+00:36:34,269 --> 00:36:38,440
+le envíen datos cada uno con una
+
+844
+00:36:36,429 --> 00:36:40,838
+dirección distinta de manera que el
+
+845
+00:36:38,440 --> 00:36:43,240
+receptor sea capaz de distinguir entre
+
+846
+00:36:40,838 --> 00:36:45,670
+ellos también existen métodos de
+
+847
+00:36:43,239 --> 00:36:47,858
+encriptar la información pero eso
+
+848
+00:36:45,670 --> 00:36:50,170
+quedará para analizar en otra ocasión
+
+849
+00:36:47,858 --> 00:36:52,420
+eso es todo por este capítulo como
+
+850
+00:36:50,170 --> 00:36:54,639
+siempre te pido te suscribas si aún no
+
+851
+00:36:52,420 --> 00:36:56,920
+lo has hecho darle un me gusta si te
+
+852
+00:36:54,639 --> 00:36:59,769
+pareció interesante y por cualquier duda
+
+853
+00:36:56,920 --> 00:37:02,680
+o comentario lo podrás hacer debajo que
+
+854
+00:36:59,769 --> 00:37:04,889
+con gusto te responderé chao y hasta la
+
+855
+00:37:02,679 --> 00:37:04,889
+próxima
+

@@ -1,0 +1,29 @@
+Una forma simple de generar sonido mediante los buzzers (zumbadores) en sus modalidades activo y pasivo, tanto para reproducir pitidos como frecuencias específicas, muy usados en Arduino.
+Veremos en detalle los modelos KY-012 (buzzer activo) y KY-006 (buzzer pasivo), permitiendo en este último generar simples melodias con la función tone()
+
+Melodias: https://github.com/robsoncouto/arduino-songs
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoBuzzer
+#ArduinoDesdeCero
+#ArduinoKit37en1
+Arduino buzzer music
+Arduino buzzer tone
+Arduino buzzer melody
+Arduino zumbador con pulsador
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:20 Modelos KY-012 y KY-006
+0:38 Principio de funcionamiento
+1:29 Buzzer activo
+2:15 Buzzer pasivo
+2:35 Frecuencias audibles
+3:05 Conexión (buzzer activo)
+4:30 Primer programa
+8:38 Conexión (buzzer pasivo)
+8:54 Segundo programa
+16:36 Descarga de melodias
+17:24 Resumen y despedida

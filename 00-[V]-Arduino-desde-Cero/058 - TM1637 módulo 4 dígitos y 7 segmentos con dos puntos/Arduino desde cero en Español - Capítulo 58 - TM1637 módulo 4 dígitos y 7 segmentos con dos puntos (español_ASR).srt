@@ -1,0 +1,2096 @@
+1
+00:00:01,179 --> 00:00:07,120
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,600 --> 00:00:09,839
+58 de arduino desde cero en español
+
+3
+00:00:07,120 --> 00:00:13,089
+en esta oportunidad veremos el módulo tm
+
+4
+00:00:09,839 --> 00:00:15,460
+1637 un display de cuatro dígitos y
+
+5
+00:00:13,089 --> 00:00:17,829
+siete segmentos que permite fácilmente
+
+6
+00:00:15,460 --> 00:00:19,929
+visualizar información con una mínima
+
+7
+00:00:17,829 --> 00:00:22,269
+cantidad de conexiones y líneas de
+
+8
+00:00:19,929 --> 00:00:25,600
+código el tamaño del display de cuatro
+
+9
+00:00:22,269 --> 00:00:27,850
+dígitos y siete segmentos es de 30 x 14
+
+10
+00:00:25,600 --> 00:00:30,160
+milímetros adecuado para diversidad de
+
+11
+00:00:27,850 --> 00:00:33,340
+proyectos y como ya vimos del capítulo
+
+12
+00:00:30,160 --> 00:00:35,640
+49 el display de siete segmentos al ser
+
+13
+00:00:33,340 --> 00:00:38,260
+iluminado por leds permite una excelente
+
+14
+00:00:35,640 --> 00:00:40,120
+visualización a gran distancia en la
+
+15
+00:00:38,259 --> 00:00:42,009
+parte posterior del módulo tendremos
+
+16
+00:00:40,119 --> 00:00:45,479
+como protagonista al circuito integrado
+
+17
+00:00:42,009 --> 00:00:47,890
+tm 16 37 el cual se encuentra
+
+18
+00:00:45,479 --> 00:00:49,539
+específicamente diseñado para manejar el
+
+19
+00:00:47,890 --> 00:00:52,058
+display con mínima cantidad de
+
+20
+00:00:49,539 --> 00:00:54,369
+componentes externos y la comunicación
+
+21
+00:00:52,058 --> 00:00:56,919
+con arduino la lograremos con sólo 2
+
+22
+00:00:54,369 --> 00:00:58,659
+pines digitales con lo cual con estos 4
+
+23
+00:00:56,920 --> 00:01:01,239
+pines podremos brindar tanto
+
+24
+00:00:58,659 --> 00:01:03,578
+alimentación como datos veamos como
+
+25
+00:01:01,238 --> 00:01:06,219
+conectarlo arduino ya que es muy simple
+
+26
+00:01:03,579 --> 00:01:07,450
+de la salida de 5 volts iremos con un
+
+27
+00:01:06,219 --> 00:01:10,060
+cable directo
+
+28
+00:01:07,450 --> 00:01:12,460
+s del módulo de genere de arduino a
+
+29
+00:01:10,060 --> 00:01:15,519
+género de módulo en este capítulo
+
+30
+00:01:12,459 --> 00:01:17,169
+usaremos los pines digitales 2 y 3 para
+
+31
+00:01:15,519 --> 00:01:20,019
+datos pero se pueden usar cualquier
+
+32
+00:01:17,170 --> 00:01:23,590
+otros disponibles del digital número 2
+
+33
+00:01:20,019 --> 00:01:25,840
+de arduino al pin clk del módulo y del
+
+34
+00:01:23,590 --> 00:01:29,049
+pin digital el número 3 de arduino al
+
+35
+00:01:25,840 --> 00:01:31,210
+pin con la denominación de o del módulo
+
+36
+00:01:29,049 --> 00:01:33,460
+como siempre en esta nota se encuentra
+
+37
+00:01:31,209 --> 00:01:35,259
+el resumen de conexiones muy bien eso
+
+38
+00:01:33,459 --> 00:01:37,478
+fue fácil también lo será la
+
+39
+00:01:35,259 --> 00:01:39,728
+programación ya que descargaremos una
+
+40
+00:01:37,478 --> 00:01:42,280
+librería específica y en pocas líneas
+
+41
+00:01:39,728 --> 00:01:44,408
+tendremos un control total del módulo
+
+42
+00:01:42,280 --> 00:01:47,019
+para eso debemos ingresar a la siguiente
+
+43
+00:01:44,409 --> 00:01:48,729
+página web dejaré un enlace en la zona
+
+44
+00:01:47,019 --> 00:01:51,548
+de descripción para un acceso directo
+
+45
+00:01:48,728 --> 00:01:54,310
+desde el botón verde clon por dawn load
+
+46
+00:01:51,549 --> 00:01:56,470
+seleccionamos download zip esto
+
+47
+00:01:54,310 --> 00:02:00,219
+descargara un archivo comprimido con el
+
+48
+00:01:56,469 --> 00:02:02,048
+nombre de tm 1637 master ahora desde el
+
+49
+00:02:00,219 --> 00:02:04,420
+ide como ya hicimos en muchas
+
+50
+00:02:02,049 --> 00:02:07,390
+oportunidades simplemente ingresamos al
+
+51
+00:02:04,420 --> 00:02:09,939
+menú programa incluir librería y añadir
+
+52
+00:02:07,390 --> 00:02:12,219
+biblioteca punto zip seleccionamos el
+
+53
+00:02:09,939 --> 00:02:14,289
+archivo recién descargado y el botón
+
+54
+00:02:12,219 --> 00:02:16,060
+abrir ahora si estamos listos
+
+55
+00:02:14,289 --> 00:02:18,250
+el primer programa que mostrará la
+
+56
+00:02:16,060 --> 00:02:20,438
+cantidad de segundos transcurridos desde
+
+57
+00:02:18,250 --> 00:02:23,590
+iniciado el mismo un clásico que venimos
+
+58
+00:02:20,438 --> 00:02:25,750
+haciendo desde el lcd del capítulo 10 y
+
+59
+00:02:23,590 --> 00:02:28,060
+repetimos cada vez que analizamos un
+
+60
+00:02:25,750 --> 00:02:32,049
+nuevo display con este numeral incluido
+
+61
+00:02:28,060 --> 00:02:34,569
+incorporamos la librería tm 1637 display
+
+62
+00:02:32,049 --> 00:02:36,519
+luego con 2 numeral design damos la
+
+63
+00:02:34,568 --> 00:02:39,339
+directiva al compilador para que
+
+64
+00:02:36,519 --> 00:02:43,090
+reemplace toda ocurrencia de clk sobre
+
+65
+00:02:39,340 --> 00:02:45,218
+el número 2 y de d&amp;o por el número 3 lo
+
+66
+00:02:43,090 --> 00:02:47,709
+colocamos aquí al principio así es fácil
+
+67
+00:02:45,218 --> 00:02:50,199
+de modificar si fueras a usar otros
+
+68
+00:02:47,709 --> 00:02:53,859
+fines distintos luego creamos un objeto
+
+69
+00:02:50,199 --> 00:02:56,378
+del tipo tm 1637 display y le damos un
+
+70
+00:02:53,859 --> 00:02:58,569
+nombre por ejemplo display y entre
+
+71
+00:02:56,378 --> 00:03:00,638
+paréntesis le indicamos con el nombre de
+
+72
+00:02:58,568 --> 00:03:04,089
+las constantes los pines que usaremos
+
+73
+00:03:00,639 --> 00:03:06,370
+para clk y de ello de este objeto
+
+74
+00:03:04,090 --> 00:03:09,098
+usaremos diversas funciones para tomar
+
+75
+00:03:06,370 --> 00:03:10,989
+control del display de 4 dígitos en el
+
+76
+00:03:09,098 --> 00:03:13,750
+setup establecemos un valor para el
+
+77
+00:03:10,989 --> 00:03:16,539
+brillo o intensidad con la función set
+
+78
+00:03:13,750 --> 00:03:19,239
+brightness esta función admite 8 niveles
+
+79
+00:03:16,539 --> 00:03:20,859
+de brillo para eso se le asignan valores
+
+80
+00:03:19,239 --> 00:03:24,069
+entre 0 y 7
+
+81
+00:03:20,860 --> 00:03:27,070
+donde 0 es brillo a mínimo y 7 brillo
+
+82
+00:03:24,069 --> 00:03:29,349
+máximo aquí asigne un valor de 5 que a
+
+83
+00:03:27,069 --> 00:03:31,389
+mi parecer es adecuado ya en el loop
+
+84
+00:03:29,349 --> 00:03:33,430
+aplicaremos una de las funciones más
+
+85
+00:03:31,389 --> 00:03:36,669
+usadas de la librería y lleva el nombre
+
+86
+00:03:33,430 --> 00:03:38,830
+show number deck equivalente a mostrar
+
+87
+00:03:36,669 --> 00:03:41,169
+número en decimal entre paréntesis
+
+88
+00:03:38,830 --> 00:03:43,420
+colocaremos el valor a mostrar en
+
+89
+00:03:41,169 --> 00:03:46,929
+nuestro caso el valor devuelto por la
+
+90
+00:03:43,419 --> 00:03:49,179
+función miles / mil miles devuelve la
+
+91
+00:03:46,930 --> 00:03:51,370
+cantidad de milisegundos desde iniciado
+
+92
+00:03:49,180 --> 00:03:53,680
+el programa al dividirlo por 1000 lo
+
+93
+00:03:51,370 --> 00:03:55,750
+pasamos a segundos lo hacemos todo aquí
+
+94
+00:03:53,680 --> 00:03:57,700
+mismo para mostrar que con una sola
+
+95
+00:03:55,750 --> 00:04:00,580
+línea de código ya podemos mostrar
+
+96
+00:03:57,699 --> 00:04:02,949
+contenido en el display la función yun
+
+97
+00:04:00,580 --> 00:04:04,989
+nam verde que tiene varios parámetros y
+
+98
+00:04:02,949 --> 00:04:07,119
+te los quiero mostrar rápidamente con
+
+99
+00:04:04,989 --> 00:04:09,640
+esta nota al margen nosotros aplicamos
+
+100
+00:04:07,120 --> 00:04:12,039
+únicamente el primer parámetro que es el
+
+101
+00:04:09,639 --> 00:04:14,379
+número a mostrar en decimal pero existen
+
+102
+00:04:12,039 --> 00:04:16,569
+otros tres parámetros adicionales que
+
+103
+00:04:14,379 --> 00:04:18,009
+analizaremos en el segundo programa por
+
+104
+00:04:16,569 --> 00:04:21,129
+el momento veamos si todo funciona
+
+105
+00:04:18,009 --> 00:04:23,319
+correctamente vamos a verificar y subir
+
+106
+00:04:21,129 --> 00:04:25,418
+el programa podemos ver cómo se van
+
+107
+00:04:23,319 --> 00:04:28,060
+mostrando en el display los segundos
+
+108
+00:04:25,418 --> 00:04:29,979
+transcurridos pasando sin problemas
+
+109
+00:04:28,060 --> 00:04:32,110
+un dígito a otro recordad que el
+
+110
+00:04:29,980 --> 00:04:33,910
+programa en el loop tiene una sola línea
+
+111
+00:04:32,110 --> 00:04:37,540
+de código y aquí donde el circuito
+
+112
+00:04:33,910 --> 00:04:39,970
+integrado tm 1637 junto con la librería
+
+113
+00:04:37,540 --> 00:04:42,550
+nos simplifica la vida a la hora de
+
+114
+00:04:39,970 --> 00:04:44,710
+mostrar información genial vamos
+
+115
+00:04:42,550 --> 00:04:46,960
+entonces al segundo programa donde
+
+116
+00:04:44,709 --> 00:04:49,989
+veremos en detalle aquellos parámetros
+
+117
+00:04:46,959 --> 00:04:52,539
+de la función show number deck el primer
+
+118
+00:04:49,990 --> 00:04:54,550
+parámetro es el número a mostrar ese ya
+
+119
+00:04:52,540 --> 00:04:58,060
+lo verificamos recién el segundo
+
+120
+00:04:54,550 --> 00:05:00,728
+parámetro es 0 0 se refiere a si deben
+
+121
+00:04:58,060 --> 00:05:03,490
+mostrarse los que le preceden al número
+
+122
+00:05:00,728 --> 00:05:06,279
+se trata de un valor buljan o de truco
+
+123
+00:05:03,490 --> 00:05:08,769
+falls verdadero o falso si por ejemplo
+
+124
+00:05:06,279 --> 00:05:12,009
+deseamos mostrar el número 15 y el
+
+125
+00:05:08,769 --> 00:05:14,109
+segundo parámetro está en falls falso en
+
+126
+00:05:12,009 --> 00:05:17,529
+el display tenemos los dos primeros
+
+127
+00:05:14,110 --> 00:05:18,939
+dígitos apagados y luego el número 15 si
+
+128
+00:05:17,529 --> 00:05:21,638
+por el contrario aplicamos true
+
+129
+00:05:18,939 --> 00:05:25,959
+verdadero como segundo parámetro en el
+
+130
+00:05:21,639 --> 00:05:28,660
+display veremos 0 015 así de simple en
+
+131
+00:05:25,959 --> 00:05:31,299
+algunos casos puede ser útil mostrar los
+
+132
+00:05:28,660 --> 00:05:33,669
+ceros precedentes a un número en vez de
+
+133
+00:05:31,300 --> 00:05:34,900
+apagar los dígitos el tercer parámetro
+
+134
+00:05:33,668 --> 00:05:36,909
+es la longitud
+
+135
+00:05:34,899 --> 00:05:39,939
+la longitud del número a mostrar que
+
+136
+00:05:36,910 --> 00:05:42,699
+podrá ser entre 1 y 4 si decimos que la
+
+137
+00:05:39,939 --> 00:05:45,579
+longitud es de 1 entonces tendremos un
+
+138
+00:05:42,699 --> 00:05:50,110
+solo dígito para mostrar valores de 0 a
+
+139
+00:05:45,579 --> 00:05:52,269
+9 con una longitud de 2 de 00 a 99 en
+
+140
+00:05:50,110 --> 00:05:54,400
+definitiva la cantidad de dígitos que
+
+141
+00:05:52,269 --> 00:05:56,740
+vamos a asignar para mostrar el número
+
+142
+00:05:54,399 --> 00:05:59,138
+más adelante en el capítulo verás cómo
+
+143
+00:05:56,740 --> 00:06:01,478
+es de utilidad este parámetro el cuarto
+
+144
+00:05:59,139 --> 00:06:04,090
+y último es la posición como tenemos
+
+145
+00:06:01,478 --> 00:06:06,279
+cuatro dígitos podemos elegir demostrar
+
+146
+00:06:04,089 --> 00:06:08,500
+el número a partir de cierta posición
+
+147
+00:06:06,279 --> 00:06:11,409
+los valores que acepta este parámetro
+
+148
+00:06:08,500 --> 00:06:13,750
+van de 0 a 3 y aquí debajo para que
+
+149
+00:06:11,410 --> 00:06:16,180
+quede claro tenemos nuestro display de 4
+
+150
+00:06:13,750 --> 00:06:18,699
+dígitos como es usual en electrónica se
+
+151
+00:06:16,180 --> 00:06:21,400
+comienza a contar o enumerar desde cero
+
+152
+00:06:18,699 --> 00:06:23,530
+por eso el índice 0 corresponde a este
+
+153
+00:06:21,399 --> 00:06:25,779
+dígito al de la izquierda o más
+
+154
+00:06:23,529 --> 00:06:27,009
+apropiadamente dicho el dígito más
+
+155
+00:06:25,779 --> 00:06:30,369
+significativo
+
+156
+00:06:27,009 --> 00:06:32,918
+le sigue índice 1 índice 2 e índice 3
+
+157
+00:06:30,370 --> 00:06:34,899
+este último será el dígito menos
+
+158
+00:06:32,918 --> 00:06:37,508
+significativo entonces si quisiera
+
+159
+00:06:34,899 --> 00:06:39,698
+mostrar por ejemplo el número 15 podrías
+
+160
+00:06:37,509 --> 00:06:40,520
+hacerlo comenzando desde el índice 2
+
+161
+00:06:39,699 --> 00:06:44,478
+quedando
+
+162
+00:06:40,519 --> 00:06:46,758
+1 en dicho índice y el 5 en el índice 3
+
+163
+00:06:44,478 --> 00:06:49,189
+pero también puede ser útil mostrarlo
+
+164
+00:06:46,759 --> 00:06:51,139
+exactamente centrado en el display en
+
+165
+00:06:49,189 --> 00:06:53,478
+este caso la función en su cuarto
+
+166
+00:06:51,139 --> 00:06:56,090
+parámetro le indicamos que ese número de
+
+167
+00:06:53,478 --> 00:06:59,149
+ejemplo 15 comience a mostrarlo desde el
+
+168
+00:06:56,089 --> 00:07:01,969
+índice 1 y de esa manera en el índice 1
+
+169
+00:06:59,149 --> 00:07:04,969
+aparecería el número 1 y en el índice 2
+
+170
+00:07:01,970 --> 00:07:07,580
+el 5 como verás podemos tener un control
+
+171
+00:07:04,970 --> 00:07:10,340
+casi total del display digo casi porque
+
+172
+00:07:07,579 --> 00:07:12,168
+aún no vimos los dos puntos separadores
+
+173
+00:07:10,339 --> 00:07:14,269
+que será analizado en el próximo
+
+174
+00:07:12,168 --> 00:07:16,158
+programa pero la idea es que quede claro
+
+175
+00:07:14,269 --> 00:07:18,529
+que simplemente podrás pasarle a la
+
+176
+00:07:16,158 --> 00:07:20,779
+función el número a mostrar sin ningún
+
+177
+00:07:18,529 --> 00:07:23,239
+parámetro adicional y lo mostrará como
+
+178
+00:07:20,779 --> 00:07:25,818
+lo vimos en el primer programa o asignar
+
+179
+00:07:23,240 --> 00:07:28,009
+el resto para un control preciso en este
+
+180
+00:07:25,819 --> 00:07:30,080
+segundo programa todo igual hasta el
+
+181
+00:07:28,009 --> 00:07:32,389
+loop lo que haremos con esta línea es
+
+182
+00:07:30,079 --> 00:07:34,818
+mostrar el número 1 y como segundo
+
+183
+00:07:32,389 --> 00:07:37,280
+parámetro falls indicando que no
+
+184
+00:07:34,819 --> 00:07:39,919
+deseamos ceros que le precedan en
+
+185
+00:07:37,279 --> 00:07:42,500
+definitiva mostrará el número 1 sobre el
+
+186
+00:07:39,918 --> 00:07:45,228
+dígito menos significativo una demora de
+
+187
+00:07:42,500 --> 00:07:47,120
+dos segundos para visualizarlo bien y
+
+188
+00:07:45,228 --> 00:07:49,879
+luego la misma función
+
+189
+00:07:47,120 --> 00:07:52,069
+parámetro en true para esta vez sin
+
+190
+00:07:49,879 --> 00:07:54,259
+mostrar los ceros precedentes y
+
+191
+00:07:52,069 --> 00:07:56,810
+nuevamente una demora de dos segundos
+
+192
+00:07:54,259 --> 00:07:58,879
+iremos viendo las distintas opciones a
+
+193
+00:07:56,810 --> 00:08:01,160
+intervalos de 2 segundos es solo un
+
+194
+00:07:58,879 --> 00:08:03,110
+programa de carácter didáctico luego
+
+195
+00:08:01,160 --> 00:08:05,449
+jugaremos un poco con la longitud y
+
+196
+00:08:03,110 --> 00:08:07,879
+posición del número a mostrar para eso
+
+197
+00:08:05,449 --> 00:08:10,129
+este bucle form lo configuramos para que
+
+198
+00:08:07,879 --> 00:08:12,259
+repita cuatro veces iniciamos con la
+
+199
+00:08:10,129 --> 00:08:14,509
+variable de iteración y con un valor de
+
+200
+00:08:12,259 --> 00:08:17,569
+0 la condición para mantenerse dentro
+
+201
+00:08:14,509 --> 00:08:20,689
+del bucle es que sea menor a 4 o
+
+202
+00:08:17,569 --> 00:08:22,969
+equivalente a menor o igual a 3 y que
+
+203
+00:08:20,689 --> 00:08:25,279
+incremente el valor de y con cada
+
+204
+00:08:22,970 --> 00:08:27,979
+iteración ahora simplemente aplicamos la
+
+205
+00:08:25,279 --> 00:08:31,309
+función sound number deck con el primer
+
+206
+00:08:27,978 --> 00:08:34,098
+parámetro y el segundo en falls para no
+
+207
+00:08:31,310 --> 00:08:36,379
+mostrarse los precedentes la longitud de
+
+208
+00:08:34,099 --> 00:08:38,839
+uno porque mostraremos números de un
+
+209
+00:08:36,379 --> 00:08:41,299
+solo dígito y finalmente en la posición
+
+210
+00:08:38,839 --> 00:08:44,000
+nuevamente la variable de integración y
+
+211
+00:08:41,299 --> 00:08:46,759
+una demora de dos segundos y finalmente
+
+212
+00:08:44,000 --> 00:08:48,860
+una nueva función clear que borra o
+
+213
+00:08:46,759 --> 00:08:51,049
+limpia el display esto es porque cuando
+
+214
+00:08:48,860 --> 00:08:53,200
+indicamos mostrar un número en un dígito
+
+215
+00:08:51,049 --> 00:08:56,179
+específico el display
+
+216
+00:08:53,200 --> 00:08:58,280
+únicamente ese dígito dejando el resto
+
+217
+00:08:56,179 --> 00:09:00,620
+sin modificar como decíamos que se
+
+218
+00:08:58,279 --> 00:09:02,750
+muestre de un dígito por vez y el resto
+
+219
+00:09:00,620 --> 00:09:04,909
+permanezca apagado usamos clear
+
+220
+00:09:02,750 --> 00:09:07,399
+volviendo a la función principal verás
+
+221
+00:09:04,909 --> 00:09:10,399
+que la tarea es muy simple la variable y
+
+222
+00:09:07,399 --> 00:09:13,159
+comienza con cero entonces tenemos show
+
+223
+00:09:10,399 --> 00:09:16,009
+number de que tendrá cero como primer
+
+224
+00:09:13,159 --> 00:09:19,100
+parámetro el número a mostrar sinceros
+
+225
+00:09:16,009 --> 00:09:22,039
+precedentes de longitud 1 y la posición
+
+226
+00:09:19,100 --> 00:09:24,470
+0 en definitiva muestra el número 0
+
+227
+00:09:22,039 --> 00:09:26,870
+sobre el índice 0 el dígito más
+
+228
+00:09:24,470 --> 00:09:29,120
+significativo podemos volver a la nota
+
+229
+00:09:26,870 --> 00:09:31,820
+al margen para recordar el índice que
+
+230
+00:09:29,120 --> 00:09:34,610
+corresponde a cada dígito espera 2
+
+231
+00:09:31,820 --> 00:09:37,370
+segundos y apaga todo incrementamos el
+
+232
+00:09:34,610 --> 00:09:39,500
+valor de y ahora tiene un valor de 1 y
+
+233
+00:09:37,370 --> 00:09:42,560
+aplicamos a la función mostrando el
+
+234
+00:09:39,500 --> 00:09:45,559
+número 1 el índice 1 y podrás imaginar
+
+235
+00:09:42,559 --> 00:09:48,259
+cómo sigue el número 2 en el índice 2 y
+
+236
+00:09:45,559 --> 00:09:50,359
+el número 3 en el índice 3 usamos el
+
+237
+00:09:48,259 --> 00:09:52,939
+bucle for para reducir la cantidad de
+
+238
+00:09:50,360 --> 00:09:55,159
+código y aprovechamos la propia variable
+
+239
+00:09:52,940 --> 00:09:57,050
+de jeter acción y tanto para mostrar el
+
+240
+00:09:55,159 --> 00:09:57,949
+número como para ubicarlo sobre el
+
+241
+00:09:57,049 --> 00:10:00,079
+display
+
+242
+00:09:57,950 --> 00:10:02,450
+y ese es todo el programa vamos a
+
+243
+00:10:00,080 --> 00:10:05,509
+verificar y subirlo podrás ver que
+
+244
+00:10:02,450 --> 00:10:07,610
+muestra el número 1 luego el 1 con todos
+
+245
+00:10:05,509 --> 00:10:11,090
+los ceros que le preceden luego el
+
+246
+00:10:07,610 --> 00:10:14,210
+número 0 en el índice 0 el número 1 en
+
+247
+00:10:11,090 --> 00:10:17,149
+el índice 1 el número 2 en el índice 2 y
+
+248
+00:10:14,210 --> 00:10:17,629
+el número 3 en el índice 3 y así todo el
+
+249
+00:10:17,149 --> 00:10:20,000
+tiempo
+
+250
+00:10:17,629 --> 00:10:22,279
+de esa forma verificamos cómo podemos
+
+251
+00:10:20,000 --> 00:10:24,950
+usar todos los parámetros de la función
+
+252
+00:10:22,279 --> 00:10:26,990
+y permitir una ubicación precisa de la
+
+253
+00:10:24,950 --> 00:10:29,390
+información a mostrar para el tercer
+
+254
+00:10:26,990 --> 00:10:31,639
+programa vamos a activar los dos puntos
+
+255
+00:10:29,389 --> 00:10:34,340
+divisores del display ideal para hacer
+
+256
+00:10:31,639 --> 00:10:36,740
+un reloj y de hecho esa es la idea no
+
+257
+00:10:34,340 --> 00:10:38,750
+usaremos un reloj de tiempo real como el
+
+258
+00:10:36,740 --> 00:10:41,779
+analizado en profundidad en el capítulo
+
+259
+00:10:38,750 --> 00:10:44,509
+38 en su lugar utilizaremos la librería
+
+260
+00:10:41,779 --> 00:10:46,789
+timeline que permite crear un reloj sin
+
+261
+00:10:44,509 --> 00:10:48,980
+necesidad de ningún tipo de componentes
+
+262
+00:10:46,789 --> 00:10:51,679
+externos claro que tendremos varias
+
+263
+00:10:48,980 --> 00:10:54,320
+limitaciones respecto de la rtc que
+
+264
+00:10:51,679 --> 00:10:56,629
+mantiene la fecha y hora aún cuando se
+
+265
+00:10:54,320 --> 00:10:58,940
+quite la alimentación arduino pero para
+
+266
+00:10:56,629 --> 00:11:01,070
+muchos casos la librería time live es
+
+267
+00:10:58,940 --> 00:11:03,560
+muy útil ingresemos a la siguiente
+
+268
+00:11:01,070 --> 00:11:04,620
+página web que nuevamente dejaré un
+
+269
+00:11:03,559 --> 00:11:06,839
+enlace en la
+
+270
+00:11:04,620 --> 00:11:09,360
+una descripción para que dispongan de un
+
+271
+00:11:06,840 --> 00:11:11,160
+acceso directo mismo proceso que antes
+
+272
+00:11:09,360 --> 00:11:14,610
+para descargar el archivo comprimido
+
+273
+00:11:11,159 --> 00:11:17,490
+time master luego desde el ide en el
+
+274
+00:11:14,610 --> 00:11:20,009
+menú programa incluir librería y añadir
+
+275
+00:11:17,490 --> 00:11:22,200
+biblioteca punto zip seleccionamos el
+
+276
+00:11:20,009 --> 00:11:24,299
+archivo recién descargado y el botón
+
+277
+00:11:22,200 --> 00:11:27,240
+abrirá no analizaremos en profundidad
+
+278
+00:11:24,299 --> 00:11:29,459
+esta librería ya que eso seguramente lo
+
+279
+00:11:27,240 --> 00:11:31,799
+haremos en un capítulo dedicado pero la
+
+280
+00:11:29,460 --> 00:11:33,960
+idea es establecer una fecha y horario
+
+281
+00:11:31,799 --> 00:11:36,629
+de inicio y que comienza a contar el
+
+282
+00:11:33,960 --> 00:11:38,550
+paso del tiempo desde dicho punto y
+
+283
+00:11:36,629 --> 00:11:41,490
+mostrar en el display horas y minutos
+
+284
+00:11:38,549 --> 00:11:43,799
+con este numeral incluso incorporamos la
+
+285
+00:11:41,490 --> 00:11:45,750
+librería time libre el resto igual que
+
+286
+00:11:43,799 --> 00:11:48,389
+los anteriores programas sólo debemos
+
+287
+00:11:45,750 --> 00:11:51,870
+incorporar en el setup con la función
+
+288
+00:11:48,389 --> 00:11:54,090
+set time la fecha y hora actuales esto
+
+289
+00:11:51,870 --> 00:11:55,950
+lo debemos hacer de forma manual de
+
+290
+00:11:54,090 --> 00:11:58,019
+manera que cuando se cargue el programa
+
+291
+00:11:55,950 --> 00:12:00,660
+en arduino tenga un valor de inicio para
+
+292
+00:11:58,019 --> 00:12:02,279
+comenzar a contar el paso del tiempo el
+
+293
+00:12:00,659 --> 00:12:06,019
+formato es muy simple
+
+294
+00:12:02,279 --> 00:12:09,049
+primero la hora luego minutos segundos
+
+295
+00:12:06,019 --> 00:12:11,480
+mes y año aunque nuestro programa
+
+296
+00:12:09,049 --> 00:12:13,488
+usaremos solo hora y minutos debimos
+
+297
+00:12:11,480 --> 00:12:16,249
+cargar la totalidad de los datos yo a
+
+298
+00:12:13,489 --> 00:12:18,889
+propósito cargué un valor de segundos de
+
+299
+00:12:16,249 --> 00:12:21,589
+45 de manera que una vez cargado el
+
+300
+00:12:18,889 --> 00:12:26,448
+programa a los 15 segundos veremos cómo
+
+301
+00:12:21,589 --> 00:12:28,399
+cambió el horario de 16 34 a 16 35 en el
+
+302
+00:12:26,448 --> 00:12:30,738
+look de manera muy simple mostraremos
+
+303
+00:12:28,399 --> 00:12:33,828
+los datos primero con la función now
+
+304
+00:12:30,739 --> 00:12:36,319
+obtenemos la fecha y hora actual y
+
+305
+00:12:33,828 --> 00:12:38,568
+asignamos a una variable con el nombre t
+
+306
+00:12:36,318 --> 00:12:40,759
+del tipo time
+
+307
+00:12:38,568 --> 00:12:42,798
+esta es la forma que usa la librería
+
+308
+00:12:40,759 --> 00:12:44,720
+time live nuevamente aquí no
+
+309
+00:12:42,798 --> 00:12:47,149
+analizaremos el funcionamiento completo
+
+310
+00:12:44,720 --> 00:12:49,369
+sólo lo básico para obtener datos a
+
+311
+00:12:47,149 --> 00:12:52,458
+mostrar en el display luego usaremos una
+
+312
+00:12:49,369 --> 00:12:55,459
+nueva función con el nombre show number
+
+313
+00:12:52,458 --> 00:12:58,818
+deck ex esta función ya pertenece a la
+
+314
+00:12:55,458 --> 00:13:01,068
+librería tm 1637 y verá que es muy
+
+315
+00:12:58,818 --> 00:13:04,159
+similar a la ya vista sólo tiene la
+
+316
+00:13:01,068 --> 00:13:06,889
+denominación ex al final ex viene de la
+
+317
+00:13:04,159 --> 00:13:09,588
+contracción de extendida veamos la en
+
+318
+00:13:06,889 --> 00:13:11,149
+esta nota al margen es básicamente la
+
+319
+00:13:09,589 --> 00:13:12,620
+misma función que analizamos al
+
+320
+00:13:11,149 --> 00:13:14,990
+principio show
+
+321
+00:13:12,620 --> 00:13:17,810
+verde pero agrega un segundo parámetro
+
+322
+00:13:14,990 --> 00:13:19,490
+adicional con el nombre puntos el resto
+
+323
+00:13:17,809 --> 00:13:21,319
+de los parámetros son los ya conocidos
+
+324
+00:13:19,490 --> 00:13:24,379
+número ceros
+
+325
+00:13:21,320 --> 00:13:27,379
+longitud y posición entonces qué hace
+
+326
+00:13:24,379 --> 00:13:30,230
+este parámetro puntos muestra u oculta
+
+327
+00:13:27,379 --> 00:13:32,389
+los dos puntos separadores estos del
+
+328
+00:13:30,230 --> 00:13:36,200
+display una cuestión es que existen
+
+329
+00:13:32,389 --> 00:13:38,659
+varios modelos de módulos tm 1637 con
+
+330
+00:13:36,200 --> 00:13:40,940
+display de cuatro dígitos con diferentes
+
+331
+00:13:38,659 --> 00:13:43,100
+variantes el nuestro es el que tiene los
+
+332
+00:13:40,940 --> 00:13:45,410
+dos puntos separadores pero hay otro
+
+333
+00:13:43,100 --> 00:13:47,540
+modelo que tiene puntos decimales que lo
+
+334
+00:13:45,409 --> 00:13:49,519
+veremos en breve pero centrémonos en
+
+335
+00:13:47,539 --> 00:13:52,219
+nuestro modelo y el valor del parámetro
+
+336
+00:13:49,519 --> 00:13:54,710
+puntos se lo asigna en formato binario
+
+337
+00:13:52,220 --> 00:13:57,620
+como este que muestro aquí a modo de
+
+338
+00:13:54,710 --> 00:13:59,810
+refrescada cuando usamos el prefijo 0 b
+
+339
+00:13:57,620 --> 00:14:02,029
+larga indicamos que el número estará
+
+340
+00:13:59,809 --> 00:14:04,219
+representado en binario de la misma
+
+341
+00:14:02,029 --> 00:14:07,100
+forma que muchas otras veces indicamos
+
+342
+00:14:04,220 --> 00:14:10,550
+con el prefijo 0 x que un número era en
+
+343
+00:14:07,100 --> 00:14:12,560
+formato hexadecimal aquí con 0 b decimos
+
+344
+00:14:10,549 --> 00:14:15,379
+que está expresado en binario es un
+
+345
+00:14:12,559 --> 00:14:18,629
+número de 8 bits de longitud y se trata
+
+346
+00:14:15,379 --> 00:14:21,659
+de un registro interno del tm 16
+
+347
+00:14:18,629 --> 00:14:24,149
+y 7 para controlar en este caso los dos
+
+348
+00:14:21,659 --> 00:14:27,000
+puntos separadores colocando este bit en
+
+349
+00:14:24,149 --> 00:14:28,439
+uno indicamos encender los dos puntos
+
+350
+00:14:27,000 --> 00:14:30,450
+así de simple
+
+351
+00:14:28,440 --> 00:14:33,090
+este número lo colocamos como segundo
+
+352
+00:14:30,450 --> 00:14:35,670
+parámetro de la función y encendemos los
+
+353
+00:14:33,090 --> 00:14:38,310
+dos puntos si los quisiéramos apagar muy
+
+354
+00:14:35,669 --> 00:14:40,799
+simple también colocamos el bit en cero
+
+355
+00:14:38,309 --> 00:14:43,469
+como se muestra aquí entonces por qué
+
+356
+00:14:40,799 --> 00:14:46,019
+motivo tanto trabajo de colocar un valor
+
+357
+00:14:43,470 --> 00:14:47,610
+en binario no sería más fácil un buljan
+
+358
+00:14:46,019 --> 00:14:50,189
+o de verdadero o falso
+
+359
+00:14:47,610 --> 00:14:52,110
+la cuestión es que existe un modelo que
+
+360
+00:14:50,190 --> 00:14:54,420
+tiene un display como éste que se
+
+361
+00:14:52,110 --> 00:14:56,909
+muestra aquí donde los dígitos tienen
+
+362
+00:14:54,419 --> 00:14:59,639
+puntos decimales algo útil para mostrar
+
+363
+00:14:56,909 --> 00:15:01,889
+valores de punto flotante entonces ahora
+
+364
+00:14:59,639 --> 00:15:04,019
+si hacemos un uso más intensivo del
+
+365
+00:15:01,889 --> 00:15:06,449
+segundo parámetro aquí se muestran
+
+366
+00:15:04,019 --> 00:15:09,179
+listadas las distintas opciones si se
+
+367
+00:15:06,450 --> 00:15:11,190
+coloca este bit en uno encendemos el
+
+368
+00:15:09,179 --> 00:15:14,189
+punto decimal del dígito más
+
+369
+00:15:11,190 --> 00:15:17,160
+significativo con un 1 en este otro bit
+
+370
+00:15:14,190 --> 00:15:19,380
+el siguiente punto decimal y así para el
+
+371
+00:15:17,159 --> 00:15:21,899
+resto si por algún motivo necesitamos
+
+372
+00:15:19,379 --> 00:15:24,509
+encender los tres puntos decimales al
+
+373
+00:15:21,899 --> 00:15:25,230
+mismo tiempo aplicaríamos este valor en
+
+374
+00:15:24,509 --> 00:15:27,600
+binario
+
+375
+00:15:25,230 --> 00:15:29,789
+pero nosotros tenemos este modelo así
+
+376
+00:15:27,600 --> 00:15:32,190
+que usaremos este valor para encender
+
+377
+00:15:29,789 --> 00:15:35,549
+los dos puntos separadores aclarado el
+
+378
+00:15:32,190 --> 00:15:38,070
+tema con la función sound number deck ex
+
+379
+00:15:35,549 --> 00:15:41,129
+el primer parámetro será la hora actual
+
+380
+00:15:38,070 --> 00:15:44,190
+para eso usaremos la función hour entre
+
+381
+00:15:41,129 --> 00:15:46,470
+paréntesis de t en la línea anterior le
+
+382
+00:15:44,190 --> 00:15:48,900
+cargamos el valor de la función now que
+
+383
+00:15:46,470 --> 00:15:51,660
+devuelve en un formato la totalidad de
+
+384
+00:15:48,899 --> 00:15:54,240
+la fecha y ahora la función aware lo que
+
+385
+00:15:51,659 --> 00:15:56,909
+hace es extraer sólo el valor de la hora
+
+386
+00:15:54,240 --> 00:15:59,610
+de la fecha y horario completo en el
+
+387
+00:15:56,909 --> 00:16:01,649
+segundo parámetro el valor binario que
+
+388
+00:15:59,610 --> 00:16:04,050
+acabamos de analizar para encender los
+
+389
+00:16:01,649 --> 00:16:05,939
+dos puntos separadores falls para
+
+390
+00:16:04,049 --> 00:16:09,000
+indicar que no deseamos ceros
+
+391
+00:16:05,940 --> 00:16:11,310
+precedentes con dos la longitud ya que
+
+392
+00:16:09,000 --> 00:16:13,860
+efectivamente mostraremos valores que no
+
+393
+00:16:11,309 --> 00:16:15,959
+superan los dos dígitos y por último en
+
+394
+00:16:13,860 --> 00:16:17,850
+la posición que es un tema importante
+
+395
+00:16:15,960 --> 00:16:20,610
+queremos que aparezca sobre los dos
+
+396
+00:16:17,850 --> 00:16:21,750
+dígitos más significativos por eso es un
+
+397
+00:16:20,610 --> 00:16:23,610
+valor de cero
+
+398
+00:16:21,750 --> 00:16:26,320
+de esa manera mostramos la hora en
+
+399
+00:16:23,610 --> 00:16:28,840
+dígitos en posiciones cero
+
+400
+00:16:26,320 --> 00:16:31,480
+ahora para mostrar los minutos volvimos
+
+401
+00:16:28,840 --> 00:16:34,300
+a la antigua función sound number deck
+
+402
+00:16:31,480 --> 00:16:35,800
+no necesitamos la versión extendida ya
+
+403
+00:16:34,299 --> 00:16:38,259
+que encendimos los dos puntos
+
+404
+00:16:35,799 --> 00:16:40,809
+separadores en la línea anterior así que
+
+405
+00:16:38,259 --> 00:16:43,629
+la misma mecánica con la función minuto
+
+406
+00:16:40,809 --> 00:16:46,359
+entre paréntesis t para obtener el valor
+
+407
+00:16:43,629 --> 00:16:49,090
+actual de los minutos force para no
+
+408
+00:16:46,360 --> 00:16:51,879
+mostrar ceros precedentes 2 para la
+
+409
+00:16:49,090 --> 00:16:54,490
+longitud y 2 para la posición en donde
+
+410
+00:16:51,879 --> 00:16:56,159
+comenzará a mostrar el valor finalmente
+
+411
+00:16:54,490 --> 00:16:58,690
+una demora de 100 milisegundos
+
+412
+00:16:56,159 --> 00:17:01,509
+simplemente para no estar actualizando
+
+413
+00:16:58,690 --> 00:17:04,120
+tan seguido el display y ese es todo el
+
+414
+00:17:01,509 --> 00:17:07,569
+programa vamos a verificar y subirlo
+
+415
+00:17:04,119 --> 00:17:09,909
+abrimos que muestra 16 34 y el horario
+
+416
+00:17:07,569 --> 00:17:12,099
+que le cargamos con set time los
+
+417
+00:17:09,910 --> 00:17:15,220
+segundos no nos mostramos pero como
+
+418
+00:17:12,099 --> 00:17:18,939
+iniciamos con 45 segundos pasados de las
+
+419
+00:17:15,220 --> 00:17:22,750
+16 34 en pocos segundos más vivimos como
+
+420
+00:17:18,940 --> 00:17:24,730
+pasa a 16 35 perfecto ningún problema
+
+421
+00:17:22,750 --> 00:17:26,859
+verificamos así que pudimos obtener
+
+422
+00:17:24,730 --> 00:17:28,960
+valores y mostramos en el display con
+
+423
+00:17:26,859 --> 00:17:30,759
+los dos puntos separadores claro que la
+
+424
+00:17:28,960 --> 00:17:32,500
+idea es que te sirva el programa como
+
+425
+00:17:30,759 --> 00:17:33,220
+base para mostrar todo tipo de
+
+426
+00:17:32,500 --> 00:17:35,529
+información
+
+427
+00:17:33,220 --> 00:17:38,500
+podrías por ejemplo obtener temperatura
+
+428
+00:17:35,529 --> 00:17:41,230
+y humedad de un dht 11 y mostrar en los
+
+429
+00:17:38,500 --> 00:17:43,569
+primeros 2 dígitos la temperatura y en
+
+430
+00:17:41,230 --> 00:17:46,000
+los últimos dos la humedad o lo que
+
+431
+00:17:43,569 --> 00:17:47,829
+necesites para tu proyecto como último
+
+432
+00:17:46,000 --> 00:17:49,538
+programa del capítulo te quiero mostrar
+
+433
+00:17:47,829 --> 00:17:52,089
+la forma de generar caracteres
+
+434
+00:17:49,538 --> 00:17:54,548
+especiales en este cuarto programa la
+
+435
+00:17:52,089 --> 00:17:56,558
+idea es simular la visualización de un
+
+436
+00:17:54,548 --> 00:17:59,440
+valor de temperatura y mostrar el
+
+437
+00:17:56,558 --> 00:18:03,190
+símbolo de grados centígrados o grados
+
+438
+00:17:59,440 --> 00:18:06,038
+celsius usaremos la función set segmento
+
+439
+00:18:03,190 --> 00:18:07,630
+equivalente a establecer segmentos aquí
+
+440
+00:18:06,038 --> 00:18:09,669
+en la nota al margen veremos los
+
+441
+00:18:07,630 --> 00:18:11,980
+parámetros de la misma el primero de
+
+442
+00:18:09,669 --> 00:18:14,679
+ellos es un array que representa los
+
+443
+00:18:11,980 --> 00:18:17,409
+segmentos a encender del dígito segundo
+
+444
+00:18:14,679 --> 00:18:19,450
+y tercer parámetros longitud y posición
+
+445
+00:18:17,409 --> 00:18:21,400
+son los mismos que venimos usando desde
+
+446
+00:18:19,450 --> 00:18:23,620
+el principio para entender el tema de
+
+447
+00:18:21,400 --> 00:18:26,140
+los segmentos veamos esta representación
+
+448
+00:18:23,619 --> 00:18:28,719
+gráfica de un dígito de siete segmentos
+
+449
+00:18:26,140 --> 00:18:31,780
+y esto lo analizamos en profundidad en
+
+450
+00:18:28,720 --> 00:18:33,970
+el capítulo 49 pero veámoslo rápidamente
+
+451
+00:18:31,779 --> 00:18:36,009
+cada segmento se lo denomina con una
+
+452
+00:18:33,970 --> 00:18:39,788
+letra por eso verás que este segmento
+
+453
+00:18:36,009 --> 00:18:42,398
+tiene la letra a este otro la letra b
+
+454
+00:18:39,788 --> 00:18:44,710
+y hasta la g de esa forma es posible
+
+455
+00:18:42,398 --> 00:18:47,018
+identificar cada segmento de forma
+
+456
+00:18:44,710 --> 00:18:49,358
+individual hasta ahora no era necesario
+
+457
+00:18:47,019 --> 00:18:51,599
+porque simplemente indicábamos el número
+
+458
+00:18:49,358 --> 00:18:54,878
+a mostrar y la librería con el tema de
+
+459
+00:18:51,599 --> 00:18:56,888
+1637 se encargaba de mostrarlo pero para
+
+460
+00:18:54,878 --> 00:18:59,019
+este programa vamos a generar dos
+
+461
+00:18:56,888 --> 00:19:01,959
+caracteres especiales primero el
+
+462
+00:18:59,019 --> 00:19:04,960
+denominado ser o bolado es aquel cero
+
+463
+00:19:01,960 --> 00:19:07,419
+que le precede a la letra c para indicar
+
+464
+00:19:04,960 --> 00:19:10,298
+a grados celsius o grados centígrados
+
+465
+00:19:07,419 --> 00:19:12,849
+veamos entonces qué segmentos serían los
+
+466
+00:19:10,298 --> 00:19:17,440
+necesarios encender es para generar este
+
+467
+00:19:12,848 --> 00:19:20,259
+símbolo serán a b g y f ahí tenemos
+
+468
+00:19:17,440 --> 00:19:24,700
+nuestro cero bolado ahora para la letra
+
+469
+00:19:20,259 --> 00:19:27,639
+c los segmentos a encender serían a efe
+
+470
+00:19:24,700 --> 00:19:29,889
+y de genial ahora lo que haremos en
+
+471
+00:19:27,638 --> 00:19:31,209
+programación es crear un array con el
+
+472
+00:19:29,888 --> 00:19:33,248
+nombre celsius
+
+473
+00:19:31,210 --> 00:19:35,200
+la librería incluye una serie de
+
+474
+00:19:33,249 --> 00:19:37,598
+constantes que representan a cada
+
+475
+00:19:35,200 --> 00:19:39,639
+segmento por eso para el ser o volado
+
+476
+00:19:37,598 --> 00:19:43,388
+decíamos que corresponde a los segmentos
+
+477
+00:19:39,638 --> 00:19:45,638
+a que se representa con la constante sec
+
+478
+00:19:43,388 --> 00:19:48,519
+y luego viene un carácter
+
+479
+00:19:45,638 --> 00:19:51,428
+separador el pipe para luego indicar el
+
+480
+00:19:48,519 --> 00:19:55,749
+próximo segmento encender el segmento b
+
+481
+00:19:51,429 --> 00:19:58,149
+con la constante se ve en definitiva
+
+482
+00:19:55,749 --> 00:20:00,038
+esta línea indica encender los segmentos
+
+483
+00:19:58,148 --> 00:20:02,888
+a b g
+
+484
+00:20:00,038 --> 00:20:05,229
+y f dentro del mismo array separado por
+
+485
+00:20:02,888 --> 00:20:08,228
+una coma vamos a indicar el próximo
+
+486
+00:20:05,229 --> 00:20:10,509
+dígito la letra c mayúscula que como
+
+487
+00:20:08,229 --> 00:20:14,409
+vimos se logra al encender los segmentos
+
+488
+00:20:10,509 --> 00:20:16,899
+a efe e ide así que crear caracteres
+
+489
+00:20:14,409 --> 00:20:18,909
+especiales es muy simple tomando como
+
+490
+00:20:16,898 --> 00:20:21,608
+referencia los nombres de cada segmento
+
+491
+00:20:18,909 --> 00:20:24,340
+creamos un array con los segmentos
+
+492
+00:20:21,608 --> 00:20:26,739
+encender en el look de manera muy simple
+
+493
+00:20:24,339 --> 00:20:29,949
+con show number de que vamos a mostrar
+
+494
+00:20:26,739 --> 00:20:32,528
+el número estático 21 estos a modo de
+
+495
+00:20:29,950 --> 00:20:34,509
+demostración claro que aquí colocaría el
+
+496
+00:20:32,528 --> 00:20:37,210
+valor de una variable por ejemplo
+
+497
+00:20:34,509 --> 00:20:40,118
+temperatura adquirida de un dht 11 o
+
+498
+00:20:37,210 --> 00:20:43,028
+cualquier otro sensor falls para no
+
+499
+00:20:40,118 --> 00:20:45,878
+mostrar ceros precedentes longitud de
+
+500
+00:20:43,028 --> 00:20:48,069
+dos dígitos y posición cero esto es
+
+501
+00:20:45,878 --> 00:20:49,988
+importante porque el número 21 debe
+
+502
+00:20:48,069 --> 00:20:52,778
+ocupar los dos dígitos más
+
+503
+00:20:49,989 --> 00:20:54,608
+significativos y dejar así lugar para el
+
+504
+00:20:52,778 --> 00:20:57,460
+símbolo de grados celsius
+
+505
+00:20:54,608 --> 00:21:00,128
+finalmente la función set segmento con
+
+506
+00:20:57,460 --> 00:21:02,829
+primer parámetro celsius que se la rae
+
+507
+00:21:00,128 --> 00:21:05,618
+creado con anterioridad longitud de dos
+
+508
+00:21:02,829 --> 00:21:06,819
+dígitos y posición en dos vamos a
+
+509
+00:21:05,618 --> 00:21:09,129
+verificar
+
+510
+00:21:06,819 --> 00:21:12,460
+el programa y como no podía ser de otra
+
+511
+00:21:09,130 --> 00:21:14,710
+manera se muestra 21 y el símbolo de
+
+512
+00:21:12,460 --> 00:21:17,169
+grados celsius todo ubicado como
+
+513
+00:21:14,710 --> 00:21:20,350
+corresponde para resumir vimos como el
+
+514
+00:21:17,169 --> 00:21:23,080
+módulo tm 16 37 es muy útil para
+
+515
+00:21:20,349 --> 00:21:25,028
+fácilmente visualizar información con
+
+516
+00:21:23,079 --> 00:21:27,699
+una cantidad mínima de conexiones
+
+517
+00:21:25,028 --> 00:21:30,429
+arduino y funciones que permiten tomar
+
+518
+00:21:27,700 --> 00:21:32,590
+control de todas las opciones eso es
+
+519
+00:21:30,429 --> 00:21:34,600
+todo por este capítulo gracias por la
+
+520
+00:21:32,589 --> 00:21:36,668
+visita y si te parece interesante
+
+521
+00:21:34,599 --> 00:21:38,798
+recuerda dejar un me gusta y por
+
+522
+00:21:36,669 --> 00:21:41,019
+cualquier duda o comentario lo podrás
+
+523
+00:21:38,798 --> 00:21:44,819
+hacer debajo que con gusto te responderé
+
+524
+00:21:41,019 --> 00:21:44,819
+chau y hasta la próxima
+

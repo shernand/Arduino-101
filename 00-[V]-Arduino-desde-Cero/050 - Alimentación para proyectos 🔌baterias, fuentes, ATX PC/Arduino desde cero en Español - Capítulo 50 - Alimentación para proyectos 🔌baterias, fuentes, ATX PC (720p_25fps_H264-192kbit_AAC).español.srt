@@ -1,0 +1,1532 @@
+1
+00:00:00,860 --> 00:00:07,280
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,528 --> 00:00:08,958
+50 de arduino desde cero en español
+
+3
+00:00:07,280 --> 00:00:11,089
+en esta oportunidad analizaremos
+
+4
+00:00:08,958 --> 00:00:13,579
+distintas opciones para alimentar
+
+5
+00:00:11,089 --> 00:00:16,190
+nuestros proyectos desde el simple cable
+
+6
+00:00:13,579 --> 00:00:18,740
+usb conectado a la computadora a la
+
+7
+00:00:16,190 --> 00:00:21,440
+fuente externa pilas comunes y
+
+8
+00:00:18,739 --> 00:00:23,989
+recargables baterías tipo power bank
+
+9
+00:00:21,440 --> 00:00:26,270
+hasta una fuente de computadora ya
+
+10
+00:00:23,989 --> 00:00:28,699
+sabemos que la manera más simple es usar
+
+11
+00:00:26,269 --> 00:00:32,359
+un cable usb conectado a la computadora
+
+12
+00:00:28,699 --> 00:00:34,549
+de esa forma podemos alimentar arduino y
+
+13
+00:00:32,359 --> 00:00:37,219
+desde la misma placa sensores y
+
+14
+00:00:34,549 --> 00:00:39,709
+dispositivos externos la computadora
+
+15
+00:00:37,219 --> 00:00:42,200
+será la fuente de tensión de 5 volts
+
+16
+00:00:39,710 --> 00:00:45,230
+regulados con una corriente máxima de
+
+17
+00:00:42,200 --> 00:00:47,480
+500 millas pero apto para la mayoría de
+
+18
+00:00:45,229 --> 00:00:49,759
+los casos y también mediante el mismo
+
+19
+00:00:47,479 --> 00:00:52,219
+cable tendremos comunicación con la
+
+20
+00:00:49,759 --> 00:00:54,710
+placa para cargar los programas y enviar
+
+21
+00:00:52,219 --> 00:00:57,409
+y recibir datos mediante el monitor o
+
+22
+00:00:54,710 --> 00:00:59,239
+serie si una vez cargado el programa ya
+
+23
+00:00:57,409 --> 00:01:01,459
+no necesitamos comunicación con la
+
+24
+00:00:59,238 --> 00:01:04,039
+computadora una opción de alimentación
+
+25
+00:01:01,460 --> 00:01:05,989
+es usar un cargador de pared como el que
+
+26
+00:01:04,040 --> 00:01:07,640
+se muestra en la imagen el cual es
+
+27
+00:01:05,989 --> 00:01:10,069
+típico para cargar tele
+
+28
+00:01:07,640 --> 00:01:12,978
+los móviles conectado atención de red
+
+29
+00:01:10,069 --> 00:01:15,529
+podemos usar el mismo cable usb para
+
+30
+00:01:12,978 --> 00:01:17,859
+alimentar arduino y dispondremos de un
+
+31
+00:01:15,530 --> 00:01:20,689
+suministro de corriente superior
+
+32
+00:01:17,859 --> 00:01:22,159
+dependiendo del modelo de cargador de
+
+33
+00:01:20,689 --> 00:01:24,739
+manera que ya sea mediante la
+
+34
+00:01:22,159 --> 00:01:27,140
+computadora o un cargador de pared y
+
+35
+00:01:24,739 --> 00:01:29,539
+estaremos ingresando tensión a través
+
+36
+00:01:27,140 --> 00:01:32,868
+del conector usb a este conector
+
+37
+00:01:29,540 --> 00:01:34,940
+podremos llegar únicamente con 5 goltz y
+
+38
+00:01:32,868 --> 00:01:37,759
+de forma regulada es decir que la
+
+39
+00:01:34,939 --> 00:01:40,399
+atención debe ser precisa con muy poca
+
+40
+00:01:37,759 --> 00:01:42,920
+variación el modelo 1 de arduino y
+
+41
+00:01:40,399 --> 00:01:45,170
+también el mega disponen de un conector
+
+42
+00:01:42,920 --> 00:01:48,320
+del tipo jack para la alimentación
+
+43
+00:01:45,170 --> 00:01:50,509
+externa no regulada esto significa que
+
+44
+00:01:48,319 --> 00:01:53,118
+podemos aplicarle un amplio rango de
+
+45
+00:01:50,509 --> 00:01:56,179
+tensiones sin necesidad de una gran
+
+46
+00:01:53,118 --> 00:01:58,909
+precisión el rango de valores es de 6 a
+
+47
+00:01:56,179 --> 00:02:01,789
+12 volts que generalmente es provisto
+
+48
+00:01:58,909 --> 00:02:03,799
+por este tipo de fuente de pared en caso
+
+49
+00:02:01,789 --> 00:02:06,799
+de los modelos más pequeños como ser
+
+50
+00:02:03,799 --> 00:02:09,379
+nano o promin y podremos ingresar con
+
+51
+00:02:06,799 --> 00:02:12,289
+tensión no regulada mediante los pines
+
+52
+00:02:09,379 --> 00:02:13,699
+bein o rob para eso podrás ver los
+
+53
+00:02:12,289 --> 00:02:17,449
+capítulos 30 y
+
+54
+00:02:13,699 --> 00:02:19,369
+para la broma y el 44 para la nano es
+
+55
+00:02:17,449 --> 00:02:21,439
+importante verificar que el bloque de
+
+56
+00:02:19,370 --> 00:02:25,189
+alimentación de la fuente tenga un
+
+57
+00:02:21,439 --> 00:02:28,250
+diámetro exterior de 55 milímetros e
+
+58
+00:02:25,189 --> 00:02:30,199
+interior de 21 ya que existen de
+
+59
+00:02:28,250 --> 00:02:32,509
+diferentes tamaños también que la
+
+60
+00:02:30,199 --> 00:02:34,639
+polaridad indica que el positivo se
+
+61
+00:02:32,509 --> 00:02:36,739
+encuentra sobre la parte interior del
+
+62
+00:02:34,639 --> 00:02:38,869
+plug y como se muestra en esta
+
+63
+00:02:36,739 --> 00:02:40,370
+identificación toda atención que
+
+64
+00:02:38,870 --> 00:02:42,590
+ingresemos mediante el jack de
+
+65
+00:02:40,370 --> 00:02:44,689
+alimentación pasará por este pequeño
+
+66
+00:02:42,590 --> 00:02:47,509
+amigo que es un regulador lineal de
+
+67
+00:02:44,689 --> 00:02:51,139
+tensión el cual toma la tensión no
+
+68
+00:02:47,509 --> 00:02:54,500
+regulada de entre 6 y 12 volts y genera
+
+69
+00:02:51,139 --> 00:02:56,359
+una tensión regulada y precisa de 5
+
+70
+00:02:54,500 --> 00:02:59,239
+balls necesaria para el funcionamiento
+
+71
+00:02:56,360 --> 00:03:01,910
+de la placa aquí surge la pregunta de
+
+72
+00:02:59,239 --> 00:03:04,819
+cuál es la atención más adecuada entre
+
+73
+00:03:01,909 --> 00:03:07,310
+el amplio rango que podemos aplicar 6
+
+74
+00:03:04,818 --> 00:03:09,979
+volts es el valor de tensión mínimo
+
+75
+00:03:07,310 --> 00:03:12,259
+absoluto resulta que el regulador lineal
+
+76
+00:03:09,979 --> 00:03:15,139
+genera una caída interna de
+
+77
+00:03:12,259 --> 00:03:17,689
+aproximadamente un volt para su propio
+
+78
+00:03:15,139 --> 00:03:19,309
+funcionamiento entonces si al regulador
+
+79
+00:03:17,689 --> 00:03:22,400
+le ingresamos 6
+
+80
+00:03:19,310 --> 00:03:25,909
+y le restamos un volt que cae sobre sí
+
+81
+00:03:22,400 --> 00:03:28,069
+mismo tenemos justo los 5 en la realidad
+
+82
+00:03:25,909 --> 00:03:31,098
+no se puede asegurar que en el regulador
+
+83
+00:03:28,068 --> 00:03:33,469
+caigan solo un bulto ya que depende de
+
+84
+00:03:31,098 --> 00:03:36,018
+muchos otros factores como ser la
+
+85
+00:03:33,469 --> 00:03:38,239
+temperatura lo ideal y brindarle a su
+
+86
+00:03:36,019 --> 00:03:42,409
+entrada una atención ligeramente
+
+87
+00:03:38,239 --> 00:03:44,930
+superior de entre 7 y 7-5 y aquí se
+
+88
+00:03:42,409 --> 00:03:47,120
+identifica como la condición ideal de
+
+89
+00:03:44,930 --> 00:03:49,550
+esa manera nos aseguramos de darle un
+
+90
+00:03:47,120 --> 00:03:52,159
+margen al regulador y si en el mismo
+
+91
+00:03:49,550 --> 00:03:55,219
+caen más de un volt no hay problema
+
+92
+00:03:52,159 --> 00:03:57,769
+igual estamos con sobra luego tendremos
+
+93
+00:03:55,219 --> 00:04:00,469
+el resto del rango que aquí se resume
+
+94
+00:03:57,769 --> 00:04:03,439
+entre 9 y 12 volts claro hasta que
+
+95
+00:04:00,469 --> 00:04:05,989
+podrías alimentar con 8 pero resulta que
+
+96
+00:04:03,439 --> 00:04:09,259
+es un valor poco frecuente por eso vamos
+
+97
+00:04:05,989 --> 00:04:11,599
+directo al rango más usual de 9 a 12
+
+98
+00:04:09,259 --> 00:04:13,639
+volts en este rango de tensiones y
+
+99
+00:04:11,598 --> 00:04:16,099
+estaremos en un valor correcto es decir
+
+100
+00:04:13,639 --> 00:04:18,829
+que el regulador los puede tomar para
+
+101
+00:04:16,100 --> 00:04:20,870
+generar los 5 volts que requiere arduino
+
+102
+00:04:18,829 --> 00:04:22,879
+para funcionar el problema es que a
+
+103
+00:04:20,870 --> 00:04:25,939
+medida que nos alejamos de la tensión
+
+104
+00:04:22,879 --> 00:04:28,550
+ideal de 775 volts
+
+105
+00:04:25,939 --> 00:04:31,579
+el regulador debe disipar en forma de
+
+106
+00:04:28,550 --> 00:04:33,770
+calor la atención adicional el regulador
+
+107
+00:04:31,579 --> 00:04:36,259
+de tensión incorporado en la placa es
+
+108
+00:04:33,769 --> 00:04:38,899
+muy útil ya que nos permite ingresar con
+
+109
+00:04:36,259 --> 00:04:41,719
+variedad de tensiones no reguladas pero
+
+110
+00:04:38,899 --> 00:04:44,209
+a mayor tensión disipará la misma en
+
+111
+00:04:41,720 --> 00:04:46,790
+forma de calor reduciendo su eficiencia
+
+112
+00:04:44,209 --> 00:04:49,579
+otra posibilidad es la alimentación
+
+113
+00:04:46,790 --> 00:04:51,710
+mediante pilas comunes y recargables que
+
+114
+00:04:49,579 --> 00:04:52,669
+nos permitirá movilidad en nuestros
+
+115
+00:04:51,709 --> 00:04:54,500
+proyectos
+
+116
+00:04:52,670 --> 00:04:58,640
+una pila común tiene una tensión nominal
+
+117
+00:04:54,500 --> 00:05:02,329
+de 15 volts nueva sin uso tendrá un poco
+
+118
+00:04:58,639 --> 00:05:04,430
+más cerca de 16 y luego claro que irá
+
+119
+00:05:02,329 --> 00:05:06,199
+reduciendo su valor a medida que se
+
+120
+00:05:04,430 --> 00:05:08,689
+descargue teniendo en cuenta los valores
+
+121
+00:05:06,199 --> 00:05:11,000
+de tensión que vimos recién podríamos
+
+122
+00:05:08,689 --> 00:05:14,329
+colocar cuatro pilas en serie para
+
+123
+00:05:11,000 --> 00:05:17,000
+obtener la atención mínima absoluta de 6
+
+124
+00:05:14,329 --> 00:05:21,079
+volts si conectamos 5 en serie
+
+125
+00:05:17,000 --> 00:05:24,019
+obtendremos 75 la tensión ideal que
+
+126
+00:05:21,079 --> 00:05:26,810
+existen porta pilas de 5 pilas aunque no
+
+127
+00:05:24,019 --> 00:05:29,269
+sean los más usuales y es lo ideal para
+
+128
+00:05:26,810 --> 00:05:31,490
+trabajar con arduino si usáramos pilas
+
+129
+00:05:29,269 --> 00:05:32,599
+recargables las mismas tienen una
+
+130
+00:05:31,490 --> 00:05:35,389
+tensión nominal
+
+131
+00:05:32,600 --> 00:05:37,280
+de 12 volts eso significa que si
+
+132
+00:05:35,389 --> 00:05:40,969
+colocamos 4 en serie
+
+133
+00:05:37,279 --> 00:05:44,509
+la tensión total sería de 48 lo cual es
+
+134
+00:05:40,970 --> 00:05:47,780
+insuficiente si conectamos 5 en serie la
+
+135
+00:05:44,509 --> 00:05:49,969
+atención será de 6 y si colocamos 6 de
+
+136
+00:05:47,779 --> 00:05:53,899
+estas pilas recargables en serie
+
+137
+00:05:49,970 --> 00:05:55,400
+obtendremos 72 en definitiva la idea es
+
+138
+00:05:53,899 --> 00:05:57,889
+que quede claro que no es lo mismo
+
+139
+00:05:55,399 --> 00:06:00,529
+trabajar con pilas comunes que con
+
+140
+00:05:57,889 --> 00:06:03,589
+recargables con pilas comunes lo ideal
+
+141
+00:06:00,529 --> 00:06:04,489
+será tener 5 en serie mientras que con
+
+142
+00:06:03,589 --> 00:06:07,339
+recargables
+
+143
+00:06:04,490 --> 00:06:10,310
+necesitamos una pila adicional para un
+
+144
+00:06:07,339 --> 00:06:12,769
+total de 6 y de esa manera trabajamos en
+
+145
+00:06:10,310 --> 00:06:15,470
+el rango ideal aquí se muestra un porta
+
+146
+00:06:12,769 --> 00:06:17,810
+pilas de 6 pilas que nos sirve tanto
+
+147
+00:06:15,470 --> 00:06:20,720
+para pilas comunes como para recargables
+
+148
+00:06:17,810 --> 00:06:22,550
+y es una buena opción algunos modelos ya
+
+149
+00:06:20,720 --> 00:06:25,130
+vienen con un cable y un plug de
+
+150
+00:06:22,550 --> 00:06:27,650
+alimentación para conexión directa a la
+
+151
+00:06:25,129 --> 00:06:30,259
+placa no podemos olvidar la venerable
+
+152
+00:06:27,649 --> 00:06:32,779
+batería de 9 voltios la cual nos brinda
+
+153
+00:06:30,259 --> 00:06:35,240
+una atención adecuada y además es
+
+154
+00:06:32,779 --> 00:06:37,339
+compacta y liviana la gran desventaja
+
+155
+00:06:35,240 --> 00:06:39,230
+que tendremos es que brinda un
+
+156
+00:06:37,339 --> 00:06:42,079
+suministro de corriente bajo
+
+157
+00:06:39,230 --> 00:06:44,930
+de unos 600.000 en promedio y en
+
+158
+00:06:42,079 --> 00:06:46,939
+relación el precio es elevado si nuestro
+
+159
+00:06:44,930 --> 00:06:48,980
+proyecto requiere movilidad y la
+
+160
+00:06:46,939 --> 00:06:51,620
+alimentación no es permanente
+
+161
+00:06:48,980 --> 00:06:54,259
+por ejemplo para encender un dispositivo
+
+162
+00:06:51,620 --> 00:06:56,569
+hacer una medición y luego apagarlo
+
+163
+00:06:54,259 --> 00:06:58,879
+sería una buena opción pero para
+
+164
+00:06:56,569 --> 00:07:01,129
+proyectos donde la alimentación debe ser
+
+165
+00:06:58,879 --> 00:07:03,560
+por largos períodos estaremos cambiando
+
+166
+00:07:01,129 --> 00:07:05,870
+a la batería muy seguido tiene que
+
+167
+00:07:03,560 --> 00:07:09,259
+existir una mejor alternativa a las
+
+168
+00:07:05,870 --> 00:07:11,689
+pilas comunes recargables y de 9 volts y
+
+169
+00:07:09,259 --> 00:07:14,209
+claro que la hay en la actualidad estas
+
+170
+00:07:11,689 --> 00:07:16,959
+baterías denominadas del tipo power bank
+
+171
+00:07:14,209 --> 00:07:19,729
+son muy versátiles veamos por qué
+
+172
+00:07:16,959 --> 00:07:21,979
+existen muchos modelos en el mercado de
+
+173
+00:07:19,730 --> 00:07:24,620
+distinto tamaño y capacidad esté
+
+174
+00:07:21,980 --> 00:07:26,810
+mostrado es bastante pequeño y tiene en
+
+175
+00:07:24,620 --> 00:07:29,930
+su interior una batería recargable de
+
+176
+00:07:26,810 --> 00:07:31,310
+iones de litio cuya nomenclatura es el
+
+177
+00:07:29,930 --> 00:07:34,009
+ion
+
+178
+00:07:31,310 --> 00:07:36,139
+tendremos dos puertos accesibles uno
+
+179
+00:07:34,009 --> 00:07:39,500
+para la carga de la batería de litio que
+
+180
+00:07:36,139 --> 00:07:42,139
+suele ser micro usb y un segundo puerto
+
+181
+00:07:39,500 --> 00:07:44,930
+tradicional donde conectaremos el mismo
+
+182
+00:07:42,139 --> 00:07:46,629
+cable que venimos usando desde siempre y
+
+183
+00:07:44,930 --> 00:07:49,389
+así alimentamos
+
+184
+00:07:46,629 --> 00:07:51,189
+si le echamos un vistazo por dentro la
+
+185
+00:07:49,389 --> 00:07:53,529
+mayor parte estará ocupado por la
+
+186
+00:07:51,189 --> 00:07:55,959
+batería de litio que aquí se muestra en
+
+187
+00:07:53,529 --> 00:07:59,529
+todo su esplendor la atención nominal de
+
+188
+00:07:55,959 --> 00:08:01,659
+la misma es de 37 volts se incorpora un
+
+189
+00:07:59,529 --> 00:08:04,029
+circuito de control que realiza dos
+
+190
+00:08:01,660 --> 00:08:06,520
+tareas vitales la primera es la de
+
+191
+00:08:04,029 --> 00:08:09,609
+cargar la batería y la segunda la de
+
+192
+00:08:06,519 --> 00:08:11,949
+generar 5 goltz regulados a modo de
+
+193
+00:08:09,610 --> 00:08:14,590
+salida al conjunto del circuito de
+
+194
+00:08:11,949 --> 00:08:17,500
+control y la batería de litio es lo que
+
+195
+00:08:14,589 --> 00:08:20,139
+se denomina de forma usual power bank de
+
+196
+00:08:17,500 --> 00:08:22,689
+hecho es posible armar uno adquiriendo
+
+197
+00:08:20,139 --> 00:08:24,849
+por separado el circuito de control y la
+
+198
+00:08:22,689 --> 00:08:28,540
+batería de litio mediante el conector
+
+199
+00:08:24,850 --> 00:08:31,600
+microusb ingresaremos 5volts desde una
+
+200
+00:08:28,540 --> 00:08:33,729
+computadora o fuente de pared esos 5
+
+201
+00:08:31,600 --> 00:08:36,418
+volts alimentan el circuito de control
+
+202
+00:08:33,729 --> 00:08:39,430
+que incorpora un circuito integrado
+
+203
+00:08:36,418 --> 00:08:41,860
+diseñado específicamente para la función
+
+204
+00:08:39,429 --> 00:08:44,819
+de carga de la batería y conversión de
+
+205
+00:08:41,860 --> 00:08:48,940
+continua a continua o lo que es lo mismo
+
+206
+00:08:44,820 --> 00:08:52,420
+conversión de cdc como verás la batería
+
+207
+00:08:48,940 --> 00:08:52,760
+tiene una tensión nominal de 37 volts y
+
+208
+00:08:52,419 --> 00:08:55,610
+sera
+
+209
+00:08:52,759 --> 00:08:58,189
+suele cargar con una atención de unos 41
+
+210
+00:08:55,610 --> 00:09:00,409
+volts el circuito integrado se encargará
+
+211
+00:08:58,190 --> 00:09:03,200
+de administrar por nosotros la carga
+
+212
+00:09:00,409 --> 00:09:05,779
+regulando la tensión hacia la batería y
+
+213
+00:09:03,200 --> 00:09:07,550
+la corriente para mantenerla cargada de
+
+214
+00:09:05,779 --> 00:09:10,579
+forma óptima y en el menor tiempo
+
+215
+00:09:07,549 --> 00:09:12,469
+posible en el proceso inverso cuando
+
+216
+00:09:10,580 --> 00:09:14,960
+queremos usar el power bank para
+
+217
+00:09:12,470 --> 00:09:17,330
+alimentar nuestra placa o proyecto en la
+
+218
+00:09:14,960 --> 00:09:19,670
+batería genera la tensión que nuevamente
+
+219
+00:09:17,330 --> 00:09:22,610
+el circuito integrado se encarga de
+
+220
+00:09:19,669 --> 00:09:25,250
+elevar a 5 volts a este proceso de
+
+221
+00:09:22,610 --> 00:09:28,669
+elevar la tensión se le denomina step up
+
+222
+00:09:25,250 --> 00:09:31,240
+o boost nuevamente es un proceso del
+
+223
+00:09:28,669 --> 00:09:34,669
+cual nos despreocupamos en el puerto usb
+
+224
+00:09:31,240 --> 00:09:36,830
+tradicional tendremos en todo momento 5
+
+225
+00:09:34,669 --> 00:09:39,289
+volts regulados que como vimos al
+
+226
+00:09:36,830 --> 00:09:42,050
+principio es esencial para alimentar a
+
+227
+00:09:39,289 --> 00:09:44,209
+arduino mediante el puerto usb el
+
+228
+00:09:42,049 --> 00:09:46,159
+circuito de control también dispone de
+
+229
+00:09:44,210 --> 00:09:49,100
+unos leds que indican cuando la batería
+
+230
+00:09:46,159 --> 00:09:51,679
+requiere cargarse y también mientras se
+
+231
+00:09:49,100 --> 00:09:53,269
+está cargando con distintos colores de
+
+232
+00:09:51,679 --> 00:09:55,849
+manera que tenemos un método moderno
+
+233
+00:09:53,269 --> 00:09:57,208
+para alimentar tanto arduino como
+
+234
+00:09:55,850 --> 00:10:01,409
+nuestro proyecto
+
+235
+00:09:57,208 --> 00:10:04,078
+en el capítulo 46 del lado emisor del
+
+236
+00:10:01,409 --> 00:10:06,240
+enlace de radiofrecuencia conectado a
+
+237
+00:10:04,078 --> 00:10:09,568
+una propina pero qué sucede cuando
+
+238
+00:10:06,240 --> 00:10:11,610
+necesitamos tensiones mayores a 5 volts
+
+239
+00:10:09,568 --> 00:10:14,278
+para circuitos de alto consumo de
+
+240
+00:10:11,610 --> 00:10:17,039
+corriente una opción interesante es la
+
+241
+00:10:14,278 --> 00:10:20,999
+fuente de computadora o fuente de pc
+
+242
+00:10:17,039 --> 00:10:23,129
+tipo x la idea es que puedas reutilizar
+
+243
+00:10:20,999 --> 00:10:25,860
+algunas que tengas de una computadora
+
+244
+00:10:23,129 --> 00:10:28,499
+vieja aunque comprar una nueva tampoco
+
+245
+00:10:25,860 --> 00:10:31,110
+tiene un costo muy elevado y como verás
+
+246
+00:10:28,499 --> 00:10:33,178
+en breve es capaz de suministrar mucha
+
+247
+00:10:31,110 --> 00:10:35,550
+corriente en este punto es importante
+
+248
+00:10:33,178 --> 00:10:37,889
+advertir que la fuente de la extremos
+
+249
+00:10:35,549 --> 00:10:40,349
+conectando atención de red y no es
+
+250
+00:10:37,889 --> 00:10:43,350
+recomendable abrirla ya que existen
+
+251
+00:10:40,350 --> 00:10:45,300
+circuitos de alta tensión y capacitores
+
+252
+00:10:43,350 --> 00:10:47,759
+que pueden mantener una elevada carga
+
+253
+00:10:45,299 --> 00:10:50,159
+incluso muchas horas después de
+
+254
+00:10:47,759 --> 00:10:53,039
+desconectada si hace tiempo que está
+
+255
+00:10:50,159 --> 00:10:55,649
+arrumbada en algún rincón podrás hacer
+
+256
+00:10:53,039 --> 00:10:57,719
+una limpieza externa sobre todo en la
+
+257
+00:10:55,649 --> 00:11:00,089
+sección del ventilador y en breve
+
+258
+00:10:57,720 --> 00:11:02,369
+veremos el proceso para encenderla y
+
+259
+00:11:00,089 --> 00:11:03,900
+verificar que estén presentes las
+
+260
+00:11:02,369 --> 00:11:06,000
+distintas tensiones
+
+261
+00:11:03,899 --> 00:11:08,009
+hablando de tensiones tendremos una
+
+262
+00:11:06,000 --> 00:11:10,889
+variedad que nos será de mucha utilidad
+
+263
+00:11:08,009 --> 00:11:13,889
+para diversos proyectos cada color de
+
+264
+00:11:10,889 --> 00:11:15,929
+cable indica una atención diferente aquí
+
+265
+00:11:13,889 --> 00:11:19,439
+vemos que los cables de color naranja
+
+266
+00:11:15,929 --> 00:11:22,649
+tienen una atención de 3,3 volts los
+
+267
+00:11:19,440 --> 00:11:25,800
+cables de color rojo 5volts los de color
+
+268
+00:11:22,649 --> 00:11:28,740
+amarillo 12 y el cable y negro será la
+
+269
+00:11:25,799 --> 00:11:30,839
+referencia de massa o gene de el último
+
+270
+00:11:28,740 --> 00:11:34,110
+cable de color violeta suministra
+
+271
+00:11:30,840 --> 00:11:36,690
+también 5volts pero en modo standby o
+
+272
+00:11:34,110 --> 00:11:39,240
+espera es decir que ni bien conectamos
+
+273
+00:11:36,690 --> 00:11:41,970
+la fuente a suministro de red solo
+
+274
+00:11:39,240 --> 00:11:44,759
+estará presente la atención de espera no
+
+275
+00:11:41,970 --> 00:11:47,940
+estarán disponibles ni los 5 volts en
+
+276
+00:11:44,759 --> 00:11:50,069
+los cables de color rojo ni los 33 ni
+
+277
+00:11:47,940 --> 00:11:51,870
+los 12 para encender la fuente
+
+278
+00:11:50,070 --> 00:11:54,930
+propiamente dicha tendremos que
+
+279
+00:11:51,870 --> 00:11:57,929
+identificar el conector más grande de 20
+
+280
+00:11:54,929 --> 00:12:00,599
+ó 24 pines que es el que se conecta a la
+
+281
+00:11:57,929 --> 00:12:02,879
+placa madre de la computadora el cable
+
+282
+00:12:00,600 --> 00:12:06,600
+que nos interesa es el de color verde
+
+283
+00:12:02,879 --> 00:12:09,840
+que se lo denomina ps on power sap light
+
+284
+00:12:06,600 --> 00:12:11,909
+on y nos permite encender la fuente
+
+285
+00:12:09,840 --> 00:12:14,040
+y tener las tensiones en todos los
+
+286
+00:12:11,909 --> 00:12:16,889
+fieles con toda la potencia disponible
+
+287
+00:12:14,039 --> 00:12:19,409
+la forma de encenderla es muy simple
+
+288
+00:12:16,889 --> 00:12:23,490
+sólo debemos puentear con un trozo de
+
+289
+00:12:19,409 --> 00:12:26,039
+cable unipolar el cable verde ps on a
+
+290
+00:12:23,490 --> 00:12:28,440
+gene de cualquiera de los cables negros
+
+291
+00:12:26,039 --> 00:12:30,659
+justo a la derecha ya la izquierda del
+
+292
+00:12:28,440 --> 00:12:33,450
+cable verde tenemos cables negros
+
+293
+00:12:30,659 --> 00:12:36,029
+degenere así que simplemente colocamos
+
+294
+00:12:33,450 --> 00:12:39,720
+el puente de manera de tener conectados
+
+295
+00:12:36,029 --> 00:12:41,909
+bs on ag n de veras que ni bien hagas el
+
+296
+00:12:39,720 --> 00:12:44,639
+proceso el ventilador de la fuente
+
+297
+00:12:41,909 --> 00:12:46,889
+comienza a funcionar el cable del puente
+
+298
+00:12:44,639 --> 00:12:49,500
+debe mantenerse presente todo el tiempo
+
+299
+00:12:46,889 --> 00:12:52,559
+que deseamos tener la fuente encendida
+
+300
+00:12:49,500 --> 00:12:56,399
+si lo quitamos se apaga o mejor dicho
+
+301
+00:12:52,559 --> 00:12:59,459
+pasa a modo de espera stand by y solo el
+
+302
+00:12:56,399 --> 00:13:01,709
+cable violeta brindará 5 volts por
+
+303
+00:12:59,460 --> 00:13:04,379
+último nos resta ver la corriente que
+
+304
+00:13:01,710 --> 00:13:06,660
+nos brinda en cada riel de tensión la
+
+305
+00:13:04,379 --> 00:13:08,909
+información generalmente se encuentra en
+
+306
+00:13:06,659 --> 00:13:11,250
+una etiqueta y en alguno de los lados
+
+307
+00:13:08,909 --> 00:13:14,370
+del gabinete esta fuente en particular
+
+308
+00:13:11,250 --> 00:13:16,528
+es de 600 watts y la tuya puede ser de
+
+309
+00:13:14,370 --> 00:13:18,990
+mayor o menor potencia
+
+310
+00:13:16,528 --> 00:13:21,269
+pero en cualquier caso la corriente será
+
+311
+00:13:18,990 --> 00:13:24,629
+considerable enviamos en esta primera
+
+312
+00:13:21,269 --> 00:13:27,990
+columna nos indica que del riel de 33
+
+313
+00:13:24,629 --> 00:13:30,480
+volts podremos drenar hasta 16 samper de
+
+314
+00:13:27,990 --> 00:13:33,870
+corriente en la siguiente columna la
+
+315
+00:13:30,480 --> 00:13:37,019
+corriente del riel de 5 volts 22 samper
+
+316
+00:13:33,870 --> 00:13:39,419
+no es poca cosa verdad aquí para el riel
+
+317
+00:13:37,019 --> 00:13:44,009
+de 12 volts está separado en dos
+
+318
+00:13:39,419 --> 00:13:46,289
+columnas 12 b 1 y 12 b 2 y tiene que ver
+
+319
+00:13:44,009 --> 00:13:48,688
+con las versiones que existen de fuentes
+
+320
+00:13:46,289 --> 00:13:50,188
+ate x no es un parámetro que nos
+
+321
+00:13:48,688 --> 00:13:52,649
+interese por ahora
+
+322
+00:13:50,188 --> 00:13:55,698
+en definitiva el reel de 12 volts nos
+
+323
+00:13:52,649 --> 00:14:00,389
+brindará una corriente de hasta 38 amper
+
+324
+00:13:55,698 --> 00:14:02,909
+20 + 18 tendremos también un riel de 12
+
+325
+00:14:00,389 --> 00:14:06,089
+volts negativos con una poca corriente
+
+326
+00:14:02,909 --> 00:14:08,879
+de medio amper que nosotros no usaremos
+
+327
+00:14:06,089 --> 00:14:11,069
+y como verás la computadora tampoco
+
+328
+00:14:08,879 --> 00:14:13,499
+prácticamente lo hace por la poca
+
+329
+00:14:11,068 --> 00:14:17,639
+corriente que suministra y finalmente
+
+330
+00:14:13,499 --> 00:14:20,040
+los 5 volts de standby con 2 samper así
+
+331
+00:14:17,639 --> 00:14:22,560
+que sin siquiera encender la fuente con
+
+332
+00:14:20,039 --> 00:14:25,079
+sólo conectar la suministro de red
+
+333
+00:14:22,559 --> 00:14:28,109
+podríamos obtener hasta 2 am pero sobre
+
+334
+00:14:25,080 --> 00:14:30,150
+los 5 volts del cable violeta debajo de
+
+335
+00:14:28,110 --> 00:14:32,669
+la etiqueta está el recordatorio de los
+
+336
+00:14:30,149 --> 00:14:35,309
+colores que corresponden a cada riel
+
+337
+00:14:32,669 --> 00:14:37,799
+cabe destacar que todos los cables de un
+
+338
+00:14:35,309 --> 00:14:40,409
+mismo color salen en paralelo desde la
+
+339
+00:14:37,799 --> 00:14:43,169
+fuente es decir que podrás unir por
+
+340
+00:14:40,409 --> 00:14:45,750
+ejemplo múltiples cables de color rojo
+
+341
+00:14:43,169 --> 00:14:47,879
+poder obtener 5 volts un cable
+
+342
+00:14:45,750 --> 00:14:50,250
+individual no puede suministrar la
+
+343
+00:14:47,879 --> 00:14:52,710
+totalidad de la corriente del riel por
+
+344
+00:14:50,250 --> 00:14:55,019
+eso existen múltiples de ellos si
+
+345
+00:14:52,710 --> 00:14:58,050
+quisieras alimentar un circuito externo
+
+346
+00:14:55,019 --> 00:15:00,539
+con 12 volts y por ejemplo 10 samper de
+
+347
+00:14:58,049 --> 00:15:03,449
+consumo sería conveniente que hubieras
+
+348
+00:15:00,539 --> 00:15:05,490
+unos 3 cables de color amarillo para
+
+349
+00:15:03,450 --> 00:15:08,250
+distribuir la carga una aplicación
+
+350
+00:15:05,490 --> 00:15:10,320
+inmediata para una fuente de peces sería
+
+351
+00:15:08,250 --> 00:15:14,490
+por ejemplo lo analizado en el capítulo
+
+352
+00:15:10,320 --> 00:15:16,680
+33 con el motor bipolar nem a 17 el cual
+
+353
+00:15:14,490 --> 00:15:19,560
+aquí se puede ver la nota del diagrama
+
+354
+00:15:16,679 --> 00:15:23,849
+eléctrico donde la atención a aplicar al
+
+355
+00:15:19,559 --> 00:15:26,939
+driver a 49 88 es de 12 volts y una
+
+356
+00:15:23,850 --> 00:15:29,159
+corriente de 2 samper otro ejemplo sería
+
+357
+00:15:26,940 --> 00:15:32,970
+alimentar una tira larga
+
+358
+00:15:29,159 --> 00:15:34,919
+pixel como vimos en el capítulo 29 una
+
+359
+00:15:32,970 --> 00:15:36,959
+tira de 60 píxeles
+
+360
+00:15:34,919 --> 00:15:39,809
+en la nota habíamos analizado que
+
+361
+00:15:36,958 --> 00:15:43,318
+requería una fuente de 5 volts y una
+
+362
+00:15:39,809 --> 00:15:45,989
+corriente óptima de 36 samper ningún
+
+363
+00:15:43,318 --> 00:15:48,568
+tipo de problema para la fuente de pc es
+
+364
+00:15:45,990 --> 00:15:50,698
+capaz de esto y mucho más de ahí su
+
+365
+00:15:48,568 --> 00:15:53,099
+versatilidad a la hora de disponer de
+
+366
+00:15:50,698 --> 00:15:55,559
+varios rieles de tensión y un gran
+
+367
+00:15:53,100 --> 00:15:58,470
+suministro de corriente para recapitular
+
+368
+00:15:55,559 --> 00:16:00,359
+vimos distintas opciones a considerar a
+
+369
+00:15:58,470 --> 00:16:03,240
+la hora de alimentar nuestros proyectos
+
+370
+00:16:00,360 --> 00:16:06,120
+de arduino desde el cable usb hasta
+
+371
+00:16:03,240 --> 00:16:08,730
+pilas comunes recargables la batería
+
+372
+00:16:06,120 --> 00:16:11,730
+tipo power bank y finalmente la fuente
+
+373
+00:16:08,730 --> 00:16:14,789
+de pc en un futuro capítulo veremos en
+
+374
+00:16:11,730 --> 00:16:17,879
+detalle la conversión de cdc para
+
+375
+00:16:14,789 --> 00:16:20,669
+reducir o incrementar tensión como así
+
+376
+00:16:17,879 --> 00:16:23,250
+también las baterías de litio eso es
+
+377
+00:16:20,669 --> 00:16:25,490
+todo por este capítulo como siempre te
+
+378
+00:16:23,250 --> 00:16:29,039
+pido te suscribas si aún no lo has hecho
+
+379
+00:16:25,490 --> 00:16:31,230
+dale un me gusta 7 pareció interesante y
+
+380
+00:16:29,039 --> 00:16:34,049
+por cualquier duda comentario o
+
+381
+00:16:31,230 --> 00:16:35,490
+sugerencia lo podrás hacer debajo que
+
+382
+00:16:34,049 --> 00:16:39,259
+con gusto te responderé
+
+383
+00:16:35,490 --> 00:16:39,259
+chau y hasta la próxima
+

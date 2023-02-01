@@ -1,0 +1,24 @@
+Veremos las diferentes opciones para alimentar nuestros proyectos de Arduino 🔋, desde el simple cable USB conectado a la computadora, fuente externa de pared, pilas comunes y recargables, baterias tipo power bank hasta fuente de PC.
+
+Analizaremos las tensiones ideales no reguladas y como aprovechar una fuente de PC para suministrar alta corriente.
+
+Múltiples opciones para alimentar Arduino y tus proyectos.
+
+#ArduinoAlimentación
+#ArduinoFuentes
+#ArduinoBaterias
+Arduino alimentacion externa
+Arduino alimentacion 12v
+Alimentacion externa y USB
+Arduino poweb bank
+Como alimentar Arduino
+
+Marcas de tiempo:
+0:00 Introducción y objetivos
+0:25 Cable USB desde computadora o cargador
+1:42 Fuente de pared (entrada de tensión no regulada)
+4:45 Pilas comunes y recargables (diferencias)
+6:27 Batería de 9V (suministro limitado de corriente)
+7:12 Power Bank y batería Li-Ion
+10:14 Fuente de PC ATX (conexionado y arranque)
+15:54 Resumen de opciones vistas

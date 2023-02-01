@@ -1,0 +1,27 @@
+Una pantalla de 320 x 240 pixeles para mostrar texto y gráficos a color con fácil conexión a Arduino por bus SPI basada en el controlador ILI9341.
+Veremos como conectarla a Arduino, instalar las librerías necesarias y programas para mostrar texto dinámico y ejemplo de una interfaz de usuario para múltiples datos de sensores.
+
+Librería Adafruit GFX: https://learn.adafruit.com/adafruit-gfx-graphics-library/graphics-primitives
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#PantallaTFT
+#ArduinoDisplay
+#ArduinoLCD
+Arduino pantalla TFT
+Arduino pantalla TFT LCD 3.2 320x480
+Pantalla LCD TFT touch 2.4 Arduino UNO
+ILI9341 Arduino
+ILI9341 Arduino library
+Adafruit GFX library
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:34 Análisis detallado
+3:37 Esquemático de conexión
+7:25 Circuito de conexión (protoboard)
+9:59 Instalación de librerías
+11:06 Programa de ejemplo (incluído en librería)
+12:12 Primer programa (detalle de funciones)
+22:54 Segundo programa (panel personalizado)

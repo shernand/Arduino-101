@@ -1,0 +1,24 @@
+Un módulo infrarrojo para detectar el ritmo cardíaco (pulso) y calcular los latidos por minuto (heart beat) con Arduino de simple conexión, mediante programación podremos filtrar los datos obtenidos del módulo KY-039 y hacer un cálculo de los latidos por minuto (bpm) del corazón.
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoKit37en1
+#ArduinoRitmoCardiaco
+#ArduinoKY-039
+Heart Rate
+Arduino Pulsometro
+Pulsaciones por minuto
+Latidos del corazon
+Arduino pulso cardiaco
+Arduino contador de pulsos
+KY 039 heartbeat sensor
+
+
+Marcas de tiempo:
+0:00 Introducción y Componentes del módulo
+1:18 Circuito de conexión
+1:41 Primer programa e importancia de filtros
+11:02 Práctica y verificación de lo programado
+12:56 Resumen, limitaciones y despedida

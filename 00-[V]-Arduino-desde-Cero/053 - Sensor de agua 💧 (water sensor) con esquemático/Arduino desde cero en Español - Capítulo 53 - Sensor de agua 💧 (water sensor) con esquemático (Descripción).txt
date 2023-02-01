@@ -1,0 +1,24 @@
+Veremos cómo este simple sensor nos permite detectar la presencia de agua y tomar una acción con Arduino.
+Se explicará el principio de funcionamiento con su diagrama eléctrico (esquemático), conexión a Arduino mediante una entrada analógica y diversas experiencias prácticas como ser su inmersión en agua y la exposición a gotas de la misma.
+
+Un sensor que forma parte de gran cantidad de kits de inicio para Arduino.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoDesdeCero
+#ArduinoBasicos
+#WaterSensor
+#ArduinoPrimerosPasos
+Liquid Sensor
+Arduino water level sensor
+
+Marcas de tiempo:
+0:00 Introducción
+1:40 Esquemático detallado
+3:57 Circuito de conexión con Arduino
+4:17 Primer programa (variación de valores con nivel)
+7:54 Circuito de conexión para segunda experiencia
+8:34 Segundo programa (tomando una acción)
+10:12 Resumen y despedida

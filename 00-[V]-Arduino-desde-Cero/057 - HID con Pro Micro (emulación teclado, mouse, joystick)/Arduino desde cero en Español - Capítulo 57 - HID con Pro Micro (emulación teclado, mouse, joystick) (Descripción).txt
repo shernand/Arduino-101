@@ -1,0 +1,36 @@
+Utilizaremos la capacidad HID de la Arduino Pro Micro para emular un teclado, mouse y joystick ⌨️🖱🕹
+Veremos como en pocas líneas podemos enviar texto y emular atajos de teclado, desplazar el puntero del sistema y crear un mando de juegos con un joystick analógico y dos botones.
+
+Recomendable ver Capítulo 56: https://www.youtube.com/watch?v=9o_3I7us1yM
+
+Referencia de librería Keyboard: https://www.arduino.cc/reference/en/language/functions/usb/keyboard/
+
+Referencia de librería Mouse: https://www.arduino.cc/reference/en/language/functions/usb/mouse
+
+Librería Joystick: https://github.com/MHeironimus/ArduinoJoystickLibrary
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ProMicroHID
+#ArduinoHID
+#32u4
+Micro HID
+Macro Keyboard
+Arduino Pro Micro
+Arduino Pro Micro Joystick
+Arduino HID device
+Human Interface Device
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:36 Circuito Teclado y Mouse
+1:24 Primer programa (escribiendo texto)
+6:01 Segundo programa (atajos copiar y pegar)
+10:42 Tercer programa (moviendo el puntero)
+18:03 Cuarto programa (botones del mouse)
+20:39 Conexión para Joystick (analógico)
+21:29 Descarga librería Joystick
+22:41 Quinto programa (mando de juegos)
+28:34 Resumen y despedida

@@ -1,0 +1,31 @@
+Un módulo de 4 dígitos y 7 segmentos es el TM1637 especialmente diseñado para una fácil conexión a Arduino y visualización de datos numéricos, horarios y caracteres especiales.
+Veremos como tomar control total de los dígitos del display para mostrar números y un simple reloj sin necesidad de un RTC (reloj de tiempo real) externo, también como generar y mostrar caracteres especiales.
+
+
+Librería TM1637: https://github.com/avishorp/TM1637
+
+Librería TimeLib: https://github.com/PaulStoffregen/Time
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoTM1637
+#Arduino7segmentos
+#ArduinoDisplay
+tm1637 ejemplos
+tm1637 como funciona
+tm1637 arduino
+Arduino tm1637 clock
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:21 Características del TM1637
+1:01 Circuito de conexión
+1:42 Instalación de librería
+2:14 Primer programa (mostrando tiempo transcurrido)
+4:43 Segundo programa (funciones para mostrar información)
+10:26 Tercer programa (mostrando el horario)
+11:00 Instalación librería TimeLib
+17:45 Cuarto programa (caracteres especiales)
+21:15 Resumen y despedida

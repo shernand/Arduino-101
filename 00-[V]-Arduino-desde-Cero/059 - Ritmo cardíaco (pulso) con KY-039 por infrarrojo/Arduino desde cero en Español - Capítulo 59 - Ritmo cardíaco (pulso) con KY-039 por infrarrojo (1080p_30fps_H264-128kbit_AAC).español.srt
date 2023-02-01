@@ -1,0 +1,1268 @@
+1
+00:00:01,330 --> 00:00:07,299
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,810 --> 00:00:09,460
+59 de arduino desde cero en español
+
+3
+00:00:07,299 --> 00:00:12,609
+en esta oportunidad veremos el módulo
+
+4
+00:00:09,460 --> 00:00:15,519
+sensor de ritmo cardíaco casi 39 que
+
+5
+00:00:12,609 --> 00:00:17,439
+forma parte del kit de sensores 37 en 1
+
+6
+00:00:15,519 --> 00:00:20,079
+y podremos obtener los latidos por
+
+7
+00:00:17,439 --> 00:00:22,509
+minuto de forma relativamente fácil por
+
+8
+00:00:20,079 --> 00:00:24,879
+tratarse de un sensor básico el módulo
+
+9
+00:00:22,510 --> 00:00:27,519
+consta principalmente de dos componentes
+
+10
+00:00:24,879 --> 00:00:30,309
+un diodo emisor de luz infrarroja y un
+
+11
+00:00:27,518 --> 00:00:32,920
+foto transistor aquí la ubicación física
+
+12
+00:00:30,309 --> 00:00:35,079
+es importante ya que el led funcionará a
+
+13
+00:00:32,920 --> 00:00:37,480
+modo de emisor mientras que el foto
+
+14
+00:00:35,079 --> 00:00:39,399
+transistor del receptor de dicha luz
+
+15
+00:00:37,479 --> 00:00:42,159
+quizás cuando adquiriste el kit de
+
+16
+00:00:39,399 --> 00:00:44,769
+sensores este módulo vino algo deformado
+
+17
+00:00:42,159 --> 00:00:46,839
+probablemente aplastado en la parte del
+
+18
+00:00:44,770 --> 00:00:48,670
+led infrarrojo de manera que tendrás que
+
+19
+00:00:46,840 --> 00:00:51,070
+ubicarlo de la manera en que se muestra
+
+20
+00:00:48,670 --> 00:00:53,679
+en pantalla esto es porque entre emisor
+
+21
+00:00:51,070 --> 00:00:56,020
+y receptor colocaremos nuestro dedo para
+
+22
+00:00:53,679 --> 00:00:58,689
+poder medir el ritmo cardíaco la luz
+
+23
+00:00:56,020 --> 00:01:01,000
+emitida por el led infrarrojo invisible
+
+24
+00:00:58,689 --> 00:01:02,890
+a la vista humana atraviesa el dedo y es
+
+25
+00:01:01,000 --> 00:01:05,109
+captada parcialmente por el foto
+
+26
+00:01:02,890 --> 00:01:07,329
+transistor de esa manera las leves
+
+27
+00:01:05,109 --> 00:01:08,170
+variaciones que se producen en el flujo
+
+28
+00:01:07,329 --> 00:01:10,539
+sanguíneo
+
+29
+00:01:08,170 --> 00:01:12,849
+eran una variación en la luz captada por
+
+30
+00:01:10,540 --> 00:01:15,400
+el receptor y luego la traduciremos por
+
+31
+00:01:12,849 --> 00:01:17,048
+programación en latidos por minuto de
+
+32
+00:01:15,400 --> 00:01:19,780
+manera que veamos el circuito de
+
+33
+00:01:17,049 --> 00:01:21,670
+conexión arduino de forma muy simple el
+
+34
+00:01:19,780 --> 00:01:24,250
+pin de la izquierda del módulo con la
+
+35
+00:01:21,670 --> 00:01:27,039
+identificación s lo conectaremos con un
+
+36
+00:01:24,250 --> 00:01:29,560
+cable directo a la entrada analógica a 0
+
+37
+00:01:27,039 --> 00:01:32,140
+de arduino del pin del medio del módulo
+
+38
+00:01:29,560 --> 00:01:34,180
+a 5 volts de arduino y del pin de la
+
+39
+00:01:32,140 --> 00:01:36,759
+derecha con la identificación del signo
+
+40
+00:01:34,180 --> 00:01:39,009
+menos a gene de como siempre en esta
+
+41
+00:01:36,759 --> 00:01:41,289
+nota aparece el resumen de conexiones
+
+42
+00:01:39,009 --> 00:01:42,728
+este es el programa que utilizaremos y
+
+43
+00:01:41,289 --> 00:01:44,739
+aunque parezca intimidante en un
+
+44
+00:01:42,728 --> 00:01:47,319
+principio lo analizaremos línea por
+
+45
+00:01:44,739 --> 00:01:49,209
+línea como es usual resulta que leer la
+
+46
+00:01:47,319 --> 00:01:51,460
+entrada analógica a donde se encuentra
+
+47
+00:01:49,209 --> 00:01:53,649
+conectado a la señal del módulo produce
+
+48
+00:01:51,459 --> 00:01:55,928
+valores donde es necesario obtener el
+
+49
+00:01:53,649 --> 00:01:58,780
+pico del mismo y luego calcular el
+
+50
+00:01:55,929 --> 00:02:01,329
+tiempo hasta el próximo pico es decir el
+
+51
+00:01:58,780 --> 00:02:03,189
+tiempo entre los pulsos cardíacos si
+
+52
+00:02:01,329 --> 00:02:05,798
+contamos la cantidad de pulsos en un
+
+53
+00:02:03,189 --> 00:02:08,019
+periodo de 15 segundos y dicho valor lo
+
+54
+00:02:05,799 --> 00:02:10,239
+multiplicamos por 4 tendremos la
+
+55
+00:02:08,019 --> 00:02:12,909
+cantidad de pulsos o latidos por minuto
+
+56
+00:02:10,239 --> 00:02:14,680
+aquí al principio tenemos una serie de
+
+57
+00:02:12,909 --> 00:02:17,289
+variables que usaremos para
+
+58
+00:02:14,680 --> 00:02:19,269
+la señal y hacer algunos cálculos de
+
+59
+00:02:17,289 --> 00:02:21,578
+tiempo pero avancemos primero para
+
+60
+00:02:19,269 --> 00:02:24,340
+entender el concepto general en el setup
+
+61
+00:02:21,579 --> 00:02:26,230
+simplemente establecemos al pin 13 como
+
+62
+00:02:24,340 --> 00:02:28,598
+salida donde arduino tiene el led
+
+63
+00:02:26,229 --> 00:02:30,818
+incorporado haremos que encienda cada
+
+64
+00:02:28,598 --> 00:02:33,009
+vez que detectamos un latido y de esa
+
+65
+00:02:30,818 --> 00:02:35,500
+forma tener una indicación visual
+
+66
+00:02:33,009 --> 00:02:38,798
+luego inicializa mos en el monitor serie
+
+67
+00:02:35,500 --> 00:02:41,769
+a 9.600 bps y mostramos el texto
+
+68
+00:02:38,799 --> 00:02:43,959
+iniciando mediciones ya en el loop vamos
+
+69
+00:02:41,769 --> 00:02:47,319
+a declarar una variable con el nombre
+
+70
+00:02:43,959 --> 00:02:50,319
+tiempo l pm lpm por las siglas de
+
+71
+00:02:47,318 --> 00:02:53,289
+latidos por minuto será del tipo ansa
+
+72
+00:02:50,318 --> 00:02:56,108
+jmg long de 32 bits y le asignamos el
+
+73
+00:02:53,289 --> 00:02:58,598
+valor devuelto por la función miles mil
+
+74
+00:02:56,109 --> 00:03:00,519
+isla estaremos usando bastante ya que en
+
+75
+00:02:58,598 --> 00:03:02,918
+la forma que tenemos de medir el tiempo
+
+76
+00:03:00,519 --> 00:03:04,900
+entre determinados eventos al devolver
+
+77
+00:03:02,919 --> 00:03:06,879
+la cantidad de milisegundos desde
+
+78
+00:03:04,900 --> 00:03:09,370
+iniciado el programa podemos llamar a la
+
+79
+00:03:06,878 --> 00:03:12,310
+función en distintos momentos y al hacer
+
+80
+00:03:09,370 --> 00:03:14,530
+una resta del valor actual con un valor
+
+81
+00:03:12,310 --> 00:03:17,109
+anteriormente almacenado tendremos como
+
+82
+00:03:14,530 --> 00:03:19,120
+resultado el tiempo transcurrido luego
+
+83
+00:03:17,109 --> 00:03:21,159
+una variable del mismo tipo pero con el
+
+84
+00:03:19,120 --> 00:03:23,379
+nombre entre latidos
+
+85
+00:03:21,159 --> 00:03:25,840
+le asignamos el valor devuelto por miles
+
+86
+00:03:23,379 --> 00:03:27,969
+en definitiva en ambas variables tenemos
+
+87
+00:03:25,840 --> 00:03:30,219
+un punto de referencia inicial a
+
+88
+00:03:27,969 --> 00:03:32,289
+continuación en la variable entera valor
+
+89
+00:03:30,219 --> 00:03:35,680
+leído le cargamos el valor de la entrada
+
+90
+00:03:32,289 --> 00:03:38,169
+analógica a 0 con analog ruido recordad
+
+91
+00:03:35,680 --> 00:03:41,379
+que anna logró y devuelve valores entre
+
+92
+00:03:38,169 --> 00:03:44,229
+0 y 1000 23 que corresponden a tensiones
+
+93
+00:03:41,379 --> 00:03:47,019
+entre cero y cinco volts respectivamente
+
+94
+00:03:44,229 --> 00:03:48,639
+al ser un conversor analógico digital de
+
+95
+00:03:47,020 --> 00:03:50,080
+10 bits y ahora viene la parte
+
+96
+00:03:48,639 --> 00:03:52,209
+importante que nos permitirá
+
+97
+00:03:50,080 --> 00:03:54,460
+acondicionar la señal de ida de la
+
+98
+00:03:52,210 --> 00:03:57,070
+entrada analógica esta línea es lo que
+
+99
+00:03:54,460 --> 00:03:58,750
+se denomina un filtro pasa a bajos la
+
+100
+00:03:57,069 --> 00:04:01,479
+idea es que la señal que estamos leyendo
+
+101
+00:03:58,750 --> 00:04:04,060
+varía de forma muy rápida y queremos que
+
+102
+00:04:01,479 --> 00:04:06,399
+la variación sea menor sin introducir
+
+103
+00:04:04,060 --> 00:04:07,979
+demoras ya que dependemos también de un
+
+104
+00:04:06,400 --> 00:04:10,120
+cálculo de tiempos relativamente
+
+105
+00:04:07,979 --> 00:04:12,159
+precisos para entender mejor el
+
+106
+00:04:10,120 --> 00:04:14,950
+funcionamiento veamos esta nota al
+
+107
+00:04:12,159 --> 00:04:18,969
+margen esta es la fórmula del filtro un
+
+108
+00:04:14,949 --> 00:04:22,300
+factor x el valor anterior y sumado a 1
+
+109
+00:04:18,970 --> 00:04:24,970
+- el factor y multiplicado por el valor
+
+110
+00:04:22,300 --> 00:04:27,460
+leído factor lo definimos al principio
+
+111
+00:04:24,970 --> 00:04:31,180
+del programa como una variable tipo flow
+
+112
+00:04:27,459 --> 00:04:34,959
+y un valor de 0 75 entonces esta línea
+
+113
+00:04:31,180 --> 00:04:39,009
+queda reducida a 0 75 por el valor
+
+114
+00:04:34,959 --> 00:04:41,109
+anterior más 0 25 por el valor leído el
+
+115
+00:04:39,009 --> 00:04:43,660
+resultado se asigna a una variable con
+
+116
+00:04:41,110 --> 00:04:46,538
+el nombre valor filtrado y estará
+
+117
+00:04:43,660 --> 00:04:50,020
+constituido por un 75% del valor
+
+118
+00:04:46,538 --> 00:04:52,589
+anterior y un 25% del valor leído
+
+119
+00:04:50,019 --> 00:04:57,189
+recordad que multiplicar un número por
+
+120
+00:04:52,589 --> 00:04:57,758
+0.75 es lo mismo que decir el 75% del
+
+121
+00:04:57,189 --> 00:05:01,990
+mismo
+
+122
+00:04:57,759 --> 00:05:04,270
+multiplicar por 025 es el 25% valor
+
+123
+00:05:01,990 --> 00:05:06,728
+anterior lo cargamos al principio con un
+
+124
+00:05:04,269 --> 00:05:08,918
+valor de 500 500 porque está
+
+125
+00:05:06,728 --> 00:05:11,050
+aproximadamente en el centro de los
+
+126
+00:05:08,918 --> 00:05:14,409
+valores que podemos leer de una entrada
+
+127
+00:05:11,050 --> 00:05:16,840
+0 a 1.023 la idea detrás de todo esto es
+
+128
+00:05:14,410 --> 00:05:20,560
+obtener un valor que lo llamamos valor
+
+129
+00:05:16,839 --> 00:05:23,649
+filtrado que esté constituido por un 75%
+
+130
+00:05:20,560 --> 00:05:26,259
+del valor anterior y un 25% del valor
+
+131
+00:05:23,649 --> 00:05:29,198
+leído como este último es el que varía
+
+132
+00:05:26,259 --> 00:05:31,780
+muy rápidamente valor filtrado varía más
+
+133
+00:05:29,199 --> 00:05:33,000
+lentamente de allí el nombre de filtro
+
+134
+00:05:31,779 --> 00:05:36,209
+pasa bajos
+
+135
+00:05:33,000 --> 00:05:38,310
+anterior lo iniciamos con 500 solo como
+
+136
+00:05:36,209 --> 00:05:40,469
+una referencia inicial pero como el loop
+
+137
+00:05:38,310 --> 00:05:42,810
+repite constantemente estaremos
+
+138
+00:05:40,470 --> 00:05:45,240
+actualizando este valor de manera que
+
+139
+00:05:42,810 --> 00:05:48,839
+las variaciones rápidas del valor leído
+
+140
+00:05:45,240 --> 00:05:52,500
+de la entrada son filtrados como un 75%
+
+141
+00:05:48,839 --> 00:05:54,869
+del valor anterior y sólo un 25% del
+
+142
+00:05:52,500 --> 00:05:57,029
+valor actual aquí la idea es que tengas
+
+143
+00:05:54,870 --> 00:05:59,730
+el concepto básico igual quedará más
+
+144
+00:05:57,029 --> 00:06:01,379
+claro a medida que veamos otras líneas a
+
+145
+00:05:59,730 --> 00:06:03,840
+partir de ahora continuaremos con el
+
+146
+00:06:01,379 --> 00:06:06,569
+valor filtrado para extraer del mismo el
+
+147
+00:06:03,839 --> 00:06:08,909
+valor máximo y calcular el tiempo entre
+
+148
+00:06:06,569 --> 00:06:10,949
+los mismos declaramos aquí mismo una
+
+149
+00:06:08,910 --> 00:06:13,080
+variable con el nombre cambio y le
+
+150
+00:06:10,949 --> 00:06:15,959
+cargamos el valor de la resta entre
+
+151
+00:06:13,079 --> 00:06:18,029
+valor filtrado y valor anterior de
+
+152
+00:06:15,959 --> 00:06:20,939
+manera de obtener la diferencia entre
+
+153
+00:06:18,029 --> 00:06:23,399
+ambos y finalmente actualizamos valor
+
+154
+00:06:20,939 --> 00:06:25,589
+anterior con el valor filtrado así
+
+155
+00:06:23,399 --> 00:06:28,168
+cuando él lo que repita el proceso queda
+
+156
+00:06:25,589 --> 00:06:31,019
+en valor anterior un dato actualizado y
+
+157
+00:06:28,168 --> 00:06:33,359
+con cada iteración iremos ajustando este
+
+158
+00:06:31,019 --> 00:06:36,449
+valor este condicional pregunta por dos
+
+159
+00:06:33,360 --> 00:06:39,330
+condiciones si cambio es mayor o igual a
+
+160
+00:06:36,449 --> 00:06:39,779
+máximo máximo lo declaramos al principio
+
+161
+00:06:39,329 --> 00:06:42,689
+con un
+
+162
+00:06:39,779 --> 00:06:44,849
+inicial de 0 nuevamente es solo como
+
+163
+00:06:42,689 --> 00:06:46,620
+referencia para comenzar luego se irá
+
+164
+00:06:44,850 --> 00:06:49,169
+actualizando a medida que corre el
+
+165
+00:06:46,620 --> 00:06:52,379
+programa la segunda condición llama a la
+
+166
+00:06:49,168 --> 00:06:55,620
+función mi list y consulta si es mayor a
+
+167
+00:06:52,379 --> 00:06:58,290
+la suma de entre latidos y mínimo entre
+
+168
+00:06:55,620 --> 00:07:00,810
+latidos entre latidos tiene el valor de
+
+169
+00:06:58,290 --> 00:07:03,480
+mil it's al inicio del loop y mínimo
+
+170
+00:07:00,810 --> 00:07:06,660
+entre latidos es un valor fijo de 300
+
+171
+00:07:03,480 --> 00:07:09,030
+300 milisegundos como indica el nombre
+
+172
+00:07:06,660 --> 00:07:11,790
+de la variable definimos un tiempo que
+
+173
+00:07:09,029 --> 00:07:14,189
+lo consideramos mínimo entre latidos ten
+
+174
+00:07:11,790 --> 00:07:17,010
+en cuenta que 300 milisegundos entre
+
+175
+00:07:14,189 --> 00:07:19,860
+latidos equivale aproximadamente unos
+
+176
+00:07:17,009 --> 00:07:22,168
+180 latidos por minuto con lo cual
+
+177
+00:07:19,860 --> 00:07:24,480
+estamos poniendo un límite diciendo que
+
+178
+00:07:22,168 --> 00:07:27,060
+si hay un ritmo cardíaco mayor a 180
+
+179
+00:07:24,480 --> 00:07:29,310
+latidos por minuto lo tomaremos como
+
+180
+00:07:27,060 --> 00:07:32,040
+inválido claro que el latido puede ser
+
+181
+00:07:29,310 --> 00:07:34,110
+superior a 180 en condiciones de alta
+
+182
+00:07:32,040 --> 00:07:36,540
+exigencia física pero es un límite
+
+183
+00:07:34,110 --> 00:07:39,569
+razonable un corazón en estado de reposo
+
+184
+00:07:36,540 --> 00:07:42,419
+estará cerca de 70 latidos por minuto
+
+185
+00:07:39,569 --> 00:07:43,918
+este valor de 300 lo podría reducir sin
+
+186
+00:07:42,418 --> 00:07:45,750
+problemas pero incrementa las
+
+187
+00:07:43,918 --> 00:07:46,799
+posibilidades de errores en la lectura
+
+188
+00:07:45,750 --> 00:07:49,019
+todos
+
+189
+00:07:46,800 --> 00:07:51,478
+los asignados se pueden modificar y
+
+190
+00:07:49,019 --> 00:07:53,878
+ajustar según tu criterio pero por
+
+191
+00:07:51,478 --> 00:07:56,219
+experiencia personal estos van bien para
+
+192
+00:07:53,879 --> 00:07:59,069
+la mayoría de casos en definitiva toda
+
+193
+00:07:56,220 --> 00:08:01,139
+esta línea dice si el cambio es mayor o
+
+194
+00:07:59,069 --> 00:08:03,740
+igual al valor máximo y si
+
+195
+00:08:01,139 --> 00:08:06,449
+transcurrieron al menos 300 milisegundos
+
+196
+00:08:03,740 --> 00:08:08,430
+entonces hemos encontrado un pulso
+
+197
+00:08:06,449 --> 00:08:10,650
+válido ingresamos a la condición
+
+198
+00:08:08,430 --> 00:08:12,449
+verdadera del condicional que actualiza
+
+199
+00:08:10,649 --> 00:08:14,728
+el valor de máximo por el valor de
+
+200
+00:08:12,449 --> 00:08:17,069
+cambio dejando todo preparado para la
+
+201
+00:08:14,728 --> 00:08:19,800
+próxima lectura encendemos el led
+
+202
+00:08:17,069 --> 00:08:22,080
+incorporado en la placa sobre el pin 13
+
+203
+00:08:19,800 --> 00:08:24,060
+para tener una indicación visual claro
+
+204
+00:08:22,079 --> 00:08:26,728
+que no es algo obligatorio pero no viene
+
+205
+00:08:24,060 --> 00:08:28,769
+mal luego a la variable entre latidos le
+
+206
+00:08:26,728 --> 00:08:31,258
+cargamos el valor actualizado de miles
+
+207
+00:08:28,769 --> 00:08:33,478
+recordad que emily siempre devuelve un
+
+208
+00:08:31,259 --> 00:08:36,060
+valor que incrementa con el tiempo por
+
+209
+00:08:33,479 --> 00:08:38,219
+eso mil islas llamamos varias veces para
+
+210
+00:08:36,059 --> 00:08:40,288
+obtener el tiempo transcurrido actual o
+
+211
+00:08:38,219 --> 00:08:41,490
+para usarlo como diferencia con otra
+
+212
+00:08:40,288 --> 00:08:43,408
+referencia anterior
+
+213
+00:08:41,490 --> 00:08:45,750
+finalmente ya que tenemos un latido
+
+214
+00:08:43,408 --> 00:08:48,480
+válido incrementamos la variable del
+
+215
+00:08:45,750 --> 00:08:51,149
+mismo nombre en uno en resumen vamos
+
+216
+00:08:48,480 --> 00:08:53,639
+contando los latidos la condición falsa
+
+217
+00:08:51,149 --> 00:08:56,370
+de condicional equivalente aquí no
+
+218
+00:08:53,639 --> 00:08:58,470
+encontrado un latido o valor máximo
+
+219
+00:08:56,370 --> 00:09:02,009
+simplemente apaga el led aquí
+
+220
+00:08:58,470 --> 00:09:03,389
+actualizamos el valor máximo como un 97%
+
+221
+00:09:02,009 --> 00:09:07,409
+del mismo y esto lo logramos
+
+222
+00:09:03,389 --> 00:09:09,389
+multiplicando por 0 97 es necesario ya
+
+223
+00:09:07,409 --> 00:09:11,759
+que si nos quedamos sólo con el valor
+
+224
+00:09:09,389 --> 00:09:13,949
+máximo la próxima vez que hagamos una
+
+225
+00:09:11,759 --> 00:09:16,470
+lectura puede que el pico de la señal
+
+226
+00:09:13,950 --> 00:09:19,170
+tenga un valor ligeramente inferior a
+
+227
+00:09:16,470 --> 00:09:21,690
+este valor máximo y de esa manera no lo
+
+228
+00:09:19,169 --> 00:09:25,079
+detectaríamos por eso es necesario dejar
+
+229
+00:09:21,690 --> 00:09:27,090
+de caer lentamente el valor máximo y ya
+
+230
+00:09:25,080 --> 00:09:29,610
+casi terminamos el programa lo más
+
+231
+00:09:27,090 --> 00:09:32,250
+importante es que luego del filtro y si
+
+232
+00:09:29,610 --> 00:09:34,769
+se dio la condición contamos la cantidad
+
+233
+00:09:32,250 --> 00:09:36,990
+de latidos pero nosotros nos interesa la
+
+234
+00:09:34,769 --> 00:09:39,929
+cantidad de latidos en un periodo de 1
+
+235
+00:09:36,990 --> 00:09:42,240
+minuto 60 segundos entonces en este
+
+236
+00:09:39,929 --> 00:09:44,609
+condicional volvemos a llamar a mi list
+
+237
+00:09:42,240 --> 00:09:48,480
+y consultamos si es mayor o igual a
+
+238
+00:09:44,610 --> 00:09:50,789
+tiempo l pm más 15.000 15000 porque
+
+239
+00:09:48,480 --> 00:09:53,370
+estaremos contando los latidos en 15
+
+240
+00:09:50,789 --> 00:09:56,099
+segundos luego multiplicando por 4
+
+241
+00:09:53,370 --> 00:09:58,200
+obtendremos el valor por minuto esto
+
+242
+00:09:56,100 --> 00:10:00,120
+para no tener que estar tanto tiempo sin
+
+243
+00:09:58,200 --> 00:10:03,000
+mostrar valores en él
+
+244
+00:10:00,120 --> 00:10:05,370
+serie escribimos en el mismo con serial
+
+245
+00:10:03,000 --> 00:10:08,220
+punto print el texto latidos por minuto
+
+246
+00:10:05,370 --> 00:10:11,070
+y con serie el punto pin line y el valor
+
+247
+00:10:08,220 --> 00:10:12,720
+de latidos multiplicado por cuatro ahora
+
+248
+00:10:11,070 --> 00:10:15,690
+es cuestión de volver a colocar la
+
+249
+00:10:12,720 --> 00:10:18,629
+variable latidos en 0 nuevamente y
+
+250
+00:10:15,690 --> 00:10:21,420
+actualizar con el tiempo actual tiempo l
+
+251
+00:10:18,629 --> 00:10:24,269
+pm sólo queda una línea de código y es
+
+252
+00:10:21,419 --> 00:10:26,519
+una demora de 50 milisegundos todas las
+
+253
+00:10:24,269 --> 00:10:28,949
+líneas anteriores arduino las procesa
+
+254
+00:10:26,519 --> 00:10:31,889
+con gran rapidez estos 50 milisegundos
+
+255
+00:10:28,950 --> 00:10:33,540
+son básicamente la demora más grande que
+
+256
+00:10:31,889 --> 00:10:36,088
+introducimos todo lo anterior
+
+257
+00:10:33,539 --> 00:10:38,969
+prácticamente no se cuenta o está en el
+
+258
+00:10:36,089 --> 00:10:40,980
+orden de los microsegundos y ese es todo
+
+259
+00:10:38,970 --> 00:10:43,050
+el programa ya sé que no es de los más
+
+260
+00:10:40,980 --> 00:10:45,360
+sencillos pero es necesario para
+
+261
+00:10:43,049 --> 00:10:47,819
+acondicionar el valor leído de un módulo
+
+262
+00:10:45,360 --> 00:10:50,490
+de construcción básica y obtener un
+
+263
+00:10:47,820 --> 00:10:52,470
+valor relativamente adecuado debe quedar
+
+264
+00:10:50,490 --> 00:10:55,080
+claro en este punto que no se trata de
+
+265
+00:10:52,470 --> 00:10:57,389
+un método preciso de medición y nunca
+
+266
+00:10:55,080 --> 00:11:00,240
+debe ser utilizado a modo de diagnóstico
+
+267
+00:10:57,389 --> 00:11:02,490
+médico muy bien vamos a verificar subir
+
+268
+00:11:00,240 --> 00:11:04,830
+el programa y abrir el monitor serie
+
+269
+00:11:02,490 --> 00:11:06,360
+recomiendo que ubique el módulo sobre
+
+270
+00:11:04,830 --> 00:11:08,820
+una superficie plana
+
+271
+00:11:06,360 --> 00:11:11,278
+con un poco de cinta en los cables de
+
+272
+00:11:08,820 --> 00:11:14,190
+conexión con arduino luego ubicar el
+
+273
+00:11:11,278 --> 00:11:16,620
+dedo sin ejercer una gran presión sobre
+
+274
+00:11:14,190 --> 00:11:18,690
+el foto transistor de la manera en que
+
+275
+00:11:16,620 --> 00:11:20,940
+se ve en la imagen para obtener valores
+
+276
+00:11:18,690 --> 00:11:23,790
+válidos deberemos esperar por al menos
+
+277
+00:11:20,940 --> 00:11:26,310
+tres lecturas luego de colocado el dedo
+
+278
+00:11:23,789 --> 00:11:28,319
+en el módulo ya vimos en detalle cómo es
+
+279
+00:11:26,309 --> 00:11:30,539
+necesario que transcurra el tiempo para
+
+280
+00:11:28,320 --> 00:11:33,000
+ir ajustando automáticamente los valores
+
+281
+00:11:30,539 --> 00:11:34,980
+y detectar así los latidos veremos que
+
+282
+00:11:33,000 --> 00:11:37,078
+en el monitor serie se actualizan los
+
+283
+00:11:34,980 --> 00:11:39,329
+datos cada 15 segundos
+
+284
+00:11:37,078 --> 00:11:42,949
+la cuarta lectura está que comenzaremos
+
+285
+00:11:39,328 --> 00:11:42,949
+a considerar válida
+
+286
+00:12:02,769 --> 00:12:07,629
+vemos que dice 76 lo cual parece
+
+287
+00:12:05,739 --> 00:12:09,639
+correcto para un ritmo en reposo
+
+288
+00:12:07,629 --> 00:12:11,069
+nuevamente deberíamos esperar para que
+
+289
+00:12:09,639 --> 00:12:15,119
+se muestren valores actualizados
+
+290
+00:12:11,068 --> 00:12:15,118
+tratando de no mover el dedo
+
+291
+00:12:18,919 --> 00:12:24,429
+ahora muestra un valor de 80 con lo cual
+
+292
+00:12:21,828 --> 00:12:28,250
+ya podemos decir que el ritmo está entre
+
+293
+00:12:24,429 --> 00:12:30,909
+76 y 80 podemos continuar y esperar por
+
+294
+00:12:28,250 --> 00:12:30,909
+más valores
+
+295
+00:12:32,419 --> 00:12:37,699
+ahora aparece nuevamente 76 en caso de
+
+296
+00:12:36,169 --> 00:12:40,039
+que no veas valores relativamente
+
+297
+00:12:37,700 --> 00:12:42,230
+estables podrás por ejemplo ver de
+
+298
+00:12:40,039 --> 00:12:44,419
+ubicar el módulo en un lugar con una
+
+299
+00:12:42,230 --> 00:12:46,399
+iluminación más baja ya que la que
+
+300
+00:12:44,419 --> 00:12:48,740
+tengas en tu ambiente puede afectar la
+
+301
+00:12:46,399 --> 00:12:51,019
+lectura nuevamente no es un sensor de
+
+302
+00:12:48,740 --> 00:12:53,149
+precisión y no hace falta recordar el
+
+303
+00:12:51,019 --> 00:12:55,220
+proceso arduo que tuvimos que realizar
+
+304
+00:12:53,149 --> 00:12:57,049
+en programación para obtener valores
+
+305
+00:12:55,220 --> 00:12:59,629
+adecuados y eso es todo por este
+
+306
+00:12:57,049 --> 00:13:02,240
+capítulo vimos un módulo más del kit de
+
+307
+00:12:59,629 --> 00:13:04,850
+sensores 37 en uno y algunos conceptos
+
+308
+00:13:02,240 --> 00:13:06,919
+de programación y seguramente serán de
+
+309
+00:13:04,850 --> 00:13:09,110
+utilidad para otros proyectos donde se
+
+310
+00:13:06,919 --> 00:13:11,719
+debe acondicionar algún valor de una
+
+311
+00:13:09,110 --> 00:13:13,250
+entrada analógica como siempre te pido
+
+312
+00:13:11,720 --> 00:13:15,440
+te suscribas si aún no lo has hecho
+
+313
+00:13:13,250 --> 00:13:17,269
+darle un me gusta si te pareció
+
+314
+00:13:15,440 --> 00:13:19,670
+interesante y por cualquier duda o
+
+315
+00:13:17,269 --> 00:13:22,519
+comentario lo podrás hacer debajo que
+
+316
+00:13:19,669 --> 00:13:24,729
+con gusto te responderé chau y hasta la
+
+317
+00:13:22,519 --> 00:13:24,730
+próxima
+

@@ -1,0 +1,32 @@
+Un modelo de placa Arduino diferente con el microcontrolador 32u4 con capacidad HID que permite emular el funcionamiento de un teclado, mouse o joystick.
+Veremos las diferencias con modelos más tradicionales y la incorporación nativa de USB que permite que el sistema operativo la detecte como un dispositivo de interfaz humana (HID)
+
+La instalación paso a paso de los controladores (drivers) y carga de un primer programa vislumbrando las posibilidades a analizar en el próximo capítulo.
+
+Controlador (driver): https://learn.sparkfun.com/tutorials/pro-micro--fio-v3-hookup-guide/all#installing-windows
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoProMicro
+#ArduinoHID
+#32u4
+#DriverProMicro
+#EmulacionUSB
+#ArduinoEmulaTeclado
+#ArduinoEmulaMouse
+#ArduinoEmulaJoystick
+Pro micro getting started
+Arduino Pro Micro teclado
+Arduino Pro Micro joystick
+Arduino Pro Micro atmega32u4
+Arduino keyboard emulator
+
+Marcas de tiempo:
+0:00 Introducción
+0:20 Características destacadas 32u4
+1:30 Distribución de pines y funciones
+5:40 Descarga de controlador
+9:35 Primer programa de prueba
+11:15 Resumen e invitación a Capítulo 57 HID

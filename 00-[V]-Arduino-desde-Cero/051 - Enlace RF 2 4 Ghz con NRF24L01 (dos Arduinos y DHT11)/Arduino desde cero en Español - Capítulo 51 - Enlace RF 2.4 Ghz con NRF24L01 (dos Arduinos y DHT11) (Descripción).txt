@@ -1,0 +1,28 @@
+Usaremos los módulos NRF24L01 para realizar un enlace de radiofrecuencia a 2.4 Ghz entre dos Arduinos para intercambiar mensajes y obtener datos remotos de un sensor de temperatura y humedad DHT11.
+Veremos en detalle ambos extremos de un enlace de RF con los económicos y confiables transceptores NRF24L01, su conexión a Arduino mediante bus serie SPI y la alimentación con regulador de tensión LD111733V (LD33V) para asegurar un adecuado suministro de corriente.
+
+Librería RadioHead: http://www.airspayce.com/mikem/arduino/RadioHead/
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoNRF24L01
+#ArduinoRF
+Arduino nrf24l01 bidirectional communication
+Comunicacion nrf24l01 Arduino
+nrf24l01 arduino español
+Libreria nrf24l01
+Arduino radiofrecuencia
+Arduino separar string
+
+Marcas de tiempo:
+0:00 Introducción y Componentes del módulo
+2:50 Diagrama de programas a poner en práctica
+4:11 Circuito de conexión
+8:37 Descarga de librería
+9:39 Primer programa (Lado Base)
+19:05 Primer programa (Lado Remoto)
+22:47 Circuito de conexión para segunda experiencia
+23:41 Segundo programa (Lado Remoto)
+26:59 Segundo programa (Lado Base)
+35:49 Variante módulo + LNA
