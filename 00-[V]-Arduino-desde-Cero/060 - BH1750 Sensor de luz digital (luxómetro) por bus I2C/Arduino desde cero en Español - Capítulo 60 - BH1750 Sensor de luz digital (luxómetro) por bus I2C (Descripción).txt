@@ -1,0 +1,29 @@
+Sensor para la medición de intensidad de luz de alta precisión calibrado en lux (luxómetro) es el BH1750 de simple conexión a Arduino mediante bus I2C.
+Veremos la unidad de medida (lux), ejemplos prácticos y medición de intensidad de luz ambiente y un simple interruptor crepuscular como sustituto (de lujo) a la LDR.
+
+Librería BH1750: https://github.com/claws/BH1750
+
+
+Código fuente de los programas visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoSensorLuz
+#ArduinoLuxometro
+#ArduinoBH1750
+Sensor Luz Digital
+Arduino Luxometer
+Arduino Lumen
+Light intensity
+Sensor luz ambiental arduino
+Sensor luminosidad
+
+Marcas de tiempo:
+
+0:00 Bienvenida e introducción
+0:50 Definición de Lux
+2:44 Circuito de conexión
+4:00 Descarga de librería BH1750
+4:38 Primer programa (obteniendo valores)
+9:08 Circuito de conexión para segunda experiencia
+9:42 Segundo programa (interruptor crepuscular)
+13:06 Conclusiones y despedida

@@ -1,0 +1,1364 @@
+1
+00:00:01,120 --> 00:00:06,669
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,488 --> 00:00:08,589
+60 de arduino desde cero en español
+
+3
+00:00:06,668 --> 00:00:10,838
+en esta oportunidad veremos un módulo
+
+4
+00:00:08,589 --> 00:00:13,030
+sensor de intensidad de luz que nos
+
+5
+00:00:10,839 --> 00:00:15,759
+brindará valores con alta precisión y
+
+6
+00:00:13,029 --> 00:00:18,189
+fácil conexión con arduino pro bass y 12
+
+7
+00:00:15,759 --> 00:00:22,179
+este circuito integrado es el sensor que
+
+8
+00:00:18,190 --> 00:00:24,609
+da nombre al módulo el vih 1750 de un
+
+9
+00:00:22,179 --> 00:00:26,800
+tamaño realmente bien pequeño y en el
+
+10
+00:00:24,609 --> 00:00:30,929
+circuito impreso se incluye un regulador
+
+11
+00:00:26,800 --> 00:00:34,448
+de tensión de 5 a 33 volts ya que el vih
+
+12
+00:00:30,929 --> 00:00:36,128
+1750 funciona con 33 pero gracias a este
+
+13
+00:00:34,448 --> 00:00:38,920
+regulador lo podemos conectar
+
+14
+00:00:36,128 --> 00:00:40,988
+directamente a 5 goles de arduino en la
+
+15
+00:00:38,920 --> 00:00:42,879
+parte posterior del módulo veremos las
+
+16
+00:00:40,988 --> 00:00:44,619
+designaciones de cada uno de sus
+
+17
+00:00:42,878 --> 00:00:47,530
+terminales a los cuales deberíamos
+
+18
+00:00:44,619 --> 00:00:49,570
+soldar le una tira de 5 pines para su
+
+19
+00:00:47,530 --> 00:00:52,030
+conexión a protoboard pero antes debemos
+
+20
+00:00:49,570 --> 00:00:54,219
+entender la unidad de medida de luz que
+
+21
+00:00:52,030 --> 00:00:57,280
+el sensor nos brinda por eso aquí va
+
+22
+00:00:54,219 --> 00:01:00,100
+directo y sin anestesia la definición el
+
+23
+00:00:57,280 --> 00:01:02,018
+lux es una unidad derivada basada en el
+
+24
+00:01:00,100 --> 00:01:05,409
+lumen que a su vez es una unidad
+
+25
+00:01:02,018 --> 00:01:07,150
+derivada basada en la candela bien eso
+
+26
+00:01:05,409 --> 00:01:07,750
+no dice mucho pero no se acerca a
+
+27
+00:01:07,150 --> 00:01:10,480
+alguien
+
+28
+00:01:07,750 --> 00:01:11,230
+un looks equivale a un lumen por metro
+
+29
+00:01:10,480 --> 00:01:13,210
+cuadrado
+
+30
+00:01:11,230 --> 00:01:15,160
+la diferencia entre el lux y el lumen
+
+31
+00:01:13,209 --> 00:01:17,379
+consiste en que el look se toma en
+
+32
+00:01:15,159 --> 00:01:20,200
+cuenta la superficie sobre la que el
+
+33
+00:01:17,379 --> 00:01:21,939
+flujo luminoso se distribuye dicho eso
+
+34
+00:01:20,200 --> 00:01:24,100
+el concepto es que el sensor nos
+
+35
+00:01:21,939 --> 00:01:26,228
+brindará valores medidos en el look por
+
+36
+00:01:24,099 --> 00:01:29,169
+ese motivo a este sensor también se lo
+
+37
+00:01:26,228 --> 00:01:30,819
+denomina luxómetro el look se basa en el
+
+38
+00:01:29,170 --> 00:01:33,490
+lumen pero tiene en cuenta la superficie
+
+39
+00:01:30,819 --> 00:01:35,228
+para que quede claro veamos esta tabla
+
+40
+00:01:33,489 --> 00:01:37,390
+donde se muestran valores en looks
+
+41
+00:01:35,228 --> 00:01:39,569
+equivalentes a ciertas condiciones de
+
+42
+00:01:37,390 --> 00:01:44,049
+luz de la vida real un cielo nocturno
+
+43
+00:01:39,569 --> 00:01:45,459
+despejado equivale a 001 looks un cielo
+
+44
+00:01:44,049 --> 00:01:48,789
+nocturno pero con una luna llena
+
+45
+00:01:45,459 --> 00:01:51,909
+equivale a aproximadamente un looks por
+
+46
+00:01:48,790 --> 00:01:53,830
+cierto el x es la abreviatura de looks
+
+47
+00:01:51,909 --> 00:01:55,569
+de esa manera podrás imaginarte cómo a
+
+48
+00:01:53,829 --> 00:01:57,310
+medida que incrementa la intensidad de
+
+49
+00:01:55,569 --> 00:01:59,409
+luz también lo harán los valores en
+
+50
+00:01:57,310 --> 00:02:01,539
+looks claro que es aplicable tanto para
+
+51
+00:01:59,409 --> 00:02:03,789
+la luz natural como artificial por eso
+
+52
+00:02:01,539 --> 00:02:06,519
+para un pasillo en una zona de paso
+
+53
+00:02:03,789 --> 00:02:09,580
+tendremos unos 100 loops una sala de
+
+54
+00:02:06,519 --> 00:02:11,919
+reuniones serán unos 300 este ya sería
+
+55
+00:02:09,580 --> 00:02:14,260
+un valor típico de iluminación adecuada
+
+56
+00:02:11,919 --> 00:02:17,289
+para trabajar una oficina bien iluminada
+
+57
+00:02:14,259 --> 00:02:19,449
+equivaldrán a unos 500 looks mil para el
+
+58
+00:02:17,289 --> 00:02:21,729
+equivalente a la intensidad de luz en un
+
+59
+00:02:19,449 --> 00:02:24,789
+estudio de televisión y para luz solar
+
+60
+00:02:21,729 --> 00:02:26,889
+en un día medio tendremos como mínimo 32
+
+61
+00:02:24,789 --> 00:02:28,900
+mil looks la idea de la tabla es que
+
+62
+00:02:26,889 --> 00:02:31,268
+sirva de referencia para medidas de
+
+63
+00:02:28,900 --> 00:02:33,939
+distancia todos sabemos aproximadamente
+
+64
+00:02:31,269 --> 00:02:34,539
+cuántos un metro o cuál es el peso de un
+
+65
+00:02:33,939 --> 00:02:36,158
+kilogramo
+
+66
+00:02:34,539 --> 00:02:38,650
+simplemente porque estamos acostumbrados
+
+67
+00:02:36,158 --> 00:02:40,899
+a su uso sin embargo para el looks
+
+68
+00:02:38,650 --> 00:02:42,908
+generalmente no es el caso
+
+69
+00:02:40,900 --> 00:02:44,890
+genial ahora si vamos al circuito de
+
+70
+00:02:42,908 --> 00:02:48,009
+conexión arduino que será muy simple
+
+71
+00:02:44,889 --> 00:02:50,708
+como todo dispositivo por base y 12 del
+
+72
+00:02:48,009 --> 00:02:52,899
+primer pin de la derecha bsc iremos con
+
+73
+00:02:50,709 --> 00:02:55,959
+un cable directo a 5 goles de arduino
+
+74
+00:02:52,900 --> 00:02:56,799
+del pin degenere del módulo a gene de
+
+75
+00:02:55,959 --> 00:02:59,200
+arduino
+
+76
+00:02:56,799 --> 00:03:01,810
+le sigue el pin ssl del módulo que
+
+77
+00:02:59,199 --> 00:03:05,828
+conectaremos a la entrada analógica a 5
+
+78
+00:03:01,810 --> 00:03:08,019
+y ese día del módulo 4 de arduino el
+
+79
+00:03:05,829 --> 00:03:10,780
+último pin con la designación de the
+
+80
+00:03:08,019 --> 00:03:13,329
+address sirve para establecer la
+
+81
+00:03:10,780 --> 00:03:15,878
+dirección y 12 del módulo este pin se
+
+82
+00:03:13,329 --> 00:03:18,040
+encuentra forzado a un nivel bajo lobo
+
+83
+00:03:15,878 --> 00:03:20,590
+con una resistencia de pull down en el
+
+84
+00:03:18,039 --> 00:03:21,099
+propio módulo por eso vemos en esta nota
+
+85
+00:03:20,590 --> 00:03:24,550
+que va
+
+86
+00:03:21,099 --> 00:03:28,239
+esta condición de bajo o sin conexión la
+
+87
+00:03:24,550 --> 00:03:30,550
+dirección y 12 es la 0 x 23 nosotros
+
+88
+00:03:28,240 --> 00:03:33,490
+usaremos el módulo de esta forma con lo
+
+89
+00:03:30,550 --> 00:03:35,380
+cual el pin adr lo dejaremos sin
+
+90
+00:03:33,490 --> 00:03:37,810
+conexión si quisieras cambiar la
+
+91
+00:03:35,379 --> 00:03:39,939
+dirección para por ejemplo usar dos de
+
+92
+00:03:37,810 --> 00:03:43,689
+estos módulos en simultáneos podrías
+
+93
+00:03:39,939 --> 00:03:46,270
+colocar a de erc y psc de forma directa
+
+94
+00:03:43,689 --> 00:03:50,079
+y de esa manera cambiaría la dirección y
+
+95
+00:03:46,270 --> 00:03:52,510
+12 a 0 x 5 c y eso es todo para la
+
+96
+00:03:50,080 --> 00:03:54,880
+conexión como siempre en esta otra nota
+
+97
+00:03:52,509 --> 00:03:56,889
+se encuentra el resumen de conexiones y
+
+98
+00:03:54,879 --> 00:03:58,930
+la diferencia de pines en caso de usar
+
+99
+00:03:56,889 --> 00:04:01,059
+el modelo mega para simplificar la
+
+100
+00:03:58,930 --> 00:04:04,360
+programación descargaremos una librería
+
+101
+00:04:01,060 --> 00:04:06,699
+específica para el vih 1750 desde la
+
+102
+00:04:04,360 --> 00:04:08,500
+siguiente página web dejaré un enlace
+
+103
+00:04:06,699 --> 00:04:10,810
+directo en la zona de descripción
+
+104
+00:04:08,500 --> 00:04:13,960
+presionando sobre el botón verde code
+
+105
+00:04:10,810 --> 00:04:16,780
+que equivale al antiguo clon aun low the
+
+106
+00:04:13,960 --> 00:04:19,329
+hit hub seleccionamos la opción download
+
+107
+00:04:16,779 --> 00:04:23,439
+zip y esto descargara un archivo con el
+
+108
+00:04:19,329 --> 00:04:26,169
+nombre vih 1750 guión del medio master
+
+109
+00:04:23,439 --> 00:04:28,209
+punto zip ahora desde el idey como ya
+
+110
+00:04:26,170 --> 00:04:30,639
+hicimos en muchas oportunidades
+
+111
+00:04:28,209 --> 00:04:33,370
+ingresamos al menú programa incluir
+
+112
+00:04:30,639 --> 00:04:35,439
+librería y añadir biblioteca punto zip
+
+113
+00:04:33,370 --> 00:04:37,810
+seleccionamos el archivo recién
+
+114
+00:04:35,439 --> 00:04:39,848
+descargado y el botón abrir este
+
+115
+00:04:37,810 --> 00:04:41,769
+programa mostrará por el monitor serie
+
+116
+00:04:39,848 --> 00:04:43,418
+el valor leído del sensor y lo
+
+117
+00:04:41,769 --> 00:04:43,930
+lograremos con muy pocas líneas de
+
+118
+00:04:43,418 --> 00:04:47,258
+código
+
+119
+00:04:43,930 --> 00:04:49,509
+primero incluimos la librería bh 1750
+
+120
+00:04:47,259 --> 00:04:51,729
+que acabamos de instalar luego wáyar
+
+121
+00:04:49,509 --> 00:04:55,689
+para la comunicación por gas y 12
+
+122
+00:04:51,728 --> 00:04:58,149
+creamos un objeto del tipo vih 1750 y le
+
+123
+00:04:55,689 --> 00:05:00,699
+damos el nombre sensor usaremos las
+
+124
+00:04:58,149 --> 00:05:03,219
+funciones asociadas para inicializar y
+
+125
+00:05:00,699 --> 00:05:06,400
+leer datos en el setup inicializa mos la
+
+126
+00:05:03,220 --> 00:05:08,919
+comunicación por 12 con wáyar punto bien
+
+127
+00:05:06,399 --> 00:05:11,948
+y la inicialización del sensor con
+
+128
+00:05:08,918 --> 00:05:14,079
+sensor punto bien sin ningún parámetro
+
+129
+00:05:11,949 --> 00:05:16,150
+pero esta función en realidad puede
+
+130
+00:05:14,079 --> 00:05:18,519
+tomar dos parámetros el modo de
+
+131
+00:05:16,149 --> 00:05:20,288
+funcionamiento y la dirección y 12
+
+132
+00:05:18,519 --> 00:05:22,149
+enviamos la siguiente tabla para
+
+133
+00:05:20,288 --> 00:05:24,009
+rápidamente aprender los modos de
+
+134
+00:05:22,149 --> 00:05:26,679
+funcionamiento serán 2
+
+135
+00:05:24,009 --> 00:05:28,810
+el modo continuo y el modo por única vez
+
+136
+00:05:26,680 --> 00:05:31,000
+aquí se muestran las variantes que
+
+137
+00:05:28,810 --> 00:05:32,709
+tendremos en modo continuo que como su
+
+138
+00:05:31,000 --> 00:05:34,899
+nombre lo indica estará haciendo
+
+139
+00:05:32,709 --> 00:05:37,269
+lecturas constantes todo el tiempo
+
+140
+00:05:34,899 --> 00:05:40,120
+tres opciones tenemos a disponibilidad
+
+141
+00:05:37,269 --> 00:05:42,519
+una opción de baja resolución donde la
+
+142
+00:05:40,120 --> 00:05:44,649
+misma es de cuatro looks y el tiempo que
+
+143
+00:05:42,519 --> 00:05:46,870
+demora en hacer la lectura es de 16
+
+144
+00:05:44,649 --> 00:05:49,599
+milisegundos un modo de alta resolución
+
+145
+00:05:46,870 --> 00:05:51,550
+donde la misma será de un looks y el
+
+146
+00:05:49,600 --> 00:05:54,669
+tiempo de lectura considerablemente
+
+147
+00:05:51,550 --> 00:05:57,430
+mayor de 120 milisegundos por último
+
+148
+00:05:54,668 --> 00:06:01,508
+otro modo de alta resolución denominado
+
+149
+00:05:57,430 --> 00:06:04,418
+alta resolución 2 de 0 a 5 lux y también
+
+150
+00:06:01,509 --> 00:06:06,280
+un tiempo de lectura de 120 milisegundos
+
+151
+00:06:04,418 --> 00:06:08,709
+verás que debajo de cada uno de los
+
+152
+00:06:06,279 --> 00:06:10,989
+modos aparece una constante que está
+
+153
+00:06:08,709 --> 00:06:12,939
+definida en la propia librería y es la
+
+154
+00:06:10,990 --> 00:06:15,879
+que debemos pasarle mediante la función
+
+155
+00:06:12,939 --> 00:06:17,978
+bin para indicar el modo utilizar si no
+
+156
+00:06:15,879 --> 00:06:21,009
+pasamos ningún parámetro asume por
+
+157
+00:06:17,978 --> 00:06:23,620
+defecto el modo de alta resolución de un
+
+158
+00:06:21,009 --> 00:06:25,870
+look ahora las mismas opciones pero para
+
+159
+00:06:23,620 --> 00:06:28,810
+el modo de operación de única vez one
+
+160
+00:06:25,870 --> 00:06:31,269
+time mismas tres opciones pero verás que
+
+161
+00:06:28,810 --> 00:06:33,490
+cambia el nombre de las constantes antes
+
+162
+00:06:31,269 --> 00:06:36,639
+comenzaban con continuos y ahora
+
+163
+00:06:33,490 --> 00:06:37,000
+comienzan con one time en el modo de una
+
+164
+00:06:36,639 --> 00:06:39,519
+vez
+
+165
+00:06:37,000 --> 00:06:41,800
+el sensor realiza una única lectura y
+
+166
+00:06:39,519 --> 00:06:44,469
+luego pasa a un modo de bajo consumo
+
+167
+00:06:41,800 --> 00:06:46,800
+energía bien volvamos al programa y
+
+168
+00:06:44,470 --> 00:06:49,539
+ahora ya sabemos que con la función bin
+
+169
+00:06:46,800 --> 00:06:51,970
+establecemos el modo de operación aquí
+
+170
+00:06:49,538 --> 00:06:54,009
+no le pasamos ningún parámetro porque
+
+171
+00:06:51,970 --> 00:06:56,650
+usaremos el modo por defecto que es
+
+172
+00:06:54,009 --> 00:06:58,240
+continuo de alta resolución pero si por
+
+173
+00:06:56,649 --> 00:07:01,239
+ejemplo tu proyecto requiere tomar
+
+174
+00:06:58,240 --> 00:07:03,970
+lecturas sin tanta precisión pero mucho
+
+175
+00:07:01,240 --> 00:07:06,158
+más rápido entonces aquí colocarías esta
+
+176
+00:07:03,970 --> 00:07:08,409
+constante como lo vimos recién en las
+
+177
+00:07:06,158 --> 00:07:11,769
+tablas también se usará la dirección y
+
+178
+00:07:08,408 --> 00:07:15,339
+12 alternativa colocando el pin a ddr a
+
+179
+00:07:11,769 --> 00:07:18,459
+veces separado por una coma colocarías 0
+
+180
+00:07:15,339 --> 00:07:19,478
+x 5 c pero como nosotros usaremos todo
+
+181
+00:07:18,459 --> 00:07:21,728
+por defecto
+
+182
+00:07:19,478 --> 00:07:24,068
+aquí no colocaremos en ningún parámetro
+
+183
+00:07:21,728 --> 00:07:27,699
+finalmente en el setup inicializa mos el
+
+184
+00:07:24,069 --> 00:07:28,990
+monitor serie a 9.600 bps para mostrar
+
+185
+00:07:27,699 --> 00:07:31,030
+el valor de la lectura
+
+186
+00:07:28,990 --> 00:07:34,090
+jan el loop de manera muy simple
+
+187
+00:07:31,029 --> 00:07:36,668
+aplicaremos la función red light level
+
+188
+00:07:34,089 --> 00:07:39,279
+equivalente a leer nivel de luz del
+
+189
+00:07:36,668 --> 00:07:41,889
+objeto sensor y el resultado lo cargamos
+
+190
+00:07:39,279 --> 00:07:44,198
+en la variable con el nombre lux del
+
+191
+00:07:41,889 --> 00:07:46,478
+tipo and saints int usamos el
+
+192
+00:07:44,199 --> 00:07:48,069
+modificador and saints para indicar que
+
+193
+00:07:46,478 --> 00:07:50,500
+la variable entera sera
+
+194
+00:07:48,069 --> 00:07:53,230
+sin signo de esta manera podemos usar
+
+195
+00:07:50,500 --> 00:07:57,819
+todo el rango de valores posibles con 16
+
+196
+00:07:53,230 --> 00:07:59,890
+bits de 0 a 65 mil 535 ahora que tenemos
+
+197
+00:07:57,819 --> 00:08:02,050
+en la variable el valor lo mostramos en
+
+198
+00:07:59,889 --> 00:08:05,050
+el monitor serie primero escribiendo el
+
+199
+00:08:02,050 --> 00:08:07,360
+texto nivel dos puntos luego el valor de
+
+200
+00:08:05,050 --> 00:08:10,360
+la variable lux y un print line para
+
+201
+00:08:07,360 --> 00:08:12,340
+mostrar la abreviatura lx y dejar un
+
+202
+00:08:10,360 --> 00:08:15,100
+salto de línea para el próximo valor
+
+203
+00:08:12,339 --> 00:08:17,560
+finalmente una demora de un segundo para
+
+204
+00:08:15,100 --> 00:08:20,680
+no generar un innecesario desplazamiento
+
+205
+00:08:17,560 --> 00:08:22,660
+constante y rápido en el monitor serie y
+
+206
+00:08:20,680 --> 00:08:25,449
+ese es todo el programa vamos a
+
+207
+00:08:22,660 --> 00:08:28,020
+verificar subirlo y abrir el monitor
+
+208
+00:08:25,449 --> 00:08:31,479
+serie vimos que se muestra un valor de
+
+209
+00:08:28,019 --> 00:08:33,220
+273 lux que es la intensidad captada por
+
+210
+00:08:31,480 --> 00:08:35,050
+el sensor en la habitación en que me
+
+211
+00:08:33,220 --> 00:08:37,330
+encuentro no suelo trabajar con
+
+212
+00:08:35,049 --> 00:08:38,228
+iluminación muy alta así que es un valor
+
+213
+00:08:37,330 --> 00:08:39,550
+coherente
+
+214
+00:08:38,229 --> 00:08:42,038
+ahora si acerco la mano para generar
+
+215
+00:08:39,549 --> 00:08:45,279
+sombra en el sensor veremos que va
+
+216
+00:08:42,038 --> 00:08:48,069
+bajando el nivel indicado a unos 50 lux
+
+217
+00:08:45,279 --> 00:08:50,559
+perfecto si quito la mano volverá al
+
+218
+00:08:48,070 --> 00:08:52,810
+valor inicial ahora con una linterna voy
+
+219
+00:08:50,559 --> 00:08:55,269
+a apuntar la hacia el sensor se puede
+
+220
+00:08:52,809 --> 00:08:57,369
+ver en la imagen como incrementa
+
+221
+00:08:55,269 --> 00:09:00,340
+de luz y se corresponde con los valores
+
+222
+00:08:57,370 --> 00:09:02,529
+del monitor serie verificamos así que
+
+223
+00:09:00,340 --> 00:09:04,840
+todo funciona correctamente y tenemos
+
+224
+00:09:02,529 --> 00:09:06,730
+una lectura de alta precisión de la
+
+225
+00:09:04,840 --> 00:09:08,440
+intensidad de luz para el segundo
+
+226
+00:09:06,730 --> 00:09:11,230
+programa vamos a hacer un simple
+
+227
+00:09:08,440 --> 00:09:13,330
+interruptor crepuscular uno de lujo ya
+
+228
+00:09:11,230 --> 00:09:15,610
+que lo podríamos hacer con un sensor más
+
+229
+00:09:13,330 --> 00:09:18,009
+simple y barato como ser la foto
+
+230
+00:09:15,610 --> 00:09:20,560
+resistencia que vimos en el capítulo 14
+
+231
+00:09:18,009 --> 00:09:23,139
+aquí en la vista de proto board vamos a
+
+232
+00:09:20,559 --> 00:09:25,329
+incorporar un led y una resistencia para
+
+233
+00:09:23,139 --> 00:09:25,779
+controlar mediante el pin número 2 de
+
+234
+00:09:25,330 --> 00:09:28,780
+arduino
+
+235
+00:09:25,779 --> 00:09:31,480
+así que ubicamos el led con su cátodo a
+
+236
+00:09:28,779 --> 00:09:33,850
+gene de que lo podemos obtener de género
+
+237
+00:09:31,480 --> 00:09:36,550
+del módulo del ánodo mediante una
+
+238
+00:09:33,850 --> 00:09:38,470
+resistencia y limitadora de 330 oms
+
+239
+00:09:36,549 --> 00:09:41,049
+vamos con un cable directo al pin
+
+240
+00:09:38,470 --> 00:09:41,740
+digital número 2 de arduino y eso es
+
+241
+00:09:41,049 --> 00:09:43,809
+todo
+
+242
+00:09:41,740 --> 00:09:45,700
+el programa será muy simple y es sólo
+
+243
+00:09:43,809 --> 00:09:47,769
+cuestión de incorporar un par de líneas
+
+244
+00:09:45,700 --> 00:09:50,140
+al primer programa ya que estaremos
+
+245
+00:09:47,769 --> 00:09:52,299
+mostrando las lecturas del sensor en el
+
+246
+00:09:50,139 --> 00:09:54,549
+monitor serie y con un condicional
+
+247
+00:09:52,299 --> 00:09:57,399
+consultar si hemos llegado a un valor
+
+248
+00:09:54,549 --> 00:09:59,469
+para encender o apagar el led este
+
+249
+00:09:57,399 --> 00:10:01,328
+numeral de find indica el compilador
+
+250
+00:09:59,470 --> 00:10:03,850
+reemplazar todo ocurrencia
+
+251
+00:10:01,328 --> 00:10:06,248
+del led por el número 2 ya que en dicho
+
+252
+00:10:03,850 --> 00:10:08,649
+pin lo tenemos conectado con este otro
+
+253
+00:10:06,249 --> 00:10:11,889
+numeral -define establecemos un umbral
+
+254
+00:10:08,649 --> 00:10:13,958
+con un valor de 30 umbral será el punto
+
+255
+00:10:11,889 --> 00:10:16,149
+donde indicaremos que deseamos encender
+
+256
+00:10:13,958 --> 00:10:18,488
+el led emulando que es de noche y
+
+257
+00:10:16,149 --> 00:10:20,769
+deseamos encender una luz ya esta altura
+
+258
+00:10:18,489 --> 00:10:22,809
+sabrá que si podemos encender un led
+
+259
+00:10:20,769 --> 00:10:25,568
+entonces podemos activar cualquier
+
+260
+00:10:22,808 --> 00:10:28,389
+circuito externo mediante un relé o
+
+261
+00:10:25,568 --> 00:10:30,878
+mosfet dependiendo de la carga este
+
+262
+00:10:28,389 --> 00:10:33,100
+valor de 30 lo podrás cambiar y es solo
+
+263
+00:10:30,879 --> 00:10:36,129
+para demostración pero tener un valor de
+
+264
+00:10:33,100 --> 00:10:38,230
+luz menor a 30 looks es adecuado para
+
+265
+00:10:36,129 --> 00:10:40,569
+encender una lámpara no es oscuridad
+
+266
+00:10:38,230 --> 00:10:43,289
+total pero tampoco deseamos llegar a
+
+267
+00:10:40,568 --> 00:10:46,389
+dicho extremo en el setup con pink mode
+
+268
+00:10:43,289 --> 00:10:48,669
+establecemos al pin número 2 como salida
+
+269
+00:10:46,389 --> 00:10:51,220
+en él lo aplicamos el condicional y
+
+270
+00:10:48,669 --> 00:10:53,738
+consultamos si looks es menor a umbral
+
+271
+00:10:51,220 --> 00:10:56,739
+entonces si es menor a 30 looks
+
+272
+00:10:53,739 --> 00:10:59,949
+encendemos el led con un simple digital
+
+273
+00:10:56,739 --> 00:11:01,720
+un ait led high en la condición falsa
+
+274
+00:10:59,948 --> 00:11:04,808
+del condicional haremos una nueva
+
+275
+00:11:01,720 --> 00:11:06,220
+consulta y esta vez si looks es mayor a
+
+276
+00:11:04,808 --> 00:11:08,860
+umbral
+
+277
+00:11:06,220 --> 00:11:11,290
+la idea es que le encienda si la
+
+278
+00:11:08,860 --> 00:11:13,480
+intensidad es menor a 30 pero tampoco
+
+279
+00:11:11,289 --> 00:11:16,179
+que apague ni bien pasamos dicho umbral
+
+280
+00:11:13,480 --> 00:11:18,940
+por ejemplo 31 ya que se podría generar
+
+281
+00:11:16,179 --> 00:11:20,979
+una oscilación podrás imaginar una
+
+282
+00:11:18,940 --> 00:11:23,050
+situación donde la luz captada por el
+
+283
+00:11:20,980 --> 00:11:27,009
+sensor varía muy lentamente en el
+
+284
+00:11:23,049 --> 00:11:29,559
+ambiente puede estar en 29 pasará 31 y
+
+285
+00:11:27,009 --> 00:11:31,899
+luego volver nuevamente a 29 por ser
+
+286
+00:11:29,559 --> 00:11:35,139
+valores muy cercanos para evitarlo
+
+287
+00:11:31,899 --> 00:11:38,649
+colocamos que el led apague con umbral +
+
+288
+00:11:35,139 --> 00:11:41,860
+20 en definitiva con 50 lux entonces
+
+289
+00:11:38,649 --> 00:11:44,709
+enciende con un valor menor a 30 y apaga
+
+290
+00:11:41,860 --> 00:11:47,230
+con un valor superior a 50 y cualquier
+
+291
+00:11:44,710 --> 00:11:49,720
+oscilación cercana al umbral no genera
+
+292
+00:11:47,230 --> 00:11:52,149
+que encienda y apague de forma repetida
+
+293
+00:11:49,720 --> 00:11:55,300
+la acción a aplicar cuando leemos más de
+
+294
+00:11:52,149 --> 00:11:58,419
+50 lux será apagar el led con digital
+
+295
+00:11:55,299 --> 00:12:00,609
+write led low y finalmente la demora de
+
+296
+00:11:58,419 --> 00:12:03,009
+un segundo igual que el primer programa
+
+297
+00:12:00,610 --> 00:12:04,419
+para no saturar el monitor serie con
+
+298
+00:12:03,009 --> 00:12:06,939
+valores claro que una aplicación
+
+299
+00:12:04,419 --> 00:12:09,610
+práctica no es necesario mostrar datos
+
+300
+00:12:06,940 --> 00:12:11,889
+en el monitor serie lo hacemos aquí para
+
+301
+00:12:09,610 --> 00:12:13,989
+verificar que le enciende y apaga
+
+302
+00:12:11,889 --> 00:12:16,509
+exactamente con los valores establecidos
+
+303
+00:12:13,989 --> 00:12:19,089
+y ese es todo el programa vamos a
+
+304
+00:12:16,509 --> 00:12:21,339
+verificar subirlo y abrir el monitor
+
+305
+00:12:19,089 --> 00:12:24,249
+serie se muestra la intensidad de los
+
+306
+00:12:21,339 --> 00:12:26,559
+captadas en el ambiente de unos 270
+
+307
+00:12:24,249 --> 00:12:29,409
+looks el led se encuentra apagado porque
+
+308
+00:12:26,558 --> 00:12:31,418
+no llegamos al umbral que es menor a 30
+
+309
+00:12:29,409 --> 00:12:34,238
+voy a ir tapando la luz para generar
+
+310
+00:12:31,418 --> 00:12:36,578
+sombra verás que la intensidad decrece y
+
+311
+00:12:34,239 --> 00:12:39,910
+ahora cuando sea menor a 30 encenderá
+
+312
+00:12:36,578 --> 00:12:42,368
+led genial con una intensidad de 29
+
+313
+00:12:39,909 --> 00:12:44,558
+enciende el led y ahora lentamente voy
+
+314
+00:12:42,369 --> 00:12:47,168
+dejando que ingresen más luz verás que
+
+315
+00:12:44,558 --> 00:12:49,269
+el aún permanece encendido lo cual es
+
+316
+00:12:47,168 --> 00:12:52,480
+correcto ya que establecimos que apague
+
+317
+00:12:49,269 --> 00:12:54,188
+si la intensidad es superior a 50 ahora
+
+318
+00:12:52,480 --> 00:12:57,159
+que dejo que ingresen más luz del
+
+319
+00:12:54,188 --> 00:13:00,308
+ambiente y supera los 50 lux el led
+
+320
+00:12:57,159 --> 00:13:02,499
+apaga y así se mantendrá verificamos así
+
+321
+00:13:00,308 --> 00:13:04,568
+que logramos aplicar una acción con
+
+322
+00:13:02,499 --> 00:13:06,909
+diferentes niveles de intensidad de luz
+
+323
+00:13:04,568 --> 00:13:09,608
+como decía antes es un sensor muy
+
+324
+00:13:06,909 --> 00:13:11,798
+preciso y realmente un desperdicio si
+
+325
+00:13:09,609 --> 00:13:14,350
+usáramos únicamente como un interruptor
+
+326
+00:13:11,798 --> 00:13:17,590
+crepuscular pero sería ideal si por
+
+327
+00:13:14,350 --> 00:13:19,899
+ejemplo estamos verificando si un objeto
+
+328
+00:13:17,590 --> 00:13:22,240
+tiene una iluminación pareja también
+
+329
+00:13:19,899 --> 00:13:24,250
+verificar si una habitación cumple con
+
+330
+00:13:22,240 --> 00:13:26,860
+determinados valores de iluminación
+
+331
+00:13:24,250 --> 00:13:29,080
+mínima para una tarea específica y eso
+
+332
+00:13:26,860 --> 00:13:30,909
+es todo por este capítulo gracias por la
+
+333
+00:13:29,080 --> 00:13:33,280
+visita y como siempre te pido te
+
+334
+00:13:30,909 --> 00:13:34,889
+suscribas si aún no lo has hecho dale un
+
+335
+00:13:33,279 --> 00:13:37,539
+me gusta si te pareció interesante
+
+336
+00:13:34,889 --> 00:13:40,090
+activar la campana para recibir una
+
+337
+00:13:37,539 --> 00:13:41,799
+notificación ni bien se publica nuevo
+
+338
+00:13:40,090 --> 00:13:44,230
+material y por cualquier duda o
+
+339
+00:13:41,799 --> 00:13:47,139
+comentario lo podrás hacer debajo que
+
+340
+00:13:44,230 --> 00:13:49,320
+con gusto te responderé chao y hasta la
+
+341
+00:13:47,139 --> 00:13:49,319
+próxima
+
