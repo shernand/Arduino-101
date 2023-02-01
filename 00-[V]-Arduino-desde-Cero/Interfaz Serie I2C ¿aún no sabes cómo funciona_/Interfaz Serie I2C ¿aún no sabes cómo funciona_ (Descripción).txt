@@ -1,0 +1,16 @@
+Video completo en: https://www.youtube.com/watch?v=kuLgPLrg-cY
+
+¿ Qué es I2C ?, su uso en microcontroladores como Arduino es amplio para la conexión de múltiples dispositivos o periféricos con solo dos líneas de datos. En un minuto lo básico que debes saber #Shorts
+
+Más información en Capítulo 35:
+https://www.youtube.com/watch?v=kuLgPLrg-cY
+
+Curso Arduino desde cero en Español:
+https://www.youtube.com/watch?v=eBVvD85Ml2c&list=PLkjnQ3NFTPnY1eNyLDGi547gkVui1vyn2
+
+
+#ComoFuncionaI2C
+#I2C
+#bitwiseAr
+Interfaz I2C
+Comunicación I2C

@@ -1,0 +1,11 @@
+En un minuto las respuestas a las 3 preguntas más realizadas del Curso Arduino desde cero en Español, video corto #Shorts
+
+Curso Arduino desde cero en Español:
+https://www.youtube.com/watch?v=eBVvD85Ml2c&list=PLkjnQ3NFTPnY1eNyLDGi547gkVui1vyn2
+
+Códigos fuente de los programas:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#Arduinodesdecero
+#Top3
+#bitwiseAr

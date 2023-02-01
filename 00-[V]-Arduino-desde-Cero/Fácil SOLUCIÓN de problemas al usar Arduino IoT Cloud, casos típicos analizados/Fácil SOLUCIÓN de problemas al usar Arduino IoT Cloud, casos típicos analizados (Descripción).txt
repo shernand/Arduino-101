@@ -1,0 +1,28 @@
+Soluciones a problemas típicos al crear proyectos con Arduino IoT Cloud, analizamos la posibilidad de la no ejecución del Arduino Create Agent y el mensaje de necesidad de actualizar el Firmware del módulo NINA W-102 de la Nano RP2040 Connect.
+
+Capítulo 69:
+https://www.youtube.com/watch?v=xanpqt74nxY
+
+Capítulo 72:
+https://www.youtube.com/watch?v=MMV-5k_33CI
+
+
+#ArduinoIotCloud
+#ArduinoCreateAgent
+#FirmwareNINA
+Arduino IoT
+Arduino Nano RP2040 Connect
+Arduino IoT projects
+Arduino IoT tutorial
+Arduino IoT problemas
+Arduino internet de las cosas
+arduino create agent not working
+arduino wifi firmware
+
+
+Marcas de tiempo:
+
+0:00 Introducción
+0:23 Arduino Create Agent
+2:24 Firmware NINA
+4:07 Conclusiones y despedida

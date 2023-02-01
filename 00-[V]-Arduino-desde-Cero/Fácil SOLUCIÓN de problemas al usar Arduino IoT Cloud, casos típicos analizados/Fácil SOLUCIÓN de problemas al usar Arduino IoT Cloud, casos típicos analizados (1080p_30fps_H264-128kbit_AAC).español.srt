@@ -1,0 +1,440 @@
+1
+00:00:01,000 --> 00:00:05,980
+hola en esta oportunidad quiero
+
+2
+00:00:03,638 --> 00:00:08,349
+mostrarte las soluciones a problemas
+
+3
+00:00:05,980 --> 00:00:10,388
+usuales a la hora de utilizar arduino
+
+4
+00:00:08,349 --> 00:00:12,580
+ayotte y cloud cuestiones que
+
+5
+00:00:10,388 --> 00:00:15,428
+particularmente encontré mientras
+
+6
+00:00:12,580 --> 00:00:17,560
+realizaba el capítulo 72 del curso y
+
+7
+00:00:15,429 --> 00:00:20,140
+pueden llegar a generar alguna que otra
+
+8
+00:00:17,559 --> 00:00:22,509
+frustración así que me pareció buena
+
+9
+00:00:20,140 --> 00:00:25,570
+idea compartirlas con ustedes un
+
+10
+00:00:22,510 --> 00:00:28,750
+problema usual con arduino ayotitlán se
+
+11
+00:00:25,570 --> 00:00:30,939
+refiere al arduino create agent ese
+
+12
+00:00:28,750 --> 00:00:33,189
+programa necesario descargar a nuestra
+
+13
+00:00:30,939 --> 00:00:36,670
+computadora y que sirve de puente entre
+
+14
+00:00:33,189 --> 00:00:38,709
+el navegador web y el puerto com o usb
+
+15
+00:00:36,670 --> 00:00:42,460
+al cual se encuentra conectada a la
+
+16
+00:00:38,710 --> 00:00:44,710
+placa en mi caso una nano rp 2040
+
+17
+00:00:42,460 --> 00:00:46,750
+conecta una vez instalado de forma
+
+18
+00:00:44,710 --> 00:00:49,030
+inicial suponía que ya todo se
+
+19
+00:00:46,750 --> 00:00:51,340
+encontraba en orden y al dirigirme al
+
+20
+00:00:49,030 --> 00:00:54,219
+full editor y crear todo el código
+
+21
+00:00:51,340 --> 00:00:56,440
+necesario deseaba primero compilar para
+
+22
+00:00:54,219 --> 00:00:58,329
+verificar que no existieran errores sin
+
+23
+00:00:56,439 --> 00:01:01,780
+embargo me encuentro con este bonito
+
+24
+00:00:58,329 --> 00:01:04,030
+mensaje error compilando y verificar si
+
+25
+00:01:01,780 --> 00:01:06,489
+la placa se encuentra conectada y
+
+26
+00:01:04,030 --> 00:01:07,480
+disponible lo hago y todo parece en
+
+27
+00:01:06,489 --> 00:01:09,759
+orden
+
+28
+00:01:07,480 --> 00:01:12,280
+recuadro el modelo de la placa se
+
+29
+00:01:09,760 --> 00:01:14,890
+muestra correcto pero al hacer clic no
+
+30
+00:01:12,280 --> 00:01:17,560
+indica que tenga asignado un puerto com
+
+31
+00:01:14,890 --> 00:01:19,960
+así que rápidamente me dirijo a la barra
+
+32
+00:01:17,560 --> 00:01:22,719
+de tareas de windows y el icono con el
+
+33
+00:01:19,959 --> 00:01:25,030
+logo de arduino no aparece evidenciando
+
+34
+00:01:22,719 --> 00:01:27,549
+que el create agent no se encuentra
+
+35
+00:01:25,030 --> 00:01:30,400
+corriendo de aquí el origen del problema
+
+36
+00:01:27,549 --> 00:01:33,370
+así que realizó una búsqueda por arduino
+
+37
+00:01:30,400 --> 00:01:35,920
+create agent en windows y lo ejecutó
+
+38
+00:01:33,370 --> 00:01:38,500
+ahora incluso si vuelvo a la barra
+
+39
+00:01:35,920 --> 00:01:40,900
+superior ya aparece como disponible el
+
+40
+00:01:38,500 --> 00:01:43,510
+botón para subir a la placa que antes no
+
+41
+00:01:40,900 --> 00:01:46,840
+lo estaba y en el recuadro se muestra el
+
+42
+00:01:43,510 --> 00:01:49,150
+puerto con 12 como el asignado así que
+
+43
+00:01:46,840 --> 00:01:51,340
+hago clic en el mismo y finalmente el
+
+44
+00:01:49,150 --> 00:01:53,980
+botón de subir y como se puede ver
+
+45
+00:01:51,340 --> 00:01:56,740
+comienza el proceso de compilación y
+
+46
+00:01:53,980 --> 00:01:58,960
+subida a la placa sin errores en
+
+47
+00:01:56,739 --> 00:02:01,269
+definitiva te muestro todo el proceso
+
+48
+00:01:58,959 --> 00:02:03,699
+para llevar a la conclusión que ante un
+
+49
+00:02:01,269 --> 00:02:06,310
+error de compilación que no detecta la
+
+50
+00:02:03,700 --> 00:02:09,069
+placa o que el botón de subir no aparece
+
+51
+00:02:06,310 --> 00:02:11,709
+disponible revises que el arduino create
+
+52
+00:02:09,069 --> 00:02:14,318
+agents se encuentre corriendo y si no es
+
+53
+00:02:11,709 --> 00:02:16,150
+así ejecutarlo manualmente
+
+54
+00:02:14,318 --> 00:02:18,848
+en el orden de inconvenientes que se
+
+55
+00:02:16,150 --> 00:02:21,310
+puede tener este es el más usual pero
+
+56
+00:02:18,848 --> 00:02:23,888
+afortunadamente de los más simples
+
+57
+00:02:21,310 --> 00:02:26,340
+también de solucionar otro mensaje que
+
+58
+00:02:23,889 --> 00:02:28,900
+puede llegar a mostrar es este de aquí
+
+59
+00:02:26,340 --> 00:02:31,989
+indicando que se debe actualizar el
+
+60
+00:02:28,900 --> 00:02:35,889
+firmware del módulo ni na en el capítulo
+
+61
+00:02:31,989 --> 00:02:39,218
+69 vimos que la nano rp 20 40 connect
+
+62
+00:02:35,889 --> 00:02:43,840
+utiliza para wifi y bluetooth un módulo
+
+63
+00:02:39,218 --> 00:02:46,269
+ni na w 102 que es básicamente un esp 32
+
+64
+00:02:43,840 --> 00:02:48,489
+este módulo es usual que requiera
+
+65
+00:02:46,269 --> 00:02:51,280
+justamente una actualización de su
+
+66
+00:02:48,489 --> 00:02:53,949
+firmware el mensaje en realidad refiere
+
+67
+00:02:51,280 --> 00:02:56,169
+a un enlace de una página y como se
+
+68
+00:02:53,949 --> 00:02:58,569
+puede observar lo muestra como código
+
+69
+00:02:56,169 --> 00:03:00,669
+html y no podemos hacer clic
+
+70
+00:02:58,568 --> 00:03:03,488
+directamente en el mismo así que te
+
+71
+00:03:00,669 --> 00:03:05,919
+muestro el proceso en la solapa device
+
+72
+00:03:03,489 --> 00:03:08,908
+deberás seleccionar la fila con el
+
+73
+00:03:05,919 --> 00:03:11,590
+nombre asignado la placa en mi caso rp
+
+74
+00:03:08,908 --> 00:03:14,468
+2040 connect se muestra información
+
+75
+00:03:11,590 --> 00:03:16,569
+relacionada al dispositivo y la sección
+
+76
+00:03:14,468 --> 00:03:19,569
+específica que nos trae por estos
+
+77
+00:03:16,568 --> 00:03:22,810
+lugares connectivity módulo firmware
+
+78
+00:03:19,569 --> 00:03:25,359
+haciendo clic en el texto update inicia
+
+79
+00:03:22,810 --> 00:03:27,939
+el proceso primero detectando a la placa
+
+80
+00:03:25,360 --> 00:03:30,190
+y luego de unos segundos si todo va bien
+
+81
+00:03:27,939 --> 00:03:33,219
+el mensaje de que se encuentra lista
+
+82
+00:03:30,189 --> 00:03:35,889
+para la actualización clic en continuo y
+
+83
+00:03:33,219 --> 00:03:38,439
+dejamos que el proceso se complete puede
+
+84
+00:03:35,889 --> 00:03:41,379
+llevar varios minutos pero lo bueno es
+
+85
+00:03:38,439 --> 00:03:43,810
+que se trata de una acción desatendida y
+
+86
+00:03:41,379 --> 00:03:46,000
+por única vez al menos hasta que exista
+
+87
+00:03:43,810 --> 00:03:49,030
+una nueva actualización que al momento
+
+88
+00:03:46,000 --> 00:03:51,729
+de compilar nos lo recordará con el
+
+89
+00:03:49,030 --> 00:03:54,400
+amable recuadro rojo al finalizar
+
+90
+00:03:51,729 --> 00:03:57,340
+veremos este mensaje y sólo resta hacer
+
+91
+00:03:54,400 --> 00:03:59,140
+clic en dan por cierto este proceso
+
+92
+00:03:57,340 --> 00:04:02,680
+puede ser requerido para otros modelos
+
+93
+00:03:59,139 --> 00:04:06,489
+que utilicen al mina w 102 como por
+
+94
+00:04:02,680 --> 00:04:09,430
+ejemplo la nano 33 eye out y como todo
+
+95
+00:04:06,490 --> 00:04:11,740
+el proceso descrito en el capítulo 72 se
+
+96
+00:04:09,430 --> 00:04:13,900
+realiza sobre el navegador web y con
+
+97
+00:04:11,740 --> 00:04:15,460
+conectividad a internet es de esperar
+
+98
+00:04:13,900 --> 00:04:18,329
+tener algún que otro inconveniente
+
+99
+00:04:15,460 --> 00:04:20,680
+adicional a diferencia de usar el ide
+
+100
+00:04:18,329 --> 00:04:23,500
+instalado de forma local en nuestra
+
+101
+00:04:20,680 --> 00:04:25,360
+computadora si has hecho algún proyecto
+
+102
+00:04:23,500 --> 00:04:27,459
+con el ayote claud
+
+103
+00:04:25,360 --> 00:04:29,620
+de algún problema distinto a los
+
+104
+00:04:27,459 --> 00:04:32,198
+mencionados me gustaría que dejaras un
+
+105
+00:04:29,620 --> 00:04:35,259
+comentario y así poder compartirlo con
+
+106
+00:04:32,199 --> 00:04:37,389
+la comunidad eso es todo por ahora si te
+
+107
+00:04:35,259 --> 00:04:40,180
+pareció interesante o al menos útil
+
+108
+00:04:37,389 --> 00:04:43,300
+recuerda dejar un me gusta suscribirte
+
+109
+00:04:40,180 --> 00:04:45,478
+si aún no lo has hecho chao y hasta la
+
+110
+00:04:43,300 --> 00:04:45,478
+próxima
+

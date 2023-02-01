@@ -1,0 +1,96 @@
+1
+00:00:00,000 --> 00:00:05,819
+hola el base y 12 cuyas siglas en inglés
+
+2
+00:00:02,879 --> 00:00:08,220
+provienen de inter integrated circuit es
+
+3
+00:00:05,819 --> 00:00:10,050
+extensamente utilizado en todo tipo de
+
+4
+00:00:08,220 --> 00:00:12,660
+microcontroladores para conectar
+
+5
+00:00:10,050 --> 00:00:16,679
+múltiples dispositivos o periféricos con
+
+6
+00:00:12,660 --> 00:00:19,079
+solo dos líneas sda de serial data y scl
+
+7
+00:00:16,679 --> 00:00:21,390
+de serial clock todos comparten las
+
+8
+00:00:19,079 --> 00:00:22,679
+mismas dos líneas entonces surge la
+
+9
+00:00:21,390 --> 00:00:25,410
+pregunta de cómo el microcontrolador
+
+10
+00:00:22,679 --> 00:00:26,879
+puede identificar a cada uno y la
+
+11
+00:00:25,410 --> 00:00:29,399
+respuesta es que cada dispositivo
+
+12
+00:00:26,879 --> 00:00:31,710
+conectado tiene una dirección única
+
+13
+00:00:29,399 --> 00:00:36,960
+mostrada en este diagrama en hexadecimal
+
+14
+00:00:31,710 --> 00:00:39,450
+con 0 x 27 y 0 x 76 cada dirección viene
+
+15
+00:00:36,960 --> 00:00:41,189
+programada por el fabricante oa veces el
+
+16
+00:00:39,450 --> 00:00:43,469
+usuario la puede cambiar por una
+
+17
+00:00:41,189 --> 00:00:45,390
+alternativa en arduino por ejemplo se
+
+18
+00:00:43,469 --> 00:00:47,520
+utiliza la librería con el nombre wire
+
+19
+00:00:45,390 --> 00:00:49,859
+también librerías específicas del
+
+20
+00:00:47,520 --> 00:00:51,660
+dispositivo conectado permiten indicar
+
+21
+00:00:49,859 --> 00:00:54,359
+la dirección al momento de crear el
+
+22
+00:00:51,659 --> 00:00:56,729
+objeto en el capítulo 35 del curso
+
+23
+00:00:54,359 --> 00:01:00,979
+arduino desde cero verás información más
+
+24
+00:00:56,729 --> 00:01:00,979
+detallada chau y hasta la próxima
+

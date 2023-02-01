@@ -1,0 +1,96 @@
+1
+00:00:00,280 --> 00:00:05,080
+hola a lo largo del curso entre muchas
+
+2
+00:00:03,129 --> 00:00:07,330
+preguntas que me realizan surgen tres
+
+3
+00:00:05,080 --> 00:00:10,150
+por eso el ranking comenzando por la
+
+4
+00:00:07,330 --> 00:00:12,490
+número tres donde descargo el código muy
+
+5
+00:00:10,150 --> 00:00:14,919
+simple debajo de cada vídeo en la
+
+6
+00:00:12,490 --> 00:00:17,859
+descripción presionando el botón mostrar
+
+7
+00:00:14,919 --> 00:00:20,560
+más verás el enlace al repositorio donde
+
+8
+00:00:17,859 --> 00:00:22,570
+cada capítulo tiene su propia carpeta y
+
+9
+00:00:20,559 --> 00:00:25,329
+allí encontrarás el o los códigos
+
+10
+00:00:22,570 --> 00:00:28,060
+correspondientes número dos como app
+
+11
+00:00:25,329 --> 00:00:30,639
+aguardó y no consulta usual del capítulo
+
+12
+00:00:28,059 --> 00:00:33,219
+número 2 donde encendemos y apagamos el
+
+13
+00:00:30,640 --> 00:00:35,170
+led incorporado la respuesta es que la
+
+14
+00:00:33,219 --> 00:00:37,268
+carga de un nuevo programa reemplaza a
+
+15
+00:00:35,170 --> 00:00:39,249
+la anterior pero si realmente quisiera
+
+16
+00:00:37,268 --> 00:00:42,128
+que arduino no haga nada podrás cargar
+
+17
+00:00:39,249 --> 00:00:44,949
+el programa en ejemplos basics bear
+
+18
+00:00:42,128 --> 00:00:48,338
+minimum en definitiva un setup y look
+
+19
+00:00:44,948 --> 00:00:50,979
+sin contenido número 1 cómo se llama el
+
+20
+00:00:48,338 --> 00:00:53,079
+emulador que usas la respuesta es que no
+
+21
+00:00:50,979 --> 00:00:55,209
+usó ningún emulador que el programa que
+
+22
+00:00:53,079 --> 00:00:56,920
+alguna veces muestra es el freak sing
+
+23
+00:00:55,210 --> 00:01:00,899
+simplemente para que los diagramas
+
+24
+00:00:56,920 --> 00:01:00,899
+queden bonitos y prolijos
+
