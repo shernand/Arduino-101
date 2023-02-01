@@ -1,0 +1,26 @@
+Aprenderemos a utilizar un módulo de relé (relay) para activar todo tipo de circuitos externos con distintas tensiones y corrientes con un solo pin digital de Arduino.
+Explicación del funcionamiento electromecánico del relé y de los componentes electrónicos que forman el módulo, el optoacoplador y transistor (esquemático simplificado).
+
+También se brindan tres ejemplos de aplicaciones típicas con tensiones de continua y de red alterna.
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoRelé
+#ArduinoRelay
+#ArduinoPrimerosPasosDesde0
+Arduino relay 5v
+Arduino rele 5v
+Arduino relay 220V AC
+Rele Arduino conexion
+Relevador Arduino codigo
+
+Marcas de tiempo:
+
+0:00 Introducción
+2:05 Principio de funcionamiento
+6:27 Diagrama eléctrico (simplificado)
+16:20 Circuito de conexión
+16:52 Primer programa (activando relé por 5 segundos)
+19:00 Ejemplos de uso (corriente continua y alterna)
+22:42 Próximo capítulo y despedida

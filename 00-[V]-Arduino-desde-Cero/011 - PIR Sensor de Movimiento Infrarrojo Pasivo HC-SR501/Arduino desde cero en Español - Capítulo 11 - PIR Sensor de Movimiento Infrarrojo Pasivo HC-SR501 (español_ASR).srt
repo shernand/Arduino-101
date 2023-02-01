@@ -1,0 +1,796 @@
+1
+00:00:00,770 --> 00:00:08,058
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,740 --> 00:00:10,339
+11 de arduino desde cero en español en
+
+3
+00:00:08,058 --> 00:00:13,160
+esta oportunidad vamos a utilizar un
+
+4
+00:00:10,339 --> 00:00:16,339
+módulo de sensor de movimiento del tipo
+
+5
+00:00:13,160 --> 00:00:19,699
+infrarrojo pasivo comúnmente llamado pib
+
+6
+00:00:16,339 --> 00:00:21,589
+por sus siglas en inglés en la parte
+
+7
+00:00:19,699 --> 00:00:24,829
+izquierda de pantalla se muestra el
+
+8
+00:00:21,589 --> 00:00:27,769
+módulo de sensor consiste de un circuito
+
+9
+00:00:24,829 --> 00:00:30,559
+impreso sobre el cual se monta el sensor
+
+10
+00:00:27,769 --> 00:00:32,750
+propiamente dicho y varios componentes
+
+11
+00:00:30,559 --> 00:00:35,329
+electrónicos que nos permitirán de
+
+12
+00:00:32,750 --> 00:00:38,390
+manera muy sencilla conectarlo arduino
+
+13
+00:00:35,329 --> 00:00:42,109
+con sólo 3 pines dos de ellos
+
+14
+00:00:38,390 --> 00:00:44,570
+alimentación y uno de señal el circuito
+
+15
+00:00:42,109 --> 00:00:47,000
+impreso también sirve de soporte para la
+
+16
+00:00:44,570 --> 00:00:50,329
+parte más visible que es el domo
+
+17
+00:00:47,000 --> 00:00:53,689
+plástico de color blanco el mismo está
+
+18
+00:00:50,329 --> 00:00:55,429
+diseñado para recibir y concentrar la
+
+19
+00:00:53,689 --> 00:00:58,670
+energía infrarroja que emiten los
+
+20
+00:00:55,429 --> 00:01:01,909
+objetos sobre el sensor que es del tipo
+
+21
+00:00:58,670 --> 00:01:05,250
+pasivo ya que no emite ningún tipo de
+
+22
+00:01:01,909 --> 00:01:08,819
+energía solo recibe la del ambiente
+
+23
+00:01:05,250 --> 00:01:11,750
+la energía infrarroja no es visible al
+
+24
+00:01:08,819 --> 00:01:14,519
+ojo humano todo objeto que emite calor
+
+25
+00:01:11,750 --> 00:01:17,760
+emite también una determinada cantidad
+
+26
+00:01:14,519 --> 00:01:20,849
+de energía infrarroja y este módulo
+
+27
+00:01:17,760 --> 00:01:24,420
+tiene un sensor especial llamado piro
+
+28
+00:01:20,849 --> 00:01:26,849
+eléctrico que detecta dicha energía y se
+
+29
+00:01:24,420 --> 00:01:30,269
+puede ver en esta imagen que queda
+
+30
+00:01:26,849 --> 00:01:33,000
+oculto debajo del domo cuando un objeto
+
+31
+00:01:30,269 --> 00:01:35,399
+o persona pasa por delante del sensor
+
+32
+00:01:33,000 --> 00:01:37,859
+cambia la cantidad energía infrarroja
+
+33
+00:01:35,400 --> 00:01:40,649
+que recibe ya que los seres humanos
+
+34
+00:01:37,859 --> 00:01:43,590
+emitimos grandes cantidades de la misma
+
+35
+00:01:40,649 --> 00:01:46,920
+debido a nuestra temperatura corporal
+
+36
+00:01:43,590 --> 00:01:48,930
+ese cambio es el que dispara la acción
+
+37
+00:01:46,920 --> 00:01:52,590
+del módulo que en nuestro caso
+
+38
+00:01:48,930 --> 00:01:55,500
+significará un cambio a un nivel alto en
+
+39
+00:01:52,590 --> 00:01:58,500
+la señal que sin movimiento está en
+
+40
+00:01:55,500 --> 00:02:01,739
+nivel bajo o cero volts eso quiere decir
+
+41
+00:01:58,500 --> 00:02:04,799
+que con sólo conectar señal a un digital
+
+42
+00:02:01,739 --> 00:02:07,739
+de arduino se te hado como entrada y
+
+43
+00:02:04,799 --> 00:02:09,359
+consultar si se encuentra en alto ya
+
+44
+00:02:07,739 --> 00:02:10,758
+tendremos indicación de que hay
+
+45
+00:02:09,360 --> 00:02:13,939
+movimiento
+
+46
+00:02:10,758 --> 00:02:16,219
+y el código será extremadamente sencillo
+
+47
+00:02:13,938 --> 00:02:19,009
+y una vez detectado movimientos
+
+48
+00:02:16,219 --> 00:02:20,719
+activaremos un módulo de relé
+
+49
+00:02:19,009 --> 00:02:24,408
+para habilitar cualquier tipo de
+
+50
+00:02:20,719 --> 00:02:26,239
+circuito externo en el capítulo 8 se
+
+51
+00:02:24,408 --> 00:02:28,429
+explicó en gran detalle el
+
+52
+00:02:26,239 --> 00:02:30,560
+funcionamiento del módulo de relé
+
+53
+00:02:28,430 --> 00:02:33,290
+con lo cual si no lo viste te lo
+
+54
+00:02:30,560 --> 00:02:35,329
+recomiendo en la parte posterior del
+
+55
+00:02:33,289 --> 00:02:39,229
+módulo se pueden ver los pines de
+
+56
+00:02:35,329 --> 00:02:42,109
+conexión para alimentación y señal y
+
+57
+00:02:39,229 --> 00:02:44,840
+también dos presets que servirán para
+
+58
+00:02:42,109 --> 00:02:47,000
+modificar el nivel de sensibilidad y
+
+59
+00:02:44,840 --> 00:02:50,180
+tiempo en que está activa la señal
+
+60
+00:02:47,000 --> 00:02:52,269
+cuando detecta movimiento este módulo
+
+61
+00:02:50,180 --> 00:02:55,069
+que está pensado para ser utilizado
+
+62
+00:02:52,269 --> 00:02:57,519
+incluso de forma directa sin necesidad
+
+63
+00:02:55,068 --> 00:03:00,589
+de pasar por un microcontrolador
+
+64
+00:02:57,519 --> 00:03:03,200
+nosotros por supuesto usaremos arduino
+
+65
+00:03:00,590 --> 00:03:05,959
+con lo cual el valor del tiempo que la
+
+66
+00:03:03,199 --> 00:03:08,298
+señal está activa realmente no tiene
+
+67
+00:03:05,959 --> 00:03:11,420
+mucha relevancia sólo podríamos
+
+68
+00:03:08,299 --> 00:03:15,079
+modificar el valor de sensibilidad si es
+
+69
+00:03:11,419 --> 00:03:16,818
+necesario permite detectar objetos hasta
+
+70
+00:03:15,079 --> 00:03:20,989
+6 metros de distancia
+
+71
+00:03:16,818 --> 00:03:23,378
+dentro de un cono de 110 grados vamos
+
+72
+00:03:20,989 --> 00:03:26,420
+entonces al circuito de conexión
+
+73
+00:03:23,378 --> 00:03:29,060
+utilizaremos de protoboard solo el riel
+
+74
+00:03:26,419 --> 00:03:32,328
+de tensión para alimentar tanto el
+
+75
+00:03:29,060 --> 00:03:34,310
+sensor como el módulo de relé pero no
+
+76
+00:03:32,329 --> 00:03:39,650
+requeriremos de otros componentes
+
+77
+00:03:34,310 --> 00:03:43,789
+externos bcc del sensor peer al positivo
+
+78
+00:03:39,650 --> 00:03:47,950
+del riel de tensión gene de amasa y
+
+79
+00:03:43,789 --> 00:03:50,539
+señal al pin digital número 2 de arduino
+
+80
+00:03:47,949 --> 00:03:53,388
+del módulo de relé
+
+81
+00:03:50,539 --> 00:03:58,578
+conectaremos veces a positivo del riel
+
+82
+00:03:53,389 --> 00:04:02,150
+de tensión gene de amasa y el pin en 1 o
+
+83
+00:03:58,579 --> 00:04:05,109
+en caso de un módulo simple y al pin
+
+84
+00:04:02,150 --> 00:04:09,049
+digital número 3 de arduino
+
+85
+00:04:05,109 --> 00:04:12,769
+luego alimentamos protoboard con 5 volts
+
+86
+00:04:09,049 --> 00:04:15,739
+y genere de arduino eso es todo
+
+87
+00:04:12,769 --> 00:04:18,228
+ahora el código definiremos dos
+
+88
+00:04:15,739 --> 00:04:20,899
+variables para los pines del sensor y el
+
+89
+00:04:18,228 --> 00:04:25,149
+módulo de relé
+
+90
+00:04:20,899 --> 00:04:29,568
+pero igual 2
+
+91
+00:04:25,149 --> 00:04:32,718
+int relay igual 3
+
+92
+00:04:29,569 --> 00:04:35,479
+también definiremos una variable para
+
+93
+00:04:32,718 --> 00:04:41,740
+almacenar el valor leído de señal del
+
+94
+00:04:35,478 --> 00:04:45,258
+sensor int estado igual a cero
+
+95
+00:04:41,740 --> 00:04:47,389
+aprovechamos a cargarle un valor de 0 ya
+
+96
+00:04:45,259 --> 00:04:50,959
+que asumimos que el sensor no ha
+
+97
+00:04:47,389 --> 00:04:53,899
+detectado ningún movimiento aún ahora en
+
+98
+00:04:50,959 --> 00:04:58,869
+el setup establecemos al sensor pierre
+
+99
+00:04:53,899 --> 00:05:02,899
+como entrada y al relé como salida piñón
+
+100
+00:04:58,869 --> 00:05:08,350
+tira input
+
+101
+00:05:02,899 --> 00:05:11,409
+pink moon relay output
+
+102
+00:05:08,350 --> 00:05:15,129
+el sensor requiere de unos segundos al
+
+103
+00:05:11,410 --> 00:05:18,580
+principio para estabilizarse con lo cual
+
+104
+00:05:15,129 --> 00:05:21,279
+pondremos una demora de 20 segundos aquí
+
+105
+00:05:18,579 --> 00:05:24,669
+en el setup de modo que se ejecute por
+
+106
+00:05:21,279 --> 00:05:28,219
+única vez al principio delay
+
+107
+00:05:24,670 --> 00:05:30,860
+entre paréntesis 20000
+
+108
+00:05:28,220 --> 00:05:33,800
+este es un tiempo promedio que indica el
+
+109
+00:05:30,860 --> 00:05:35,840
+fabricante se puede prescindir de esta
+
+110
+00:05:33,800 --> 00:05:38,150
+línea pero se podría generar
+
+111
+00:05:35,839 --> 00:05:40,189
+indicaciones de movimientos falsas
+
+112
+00:05:38,149 --> 00:05:43,729
+durante los primeros segundos de
+
+113
+00:05:40,189 --> 00:05:46,759
+funcionamiento muy bien en el loop
+
+114
+00:05:43,730 --> 00:05:50,030
+obtendremos el valor leído del pin de
+
+115
+00:05:46,759 --> 00:05:52,129
+señal del sensor y preguntaremos si está
+
+116
+00:05:50,029 --> 00:05:54,649
+en alto si es así
+
+117
+00:05:52,129 --> 00:05:57,670
+activaremos el módulo de relé que como
+
+118
+00:05:54,649 --> 00:06:05,500
+recordarán se activa con un nivel bajo
+
+119
+00:05:57,670 --> 00:06:05,500
+escribamos estado igual digital ruin
+
+120
+00:06:07,529 --> 00:06:13,229
+estado igual igual a hi
+
+121
+00:06:14,259 --> 00:06:20,699
+digital raid relé cloud
+
+122
+00:06:20,720 --> 00:06:24,790
+delay 4000
+
+123
+00:06:24,920 --> 00:06:31,790
+él
+
+124
+00:06:26,670 --> 00:06:31,790
+digital write relé
+
+125
+00:06:32,519 --> 00:06:38,728
+luego de activar el módulo de relieve
+
+126
+00:06:34,949 --> 00:06:42,240
+con un nivel bajo lo aplicamos una
+
+127
+00:06:38,728 --> 00:06:44,689
+demora de cuatro segundos esto es debido
+
+128
+00:06:42,240 --> 00:06:47,129
+a que no deseamos que el relieve esté
+
+129
+00:06:44,689 --> 00:06:49,610
+encendiendo y apagando de forma muy
+
+130
+00:06:47,129 --> 00:06:52,620
+rápida ya que es un dispositivo
+
+131
+00:06:49,610 --> 00:06:55,139
+electromecánico entonces cada vez que
+
+132
+00:06:52,620 --> 00:06:58,590
+detecte movimiento encenderemos el
+
+133
+00:06:55,139 --> 00:07:01,050
+módulo y se mantendrá así por 4 segundos
+
+134
+00:06:58,589 --> 00:07:04,348
+hasta que vuelva a detectar nuevamente
+
+135
+00:07:01,050 --> 00:07:05,728
+movimiento luego con un nivel alto lo
+
+136
+00:07:04,348 --> 00:07:09,990
+apagamos
+
+137
+00:07:05,728 --> 00:07:12,750
+vamos a verificar y subir el programa
+
+138
+00:07:09,990 --> 00:07:15,509
+ni bien subimos el programa debemos
+
+139
+00:07:12,750 --> 00:07:17,670
+recordar que recién después de 20
+
+140
+00:07:15,509 --> 00:07:20,399
+segundos comenzará a detectar
+
+141
+00:07:17,670 --> 00:07:23,400
+movimientos para dar tiempo a que se
+
+142
+00:07:20,399 --> 00:07:26,849
+estabiliza el sensor luego si nos
+
+143
+00:07:23,399 --> 00:07:29,250
+movemos cerca del sensor o acercamos la
+
+144
+00:07:26,850 --> 00:07:32,129
+mano veremos que se activa el módulo de
+
+145
+00:07:29,250 --> 00:07:35,639
+relé por 4 segundos en siendo un pequeño
+
+146
+00:07:32,129 --> 00:07:38,399
+led rojo y escuchamos el click que se
+
+147
+00:07:35,639 --> 00:07:39,659
+energiza la bobina solo se activará el
+
+148
+00:07:38,399 --> 00:07:43,109
+módulo de relé
+
+149
+00:07:39,660 --> 00:07:45,200
+cuando detecte movimiento perfecto ya
+
+150
+00:07:43,110 --> 00:07:48,199
+verificamos que funciona correctamente
+
+151
+00:07:45,199 --> 00:07:51,509
+ahora veamos algunos ejemplos prácticos
+
+152
+00:07:48,199 --> 00:07:54,289
+para conectar el relé son los mismos
+
+153
+00:07:51,509 --> 00:07:56,579
+ejemplos vistos en el capítulo 8
+
+154
+00:07:54,290 --> 00:07:58,410
+básicamente con el relé
+
+155
+00:07:56,579 --> 00:08:02,310
+podemos activar cualquier circuito
+
+156
+00:07:58,410 --> 00:08:06,060
+externo con tensiones de hasta 250 volts
+
+157
+00:08:02,310 --> 00:08:09,750
+de alterna y 20 amper de corriente un
+
+158
+00:08:06,060 --> 00:08:12,439
+ejemplo sería activar un reflector
+
+159
+00:08:09,750 --> 00:08:15,000
+el neutro de la atención de la red
+
+160
+00:08:12,439 --> 00:08:18,990
+directo a uno de los terminales del
+
+161
+00:08:15,000 --> 00:08:22,079
+reflector el vivo también llamado línea
+
+162
+00:08:18,990 --> 00:08:24,960
+o fácil de la red lo conectaremos al
+
+163
+00:08:22,079 --> 00:08:27,019
+terminal común al relé mediante labor
+
+164
+00:08:24,959 --> 00:08:28,848
+negra del módulo
+
+165
+00:08:27,019 --> 00:08:31,969
+luego conectaremos desde el normal
+
+166
+00:08:28,848 --> 00:08:34,819
+abierto un cable hacia el otro extremo
+
+167
+00:08:31,970 --> 00:08:37,278
+del reflector si queremos hacer que la
+
+168
+00:08:34,820 --> 00:08:39,680
+luz permanezca más tiempo encendida al
+
+169
+00:08:37,278 --> 00:08:42,168
+detectar movimiento solo debemos
+
+170
+00:08:39,679 --> 00:08:45,289
+incrementar el delay que se encuentra
+
+171
+00:08:42,168 --> 00:08:48,379
+dentro del ibex por ejemplo a 30
+
+172
+00:08:45,289 --> 00:08:52,699
+segundos colocaremos delay entre
+
+173
+00:08:48,379 --> 00:08:55,879
+paréntesis 30.000 también se podría
+
+174
+00:08:52,700 --> 00:08:58,550
+conectar un sensor crepuscular de manera
+
+175
+00:08:55,879 --> 00:09:02,360
+que encienda el reflector cuando detecta
+
+176
+00:08:58,549 --> 00:09:04,639
+movimiento y solo si es de noche si
+
+177
+00:09:02,360 --> 00:09:07,550
+estamos haciendo un sistema de alarma
+
+178
+00:09:04,639 --> 00:09:10,730
+por ejemplo al determinar que si la
+
+179
+00:09:07,549 --> 00:09:13,778
+alarma está activa y el sensor detecta
+
+180
+00:09:10,730 --> 00:09:16,370
+movimiento podemos activar una sirena
+
+181
+00:09:13,778 --> 00:09:19,370
+mediante una batería o fuente de
+
+182
+00:09:16,370 --> 00:09:22,490
+alimentación de 12 volts como se muestra
+
+183
+00:09:19,370 --> 00:09:25,730
+a continuación en negativo de la batería
+
+184
+00:09:22,490 --> 00:09:28,639
+al negativo de la sirena y el positivo
+
+185
+00:09:25,730 --> 00:09:31,430
+de la batería al común del relé
+
+186
+00:09:28,639 --> 00:09:32,850
+y desde normal abierto al positivo de la
+
+187
+00:09:31,429 --> 00:09:35,489
+sirena
+
+188
+00:09:32,850 --> 00:09:38,100
+siempre es importante tomar las medidas
+
+189
+00:09:35,490 --> 00:09:40,769
+de precaución necesarias cuando se
+
+190
+00:09:38,100 --> 00:09:44,339
+trabaja con tensión de red ya que un
+
+191
+00:09:40,769 --> 00:09:48,000
+cortocircuito o tocar un polo vivo puede
+
+192
+00:09:44,339 --> 00:09:51,420
+ser letal eso es todo por este capítulo
+
+193
+00:09:48,000 --> 00:09:54,750
+en el próximo aprendimos a trabajar con
+
+194
+00:09:51,419 --> 00:09:58,019
+un led rgb muy útil para todo tipo de
+
+195
+00:09:54,750 --> 00:10:00,990
+proyectos como siempre les pido se
+
+196
+00:09:58,019 --> 00:10:03,149
+suscriban para recibir notificaciones y
+
+197
+00:10:00,990 --> 00:10:05,129
+cualquier duda o comentario lo pueden
+
+198
+00:10:03,149 --> 00:10:09,649
+hacer debajo que con gusto les
+
+199
+00:10:05,129 --> 00:10:09,649
+responderé chau y hasta la próxima
+

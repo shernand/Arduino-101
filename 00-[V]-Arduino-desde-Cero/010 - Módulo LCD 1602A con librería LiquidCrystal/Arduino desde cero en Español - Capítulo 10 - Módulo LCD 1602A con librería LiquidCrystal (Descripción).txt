@@ -1,0 +1,29 @@
+Con el módulo LCD de 16 columnas por 2 filas modelo 1602A podremos fácilmente mostrar información directamente desde Arduino y asi no depender siempre del monitor serie.
+Mediante el uso de la librería LiquidCrystal podremos mostrar información en pantalla de forma sencilla, en este capítulo se explica su conexionado, la regulación del contraste y diversas funciones para mostrar texto, cursor y desplazamiento.
+
+Tu display tiene interfaz I2C de dos cables ? Ver capítulo 35: 
+https://www.youtube.com/watch?v=kuLgPLrg-cY
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoLCD
+#ArduinoDisplay
+#Arduino1602
+Arduino LCD 16x2
+Arduino LCD 1602A
+LCD Arduino tutorial
+LCD 4 bit mode
+Inicializar LCD 16x2 4 bits
+LCD scroll Arduino
+LCD setcursor Arduino
+
+Marcas de tiempo:
+0:00 Introducción
+5:40 Circuito de conexión
+8:30 Primer programa (librería y tiempo transcurrido)
+15:34 Segundo programa (parpadeo de texto)
+17:14 Tercer programa (mostrando un cursor)
+19:28 Cuarto programa (desplazamiento de texto largo)
+23:57 Próximo capítulo y despedida

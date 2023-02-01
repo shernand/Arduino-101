@@ -1,0 +1,1888 @@
+1
+00:00:00,200 --> 00:00:07,339
+hola a todos y bienvenidos al capítulo 8
+
+2
+00:00:03,680 --> 00:00:09,949
+de arduino desde cero en español en esta
+
+3
+00:00:07,339 --> 00:00:12,919
+oportunidad vamos a utilizar un módulo
+
+4
+00:00:09,949 --> 00:00:15,739
+de relé para activar circuitos externos
+
+5
+00:00:12,919 --> 00:00:18,980
+con alto consumo de corriente o con
+
+6
+00:00:15,740 --> 00:00:21,589
+distintos valores de tensión hasta ahora
+
+7
+00:00:18,980 --> 00:00:24,859
+hemos trabajado siempre con tensiones de
+
+8
+00:00:21,589 --> 00:00:27,589
+continua de 5 volts tanto para manejar
+
+9
+00:00:24,859 --> 00:00:29,750
+señales provenientes de sensores como
+
+10
+00:00:27,589 --> 00:00:33,679
+para alimentar dispositivos electrónicos
+
+11
+00:00:29,750 --> 00:00:37,070
+de bajo consumo recién en el capítulo 6
+
+12
+00:00:33,679 --> 00:00:39,500
+con el servomotor vimos la necesidad de
+
+13
+00:00:37,070 --> 00:00:41,960
+alimentar arduino con una fuente externa
+
+14
+00:00:39,500 --> 00:00:45,140
+debido al consumo que nos generaba el
+
+15
+00:00:41,960 --> 00:00:48,079
+cervo existen casos en donde debemos
+
+16
+00:00:45,140 --> 00:00:50,689
+tomar control de un circuito que trabaje
+
+17
+00:00:48,079 --> 00:00:54,350
+con tensión de red es decir de por
+
+18
+00:00:50,689 --> 00:00:58,879
+ejemplo 220 volts dependiendo del país
+
+19
+00:00:54,350 --> 00:01:02,510
+la tensión de red podrá ser 240 volts o
+
+20
+00:00:58,880 --> 00:01:04,338
+también 110 evidentemente no podemos
+
+21
+00:01:02,509 --> 00:01:07,310
+trabajar con arduino
+
+22
+00:01:04,338 --> 00:01:09,798
+directa con dichas tensiones de manera
+
+23
+00:01:07,310 --> 00:01:12,769
+que necesitamos de un dispositivo que
+
+24
+00:01:09,799 --> 00:01:14,840
+sea capaz de recibir de arduino solo los
+
+25
+00:01:12,769 --> 00:01:17,750
+comandos necesarios para activar un
+
+26
+00:01:14,840 --> 00:01:21,049
+circuito externo con tensiones diversas
+
+27
+00:01:17,750 --> 00:01:24,590
+o consumos de corriente elevados ese
+
+28
+00:01:21,049 --> 00:01:27,469
+dispositivo se llama relé y se trata de
+
+29
+00:01:24,590 --> 00:01:29,990
+un componente electromecánico el cual
+
+30
+00:01:27,468 --> 00:01:32,688
+justamente permite que con una tensión
+
+31
+00:01:29,989 --> 00:01:36,108
+de 5 volts podamos abrir y cerrar
+
+32
+00:01:32,688 --> 00:01:39,559
+circuitos totalmente independientes con
+
+33
+00:01:36,108 --> 00:01:42,438
+otras tensiones y corrientes en pantalla
+
+34
+00:01:39,560 --> 00:01:44,629
+vemos sobre la parte izquierda un módulo
+
+35
+00:01:42,438 --> 00:01:47,269
+de relieve doble que es el que estaría
+
+36
+00:01:44,629 --> 00:01:49,368
+utilizando para el proyecto si en tu
+
+37
+00:01:47,269 --> 00:01:52,789
+caso se trata de un modelo de relé
+
+38
+00:01:49,368 --> 00:01:56,000
+simple lo explicado es perfectamente
+
+39
+00:01:52,789 --> 00:01:58,368
+aplicable un módulo doble no es más que
+
+40
+00:01:56,000 --> 00:02:01,188
+dos módulos simples sobre un mismo
+
+41
+00:01:58,368 --> 00:02:03,489
+circuito ingreso vamos a ver en detalle
+
+42
+00:02:01,188 --> 00:02:06,848
+los componentes que conforman el módulo
+
+43
+00:02:03,489 --> 00:02:09,950
+empezando por el más prominente el relé
+
+44
+00:02:06,849 --> 00:02:10,520
+dentro del cubo de color azul tendremos
+
+45
+00:02:09,949 --> 00:02:13,429
+uno
+
+46
+00:02:10,520 --> 00:02:15,400
+de electromecánicos formados por una
+
+47
+00:02:13,430 --> 00:02:18,260
+bobina y una serie de contactos
+
+48
+00:02:15,400 --> 00:02:21,319
+vinculados mediante un brazo en forma de
+
+49
+00:02:18,259 --> 00:02:24,679
+l la bobina está compuesta por un
+
+50
+00:02:21,319 --> 00:02:26,989
+alambre muy fino de cobre aislado que se
+
+51
+00:02:24,680 --> 00:02:29,750
+enrolla alrededor de un núcleo metálico
+
+52
+00:02:26,990 --> 00:02:32,510
+al hacer circular una corriente por la
+
+53
+00:02:29,750 --> 00:02:35,150
+bobina se creará un campo magnético que
+
+54
+00:02:32,509 --> 00:02:38,299
+se concentra en el núcleo haciendo que
+
+55
+00:02:35,150 --> 00:02:41,120
+se comporte como un electroimán justo
+
+56
+00:02:38,300 --> 00:02:44,510
+por encima de la bobina existe un brazo
+
+57
+00:02:41,120 --> 00:02:47,629
+que pivotea y esto permite que se pueda
+
+58
+00:02:44,509 --> 00:02:51,349
+alejar o acercar del núcleo de la bobina
+
+59
+00:02:47,629 --> 00:02:53,990
+a su vez dicho brazo está conectado
+
+60
+00:02:51,349 --> 00:02:57,590
+mecánicamente al contacto denominado con
+
+61
+00:02:53,990 --> 00:03:00,800
+la letra c es decir el terminal común
+
+62
+00:02:57,590 --> 00:03:03,200
+del relé en el gráfico quizás no llegue
+
+63
+00:03:00,800 --> 00:03:06,500
+a notarse pero el eje que vincula el
+
+64
+00:03:03,199 --> 00:03:09,619
+brazo con el terminal común pasa por un
+
+65
+00:03:06,500 --> 00:03:11,949
+orificio a través del terminal en ese
+
+66
+00:03:09,620 --> 00:03:14,469
+que es normal cerrado
+
+67
+00:03:11,949 --> 00:03:17,679
+es decir que cuando el brazo en l se
+
+68
+00:03:14,469 --> 00:03:19,989
+mueve solo mueve el terminal común y no
+
+69
+00:03:17,680 --> 00:03:23,200
+existe ningún tipo de conexión eléctrica
+
+70
+00:03:19,989 --> 00:03:25,269
+entre los contactos y el eje sólo sirve
+
+71
+00:03:23,199 --> 00:03:28,869
+para trasladar el movimiento del brazo
+
+72
+00:03:25,269 --> 00:03:31,930
+al terminal como en definitiva el relé
+
+73
+00:03:28,870 --> 00:03:34,450
+tendrá entonces una bobina un brazo
+
+74
+00:03:31,930 --> 00:03:38,170
+conectado mediante un eje al terminal
+
+75
+00:03:34,449 --> 00:03:40,780
+común un terminal llamado nc que es
+
+76
+00:03:38,169 --> 00:03:43,949
+normal cerrado y otro terminal llamado
+
+77
+00:03:40,780 --> 00:03:46,590
+línea que es normal abierto
+
+78
+00:03:43,949 --> 00:03:48,988
+cuando el relé se encuentra en estado de
+
+79
+00:03:46,590 --> 00:03:51,870
+reposo es decir que no se le aplica
+
+80
+00:03:48,989 --> 00:03:54,120
+ninguna atención a la bobina el terminal
+
+81
+00:03:51,870 --> 00:03:57,180
+común estará tocando el terminal de
+
+82
+00:03:54,120 --> 00:04:00,269
+normal cerrado y estará alejado del
+
+83
+00:03:57,180 --> 00:04:02,969
+terminal normal abierto de allí vienen
+
+84
+00:04:00,269 --> 00:04:06,509
+los términos de normal abierto y normal
+
+85
+00:04:02,969 --> 00:04:09,750
+cerrado en estado de reposo el terminal
+
+86
+00:04:06,509 --> 00:04:12,870
+normal cerrado estará siendo contacto
+
+87
+00:04:09,750 --> 00:04:15,780
+con el común y el normal abierto no
+
+88
+00:04:12,870 --> 00:04:18,959
+estará haciendo contacto por eso decimos
+
+89
+00:04:15,780 --> 00:04:21,389
+que está abierto muy bien qué sucede
+
+90
+00:04:18,959 --> 00:04:24,660
+entonces si aplicamos una tensión a la
+
+91
+00:04:21,389 --> 00:04:27,210
+bobina es decir la energiza mos se
+
+92
+00:04:24,660 --> 00:04:29,970
+creará un campo magnético concentrado
+
+93
+00:04:27,209 --> 00:04:32,759
+que hará que él vea son l nueva
+
+94
+00:04:29,970 --> 00:04:35,700
+físicamente el terminal común y haga
+
+95
+00:04:32,759 --> 00:04:37,589
+contacto con el normal abierto al mismo
+
+96
+00:04:35,699 --> 00:04:40,409
+tiempo que hace contacto con el normal
+
+97
+00:04:37,589 --> 00:04:43,649
+abierto deja de hacer contacto con el
+
+98
+00:04:40,410 --> 00:04:46,680
+normal cerrado con lo cual estaremos en
+
+99
+00:04:43,649 --> 00:04:48,478
+una situación exactamente opuesta a la
+
+100
+00:04:46,680 --> 00:04:49,639
+que se encontraba cuando estaba en
+
+101
+00:04:48,478 --> 00:04:52,550
+reposo
+
+102
+00:04:49,639 --> 00:04:55,668
+energizado lo que hemos logrado es
+
+103
+00:04:52,550 --> 00:04:58,158
+eléctricamente cerrar el circuito intra
+
+104
+00:04:55,668 --> 00:05:01,459
+terminal común y el terminal normal
+
+105
+00:04:58,158 --> 00:05:04,339
+abierto este circuito está totalmente
+
+106
+00:05:01,459 --> 00:05:07,758
+aislado de la bobina y es la principal
+
+107
+00:05:04,339 --> 00:05:11,060
+función del relé lograr abrir o cerrar
+
+108
+00:05:07,759 --> 00:05:14,840
+un circuito totalmente independiente del
+
+109
+00:05:11,060 --> 00:05:17,538
+de control la bobina la analizamos con 5
+
+110
+00:05:14,839 --> 00:05:20,598
+volts de arduino y en los terminales de
+
+111
+00:05:17,538 --> 00:05:24,740
+común normal abierto y normal cerrado
+
+112
+00:05:20,598 --> 00:05:28,098
+podemos controlar tensiones de 220 volts
+
+113
+00:05:24,740 --> 00:05:31,218
+y 10 samper de corriente el terminal que
+
+114
+00:05:28,098 --> 00:05:33,860
+generalmente es más usado del relé es el
+
+115
+00:05:31,218 --> 00:05:36,379
+normal abierto se asemeja al
+
+116
+00:05:33,860 --> 00:05:39,229
+funcionamiento de un pulsador un
+
+117
+00:05:36,379 --> 00:05:42,860
+pulsador es un circuito abierto hasta
+
+118
+00:05:39,228 --> 00:05:45,978
+que uno físicamente lo presiona y cierra
+
+119
+00:05:42,860 --> 00:05:49,210
+el circuito con el relé logramos esa
+
+120
+00:05:45,978 --> 00:05:52,218
+misma acción mecánica mediante la bobina
+
+121
+00:05:49,209 --> 00:05:54,528
+lo que hay que recordar es que el común
+
+122
+00:05:52,218 --> 00:05:55,129
+se encuentra haciendo contacto con el
+
+123
+00:05:54,528 --> 00:05:58,278
+normal
+
+124
+00:05:55,129 --> 00:06:02,179
+con el normal cerrado estando en reposo
+
+125
+00:05:58,278 --> 00:06:04,249
+al energizar la bobina cambia y pasa el
+
+126
+00:06:02,178 --> 00:06:07,008
+común a hacer contacto con el normal
+
+127
+00:06:04,249 --> 00:06:09,499
+abierto para no complicar el tema
+
+128
+00:06:07,009 --> 00:06:12,379
+podemos olvidarnos del normal el cerrado
+
+129
+00:06:09,499 --> 00:06:15,639
+y ver a los terminales de común y normal
+
+130
+00:06:12,379 --> 00:06:19,239
+abierto como los extremos de un pulsador
+
+131
+00:06:15,639 --> 00:06:22,360
+en reposo el circuito está abierto
+
+132
+00:06:19,238 --> 00:06:25,878
+energizado el circuito se cierra
+
+133
+00:06:22,360 --> 00:06:28,908
+perfecto veamos en pantalla una vista
+
+134
+00:06:25,879 --> 00:06:31,849
+superior del módulo doble de relé
+
+135
+00:06:28,908 --> 00:06:34,759
+tendrá una serie de pines que servirán
+
+136
+00:06:31,848 --> 00:06:38,718
+para alimentarlo y unos pines de control
+
+137
+00:06:34,759 --> 00:06:41,360
+luego en el extremo opuesto veremos una
+
+138
+00:06:38,718 --> 00:06:44,540
+barrera con los terminales de normal
+
+139
+00:06:41,360 --> 00:06:48,800
+cerrado con un y normal abierto
+
+140
+00:06:44,540 --> 00:06:51,319
+bsc ign de cena la alimentación que la
+
+141
+00:06:48,800 --> 00:06:54,980
+obtendremos directamente de arduino en
+
+142
+00:06:51,319 --> 00:06:57,860
+los terminales en 1 e in dos serán los
+
+143
+00:06:54,980 --> 00:07:01,390
+de control en caso de un módulo simple
+
+144
+00:06:57,860 --> 00:07:04,040
+tendrás un solo pin denominado in
+
+145
+00:07:01,389 --> 00:07:06,680
+podrías preguntarse para qué existen los
+
+146
+00:07:04,040 --> 00:07:09,980
+demás componentes en el módulo si lo que
+
+147
+00:07:06,680 --> 00:07:12,410
+importa es el relé simplemente conecta
+
+148
+00:07:09,980 --> 00:07:14,540
+la bobina del relé a una salida digital
+
+149
+00:07:12,410 --> 00:07:17,720
+de arduino y listo
+
+150
+00:07:14,540 --> 00:07:20,060
+bueno no es tan simple por eso el relé
+
+151
+00:07:17,720 --> 00:07:22,550
+tiene conectado una serie de componentes
+
+152
+00:07:20,060 --> 00:07:26,689
+electrónicos que nos ayudarán a
+
+153
+00:07:22,550 --> 00:07:28,250
+energizar la bobina de forma segura para
+
+154
+00:07:26,689 --> 00:07:31,310
+entender bien el motivo de cada
+
+155
+00:07:28,250 --> 00:07:34,189
+componente veamos el diagrama eléctrico
+
+156
+00:07:31,310 --> 00:07:36,709
+también llamado esquemático del módulo
+
+157
+00:07:34,189 --> 00:07:38,810
+es una versión simplificada por
+
+158
+00:07:36,709 --> 00:07:42,019
+cuestiones didácticas algunos
+
+159
+00:07:38,810 --> 00:07:45,139
+componentes no están mostrados para no
+
+160
+00:07:42,019 --> 00:07:47,329
+complicar el entendimiento hasta ahora
+
+161
+00:07:45,139 --> 00:07:50,240
+vimos siempre una conexión de proto
+
+162
+00:07:47,329 --> 00:07:51,709
+board una imagen que representaba cada
+
+163
+00:07:50,240 --> 00:07:54,040
+componente
+
+164
+00:07:51,709 --> 00:07:57,250
+en la forma que existe en el mundo real
+
+165
+00:07:54,040 --> 00:08:00,170
+ahora que ya sabemos más sobre arduino
+
+166
+00:07:57,250 --> 00:08:01,850
+componentes y su interconexión
+
+167
+00:08:00,170 --> 00:08:04,280
+debemos pasar a una versión que
+
+168
+00:08:01,850 --> 00:08:07,340
+represente a los componentes y sus
+
+169
+00:08:04,279 --> 00:08:11,029
+conexiones de forma independiente a cómo
+
+170
+00:08:07,339 --> 00:08:13,339
+se ven en la realidad es sencillo sólo
+
+171
+00:08:11,029 --> 00:08:15,289
+hay que seguir las líneas de conexión y
+
+172
+00:08:13,339 --> 00:08:18,560
+aprender cómo se representan los
+
+173
+00:08:15,290 --> 00:08:20,150
+componentes de esa forma es más fácil
+
+174
+00:08:18,560 --> 00:08:23,149
+entender el funcionamiento de un
+
+175
+00:08:20,149 --> 00:08:25,669
+circuito con muchos componentes y la
+
+176
+00:08:23,149 --> 00:08:28,819
+vista de diagrama eléctrica es la
+
+177
+00:08:25,670 --> 00:08:31,280
+preferida en electrónica igual no se
+
+178
+00:08:28,819 --> 00:08:33,919
+preocupen que seguiremos usando la vista
+
+179
+00:08:31,279 --> 00:08:36,559
+de protoboard por ahora es mejor el
+
+180
+00:08:33,919 --> 00:08:39,049
+diagrama eléctrico comenzando de
+
+181
+00:08:36,559 --> 00:08:43,509
+izquierda a derecha podemos ver tres
+
+182
+00:08:39,049 --> 00:08:48,500
+terminales que serán de sc in y genere
+
+183
+00:08:43,509 --> 00:08:50,088
+como ya sabemos psc será 5volts y gene
+
+184
+00:08:48,500 --> 00:08:53,720
+de masas
+
+185
+00:08:50,089 --> 00:08:56,779
+y será nuestro terminal de control si
+
+186
+00:08:53,720 --> 00:08:59,480
+seguimos la línea de bcc veremos que se
+
+187
+00:08:56,778 --> 00:09:03,470
+conecta a un extremo de un componente
+
+188
+00:08:59,480 --> 00:09:06,019
+nuevo llamado opto acoplador luego
+
+189
+00:09:03,470 --> 00:09:09,559
+veremos la representación de nuestro ya
+
+190
+00:09:06,019 --> 00:09:12,828
+conocido led el leds se representa como
+
+191
+00:09:09,558 --> 00:09:15,588
+se muestra una flecha con una línea
+
+192
+00:09:12,828 --> 00:09:19,188
+perpendicular en su extremo y desde el
+
+193
+00:09:15,589 --> 00:09:21,769
+centro salen dos flechas indicando que
+
+194
+00:09:19,188 --> 00:09:24,498
+se trata de un diodo emisor de luz y no
+
+195
+00:09:21,769 --> 00:09:28,899
+de un diodo convencional y el otro
+
+196
+00:09:24,499 --> 00:09:31,300
+extremo del led irá hasta el terminal de
+
+197
+00:09:28,899 --> 00:09:34,808
+retomemos brevemente la vista de
+
+198
+00:09:31,299 --> 00:09:37,719
+protoboard el led se ve en el mundo real
+
+199
+00:09:34,808 --> 00:09:41,019
+de esta forma sabemos también que tiene
+
+200
+00:09:37,720 --> 00:09:43,360
+dos terminales y el ánodo y el cátodo y
+
+201
+00:09:41,019 --> 00:09:46,749
+vemos cómo se representa en un diagrama
+
+202
+00:09:43,360 --> 00:09:49,629
+eléctrico también vemos un nuevo
+
+203
+00:09:46,749 --> 00:09:52,569
+componente que es el transistor que
+
+204
+00:09:49,629 --> 00:09:55,629
+suele tener un encapsulado pequeño y
+
+205
+00:09:52,568 --> 00:09:58,118
+terminales que serán emisor base y
+
+206
+00:09:55,629 --> 00:10:01,509
+colector y su correspondiente
+
+207
+00:09:58,119 --> 00:10:04,209
+representación en el diagrama eléctrico
+
+208
+00:10:01,509 --> 00:10:07,629
+volviendo al mismo podremos identificar
+
+209
+00:10:04,208 --> 00:10:11,289
+que el extremo superior del led será el
+
+210
+00:10:07,629 --> 00:10:14,079
+ánodo y el inferior el cátodo para
+
+211
+00:10:11,289 --> 00:10:16,539
+recordar cuál es el ano y el cátodo en
+
+212
+00:10:14,078 --> 00:10:18,878
+una vista del diagrama eléctrico lo
+
+213
+00:10:16,539 --> 00:10:20,469
+mejor es seguir el sentido de la flecha
+
+214
+00:10:18,879 --> 00:10:22,720
+del propio led
+
+215
+00:10:20,470 --> 00:10:24,790
+la flecha indica el sentido de
+
+216
+00:10:22,720 --> 00:10:28,120
+circulación de corriente cuando se lo
+
+217
+00:10:24,789 --> 00:10:30,849
+polariza de forma de encenderlo entonces
+
+218
+00:10:28,120 --> 00:10:34,870
+el ánodo deberá ir a una tensión
+
+219
+00:10:30,850 --> 00:10:37,629
+positiva el cátodo a masa como podemos
+
+220
+00:10:34,870 --> 00:10:40,330
+ver el ánodo ya se encuentra conectado
+
+221
+00:10:37,629 --> 00:10:44,769
+al positivo y el cátodo va directo al
+
+222
+00:10:40,330 --> 00:10:47,500
+pin pin y loft acoplador está formado
+
+223
+00:10:44,769 --> 00:10:50,649
+por dos componentes dentro de un mismo
+
+224
+00:10:47,500 --> 00:10:52,779
+encapsulado si vemos la imagen de la
+
+225
+00:10:50,649 --> 00:10:56,500
+vista superior del módulo de relés
+
+226
+00:10:52,779 --> 00:10:58,929
+veremos que él optó acoplador es este
+
+227
+00:10:56,500 --> 00:11:02,049
+componente de color negro que a veces
+
+228
+00:10:58,929 --> 00:11:04,539
+también puede ser de color blanco el
+
+229
+00:11:02,049 --> 00:11:07,959
+segundo componente que forma parte del
+
+230
+00:11:04,539 --> 00:11:10,139
+auto acoplador es un transistor que se
+
+231
+00:11:07,960 --> 00:11:12,700
+activa mediante la luz que emite el led
+
+232
+00:11:10,139 --> 00:11:14,889
+sin entrar en detalle sobre el
+
+233
+00:11:12,700 --> 00:11:17,710
+funcionamiento de un transistor lo
+
+234
+00:11:14,889 --> 00:11:20,710
+debemos pensar como si fuera una llave
+
+235
+00:11:17,710 --> 00:11:23,110
+que puede estar cerrada o abierta
+
+236
+00:11:20,710 --> 00:11:25,420
+si le aplicamos una atención adecuada a
+
+237
+00:11:23,110 --> 00:11:27,430
+la base del transistor tendremos
+
+238
+00:11:25,419 --> 00:11:30,579
+circulación de corriente entre colector
+
+239
+00:11:27,429 --> 00:11:33,129
+y emisor si no le aplicamos tensión a la
+
+240
+00:11:30,580 --> 00:11:35,770
+base no hay circulación de corriente
+
+241
+00:11:33,129 --> 00:11:39,009
+entre dichos terminales siendo
+
+242
+00:11:35,769 --> 00:11:41,169
+equivalente a un circuito abierto el
+
+243
+00:11:39,009 --> 00:11:45,129
+transistor que se encuentra dentro del
+
+244
+00:11:41,169 --> 00:11:48,939
+auto acoplador es una especial cuya base
+
+245
+00:11:45,129 --> 00:11:51,309
+es fotosensibles con lo cual no se le
+
+246
+00:11:48,940 --> 00:11:54,100
+aplicará atención para activarlo
+
+247
+00:11:51,309 --> 00:11:57,429
+sino que será luz la luz que genera el
+
+248
+00:11:54,100 --> 00:12:00,700
+led puede parecer confuso pero ya verán
+
+249
+00:11:57,429 --> 00:12:02,799
+cuál es la razón de este componente lo
+
+250
+00:12:00,700 --> 00:12:06,129
+que hay que recordar del opd acoplador
+
+251
+00:12:02,799 --> 00:12:09,669
+es que con dos terminales estaremos
+
+252
+00:12:06,129 --> 00:12:12,070
+aplicando tensión para encender un led y
+
+253
+00:12:09,669 --> 00:12:15,399
+en los otros terminales tendremos un
+
+254
+00:12:12,070 --> 00:12:18,090
+circuito cerrado si se enciende el led o
+
+255
+00:12:15,399 --> 00:12:21,009
+un circuito abierto si no recibe luz
+
+256
+00:12:18,090 --> 00:12:24,100
+cabe aclarar que el led no es visible
+
+257
+00:12:21,009 --> 00:12:26,710
+por fuera del cap su lado solo se usa
+
+258
+00:12:24,100 --> 00:12:29,740
+únicamente para activar el transistor
+
+259
+00:12:26,710 --> 00:12:32,620
+que tiene dentro vimos que el ánodo del
+
+260
+00:12:29,740 --> 00:12:35,259
+led está conectado a veces y que el
+
+261
+00:12:32,620 --> 00:12:38,560
+terminal y no está conectado el cátodo
+
+262
+00:12:35,259 --> 00:12:40,929
+con lo cual si ponemos in a massa
+
+263
+00:12:38,559 --> 00:12:45,009
+tendremos circulación de corriente por
+
+264
+00:12:40,929 --> 00:12:47,500
+el led y se encenderá al encenderse en
+
+265
+00:12:45,009 --> 00:12:50,139
+led activará el transistor dentro del
+
+266
+00:12:47,500 --> 00:12:53,620
+octa cocreador y tendremos circulación
+
+267
+00:12:50,139 --> 00:12:56,289
+de corriente entre colector y emisor con
+
+268
+00:12:53,620 --> 00:12:59,409
+lo cual el emisor pasará a tener un
+
+269
+00:12:56,289 --> 00:13:03,120
+nivel de 5 volts es como si tuviéramos
+
+270
+00:12:59,409 --> 00:13:05,919
+un cable que conecta el emisor con bcc
+
+271
+00:13:03,120 --> 00:13:08,529
+siguiendo el circuito vemos que el
+
+272
+00:13:05,919 --> 00:13:11,620
+emisor del auto acoplador que ahora
+
+273
+00:13:08,529 --> 00:13:14,289
+tiene un nivel de bsc está conectado a
+
+274
+00:13:11,620 --> 00:13:16,419
+la base de otro transistor
+
+275
+00:13:14,289 --> 00:13:19,089
+este es un transistor externo que se
+
+276
+00:13:16,419 --> 00:13:20,199
+puede ver aquí muy pequeño sobre el
+
+277
+00:13:19,090 --> 00:13:23,320
+módulo
+
+278
+00:13:20,200 --> 00:13:25,629
+este transistor permite manejar más
+
+279
+00:13:23,320 --> 00:13:28,629
+corriente y es el adecuado para
+
+280
+00:13:25,629 --> 00:13:32,110
+energizar la bobina este transistor ha
+
+281
+00:13:28,629 --> 00:13:35,230
+de ser del tipo n pn se activa con una
+
+282
+00:13:32,110 --> 00:13:37,779
+tensión positiva en su base y eso es
+
+283
+00:13:35,230 --> 00:13:40,060
+exactamente lo que tenemos así que
+
+284
+00:13:37,779 --> 00:13:43,839
+permitirá la circulación de corriente
+
+285
+00:13:40,059 --> 00:13:46,649
+entre su colector y emisor viendo el
+
+286
+00:13:43,840 --> 00:13:49,780
+relé que se representa como se muestra
+
+287
+00:13:46,649 --> 00:13:52,480
+vemos que un terminal de la bobina ya
+
+288
+00:13:49,779 --> 00:13:54,759
+está conectado a veces en el otro
+
+289
+00:13:52,480 --> 00:13:57,399
+terminal de la bobina va conectado al
+
+290
+00:13:54,759 --> 00:13:59,889
+colector del transistor como el
+
+291
+00:13:57,399 --> 00:14:02,350
+transistor está activado circular a
+
+292
+00:13:59,889 --> 00:14:05,019
+corriente por el mismo y el emisor
+
+293
+00:14:02,350 --> 00:14:08,019
+estando a massa logramos cerrar el
+
+294
+00:14:05,019 --> 00:14:11,139
+circuito y energizar la bobina
+
+295
+00:14:08,019 --> 00:14:13,889
+para resumir lo que hemos logrado es que
+
+296
+00:14:11,139 --> 00:14:17,948
+colocando el terminal pin a massa
+
+297
+00:14:13,889 --> 00:14:20,230
+activamos el led del auto acoplador éste
+
+298
+00:14:17,948 --> 00:14:23,919
+a su vez activa el transistor que tiene
+
+299
+00:14:20,230 --> 00:14:27,428
+dentro y activa otro transistor externo
+
+300
+00:14:23,919 --> 00:14:31,539
+el cual finalmente energy sse la bobina
+
+301
+00:14:27,428 --> 00:14:33,399
+del relé logrando el objetivo el motivo
+
+302
+00:14:31,539 --> 00:14:36,519
+del uso del opto acoplador es por
+
+303
+00:14:33,399 --> 00:14:39,578
+seguridad como vimos el transistor que
+
+304
+00:14:36,519 --> 00:14:42,220
+tiene dentro se activa mediante luz no
+
+305
+00:14:39,578 --> 00:14:45,609
+existe una conexión eléctrica entre la
+
+306
+00:14:42,220 --> 00:14:48,399
+entrada y la salida con lo cual si algo
+
+307
+00:14:45,610 --> 00:14:50,919
+malo sucede con el relé que hace un
+
+308
+00:14:48,399 --> 00:14:54,188
+elemento mecánico es más propenso a
+
+309
+00:14:50,919 --> 00:14:56,528
+fallar que uno electrónico podrás llegar
+
+310
+00:14:54,188 --> 00:14:59,649
+a quemar el transistor que energiza su
+
+311
+00:14:56,528 --> 00:15:01,928
+bobina hasta incluso podrá quemar el
+
+312
+00:14:59,649 --> 00:15:05,078
+transistor interno del opd acoplador
+
+313
+00:15:01,928 --> 00:15:07,419
+pero no podrá llegar al led porque no
+
+314
+00:15:05,078 --> 00:15:10,809
+hay una conexión eléctrica
+
+315
+00:15:07,419 --> 00:15:13,689
+está totalmente aislado del circuito
+
+316
+00:15:10,809 --> 00:15:15,519
+entonces protegerá nuestro aro vino que
+
+317
+00:15:13,690 --> 00:15:19,270
+se encuentra conectado mediante el
+
+318
+00:15:15,519 --> 00:15:22,629
+terminal y para ahora así finalizar el
+
+319
+00:15:19,269 --> 00:15:25,120
+concepto vemos que el módulo tiene una
+
+320
+00:15:22,629 --> 00:15:28,120
+serie de componentes que nos permite
+
+321
+00:15:25,120 --> 00:15:31,310
+activar el relé de forma segura y
+
+322
+00:15:28,120 --> 00:15:34,100
+también previene ante un fallo del mismo
+
+323
+00:15:31,309 --> 00:15:37,879
+nosotros sólo debemos ocuparnos de
+
+324
+00:15:34,100 --> 00:15:41,509
+colocar un nivel lógico bajo es decir 0
+
+325
+00:15:37,879 --> 00:15:45,559
+volts en el pin in para activar el relé
+
+326
+00:15:41,509 --> 00:15:48,139
+para domino es solo eso y lo veremos con
+
+327
+00:15:45,559 --> 00:15:51,289
+el código el cual no podría ser más
+
+328
+00:15:48,139 --> 00:15:54,019
+sencillo quiero hacer hincapié en que
+
+329
+00:15:51,289 --> 00:15:56,750
+este diagrama eléctrico es simplificado
+
+330
+00:15:54,019 --> 00:15:59,569
+y para la correcta polarización del auto
+
+331
+00:15:56,750 --> 00:16:02,019
+acoplador y transistor se deben usar
+
+332
+00:15:59,570 --> 00:16:04,910
+resistencias para limitar la corriente
+
+333
+00:16:02,019 --> 00:16:07,610
+también el módulo incorpora un diodo
+
+334
+00:16:04,909 --> 00:16:09,679
+conectado en paralelo con la bobina para
+
+335
+00:16:07,610 --> 00:16:12,500
+evitar un efecto indeseado de los
+
+336
+00:16:09,679 --> 00:16:16,299
+inductores con lo cual el circuito ha
+
+337
+00:16:12,500 --> 00:16:18,759
+mostrado que sólo a fines didácticos
+
+338
+00:16:16,299 --> 00:16:20,979
+conectemos el módulo de relé conoce
+
+339
+00:16:18,759 --> 00:16:24,069
+muestras en este caso no necesitamos
+
+340
+00:16:20,980 --> 00:16:27,070
+usar una protágoras conectaremos
+
+341
+00:16:24,070 --> 00:16:28,420
+directamente el módulo arduino mediante
+
+342
+00:16:27,070 --> 00:16:32,620
+cables
+
+343
+00:16:28,419 --> 00:16:36,699
+a veces se del módulo a cinco bolsas de
+
+344
+00:16:32,620 --> 00:16:41,169
+arduino gene de del módulo a gene a de
+
+345
+00:16:36,700 --> 00:16:44,079
+de arduino y el pin en uno o en caso de
+
+346
+00:16:41,169 --> 00:16:48,009
+un módulo simple y lo conectaremos
+
+347
+00:16:44,078 --> 00:16:49,289
+directo al team digital número dos y eso
+
+348
+00:16:48,009 --> 00:16:52,139
+es todo
+
+349
+00:16:49,289 --> 00:16:54,929
+en el código primero definiremos una
+
+350
+00:16:52,139 --> 00:16:57,419
+variable que representa el pin donde se
+
+351
+00:16:54,929 --> 00:17:04,730
+encuentra conectado a nuestro módulo de
+
+352
+00:16:57,419 --> 00:17:08,409
+la siguiente manera int relé igual a 2
+
+353
+00:17:04,730 --> 00:17:12,230
+luego en el setup sólo deberemos
+
+354
+00:17:08,410 --> 00:17:18,040
+inicializar el pin 2 como salida
+
+355
+00:17:12,230 --> 00:17:21,160
+con el output
+
+356
+00:17:18,039 --> 00:17:24,490
+ahora en el look haremos encender el
+
+357
+00:17:21,160 --> 00:17:26,080
+módulo durante 5 segundos y luego
+
+358
+00:17:24,490 --> 00:17:28,240
+apagarlo
+
+359
+00:17:26,079 --> 00:17:33,329
+de esa forma verificamos que funciona
+
+360
+00:17:28,240 --> 00:17:38,440
+correctamente escribamos digitar write
+
+361
+00:17:33,329 --> 00:17:40,149
+relé lo recordar que el relé se activa
+
+362
+00:17:38,440 --> 00:17:43,809
+con un nivel bajo
+
+363
+00:17:40,150 --> 00:17:49,840
+luego esperamos 5 segundos con delay
+
+364
+00:17:43,809 --> 00:17:55,710
+entre paréntesis 5000 y apagamos con un
+
+365
+00:17:49,839 --> 00:17:55,709
+nivel alto digital write relé
+
+366
+00:17:56,429 --> 00:18:06,009
+y finalmente otra espera de 5 segundos
+
+367
+00:18:01,388 --> 00:18:09,219
+delay entre paréntesis 5000
+
+368
+00:18:06,009 --> 00:18:12,220
+vamos entonces a verificar y subir el
+
+369
+00:18:09,220 --> 00:18:14,980
+programa el módulo de relé tiene un
+
+370
+00:18:12,220 --> 00:18:17,410
+pequeño led o que se enciende cuando
+
+371
+00:18:14,980 --> 00:18:20,019
+activamos el mismo y nos sirve para
+
+372
+00:18:17,410 --> 00:18:22,240
+visualmente verificar que está
+
+373
+00:18:20,019 --> 00:18:25,539
+recibiendo la señal para activarlo
+
+374
+00:18:22,240 --> 00:18:28,180
+veremos que se enciende por 5 segundos y
+
+375
+00:18:25,539 --> 00:18:31,029
+al mismo tiempo escucharemos un pequeño
+
+376
+00:18:28,180 --> 00:18:34,000
+clic que es cuando se energiza la bobina
+
+377
+00:18:31,029 --> 00:18:37,119
+y mueve el contacto luego de cinco
+
+378
+00:18:34,000 --> 00:18:39,269
+segundos veremos que se apagan leds y un
+
+379
+00:18:37,119 --> 00:18:42,459
+nuevo clic indicando que sea
+
+380
+00:18:39,269 --> 00:18:46,269
+desenergizar o la bobina volviendo a su
+
+381
+00:18:42,460 --> 00:18:48,730
+punto de reposo perfecto hemos logrado
+
+382
+00:18:46,269 --> 00:18:51,160
+el objetivo de activar el módulo de
+
+383
+00:18:48,730 --> 00:18:54,250
+relay vimos que el código es
+
+384
+00:18:51,160 --> 00:18:57,430
+extremadamente sencillo lo mismo que la
+
+385
+00:18:54,250 --> 00:19:00,789
+conexión del módulo arduino ahora
+
+386
+00:18:57,430 --> 00:19:02,529
+pensemos posibles usos por ejemplo si
+
+387
+00:19:00,789 --> 00:19:05,440
+estamos haciendo un proyecto donde
+
+388
+00:19:02,529 --> 00:19:08,740
+arduino recibe información de un sensor
+
+389
+00:19:05,440 --> 00:19:11,890
+de movimiento o de un teclado
+
+390
+00:19:08,740 --> 00:19:15,339
+ingresar una clave y deseamos activar
+
+391
+00:19:11,890 --> 00:19:17,440
+una sirena a modo de alarma el módulo de
+
+392
+00:19:15,339 --> 00:19:20,558
+relay nos servirá para cerrar el
+
+393
+00:19:17,440 --> 00:19:23,679
+circuito que activa la sirena una sirena
+
+394
+00:19:20,558 --> 00:19:26,470
+típicamente funciona con 12 volts de
+
+395
+00:19:23,679 --> 00:19:29,710
+continua y tiene un consumo de corriente
+
+396
+00:19:26,470 --> 00:19:33,250
+elevado por eso podríamos conectarla
+
+397
+00:19:29,710 --> 00:19:35,920
+como se muestra en pantalla el negativo
+
+398
+00:19:33,250 --> 00:19:38,920
+de la fuente externa de 12 volts lo
+
+399
+00:19:35,920 --> 00:19:42,130
+conectamos al negativo de la sirena el
+
+400
+00:19:38,920 --> 00:19:45,160
+positivo de la fuente al terminal común
+
+401
+00:19:42,130 --> 00:19:48,250
+y del terminal normal abierto al
+
+402
+00:19:45,160 --> 00:19:51,279
+positivo de la sirena por software
+
+403
+00:19:48,250 --> 00:19:53,920
+cuando la condición sea adecuada para
+
+404
+00:19:51,279 --> 00:19:57,160
+activar la sirena solo tendremos que
+
+405
+00:19:53,920 --> 00:19:59,058
+enviar un nivel bajo al pin del módulo
+
+406
+00:19:57,160 --> 00:20:02,298
+del relé y listo
+
+407
+00:19:59,058 --> 00:20:05,690
+otro escenario posible sería activar una
+
+408
+00:20:02,298 --> 00:20:09,079
+luz potente o reflector cuando es de
+
+409
+00:20:05,690 --> 00:20:11,778
+noche y detecta movimiento es decir que
+
+410
+00:20:09,079 --> 00:20:15,319
+si arduino recibe información de un
+
+411
+00:20:11,778 --> 00:20:17,990
+sensor crepuscular que es de noche y
+
+412
+00:20:15,319 --> 00:20:20,808
+además detecta movimiento podemos
+
+413
+00:20:17,990 --> 00:20:24,319
+activar el módulo de relés para encender
+
+414
+00:20:20,808 --> 00:20:27,589
+la luz por ejemplo por 30 segundos y
+
+415
+00:20:24,319 --> 00:20:29,569
+luego apagar de forma automática es muy
+
+416
+00:20:27,589 --> 00:20:32,298
+importante tomar las precauciones de
+
+417
+00:20:29,569 --> 00:20:35,960
+seguridad necesarias al trabajar con
+
+418
+00:20:32,298 --> 00:20:38,740
+tensión de red tocar un polo vivo o
+
+419
+00:20:35,960 --> 00:20:41,840
+generar un cortocircuito puede ser letal
+
+420
+00:20:38,740 --> 00:20:45,019
+de manera que mucho cuidado al armar el
+
+421
+00:20:41,839 --> 00:20:48,859
+circuito que sería el siguiente el
+
+422
+00:20:45,019 --> 00:20:53,298
+neutro de la red directamente a la luz
+
+423
+00:20:48,859 --> 00:20:57,378
+el vivo también llamado fase o línea al
+
+424
+00:20:53,298 --> 00:21:00,558
+común del relé y el normal abierto al
+
+425
+00:20:57,378 --> 00:21:02,779
+cable restante de la luz aquí como
+
+426
+00:21:00,558 --> 00:21:05,809
+estamos con tensión de red alterna
+
+427
+00:21:02,779 --> 00:21:07,819
+no nos referimos a polaridad pero es
+
+428
+00:21:05,809 --> 00:21:10,970
+importante siempre interrumpir el
+
+429
+00:21:07,819 --> 00:21:13,339
+circuito mediante el polo vivo el cual
+
+430
+00:21:10,970 --> 00:21:16,910
+se determina con una herramienta que se
+
+431
+00:21:13,339 --> 00:21:19,279
+busca polo con el mismo circuito por
+
+432
+00:21:16,910 --> 00:21:22,370
+ejemplo podríamos hacer una luz de
+
+433
+00:21:19,279 --> 00:21:25,160
+pasillo las que usan los edificios
+
+434
+00:21:22,369 --> 00:21:28,129
+cuando se está en un piso a la espera
+
+435
+00:21:25,160 --> 00:21:30,529
+del ascensor o elevador suele tener un
+
+436
+00:21:28,130 --> 00:21:33,260
+pulsador que al presionarlo no se
+
+437
+00:21:30,529 --> 00:21:35,589
+enciende una luz y luego de unos 30
+
+438
+00:21:33,259 --> 00:21:38,720
+segundos se apaga automáticamente
+
+439
+00:21:35,589 --> 00:21:40,909
+realmente existe infinidad de usos para
+
+440
+00:21:38,720 --> 00:21:45,019
+un módulo de este tipo lo que es
+
+441
+00:21:40,910 --> 00:21:47,900
+importante es recordar dos cuestiones la
+
+442
+00:21:45,019 --> 00:21:50,269
+primera es que se trata de un sistema
+
+443
+00:21:47,900 --> 00:21:53,330
+mecánico el que cierra el circuito
+
+444
+00:21:50,269 --> 00:21:56,750
+externo con lo cual no es conveniente
+
+445
+00:21:53,329 --> 00:21:59,119
+estar activando de forma muy repetida ya
+
+446
+00:21:56,750 --> 00:22:01,819
+que cada vez que hace contacto sobre
+
+447
+00:21:59,119 --> 00:22:04,849
+todo con corrientes elevadas se pueden
+
+448
+00:22:01,819 --> 00:22:08,000
+generar pequeños chispazos dentro del
+
+449
+00:22:04,849 --> 00:22:08,299
+relé también está encendiendo la bobina
+
+450
+00:22:08,000 --> 00:22:11,059
+y
+
+451
+00:22:08,299 --> 00:22:13,789
+pagando la constantemente llevar a un
+
+452
+00:22:11,059 --> 00:22:16,460
+desgaste prematuro del mecanismo la
+
+453
+00:22:13,789 --> 00:22:19,639
+segunda cuestión es tener en cuenta la
+
+454
+00:22:16,460 --> 00:22:22,670
+corriente máxima que soporta el relé por
+
+455
+00:22:19,640 --> 00:22:24,830
+lo general es de 10 samper y se puede
+
+456
+00:22:22,670 --> 00:22:28,090
+ver en la indicación de la parte
+
+457
+00:22:24,829 --> 00:22:30,079
+superior del mismo existen dispositivos
+
+458
+00:22:28,089 --> 00:22:32,569
+generalmente aquellos con motores
+
+459
+00:22:30,079 --> 00:22:36,019
+grandes que pueden generar corrientes
+
+460
+00:22:32,569 --> 00:22:38,689
+mayores a los 10 samper por eso siempre
+
+461
+00:22:36,019 --> 00:22:40,940
+hay que tener en cuenta el consumo de
+
+462
+00:22:38,690 --> 00:22:44,350
+corriente del circuito que decíamos
+
+463
+00:22:40,940 --> 00:22:47,870
+activada eso es todo por este capítulo
+
+464
+00:22:44,349 --> 00:22:51,049
+en el próximo estaremos trabajando con
+
+465
+00:22:47,869 --> 00:22:53,929
+un teclado de 4x4 para introducir
+
+466
+00:22:51,049 --> 00:22:57,409
+información arduino y hacer un simple
+
+467
+00:22:53,930 --> 00:22:59,900
+sistema de acceso por contraseña como
+
+468
+00:22:57,410 --> 00:23:02,660
+siempre les pido se suscriban para
+
+469
+00:22:59,900 --> 00:23:05,570
+recibir notificaciones y por cualquier
+
+470
+00:23:02,660 --> 00:23:08,150
+duda o comentario lo pueden hacer debajo
+
+471
+00:23:05,569 --> 00:23:11,289
+que con gusto les responderé
+
+472
+00:23:08,150 --> 00:23:11,290
+chau y hasta la próxima
+

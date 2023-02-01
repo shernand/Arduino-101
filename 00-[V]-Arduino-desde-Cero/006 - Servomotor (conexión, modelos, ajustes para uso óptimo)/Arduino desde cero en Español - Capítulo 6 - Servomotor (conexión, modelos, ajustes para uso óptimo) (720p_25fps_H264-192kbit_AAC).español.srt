@@ -1,0 +1,1516 @@
+1
+00:00:00,120 --> 00:00:07,080
+hola a todos y bienvenidos al capítulo 6
+
+2
+00:00:03,448 --> 00:00:08,789
+de arduino desde cero en español en esta
+
+3
+00:00:07,080 --> 00:00:11,339
+oportunidad vamos a aprender cómo
+
+4
+00:00:08,789 --> 00:00:13,739
+trabajar con un servomotor el cual
+
+5
+00:00:11,339 --> 00:00:17,940
+permite un movimiento de alta precisión
+
+6
+00:00:13,740 --> 00:00:20,390
+con gran fuerza o torque para eso veamos
+
+7
+00:00:17,940 --> 00:00:24,120
+en pantalla el despiece de un servomotor
+
+8
+00:00:20,390 --> 00:00:26,820
+llamado más comúnmente servo consta de
+
+9
+00:00:24,120 --> 00:00:28,859
+un pequeño motor de continua el cual se
+
+10
+00:00:26,820 --> 00:00:31,800
+encuentra conectado mediante una serie
+
+11
+00:00:28,859 --> 00:00:34,378
+de circuitos de control y expondrá al
+
+12
+00:00:31,800 --> 00:00:37,289
+exterior tres cables que nos servirán
+
+13
+00:00:34,378 --> 00:00:40,320
+para alimentarlo y controlarlo
+
+14
+00:00:37,289 --> 00:00:42,600
+luego en su parte superior el motor se
+
+15
+00:00:40,320 --> 00:00:45,058
+conecta mediante una serie de engranajes
+
+16
+00:00:42,600 --> 00:00:47,550
+que producen una reducción de velocidad
+
+17
+00:00:45,058 --> 00:00:50,759
+al mismo tiempo que incrementan la
+
+18
+00:00:47,549 --> 00:00:52,588
+fuerza del conjunto todo el sistema se
+
+19
+00:00:50,759 --> 00:00:55,649
+encuentra encerrado en una carcasa
+
+20
+00:00:52,588 --> 00:00:58,408
+plástica que deja expuesto los cables de
+
+21
+00:00:55,649 --> 00:01:00,859
+control y elige al cual se le pueden
+
+22
+00:00:58,408 --> 00:01:04,500
+conectar distintos accesorios mecánicos
+
+23
+00:01:00,859 --> 00:01:06,060
+usualmente y como se muestra vienen con
+
+24
+00:01:04,500 --> 00:01:08,188
+una cruceta
+
+25
+00:01:06,060 --> 00:01:11,040
+orificios a los cuales se les puede
+
+26
+00:01:08,188 --> 00:01:14,008
+conectar varillas para transmitir la
+
+27
+00:01:11,040 --> 00:01:16,500
+fuerza a otro dispositivo mecánico
+
+28
+00:01:14,009 --> 00:01:19,379
+por ejemplo en aviones a radio control
+
+29
+00:01:16,500 --> 00:01:21,810
+para la velocidad del motor movimientos
+
+30
+00:01:19,379 --> 00:01:23,640
+de alerones timón o en autos
+
+31
+00:01:21,810 --> 00:01:26,820
+generalmente para el control de
+
+32
+00:01:23,640 --> 00:01:29,519
+dirección existen distintos tamaños de
+
+33
+00:01:26,819 --> 00:01:31,258
+servos desde los denominados micro
+
+34
+00:01:29,519 --> 00:01:33,629
+servos como el que se muestra en
+
+35
+00:01:31,259 --> 00:01:36,478
+pantalla con una carcasa semi
+
+36
+00:01:33,629 --> 00:01:39,478
+transparente el cual tiene una fuerza
+
+37
+00:01:36,478 --> 00:01:42,629
+limitada de pocos gramos hasta servos
+
+38
+00:01:39,478 --> 00:01:44,840
+más grandes con engranajes metálicos que
+
+39
+00:01:42,629 --> 00:01:48,688
+pueden aplicar varios kilos de fuerza
+
+40
+00:01:44,840 --> 00:01:51,509
+todo depende del uso en todos los casos
+
+41
+00:01:48,688 --> 00:01:54,298
+el sistema de control será el mismo dos
+
+42
+00:01:51,509 --> 00:01:58,500
+cables se usarán de alimentación cuyo
+
+43
+00:01:54,299 --> 00:02:00,659
+valor típico es de 4 5 a 6 volts y un
+
+44
+00:01:58,500 --> 00:02:03,810
+cable de señal por el cual le enviaremos
+
+45
+00:02:00,659 --> 00:02:06,540
+pulsos para controlar su movimiento
+
+46
+00:02:03,810 --> 00:02:09,090
+dependiendo del fabricante los tres
+
+47
+00:02:06,540 --> 00:02:11,400
+cables podrán tener distintos colores
+
+48
+00:02:09,090 --> 00:02:13,979
+generalmente el cables central es de
+
+49
+00:02:11,400 --> 00:02:16,950
+color rojo y es el positivo de
+
+50
+00:02:13,979 --> 00:02:20,909
+alimentación luego el cable más oscuro
+
+51
+00:02:16,949 --> 00:02:23,189
+que puede ser negro o marrón en masa y
+
+52
+00:02:20,909 --> 00:02:27,419
+finalmente el cable de señal puede ser
+
+53
+00:02:23,189 --> 00:02:30,090
+amarillo naranja o blanco también hay
+
+54
+00:02:27,419 --> 00:02:33,059
+otra combinación posible donde un cable
+
+55
+00:02:30,090 --> 00:02:36,299
+es rojo indicando el positivo
+
+56
+00:02:33,060 --> 00:02:40,620
+el cable negro central es massa y el
+
+57
+00:02:36,299 --> 00:02:42,510
+último cable negro también es señal así
+
+58
+00:02:40,620 --> 00:02:44,310
+que es importante en tu servo que
+
+59
+00:02:42,509 --> 00:02:48,449
+identifique correctamente
+
+60
+00:02:44,310 --> 00:02:50,670
+bsc gene de señal las cuatro
+
+61
+00:02:48,449 --> 00:02:53,429
+combinaciones mencionadas cubren la
+
+62
+00:02:50,669 --> 00:02:55,949
+mayoría de los casos durante cualquier
+
+63
+00:02:53,430 --> 00:02:58,769
+duda es mejor buscar en la página del
+
+64
+00:02:55,949 --> 00:03:01,429
+fabricante nuestro modelo exacto para
+
+65
+00:02:58,769 --> 00:03:04,319
+evitar conectarlo incorrectamente
+
+66
+00:03:01,430 --> 00:03:06,900
+veamos previamente el tipo de señal que
+
+67
+00:03:04,318 --> 00:03:11,219
+debemos enviarle al servo
+
+68
+00:03:06,900 --> 00:03:13,860
+permite un movimiento de giro de 0 a 180
+
+69
+00:03:11,219 --> 00:03:17,098
+grados es decir que puede hacer medio
+
+70
+00:03:13,860 --> 00:03:19,860
+giro completo si se le envía una señal
+
+71
+00:03:17,098 --> 00:03:23,158
+con un periodo de 20 milisegundos y un
+
+72
+00:03:19,860 --> 00:03:25,319
+pulso de un milisegundo de duración le
+
+73
+00:03:23,158 --> 00:03:28,500
+estaremos indicando la posición de 0
+
+74
+00:03:25,318 --> 00:03:30,869
+grados si por el contrario enviamos un
+
+75
+00:03:28,500 --> 00:03:33,840
+pulso de 2 milisegundos de duración
+
+76
+00:03:30,870 --> 00:03:35,938
+sobre el mismo periodo le estaremos
+
+77
+00:03:33,840 --> 00:03:39,628
+indicando que gire a su extremo opuesto
+
+78
+00:03:35,938 --> 00:03:42,539
+es decir 180 grados
+
+79
+00:03:39,628 --> 00:03:45,989
+en resumen modulando el ancho del pulso
+
+80
+00:03:42,539 --> 00:03:49,769
+entre 1 y 2 milisegundos tendremos la
+
+81
+00:03:45,989 --> 00:03:53,188
+totalidad de su rango de giro de 0 a 180
+
+82
+00:03:49,769 --> 00:03:56,860
+grados por ejemplo un pulso de 15
+
+83
+00:03:53,188 --> 00:04:00,090
+milisegundos equivaldrán a 90 grados
+
+84
+00:03:56,860 --> 00:04:03,040
+ahora mismo es el siguiente circuito en
+
+85
+00:04:00,090 --> 00:04:06,670
+protagonicemos conectando el cervo el
+
+86
+00:04:03,039 --> 00:04:10,569
+cable de alimentación bsc al positivo
+
+87
+00:04:06,669 --> 00:04:13,569
+del riel de tensión gene de amasa y el
+
+88
+00:04:10,569 --> 00:04:16,298
+cable de señal directo al pin digital 2
+
+89
+00:04:13,569 --> 00:04:18,909
+de arduino no hablo respecto a los
+
+90
+00:04:16,298 --> 00:04:20,919
+colores de los cables del serbio ya que
+
+91
+00:04:18,910 --> 00:04:22,680
+como vimos anteriormente hay gran
+
+92
+00:04:20,920 --> 00:04:25,990
+variedad de combinaciones
+
+93
+00:04:22,680 --> 00:04:28,300
+luego conectemos el potenciómetro de 10k
+
+94
+00:04:25,990 --> 00:04:32,139
+de la misma forma que lo hicimos en el
+
+95
+00:04:28,300 --> 00:04:35,470
+capítulo 4 el extremo izquierdo a massa
+
+96
+00:04:32,139 --> 00:04:38,019
+y el extremo derecho al positivo y de la
+
+97
+00:04:35,470 --> 00:04:40,750
+pata central con un cable directo a la
+
+98
+00:04:38,019 --> 00:04:43,899
+entrada analógica a 0
+
+99
+00:04:40,750 --> 00:04:47,829
+como siempre alimentamos protoboard con
+
+100
+00:04:43,899 --> 00:04:50,109
+5 gold y genere desde arduino ahora por
+
+101
+00:04:47,829 --> 00:04:53,349
+primera vez utilizaremos una fuente de
+
+102
+00:04:50,110 --> 00:04:56,410
+alimentación externa esto se debe a que
+
+103
+00:04:53,350 --> 00:04:59,200
+cuando se trabaja con motores el consumo
+
+104
+00:04:56,410 --> 00:05:01,479
+de corriente es elevado y no alcanza con
+
+105
+00:04:59,199 --> 00:05:02,740
+la corriente que nos brinda el cable usb
+
+106
+00:05:01,478 --> 00:05:05,529
+a través
+
+107
+00:05:02,740 --> 00:05:08,439
+computadora para un micro observó
+
+108
+00:05:05,529 --> 00:05:10,659
+probablemente sea suficiente pero no se
+
+109
+00:05:08,439 --> 00:05:13,180
+recomienda ya que un exceso de corriente
+
+110
+00:05:10,660 --> 00:05:16,720
+no solo puede quemar arduino sino
+
+111
+00:05:13,180 --> 00:05:19,478
+también el puerto usb de la computadora
+
+112
+00:05:16,720 --> 00:05:22,030
+por eso colocaremos en su conector de
+
+113
+00:05:19,478 --> 00:05:25,318
+alimentación una fuente externa de
+
+114
+00:05:22,029 --> 00:05:29,859
+corriente continua que puede ser entre
+
+115
+00:05:25,319 --> 00:05:34,840
+75 y 12 volts valores típicos suelen ser
+
+116
+00:05:29,860 --> 00:05:38,830
+9 balls o 12 volts el conector o plug de
+
+117
+00:05:34,839 --> 00:05:42,068
+alimentación es como se muestra de 55
+
+118
+00:05:38,829 --> 00:05:45,550
+milímetros de diámetro exterior y 21
+
+119
+00:05:42,069 --> 00:05:48,250
+milímetros interior y es muy importante
+
+120
+00:05:45,550 --> 00:05:51,520
+verificar en la fuente que se muestre la
+
+121
+00:05:48,250 --> 00:05:53,860
+siguiente indicación significa que el
+
+122
+00:05:51,519 --> 00:05:57,788
+positivo está conectado al centro del
+
+123
+00:05:53,860 --> 00:06:00,550
+plug y el negativo a la parte externa si
+
+124
+00:05:57,788 --> 00:06:03,848
+la indicación no es como la mostrada no
+
+125
+00:06:00,550 --> 00:06:06,310
+se puede utilizar finalmente es deseable
+
+126
+00:06:03,848 --> 00:06:09,899
+que la fuente pueda brindar una
+
+127
+00:06:06,310 --> 00:06:12,209
+corriente de al menos 750
+
+128
+00:06:09,899 --> 00:06:15,060
+si bien sobra para este proyecto en
+
+129
+00:06:12,209 --> 00:06:17,219
+particular para proyectos futuros con
+
+130
+00:06:15,060 --> 00:06:19,470
+varios dispositivos conectados el
+
+131
+00:06:17,220 --> 00:06:22,740
+consumo de corriente puede incrementarse
+
+132
+00:06:19,470 --> 00:06:24,060
+considerablemente muy bien vamos al
+
+133
+00:06:22,740 --> 00:06:27,449
+código
+
+134
+00:06:24,060 --> 00:06:30,660
+arduino incluye en su idea una librería
+
+135
+00:06:27,449 --> 00:06:33,569
+especial para servomotores una librería
+
+136
+00:06:30,660 --> 00:06:36,479
+es un conjunto de funciones que podemos
+
+137
+00:06:33,569 --> 00:06:39,538
+utilizar en nuestro código para realizar
+
+138
+00:06:36,478 --> 00:06:41,969
+tareas de forma más sencilla para
+
+139
+00:06:39,538 --> 00:06:46,829
+importar la librería coloquemos la
+
+140
+00:06:41,970 --> 00:06:51,780
+siguiente línea numeral include un
+
+141
+00:06:46,829 --> 00:06:56,609
+espacio símbolo de menor servo la s con
+
+142
+00:06:51,779 --> 00:07:00,029
+mayúscula punto h y luego el símbolo de
+
+143
+00:06:56,610 --> 00:07:02,788
+mayor verificar cómo la palabra servo
+
+144
+00:07:00,029 --> 00:07:04,519
+cambio de color al escribirla indicando
+
+145
+00:07:02,788 --> 00:07:06,329
+que el y de la ha reconocido
+
+146
+00:07:04,519 --> 00:07:08,408
+correctamente
+
+147
+00:07:06,329 --> 00:07:13,688
+ahora escribamos los siguientes
+
+148
+00:07:08,408 --> 00:07:17,168
+observo un espacio servo 1 esta línea
+
+149
+00:07:13,689 --> 00:07:20,769
+crea un objeto del tipo servo y lo
+
+150
+00:07:17,168 --> 00:07:23,308
+denomina cervo 1 y este es el nombre que
+
+151
+00:07:20,769 --> 00:07:25,778
+usaremos para referenciar nuestro servo
+
+152
+00:07:23,309 --> 00:07:29,349
+puede ser cualquier otro nombre por
+
+153
+00:07:25,778 --> 00:07:31,808
+ejemplo motor 1 lo importante es que no
+
+154
+00:07:29,348 --> 00:07:34,718
+debemos olvidar esta línea ya que al
+
+155
+00:07:31,809 --> 00:07:37,659
+crear el objeto obtendremos todas sus
+
+156
+00:07:34,718 --> 00:07:40,319
+funciones asociadas que nos ayudarán a
+
+157
+00:07:37,658 --> 00:07:43,360
+controlar de forma muy sencilla el servo
+
+158
+00:07:40,319 --> 00:07:45,189
+quitando del medio complejidad es la
+
+159
+00:07:43,360 --> 00:07:47,468
+intención de este primer programa es
+
+160
+00:07:45,189 --> 00:07:49,539
+verificar el funcionamiento del ser vos
+
+161
+00:07:47,468 --> 00:07:52,649
+con lo cual no estaremos definiendo
+
+162
+00:07:49,538 --> 00:07:54,848
+cuestiones relacionadas al potenciómetro
+
+163
+00:07:52,649 --> 00:08:02,050
+escribamos lo siguiente y ahora lo
+
+164
+00:07:54,848 --> 00:08:08,098
+explico int pin servo igual a 2
+
+165
+00:08:02,050 --> 00:08:15,069
+inc pulso min igual a mil
+
+166
+00:08:08,098 --> 00:08:18,459
+int pulso max igual a 2000 a la variable
+
+167
+00:08:15,069 --> 00:08:20,379
+pins erbol le asignamos el número 2 ya
+
+168
+00:08:18,459 --> 00:08:23,310
+que en ese pin es donde tenemos
+
+169
+00:08:20,379 --> 00:08:27,970
+conectado el cable de señal del servo
+
+170
+00:08:23,310 --> 00:08:31,199
+luego tenemos pulso min y pulso max que
+
+171
+00:08:27,970 --> 00:08:34,060
+como ya vimos un pulso de un milisegundo
+
+172
+00:08:31,199 --> 00:08:37,350
+equivale a 0 grados y uno de 2
+
+173
+00:08:34,059 --> 00:08:40,699
+milisegundos a 180 grados
+
+174
+00:08:37,350 --> 00:08:43,500
+aquí pondremos los valores expresados en
+
+175
+00:08:40,700 --> 00:08:46,560
+microsegundos por eso en lugar de 1
+
+176
+00:08:43,500 --> 00:08:51,110
+pondremos 1000 y en lugar de 2 pondremos
+
+177
+00:08:46,559 --> 00:08:51,109
+2000 vamos al setup
+
+178
+00:08:51,129 --> 00:09:02,649
+escribiremos cervo 1 punto touch y entre
+
+179
+00:08:57,190 --> 00:09:07,889
+paréntesis pondremos pin cervo coma
+
+180
+00:09:02,649 --> 00:09:11,669
+pulso min coma pulso max
+
+181
+00:09:07,889 --> 00:09:14,970
+muy bien la función touch sirve para
+
+182
+00:09:11,669 --> 00:09:17,159
+inicializar el servo el primer parámetro
+
+183
+00:09:14,970 --> 00:09:20,160
+será el pin en donde se encuentra
+
+184
+00:09:17,159 --> 00:09:23,129
+conectado luego el valor del pulso
+
+185
+00:09:20,159 --> 00:09:26,909
+mínimo y finalmente el valor del pulso
+
+186
+00:09:23,129 --> 00:09:29,009
+máximo la función a touch requiere que
+
+187
+00:09:26,909 --> 00:09:30,719
+los valores de los pulsos estén en
+
+188
+00:09:29,009 --> 00:09:32,548
+microsegundos
+
+189
+00:09:30,720 --> 00:09:35,369
+por eso definimos con anterioridad
+
+190
+00:09:32,548 --> 00:09:40,429
+dichos valores en microsegundos
+
+191
+00:09:35,369 --> 00:09:46,360
+en vez de milisegundos ahora el loop
+
+192
+00:09:40,429 --> 00:09:50,809
+servo 1 punto wright entre paréntesis 0
+
+193
+00:09:46,360 --> 00:09:53,930
+la función raid envía el ángulo al cual
+
+194
+00:09:50,809 --> 00:09:58,009
+debe posicionarse el cervo en este caso
+
+195
+00:09:53,929 --> 00:10:00,289
+0 grados y eso es todo la función raid
+
+196
+00:09:58,009 --> 00:10:02,958
+se encarga de generar la señal por
+
+197
+00:10:00,289 --> 00:10:06,319
+nosotros con la duración del pulso y
+
+198
+00:10:02,958 --> 00:10:09,649
+frecuencia adecuadas es por eso que el
+
+199
+00:10:06,320 --> 00:10:12,830
+uso de la librería acerbo es tan útil un
+
+200
+00:10:09,649 --> 00:10:15,799
+único comando es todo lo que se necesita
+
+201
+00:10:12,830 --> 00:10:18,389
+para comandar el servo escribamos lo
+
+202
+00:10:15,799 --> 00:10:23,569
+siguiente para finalizar el loop
+
+203
+00:10:18,389 --> 00:10:27,328
+tilley entre paréntesis 5000
+
+204
+00:10:23,570 --> 00:10:29,610
+cervo 1 punto wright
+
+205
+00:10:27,328 --> 00:10:32,919
+180
+
+206
+00:10:29,610 --> 00:10:36,159
+delay 5000
+
+207
+00:10:32,919 --> 00:10:39,219
+luego de una demora de 5 segundos con la
+
+208
+00:10:36,159 --> 00:10:43,449
+función right enviamos al servo a la
+
+209
+00:10:39,220 --> 00:10:46,930
+posición de 180 grados y luego esperamos
+
+210
+00:10:43,450 --> 00:10:49,360
+otros 5 segundos siendo esta la última
+
+211
+00:10:46,929 --> 00:10:51,698
+línea del loop volver a ejecutar la
+
+212
+00:10:49,360 --> 00:10:55,810
+primera línea que es colocar el servo a
+
+213
+00:10:51,698 --> 00:10:58,509
+0 grados y así todo el tiempo es decir
+
+214
+00:10:55,809 --> 00:11:02,259
+que estaremos haciendo que el servo se
+
+215
+00:10:58,509 --> 00:11:03,659
+mueva entre 0 y 180 grados a intervalos
+
+216
+00:11:02,259 --> 00:11:08,939
+de 5 segundos
+
+217
+00:11:03,659 --> 00:11:08,939
+vamos a verificar y subir el programa
+
+218
+00:11:09,220 --> 00:11:17,680
+como se puede ver el cervo se mueve de 0
+
+219
+00:11:13,028 --> 00:11:21,068
+a 180 grados cada 5 segundos en mi caso
+
+220
+00:11:17,679 --> 00:11:23,859
+la cruceta conectada al eje tiene un
+
+221
+00:11:21,068 --> 00:11:26,799
+inserto de bronce que se utiliza para
+
+222
+00:11:23,860 --> 00:11:29,470
+deslizar un eje y atornillarlo por la
+
+223
+00:11:26,799 --> 00:11:31,870
+parte superior ahora no tiene nada
+
+224
+00:11:29,470 --> 00:11:34,689
+conectado pero sirve como referencia
+
+225
+00:11:31,870 --> 00:11:39,240
+para ver cómo se mueve en el sentido de
+
+226
+00:11:34,688 --> 00:11:41,669
+las agujas del reloj de 0 a 180 grados
+
+227
+00:11:39,240 --> 00:11:43,649
+si no ves movimiento del servo es
+
+228
+00:11:41,669 --> 00:11:46,500
+importante que verifique es la conexión
+
+229
+00:11:43,649 --> 00:11:49,379
+del mismo que esté alimentado sobre los
+
+230
+00:11:46,500 --> 00:11:52,370
+pines correctos y sea el cable de señal
+
+231
+00:11:49,379 --> 00:11:54,778
+el que se conecte al pin 2 de arduino
+
+232
+00:11:52,370 --> 00:11:58,379
+también no olvides conectar la
+
+233
+00:11:54,778 --> 00:12:01,439
+alimentación externa este programa tiene
+
+234
+00:11:58,379 --> 00:12:04,289
+un doble objetivo además de verificar
+
+235
+00:12:01,440 --> 00:12:06,560
+que el servo funciona correctamente nos
+
+236
+00:12:04,289 --> 00:12:09,509
+servirá para hacer un ajuste fino
+
+237
+00:12:06,559 --> 00:12:13,639
+resulta que los pulsos mínimo y máximo
+
+238
+00:12:09,509 --> 00:12:16,429
+de mi de 1000 y 2000 microsegundos
+
+239
+00:12:13,639 --> 00:12:20,009
+respectivamente son valores aproximados
+
+240
+00:12:16,429 --> 00:12:24,449
+y con dichos valores no se obtiene el
+
+241
+00:12:20,009 --> 00:12:26,639
+rango máximo de 0 a 180 grados es por
+
+242
+00:12:24,450 --> 00:12:29,009
+eso que debemos descubrir en la práctica
+
+243
+00:12:26,639 --> 00:12:32,338
+cuáles son los valores mínimo y máximo
+
+244
+00:12:29,009 --> 00:12:34,080
+para nuestro observa en particular se
+
+245
+00:12:32,339 --> 00:12:37,589
+trata de un proceso de prueba y error
+
+246
+00:12:34,080 --> 00:12:39,720
+hasta encontrar los valores justos vamos
+
+247
+00:12:37,589 --> 00:12:42,779
+aprobar inicialmente modificando los
+
+248
+00:12:39,720 --> 00:12:44,000
+valores de pulso min y pulso max a los
+
+249
+00:12:42,778 --> 00:12:49,139
+siguientes
+
+250
+00:12:44,000 --> 00:12:54,299
+pulso min lo cambiaremos por 900
+
+251
+00:12:49,139 --> 00:12:56,639
+y pulso max lo cambiaremos por 2100
+
+252
+00:12:54,299 --> 00:13:00,750
+lo que estamos haciendo es que el pulso
+
+253
+00:12:56,639 --> 00:13:02,850
+mínimo sea ligeramente más pequeño de
+
+254
+00:13:00,750 --> 00:13:06,090
+900 microsegundos
+
+255
+00:13:02,850 --> 00:13:08,250
+en lugar de 1000 y el pulso máximo de
+
+256
+00:13:06,090 --> 00:13:12,480
+2100 microsegundos
+
+257
+00:13:08,250 --> 00:13:15,600
+en lugar de 2000 este es el ajuste fino
+
+258
+00:13:12,480 --> 00:13:18,960
+que nos permitirá mover el servo de 0 a
+
+259
+00:13:15,600 --> 00:13:21,320
+180 grados en su totalidad con los
+
+260
+00:13:18,960 --> 00:13:24,720
+valores por defecto de 1000 y 2000
+
+261
+00:13:21,320 --> 00:13:28,350
+quizás obtendremos en la práctica de 10
+
+262
+00:13:24,720 --> 00:13:31,800
+a 170 grados es decir que no está siendo
+
+263
+00:13:28,350 --> 00:13:34,290
+realmente de extremo extremo por eso
+
+264
+00:13:31,799 --> 00:13:36,529
+debemos ir modificando los valores hasta
+
+265
+00:13:34,289 --> 00:13:39,059
+obtener el correcto para nuestro servo
+
+266
+00:13:36,529 --> 00:13:42,809
+vamos a subir el programa con esta
+
+267
+00:13:39,059 --> 00:13:44,669
+modificación para ver si ahora va mejor
+
+268
+00:13:42,809 --> 00:13:47,399
+probablemente no note es una gran
+
+269
+00:13:44,669 --> 00:13:50,429
+diferencia y te pregunté cuándo se sabe
+
+270
+00:13:47,399 --> 00:13:53,939
+que se llega a los extremos prácticos
+
+271
+00:13:50,429 --> 00:13:57,739
+bien el servo internamente tiene un tope
+
+272
+00:13:53,940 --> 00:14:01,730
+mecánico que evita que se mueva a más
+
+273
+00:13:57,740 --> 00:14:04,820
+y 180 grados la idea es obtener un valor
+
+274
+00:14:01,730 --> 00:14:08,180
+de pulso mínimo y de pulso máximo que
+
+275
+00:14:04,820 --> 00:14:13,070
+esté justo en ese tope si por ejemplo
+
+276
+00:14:08,179 --> 00:14:17,750
+con 900 y 2100 vemos que va bien podemos
+
+277
+00:14:13,070 --> 00:14:20,330
+hacer una prueba con 800 y 2200 hay que
+
+278
+00:14:17,750 --> 00:14:23,659
+hacer este proceso de forma progresiva y
+
+279
+00:14:20,330 --> 00:14:25,820
+de a poco lo mejor es tomar el servo con
+
+280
+00:14:23,659 --> 00:14:28,399
+la mano mientras se mueve de punta a
+
+281
+00:14:25,820 --> 00:14:31,280
+punta si por ejemplo con un valor de
+
+282
+00:14:28,399 --> 00:14:34,490
+pulso mínimo de 800 cuando el servo está
+
+283
+00:14:31,279 --> 00:14:37,309
+en 0 grados uno siente en la mano una
+
+284
+00:14:34,490 --> 00:14:40,789
+pequeña liberación esto indica que el
+
+285
+00:14:37,309 --> 00:14:43,479
+motor ya está tocando el tope y el motor
+
+286
+00:14:40,789 --> 00:14:47,199
+hace fuerza como si quisiera continuar
+
+287
+00:14:43,480 --> 00:14:51,550
+entonces ya sabemos que el número será
+
+288
+00:14:47,200 --> 00:14:55,370
+850 es decir ligeramente mayor al valor
+
+289
+00:14:51,549 --> 00:14:59,059
+donde ya el motor comienza a vibrar lo
+
+290
+00:14:55,370 --> 00:15:01,909
+mismo para cuando está en 180 grados si
+
+291
+00:14:59,059 --> 00:15:03,679
+estamos con un valor de 2200 y ya
+
+292
+00:15:01,909 --> 00:15:07,699
+comienza a vibrar
+
+293
+00:15:03,679 --> 00:15:10,759
+vemos que el valor máximo será de 2.150
+
+294
+00:15:07,700 --> 00:15:13,850
+un poco antes del tope de manera de no
+
+295
+00:15:10,759 --> 00:15:17,600
+forzar el motor esto es prueba y error
+
+296
+00:15:13,850 --> 00:15:19,759
+amigos solo se hace una vez una vez que
+
+297
+00:15:17,600 --> 00:15:22,550
+tenemos los valores del pulso mínimo y
+
+298
+00:15:19,759 --> 00:15:25,429
+máximo para nuestro observó lo anotamos
+
+299
+00:15:22,549 --> 00:15:28,669
+para no olvidarlo y luego simplemente lo
+
+300
+00:15:25,429 --> 00:15:32,088
+definimos en nuestro código en mi caso
+
+301
+00:15:28,669 --> 00:15:38,199
+los valores que pude obtener son pulso
+
+302
+00:15:32,089 --> 00:15:41,270
+mínimo de 700 impulso máximo 2 mil 350
+
+303
+00:15:38,200 --> 00:15:44,240
+lamento si fue algo engorroso el proceso
+
+304
+00:15:41,269 --> 00:15:45,889
+pero no queda otra ahora sí vamos a
+
+305
+00:15:44,240 --> 00:15:48,350
+hacer el programa que usa el
+
+306
+00:15:45,889 --> 00:15:51,379
+potenciómetro para generar el ángulo de
+
+307
+00:15:48,350 --> 00:15:55,070
+giro del servo luego de los valores de
+
+308
+00:15:51,379 --> 00:15:57,830
+pulso min y pulso max definiremos dos
+
+309
+00:15:55,070 --> 00:16:01,430
+variables que necesitamos y el pin al
+
+310
+00:15:57,830 --> 00:16:04,160
+cual está conectado el potenciómetro int
+
+311
+00:16:01,429 --> 00:16:07,448
+valor put
+
+312
+00:16:04,159 --> 00:16:12,850
+un ángulo
+
+313
+00:16:07,448 --> 00:16:15,729
+y por igual a cero en el setup
+
+314
+00:16:12,850 --> 00:16:20,409
+agreguemos el siguiente comentario para
+
+315
+00:16:15,730 --> 00:16:23,570
+no olvidarnos las entradas analógicas no
+
+316
+00:16:20,409 --> 00:16:26,240
+requieren inicialización
+
+317
+00:16:23,570 --> 00:16:28,490
+borremos el código anterior del loop y
+
+318
+00:16:26,240 --> 00:16:34,700
+escribamos lo siguiente que luego lo
+
+319
+00:16:28,490 --> 00:16:38,320
+explico valor put igual a analog reed
+
+320
+00:16:34,700 --> 00:16:42,610
+entre paréntesis pod
+
+321
+00:16:38,320 --> 00:16:47,720
+ángulo igual a map entre paréntesis
+
+322
+00:16:42,610 --> 00:16:50,240
+valor por coma cero
+
+323
+00:16:47,720 --> 00:16:53,040
+1023
+
+324
+00:16:50,240 --> 00:16:59,180
+0
+
+325
+00:16:53,039 --> 00:17:03,240
+180 servo 1 punto write entre paréntesis
+
+326
+00:16:59,179 --> 00:17:07,139
+ángulo y finalmente delay entre
+
+327
+00:17:03,240 --> 00:17:10,319
+paréntesis 20 y usaremos analog grid
+
+328
+00:17:07,140 --> 00:17:12,240
+como ya se vio en el capítulo 4 para
+
+329
+00:17:10,319 --> 00:17:15,659
+leer el valor de la entrada analógica a
+
+330
+00:17:12,240 --> 00:17:19,588
+0 y lo asignaremos a la variable valor
+
+331
+00:17:15,660 --> 00:17:23,580
+pot luego aquí aparece una nueva función
+
+332
+00:17:19,588 --> 00:17:27,149
+llamada map map realiza la conversión de
+
+333
+00:17:23,579 --> 00:17:30,839
+un valor de un determinado rango a otro
+
+334
+00:17:27,150 --> 00:17:33,690
+valor proporcional en otro rango veamos
+
+335
+00:17:30,839 --> 00:17:35,490
+como lo usamos y así se entenderá el
+
+336
+00:17:33,690 --> 00:17:38,640
+primer parámetro es el valor que
+
+337
+00:17:35,490 --> 00:17:41,940
+deseamos convertir en nuestro caso el
+
+338
+00:17:38,640 --> 00:17:44,520
+valor leído del potenciómetro los dos
+
+339
+00:17:41,940 --> 00:17:47,460
+siguientes parámetros son el rango de
+
+340
+00:17:44,519 --> 00:17:49,799
+valores que puede tomar la variable como
+
+341
+00:17:47,460 --> 00:17:52,850
+se trata de una entrada analógica ya
+
+342
+00:17:49,799 --> 00:17:55,960
+sabemos que puede variar de 0 a 1.023
+
+343
+00:17:52,849 --> 00:17:58,869
+por eso pondremos dichos
+
+344
+00:17:55,960 --> 00:18:01,930
+los últimos dos parámetros es el rango
+
+345
+00:17:58,869 --> 00:18:05,019
+al cual debe convertirse como queremos
+
+346
+00:18:01,930 --> 00:18:08,560
+aplicarlo a la función write que toma
+
+347
+00:18:05,019 --> 00:18:13,389
+valores de entre 0 y 180 pondremos
+
+348
+00:18:08,559 --> 00:18:16,269
+entonces dichos valores 0 y 180 el
+
+349
+00:18:13,390 --> 00:18:19,060
+resultado de la función map se asigna a
+
+350
+00:18:16,269 --> 00:18:21,220
+la variable ángulo ya que efectivamente
+
+351
+00:18:19,059 --> 00:18:23,980
+hemos convertido el valor que el
+
+352
+00:18:21,220 --> 00:18:26,769
+potenciómetro nos entrega mediante la
+
+353
+00:18:23,980 --> 00:18:30,610
+entrada analógica a un valor de ángulo
+
+354
+00:18:26,769 --> 00:18:33,700
+que lo aplicaremos al servo finalmente a
+
+355
+00:18:30,609 --> 00:18:36,849
+la función raid le asignamos el valor de
+
+356
+00:18:33,700 --> 00:18:39,460
+ángulo y un piqué y un pequeño delay de
+
+357
+00:18:36,849 --> 00:18:43,209
+20 milisegundos para darle tiempo al
+
+358
+00:18:39,460 --> 00:18:45,789
+servo a llegar a su posición este tiempo
+
+359
+00:18:43,210 --> 00:18:48,190
+puede incrementarse dependiendo del
+
+360
+00:18:45,789 --> 00:18:51,279
+trabajo que tenga el cervo si está
+
+361
+00:18:48,190 --> 00:18:54,340
+moviendo algo liviano con 20 o 50
+
+362
+00:18:51,279 --> 00:18:56,889
+milisegundos será suficiente si tiene
+
+363
+00:18:54,339 --> 00:18:59,829
+que mover algo pesado y en la condición
+
+364
+00:18:56,890 --> 00:19:01,960
+de máxima que es moverse de 0 a 180
+
+365
+00:18:59,829 --> 00:19:05,199
+grados entonces s
+
+366
+00:19:01,960 --> 00:19:08,880
+debería incrementarse ya podemos
+
+367
+00:19:05,200 --> 00:19:12,360
+verificar y subir el programa
+
+368
+00:19:08,880 --> 00:19:14,490
+perfecto al mover el potenciómetro vimos
+
+369
+00:19:12,359 --> 00:19:17,000
+cómo el servo también se mueve en
+
+370
+00:19:14,490 --> 00:19:17,000
+concordancia
+
+371
+00:19:17,470 --> 00:19:23,169
+eso es todo por este capítulo en el
+
+372
+00:19:20,169 --> 00:19:27,130
+próximo estaremos midiendo temperatura y
+
+373
+00:19:23,169 --> 00:19:30,410
+humedad relativa con el sensor de ht 22
+
+374
+00:19:27,130 --> 00:19:33,200
+de forma muy sencilla
+
+375
+00:19:30,410 --> 00:19:35,840
+como siempre les pido se suscriban para
+
+376
+00:19:33,200 --> 00:19:38,390
+recibir notificaciones y por cualquier
+
+377
+00:19:35,839 --> 00:19:41,599
+duda o comentario lo pueden hacer debajo
+
+378
+00:19:38,390 --> 00:19:44,140
+que con gusto les responderé chau y
+
+379
+00:19:41,599 --> 00:19:44,139
+hasta la próxima
+

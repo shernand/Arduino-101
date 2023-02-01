@@ -1,0 +1,28 @@
+Aprenderemos a utilizar el sensor de Temperatura y Humedad 🌡️💧 DHT22 compatible con el DHT11, mostrando los datos mediante el Monitor Serial del IDE de Arduino.
+Instalaremos unas librerías para en pocas líneas obtener temperatura ambiente y humedad relativa mostrando los datos en el monitor serie, uno de los sensores de temperatura y humedad más usado en Arduino.
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoDHT22
+#ArduinoDHT11
+#ArduinoControlDeTemperatura
+#ArduinoPrimerosPasosDesde0
+Arduino DHT11 tutorial
+Arduino DHT11 library
+Arduino DHT22 code
+Arduino DHT22 library
+DHT22 Arduino UNO
+DHT11 Arduino Español
+Arduino Monitor serie
+Adafruit sensor library dht11
+
+Marcas de tiempo:
+
+0:00 Introducción
+0:18 DHT22 y DHT11 (características)
+2:45 Circuito de conexión
+4:30 Descarga de librerías
+7:07 Primer programa (mostrando datos por monitor serie)
+12:29 Próximo capítulo y despedida

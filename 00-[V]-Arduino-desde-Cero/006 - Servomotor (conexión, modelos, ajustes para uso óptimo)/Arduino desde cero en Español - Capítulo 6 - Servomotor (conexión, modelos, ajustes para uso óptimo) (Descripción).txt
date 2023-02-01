@@ -1,0 +1,22 @@
+Aprenderemos a utilizar un servomotor (servo) el cual se caracteriza por tener gran fuerza o torque y precisión, se mostrarán los diversos modelos y formas de conexión a Arduino, el tipo de pulso adecuado para su comando y ajuste óptimo.
+
+Mediante el uso de un potenciómetro conectado a una entrada analógica, estaremos comandando el giro del servo de forma simple con la librería incluida Servo.h
+
+
+Código fuente de los dos programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoServomotor
+#ArduinoServo
+#ArduinoDesdeCero
+Arduino servo con potenciometro
+Arduino servomotor conexion
+Arduino libreria servo
+
+Marcas de tiempo:
+0:00 Introducción
+2:08 Modelos y conexiones (cables y colores)
+3:59 Circuito de conexión
+6:25 Primer programa (giro 0 a 180 grados y ajuste)
+11:58 Segundo programa (comando con potenciómetro)
+19:17 Próximo capítulo y depedida

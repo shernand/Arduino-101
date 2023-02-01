@@ -1,0 +1,24 @@
+Aprenderemos a utilizar un módulo PIR sensor de movimiento (proximidad) para activar un módulo de relé (relay) de manera muy simple con Arduino y sentar las bases para incorporar en proyectos.
+También se verán aplicaciones prácticas como ser encender un reflector o luz con tensión de red y una sirena mediante bateria o fuente de 12 volts.
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoPIR
+#ArduinoSensorMovimiento
+#ArduinoProximidad
+Arduino PIR sensor relay
+Arduino sensor infrarrojo pasivo
+Arduino Primeros Pasos Desde 0
+Motion sensor
+Sensor pir hc-sr501
+Detector de movimiento
+Detector de presencia
+
+Marcas de tiempo:
+0:00 Introducción y concepto
+3:22 Circuito de conexión
+4:16 Primer programa (activando relé)
+7:36 Diversos usos prácticos (y circuitos)
+9:49 Próximo capítulo y despedida

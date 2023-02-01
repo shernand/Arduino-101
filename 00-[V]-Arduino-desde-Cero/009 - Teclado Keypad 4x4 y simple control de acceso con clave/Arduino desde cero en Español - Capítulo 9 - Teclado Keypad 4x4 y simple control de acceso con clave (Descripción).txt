@@ -1,0 +1,27 @@
+Aprenderemos a utilizar un teclado keypad de 4x4 matricial de membrana con Arduino para ingresar información y realizar un simple control de acceso por contraseña.
+Veremos como usar la libreria Keypad incluida en el IDE de Arduino, distintos tipos de variables y en detalle el array y comparación de strings para determinar si el valor introducido es válido o no.
+
+* Instalación de librería de Keypad:
+Ingresar al Menú Programa, Incluir librería, Administrar Bibliotecas
+En campo de búsqueda escribir "keypad", seleccionar del listado:
+"Keypad by Community https://github.com/Chris--A/Keypad"
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoKeypad
+#ArduinoTeclado4x4
+#ArduinoTecladoMatricial
+Arduino keypad 4x4
+Arduino teclado matricial 4x4
+Arduino control de acceso
+Arduino arrays tutorial
+Libreria keypad Arduino
+Arduino string compare
+
+Marcas de tiempo:
+0:00 Introducción y concepto
+3:55 Circuito de conexión
+4:52 Primer programa (control de acceso con contraseña)
+12:27 Concepto de array
+28:16 Próximo capítulo y despedida

@@ -1,0 +1,996 @@
+1
+00:00:00,480 --> 00:00:07,500
+hola a todos y bienvenidos al capítulo 7
+
+2
+00:00:03,450 --> 00:00:09,780
+de arduino desde cero en español en esta
+
+3
+00:00:07,500 --> 00:00:13,259
+oportunidad vamos a medir temperatura y
+
+4
+00:00:09,779 --> 00:00:15,208
+humedad con el sensor de ht 22 y
+
+5
+00:00:13,259 --> 00:00:18,359
+visualizaremos los datos mediante el
+
+6
+00:00:15,208 --> 00:00:20,879
+monitor serial vemos entonces el sensor
+
+7
+00:00:18,359 --> 00:00:23,550
+como se muestra en pantalla tiene un
+
+8
+00:00:20,879 --> 00:00:25,498
+encapsulado plástico con ranuras que
+
+9
+00:00:23,550 --> 00:00:27,899
+permiten la circulación del aire al
+
+10
+00:00:25,498 --> 00:00:29,848
+interior del mismo donde se encuentran
+
+11
+00:00:27,899 --> 00:00:33,420
+los sensores de temperatura y humedad
+
+12
+00:00:29,849 --> 00:00:35,308
+propiamente dichos mediante un único pin
+
+13
+00:00:33,420 --> 00:00:38,879
+nos brindará los valores de temperatura
+
+14
+00:00:35,308 --> 00:00:41,159
+en grados centígrados o grados celsius y
+
+15
+00:00:38,878 --> 00:00:43,320
+la humedad relativa del ambiente es
+
+16
+00:00:41,159 --> 00:00:46,108
+importante aclarar que es únicamente
+
+17
+00:00:43,320 --> 00:00:50,280
+para uso interior tiene cuatro pines que
+
+18
+00:00:46,109 --> 00:00:53,160
+serán psc data y gene de uno de los
+
+19
+00:00:50,280 --> 00:00:56,760
+pines no requiere conexión con lo cual
+
+20
+00:00:53,159 --> 00:00:59,359
+serán tres pines a conectar dos de
+
+21
+00:00:56,759 --> 00:01:03,289
+alimentación y uno de datos
+
+22
+00:00:59,359 --> 00:01:06,980
+el día 722 es una evolución del de ht 11
+
+23
+00:01:03,289 --> 00:01:09,019
+el cual sigue siendo un usado por eso
+
+24
+00:01:06,980 --> 00:01:11,900
+estoy colocando una tabla comparativa
+
+25
+00:01:09,019 --> 00:01:16,069
+con las especificaciones tanto del dhd
+
+26
+00:01:11,900 --> 00:01:18,200
+22 como del dht 11 son totalmente
+
+27
+00:01:16,069 --> 00:01:21,559
+compatibles con lo cual todo lo
+
+28
+00:01:18,200 --> 00:01:25,040
+explicado ahora para el dh de 22 es
+
+29
+00:01:21,560 --> 00:01:27,469
+aplicable al día 7 a 11 simplemente hay
+
+30
+00:01:25,040 --> 00:01:30,200
+que tener en cuenta las limitaciones de
+
+31
+00:01:27,469 --> 00:01:34,069
+cada uno a nivel de rangos y precisión
+
+32
+00:01:30,200 --> 00:01:37,790
+el dht 11 suele tener un encapsulado de
+
+33
+00:01:34,069 --> 00:01:40,279
+color azul a diferencia del de ht 22 que
+
+34
+00:01:37,790 --> 00:01:43,190
+suele ser blanco permite leer
+
+35
+00:01:40,280 --> 00:01:46,159
+temperaturas en el rango de 0 a 50
+
+36
+00:01:43,189 --> 00:01:50,659
+grados con un error de más/menos dos
+
+37
+00:01:46,159 --> 00:01:54,799
+grados en humedad de 20 a 80% con un
+
+38
+00:01:50,659 --> 00:01:57,140
+error de más/menos 5% y puede tomar una
+
+39
+00:01:54,799 --> 00:02:00,908
+muestra por segundo es decir una
+
+40
+00:01:57,140 --> 00:02:04,689
+frecuencia de muestreo máxima de
+
+41
+00:02:00,909 --> 00:02:09,519
+la alimentación podrá estar entre 3 y 5
+
+42
+00:02:04,688 --> 00:02:12,430
+5 volts el de ht 22 lo supera en todas
+
+43
+00:02:09,519 --> 00:02:17,110
+sus prestaciones temperatura mide desde
+
+44
+00:02:12,430 --> 00:02:20,200
+el menos 40 a 125 grados con un error de
+
+45
+00:02:17,110 --> 00:02:22,840
+más/menos medio grado centígrado en
+
+46
+00:02:20,199 --> 00:02:27,669
+humedad de 0 a 100 por ciento con un
+
+47
+00:02:22,840 --> 00:02:30,610
+error de más/menos 2 5% y puede tomar
+
+48
+00:02:27,669 --> 00:02:34,479
+hasta dos muestras por segundo es decir
+
+49
+00:02:30,610 --> 00:02:37,780
+una frecuencia de 05 hertz y también
+
+50
+00:02:34,479 --> 00:02:40,899
+requiere entre 3 y 5 5 watts de
+
+51
+00:02:37,780 --> 00:02:43,449
+alimentación muy bien vamos a hacer el
+
+52
+00:02:40,900 --> 00:02:46,510
+circuito conectamos el sensor a
+
+53
+00:02:43,449 --> 00:02:49,719
+protoboard como se muestra el pin de la
+
+54
+00:02:46,509 --> 00:02:52,780
+izquierda que es bs se irá conectado al
+
+55
+00:02:49,719 --> 00:02:56,039
+positivo del riel de tensión el pin de
+
+56
+00:02:52,780 --> 00:03:00,340
+al lado data irá con una resistencia de
+
+57
+00:02:56,039 --> 00:03:03,548
+4,7 k también al positivo aquí me
+
+58
+00:03:00,340 --> 00:03:05,050
+detengo unos segundos es normal que el
+
+59
+00:03:03,549 --> 00:03:07,599
+fabricante de dulces
+
+60
+00:03:05,050 --> 00:03:10,750
+positivo indique la necesidad de
+
+61
+00:03:07,599 --> 00:03:13,090
+utilizar algún componente externo en
+
+62
+00:03:10,750 --> 00:03:16,330
+este caso se requiere de una resistencia
+
+63
+00:03:13,090 --> 00:03:19,680
+denominada de pull up de aproximadamente
+
+64
+00:03:16,330 --> 00:03:25,840
+47 card se puede colocar sin problemas
+
+65
+00:03:19,680 --> 00:03:28,120
+valores similares conocer 3,356 caps una
+
+66
+00:03:25,840 --> 00:03:30,640
+resistencia de pull up significa que
+
+67
+00:03:28,120 --> 00:03:34,240
+debe conectarse al positivo de tensión
+
+68
+00:03:30,639 --> 00:03:36,549
+una resistencia de pull down se denomina
+
+69
+00:03:34,240 --> 00:03:39,490
+aquella que requiere conectarse a masa
+
+70
+00:03:36,550 --> 00:03:43,240
+es usual en electrónica ver los términos
+
+71
+00:03:39,490 --> 00:03:46,540
+polar y pull dados por eso quería hacer
+
+72
+00:03:43,240 --> 00:03:48,939
+esta aclaración ya sabemos que cuando
+
+73
+00:03:46,539 --> 00:03:51,340
+vemos en una indicación que se requiere
+
+74
+00:03:48,939 --> 00:03:53,979
+de una resistencia de pull up irá
+
+75
+00:03:51,340 --> 00:03:57,670
+conectado al positivo y una de pulga a
+
+76
+00:03:53,979 --> 00:04:01,119
+uno a massa en este caso es depurar por
+
+77
+00:03:57,669 --> 00:04:04,089
+eso la conectamos al positivo bien
+
+78
+00:04:01,120 --> 00:04:06,460
+sigamos desde el mismo pin de data
+
+79
+00:04:04,090 --> 00:04:09,789
+iremos con un cable directo al pin
+
+80
+00:04:06,460 --> 00:04:12,820
+digital número 2 de arduino el pin
+
+81
+00:04:09,789 --> 00:04:16,000
+siguiente no se conecta y el último de
+
+82
+00:04:12,819 --> 00:04:19,149
+la derecha irá directo a massa con eso
+
+83
+00:04:16,000 --> 00:04:21,699
+ya tenemos conectado nuestro sensor sólo
+
+84
+00:04:19,149 --> 00:04:25,689
+resta alimentar protoboard como siempre
+
+85
+00:04:21,699 --> 00:04:27,870
+con 5 gold y genere de arduino vamos
+
+86
+00:04:25,689 --> 00:04:30,418
+entonces al código
+
+87
+00:04:27,870 --> 00:04:32,579
+la facilidad de conexión de este sensor
+
+88
+00:04:30,418 --> 00:04:35,549
+puede complicar a la hora de la
+
+89
+00:04:32,579 --> 00:04:38,519
+programación pensemos que por un único
+
+90
+00:04:35,550 --> 00:04:41,009
+pin no sólo estaremos recibiendo los
+
+91
+00:04:38,519 --> 00:04:43,889
+valores de temperatura sino que también
+
+92
+00:04:41,009 --> 00:04:46,129
+los de humedad por suerte existen
+
+93
+00:04:43,889 --> 00:04:50,490
+librerías con funciones que facilitan
+
+94
+00:04:46,129 --> 00:04:53,159
+enormemente el uso del sensor ya usamos
+
+95
+00:04:50,490 --> 00:04:56,180
+la librería servo en el capítulo 6
+
+96
+00:04:53,160 --> 00:04:59,910
+ahora utilizaremos unas librerías
+
+97
+00:04:56,180 --> 00:05:02,639
+específicas para el sensor de ht 22 que
+
+98
+00:04:59,910 --> 00:05:05,820
+son también compatibles con el de ht 11
+
+99
+00:05:02,639 --> 00:05:08,220
+estas librerías no vienen incluidas en
+
+100
+00:05:05,819 --> 00:05:10,860
+él y de arduino al momento de la
+
+101
+00:05:08,220 --> 00:05:13,710
+instalación inicial por eso debemos
+
+102
+00:05:10,860 --> 00:05:15,810
+descargarlas nosotros vamos a
+
+103
+00:05:13,709 --> 00:05:20,000
+seleccionar el menu programa y luego
+
+104
+00:05:15,810 --> 00:05:22,459
+incluir librerías y de allí la opción
+
+105
+00:05:20,000 --> 00:05:26,300
+gestionar librerías
+
+106
+00:05:22,459 --> 00:05:28,879
+esto abrirá una nueva ventana mostrando
+
+107
+00:05:26,300 --> 00:05:31,400
+todas las librerías disponibles son
+
+108
+00:05:28,879 --> 00:05:33,639
+realmente muchas ya que existen muchos
+
+109
+00:05:31,399 --> 00:05:36,829
+fabricantes de sensores y dispositivos
+
+110
+00:05:33,639 --> 00:05:38,840
+compatibles con arduino nosotros
+
+111
+00:05:36,829 --> 00:05:41,269
+queremos las específicas para nuestro
+
+112
+00:05:38,839 --> 00:05:44,508
+sensor por eso en el campo de búsqueda
+
+113
+00:05:41,269 --> 00:05:48,740
+de gestor de librerías colocaremos las
+
+114
+00:05:44,509 --> 00:05:51,819
+letras de ht así estaremos filtrando los
+
+115
+00:05:48,740 --> 00:05:55,329
+resultados a solo los que nos interesan
+
+116
+00:05:51,819 --> 00:06:00,289
+debemos seleccionar la llamada de ht
+
+117
+00:05:55,329 --> 00:06:04,339
+sensor library by adam fluid y luego
+
+118
+00:06:00,288 --> 00:06:07,069
+clic en el botón instalar yo ya tengo
+
+119
+00:06:04,339 --> 00:06:09,138
+instalada la librería por eso no me
+
+120
+00:06:07,069 --> 00:06:12,529
+aparece habilitado el botón de instalar
+
+121
+00:06:09,139 --> 00:06:15,379
+pero en tu caso lo estará al azar click
+
+122
+00:06:12,529 --> 00:06:17,598
+verás una barra de progreso donde se
+
+123
+00:06:15,379 --> 00:06:18,750
+descarga de internet la librería y de
+
+124
+00:06:17,598 --> 00:06:21,779
+instalar
+
+125
+00:06:18,750 --> 00:06:25,740
+sólo demora unos pocos segundos luego
+
+126
+00:06:21,779 --> 00:06:28,879
+verás la indicación de install cuando
+
+127
+00:06:25,740 --> 00:06:32,040
+haya instalado y finalizado el proceso
+
+128
+00:06:28,879 --> 00:06:35,819
+ahora de la misma forma debemos instalar
+
+129
+00:06:32,040 --> 00:06:38,700
+una librería más para eso escribamos lo
+
+130
+00:06:35,819 --> 00:06:42,430
+siguiente en el campo de búsqueda haga
+
+131
+00:06:38,699 --> 00:06:45,009
+fluir y unified sensor
+
+132
+00:06:42,430 --> 00:06:47,889
+puede que devuelvan más de un resultado
+
+133
+00:06:45,009 --> 00:06:50,800
+sólo es necesario verificar que se
+
+134
+00:06:47,889 --> 00:06:54,430
+seleccione la que tiene ese nombre
+
+135
+00:06:50,800 --> 00:06:57,730
+exacto al igual que antes hacemos clic
+
+136
+00:06:54,430 --> 00:07:00,550
+en instalar muy bien eso es todo lo
+
+137
+00:06:57,730 --> 00:07:04,030
+necesario para ahora así trabajar con el
+
+138
+00:07:00,550 --> 00:07:05,610
+sensor hacemos clic en cerrar del gestor
+
+139
+00:07:04,029 --> 00:07:07,908
+de librerías
+
+140
+00:07:05,610 --> 00:07:11,310
+ya tenemos las librerías necesarias
+
+141
+00:07:07,908 --> 00:07:14,430
+ahora en nuestro código debemos importar
+
+142
+00:07:11,310 --> 00:07:18,120
+las para eso vamos al menú programa
+
+143
+00:07:14,430 --> 00:07:22,769
+luego incluir librería y buscamos la
+
+144
+00:07:18,120 --> 00:07:25,288
+opción que diga de ht sensor library eso
+
+145
+00:07:22,769 --> 00:07:28,180
+para que se agreguen las siguientes
+
+146
+00:07:25,288 --> 00:07:30,159
+líneas de código
+
+147
+00:07:28,180 --> 00:07:32,949
+vamos a crear las variables
+
+148
+00:07:30,160 --> 00:07:35,530
+correspondientes al pin digital a donde
+
+149
+00:07:32,949 --> 00:07:40,830
+tenemos conectado el sensor de
+
+150
+00:07:35,529 --> 00:07:46,599
+temperatura y humedad y sensor igualados
+
+151
+00:07:40,829 --> 00:07:49,779
+y temperatura y humedad
+
+152
+00:07:46,600 --> 00:07:52,780
+ahora vamos a crear un objeto del tipo
+
+153
+00:07:49,779 --> 00:07:56,709
+de ht para obtener las funciones
+
+154
+00:07:52,779 --> 00:08:01,149
+asociadas al sensor de ht todas con
+
+155
+00:07:56,709 --> 00:08:04,689
+mayúsculas un espacio en un de ht y
+
+156
+00:08:01,149 --> 00:08:07,688
+entre paréntesis pondremos sensor coma
+
+157
+00:08:04,689 --> 00:08:10,088
+dht 22
+
+158
+00:08:07,689 --> 00:08:12,959
+al momento de crear el objeto que los
+
+159
+00:08:10,088 --> 00:08:15,699
+llamaremos dht y todo en minúscula
+
+160
+00:08:12,959 --> 00:08:18,309
+debemos indicar el pin al cual se
+
+161
+00:08:15,699 --> 00:08:20,769
+encuentra conectado que en nuestro caso
+
+162
+00:08:18,309 --> 00:08:24,189
+está representado por la variable sensor
+
+163
+00:08:20,769 --> 00:08:28,598
+y el modelo del mismo yo estaré usando
+
+164
+00:08:24,189 --> 00:08:31,929
+un dh de 22 si en tu caso es un de ht 11
+
+165
+00:08:28,598 --> 00:08:33,230
+deberá colocar dht 11 como segundo
+
+166
+00:08:31,928 --> 00:08:37,069
+parámetro
+
+167
+00:08:33,230 --> 00:08:39,560
+ahora el setup estaremos usando el
+
+168
+00:08:37,070 --> 00:08:42,020
+monitor serial para ver los valores de
+
+169
+00:08:39,559 --> 00:08:45,409
+temperatura y humedad que lee el sensor
+
+170
+00:08:42,019 --> 00:08:48,079
+es la forma más rápida y sencilla de ver
+
+171
+00:08:45,409 --> 00:08:51,620
+los datos y no requiere de componentes
+
+172
+00:08:48,080 --> 00:08:54,379
+externos el monitor serial se explicó en
+
+173
+00:08:51,620 --> 00:08:57,820
+detalle en el capítulo 5 por si te lo
+
+174
+00:08:54,379 --> 00:09:00,399
+perdiste o necesitas una refrescada
+
+175
+00:08:57,820 --> 00:09:05,310
+inicial izamos la comunicación sería
+
+176
+00:09:00,399 --> 00:09:09,639
+alcohol serial punto entre paréntesis
+
+177
+00:09:05,309 --> 00:09:12,399
+9.600 el sensor también requiere la
+
+178
+00:09:09,639 --> 00:09:17,449
+inicialización y basta sólo con una
+
+179
+00:09:12,399 --> 00:09:21,209
+línea de ht punto begin
+
+180
+00:09:17,450 --> 00:09:24,300
+perfecto ya estamos a pocas líneas de
+
+181
+00:09:21,210 --> 00:09:28,150
+poder probar el circuito hagamos el loop
+
+182
+00:09:24,299 --> 00:09:34,029
+y escribamos la siguiente línea
+
+183
+00:09:28,149 --> 00:09:38,360
+temperatura igual de ht punto really
+
+184
+00:09:34,029 --> 00:09:41,209
+temperatura la función ride temperatura
+
+185
+00:09:38,360 --> 00:09:45,440
+nos devuelve directamente el valor de la
+
+186
+00:09:41,210 --> 00:09:48,230
+temperatura que el sensor así de fácil
+
+187
+00:09:45,440 --> 00:09:50,690
+por eso la importancia la importancia de
+
+188
+00:09:48,230 --> 00:09:53,690
+las librerías que descargamos e
+
+189
+00:09:50,690 --> 00:09:55,520
+importamos en el código para hacernos la
+
+190
+00:09:53,690 --> 00:09:59,270
+vida más fácil a la hora de la
+
+191
+00:09:55,519 --> 00:10:02,750
+programación ese valor lo asignamos a la
+
+192
+00:09:59,269 --> 00:10:09,769
+variable temperatura ahora para la
+
+193
+00:10:02,750 --> 00:10:11,419
+humedad humedad igual de ht punto río y
+
+194
+00:10:09,769 --> 00:10:14,269
+medellín
+
+195
+00:10:11,419 --> 00:10:17,500
+genial ya tenemos en nuestras variables
+
+196
+00:10:14,269 --> 00:10:20,659
+los valores de temperatura y humedad
+
+197
+00:10:17,500 --> 00:10:23,429
+vamos a escribirlos en el monitor serial
+
+198
+00:10:20,659 --> 00:10:28,490
+con las siguientes líneas
+
+199
+00:10:23,429 --> 00:10:32,269
+sería el punto print paréntesis comillas
+
+200
+00:10:28,490 --> 00:10:36,669
+temperaturas dos puntos un espacio
+
+201
+00:10:32,269 --> 00:10:40,090
+cerramos comillas y cerramos paréntesis
+
+202
+00:10:36,669 --> 00:10:44,979
+y luego sería el punto 30 entre
+
+203
+00:10:40,090 --> 00:10:48,940
+paréntesis temperatura luego sería el
+
+204
+00:10:44,980 --> 00:10:53,730
+punto print paréntesis comillas un
+
+205
+00:10:48,940 --> 00:10:57,630
+espacio humedad dos puntos un espacio
+
+206
+00:10:53,730 --> 00:11:02,019
+cerramos comillas cerramos paréntesis
+
+207
+00:10:57,629 --> 00:11:04,169
+finalmente sería el punto print ln entre
+
+208
+00:11:02,019 --> 00:11:06,708
+paréntesis humedad
+
+209
+00:11:04,169 --> 00:11:10,259
+recordad que sería el punto print
+
+210
+00:11:06,708 --> 00:11:13,039
+imprima el texto de forma continua por
+
+211
+00:11:10,259 --> 00:11:16,528
+eso prestar atención que por ejemplo
+
+212
+00:11:13,039 --> 00:11:19,949
+luego de dos puntos de temperatura se
+
+213
+00:11:16,528 --> 00:11:22,049
+dejó un espacio en blanco así en la
+
+214
+00:11:19,950 --> 00:11:24,570
+siguiente línea cuando imprimimos el
+
+215
+00:11:22,049 --> 00:11:27,719
+valor de la variable temperatura no
+
+216
+00:11:24,570 --> 00:11:30,028
+queda el texto todo pegado lo mismo que
+
+217
+00:11:27,720 --> 00:11:33,829
+para humedad que tiene un espacio en
+
+218
+00:11:30,028 --> 00:11:36,750
+blanco antes y después de dos puntos
+
+219
+00:11:33,828 --> 00:11:39,958
+finalizamos con un seria el punto print
+
+220
+00:11:36,750 --> 00:11:43,269
+ln ya que luego de la variable humedad
+
+221
+00:11:39,958 --> 00:11:45,669
+queremos un salto de línea
+
+222
+00:11:43,269 --> 00:11:48,009
+para finalizar el programa solo
+
+223
+00:11:45,669 --> 00:11:51,519
+aplicamos una demora de medio segundo
+
+224
+00:11:48,009 --> 00:11:54,669
+con delay entre paréntesis 500
+
+225
+00:11:51,519 --> 00:11:58,539
+ya podemos verificar y subir el programa
+
+226
+00:11:54,669 --> 00:12:00,639
+luego abrimos el monitor serial y
+
+227
+00:11:58,539 --> 00:12:03,579
+deberemos ver algo similar a lo
+
+228
+00:12:00,639 --> 00:12:05,919
+siguiente pero obviamente con los
+
+229
+00:12:03,580 --> 00:12:09,020
+valores de temperatura y humedad que
+
+230
+00:12:05,919 --> 00:12:11,740
+esté leyendo tu sensor
+
+231
+00:12:09,019 --> 00:12:11,740
+y
+
+232
+00:12:13,769 --> 00:12:19,019
+ya verificamos que nuestro sensor está
+
+233
+00:12:16,379 --> 00:12:21,300
+funcionando correctamente y tenemos
+
+234
+00:12:19,019 --> 00:12:24,688
+lecturas de temperatura y humedad
+
+235
+00:12:21,299 --> 00:12:27,539
+ambiente con dicha información podemos
+
+236
+00:12:24,688 --> 00:12:29,958
+tomar decisiones como por ejemplo si la
+
+237
+00:12:27,539 --> 00:12:32,368
+temperatura es mayor a cierto valor
+
+238
+00:12:29,958 --> 00:12:35,548
+encender un ventilador u otro
+
+239
+00:12:32,369 --> 00:12:39,360
+dispositivo también podemos mostrarla en
+
+240
+00:12:35,548 --> 00:12:42,749
+un panel lcd etcétera eso es todo por
+
+241
+00:12:39,360 --> 00:12:45,449
+este capítulo en el próximo aprenderemos
+
+242
+00:12:42,749 --> 00:12:48,178
+a utilizar un módulo de relieve para
+
+243
+00:12:45,448 --> 00:12:51,178
+activar circuitos externos de alto
+
+244
+00:12:48,178 --> 00:12:54,688
+consumo de corriente o contención de red
+
+245
+00:12:51,178 --> 00:12:57,509
+como siempre les pido se suscriban para
+
+246
+00:12:54,688 --> 00:13:00,360
+recibir notificaciones y por cualquier
+
+247
+00:12:57,509 --> 00:13:03,149
+duda o comentario lo pueden hacer debajo
+
+248
+00:13:00,360 --> 00:13:05,720
+que con gusto les responderé chau y
+
+249
+00:13:03,149 --> 00:13:05,720
+hasta la próxima
+
