@@ -1,0 +1,25 @@
+Introduciremos el concepto de Interrupciones externas en Arduino ✋, veremos como nos serán de utilidad para interrumpir de forma momentánea el flujo normal de un programa para atender una petición externa de un sensor o dispositivo.
+Utilizaremos el foto interruptor modelo KY-010 para llevar a la práctica los conceptos vistos.
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoInterrupciones
+#ArduinoKit37en1
+Arduino interrupts
+Interrupciones Arduino Uno
+Interrupciones Arduino Nano
+Interrupciones Arduino Mega
+PCINT Arduino
+KY-010 photo interrupter
+Attachinterrupt arduino
+interrupt service routines
+
+Marcas de tiempo:
+0:00 Introducción
+1:42 Pines interrupciones según modelo
+2:59 Tipos de interrupciones
+7:76 Fotointerruptor KY-010
+10:37 Circuito de conexión
+11:04 Primer programa (contando interrupciones)
+21:35 Segundo programa (parpadeo de LED en función de interrupciones)

@@ -1,0 +1,1696 @@
+1
+00:00:01,669 --> 00:00:08,000
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,700 --> 00:00:09,890
+23 de arduino desde cero en español
+
+3
+00:00:08,000 --> 00:00:11,809
+en esta oportunidad aprenderemos a
+
+4
+00:00:09,890 --> 00:00:15,260
+utilizar el sensor de temperatura
+
+5
+00:00:11,808 --> 00:00:17,239
+lm 35 el cual viene en su salida una
+
+6
+00:00:15,259 --> 00:00:20,240
+tensión proporcional a la temperatura
+
+7
+00:00:17,239 --> 00:00:24,320
+ambiente en grados centígrados y luego
+
+8
+00:00:20,239 --> 00:00:26,479
+mostrarla en una pantalla lcd el el m35
+
+9
+00:00:24,320 --> 00:00:28,670
+es ya un viejo conocido para el mundo la
+
+10
+00:00:26,480 --> 00:00:31,130
+electrónica y gracias al hecho de ser
+
+11
+00:00:28,670 --> 00:00:33,710
+robusto en su construcción simple de
+
+12
+00:00:31,129 --> 00:00:35,628
+implementar y económico hace que sea
+
+13
+00:00:33,710 --> 00:00:37,728
+relevante en la actualidad sobre la
+
+14
+00:00:35,628 --> 00:00:40,218
+parte izquierda de pantalla podrás ver
+
+15
+00:00:37,728 --> 00:00:43,369
+el sensor que tiene un encapsulado muy
+
+16
+00:00:40,219 --> 00:00:45,948
+compacto y tres patas de conexión dos de
+
+17
+00:00:43,369 --> 00:00:48,919
+alimentación y una de salida cuya
+
+18
+00:00:45,948 --> 00:00:50,838
+atención varía en forma proporcional a
+
+19
+00:00:48,920 --> 00:00:53,510
+la temperatura a la cual se encuentra
+
+20
+00:00:50,838 --> 00:00:55,789
+expuesto es un sensor analógico con lo
+
+21
+00:00:53,509 --> 00:00:58,128
+cual lo conectaremos a una de las seis
+
+22
+00:00:55,789 --> 00:01:00,859
+entradas analógicas disponibles de
+
+23
+00:00:58,128 --> 00:01:04,069
+arduino 1 si bien en el capítulo 7
+
+24
+00:01:00,859 --> 00:01:06,680
+hablamos de los sensores de ht 11 y de
+
+25
+00:01:04,069 --> 00:01:08,269
+ht 22 los cuales además de medir
+
+26
+00:01:06,680 --> 00:01:10,850
+temperatura miden
+
+27
+00:01:08,269 --> 00:01:13,218
+en humedad y son digitales tienen el
+
+28
+00:01:10,849 --> 00:01:15,618
+problema de ser algo voluminosos para
+
+29
+00:01:13,218 --> 00:01:17,629
+ubicarlos de forma remota y también algo
+
+30
+00:01:15,618 --> 00:01:21,200
+frágiles en su construcción
+
+31
+00:01:17,629 --> 00:01:23,000
+por eso el m35 es ideal para ubicar los
+
+32
+00:01:21,200 --> 00:01:25,429
+lugares estrechos y el sólido
+
+33
+00:01:23,000 --> 00:01:28,340
+encapsulado asegura que no se deteriore
+
+34
+00:01:25,429 --> 00:01:30,799
+con golpes incluso si se encuentra bien
+
+35
+00:01:28,340 --> 00:01:32,719
+aislado se lo puede utilizar sumergido
+
+36
+00:01:30,799 --> 00:01:35,569
+en líquidos tiene un amplio rango de
+
+37
+00:01:32,718 --> 00:01:38,149
+tensiones de alimentación desde 4 hasta
+
+38
+00:01:35,569 --> 00:01:40,310
+30 volts nosotros lo alimentamos con
+
+39
+00:01:38,149 --> 00:01:42,649
+cinco bolsas de arduino el rango de
+
+40
+00:01:40,310 --> 00:01:43,909
+temperaturas que es capaz de medir varía
+
+41
+00:01:42,649 --> 00:01:48,679
+en función del modelo
+
+42
+00:01:43,909 --> 00:01:52,280
+lm 35 a secas o también el l m 35 us
+
+43
+00:01:48,679 --> 00:01:58,310
+permite leer temperaturas desde menos 55
+
+44
+00:01:52,280 --> 00:02:02,390
+a 150 grados en modelo l m 35 c y l m 35
+
+45
+00:01:58,310 --> 00:02:06,079
+sea de menos 40 a 110 grados y por
+
+46
+00:02:02,390 --> 00:02:08,149
+último el modelo l m 35 d que es el más
+
+47
+00:02:06,078 --> 00:02:11,209
+comúnmente usado permite leer
+
+48
+00:02:08,149 --> 00:02:13,280
+temperaturas entre 0 y 100 grados este
+
+49
+00:02:11,209 --> 00:02:14,719
+es el modelo que estaremos utilizando en
+
+50
+00:02:13,280 --> 00:02:17,090
+la práctica de este
+
+51
+00:02:14,719 --> 00:02:18,919
+el dato más importante a tener en cuenta
+
+52
+00:02:17,090 --> 00:02:21,830
+de este sensor es que su salida
+
+53
+00:02:18,919 --> 00:02:24,229
+denominada de auto tendrá un valor de
+
+54
+00:02:21,830 --> 00:02:26,570
+tensión de 10 mil volts por grados
+
+55
+00:02:24,229 --> 00:02:29,030
+centígrados es decir que si el sensor
+
+56
+00:02:26,569 --> 00:02:31,909
+estuviese con una temperatura de un
+
+57
+00:02:29,030 --> 00:02:34,729
+grado la atención en la pata de out
+
+58
+00:02:31,909 --> 00:02:37,460
+sería de 10 mil volts ejemplos prácticos
+
+59
+00:02:34,729 --> 00:02:39,799
+con temperaturas ambiente serían los
+
+60
+00:02:37,460 --> 00:02:42,500
+siguientes por ejemplo si tenemos una
+
+61
+00:02:39,800 --> 00:02:45,710
+temperatura de 24 grados centígrados la
+
+62
+00:02:42,500 --> 00:02:48,199
+atención en la pata de out será de 240
+
+63
+00:02:45,710 --> 00:02:50,810
+mil volts muy fácil de calcular a la
+
+64
+00:02:48,199 --> 00:02:53,239
+temperatura se la multiplica por 10 y
+
+65
+00:02:50,810 --> 00:02:53,990
+así sabemos la atención en la pata de
+
+66
+00:02:53,240 --> 00:02:55,909
+salida
+
+67
+00:02:53,990 --> 00:02:59,330
+otro ejemplo sería si estamos con una
+
+68
+00:02:55,909 --> 00:03:01,849
+temperatura de 15,4 grados a propósito
+
+69
+00:02:59,330 --> 00:03:04,430
+esta temperatura no es un número entero
+
+70
+00:03:01,849 --> 00:03:06,709
+de la misma forma multiplicamos por 10
+
+71
+00:03:04,430 --> 00:03:10,520
+sabemos entonces que envía auto
+
+72
+00:03:06,709 --> 00:03:12,500
+tendremos una atención de 154 mil volts
+
+73
+00:03:10,520 --> 00:03:14,630
+entre paréntesis se encuentran los
+
+74
+00:03:12,500 --> 00:03:17,060
+valores de tensión de ejemplo pero en
+
+75
+00:03:14,629 --> 00:03:19,430
+volts recordad que un mil igual es una
+
+76
+00:03:17,060 --> 00:03:20,930
+milésima parte de un volt con lo cual
+
+77
+00:03:19,430 --> 00:03:24,170
+estamos trabajando
+
+78
+00:03:20,930 --> 00:03:26,629
+es muy bajas a 24 grados la atención
+
+79
+00:03:24,169 --> 00:03:29,298
+será de casi un cuarto de volt si la
+
+80
+00:03:26,628 --> 00:03:32,840
+temperatura fuese de 100 grados justo al
+
+81
+00:03:29,299 --> 00:03:35,420
+límite del modelo lm 35 de la atención
+
+82
+00:03:32,840 --> 00:03:37,729
+sería de tan solo un volt veamos ahora
+
+83
+00:03:35,419 --> 00:03:40,369
+cómo es que podemos convertir el valor
+
+84
+00:03:37,729 --> 00:03:42,768
+de tensión presente en la pata de out
+
+85
+00:03:40,370 --> 00:03:45,109
+del sensor tiene un valor de temperatura
+
+86
+00:03:42,769 --> 00:03:47,420
+que luego podamos por ejemplo escribir
+
+87
+00:03:45,109 --> 00:03:50,060
+sobre el monitor serial y luego sobre
+
+88
+00:03:47,419 --> 00:03:52,759
+una pantalla lcd conectando el sensor
+
+89
+00:03:50,060 --> 00:03:55,789
+arduino lo alimentamos con 5 volts y
+
+90
+00:03:52,759 --> 00:03:58,729
+genere y la pata be out la conectamos a
+
+91
+00:03:55,789 --> 00:04:01,158
+la entrada analógica a 0 de esa forma y
+
+92
+00:03:58,729 --> 00:04:03,560
+como ya lo hemos hecho muchas veces con
+
+93
+00:04:01,158 --> 00:04:06,798
+la función analog read entre paréntesis
+
+94
+00:04:03,560 --> 00:04:09,019
+a 0 podemos leer el valor presente en
+
+95
+00:04:06,799 --> 00:04:11,090
+dicha entrada supongamos que ese valor
+
+96
+00:04:09,019 --> 00:04:13,879
+lo asignamos a una variable llamada
+
+97
+00:04:11,090 --> 00:04:17,180
+sensor esta variable sensor podrá asumir
+
+98
+00:04:13,878 --> 00:04:20,149
+un valor entre 0 y 1000 23 lo que
+
+99
+00:04:17,180 --> 00:04:22,610
+equivale a una tensión entre 0 y 5 volt
+
+100
+00:04:20,149 --> 00:04:24,888
+a nosotros nos interesa saber el valor
+
+101
+00:04:22,610 --> 00:04:27,500
+de tensión en mili bolt y para eso
+
+102
+00:04:24,889 --> 00:04:30,110
+aplicaremos una sencilla regla
+
+103
+00:04:27,500 --> 00:04:32,959
+simples ya sabemos que un valor de 1.023
+
+104
+00:04:30,110 --> 00:04:35,030
+equivale a 5 volts vamos a pasar el
+
+105
+00:04:32,959 --> 00:04:37,479
+valor a milivoltios para que sea más
+
+106
+00:04:35,029 --> 00:04:40,609
+útil así que diremos que en 1.023
+
+107
+00:04:37,480 --> 00:04:43,520
+equivale a 5000 mil volts entonces
+
+108
+00:04:40,610 --> 00:04:47,530
+sensor tendrá un valor de x o regla de 3
+
+109
+00:04:43,519 --> 00:04:50,659
+simples x será igual ascensor por 5000
+
+110
+00:04:47,529 --> 00:04:53,179
+dividido mil 23 el símbolo de
+
+111
+00:04:50,660 --> 00:04:55,430
+multiplicación aquí está mostrado con el
+
+112
+00:04:53,180 --> 00:04:57,650
+asterisco que es como lo usaremos en el
+
+113
+00:04:55,430 --> 00:04:59,689
+programa con esta simple fórmula
+
+114
+00:04:57,649 --> 00:05:02,418
+lo que hacemos es convertir el valor
+
+115
+00:04:59,689 --> 00:05:04,370
+leído en la entrada analógica a un valor
+
+116
+00:05:02,418 --> 00:05:07,219
+en mili volts ahora sólo nos queda
+
+117
+00:05:04,370 --> 00:05:09,379
+dividir ese valor por 10 y ya tenemos la
+
+118
+00:05:07,220 --> 00:05:12,110
+temperatura en grados centígrados
+
+119
+00:05:09,379 --> 00:05:14,029
+recordad que 10 mil volts equivale a un
+
+120
+00:05:12,110 --> 00:05:17,600
+grado centígrado del ejemplo anterior
+
+121
+00:05:14,029 --> 00:05:20,479
+teníamos que 240 mil volts equivalen a
+
+122
+00:05:17,600 --> 00:05:22,520
+una temperatura de 24 grados ahora como
+
+123
+00:05:20,480 --> 00:05:25,100
+lo que obtenemos es la tensión en mil
+
+124
+00:05:22,519 --> 00:05:27,109
+volts sólo basta con dividir por 10 para
+
+125
+00:05:25,100 --> 00:05:29,360
+obtener la temperatura en esta línea
+
+126
+00:05:27,110 --> 00:05:30,980
+tenemos la fórmula final para obtener el
+
+127
+00:05:29,360 --> 00:05:33,408
+valor de temperatura en grados
+
+128
+00:05:30,980 --> 00:05:36,080
+centígrados al valor leído delante
+
+129
+00:05:33,408 --> 00:05:38,868
+aquí lo asignamos a la variable sensor
+
+130
+00:05:36,079 --> 00:05:41,448
+la multiplicamos por 5000 luego dicho
+
+131
+00:05:38,869 --> 00:05:44,269
+resultado lo dividimos por 1000 23 y
+
+132
+00:05:41,449 --> 00:05:46,788
+finalmente todo lo dividimos por 10 de
+
+133
+00:05:44,269 --> 00:05:48,348
+esta forma puedes ver paso a paso cómo
+
+134
+00:05:46,788 --> 00:05:50,928
+se realizó el proceso de razonamiento
+
+135
+00:05:48,348 --> 00:05:52,938
+para llegar a la fórmula final vamos
+
+136
+00:05:50,928 --> 00:05:55,549
+ahora a conectar el sensor arduino y
+
+137
+00:05:52,939 --> 00:05:58,009
+poner en práctica lo visto la conexión
+
+138
+00:05:55,550 --> 00:06:00,348
+es extremadamente sencilla la pata
+
+139
+00:05:58,009 --> 00:06:02,300
+izquierda del l m 35
+
+140
+00:06:00,348 --> 00:06:05,118
+la conectamos al positivo del riel de
+
+141
+00:06:02,300 --> 00:06:07,309
+tensión la pata derecha a masa del riel
+
+142
+00:06:05,119 --> 00:06:09,259
+de tensión de la pata del medio vamos
+
+143
+00:06:07,309 --> 00:06:11,419
+con un cable directo al entrada
+
+144
+00:06:09,259 --> 00:06:13,699
+analógica a 0 de arduino
+
+145
+00:06:11,418 --> 00:06:16,639
+como siempre alimentamos protoboard con
+
+146
+00:06:13,699 --> 00:06:18,889
+5 volts y genere de arduino y ahora si
+
+147
+00:06:16,639 --> 00:06:20,778
+estamos listos para hacer el programa en
+
+148
+00:06:18,889 --> 00:06:22,939
+este primer programa vamos a leer el
+
+149
+00:06:20,778 --> 00:06:25,519
+valor del sensor e imprimir en el
+
+150
+00:06:22,939 --> 00:06:27,769
+monitor serial y así verificar que
+
+151
+00:06:25,519 --> 00:06:30,050
+funciona correctamente vamos a declarar
+
+152
+00:06:27,769 --> 00:06:32,598
+la variable sensor como entera para
+
+153
+00:06:30,050 --> 00:06:34,939
+almacenar el valor leído con analog grid
+
+154
+00:06:32,598 --> 00:06:38,029
+y también declaramos una variable
+
+155
+00:06:34,939 --> 00:06:40,310
+llamada temperatura del tipo flauta
+
+156
+00:06:38,029 --> 00:06:42,979
+es la primera vez que utilizamos una
+
+157
+00:06:40,310 --> 00:06:45,500
+variable del tipo flow es decir de punto
+
+158
+00:06:42,980 --> 00:06:47,840
+flotante eso es porque vamos a trabajar
+
+159
+00:06:45,500 --> 00:06:49,879
+con valores que no serán números enteros
+
+160
+00:06:47,839 --> 00:06:53,299
+por ejemplo podremos tener una
+
+161
+00:06:49,879 --> 00:06:55,180
+temperatura de 20 5 grados una variable
+
+162
+00:06:53,300 --> 00:06:58,160
+del tipo float nos permite almacenar
+
+163
+00:06:55,180 --> 00:07:00,740
+justamente números con coma o punto
+
+164
+00:06:58,160 --> 00:07:04,730
+decimal en el setup estableceremos la
+
+165
+00:07:00,740 --> 00:07:06,470
+comunicación serie a 9.600 dps y dejamos
+
+166
+00:07:04,730 --> 00:07:09,110
+el comentario de que las entradas
+
+167
+00:07:06,470 --> 00:07:11,960
+analógicas no requieren inicialización
+
+168
+00:07:09,110 --> 00:07:18,139
+ahora en el loop escribamos lo siguiente
+
+169
+00:07:11,959 --> 00:07:20,719
+sensor igual analog ruido a 0 de esa
+
+170
+00:07:18,139 --> 00:07:23,240
+manera en sensor almacenamos el valor
+
+171
+00:07:20,720 --> 00:07:25,760
+leído de la entrada analógica a 0 luego
+
+172
+00:07:23,240 --> 00:07:28,519
+aplicamos la fórmula para convertir el
+
+173
+00:07:25,759 --> 00:07:38,539
+valor a grados centígrados temperatura
+
+174
+00:07:28,519 --> 00:07:42,109
+es igual sensor por 5000 punto 0 / 1023
+
+175
+00:07:38,540 --> 00:07:44,900
+/ 10 es la misma fórmula que vimos al
+
+176
+00:07:42,110 --> 00:07:49,009
+principio la única diferencia es que en
+
+177
+00:07:44,899 --> 00:07:50,779
+vez de 5000 se colocó 5000 punto 0 eso
+
+178
+00:07:49,009 --> 00:07:52,819
+es porque el valor que resulte de la
+
+179
+00:07:50,779 --> 00:07:54,199
+fórmula lo asignaremos una variable
+
+180
+00:07:52,819 --> 00:07:55,909
+definida como float
+
+181
+00:07:54,199 --> 00:07:58,759
+cuando trabajas con una variable que
+
+182
+00:07:55,910 --> 00:08:00,230
+tendrá como punto decimal es necesario
+
+183
+00:07:58,759 --> 00:08:03,079
+que aunque divididas por un número
+
+184
+00:08:00,230 --> 00:08:06,230
+entero como en este caso 5000 lo anoté
+
+185
+00:08:03,079 --> 00:08:08,509
+es como 5000 punto 0 que es lo mismo
+
+186
+00:08:06,230 --> 00:08:10,250
+pero si no lo colocamos de esta manera
+
+187
+00:08:08,509 --> 00:08:12,740
+estaremos perdiendo la parte de la
+
+188
+00:08:10,250 --> 00:08:15,050
+fracción en definitiva ya tenemos el
+
+189
+00:08:12,740 --> 00:08:17,300
+valor de la temperatura con lo cual sólo
+
+190
+00:08:15,050 --> 00:08:19,990
+resta imprimirlo en el monitor serial
+
+191
+00:08:17,300 --> 00:08:23,990
+con serie al punto print line
+
+192
+00:08:19,990 --> 00:08:26,180
+temperatura coma 1 luego de la variable
+
+193
+00:08:23,990 --> 00:08:29,240
+temperatura colocamos un segundo
+
+194
+00:08:26,180 --> 00:08:31,699
+parámetro en la función print line el 1
+
+195
+00:08:29,240 --> 00:08:34,789
+indica que queremos escribir solo una
+
+196
+00:08:31,699 --> 00:08:37,250
+posición decimal temperatura da un valor
+
+197
+00:08:34,789 --> 00:08:39,799
+con fracción que tiene varios decimales
+
+198
+00:08:37,250 --> 00:08:43,849
+por ejemplo una temperatura podría tener
+
+199
+00:08:39,799 --> 00:08:44,778
+un valor de 21 28 nosotros con el valor
+
+200
+00:08:43,849 --> 00:08:46,670
+de 1
+
+201
+00:08:44,778 --> 00:08:48,799
+un pin line le estamos diciendo que
+
+202
+00:08:46,669 --> 00:08:53,059
+queremos un solo dígito después de la
+
+203
+00:08:48,799 --> 00:08:56,508
+coma así que un valor de 21 28 se trunca
+
+204
+00:08:53,059 --> 00:08:59,388
+en 21 2 el segundo parámetro de print
+
+205
+00:08:56,509 --> 00:09:02,808
+line puede ser 2 si queremos dos dígitos
+
+206
+00:08:59,389 --> 00:09:05,209
+decimales 3 si queremos 3 y así para lo
+
+207
+00:09:02,808 --> 00:09:07,759
+que necesitemos esto no modifica el
+
+208
+00:09:05,208 --> 00:09:08,778
+valor original sólo restringe el valor
+
+209
+00:09:07,759 --> 00:09:11,058
+que se imprime
+
+210
+00:09:08,778 --> 00:09:13,639
+finalmente pondremos una demora de un
+
+211
+00:09:11,058 --> 00:09:16,969
+segundo entre lecturas y ese es todo el
+
+212
+00:09:13,639 --> 00:09:19,730
+programa muy simple vamos a verificar y
+
+213
+00:09:16,970 --> 00:09:22,670
+subir el programa luego abrir el monitor
+
+214
+00:09:19,730 --> 00:09:24,680
+serial como podrás ver cada un segundo
+
+215
+00:09:22,669 --> 00:09:26,688
+nos muestra el valor de temperatura
+
+216
+00:09:24,679 --> 00:09:28,609
+es normal que haya una variación de los
+
+217
+00:09:26,688 --> 00:09:31,370
+valores se debe a que estamos trabajando
+
+218
+00:09:28,610 --> 00:09:33,620
+con tensiones muy bajas y proporciona el
+
+219
+00:09:31,370 --> 00:09:36,799
+sensor a la entrada analógica de arduino
+
+220
+00:09:33,620 --> 00:09:39,709
+del rango de 0 a 5 volts solo estamos
+
+221
+00:09:36,799 --> 00:09:42,049
+usando una muy pequeña porción inicial y
+
+222
+00:09:39,708 --> 00:09:44,299
+eso restringe considerablemente la
+
+223
+00:09:42,049 --> 00:09:46,549
+resolución que obtendremos al tocar el
+
+224
+00:09:44,299 --> 00:09:48,409
+sensor con las manos verás cómo se va
+
+225
+00:09:46,549 --> 00:09:51,378
+incrementando el valor de temperatura
+
+226
+00:09:48,409 --> 00:09:53,899
+mostrado al soltarlo vuelve lentamente
+
+227
+00:09:51,379 --> 00:09:55,909
+a su rango de valores iniciales muy bien
+
+228
+00:09:53,899 --> 00:09:58,399
+funciona correctamente pero esa
+
+229
+00:09:55,909 --> 00:10:00,318
+variación de los valores es algo molesta
+
+230
+00:09:58,399 --> 00:10:02,359
+si bien no podemos pedir una gran
+
+231
+00:10:00,318 --> 00:10:04,608
+precisión podemos hacer algo que se
+
+232
+00:10:02,359 --> 00:10:07,189
+utiliza mucho con sensores analógicos
+
+233
+00:10:04,609 --> 00:10:09,528
+vamos a mostrar el promedio de varias
+
+234
+00:10:07,188 --> 00:10:12,558
+lecturas y así tendremos una variación
+
+235
+00:10:09,528 --> 00:10:14,658
+menor la idea es hacer cinco lecturas de
+
+236
+00:10:12,558 --> 00:10:17,328
+temperatura y mostrar en el monitor
+
+237
+00:10:14,658 --> 00:10:20,119
+serial el promedio de dichas lecturas se
+
+238
+00:10:17,328 --> 00:10:22,158
+hace fácilmente mediante un bucle ford
+
+239
+00:10:20,119 --> 00:10:24,259
+donde sumaremos los valores leídos de
+
+240
+00:10:22,158 --> 00:10:25,129
+temperatura en intervalos de medio
+
+241
+00:10:24,259 --> 00:10:27,229
+segundo
+
+242
+00:10:25,129 --> 00:10:30,168
+luego imprimiremos el valor de la suma
+
+243
+00:10:27,229 --> 00:10:32,658
+de todos los valores dividido por 5 y
+
+244
+00:10:30,168 --> 00:10:34,848
+así obtenemos el promedio vamos a
+
+245
+00:10:32,658 --> 00:10:38,239
+definir al principio una variable del
+
+246
+00:10:34,849 --> 00:10:40,519
+tipo float llamada suma ahora en la
+
+247
+00:10:38,239 --> 00:10:43,908
+primera línea del loop le asignamos a
+
+248
+00:10:40,519 --> 00:10:46,369
+suma un valor de 0 para tomar 5 lecturas
+
+249
+00:10:43,908 --> 00:10:49,038
+de temperatura colocaremos el código que
+
+250
+00:10:46,369 --> 00:10:51,109
+ya tenemos dentro de un bucle for es
+
+251
+00:10:49,038 --> 00:10:53,688
+simplemente realiza el proceso de hacer
+
+252
+00:10:51,109 --> 00:10:55,819
+una lectura e ir asignando a la variable
+
+253
+00:10:53,688 --> 00:10:56,839
+suma la adición de cada uno de los
+
+254
+00:10:55,818 --> 00:10:59,479
+valores
+
+255
+00:10:56,840 --> 00:11:06,740
+analog ruido dejemos un espacio y
+
+256
+00:10:59,480 --> 00:11:09,139
+escribamos for int y igual 0 y menor que
+
+257
+00:11:06,740 --> 00:11:12,620
+5 y + +
+
+258
+00:11:09,139 --> 00:11:15,590
+abrimos llaves y enter este un clifford
+
+259
+00:11:12,620 --> 00:11:17,289
+repetirá el código entre sus llaves 5
+
+260
+00:11:15,590 --> 00:11:19,940
+veces y luego sale del mismo
+
+261
+00:11:17,289 --> 00:11:22,519
+seleccionemos esta línea de código y
+
+262
+00:11:19,940 --> 00:11:24,980
+cortemos ahora dentro de las llaves del
+
+263
+00:11:22,519 --> 00:11:26,929
+ford pegamos el código cortado ya
+
+264
+00:11:24,980 --> 00:11:29,360
+tenemos las líneas que permiten hacer la
+
+265
+00:11:26,929 --> 00:11:31,669
+lectura de la entrada analógica y la
+
+266
+00:11:29,360 --> 00:11:33,860
+fórmula que permite convertir el valor a
+
+267
+00:11:31,669 --> 00:11:36,259
+grados centígrados ahora nos queda
+
+268
+00:11:33,860 --> 00:11:38,330
+guardar en la variable suma la adición
+
+269
+00:11:36,259 --> 00:11:43,480
+de cada una de las lecturas lo hacemos
+
+270
+00:11:38,330 --> 00:11:47,450
+muy fácil con suma igual temperatura más
+
+271
+00:11:43,480 --> 00:11:49,700
+suma como suma tiene un valor de 0 que
+
+272
+00:11:47,450 --> 00:11:52,520
+le asignamos al principio del loop en la
+
+273
+00:11:49,700 --> 00:11:54,680
+primera iteración del bucle for en suma
+
+274
+00:11:52,519 --> 00:11:57,769
+queda almacenado el valor de la primera
+
+275
+00:11:54,679 --> 00:11:59,929
+lectura luego en la segunda lectura suma
+
+276
+00:11:57,769 --> 00:12:02,600
+el valor anterior con el nuevo y lo
+
+277
+00:11:59,929 --> 00:12:05,359
+asigna nuevamente a la variable suma
+
+278
+00:12:02,600 --> 00:12:07,430
+y así lo harás cinco veces en definitiva
+
+279
+00:12:05,360 --> 00:12:10,159
+cuando el programa salga del bucle
+
+280
+00:12:07,429 --> 00:12:12,409
+tendremos en la variable suma la adición
+
+281
+00:12:10,159 --> 00:12:14,870
+de las cinco lecturas de temperatura
+
+282
+00:12:12,409 --> 00:12:17,719
+agreguemos un delay de medio segundo
+
+283
+00:12:14,870 --> 00:12:20,179
+entre lecturas ahora en serie al punto
+
+284
+00:12:17,720 --> 00:12:22,490
+print line lo que estaremos mostrando es
+
+285
+00:12:20,179 --> 00:12:24,258
+el promedio de las cinco lecturas con lo
+
+286
+00:12:22,490 --> 00:12:29,690
+cual reemplazamos la variable
+
+287
+00:12:24,259 --> 00:12:32,028
+temperatura por suma dividido 5.0 la
+
+288
+00:12:29,690 --> 00:12:34,579
+suma de las cinco lecturas divididos por
+
+289
+00:12:32,028 --> 00:12:37,578
+cinco nos da el valor promedio sólo
+
+290
+00:12:34,578 --> 00:12:39,649
+resta eliminar el delay de un segundo ya
+
+291
+00:12:37,578 --> 00:12:42,138
+que tenemos una demora generada dentro
+
+292
+00:12:39,649 --> 00:12:44,480
+del bucle foro que será de dos segundos
+
+293
+00:12:42,139 --> 00:12:46,549
+y medios ya que tenemos medio segundo
+
+294
+00:12:44,480 --> 00:12:49,069
+por lectura con lo cual para obtener
+
+295
+00:12:46,549 --> 00:12:52,879
+cinco lecturas estaremos demorando un
+
+296
+00:12:49,068 --> 00:12:55,250
+total de 2500 milisegundos y eso es todo
+
+297
+00:12:52,879 --> 00:12:57,198
+vamos rápidamente a verificar si ahora
+
+298
+00:12:55,250 --> 00:12:59,720
+tenemos una variación menor de los
+
+299
+00:12:57,198 --> 00:13:02,269
+valores de temperatura mostrado subimos
+
+300
+00:12:59,720 --> 00:13:04,399
+el programa y abrimos el monitor serial
+
+301
+00:13:02,269 --> 00:13:06,379
+podrás ver que ahora los valores de
+
+302
+00:13:04,399 --> 00:13:08,539
+temperatura se muestran cada dos
+
+303
+00:13:06,379 --> 00:13:09,320
+segundos y medios ya que estamos tomando
+
+304
+00:13:08,539 --> 00:13:12,019
+5
+
+305
+00:13:09,320 --> 00:13:14,840
+muestras cada medio segundo y recién
+
+306
+00:13:12,019 --> 00:13:17,600
+luego escribimos el valor promedio ahora
+
+307
+00:13:14,840 --> 00:13:19,790
+la variación es menor y más apta para el
+
+308
+00:13:17,600 --> 00:13:22,100
+próximo programa donde mostraremos el
+
+309
+00:13:19,789 --> 00:13:25,039
+valor directamente sobre una pantalla
+
+310
+00:13:22,100 --> 00:13:27,440
+lcd vamos al circuito de conexión para
+
+311
+00:13:25,039 --> 00:13:30,230
+agregar una pantalla lcd a nuestro
+
+312
+00:13:27,440 --> 00:13:32,390
+proyecto esta conexión es exactamente
+
+313
+00:13:30,230 --> 00:13:34,759
+igual que la vista en el capítulo 10
+
+314
+00:13:32,389 --> 00:13:36,710
+dicho capítulo se destinó en su
+
+315
+00:13:34,759 --> 00:13:39,319
+totalidad para la explicación detallada
+
+316
+00:13:36,710 --> 00:13:43,430
+del funcionamiento de la pantalla lcd
+
+317
+00:13:39,320 --> 00:13:45,140
+modelo 1602 con lo cual si es la primera
+
+318
+00:13:43,429 --> 00:13:47,419
+vez que trabajas con la misma te
+
+319
+00:13:45,139 --> 00:13:49,789
+recomiendo que veas dicho capítulo que
+
+320
+00:13:47,419 --> 00:13:52,370
+estaré dejando un enlace al capítulo 10
+
+321
+00:13:49,789 --> 00:13:54,230
+en la zona de descripción comenzando por
+
+322
+00:13:52,370 --> 00:13:56,149
+el primer pin de la izquierda lo
+
+323
+00:13:54,230 --> 00:13:59,300
+conectamos con un cable directo al
+
+324
+00:13:56,149 --> 00:14:02,809
+negativo del riel de tensión el pin 2 al
+
+325
+00:13:59,299 --> 00:14:05,569
+positivo del riel de tensión el pin 3 lo
+
+326
+00:14:02,809 --> 00:14:09,500
+conectamos al punto medio del presente
+
+327
+00:14:05,570 --> 00:14:12,890
+de 10k uno de sus extremos al positivo y
+
+328
+00:14:09,500 --> 00:14:15,230
+el extremo opuesto a massa el pin 4 lo
+
+329
+00:14:12,889 --> 00:14:16,100
+conectaremos con un cable directo al pin
+
+330
+00:14:15,230 --> 00:14:19,819
+digital
+
+331
+00:14:16,100 --> 00:14:22,759
+7 de arduino el pin 5 con un cable
+
+332
+00:14:19,818 --> 00:14:25,698
+directo a massa el pin 6 con un cable
+
+333
+00:14:22,759 --> 00:14:29,870
+directo al pin digital número 6 de
+
+334
+00:14:25,698 --> 00:14:32,120
+arduino el pin 11 denominado de 4 irá
+
+335
+00:14:29,870 --> 00:14:36,649
+directo con un cable al pin digital
+
+336
+00:14:32,120 --> 00:14:40,490
+número 5 de arduino el pin 12 al pin 4
+
+337
+00:14:36,649 --> 00:14:43,850
+de arduino el pin 13 al pin 3 y el pin
+
+338
+00:14:40,490 --> 00:14:47,209
+14 al pin 2 de arduino
+
+339
+00:14:43,850 --> 00:14:49,310
+finalmente el pin 15 que es el ánodo del
+
+340
+00:14:47,208 --> 00:14:51,379
+led de la iluminación trasera lo
+
+341
+00:14:49,309 --> 00:14:54,588
+conectaremos al positivo del riel de
+
+342
+00:14:51,379 --> 00:14:58,549
+tensión mediante una resistencia de 220
+
+343
+00:14:54,589 --> 00:15:00,860
+11 y el pin 16 a massa perfecto vamos al
+
+344
+00:14:58,549 --> 00:15:04,609
+código para mostrar la temperatura en la
+
+345
+00:15:00,860 --> 00:15:06,740
+pantalla lcd usar el lcd es muy fácil
+
+346
+00:15:04,610 --> 00:15:09,709
+primero debemos incluir la librería
+
+347
+00:15:06,740 --> 00:15:12,860
+liquid crystal mediante el menú programa
+
+348
+00:15:09,708 --> 00:15:16,159
+luego incluir librería y seleccionando
+
+349
+00:15:12,860 --> 00:15:18,649
+el submenú liquid crystal verás cómo se
+
+350
+00:15:16,159 --> 00:15:21,318
+agrega una nueva línea al principio del
+
+351
+00:15:18,649 --> 00:15:22,070
+programa luego creamos un objeto del
+
+352
+00:15:21,318 --> 00:15:26,089
+tipo
+
+353
+00:15:22,070 --> 00:15:30,280
+cristal llamado lcd y le enviamos los
+
+354
+00:15:26,090 --> 00:15:36,110
+pines a donde tenemos conectados rsid3
+
+355
+00:15:30,279 --> 00:15:40,669
+de 2 de 1 y de 0 del módulo lcd en el
+
+356
+00:15:36,110 --> 00:15:43,909
+setup con lcd punto begin inicializa mos
+
+357
+00:15:40,669 --> 00:15:47,240
+con el tamaño de nuestro lcd que de 16
+
+358
+00:15:43,909 --> 00:15:49,759
+columnas por 2 líneas y eliminamos la
+
+359
+00:15:47,240 --> 00:15:52,009
+inicialización de la comunicación serie
+
+360
+00:15:49,759 --> 00:15:54,409
+ya que no la estaremos utilizando muy
+
+361
+00:15:52,009 --> 00:15:56,750
+bien ya tenemos inicializa do el módulo
+
+362
+00:15:54,409 --> 00:15:59,750
+lcd solo debemos modificar ligeramente
+
+363
+00:15:56,750 --> 00:16:02,299
+el código para mostrar en pantalla el
+
+364
+00:15:59,750 --> 00:16:04,820
+valor de temperatura vamos a eliminar la
+
+365
+00:16:02,299 --> 00:16:09,049
+línea de serie al punto print line y
+
+366
+00:16:04,820 --> 00:16:13,570
+escribamos este código lcd punto set
+
+367
+00:16:09,049 --> 00:16:17,809
+cursor 0 0
+
+368
+00:16:13,570 --> 00:16:24,550
+lcd punto print temp
+
+369
+00:16:17,809 --> 00:16:28,549
+dos puntos espacio lcd punto print suma
+
+370
+00:16:24,549 --> 00:16:35,359
+/ 5.0
+
+371
+00:16:28,549 --> 00:16:37,490
+1 lcd punto print un espacio se ubica
+
+372
+00:16:35,360 --> 00:16:40,159
+mos primero el cursor sobre la primer
+
+373
+00:16:37,490 --> 00:16:43,278
+línea y primer columna luego escribimos
+
+374
+00:16:40,159 --> 00:16:45,980
+temp dos puntos dejamos un espacio en
+
+375
+00:16:43,278 --> 00:16:48,019
+blanco para que no quede pegado luego el
+
+376
+00:16:45,980 --> 00:16:50,659
+valor de temperatura que de la misma
+
+377
+00:16:48,019 --> 00:16:54,289
+manera que antes lo haremos con el valor
+
+378
+00:16:50,659 --> 00:16:56,539
+de la variable suma / 5 y como segundo
+
+379
+00:16:54,289 --> 00:16:59,000
+parámetro 1 indicando que queremos
+
+380
+00:16:56,539 --> 00:17:01,219
+mostrar una sola posición decimal
+
+381
+00:16:59,000 --> 00:17:03,708
+finalmente escribimos un espacio en
+
+382
+00:17:01,220 --> 00:17:06,110
+blanco y la letra c indicando que el
+
+383
+00:17:03,708 --> 00:17:08,480
+valor mostrado es en grados centígrados
+
+384
+00:17:06,109 --> 00:17:11,240
+nuevamente te recuerdo que por cualquier
+
+385
+00:17:08,480 --> 00:17:13,699
+duda sobre el uso del módulo lcd puedes
+
+386
+00:17:11,240 --> 00:17:16,910
+ver el capítulo número 10 vamos entonces
+
+387
+00:17:13,699 --> 00:17:19,220
+a verificar y subir el programa ni bien
+
+388
+00:17:16,910 --> 00:17:20,329
+su base el programa arduino verás que
+
+389
+00:17:19,220 --> 00:17:22,338
+luego de 1 segundo
+
+390
+00:17:20,328 --> 00:17:24,379
+comienza a mostrarse el valor de
+
+391
+00:17:22,338 --> 00:17:26,990
+temperatura recordad que estaremos
+
+392
+00:17:24,380 --> 00:17:28,580
+escribiendo cada dos segundos y medio ya
+
+393
+00:17:26,990 --> 00:17:30,980
+que estamos haciendo el promedio de
+
+394
+00:17:28,579 --> 00:17:33,589
+cinco lecturas ahora puedes tocar con la
+
+395
+00:17:30,980 --> 00:17:36,140
+mano el sensor para ver cómo va subiendo
+
+396
+00:17:33,589 --> 00:17:38,298
+la temperatura al soltar irá bajando
+
+397
+00:17:36,140 --> 00:17:40,880
+lentamente hasta volver a los valores
+
+398
+00:17:38,298 --> 00:17:42,769
+iniciales en caso de que no visualices
+
+399
+00:17:40,880 --> 00:17:45,590
+correctamente el texto en la pantalla
+
+400
+00:17:42,769 --> 00:17:47,808
+podrás modificar el valor de contraste
+
+401
+00:17:45,589 --> 00:17:51,408
+girando el presente para resumir el
+
+402
+00:17:47,808 --> 00:17:53,960
+capítulo vimos cómo utilizando el el m35
+
+403
+00:17:51,409 --> 00:17:56,539
+podemos obtener valores de temperatura y
+
+404
+00:17:53,960 --> 00:17:58,610
+debido al reducido tamaño del mismo es
+
+405
+00:17:56,538 --> 00:18:00,950
+ideal para ubicarlo de forma remota
+
+406
+00:17:58,609 --> 00:18:03,829
+mediante un cable de tres conductores
+
+407
+00:18:00,950 --> 00:18:06,169
+que puede ser bien largo cuestión que se
+
+408
+00:18:03,829 --> 00:18:10,278
+complicaría con otros sensores como el
+
+409
+00:18:06,169 --> 00:18:12,409
+de ht 11 o dht 22 además aprovechamos el
+
+410
+00:18:10,278 --> 00:18:15,019
+conocimiento sobre el uso de la pantalla
+
+411
+00:18:12,409 --> 00:18:16,970
+lcd para visualizar el valor de
+
+412
+00:18:15,019 --> 00:18:18,649
+temperatura por supuesto que con el
+
+413
+00:18:16,970 --> 00:18:21,288
+poder que nos brinda una plataforma
+
+414
+00:18:18,648 --> 00:18:23,509
+totalmente programable con el valor de
+
+415
+00:18:21,288 --> 00:18:25,788
+temperatura obtenido podemos tomar
+
+416
+00:18:23,509 --> 00:18:27,140
+distintas acciones como por ejemplo
+
+417
+00:18:25,788 --> 00:18:29,900
+activar un ventilador
+
+418
+00:18:27,140 --> 00:18:32,630
+si la temperatura supera determinado
+
+419
+00:18:29,900 --> 00:18:34,759
+valor eso es todo por este capítulo como
+
+420
+00:18:32,630 --> 00:18:37,160
+siempre te pido te suscribas para
+
+421
+00:18:34,759 --> 00:18:39,859
+recibir notificaciones y por cualquier
+
+422
+00:18:37,160 --> 00:18:43,040
+duda o comentario lo puedes hacer debajo
+
+423
+00:18:39,859 --> 00:18:45,339
+que con gusto te responderé chao y hasta
+
+424
+00:18:43,039 --> 00:18:45,339
+la próxima
+

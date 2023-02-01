@@ -1,0 +1,23 @@
+Veremos como los sensores de gas MQ permiten detectar gases combustibles, gas natural, monóxido de carbono, vapor de alcohol y mucho más. Con un enfoque en el modelo MQ-5 sensor de gas natural y visualización de datos en Arduino.
+
+Verificaremos en la práctica la respuesta del sensor a la presencia de gas y como implementar una acción de la vida real.
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoSensorGasNatural
+#ArduinoSensoresMQ
+Arduino sensor gas
+Arduino gas sensor code
+Sensor gas natural Arduino
+Sensor gas lp
+Sensor mq5
+
+Marcas de tiempo:
+0:00 Introducción y modelos MQ
+0:56 Características (componentes del módulo)
+3:52 Circuito de conexión
+4:23 Primer programa (visualizando datos y proceso de curado)
+10:58 Segundo programa (ejemplo tomando una acción)
+13:06 Consideraciones (de seguridad en la vida real)

@@ -1,0 +1,1704 @@
+1
+00:00:01,820 --> 00:00:08,028
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,790 --> 00:00:10,009
+20 de arduino desde cero en español en
+
+3
+00:00:08,028 --> 00:00:12,288
+esta oportunidad vamos a continuar
+
+4
+00:00:10,009 --> 00:00:15,469
+trabajando con el módulo controlador de
+
+5
+00:00:12,288 --> 00:00:18,140
+motor el y 298 en el que se comenzó en
+
+6
+00:00:15,468 --> 00:00:20,928
+el capítulo 19 para hacer desplazar un
+
+7
+00:00:18,140 --> 00:00:23,149
+vehículo tipo rover y trabajar un poco
+
+8
+00:00:20,928 --> 00:00:25,250
+más con la programación la idea es
+
+9
+00:00:23,149 --> 00:00:27,559
+continuar con los ya iniciado en el
+
+10
+00:00:25,250 --> 00:00:29,599
+capítulo anterior con lo cual si no lo
+
+11
+00:00:27,559 --> 00:00:32,359
+viste te lo recomiendo y dejaré un
+
+12
+00:00:29,599 --> 00:00:34,700
+enlace directo al mismo en la zona de
+
+13
+00:00:32,359 --> 00:00:37,369
+descripción ya utilizamos un motor
+
+14
+00:00:34,700 --> 00:00:38,989
+logramos establecer su sentido de giro y
+
+15
+00:00:37,369 --> 00:00:41,419
+controlar su velocidad ahora
+
+16
+00:00:38,988 --> 00:00:43,038
+trabajaremos con un segundo motor con lo
+
+17
+00:00:41,420 --> 00:00:45,770
+cual es necesario que lo tengas
+
+18
+00:00:43,039 --> 00:00:47,629
+preparado estos motores suelen venir sin
+
+19
+00:00:45,770 --> 00:00:49,460
+los cables con lo cual tendrás que
+
+20
+00:00:47,628 --> 00:00:51,250
+soldar leds un par de acuerdo a la
+
+21
+00:00:49,460 --> 00:00:53,660
+recomendación ya hecha con anterioridad
+
+22
+00:00:51,250 --> 00:00:56,509
+conviene que ambos cables sean de
+
+23
+00:00:53,659 --> 00:00:58,909
+distinto color yo usé un par con colores
+
+24
+00:00:56,509 --> 00:01:01,070
+blanco y negro como se muestra en esta
+
+25
+00:00:58,909 --> 00:01:02,808
+parte de la imagen el segundo motor
+
+26
+00:01:01,070 --> 00:01:03,439
+también tendrá el mismo esquema de
+
+27
+00:01:02,808 --> 00:01:05,840
+colores
+
+28
+00:01:03,439 --> 00:01:08,539
+en este capítulo utilizaremos la base
+
+29
+00:01:05,840 --> 00:01:11,540
+acrílica de robert que incluye todos
+
+30
+00:01:08,540 --> 00:01:14,060
+para montar los dos motores y una tercer
+
+31
+00:01:11,540 --> 00:01:16,310
+rueda libre para estabilidad la base
+
+32
+00:01:14,060 --> 00:01:18,829
+acrílica es lo suficientemente fuerte
+
+33
+00:01:16,310 --> 00:01:19,490
+como para soportar el peso de la placa
+
+34
+00:01:18,829 --> 00:01:22,909
+arduino
+
+35
+00:01:19,489 --> 00:01:25,579
+el módulo l 298 n y unas baterías de
+
+36
+00:01:22,909 --> 00:01:28,069
+alimentación es transparente y tiene un
+
+37
+00:01:25,579 --> 00:01:30,379
+recubrimiento de papel marrón es sólo
+
+38
+00:01:28,069 --> 00:01:33,019
+una nota al margen para que notes que es
+
+39
+00:01:30,379 --> 00:01:35,629
+acrílico aunque no parezca el armado es
+
+40
+00:01:33,019 --> 00:01:37,549
+muy simple con tornillos y tuercas que
+
+41
+00:01:35,629 --> 00:01:39,799
+vienen incluidos en el kit una vez
+
+42
+00:01:37,549 --> 00:01:41,989
+armado debería quedar como se muestra
+
+43
+00:01:39,799 --> 00:01:44,390
+aquí existen distintos fabricantes de
+
+44
+00:01:41,989 --> 00:01:46,868
+roberts que usan este sistema de motor
+
+45
+00:01:44,390 --> 00:01:49,670
+sencillo de continua y caja reductora
+
+46
+00:01:46,868 --> 00:01:52,159
+algunos tienen ruedas más pequeñas en
+
+47
+00:01:49,670 --> 00:01:54,890
+otros la base es metálica en lugar de
+
+48
+00:01:52,159 --> 00:01:57,140
+acrílica de todas maneras los conceptos
+
+49
+00:01:54,890 --> 00:01:59,299
+vistos serán aplicables para la mayoría
+
+50
+00:01:57,140 --> 00:02:01,280
+de los casos un detalle es que las
+
+51
+00:01:59,299 --> 00:02:03,560
+cabezas de los tornillos que quedan
+
+52
+00:02:01,280 --> 00:02:05,420
+expuestas en la parte superior de la
+
+53
+00:02:03,560 --> 00:02:07,640
+base del rovers pueden causar un
+
+54
+00:02:05,420 --> 00:02:10,729
+cortocircuito si se le coloca por encima
+
+55
+00:02:07,640 --> 00:02:12,800
+un circuito impreso ya sea el módulo o
+
+56
+00:02:10,729 --> 00:02:14,840
+arduino con lo cual es conveniente
+
+57
+00:02:12,800 --> 00:02:17,060
+aunque no quede del todo
+
+58
+00:02:14,840 --> 00:02:20,090
+colocar unos trozos de cinta aislante
+
+59
+00:02:17,060 --> 00:02:22,878
+como se ve en esta imagen en color negro
+
+60
+00:02:20,090 --> 00:02:23,900
+vamos al circuito de conexión la parte
+
+61
+00:02:22,878 --> 00:02:26,179
+del motor
+
+62
+00:02:23,900 --> 00:02:28,879
+es igual que el capítulo anterior vamos
+
+63
+00:02:26,180 --> 00:02:31,430
+a repasar lo rápidamente en uno del
+
+64
+00:02:28,878 --> 00:02:34,548
+módulo va con un cable directo al pin
+
+65
+00:02:31,430 --> 00:02:38,780
+digital número dos de arduino en 2 al
+
+66
+00:02:34,549 --> 00:02:41,030
+pin digital 3 y n a al pin digital 5
+
+67
+00:02:38,780 --> 00:02:43,310
+nueva es la conexión del motor b
+
+68
+00:02:41,030 --> 00:02:45,709
+utilizaremos la barrera de la derecha
+
+69
+00:02:43,310 --> 00:02:47,539
+del módulo y aquí es importante que
+
+70
+00:02:45,709 --> 00:02:50,120
+prestes atención a los colores de los
+
+71
+00:02:47,539 --> 00:02:52,400
+cables verás que están de la misma forma
+
+72
+00:02:50,120 --> 00:02:54,680
+respecto del motor a no hablo de
+
+73
+00:02:52,400 --> 00:02:56,239
+polaridad ya que el motor no la tiene
+
+74
+00:02:54,680 --> 00:02:58,819
+pero si conectamos los cables
+
+75
+00:02:56,239 --> 00:03:01,099
+incorrectamente tendremos un giro que no
+
+76
+00:02:58,818 --> 00:03:04,310
+es el esperado la conexión de los pines
+
+77
+00:03:01,098 --> 00:03:08,628
+de control para el motor b serán in 3 al
+
+78
+00:03:04,310 --> 00:03:13,489
+pin digital número 7 de arduino y 4 al
+
+79
+00:03:08,628 --> 00:03:16,459
+pin digital 8 y nb al pin digital número
+
+80
+00:03:13,489 --> 00:03:18,259
+9 brevemente repasamos el tema
+
+81
+00:03:16,459 --> 00:03:20,930
+alimentación del módulo que la
+
+82
+00:03:18,259 --> 00:03:23,030
+realizamos con fuente entre 6 y
+
+83
+00:03:20,930 --> 00:03:25,849
+9 volts o mediante cuatro baterías
+
+84
+00:03:23,030 --> 00:03:28,579
+comunes o recargables y conectando
+
+85
+00:03:25,848 --> 00:03:30,649
+genere de arduino a gene de del módulo
+
+86
+00:03:28,579 --> 00:03:33,560
+para tener una misma referencia de
+
+87
+00:03:30,650 --> 00:03:35,450
+tierra muy bien vamos al código ya tengo
+
+88
+00:03:33,560 --> 00:03:37,819
+las líneas de código con las variables
+
+89
+00:03:35,449 --> 00:03:40,399
+que representan los pines de conexión
+
+90
+00:03:37,818 --> 00:03:43,009
+entre arduino y el módulo en el setup
+
+91
+00:03:40,400 --> 00:03:45,500
+con pin modo establecemos dichos pines
+
+92
+00:03:43,009 --> 00:03:47,598
+como salida ahora en el loop haremos un
+
+93
+00:03:45,500 --> 00:03:50,180
+pequeño programa para verificar que todo
+
+94
+00:03:47,598 --> 00:03:52,218
+se encuentra correctamente conectado y
+
+95
+00:03:50,180 --> 00:03:54,859
+que ambos motores giran en el mismo
+
+96
+00:03:52,218 --> 00:03:57,408
+sentido comenzaremos encendiendo ambos
+
+97
+00:03:54,859 --> 00:03:59,169
+motores y haciéndolo girar en el sentido
+
+98
+00:03:57,408 --> 00:04:02,358
+que le permite avanzar al vehículo
+
+99
+00:03:59,169 --> 00:04:05,659
+utilizaremos tres digital raid para el
+
+100
+00:04:02,359 --> 00:04:10,718
+motor a ib3 digital raid para el motor b
+
+101
+00:04:05,658 --> 00:04:10,718
+digital raid línea
+
+102
+00:04:11,509 --> 00:04:22,688
+digital write in 1 low
+
+103
+00:04:17,199 --> 00:04:27,728
+digital right in 2 wright
+
+104
+00:04:22,689 --> 00:04:27,729
+digital white y nieve
+
+105
+00:04:27,939 --> 00:04:38,050
+digital right in 3 lobo
+
+106
+00:04:33,050 --> 00:04:38,050
+digital right in 4
+
+107
+00:04:38,120 --> 00:04:44,149
+aplicamos una demora de 3 segundos y
+
+108
+00:04:41,120 --> 00:04:49,269
+detenemos ambos motores por 2 segundos
+
+109
+00:04:44,149 --> 00:04:58,209
+delay entre paréntesis 3000 digital raid
+
+110
+00:04:49,269 --> 00:05:01,579
+línea low digital write y nb low delay
+
+111
+00:04:58,209 --> 00:05:03,859
+2000 la idea de este programa es que
+
+112
+00:05:01,579 --> 00:05:06,050
+puedas verificar que se activan ambos
+
+113
+00:05:03,860 --> 00:05:09,139
+motores del rover y también que ambos
+
+114
+00:05:06,050 --> 00:05:11,900
+motores giran en un mismo sentido vamos
+
+115
+00:05:09,139 --> 00:05:13,879
+a verificar y subir el programa récord a
+
+116
+00:05:11,899 --> 00:05:16,698
+alimentar el módulo con la fuente de
+
+117
+00:05:13,879 --> 00:05:18,709
+alimentación o batería externa también
+
+118
+00:05:16,699 --> 00:05:21,500
+te recomiendo para este primer programa
+
+119
+00:05:18,709 --> 00:05:23,719
+que el ibex el rover de la superficie
+
+120
+00:05:21,500 --> 00:05:26,478
+donde lo tengas apoyado de manera que
+
+121
+00:05:23,720 --> 00:05:28,880
+las ruedas giren libremente y así se
+
+122
+00:05:26,478 --> 00:05:31,370
+puede verificar mejor el sentido de giro
+
+123
+00:05:28,879 --> 00:05:33,860
+de las mismas deberán verificar que
+
+124
+00:05:31,370 --> 00:05:36,470
+ambas ruedas giran en el mismo sentido
+
+125
+00:05:33,860 --> 00:05:38,840
+durante tres segundos se detienen dos
+
+126
+00:05:36,470 --> 00:05:41,060
+segundos para luego volver a repetir el
+
+127
+00:05:38,839 --> 00:05:43,399
+ciclo si alguna de las ruedas gira en
+
+128
+00:05:41,060 --> 00:05:44,209
+sentido contrario respecto de la otra
+
+129
+00:05:43,399 --> 00:05:46,339
+deberá
+
+130
+00:05:44,209 --> 00:05:48,769
+vuelta los cables que iban a la born era
+
+131
+00:05:46,339 --> 00:05:50,989
+del módulo del motor que corresponda
+
+132
+00:05:48,769 --> 00:05:53,448
+puede darse también el caso de ambas
+
+133
+00:05:50,990 --> 00:05:55,668
+ruedas giren en el mismo sentido pero
+
+134
+00:05:53,449 --> 00:05:57,978
+que harían que el vehículo retroceda en
+
+135
+00:05:55,668 --> 00:06:00,589
+vez de avanzar en ese caso deberás dar
+
+136
+00:05:57,978 --> 00:06:02,360
+vuelta a los cables de ambos motores es
+
+137
+00:06:00,589 --> 00:06:04,638
+justamente la idea de este primer
+
+138
+00:06:02,360 --> 00:06:06,830
+programa que este proceso quede bien
+
+139
+00:06:04,639 --> 00:06:08,810
+para poder seguir con el resto ya
+
+140
+00:06:06,829 --> 00:06:11,750
+estamos listos para hacer algo más
+
+141
+00:06:08,810 --> 00:06:14,478
+interesante vamos a planificar una ruta
+
+142
+00:06:11,750 --> 00:06:16,668
+sencilla para que la realiza el rover de
+
+143
+00:06:14,478 --> 00:06:19,129
+esta manera veremos cómo hacerlo girar
+
+144
+00:06:16,668 --> 00:06:21,799
+mediante la activación de un solo motor
+
+145
+00:06:19,129 --> 00:06:24,139
+para eso veamos primero en pantalla el
+
+146
+00:06:21,800 --> 00:06:26,598
+recorrido y las distintas etapas del
+
+147
+00:06:24,139 --> 00:06:28,788
+mismo aquí tenemos una representación de
+
+148
+00:06:26,598 --> 00:06:31,848
+nuestro row ver desde una vista superior
+
+149
+00:06:28,788 --> 00:06:34,579
+del lado izquierdo tenemos el motor a y
+
+150
+00:06:31,848 --> 00:06:37,310
+del lado derecho el motor ve la parte
+
+151
+00:06:34,579 --> 00:06:40,758
+delantera del vehículo será la que tiene
+
+152
+00:06:37,310 --> 00:06:42,680
+el módulo el y 298 ene y por debajo la
+
+153
+00:06:40,759 --> 00:06:44,360
+rueda de giro libre entonces
+
+154
+00:06:42,680 --> 00:06:46,340
+comenzaremos haciendo avanzar el
+
+155
+00:06:44,360 --> 00:06:49,009
+vehículo como ya vimos el primer
+
+156
+00:06:46,339 --> 00:06:50,539
+programa se hace activando ambos motores
+
+157
+00:06:49,009 --> 00:06:52,939
+al mismo tiempo
+
+158
+00:06:50,540 --> 00:06:55,400
+para que se desplace en línea recta
+
+159
+00:06:52,939 --> 00:06:57,620
+ahora vamos a detenerlo y hacerlo girar
+
+160
+00:06:55,399 --> 00:07:00,709
+hacia la derecha para esto lo único que
+
+161
+00:06:57,620 --> 00:07:03,590
+será necesario es activar sólo el motor
+
+162
+00:07:00,709 --> 00:07:06,229
+y está representado con la flecha azul
+
+163
+00:07:03,589 --> 00:07:08,269
+sobre la rueda que comanda el motor si
+
+164
+00:07:06,230 --> 00:07:10,910
+hacemos girar la rueda del motor
+
+165
+00:07:08,269 --> 00:07:13,129
+mientras la rueda ve se encuentra
+
+166
+00:07:10,910 --> 00:07:15,860
+estática lograremos que dicha rueda
+
+167
+00:07:13,129 --> 00:07:18,379
+sirva de pivote para girar hacia la
+
+168
+00:07:15,860 --> 00:07:20,420
+derecha luego del giro el vehículo
+
+169
+00:07:18,379 --> 00:07:21,199
+quedará de esta forma luego en
+
+170
+00:07:20,420 --> 00:07:23,480
+programación
+
+171
+00:07:21,199 --> 00:07:25,939
+veremos cómo implementarlo pero lo que
+
+172
+00:07:23,480 --> 00:07:28,430
+importa aquí es el concepto de como
+
+173
+00:07:25,939 --> 00:07:30,949
+activando un solo motor a la vez podemos
+
+174
+00:07:28,430 --> 00:07:34,040
+lograr un giro ahora vamos a hacerlo
+
+175
+00:07:30,949 --> 00:07:36,620
+avanzar un poco activando ambos motores
+
+176
+00:07:34,040 --> 00:07:39,170
+nuevamente aquí las flechas azules
+
+177
+00:07:36,620 --> 00:07:41,600
+indican que estaremos activando ambos
+
+178
+00:07:39,170 --> 00:07:43,300
+motores luego haremos que se detenga y
+
+179
+00:07:41,600 --> 00:07:45,680
+vuelva a girar hacia la derecha
+
+180
+00:07:43,300 --> 00:07:48,199
+exactamente como antes activamos
+
+181
+00:07:45,680 --> 00:07:51,079
+únicamente el motor y con eso logramos
+
+182
+00:07:48,199 --> 00:07:53,089
+el giro para finalizar el recorrido lo
+
+183
+00:07:51,079 --> 00:07:55,310
+haremos desplazar nuevamente hacia
+
+184
+00:07:53,089 --> 00:07:57,199
+adelante sería una especie de
+
+185
+00:07:55,310 --> 00:07:59,629
+pero girando a 90
+
+186
+00:07:57,199 --> 00:08:01,670
+2 en cada esquina como este código
+
+187
+00:07:59,629 --> 00:08:04,579
+estará dentro del loop se volverá a
+
+188
+00:08:01,670 --> 00:08:07,460
+ejecutar la secuencia nuevamente así que
+
+189
+00:08:04,579 --> 00:08:09,620
+si lo dejamos funcionar hará otra vuelta
+
+190
+00:08:07,459 --> 00:08:12,199
+en un hacia la derecha volviendo al
+
+191
+00:08:09,620 --> 00:08:14,569
+punto de partida vamos a reutilizar el
+
+192
+00:08:12,199 --> 00:08:17,269
+código del primer programa y dejar en
+
+193
+00:08:14,569 --> 00:08:20,420
+pantalla la ruta que establecimos recién
+
+194
+00:08:17,269 --> 00:08:24,049
+estaremos activando las salidas en ya y
+
+195
+00:08:20,420 --> 00:08:26,509
+nb mediante p w m para lograr un control
+
+196
+00:08:24,050 --> 00:08:28,610
+de velocidad de ambos motores así que en
+
+197
+00:08:26,509 --> 00:08:31,550
+la sección del principio vamos a
+
+198
+00:08:28,610 --> 00:08:34,070
+declarar una variable llamada velocidad
+
+199
+00:08:31,550 --> 00:08:36,918
+ahora si vamos al loop tenemos este
+
+200
+00:08:34,070 --> 00:08:38,960
+bloque con tres líneas de digital raid
+
+201
+00:08:36,918 --> 00:08:42,049
+que permiten activar el motor
+
+202
+00:08:38,960 --> 00:08:44,360
+y hacer girar la rueda en sentido que
+
+203
+00:08:42,049 --> 00:08:46,939
+avance el rover este código se puede
+
+204
+00:08:44,360 --> 00:08:50,180
+reutilizar y en vez de tener un look muy
+
+205
+00:08:46,940 --> 00:08:52,160
+extenso podemos utilizar funciones luego
+
+206
+00:08:50,179 --> 00:08:54,889
+desde el loop solo llamaremos a la
+
+207
+00:08:52,159 --> 00:08:57,500
+función que necesitemos en ese momento y
+
+208
+00:08:54,889 --> 00:09:00,379
+todo quedará más claro el tema funciones
+
+209
+00:08:57,500 --> 00:09:02,360
+fue introducido en el capítulo 12 vamos
+
+210
+00:09:00,379 --> 00:09:02,929
+a dejar un espacio en la primera línea
+
+211
+00:09:02,360 --> 00:09:05,839
+del loop
+
+212
+00:09:02,929 --> 00:09:09,259
+y haremos el llamado a una función cuyo
+
+213
+00:09:05,839 --> 00:09:12,800
+nombre será a avance y como parámetro
+
+214
+00:09:09,259 --> 00:09:15,769
+tendrá velocidad a avance entre
+
+215
+00:09:12,799 --> 00:09:18,349
+paréntesis velocidad la idea de esta
+
+216
+00:09:15,769 --> 00:09:20,028
+función es que contenga todo el código
+
+217
+00:09:18,350 --> 00:09:22,610
+para que el motor
+
+218
+00:09:20,028 --> 00:09:25,070
+vaya hacia adelante serían estas tres
+
+219
+00:09:22,610 --> 00:09:27,649
+líneas de digital raid que tenemos aquí
+
+220
+00:09:25,070 --> 00:09:30,560
+debajo vamos primero a copiar las líneas
+
+221
+00:09:27,649 --> 00:09:33,049
+y ahora a crear dicha función para eso
+
+222
+00:09:30,559 --> 00:09:35,028
+vamos al final del código y luego de la
+
+223
+00:09:33,049 --> 00:09:38,559
+llave de cierre del loop presionamos
+
+224
+00:09:35,028 --> 00:09:45,409
+enter dejamos un espacio y escribimos
+
+225
+00:09:38,559 --> 00:09:50,000
+void y avance entre paréntesis int
+
+226
+00:09:45,409 --> 00:09:52,458
+block abrimos llaves enter entre las
+
+227
+00:09:50,000 --> 00:09:56,389
+llaves de la función pegamos el código
+
+228
+00:09:52,458 --> 00:09:59,449
+copiado ahora en ya funciona en modo wm
+
+229
+00:09:56,389 --> 00:10:02,659
+con lo cual cambiemos digital write por
+
+230
+00:09:59,450 --> 00:10:05,000
+analog right y en lugar de high block
+
+231
+00:10:02,659 --> 00:10:07,699
+previamente te recuerdo cómo es el tema
+
+232
+00:10:05,000 --> 00:10:08,899
+funciones desde el loop llamamos a la
+
+233
+00:10:07,700 --> 00:10:12,319
+función indica
+
+234
+00:10:08,899 --> 00:10:14,629
+su nombre en este caso a avance y le
+
+235
+00:10:12,318 --> 00:10:17,088
+enviamos un parámetro que va a ser de
+
+236
+00:10:14,629 --> 00:10:19,089
+velocidad luego al declarar la función
+
+237
+00:10:17,089 --> 00:10:22,129
+lo hacemos con el nombre asignado
+
+238
+00:10:19,089 --> 00:10:24,529
+precedido por la palabra reservada void
+
+239
+00:10:22,129 --> 00:10:26,289
+y entre paréntesis recibiremos el
+
+240
+00:10:24,528 --> 00:10:29,028
+parámetro enviado desde el loop
+
+241
+00:10:26,289 --> 00:10:31,428
+asignándolo a una nueva variable que es
+
+242
+00:10:29,028 --> 00:10:33,558
+local a la función por eso tiene un
+
+243
+00:10:31,428 --> 00:10:36,169
+nombre distinto si ahora volvemos al
+
+244
+00:10:33,558 --> 00:10:38,629
+loop podremos borrar los tres digital
+
+245
+00:10:36,169 --> 00:10:40,759
+raid que activa el motor y ya que
+
+246
+00:10:38,629 --> 00:10:43,879
+tenemos una función que hará dicho
+
+247
+00:10:40,759 --> 00:10:46,339
+trabajo por cierto la variable velocidad
+
+248
+00:10:43,879 --> 00:10:46,999
+la definimos pero no le cargamos ningún
+
+249
+00:10:46,339 --> 00:10:48,769
+valor
+
+250
+00:10:46,999 --> 00:10:53,449
+vamos a hacerlo en la primera línea del
+
+251
+00:10:48,769 --> 00:10:56,539
+loop escribamos velocidad igual 100 un
+
+252
+00:10:53,448 --> 00:10:59,448
+valor de 100 debería hacer y los motores
+
+253
+00:10:56,539 --> 00:11:01,909
+giren lentamente con una fuerza adecuada
+
+254
+00:10:59,448 --> 00:11:05,748
+para desplazar el vehículo velocidad
+
+255
+00:11:01,909 --> 00:11:08,958
+puede tomar valores entre 0 y 255 como
+
+256
+00:11:05,749 --> 00:11:11,329
+toda salida p w m un valor menor a 100
+
+257
+00:11:08,958 --> 00:11:14,388
+generaría un ciclo de trabajo demasiado
+
+258
+00:11:11,328 --> 00:11:15,109
+bajo como para lograr mover el peso del
+
+259
+00:11:14,389 --> 00:11:17,750
+rover
+
+260
+00:11:15,110 --> 00:11:20,539
+pero esto es prueba y error luego que
+
+261
+00:11:17,750 --> 00:11:22,458
+esté listo el código podrás cambiar este
+
+262
+00:11:20,539 --> 00:11:25,009
+valor y verás cómo cambia la velocidad
+
+263
+00:11:22,458 --> 00:11:27,919
+por eso lo definimos como una variable
+
+264
+00:11:25,009 --> 00:11:30,350
+así es fácil de cambiar en un solo lugar
+
+265
+00:11:27,919 --> 00:11:32,479
+y luego se aplican todos lados en
+
+266
+00:11:30,350 --> 00:11:35,480
+resumen lo que hicimos es crear una
+
+267
+00:11:32,480 --> 00:11:38,389
+función que permite el avance del motor
+
+268
+00:11:35,480 --> 00:11:40,459
+con sólo llamar a la función y enviando
+
+269
+00:11:38,389 --> 00:11:43,189
+el valor de velocidad haremos que el
+
+270
+00:11:40,458 --> 00:11:45,578
+mismo gire ahora haremos lo mismo para
+
+271
+00:11:43,190 --> 00:11:51,519
+el motor b la función tendrá el nombre
+
+272
+00:11:45,578 --> 00:11:55,129
+de avance de avance entre paréntesis
+
+273
+00:11:51,519 --> 00:11:57,889
+velocidad copiamos las tres líneas de
+
+274
+00:11:55,129 --> 00:12:01,509
+digital raid del motor b y luego el
+
+275
+00:11:57,889 --> 00:12:09,159
+final del código creamos la función void
+
+276
+00:12:01,509 --> 00:12:11,860
+de avance entre paréntesis int block
+
+277
+00:12:09,159 --> 00:12:15,578
+y entre sus llaves pegamos el código
+
+278
+00:12:11,860 --> 00:12:20,139
+copiado cambiamos digital raid por
+
+279
+00:12:15,578 --> 00:12:22,269
+analog raid y high por bellocq en el
+
+280
+00:12:20,139 --> 00:12:25,149
+loop borraremos el bloque de los tres
+
+281
+00:12:22,269 --> 00:12:27,129
+digital write del motor ve verás que el
+
+282
+00:12:25,149 --> 00:12:30,610
+loop va quedando mucho más claro y
+
+283
+00:12:27,129 --> 00:12:33,459
+entendible y esa es la idea la demora de
+
+284
+00:12:30,610 --> 00:12:35,129
+tres segundos la dejamos sin cambios lo
+
+285
+00:12:33,458 --> 00:12:40,119
+que sigue es detener el vehículo
+
+286
+00:12:35,129 --> 00:12:42,039
+enviando valores bajos a línea y nb lo
+
+287
+00:12:40,120 --> 00:12:44,980
+hacemos con estas dos líneas de código
+
+288
+00:12:42,039 --> 00:12:48,039
+conviene crear una función y así de
+
+289
+00:12:44,980 --> 00:12:50,459
+forma simple en una sola línea detenemos
+
+290
+00:12:48,039 --> 00:12:53,799
+los motores la función las llamaremos
+
+291
+00:12:50,458 --> 00:12:56,169
+detiene ambos entre paréntesis no
+
+292
+00:12:53,799 --> 00:12:58,958
+colocamos ninguna variable ya que no es
+
+293
+00:12:56,169 --> 00:13:01,778
+necesario al final del código creamos la
+
+294
+00:12:58,958 --> 00:13:04,208
+función y colocamos estas dos líneas de
+
+295
+00:13:01,778 --> 00:13:08,818
+código así que las copiamos ahora
+
+296
+00:13:04,208 --> 00:13:12,128
+creamos la función void detiene ambos
+
+297
+00:13:08,818 --> 00:13:16,029
+dentro pegamos las dos líneas y
+
+298
+00:13:12,129 --> 00:13:19,539
+cambiamos digital write por analog right
+
+299
+00:13:16,029 --> 00:13:22,209
+y luego por cero ya podemos volver al
+
+300
+00:13:19,539 --> 00:13:24,849
+look y eliminar las dos líneas digital
+
+301
+00:13:22,210 --> 00:13:27,700
+write para detener los motores la demora
+
+302
+00:13:24,850 --> 00:13:29,409
+de dos segundos la dejamos sin cambios
+
+303
+00:13:27,700 --> 00:13:31,600
+queda claro entonces que si
+
+304
+00:13:29,409 --> 00:13:35,019
+recapitulamos desde el principio
+
+305
+00:13:31,600 --> 00:13:37,570
+mediante las funciones a avance y de
+
+306
+00:13:35,019 --> 00:13:39,939
+avance logramos que el vehículo se
+
+307
+00:13:37,570 --> 00:13:42,100
+desplace de forma recta y esto lo hará
+
+308
+00:13:39,940 --> 00:13:45,130
+durante tres segundos luego con la
+
+309
+00:13:42,100 --> 00:13:47,529
+función de tiene ambos detenemos ambos
+
+310
+00:13:45,129 --> 00:13:49,809
+motores por dos segundos ya no será
+
+311
+00:13:47,529 --> 00:13:52,839
+necesario crear más funciones verás que
+
+312
+00:13:49,809 --> 00:13:55,029
+con estas tres podremos avanzar y girar
+
+313
+00:13:52,840 --> 00:13:57,310
+a la derecha para completar el circuito
+
+314
+00:13:55,029 --> 00:14:00,039
+ahora viene el momento de girar hacia la
+
+315
+00:13:57,309 --> 00:14:02,079
+derecha esto lo haremos activando solo
+
+316
+00:14:00,039 --> 00:14:04,959
+el motor y como se muestra en el gráfico
+
+317
+00:14:02,080 --> 00:14:08,440
+con la flecha azul ya tenemos la función
+
+318
+00:14:04,960 --> 00:14:11,860
+a avance con lo cual sólo es cuestión de
+
+319
+00:14:08,440 --> 00:14:15,280
+llamarla de la siguiente manera a avance
+
+320
+00:14:11,860 --> 00:14:16,990
+entre paréntesis velocidad debemos darle
+
+321
+00:14:15,279 --> 00:14:19,000
+una demora para el tiempo en que
+
+322
+00:14:16,990 --> 00:14:21,789
+queremos que esté activo el motor el
+
+323
+00:14:19,000 --> 00:14:22,440
+giro a 90 grados lo haremos activando el
+
+324
+00:14:21,789 --> 00:14:25,049
+motor
+
+325
+00:14:22,440 --> 00:14:26,940
+durante un segundo así que sólo resta
+
+326
+00:14:25,049 --> 00:14:30,299
+escribir delay
+
+327
+00:14:26,940 --> 00:14:35,670
+entre paréntesis mil y luego detenemos
+
+328
+00:14:30,299 --> 00:14:38,579
+ambos motores con detiene ambos y una
+
+329
+00:14:35,669 --> 00:14:41,129
+demora de dos segundos hasta darle la
+
+330
+00:14:38,580 --> 00:14:43,050
+próxima instrucción y ahora iremos más
+
+331
+00:14:41,129 --> 00:14:45,570
+rápido que tenemos definidas las
+
+332
+00:14:43,049 --> 00:14:48,359
+funciones y establecimos la lógica de la
+
+333
+00:14:45,570 --> 00:14:50,760
+programación el resto del código lo
+
+334
+00:14:48,360 --> 00:14:53,370
+estaré pegando para ahorrar tiempo y
+
+335
+00:14:50,759 --> 00:14:55,679
+ahora lo vemos línea por línea este
+
+336
+00:14:53,370 --> 00:14:58,409
+bloque hace que el vehículo avance en
+
+337
+00:14:55,679 --> 00:15:02,189
+línea recta por tres segundos luego
+
+338
+00:14:58,409 --> 00:15:05,579
+detenemos giramos a la derecha activando
+
+339
+00:15:02,190 --> 00:15:08,040
+solo el motor a detenemos avanzamos
+
+340
+00:15:05,580 --> 00:15:10,980
+nuevamente por tres segundos y
+
+341
+00:15:08,039 --> 00:15:13,289
+finalmente detenemos por dos segundos y
+
+342
+00:15:10,980 --> 00:15:15,330
+ya finaliza el programa luego de esta
+
+343
+00:15:13,289 --> 00:15:17,699
+demora de dos segundos volver a la
+
+344
+00:15:15,330 --> 00:15:19,650
+primera línea del loop y así todo el
+
+345
+00:15:17,700 --> 00:15:21,990
+tiempo si bien tenemos una buena
+
+346
+00:15:19,649 --> 00:15:24,720
+cantidad de líneas de código es muy
+
+347
+00:15:21,990 --> 00:15:27,389
+sencillo de entender qué hace cada una
+
+348
+00:15:24,720 --> 00:15:28,889
+de ellas gracias al uso de las funciones
+
+349
+00:15:27,389 --> 00:15:31,438
+ya está todo listo para
+
+350
+00:15:28,889 --> 00:15:33,899
+el programa arduino solo resta una
+
+351
+00:15:31,438 --> 00:15:36,719
+cuestión respecto de la alimentación en
+
+352
+00:15:33,899 --> 00:15:39,089
+el primer programa no apoyamos al rover
+
+353
+00:15:36,720 --> 00:15:41,339
+para que se desplace por eso alimentamos
+
+354
+00:15:39,089 --> 00:15:43,649
+arduino con el cable usb de la
+
+355
+00:15:41,339 --> 00:15:46,290
+computadora luego la alimentación del
+
+356
+00:15:43,649 --> 00:15:48,778
+módulo la hicimos con baterías o fuente
+
+357
+00:15:46,289 --> 00:15:51,328
+de alimentación ahora que debemos apoyar
+
+358
+00:15:48,778 --> 00:15:53,668
+al rover en el piso para que se desplace
+
+359
+00:15:51,328 --> 00:15:56,248
+el tema cables será algo a tener en
+
+360
+00:15:53,668 --> 00:15:59,730
+cuenta en principio el cable que más
+
+361
+00:15:56,249 --> 00:16:01,798
+molesta es el usb ya que suele ser corto
+
+362
+00:15:59,730 --> 00:16:04,470
+para solucionar este problema podemos
+
+363
+00:16:01,798 --> 00:16:06,989
+usar el cable usb para cargar el
+
+364
+00:16:04,470 --> 00:16:09,720
+programa en arduino y luego quitarlo
+
+365
+00:16:06,989 --> 00:16:12,149
+ahora con la alimentación de fuente o
+
+366
+00:16:09,720 --> 00:16:15,178
+batería podemos alimentar también
+
+367
+00:16:12,149 --> 00:16:18,389
+arduino mediante el plug de alimentación
+
+368
+00:16:15,178 --> 00:16:20,818
+este plug requiere una atención mínima
+
+369
+00:16:18,389 --> 00:16:23,609
+de 6 volts de manera que si estás
+
+370
+00:16:20,818 --> 00:16:26,099
+trabajando con las 4 baterías con pilas
+
+371
+00:16:23,609 --> 00:16:29,089
+comunes tienes los 6 votos mínimos
+
+372
+00:16:26,100 --> 00:16:32,100
+necesarios si son baterías recargables
+
+373
+00:16:29,089 --> 00:16:34,860
+lamentablemente la atención de 48 volts
+
+374
+00:16:32,100 --> 00:16:35,670
+no alcanza para alimentar arduino yo voy
+
+375
+00:16:34,860 --> 00:16:38,850
+a estar usando
+
+376
+00:16:35,669 --> 00:16:41,250
+una fuente de alimentación de 75 volts
+
+377
+00:16:38,850 --> 00:16:44,100
+con lo cual desde la misma fuente puedo
+
+378
+00:16:41,250 --> 00:16:47,009
+alimentar arduino y solo tendré un solo
+
+379
+00:16:44,100 --> 00:16:49,409
+cable que puede ser largo sin problemas
+
+380
+00:16:47,009 --> 00:16:51,720
+este cable que muestro en pantalla es
+
+381
+00:16:49,409 --> 00:16:54,059
+uno que arme y es muy útil para estos
+
+382
+00:16:51,720 --> 00:16:56,850
+casos tiene un plug de alimentación en
+
+383
+00:16:54,059 --> 00:16:58,619
+un extremo y luego dos pines que se
+
+384
+00:16:56,850 --> 00:17:01,440
+pueden utilizar para conectar a
+
+385
+00:16:58,620 --> 00:17:03,330
+protoboard o bourne era en este caso con
+
+386
+00:17:01,440 --> 00:17:06,620
+este cable desde la born era de
+
+387
+00:17:03,330 --> 00:17:09,329
+alimentación del módulo de 298 n
+
+388
+00:17:06,619 --> 00:17:11,639
+alimentaria arduino tendrás que ver en
+
+389
+00:17:09,329 --> 00:17:14,129
+tu caso cuál es la solución que mejor se
+
+390
+00:17:11,640 --> 00:17:17,100
+adapte si quieres utilizar una extensión
+
+391
+00:17:14,130 --> 00:17:19,800
+larga de cable usb también lo puedes
+
+392
+00:17:17,099 --> 00:17:22,169
+hacer en etapas de prototipo no hay
+
+393
+00:17:19,799 --> 00:17:24,930
+inconvenientes con soluciones temporales
+
+394
+00:17:22,170 --> 00:17:27,690
+vamos entonces a verificar y subir el
+
+395
+00:17:24,930 --> 00:17:30,420
+programa aquí verás como el robert hace
+
+396
+00:17:27,690 --> 00:17:32,940
+su recorrido avanzando y girando hacia
+
+397
+00:17:30,420 --> 00:17:35,640
+la derecha no es algo de alta precisión
+
+398
+00:17:32,940 --> 00:17:38,490
+ya que todo se basa en tiempos por
+
+399
+00:17:35,640 --> 00:17:41,700
+ejemplo el giro a la derecha de 90
+
+400
+00:17:38,490 --> 00:17:44,190
+grados es aproximado le asignamos un c
+
+401
+00:17:41,700 --> 00:17:46,679
+de tiempo para hacerlo pero puede que no
+
+402
+00:17:44,190 --> 00:17:48,960
+sea suficiente o por el contrario sea
+
+403
+00:17:46,679 --> 00:17:51,690
+demasiado y tengamos un giro más
+
+404
+00:17:48,960 --> 00:17:54,659
+pronunciado todos los valores tanto de
+
+405
+00:17:51,690 --> 00:17:57,750
+velocidad como de demoras en el avance y
+
+406
+00:17:54,659 --> 00:17:59,850
+giro los podrás modificarse el código de
+
+407
+00:17:57,750 --> 00:18:02,130
+hecho será buena práctica que lo hagas
+
+408
+00:17:59,849 --> 00:18:04,048
+para ir probando como la modificación de
+
+409
+00:18:02,130 --> 00:18:06,299
+sus valores va impactando en el
+
+410
+00:18:04,048 --> 00:18:09,148
+comportamiento por supuesto que también
+
+411
+00:18:06,298 --> 00:18:11,700
+podrás crear nuevas rutas funciones
+
+412
+00:18:09,148 --> 00:18:14,489
+nuevas para hacer que un motor retroceda
+
+413
+00:18:11,700 --> 00:18:17,429
+por ejemplo o también una que haga girar
+
+414
+00:18:14,490 --> 00:18:20,038
+al rover sobre su propio eje esto sería
+
+415
+00:18:17,429 --> 00:18:22,769
+con un motor avanzando y el otro
+
+416
+00:18:20,038 --> 00:18:25,798
+retrocediendo eso es todo por este
+
+417
+00:18:22,769 --> 00:18:27,359
+capítulo en el próximo exploraremos la
+
+418
+00:18:25,798 --> 00:18:30,148
+importancia del concepto de
+
+419
+00:18:27,359 --> 00:18:32,579
+interrupciones externas en arduino que
+
+420
+00:18:30,148 --> 00:18:34,888
+permiten detener un flujo de programas
+
+421
+00:18:32,579 --> 00:18:37,648
+para tener una demanda externa con
+
+422
+00:18:34,888 --> 00:18:40,199
+prioridad como siempre te pido te
+
+423
+00:18:37,648 --> 00:18:42,418
+suscribas para recibir notificaciones y
+
+424
+00:18:40,200 --> 00:18:44,429
+por cualquier duda o comentario lo
+
+425
+00:18:42,419 --> 00:18:48,740
+podéis hacer debajo que con gusto te
+
+426
+00:18:44,429 --> 00:18:48,740
+responderé chao y hasta la próxima
+

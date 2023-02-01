@@ -1,0 +1,2472 @@
+1
+00:00:01,659 --> 00:00:08,140
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,509 --> 00:00:10,599
+21 de arduino desde cero en español en
+
+3
+00:00:08,140 --> 00:00:12,759
+esta oportunidad vamos a introducir el
+
+4
+00:00:10,599 --> 00:00:14,919
+concepto de interrupciones externas
+
+5
+00:00:12,759 --> 00:00:16,929
+también llamadas interrupciones por
+
+6
+00:00:14,919 --> 00:00:19,778
+hardware los que nos permitirá de forma
+
+7
+00:00:16,929 --> 00:00:22,118
+simple detectar eventos de forma
+
+8
+00:00:19,778 --> 00:00:24,550
+inmediata interrumpiendo de forma
+
+9
+00:00:22,118 --> 00:00:26,528
+temporal el flujo normal de un programa
+
+10
+00:00:24,550 --> 00:00:29,289
+para entender la necesidad del uso de
+
+11
+00:00:26,528 --> 00:00:31,019
+interrupciones sirve una analogía con
+
+12
+00:00:29,289 --> 00:00:33,189
+una situación de la vida cotidiana
+
+13
+00:00:31,019 --> 00:00:35,439
+supongamos que nosotros estamos en
+
+14
+00:00:33,189 --> 00:00:37,479
+nuestra casa y sabemos que durante el
+
+15
+00:00:35,439 --> 00:00:39,909
+día nos va a llegar por correo postal
+
+16
+00:00:37,479 --> 00:00:42,308
+una encomienda puede ser en cualquier
+
+17
+00:00:39,909 --> 00:00:44,799
+momento del día podríamos optar por
+
+18
+00:00:42,308 --> 00:00:47,589
+estar mirando constantemente el reloj y
+
+19
+00:00:44,799 --> 00:00:49,659
+cada 1 minuto ir hasta la puerta para
+
+20
+00:00:47,590 --> 00:00:52,449
+ver si está allí el cartero con nuestra
+
+21
+00:00:49,659 --> 00:00:54,849
+preciada compra esto obviamente es poco
+
+22
+00:00:52,448 --> 00:00:57,189
+práctico y no permite hacer mucho
+
+23
+00:00:54,850 --> 00:00:59,710
+mientras tanto esto se soluciona muy
+
+24
+00:00:57,189 --> 00:01:02,198
+fácilmente con el timbre nuestra casa
+
+25
+00:00:59,710 --> 00:01:04,030
+tiene un timbre el cual nos alerta que
+
+26
+00:01:02,198 --> 00:01:06,489
+hay una persona que requiere de nuestra
+
+27
+00:01:04,030 --> 00:01:07,930
+atención de manera que nosotros hacemos
+
+28
+00:01:06,489 --> 00:01:09,839
+nuestra vida normal
+
+29
+00:01:07,930 --> 00:01:12,430
+ocupados y cuando suena el timbre
+
+30
+00:01:09,840 --> 00:01:14,920
+interrumpimos lo que estemos haciendo y
+
+31
+00:01:12,430 --> 00:01:17,170
+vamos a la puerta lo mismo sucede con el
+
+32
+00:01:14,920 --> 00:01:19,629
+microcontrolador de arduino si queremos
+
+33
+00:01:17,170 --> 00:01:21,700
+ver el estado de un pin digital para ver
+
+34
+00:01:19,629 --> 00:01:24,009
+si hubo un cambio dentro del loop
+
+35
+00:01:21,700 --> 00:01:26,829
+estaríamos constantemente viendo el
+
+36
+00:01:24,010 --> 00:01:29,439
+estado de un pin y si cambio ejecutamos
+
+37
+00:01:26,829 --> 00:01:31,719
+una acción las interrupciones son el
+
+38
+00:01:29,439 --> 00:01:34,090
+equivalente al timbre para arduino
+
+39
+00:01:31,719 --> 00:01:36,368
+estará ejecutando lo que sea que le
+
+40
+00:01:34,090 --> 00:01:38,680
+hayamos programado y solo cuando se
+
+41
+00:01:36,368 --> 00:01:41,379
+toque ese timbre interrumpirá lo que
+
+42
+00:01:38,680 --> 00:01:43,300
+está realizando para atenderlo y luego
+
+43
+00:01:41,379 --> 00:01:45,099
+resumirá desde donde dejó en la
+
+44
+00:01:43,299 --> 00:01:46,810
+siguiente tabla se muestran las
+
+45
+00:01:45,099 --> 00:01:49,000
+interrupciones disponibles para
+
+46
+00:01:46,810 --> 00:01:51,100
+distintos modelos de arduino recordad
+
+47
+00:01:49,000 --> 00:01:53,409
+que existe una gran variedad de placas
+
+48
+00:01:51,099 --> 00:01:55,959
+nosotros estamos trabajando siempre con
+
+49
+00:01:53,409 --> 00:01:58,118
+el modelo uno por ser el más usado desde
+
+50
+00:01:55,959 --> 00:02:00,189
+hace mucho tiempo pero existen muchos
+
+51
+00:01:58,118 --> 00:02:02,439
+otros modelos que salieron a lo largo de
+
+52
+00:02:00,189 --> 00:02:05,200
+los años y seguramente seguirán saliendo
+
+53
+00:02:02,439 --> 00:02:07,239
+en un futuro arduino uno tendrá dos
+
+54
+00:02:05,200 --> 00:02:09,099
+interrupciones las cuales están
+
+55
+00:02:07,239 --> 00:02:12,280
+disponibles a través de sus pines
+
+56
+00:02:09,099 --> 00:02:14,318
+digitales 2 y 3 los mismos pines que
+
+57
+00:02:12,280 --> 00:02:17,049
+hemos usado gran cantidad de veces
+
+58
+00:02:14,318 --> 00:02:18,759
+como entradas o como salidas ellos se
+
+59
+00:02:17,049 --> 00:02:21,099
+pueden programar para recibir las
+
+60
+00:02:18,759 --> 00:02:24,188
+señales de un sensor o dispositivo
+
+61
+00:02:21,098 --> 00:02:26,229
+externo y disparar una interrupción esta
+
+62
+00:02:24,188 --> 00:02:28,930
+tabla es extensa y no cubre la totalidad
+
+63
+00:02:26,229 --> 00:02:31,179
+de modelos disponibles hoy en el mercado
+
+64
+00:02:28,930 --> 00:02:33,218
+muestra como cada modelo tiene su
+
+65
+00:02:31,180 --> 00:02:35,769
+particularidad respecto de la cantidad
+
+66
+00:02:33,218 --> 00:02:37,840
+de interrupciones y sobre qué pines son
+
+67
+00:02:35,769 --> 00:02:40,269
+posibles las mismas nosotros como
+
+68
+00:02:37,840 --> 00:02:42,938
+trabajamos con el modelo 1 tendremos a
+
+69
+00:02:40,269 --> 00:02:45,700
+disposición dos interrupciones mediante
+
+70
+00:02:42,938 --> 00:02:47,530
+los pines digitales 2 y 3 si en tu caso
+
+71
+00:02:45,699 --> 00:02:49,899
+estás trabajando con otro modelo de
+
+72
+00:02:47,530 --> 00:02:52,449
+placa podrás ver aquí las que tendrás a
+
+73
+00:02:49,900 --> 00:02:54,669
+disposición muy bien ya que tenemos una
+
+74
+00:02:52,449 --> 00:02:56,469
+idea del concepto de interrupciones y
+
+75
+00:02:54,669 --> 00:02:59,260
+como dependiendo del modelo de placa
+
+76
+00:02:56,468 --> 00:03:00,968
+tendremos más o menos de ellas veremos
+
+77
+00:02:59,259 --> 00:03:03,250
+una función que es la que permite
+
+78
+00:03:00,968 --> 00:03:05,468
+establecer una interrupción mediante el
+
+79
+00:03:03,250 --> 00:03:08,019
+código y los distintos parámetros que
+
+80
+00:03:05,468 --> 00:03:10,598
+requiere la función lleva el nombre de a
+
+81
+00:03:08,019 --> 00:03:12,819
+touch interna para esta función se
+
+82
+00:03:10,598 --> 00:03:15,128
+definen el setup por única vez y
+
+83
+00:03:12,818 --> 00:03:18,549
+requiere de tres parámetros el primero
+
+84
+00:03:15,128 --> 00:03:21,459
+de ellos es el índice de la interrupción
+
+85
+00:03:18,550 --> 00:03:23,140
+no coincide con el número de pin debido
+
+86
+00:03:21,460 --> 00:03:25,599
+a los distintos modelos de placas que
+
+87
+00:03:23,139 --> 00:03:28,659
+existen por ejemplo en nuestro caso para
+
+88
+00:03:25,599 --> 00:03:30,879
+arduino 1 el índice 0 corresponde a la
+
+89
+00:03:28,659 --> 00:03:33,430
+interrupción sobre el pin número 2 y la
+
+90
+00:03:30,879 --> 00:03:36,400
+interrupción 1 corresponde al interés
+
+91
+00:03:33,430 --> 00:03:38,650
+esto es cierto para nuestro caso pero
+
+92
+00:03:36,400 --> 00:03:40,599
+puede no ser así para otros modelos que
+
+93
+00:03:38,650 --> 00:03:42,879
+soportan una mayor cantidad de
+
+94
+00:03:40,599 --> 00:03:45,639
+interrupciones para evitar confusiones
+
+95
+00:03:42,879 --> 00:03:48,460
+existe una función especial llamada
+
+96
+00:03:45,639 --> 00:03:50,979
+digital pintura interna
+
+97
+00:03:48,460 --> 00:03:53,590
+esta función lo que hace es tomar como
+
+98
+00:03:50,979 --> 00:03:56,259
+parámetro el número de pin por ejemplo
+
+99
+00:03:53,590 --> 00:03:58,450
+el número 2 y lo convierte al número de
+
+100
+00:03:56,259 --> 00:04:00,849
+índice que le corresponda de acuerdo a
+
+101
+00:03:58,449 --> 00:04:04,149
+la placa en donde se está ejecutando en
+
+102
+00:04:00,849 --> 00:04:07,960
+arduino 1 la función digital pintó ínter
+
+103
+00:04:04,150 --> 00:04:11,289
+rap con el pin 2 devuelve 0 si fuese el
+
+104
+00:04:07,960 --> 00:04:13,270
+pin 3 devolvería 1 la forma correcta de
+
+105
+00:04:11,289 --> 00:04:16,180
+asignar el primer parámetro del touch
+
+106
+00:04:13,270 --> 00:04:18,400
+internet es mediante esta función sólo
+
+107
+00:04:16,180 --> 00:04:20,949
+debemos colocar el número de pin y nos
+
+108
+00:04:18,399 --> 00:04:23,199
+olvidamos del resto además hacemos que
+
+109
+00:04:20,949 --> 00:04:25,240
+el código sea compatible con diferentes
+
+110
+00:04:23,199 --> 00:04:27,879
+placas sí al futuro deseamos
+
+111
+00:04:25,240 --> 00:04:31,000
+este código a otro modelo la función
+
+112
+00:04:27,879 --> 00:04:33,129
+digital pintu interna siempre devolverá
+
+113
+00:04:31,000 --> 00:04:35,620
+el valor correcto el segundo parámetro
+
+114
+00:04:33,129 --> 00:04:37,810
+de attack interact es el nombre de la
+
+115
+00:04:35,620 --> 00:04:39,939
+función que vamos a ejecutar cuando se
+
+116
+00:04:37,810 --> 00:04:43,060
+active la interrupción a esta función
+
+117
+00:04:39,939 --> 00:04:45,969
+especial se la llama y ese ere y son las
+
+118
+00:04:43,060 --> 00:04:48,788
+siglas en inglés de internet service
+
+119
+00:04:45,970 --> 00:04:51,160
+routing podemos asignarle el nombre que
+
+120
+00:04:48,788 --> 00:04:52,719
+queramos en la función es como cualquier
+
+121
+00:04:51,160 --> 00:04:54,849
+otra que hemos creado en distintos
+
+122
+00:04:52,720 --> 00:04:56,710
+capítulos y tendrá el código que debe
+
+123
+00:04:54,848 --> 00:04:58,779
+ejecutarse cuando se detecta la
+
+124
+00:04:56,709 --> 00:05:00,489
+interrupción dije que esta función es
+
+125
+00:04:58,779 --> 00:05:02,829
+especial y lo veremos más adelante
+
+126
+00:05:00,490 --> 00:05:04,870
+cuando hagamos la programación en
+
+127
+00:05:02,829 --> 00:05:07,209
+definitiva es la función que será
+
+128
+00:05:04,870 --> 00:05:09,610
+llamada inmediatamente se detecte la
+
+129
+00:05:07,209 --> 00:05:11,948
+interrupción en el pin definido en el
+
+130
+00:05:09,610 --> 00:05:14,800
+primer parámetro finalmente el tercer
+
+131
+00:05:11,949 --> 00:05:17,228
+parámetro es el modo y corresponde a la
+
+132
+00:05:14,800 --> 00:05:19,780
+característica de la señal que disparará
+
+133
+00:05:17,228 --> 00:05:23,199
+la interrupción aquí se listan los cinco
+
+134
+00:05:19,779 --> 00:05:24,549
+modos disponibles lo que corresponde a
+
+135
+00:05:23,199 --> 00:05:27,759
+un nivel bajo
+
+136
+00:05:24,550 --> 00:05:30,218
+racing corresponde al flanco de subida
+
+137
+00:05:27,759 --> 00:05:32,259
+de la señal es decir el momento de
+
+138
+00:05:30,218 --> 00:05:36,370
+transición en que la señal
+
+139
+00:05:32,259 --> 00:05:39,250
+de un estado bajo a uno alto change para
+
+140
+00:05:36,370 --> 00:05:42,670
+cuando se detecta un cambio en el estado
+
+141
+00:05:39,250 --> 00:05:47,500
+de la señal que podrá ser tanto de nivel
+
+142
+00:05:42,670 --> 00:05:49,870
+bajo alto o de alto abajo falling es el
+
+143
+00:05:47,500 --> 00:05:53,170
+flanco de bajada de la señal la
+
+144
+00:05:49,870 --> 00:05:56,170
+transición de un estado alto abajo y
+
+145
+00:05:53,170 --> 00:05:58,840
+finalmente high cuando el nivel es alto
+
+146
+00:05:56,170 --> 00:06:01,600
+este último modo high sólo está
+
+147
+00:05:58,839 --> 00:06:05,589
+disponible en tres modelos de placas la
+
+148
+00:06:01,600 --> 00:06:08,020
+due la 0 y la m k de remil con lo cual
+
+149
+00:06:05,589 --> 00:06:10,959
+en nuestro caso y para la mayoría de las
+
+150
+00:06:08,019 --> 00:06:12,969
+placas y este modo no está disponible en
+
+151
+00:06:10,959 --> 00:06:15,399
+esta parte tenemos una representación
+
+152
+00:06:12,970 --> 00:06:18,160
+gráfica de una señal típica que
+
+153
+00:06:15,399 --> 00:06:20,500
+podríamos recibir en una interrupción y
+
+154
+00:06:18,160 --> 00:06:23,050
+están marcados los distintos modos para
+
+155
+00:06:20,500 --> 00:06:26,230
+que quede mejor fijado el concepto low
+
+156
+00:06:23,050 --> 00:06:28,780
+es cuando tenemos un cero lógico o lo
+
+157
+00:06:26,230 --> 00:06:31,420
+que es lo mismo 0 volts raising
+
+158
+00:06:28,779 --> 00:06:33,879
+corresponde al flanco de subida está
+
+159
+00:06:31,420 --> 00:06:35,960
+representado por esta flecha que tiene
+
+160
+00:06:33,879 --> 00:06:38,459
+sentido de abajo hacia
+
+161
+00:06:35,959 --> 00:06:41,250
+indicando que estamos en el flanco o
+
+162
+00:06:38,459 --> 00:06:44,129
+pendiente de la señal es decir mientras
+
+163
+00:06:41,250 --> 00:06:48,029
+la señal pasa de un estado bajo a uno
+
+164
+00:06:44,129 --> 00:06:50,279
+alto hi es estado alto y como vimos no
+
+165
+00:06:48,029 --> 00:06:52,409
+podemos utilizarlo en arduino ni en la
+
+166
+00:06:50,279 --> 00:06:53,759
+mayoría de las placas salvo las tres
+
+167
+00:06:52,410 --> 00:06:56,370
+mencionadas
+
+168
+00:06:53,759 --> 00:06:58,740
+falling es el opuesto a racing será el
+
+169
+00:06:56,370 --> 00:07:01,319
+flanco de bajada de la señal la
+
+170
+00:06:58,740 --> 00:07:04,710
+transición desde un nivel alto a uno
+
+171
+00:07:01,319 --> 00:07:07,290
+bajo y change generará una activación en
+
+172
+00:07:04,709 --> 00:07:10,349
+dos tipos de casos ya sea que la señal
+
+173
+00:07:07,290 --> 00:07:13,319
+pasa de un estado bajo a uno alto o
+
+174
+00:07:10,350 --> 00:07:15,390
+también si pasa de uno alto a uno bajo
+
+175
+00:07:13,319 --> 00:07:17,790
+aquí vimos una gran cantidad de
+
+176
+00:07:15,389 --> 00:07:20,159
+conceptos y puede ser abrumador en un
+
+177
+00:07:17,790 --> 00:07:21,930
+principio pero no te preocupes ya que
+
+178
+00:07:20,160 --> 00:07:24,780
+cuando estemos haciendo el código
+
+179
+00:07:21,930 --> 00:07:26,670
+repasaremos estas cuestiones y verás que
+
+180
+00:07:24,779 --> 00:07:28,799
+es más sencillo de lo que parece para
+
+181
+00:07:26,670 --> 00:07:31,470
+poder hacer la práctica debemos generar
+
+182
+00:07:28,800 --> 00:07:33,629
+una interrupción muchas veces se hace
+
+183
+00:07:31,470 --> 00:07:35,700
+mediante un pulsador conectado al pin
+
+184
+00:07:33,629 --> 00:07:38,009
+digital número 2 pero nosotros
+
+185
+00:07:35,699 --> 00:07:41,250
+aprovecharemos la oportunidad de usar un
+
+186
+00:07:38,009 --> 00:07:42,089
+sensor que es el modelo k y 10 que forma
+
+187
+00:07:41,250 --> 00:07:45,449
+parte del kit
+
+188
+00:07:42,089 --> 00:07:47,429
+sensores 37 en 1 se trata de un foto
+
+189
+00:07:45,449 --> 00:07:49,919
+interruptor el cual nos servirá para
+
+190
+00:07:47,430 --> 00:07:51,478
+generar una interrupción el módulo se
+
+191
+00:07:49,918 --> 00:07:54,448
+muestra sobre la parte izquierda de
+
+192
+00:07:51,478 --> 00:07:57,870
+pantalla y consta de un sensor con forma
+
+193
+00:07:54,449 --> 00:08:00,660
+de y montado sobre un circuito impreso y
+
+194
+00:07:57,870 --> 00:08:03,360
+tres pines de conexión 2 de alimentación
+
+195
+00:08:00,660 --> 00:08:05,550
+y uno de señal este sensor tiene sobre
+
+196
+00:08:03,360 --> 00:08:08,759
+la parte izquierda un transmisor de luz
+
+197
+00:08:05,550 --> 00:08:10,680
+infrarroja es básicamente un led como
+
+198
+00:08:08,759 --> 00:08:12,839
+los que venimos usando pero con una
+
+199
+00:08:10,680 --> 00:08:14,970
+longitud de onda en el rango infrarrojo
+
+200
+00:08:12,839 --> 00:08:17,369
+que lo hace invisible al ojo humano
+
+201
+00:08:14,970 --> 00:08:19,800
+sobre la parte derecha estará el
+
+202
+00:08:17,370 --> 00:08:22,199
+receptor que es un transistor especial
+
+203
+00:08:19,800 --> 00:08:24,180
+con una base fotosensible su
+
+204
+00:08:22,199 --> 00:08:26,969
+funcionamiento es muy sencillo cuando
+
+205
+00:08:24,180 --> 00:08:29,699
+alimentamos el módulo se enciende el led
+
+206
+00:08:26,970 --> 00:08:32,639
+infrarrojo del lado opuesto el photo
+
+207
+00:08:29,699 --> 00:08:35,460
+transistor recibe la emisión del led y
+
+208
+00:08:32,639 --> 00:08:38,038
+hace que active es decir que exista una
+
+209
+00:08:35,460 --> 00:08:40,830
+circulación de corriente entre emisor y
+
+210
+00:08:38,038 --> 00:08:42,990
+colector del transistor aquí vemos un
+
+211
+00:08:40,830 --> 00:08:44,970
+diagrama eléctrico o esquemático del
+
+212
+00:08:42,990 --> 00:08:47,789
+módulo de manera que mientras que el
+
+213
+00:08:44,970 --> 00:08:48,629
+photo transistor reciba la luz emitida
+
+214
+00:08:47,789 --> 00:08:51,779
+desde
+
+215
+00:08:48,629 --> 00:08:55,049
+a la salida con la denominación s tendrá
+
+216
+00:08:51,779 --> 00:08:57,389
+un nivel bajo ya que el emisor está a
+
+217
+00:08:55,049 --> 00:08:59,759
+massa cuando interrumpimos el haz de luz
+
+218
+00:08:57,389 --> 00:09:02,549
+del led de manera que el photo
+
+219
+00:08:59,759 --> 00:09:05,340
+transistor deja de recibir excitación en
+
+220
+00:09:02,549 --> 00:09:07,769
+su base fotosensible tendremos que ya no
+
+221
+00:09:05,340 --> 00:09:10,139
+circularán más corriente entre emisor y
+
+222
+00:09:07,769 --> 00:09:13,169
+colector y como el colector está
+
+223
+00:09:10,139 --> 00:09:15,600
+conectado a bsc con la resistencia de
+
+224
+00:09:13,169 --> 00:09:18,269
+pull up tendremos como resultado un
+
+225
+00:09:15,600 --> 00:09:20,519
+nivel lógico alto en su salida
+
+226
+00:09:18,269 --> 00:09:23,460
+en resumen cada vez que se interrumpa el
+
+227
+00:09:20,519 --> 00:09:26,340
+haz de luz tendremos un uno lógico en la
+
+228
+00:09:23,460 --> 00:09:28,110
+salida cualquier objeto opaco que se
+
+229
+00:09:26,340 --> 00:09:30,930
+coloque entre el transmisor y el
+
+230
+00:09:28,110 --> 00:09:33,389
+receptor genera un cambio de nivel en la
+
+231
+00:09:30,929 --> 00:09:35,909
+señal de salida si por ejemplo colocamos
+
+232
+00:09:33,389 --> 00:09:38,429
+un trozo de plástico transparente la
+
+233
+00:09:35,909 --> 00:09:40,379
+interrupción de luz no se produce si por
+
+234
+00:09:38,429 --> 00:09:43,500
+el contrario colocamos un trozo de
+
+235
+00:09:40,379 --> 00:09:45,960
+cartón o incluso papel blanco lograremos
+
+236
+00:09:43,500 --> 00:09:47,970
+interrumpir el haz de luz existen
+
+237
+00:09:45,960 --> 00:09:50,580
+multitud de usos para este tipo de
+
+238
+00:09:47,970 --> 00:09:53,519
+sensores por ejemplo en motores se le
+
+239
+00:09:50,580 --> 00:09:54,600
+puede usar un disco perforado y colocado
+
+240
+00:09:53,519 --> 00:09:56,669
+entre el transmisor
+
+241
+00:09:54,600 --> 00:09:59,399
+receptor del sensor va generando
+
+242
+00:09:56,669 --> 00:10:01,828
+interrupciones negras de luz y así poder
+
+243
+00:09:59,399 --> 00:10:04,110
+contar por ejemplo la cantidad de
+
+244
+00:10:01,828 --> 00:10:06,719
+vueltas o revoluciones por minuto de
+
+245
+00:10:04,110 --> 00:10:08,759
+mismo también este tipo de sensor se
+
+246
+00:10:06,720 --> 00:10:11,190
+utiliza sobre el cabezal de impresoras
+
+247
+00:10:08,759 --> 00:10:14,100
+de chorro de tinta entre el transmisor y
+
+248
+00:10:11,190 --> 00:10:16,560
+receptor se coloca una tira plástica
+
+249
+00:10:14,100 --> 00:10:19,440
+transparente con muy pequeñas líneas
+
+250
+00:10:16,559 --> 00:10:21,778
+verticales de color negro de esa manera
+
+251
+00:10:19,440 --> 00:10:24,420
+a medida que se desplaza el cabezal el
+
+252
+00:10:21,778 --> 00:10:26,850
+sensor va contando cada vez que las de
+
+253
+00:10:24,419 --> 00:10:29,099
+luz es interrumpido cuando la línea
+
+254
+00:10:26,850 --> 00:10:31,290
+oscura de la cinta queda alineado
+
+255
+00:10:29,100 --> 00:10:33,778
+nosotros lo usaremos para generar una
+
+256
+00:10:31,289 --> 00:10:36,509
+interrupción y así aplicar los conceptos
+
+257
+00:10:33,778 --> 00:10:38,750
+vistos con lo cual vamos al circuito de
+
+258
+00:10:36,509 --> 00:10:41,579
+conexión de forma muy sencilla
+
+259
+00:10:38,750 --> 00:10:44,850
+conectaremos el pin de la izquierda del
+
+260
+00:10:41,578 --> 00:10:48,448
+módulo acá y 10 a gene de de arduino el
+
+261
+00:10:44,850 --> 00:10:50,370
+pin del medio a 5 volts y del pin de la
+
+262
+00:10:48,448 --> 00:10:52,409
+derecha que es el de señal
+
+263
+00:10:50,370 --> 00:10:55,409
+iremos con un cable directo al pin
+
+264
+00:10:52,409 --> 00:10:57,269
+digital número 2 y eso es todo en el
+
+265
+00:10:55,409 --> 00:10:59,818
+código veremos que trabajar con
+
+266
+00:10:57,269 --> 00:11:01,379
+interrupciones es muy simple y también
+
+267
+00:10:59,818 --> 00:11:03,628
+muy conveniente
+
+268
+00:11:01,379 --> 00:11:05,369
+idea de este primer programa es contar
+
+269
+00:11:03,629 --> 00:11:07,499
+cada vez que se active el photo
+
+270
+00:11:05,369 --> 00:11:10,319
+interruptor y mostrar el valor de la
+
+271
+00:11:07,499 --> 00:11:12,239
+cuenta en el monitor serial vamos a
+
+272
+00:11:10,318 --> 00:11:14,219
+arrancar con el setup y luego iremos
+
+273
+00:11:12,239 --> 00:11:16,559
+creando variables a medida que lo
+
+274
+00:11:14,220 --> 00:11:19,019
+necesitemos cómo vamos a utilizar el
+
+275
+00:11:16,558 --> 00:11:22,750
+monitor serial debemos inicializar lo
+
+276
+00:11:19,019 --> 00:11:23,808
+como ya sabemos con serial punto begin
+
+277
+00:11:22,750 --> 00:11:26,578
+[Música]
+
+278
+00:11:23,808 --> 00:11:29,068
+9.600 luego estableceremos la
+
+279
+00:11:26,578 --> 00:11:30,899
+interrupción sobre el pin digital 2 que
+
+280
+00:11:29,068 --> 00:11:33,088
+es donde tenemos conectada a la salida
+
+281
+00:11:30,899 --> 00:11:36,139
+del photo interruptor lo haremos de la
+
+282
+00:11:33,089 --> 00:11:43,470
+siguiente manera a touch internet
+
+283
+00:11:36,139 --> 00:11:46,139
+digital pin de internet 2 sensor rising
+
+284
+00:11:43,470 --> 00:11:49,079
+el primer parámetro de attack internap
+
+285
+00:11:46,139 --> 00:11:51,928
+utilizaremos la función digital pinto
+
+286
+00:11:49,078 --> 00:11:54,508
+inter rap para pasarle simplemente el
+
+287
+00:11:51,928 --> 00:11:57,538
+número de pin y nos olvidamos del resto
+
+288
+00:11:54,509 --> 00:11:59,938
+además nos aseguramos que el código sea
+
+289
+00:11:57,538 --> 00:12:03,149
+compatible con otras placas el segundo
+
+290
+00:11:59,938 --> 00:12:05,908
+parámetro es la función y ese ere aquí
+
+291
+00:12:03,149 --> 00:12:08,129
+le puse el nombre sensor es el nombre de
+
+292
+00:12:05,908 --> 00:12:10,350
+una función que luego definiremos
+
+293
+00:12:08,129 --> 00:12:12,779
+y se encargará de ejecutar el código
+
+294
+00:12:10,350 --> 00:12:15,480
+cuando se detecte la interrupción y
+
+295
+00:12:12,779 --> 00:12:18,929
+finalmente el modo que será para nuestro
+
+296
+00:12:15,480 --> 00:12:22,289
+caso rising rising ya que queremos
+
+297
+00:12:18,929 --> 00:12:24,629
+detectar únicamente cuando la señal pasa
+
+298
+00:12:22,289 --> 00:12:27,389
+de un estado bajo a uno alto
+
+299
+00:12:24,629 --> 00:12:30,000
+el sensor siempre brinda en su salida un
+
+300
+00:12:27,389 --> 00:12:33,389
+nivel bajo que es cuando el haz de luz
+
+301
+00:12:30,000 --> 00:12:36,120
+no es interrumpido si se interrumpe
+
+302
+00:12:33,389 --> 00:12:38,759
+entonces pasa un uno lógico y justo en
+
+303
+00:12:36,120 --> 00:12:40,710
+ese momento es que queremos detectarlo y
+
+304
+00:12:38,759 --> 00:12:42,809
+eso es todo para el setup verás que
+
+305
+00:12:40,710 --> 00:12:45,509
+establecer la interrupción fue muy
+
+306
+00:12:42,809 --> 00:12:47,669
+sencillo ahora en el loop la idea es
+
+307
+00:12:45,509 --> 00:12:49,710
+contar cada vez que exista una
+
+308
+00:12:47,669 --> 00:12:52,229
+interrupción y mostrar el valor en el
+
+309
+00:12:49,710 --> 00:12:54,600
+monitor serial para eso necesitaremos
+
+310
+00:12:52,230 --> 00:12:57,720
+primero definir dos variables una
+
+311
+00:12:54,600 --> 00:13:00,600
+llamada contador y otra llamada anterior
+
+312
+00:12:57,720 --> 00:13:02,509
+las definimos al principio del código y
+
+313
+00:13:00,600 --> 00:13:06,100
+ahora lo explico int
+
+314
+00:13:02,509 --> 00:13:12,639
+contador igual
+
+315
+00:13:06,100 --> 00:13:15,278
+int anterior igual 0 de paso descargamos
+
+316
+00:13:12,639 --> 00:13:17,500
+un valor de 0 en contador
+
+317
+00:13:15,278 --> 00:13:20,169
+vamos a ir almacenando el valor que
+
+318
+00:13:17,500 --> 00:13:23,169
+incrementará con cada interrupción y en
+
+319
+00:13:20,169 --> 00:13:25,539
+anterior guardaremos el número previo a
+
+320
+00:13:23,169 --> 00:13:28,120
+contador esto es porque escribiremos en
+
+321
+00:13:25,539 --> 00:13:30,458
+el monitor serial únicamente cuando
+
+322
+00:13:28,120 --> 00:13:32,828
+exista un cambio en el valor de la
+
+323
+00:13:30,458 --> 00:13:34,528
+variable contador a diferencia de otros
+
+324
+00:13:32,828 --> 00:13:37,388
+programas donde constantemente
+
+325
+00:13:34,528 --> 00:13:39,850
+escribimos en el monitor serial aquí lo
+
+326
+00:13:37,389 --> 00:13:45,509
+haremos únicamente cuando es necesario
+
+327
+00:13:39,850 --> 00:13:45,509
+escribamos lo siguiente y anterior
+
+328
+00:13:45,539 --> 00:13:53,250
+igual contador
+
+329
+00:13:49,049 --> 00:14:00,389
+abrimos llaves serial punto print
+
+330
+00:13:53,250 --> 00:14:00,990
+ln contador anterior igual contador este
+
+331
+00:14:00,389 --> 00:14:03,720
+bloque
+
+332
+00:14:00,990 --> 00:14:06,629
+evaluará verdadero cuando la variable
+
+333
+00:14:03,720 --> 00:14:09,089
+anterior tenga un valor distinto de
+
+334
+00:14:06,629 --> 00:14:10,110
+contador si ambas variables tienen el
+
+335
+00:14:09,089 --> 00:14:12,810
+mismo valor
+
+336
+00:14:10,110 --> 00:14:15,419
+entonces se evalúa falso y no ejecuta
+
+337
+00:14:12,809 --> 00:14:19,078
+nada arrancamos con ambas variables en
+
+338
+00:14:15,419 --> 00:14:22,439
+cero con lo cual el if evalúa falso ya
+
+339
+00:14:19,078 --> 00:14:25,229
+que 0 no es distinto de cero la variable
+
+340
+00:14:22,440 --> 00:14:27,569
+contador la estaremos incrementando cada
+
+341
+00:14:25,230 --> 00:14:30,209
+vez que llegue una interrupción así que
+
+342
+00:14:27,568 --> 00:14:33,240
+ahora sólo resta crear la función y ese
+
+343
+00:14:30,208 --> 00:14:38,599
+ere con el nombre sensor al final de
+
+344
+00:14:33,240 --> 00:14:40,539
+todo el programa colocaremos void sensor
+
+345
+00:14:38,600 --> 00:14:43,690
+contador
+
+346
+00:14:40,539 --> 00:14:46,929
+más más y ese es todo el programa muy
+
+347
+00:14:43,690 --> 00:14:49,060
+simple a esta función sensor se llegará
+
+348
+00:14:46,929 --> 00:14:51,759
+únicamente cuando exista una
+
+349
+00:14:49,059 --> 00:14:54,129
+interrupción en el pin digital número 2
+
+350
+00:14:51,759 --> 00:14:56,860
+de arduino a donde tenemos conectado el
+
+351
+00:14:54,129 --> 00:14:59,470
+photo interruptor cuando eso suceda lo
+
+352
+00:14:56,860 --> 00:15:02,320
+único que hará la función es incrementar
+
+353
+00:14:59,470 --> 00:15:05,019
+el valor de la variable contador en uno
+
+354
+00:15:02,320 --> 00:15:06,700
+entonces en el loop luego de la primera
+
+355
+00:15:05,019 --> 00:15:10,539
+interrupción el if
+
+356
+00:15:06,700 --> 00:15:13,300
+ahora evalúa verdadero ya que 0 que es
+
+357
+00:15:10,539 --> 00:15:15,159
+el valor de anterior es distinto de 1
+
+358
+00:15:13,299 --> 00:15:17,769
+que es el valor de contador
+
+359
+00:15:15,159 --> 00:15:20,740
+entonces imprimimos en el monitor serial
+
+360
+00:15:17,769 --> 00:15:22,840
+y el valor de contador y guardamos en la
+
+361
+00:15:20,740 --> 00:15:23,799
+variable anterior el nuevo valor de
+
+362
+00:15:22,840 --> 00:15:27,399
+contador
+
+363
+00:15:23,799 --> 00:15:30,459
+de esta forma anterior y ahora vale 1 y
+
+364
+00:15:27,399 --> 00:15:33,009
+contador sigue valiendo 1 el look se
+
+365
+00:15:30,460 --> 00:15:36,220
+ejecuta constantemente con ambos valores
+
+366
+00:15:33,009 --> 00:15:38,019
+de variables en 1 no se ejecuta nada así
+
+367
+00:15:36,220 --> 00:15:40,629
+que no se escribe nada en el monitor
+
+368
+00:15:38,019 --> 00:15:43,120
+serial recién cuando llegue una nueva
+
+369
+00:15:40,629 --> 00:15:45,659
+interrupción contador se incrementará en
+
+370
+00:15:43,120 --> 00:15:48,389
+1 así que ahora vale 21
+
+371
+00:15:45,659 --> 00:15:51,299
+es distinto de 2 con lo cual escribimos
+
+372
+00:15:48,389 --> 00:15:53,519
+el valor de 2 y actualizamos anterior
+
+373
+00:15:51,299 --> 00:15:55,949
+con el nuevo valor de contador un
+
+374
+00:15:53,519 --> 00:15:58,350
+detalle importante es como verás la
+
+375
+00:15:55,950 --> 00:16:00,629
+variable contador está siendo usada
+
+376
+00:15:58,350 --> 00:16:02,879
+tanto dentro del look como dentro de la
+
+377
+00:16:00,629 --> 00:16:03,509
+función sensor con lo cual dicha
+
+378
+00:16:02,879 --> 00:16:06,299
+variable
+
+379
+00:16:03,509 --> 00:16:09,360
+debemos definirla como global para eso
+
+380
+00:16:06,299 --> 00:16:11,879
+agregaremos un modificador en la línea
+
+381
+00:16:09,360 --> 00:16:14,009
+donde declaramos la variable contador le
+
+382
+00:16:11,879 --> 00:16:18,120
+pondremos por delante la palabra
+
+383
+00:16:14,009 --> 00:16:21,210
+reservada bola tail bola tail no es un
+
+384
+00:16:18,120 --> 00:16:23,429
+tipo de variable es sólo un modificador
+
+385
+00:16:21,210 --> 00:16:26,280
+que le dice al compilador que la
+
+386
+00:16:23,429 --> 00:16:28,829
+variable que le sigue debe ser tratada
+
+387
+00:16:26,279 --> 00:16:31,529
+como global ya que modificará su valor
+
+388
+00:16:28,830 --> 00:16:34,259
+no sólo dentro del loop sino que también
+
+389
+00:16:31,529 --> 00:16:36,929
+en una función por fuera del mismo
+
+390
+00:16:34,259 --> 00:16:40,019
+cada vez que uses una variable dentro de
+
+391
+00:16:36,929 --> 00:16:42,359
+una función y ese ere que sea compartida
+
+392
+00:16:40,019 --> 00:16:45,000
+dentro del loop u otra función
+
+393
+00:16:42,360 --> 00:16:47,909
+deberás definirla como volátil vamos
+
+394
+00:16:45,000 --> 00:16:50,940
+entonces a verificar y subir el programa
+
+395
+00:16:47,909 --> 00:16:52,230
+luego a abrir el monitor serial en
+
+396
+00:16:50,940 --> 00:16:54,960
+pantalla podrás
+
+397
+00:16:52,230 --> 00:16:58,080
+la ventana del monitor serial y al mismo
+
+398
+00:16:54,960 --> 00:17:00,600
+tiempo el módulo sensor la idea es que
+
+399
+00:16:58,080 --> 00:17:02,639
+generemos interrupciones para ver cómo
+
+400
+00:17:00,600 --> 00:17:05,160
+va incrementando el valor de la cuenta
+
+401
+00:17:02,639 --> 00:17:07,559
+ahora no escribe nada ya que no hemos
+
+402
+00:17:05,160 --> 00:17:10,320
+generado ninguna interrupción vamos a
+
+403
+00:17:07,559 --> 00:17:12,779
+generar una interrumpiendo el haz de luz
+
+404
+00:17:10,319 --> 00:17:15,179
+del foto interruptor yo lo haré con la
+
+405
+00:17:12,779 --> 00:17:17,879
+punta de un destornillador plano pero se
+
+406
+00:17:15,180 --> 00:17:19,560
+puede usar cualquier objeto o una hoja
+
+407
+00:17:17,880 --> 00:17:21,780
+de papel ahora que pasó el
+
+408
+00:17:19,559 --> 00:17:24,539
+destornillador por la abertura en el
+
+409
+00:17:21,779 --> 00:17:28,019
+sensor verás cómo el monitor serial
+
+410
+00:17:24,539 --> 00:17:30,059
+aparece el número uno perfecto detectó
+
+411
+00:17:28,019 --> 00:17:32,309
+correctamente la interrupción voy a
+
+412
+00:17:30,059 --> 00:17:34,500
+pasar de nuevo el destornillador y verás
+
+413
+00:17:32,309 --> 00:17:36,480
+que ahora escribe el número 2
+
+414
+00:17:34,500 --> 00:17:38,940
+yo pasé el destornillador de forma
+
+415
+00:17:36,480 --> 00:17:41,160
+relativamente rápida pero aquí pasa si
+
+416
+00:17:38,940 --> 00:17:43,890
+lo dejo colocado de manera que quede
+
+417
+00:17:41,160 --> 00:17:45,060
+bloqueando el haz de luz del sensor por
+
+418
+00:17:43,890 --> 00:17:47,970
+varios segundos
+
+419
+00:17:45,059 --> 00:17:50,519
+verás que escribe el valor 3 y ahí se
+
+420
+00:17:47,970 --> 00:17:52,980
+queda estando el destornillador no se
+
+421
+00:17:50,519 --> 00:17:53,940
+genera ninguna nueva interrupción ahora
+
+422
+00:17:52,980 --> 00:17:56,370
+que lo quito
+
+423
+00:17:53,940 --> 00:17:58,320
+tampoco se genera una interrupción y así
+
+424
+00:17:56,369 --> 00:18:01,829
+es justamente como debe
+
+425
+00:17:58,319 --> 00:18:04,829
+ya que establecimos el modo en racing en
+
+426
+00:18:01,829 --> 00:18:07,798
+rising la interrupción ocurre únicamente
+
+427
+00:18:04,829 --> 00:18:11,129
+cuando la señal pasa de un estado bajo a
+
+428
+00:18:07,798 --> 00:18:14,129
+alto justo en el flanco o pendiente de
+
+429
+00:18:11,130 --> 00:18:16,350
+su vida mientras está en alto que sería
+
+430
+00:18:14,130 --> 00:18:19,679
+con el destornillador bloqueando el haz
+
+431
+00:18:16,349 --> 00:18:23,189
+de luz no se dispara y luego cuando pasa
+
+432
+00:18:19,679 --> 00:18:25,860
+del nivel alto abajo tampoco se dispara
+
+433
+00:18:23,190 --> 00:18:28,110
+de esta forma se puede verificar lo útil
+
+434
+00:18:25,859 --> 00:18:30,928
+que es tener distintos modos ahora
+
+435
+00:18:28,109 --> 00:18:32,878
+podemos seguir pasando un objeto para
+
+436
+00:18:30,929 --> 00:18:35,519
+bloquear el as de luz verás que no
+
+437
+00:18:32,878 --> 00:18:38,428
+importa cuánto tiempo lo bloqueé es sólo
+
+438
+00:18:35,519 --> 00:18:41,399
+contar a la transición de nivel bajo a
+
+439
+00:18:38,429 --> 00:18:44,250
+alto muy bien al principio decía que la
+
+440
+00:18:41,398 --> 00:18:46,619
+función y ese ere era especial y el
+
+441
+00:18:44,250 --> 00:18:49,710
+motivo es el siguiente en primera
+
+442
+00:18:46,619 --> 00:18:51,839
+instancia la función no es llamada desde
+
+443
+00:18:49,710 --> 00:18:54,808
+dentro del loop como sucede con otras
+
+444
+00:18:51,839 --> 00:18:57,089
+funciones otro tema es que la función y
+
+445
+00:18:54,808 --> 00:18:59,339
+ese ere se ejecuta en cualquier punto
+
+446
+00:18:57,089 --> 00:19:02,250
+del programa no importa lo que esté
+
+447
+00:18:59,339 --> 00:19:03,928
+haciendo cuando llegue entre comillas el
+
+448
+00:19:02,250 --> 00:19:04,569
+timbre de una interrupción
+
+449
+00:19:03,929 --> 00:19:08,259
+carwin
+
+450
+00:19:04,569 --> 00:19:11,109
+deja de hacer todo va y ejecuta la y ese
+
+451
+00:19:08,259 --> 00:19:13,120
+ere y luego vuelve al punto exacto donde
+
+452
+00:19:11,109 --> 00:19:15,308
+estaba esta situación
+
+453
+00:19:13,119 --> 00:19:17,619
+puede suceder incluso dentro de un delay
+
+454
+00:19:15,308 --> 00:19:20,829
+supongamos que en el loop tenemos un
+
+455
+00:19:17,619 --> 00:19:23,349
+delay de 2 segundos dentro del loop nada
+
+456
+00:19:20,829 --> 00:19:25,388
+se ejecuta durante esos 2 segundos pero
+
+457
+00:19:23,349 --> 00:19:27,819
+tranquilamente puede entrar una
+
+458
+00:19:25,388 --> 00:19:30,069
+interrupción con lo cual es de extrema
+
+459
+00:19:27,819 --> 00:19:32,589
+utilidad para detectar eventos en el
+
+460
+00:19:30,069 --> 00:19:35,950
+preciso instante en que sucede debido a
+
+461
+00:19:32,589 --> 00:19:38,678
+esta necesidad la función y ese ere debe
+
+462
+00:19:35,950 --> 00:19:41,319
+interrumpir el menor tiempo posible el
+
+463
+00:19:38,679 --> 00:19:44,320
+flujo normal del programa en definitiva
+
+464
+00:19:41,319 --> 00:19:45,009
+la función y ese debe ser lo más corta
+
+465
+00:19:44,319 --> 00:19:47,048
+posible
+
+466
+00:19:45,009 --> 00:19:49,450
+en este programa verás que sólo
+
+467
+00:19:47,048 --> 00:19:52,000
+incrementamos en 1 y el valor de la
+
+468
+00:19:49,450 --> 00:19:54,700
+variable contador no hicimos ningún tipo
+
+469
+00:19:52,000 --> 00:19:56,980
+de procesamiento adicional y esto es muy
+
+470
+00:19:54,700 --> 00:19:58,870
+importante que lo tengas en cuenta en
+
+471
+00:19:56,980 --> 00:20:01,960
+esta imagen hay un resumen de las
+
+472
+00:19:58,869 --> 00:20:04,689
+cuestiones más importantes la función no
+
+473
+00:20:01,960 --> 00:20:07,179
+puede recibir ni devolver parámetros
+
+474
+00:20:04,690 --> 00:20:09,580
+verás que al nombre de la función le
+
+475
+00:20:07,179 --> 00:20:11,140
+precede la palabra void y entre sus
+
+476
+00:20:09,579 --> 00:20:13,359
+paréntesis no hay ni
+
+477
+00:20:11,140 --> 00:20:16,030
+una variable ciertas funciones que
+
+478
+00:20:13,359 --> 00:20:18,189
+dependen de interrupciones como delay y
+
+479
+00:20:16,029 --> 00:20:21,099
+mili si no funcionan dentro de una
+
+480
+00:20:18,190 --> 00:20:24,220
+función y ese ere en realidad mi list
+
+481
+00:20:21,099 --> 00:20:26,289
+funciona pero congelen su valor es decir
+
+482
+00:20:24,220 --> 00:20:28,420
+que entrada a la interrupción podemos
+
+483
+00:20:26,289 --> 00:20:30,670
+acceder a la función miles pero el
+
+484
+00:20:28,420 --> 00:20:33,820
+tiempo será hasta el momento en que
+
+485
+00:20:30,670 --> 00:20:36,070
+llamada luego deja de contar si tenemos
+
+486
+00:20:33,819 --> 00:20:39,460
+ganas de escribir algo en el monitor
+
+487
+00:20:36,069 --> 00:20:42,549
+serial dentro de la función y ese r no
+
+488
+00:20:39,460 --> 00:20:44,980
+será posible y finalmente debe quedar
+
+489
+00:20:42,549 --> 00:20:48,039
+claro que podrás interrumpir todas las
+
+490
+00:20:44,980 --> 00:20:49,269
+veces que sea necesario incluso miles de
+
+491
+00:20:48,039 --> 00:20:51,789
+veces por segundo
+
+492
+00:20:49,269 --> 00:20:55,029
+si estás calculando la velocidad de giro
+
+493
+00:20:51,789 --> 00:20:57,460
+de un motor arduino no se molestará que
+
+494
+00:20:55,029 --> 00:20:59,289
+lo interrumpa moss constantemente lo que
+
+495
+00:20:57,460 --> 00:21:01,990
+es primordial es que la interrupción
+
+496
+00:20:59,289 --> 00:21:05,319
+dure el menor tiempo posible lo que
+
+497
+00:21:01,990 --> 00:21:06,789
+decíamos recién una función y es ser lo
+
+498
+00:21:05,319 --> 00:21:09,099
+más corta posible
+
+499
+00:21:06,789 --> 00:21:11,589
+muy bien verás que la interrupción es
+
+500
+00:21:09,099 --> 00:21:14,049
+extremadamente útil para capturar
+
+501
+00:21:11,589 --> 00:21:16,000
+eventos en el preciso instante en que
+
+502
+00:21:14,049 --> 00:21:17,079
+ocurren pero debemos tener en cuenta
+
+503
+00:21:16,000 --> 00:21:20,049
+estás
+
+504
+00:21:17,079 --> 00:21:22,240
+de hacer un procesamiento bien rápido
+
+505
+00:21:20,049 --> 00:21:24,879
+cambiar el valor de una variable e
+
+506
+00:21:22,240 --> 00:21:27,370
+incrementar la etcétera y luego en el
+
+507
+00:21:24,880 --> 00:21:30,100
+loop hacemos el resto que necesitemos
+
+508
+00:21:27,369 --> 00:21:32,829
+sin restricciones para terminar este
+
+509
+00:21:30,099 --> 00:21:34,409
+capítulo hagamos un pequeño programa de
+
+510
+00:21:32,829 --> 00:21:36,639
+manera que en cada interrupción
+
+511
+00:21:34,410 --> 00:21:39,880
+modificaremos la frecuencia de parpadeo
+
+512
+00:21:36,640 --> 00:21:42,460
+del led integrado de arduino así tenemos
+
+513
+00:21:39,880 --> 00:21:45,070
+una indicación visual en vez de estar
+
+514
+00:21:42,460 --> 00:21:46,870
+escribiendo en el monitor serial ese
+
+515
+00:21:45,069 --> 00:21:49,659
+querido aledo que lo dejamos en el
+
+516
+00:21:46,869 --> 00:21:52,149
+olvido desde el capítulo número 2 es muy
+
+517
+00:21:49,660 --> 00:21:54,580
+útil para hacer programas rápidos ya que
+
+518
+00:21:52,150 --> 00:21:57,190
+evidentemente al estar integrado no
+
+519
+00:21:54,579 --> 00:21:59,049
+necesitamos de ningún componente externo
+
+520
+00:21:57,190 --> 00:22:01,509
+voy a estar mostrándote la totalidad del
+
+521
+00:21:59,049 --> 00:22:03,700
+código y luego vamos línea por línea
+
+522
+00:22:01,509 --> 00:22:05,920
+recuerda que el código de este capítulo
+
+523
+00:22:03,700 --> 00:22:08,350
+y el de todos los capítulos están
+
+524
+00:22:05,920 --> 00:22:10,360
+disponibles para descargar en el enlace
+
+525
+00:22:08,349 --> 00:22:12,730
+que dejo en la zona de descripción
+
+526
+00:22:10,359 --> 00:22:15,759
+definimos una variable con el nombre
+
+527
+00:22:12,730 --> 00:22:18,400
+contador del tipo entera y le asignamos
+
+528
+00:22:15,759 --> 00:22:21,460
+un valor de 1000 por delante con el
+
+529
+00:22:18,400 --> 00:22:22,860
+modificador volata le indicamos que la
+
+530
+00:22:21,460 --> 00:22:25,829
+variable debe trata
+
+531
+00:22:22,859 --> 00:22:27,719
+de forma global ya que se usará tanto
+
+532
+00:22:25,829 --> 00:22:31,109
+dentro del loop como dentro de la
+
+533
+00:22:27,720 --> 00:22:35,009
+función y ese ere en el setup mediante
+
+534
+00:22:31,109 --> 00:22:38,099
+pin modos establecemos al pin 13 como
+
+535
+00:22:35,009 --> 00:22:40,410
+salida el pin digital 13 es el que tiene
+
+536
+00:22:38,099 --> 00:22:43,349
+conectado de forma interna el led
+
+537
+00:22:40,410 --> 00:22:46,440
+integrado luego la interrupción que será
+
+538
+00:22:43,349 --> 00:22:48,599
+sobre el pin 2 la función y ese ere al
+
+539
+00:22:46,440 --> 00:22:51,960
+igual que el primer programa tendrá el
+
+540
+00:22:48,599 --> 00:22:54,719
+nombre sensor y el modo será rising
+
+541
+00:22:51,960 --> 00:22:58,230
+ahora en el loop mediante digital write
+
+542
+00:22:54,720 --> 00:23:01,350
+encendemos el led mediante un nivel alto
+
+543
+00:22:58,230 --> 00:23:03,900
+luego aplicamos una demora pero dentro
+
+544
+00:23:01,349 --> 00:23:06,539
+del paréntesis no colocamos un número
+
+545
+00:23:03,900 --> 00:23:09,000
+fijo sino que será la variable contador
+
+546
+00:23:06,539 --> 00:23:11,668
+de manera que cada vez que ocurra una
+
+547
+00:23:09,000 --> 00:23:14,400
+interrupción estaremos actualizando este
+
+548
+00:23:11,669 --> 00:23:17,940
+valor luego con un nivel bajo en el pin
+
+549
+00:23:14,400 --> 00:23:20,460
+13 apagamos el led y nuevamente la
+
+550
+00:23:17,940 --> 00:23:22,950
+demora con la variable contador la idea
+
+551
+00:23:20,460 --> 00:23:25,440
+del programa es que se comience con una
+
+552
+00:23:22,950 --> 00:23:27,690
+demora de un segundo por eso cuando
+
+553
+00:23:25,440 --> 00:23:29,370
+definimos la variable contador le
+
+554
+00:23:27,690 --> 00:23:31,830
+cargamos un valor inicial
+
+555
+00:23:29,369 --> 00:23:34,558
+1000 luego cada vez que ocurre una
+
+556
+00:23:31,829 --> 00:23:36,899
+interrupción le arrestaremos 100 al
+
+557
+00:23:34,558 --> 00:23:40,019
+valor de contador es decir que irá de
+
+558
+00:23:36,900 --> 00:23:42,780
+crem entando de a 100 milisegundos a
+
+559
+00:23:40,019 --> 00:23:45,359
+medida que la demora es más chica el led
+
+560
+00:23:42,779 --> 00:23:47,670
+parpadeará cada vez más rápido pero
+
+561
+00:23:45,359 --> 00:23:50,429
+debemos poner un límite ya que con
+
+562
+00:23:47,670 --> 00:23:53,779
+valores de demora muy bajos ya no sería
+
+563
+00:23:50,430 --> 00:23:56,850
+visible por eso utilizamos este bloque y
+
+564
+00:23:53,779 --> 00:23:59,759
+simplemente lo que hace es consultar si
+
+565
+00:23:56,849 --> 00:24:00,599
+el valor del contador es menor a 100 si
+
+566
+00:23:59,759 --> 00:24:02,970
+es así
+
+567
+00:24:00,599 --> 00:24:05,549
+vuelve a cargar contador con un valor de
+
+568
+00:24:02,970 --> 00:24:08,160
+1000 en definitiva cuando llegue una
+
+569
+00:24:05,549 --> 00:24:11,009
+interrupción y el valor de contador sea
+
+570
+00:24:08,160 --> 00:24:13,679
+menor a 100 volvemos a iniciar el ciclo
+
+571
+00:24:11,009 --> 00:24:16,259
+y eso es todo por parte del loop sólo
+
+572
+00:24:13,679 --> 00:24:18,540
+resta la función y ese ere lo que
+
+573
+00:24:16,259 --> 00:24:21,750
+haremos aquí será tomar el valor del
+
+574
+00:24:18,539 --> 00:24:24,569
+contador y restarle 100 y eso es todo
+
+575
+00:24:21,750 --> 00:24:27,089
+vamos entonces a verificar y subir el
+
+576
+00:24:24,569 --> 00:24:30,149
+programa podrás visualizar como el led
+
+577
+00:24:27,089 --> 00:24:32,220
+integrado enciende y apaga a intervalos
+
+578
+00:24:30,150 --> 00:24:34,710
+de un segundo si generamos una
+
+579
+00:24:32,220 --> 00:24:37,288
+interrupción colocando un objeto
+
+580
+00:24:34,710 --> 00:24:40,769
+entre el transmisor y receptor del
+
+581
+00:24:37,288 --> 00:24:43,200
+módulo k y 10 la función y ese red de
+
+582
+00:24:40,769 --> 00:24:45,450
+kremen está en 100 y el valor de la
+
+583
+00:24:43,200 --> 00:24:49,048
+demora ahora el led parpadea a
+
+584
+00:24:45,450 --> 00:24:50,850
+intervalos de 900 milisegundos quizás no
+
+585
+00:24:49,048 --> 00:24:54,148
+había demasiada diferencia con respecto
+
+586
+00:24:50,849 --> 00:24:56,658
+antes ya que solo le restamos una décima
+
+587
+00:24:54,148 --> 00:24:59,459
+de segundo la idea es seguir generando
+
+588
+00:24:56,659 --> 00:25:02,640
+interrupciones en cada una de ellas y el
+
+589
+00:24:59,460 --> 00:25:05,610
+valor de demora va bajando haciendo que
+
+590
+00:25:02,640 --> 00:25:07,980
+el led parpadee más rápidamente ya luego
+
+591
+00:25:05,609 --> 00:25:10,859
+de 5 interrupciones estamos con una
+
+592
+00:25:07,980 --> 00:25:13,558
+demora de sólo 500 milisegundos y ya es
+
+593
+00:25:10,859 --> 00:25:16,168
+bien notable la diferencia de velocidad
+
+594
+00:25:13,558 --> 00:25:17,819
+de parpadeo respecto del principio si
+
+595
+00:25:16,169 --> 00:25:20,399
+seguimos generando interrupciones
+
+596
+00:25:17,819 --> 00:25:22,859
+llegaremos a un parpadeo rápido de 100
+
+597
+00:25:20,398 --> 00:25:24,928
+milisegundos y verás que la próxima
+
+598
+00:25:22,859 --> 00:25:27,778
+interrupción hará que vuelva al valor
+
+599
+00:25:24,929 --> 00:25:30,120
+inicial de un segundo de esta manera
+
+600
+00:25:27,778 --> 00:25:31,980
+pudimos verificar como de manera muy
+
+601
+00:25:30,119 --> 00:25:34,168
+fácil podemos aprovechar las
+
+602
+00:25:31,980 --> 00:25:36,509
+interrupciones para modificar un
+
+603
+00:25:34,169 --> 00:25:39,570
+comportamiento eso es todo por este
+
+604
+00:25:36,509 --> 00:25:41,158
+capítulo en el próximo aprovecharemos el
+
+605
+00:25:39,569 --> 00:25:42,928
+conocimiento adquirido con
+
+606
+00:25:41,159 --> 00:25:45,599
+respecto a las interrupciones para
+
+607
+00:25:42,929 --> 00:25:49,409
+trabajar con un codificador rotativo
+
+608
+00:25:45,598 --> 00:25:51,808
+modelo calle 40 el cual se aproxima a lo
+
+609
+00:25:49,409 --> 00:25:54,479
+que sería un potenciómetro freeze
+
+610
+00:25:51,808 --> 00:25:57,028
+totalmente digital y no tiene topes
+
+611
+00:25:54,479 --> 00:26:00,200
+mediante interrupciones podemos saber si
+
+612
+00:25:57,028 --> 00:26:02,638
+gira en sentido horario o antihorario
+
+613
+00:26:00,200 --> 00:26:05,129
+haciéndolo muy útil para variedad de
+
+614
+00:26:02,638 --> 00:26:07,648
+proyectos como siempre te pido te
+
+615
+00:26:05,128 --> 00:26:09,719
+suscribas para recibir notificaciones y
+
+616
+00:26:07,648 --> 00:26:11,728
+por cualquier duda o comentario lo
+
+617
+00:26:09,720 --> 00:26:16,069
+podéis hacer debajo que con gusto te
+
+618
+00:26:11,729 --> 00:26:16,069
+responderé chao y hasta la próxima
+

@@ -1,0 +1,2116 @@
+1
+00:00:01,679 --> 00:00:08,069
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,589 --> 00:00:10,050
+25 de arduino desde cero en español
+
+3
+00:00:08,069 --> 00:00:13,679
+en esta oportunidad continuaremos
+
+4
+00:00:10,050 --> 00:00:16,800
+trabajando con el módulo bluetooth hs 05
+
+5
+00:00:13,679 --> 00:00:19,500
+iniciado en el capítulo 24 instalando
+
+6
+00:00:16,800 --> 00:00:22,200
+una app en el teléfono móvil permitiendo
+
+7
+00:00:19,500 --> 00:00:25,019
+enviar comandos para encender leds y
+
+8
+00:00:22,199 --> 00:00:28,109
+controlar su brillo por p w m en el
+
+9
+00:00:25,019 --> 00:00:30,269
+capítulo 24 introdujimos el concepto de
+
+10
+00:00:28,109 --> 00:00:33,329
+comunicación inalámbrica por bluetooth
+
+11
+00:00:30,269 --> 00:00:35,609
+conectamos el módulo arduino y mediante
+
+12
+00:00:33,329 --> 00:00:37,770
+comandos a ti lo configuramos y
+
+13
+00:00:35,609 --> 00:00:40,439
+finalmente vinculamos con un teléfono
+
+14
+00:00:37,770 --> 00:00:42,660
+móvil si no lo viste te lo recomiendo
+
+15
+00:00:40,439 --> 00:00:44,459
+para este capítulo comenzaremos con el
+
+16
+00:00:42,659 --> 00:00:45,449
+circuito de conexión que será muy
+
+17
+00:00:44,460 --> 00:00:48,509
+sencillo
+
+18
+00:00:45,450 --> 00:00:51,120
+el módulo hc 05 lo conectaremos igual
+
+19
+00:00:48,509 --> 00:00:53,909
+que el capítulo anterior con bcc al
+
+20
+00:00:51,119 --> 00:00:57,479
+positivo del riel de tensión gene de
+
+21
+00:00:53,909 --> 00:00:59,788
+amasa del riel de tensión el pin tx de
+
+22
+00:00:57,479 --> 00:01:03,238
+con un cable y directo al pin digital
+
+23
+00:00:59,789 --> 00:01:05,909
+número 10 de arduino y del pin rx de
+
+24
+00:01:03,238 --> 00:01:07,530
+directo al pin digital número 11
+
+25
+00:01:05,909 --> 00:01:11,310
+conectaremos dos leds
+
+26
+00:01:07,530 --> 00:01:14,519
+uno rojo y uno verde del cátodo del lado
+
+27
+00:01:11,310 --> 00:01:17,759
+rojo a masa del ánodo mediante una
+
+28
+00:01:14,519 --> 00:01:20,789
+resistencia de 330 vamos al pin digital
+
+29
+00:01:17,759 --> 00:01:23,159
+número 2 de arduino del led verde el
+
+30
+00:01:20,790 --> 00:01:25,649
+cátodo también a masa del riel de
+
+31
+00:01:23,159 --> 00:01:28,890
+tensión y del ánodo mediante una
+
+32
+00:01:25,649 --> 00:01:32,009
+resistencia de 330 onu al pin digital
+
+33
+00:01:28,890 --> 00:01:34,530
+número 3 de arduino y eso es todo en
+
+34
+00:01:32,009 --> 00:01:37,618
+pantalla se muestra el mismo código del
+
+35
+00:01:34,530 --> 00:01:39,989
+capítulo 24 lo usaremos como base para
+
+36
+00:01:37,618 --> 00:01:42,329
+poder recibir datos enviados desde el
+
+37
+00:01:39,989 --> 00:01:44,819
+teléfono móvil y así tomar distintas
+
+38
+00:01:42,329 --> 00:01:46,769
+acciones para ello la primer tarea es
+
+39
+00:01:44,819 --> 00:01:49,349
+descargar la app en nuestro teléfono
+
+40
+00:01:46,769 --> 00:01:52,228
+móvil yo te estaré mostrando mi teléfono
+
+41
+00:01:49,349 --> 00:01:55,199
+android y la app que se encuentra en la
+
+42
+00:01:52,228 --> 00:01:58,228
+tienda place to be en tu caso estás con
+
+43
+00:01:55,200 --> 00:02:00,868
+iphone y sistema ios esta misma
+
+44
+00:01:58,228 --> 00:02:03,030
+aplicación no se encuentra disponible y
+
+45
+00:02:00,868 --> 00:02:05,579
+deberás buscar por alguna otra que tenga
+
+46
+00:02:03,030 --> 00:02:07,530
+una funcionalidad similar si tienes a
+
+47
+00:02:05,579 --> 00:02:10,469
+android podrás instalar esta que te
+
+48
+00:02:07,530 --> 00:02:13,199
+mostraré y se llama bluetooth sería el
+
+49
+00:02:10,469 --> 00:02:13,919
+controller que es muy buena y sobre todo
+
+50
+00:02:13,199 --> 00:02:16,109
+versátil
+
+51
+00:02:13,919 --> 00:02:18,059
+para diversas situaciones debo aclarar
+
+52
+00:02:16,110 --> 00:02:20,400
+que no tengo ninguna afiliación con el
+
+53
+00:02:18,060 --> 00:02:22,860
+desarrollador de la app solo es una
+
+54
+00:02:20,400 --> 00:02:24,539
+sugerencia y podrás ver que existen gran
+
+55
+00:02:22,860 --> 00:02:27,360
+cantidad que permiten la comunicación
+
+56
+00:02:24,539 --> 00:02:29,939
+por bluetooth colocando dicho nombre
+
+57
+00:02:27,360 --> 00:02:32,580
+completo en la play store la encontrarás
+
+58
+00:02:29,939 --> 00:02:35,189
+y podrás descargar de forma gratuita e
+
+59
+00:02:32,580 --> 00:02:37,500
+instalar muy bien antes de abrir la app
+
+60
+00:02:35,189 --> 00:02:39,599
+trabajemos un poco en el código del
+
+61
+00:02:37,500 --> 00:02:42,030
+programa la idea es que enviemos un
+
+62
+00:02:39,599 --> 00:02:45,000
+único caracter desde el teléfono y con
+
+63
+00:02:42,030 --> 00:02:47,340
+una serie de simples bloques y podamos
+
+64
+00:02:45,000 --> 00:02:49,639
+determinar el carácter recibido y
+
+65
+00:02:47,340 --> 00:02:52,979
+encender o apagar de forma independiente
+
+66
+00:02:49,639 --> 00:02:55,169
+los dos leds que tenemos conectados a
+
+67
+00:02:52,979 --> 00:02:57,419
+los pines digitales de arduino primero
+
+68
+00:02:55,169 --> 00:03:00,719
+declararemos una variable que será del
+
+69
+00:02:57,419 --> 00:03:03,449
+tipo card y tendrá el nombre de dato y
+
+70
+00:03:00,719 --> 00:03:05,729
+le asignamos un valor inicial de 0 en
+
+71
+00:03:03,449 --> 00:03:07,798
+esta variable almacén haremos el valor
+
+72
+00:03:05,729 --> 00:03:11,039
+del carácter recibido desde el teléfono
+
+73
+00:03:07,799 --> 00:03:13,420
+móvil así que en un espacio libre antes
+
+74
+00:03:11,039 --> 00:03:18,519
+del set-up escribamos cada
+
+75
+00:03:13,419 --> 00:03:21,519
+dato igual 0 ahora cómo tenemos dos leds
+
+76
+00:03:18,520 --> 00:03:23,469
+crearemos dos variables para representar
+
+77
+00:03:21,520 --> 00:03:30,920
+los pines a los cuales se encuentran
+
+78
+00:03:23,469 --> 00:03:36,500
+conectados int led rojo igual 2 inc
+
+79
+00:03:30,919 --> 00:03:38,449
+verde igual 3 en el setup eliminemos la
+
+80
+00:03:36,500 --> 00:03:40,848
+línea de la inicialización de la
+
+81
+00:03:38,449 --> 00:03:43,250
+comunicación del monitor serial ya que
+
+82
+00:03:40,848 --> 00:03:46,399
+no lo estaremos utilizando y también la
+
+83
+00:03:43,250 --> 00:03:48,650
+línea del serial punto print line nos
+
+84
+00:03:46,400 --> 00:03:50,870
+quedará solamente la inicialización de
+
+85
+00:03:48,650 --> 00:03:55,039
+la comunicación serie con el módulo
+
+86
+00:03:50,870 --> 00:03:57,890
+bluetooth a 38 400 debajo de dicha línea
+
+87
+00:03:55,039 --> 00:04:01,129
+debemos establecer los pines digitales 2
+
+88
+00:03:57,889 --> 00:04:09,239
+y 3 como salida lo hacemos como es usual
+
+89
+00:04:01,129 --> 00:04:13,740
+con pin modo led rojo output pin mode
+
+90
+00:04:09,240 --> 00:04:16,500
+verde output en el loop nos quedaremos
+
+91
+00:04:13,740 --> 00:04:18,540
+únicamente con la primera línea del if y
+
+92
+00:04:16,500 --> 00:04:20,670
+la llave de cierre del mismo
+
+93
+00:04:18,540 --> 00:04:23,100
+este if no sirve ya que queremos
+
+94
+00:04:20,670 --> 00:04:25,319
+procesar datos únicamente cuando hay
+
+95
+00:04:23,100 --> 00:04:28,950
+información disponible desde el módulo
+
+96
+00:04:25,319 --> 00:04:31,529
+hc 05 eso lo hacemos con la función
+
+97
+00:04:28,949 --> 00:04:33,779
+available de manera que si hay datos
+
+98
+00:04:31,529 --> 00:04:36,419
+disponibles desde el módulo debemos
+
+99
+00:04:33,779 --> 00:04:38,639
+consultar de qué carácter se trata este
+
+100
+00:04:36,420 --> 00:04:41,129
+programa funcionará correctamente con el
+
+101
+00:04:38,639 --> 00:04:43,849
+envío por parte del teléfono de un solo
+
+102
+00:04:41,129 --> 00:04:46,889
+carácter puede ser un número o una letra
+
+103
+00:04:43,850 --> 00:04:50,070
+utilizaremos el número 1 para encender
+
+104
+00:04:46,889 --> 00:04:52,889
+el led rojo y el 2 para apagarlo y el 3
+
+105
+00:04:50,069 --> 00:04:54,899
+para encender el led verde y el 4 para
+
+106
+00:04:52,889 --> 00:04:57,899
+apagar los podrían ser tranquilamente
+
+107
+00:04:54,899 --> 00:05:00,929
+letras como 0 w
+
+108
+00:04:57,899 --> 00:05:05,129
+etcétera primero vamos a almacenar en la
+
+109
+00:05:00,930 --> 00:05:07,329
+variable dato el valor leído con dato
+
+110
+00:05:05,129 --> 00:05:14,908
+igual
+
+111
+00:05:07,329 --> 00:05:20,339
+vete punto ruido if dato igual uno
+
+112
+00:05:14,908 --> 00:05:23,389
+digital write led rojo
+
+113
+00:05:20,339 --> 00:05:26,099
+nota que el número 1 está entre comillas
+
+114
+00:05:23,389 --> 00:05:28,978
+simples ya que estamos trabajando con un
+
+115
+00:05:26,100 --> 00:05:31,470
+único carácter y no con una cadena si
+
+116
+00:05:28,978 --> 00:05:34,139
+dato tiene un valor de 1 entonces
+
+117
+00:05:31,470 --> 00:05:37,229
+encendemos el led rojo con un nivel alto
+
+118
+00:05:34,139 --> 00:05:39,000
+mediante el digital raid así de simple
+
+119
+00:05:37,228 --> 00:05:41,819
+si ahora queremos apagar dicho a led
+
+120
+00:05:39,000 --> 00:05:44,339
+rojo entonces lo haremos si recibimos el
+
+121
+00:05:41,819 --> 00:05:51,968
+carácter 2 y lo hacemos de manera muy
+
+122
+00:05:44,339 --> 00:05:56,678
+similar con el dato igual 2 digital raid
+
+123
+00:05:51,968 --> 00:05:59,110
+led rojo cloud el bloque es el mismo que
+
+124
+00:05:56,678 --> 00:06:01,748
+la anterior pero esta vez consultamos si
+
+125
+00:05:59,110 --> 00:06:04,299
+el carácter recibido es el número 2 y
+
+126
+00:06:01,749 --> 00:06:06,429
+con digital right escribimos un valor
+
+127
+00:06:04,298 --> 00:06:08,618
+bajo para apagar el led
+
+128
+00:06:06,428 --> 00:06:11,288
+vamos entonces a hacer la misma tarea
+
+129
+00:06:08,619 --> 00:06:17,669
+para él es verde que se encenderá con un
+
+130
+00:06:11,288 --> 00:06:24,259
+3 y se apagará con un 4 y dato igual 3
+
+131
+00:06:17,668 --> 00:06:32,509
+digital right led verde hi
+
+132
+00:06:24,259 --> 00:06:37,610
+if dato igual 4 digital right le vert
+
+133
+00:06:32,509 --> 00:06:40,159
+the low y ese es todo el código vamos a
+
+134
+00:06:37,610 --> 00:06:43,759
+verificar y subir el programa en
+
+135
+00:06:40,160 --> 00:06:46,310
+pantalla verás el módulo hs 05 y los
+
+136
+00:06:43,759 --> 00:06:49,009
+leds rojos y verdes sobre protoboard
+
+137
+00:06:46,310 --> 00:06:51,829
+vamos ahora sí a abrir la app que
+
+138
+00:06:49,009 --> 00:06:54,379
+descargamos e instalamos el bluetooth
+
+139
+00:06:51,829 --> 00:06:56,359
+sería el controller ni bien lo hagas
+
+140
+00:06:54,379 --> 00:07:00,019
+verás que pasa la orientación de
+
+141
+00:06:56,360 --> 00:07:02,509
+pantalla a modo apaisado o modo paisaje
+
+142
+00:07:00,019 --> 00:07:04,969
+una alerta te aparecerá si el bluetooth
+
+143
+00:07:02,509 --> 00:07:07,399
+está apagado en el teléfono a mi me
+
+144
+00:07:04,970 --> 00:07:09,530
+aparece la alerta ya que siempre tengo
+
+145
+00:07:07,399 --> 00:07:11,929
+el bluetooth apagado a no ser que lo
+
+146
+00:07:09,529 --> 00:07:14,750
+necesite para algo en particular así que
+
+147
+00:07:11,930 --> 00:07:16,610
+seleccionamos permitir del diálogo para
+
+148
+00:07:14,750 --> 00:07:18,970
+habilitar bluetooth lo primero que
+
+149
+00:07:16,610 --> 00:07:21,949
+debemos hacer es pasar al modo normal
+
+150
+00:07:18,970 --> 00:07:24,320
+vertical o modo retrato que es más
+
+151
+00:07:21,949 --> 00:07:26,899
+cómodo esto lo hacemos seleccionando el
+
+152
+00:07:24,319 --> 00:07:29,269
+icono de la palanca de herramientas con
+
+153
+00:07:26,899 --> 00:07:30,879
+el texto preference en el extremo
+
+154
+00:07:29,269 --> 00:07:33,669
+superior derecho de pan
+
+155
+00:07:30,879 --> 00:07:36,969
+y allí nos desplazamos un poco hacia
+
+156
+00:07:33,670 --> 00:07:39,100
+abajo hasta la opción oriente y jan esta
+
+157
+00:07:36,970 --> 00:07:41,440
+app está en inglés y esa es una
+
+158
+00:07:39,100 --> 00:07:43,780
+desventaja pero encontrarás que de todas
+
+159
+00:07:41,439 --> 00:07:46,750
+maneras es fácil de entender entonces
+
+160
+00:07:43,779 --> 00:07:49,959
+seleccionamos orientation y luego el
+
+161
+00:07:46,750 --> 00:07:52,209
+modo portrait ahora sólo resta presionar
+
+162
+00:07:49,959 --> 00:07:54,129
+el botón de atrás de android
+
+163
+00:07:52,209 --> 00:07:56,739
+el triángulo y ya estamos con una
+
+164
+00:07:54,129 --> 00:07:58,719
+orientación correcta yo en pantalla te
+
+165
+00:07:56,740 --> 00:08:00,850
+estuve mostrando ya en orientación
+
+166
+00:07:58,720 --> 00:08:02,770
+vertical por una cuestión de captura de
+
+167
+00:08:00,850 --> 00:08:04,870
+pantalla pero en tu caso
+
+168
+00:08:02,769 --> 00:08:07,180
+luego de iniciar por primera vez la app
+
+169
+00:08:04,870 --> 00:08:09,610
+tendrás que hacer este pequeño trabajo
+
+170
+00:08:07,180 --> 00:08:12,850
+la app tiene en su centro una gran
+
+171
+00:08:09,610 --> 00:08:15,550
+cantidad de botones de color gris estos
+
+172
+00:08:12,850 --> 00:08:17,860
+botones son todos programables y se usan
+
+173
+00:08:15,550 --> 00:08:20,170
+para enviar comandos específicos en
+
+174
+00:08:17,860 --> 00:08:22,210
+breve estaremos programando un par de
+
+175
+00:08:20,170 --> 00:08:24,040
+estos botones pero por ahora sólo
+
+176
+00:08:22,209 --> 00:08:26,649
+deseamos verificar que nos podamos
+
+177
+00:08:24,040 --> 00:08:31,510
+vincular correctamente con el módulo y
+
+178
+00:08:26,649 --> 00:08:34,478
+enviando los caracteres 1 2 3 y 4 pueden
+
+179
+00:08:31,509 --> 00:08:36,909
+encender y apagar los leds tocando sobre
+
+180
+00:08:34,479 --> 00:08:39,370
+el icono de la lupa abre un día
+
+181
+00:08:36,909 --> 00:08:42,189
+para que seleccionemos el dispositivo el
+
+182
+00:08:39,370 --> 00:08:46,120
+cual conectarnos deberá aparecer t en
+
+183
+00:08:42,190 --> 00:08:48,160
+perth devices me vete en caso de que no
+
+184
+00:08:46,120 --> 00:08:50,679
+lo detecte significa que no está
+
+185
+00:08:48,159 --> 00:08:53,919
+vinculado el teléfono con el módulo este
+
+186
+00:08:50,679 --> 00:08:55,870
+proceso lo hicimos en el capítulo 24 es
+
+187
+00:08:53,919 --> 00:08:58,360
+ir a la sección bluetooth en
+
+188
+00:08:55,870 --> 00:09:01,539
+dispositivos disponibles debe aparecer
+
+189
+00:08:58,360 --> 00:09:06,220
+mi vete y luego un diálogo para
+
+190
+00:09:01,539 --> 00:09:09,699
+introducir el pin que es 1234 entonces
+
+191
+00:09:06,220 --> 00:09:12,940
+nos aparece como perder devices a mi vez
+
+192
+00:09:09,700 --> 00:09:15,940
+te perdí vice y significa dispositivos
+
+193
+00:09:12,940 --> 00:09:18,130
+vinculados tocamos sobre mí vete y verás
+
+194
+00:09:15,940 --> 00:09:21,910
+que en la barra superior de pantalla
+
+195
+00:09:18,129 --> 00:09:23,710
+dice conectivo tú me ve te vamos a tocar
+
+196
+00:09:21,909 --> 00:09:26,049
+sobre la línea que tiene el cursor
+
+197
+00:09:23,710 --> 00:09:28,930
+parpadeando donde podremos escribir la
+
+198
+00:09:26,049 --> 00:09:30,939
+información a enviar al hacerlo aparece
+
+199
+00:09:28,929 --> 00:09:33,339
+el teclado en pantalla pasando al
+
+200
+00:09:30,940 --> 00:09:35,860
+teclado numérico vamos a tocar sobre la
+
+201
+00:09:33,340 --> 00:09:38,740
+tecla del número uno y luego el botón
+
+202
+00:09:35,860 --> 00:09:41,080
+send por programación establecimos que
+
+203
+00:09:38,740 --> 00:09:42,278
+cuando arduino recibe desde el módulo
+
+204
+00:09:41,080 --> 00:09:45,999
+bluetooth
+
+205
+00:09:42,278 --> 00:09:48,610
+carácter 1 encendimos el lado rojo y eso
+
+206
+00:09:45,999 --> 00:09:50,139
+como vemos es justamente lo que sucede
+
+207
+00:09:48,610 --> 00:09:52,480
+con la cual comprobamos que
+
+208
+00:09:50,139 --> 00:09:53,438
+efectivamente la app ha enviado la
+
+209
+00:09:52,480 --> 00:09:55,860
+información
+
+210
+00:09:53,438 --> 00:09:58,748
+arduino la interpretó y accionó
+
+211
+00:09:55,860 --> 00:10:01,058
+encendiendo el led rojo verás también
+
+212
+00:09:58,749 --> 00:10:03,670
+que el led permanece encendido eso es
+
+213
+00:10:01,058 --> 00:10:05,769
+porque solo enviamos un carácter y luego
+
+214
+00:10:03,669 --> 00:10:07,958
+nada más por eso el led quedará
+
+215
+00:10:05,769 --> 00:10:10,028
+encendido hasta que le enviemos otro
+
+216
+00:10:07,958 --> 00:10:12,159
+comando para pagar el led rojo y
+
+217
+00:10:10,028 --> 00:10:13,990
+establecimos por programación que lo
+
+218
+00:10:12,159 --> 00:10:16,208
+haríamos al recibir el carácter
+
+219
+00:10:13,990 --> 00:10:19,329
+correspondiente al número 2 así que con
+
+220
+00:10:16,208 --> 00:10:21,758
+el teclado borremos el número 1 y
+
+221
+00:10:19,328 --> 00:10:24,998
+coloquemos el número 2 y luego el botón
+
+222
+00:10:21,759 --> 00:10:27,550
+send verás que ahora el led rojo se
+
+223
+00:10:24,999 --> 00:10:30,249
+apaga ahora rápidamente verifiquemos el
+
+224
+00:10:27,549 --> 00:10:33,938
+funcionamiento de la verde escribamos el
+
+225
+00:10:30,249 --> 00:10:37,899
+número 3 y el botón send se encenderá el
+
+226
+00:10:33,938 --> 00:10:40,539
+led verde luego enviando el número 4 se
+
+227
+00:10:37,899 --> 00:10:42,730
+apagará perfecto funciona todo
+
+228
+00:10:40,539 --> 00:10:45,099
+correctamente pero realmente no tiene
+
+229
+00:10:42,730 --> 00:10:48,339
+mucho sentido enviar dos caracteres
+
+230
+00:10:45,100 --> 00:10:50,949
+distintos para controlar un único led
+
+231
+00:10:48,339 --> 00:10:53,860
+más conveniente por ejemplo enviando el
+
+232
+00:10:50,948 --> 00:10:56,578
+carácter número 1 para encender el rojo
+
+233
+00:10:53,860 --> 00:10:59,889
+y enviando nuevamente el mismo carácter
+
+234
+00:10:56,578 --> 00:11:01,899
+apagarlo incluso mejor sería asignar el
+
+235
+00:10:59,889 --> 00:11:04,058
+envío del carácter a un botón
+
+236
+00:11:01,899 --> 00:11:06,759
+así que modifiquemos ligeramente el
+
+237
+00:11:04,058 --> 00:11:09,519
+código para cambiar el comportamiento la
+
+238
+00:11:06,759 --> 00:11:11,680
+línea del digital write dentro del if
+
+239
+00:11:09,519 --> 00:11:13,990
+dato igual a 1
+
+240
+00:11:11,679 --> 00:11:16,448
+la modificaremos para primero hacer una
+
+241
+00:11:13,990 --> 00:11:19,169
+lectura del estado del led es decir
+
+242
+00:11:16,448 --> 00:11:22,328
+primero saber si el led está apagado o
+
+243
+00:11:19,169 --> 00:11:24,909
+encendido y luego aplicar con digital
+
+244
+00:11:22,328 --> 00:11:27,338
+raid el valor opuesto esto lo hacemos
+
+245
+00:11:24,909 --> 00:11:30,269
+muy simple eliminando el segundo
+
+246
+00:11:27,339 --> 00:11:35,309
+parámetro high y poniendo en su lugar
+
+247
+00:11:30,269 --> 00:11:38,769
+digital ruido entre paréntesis led rojo
+
+248
+00:11:35,308 --> 00:11:41,919
+digital ruiz entre paréntesis led rojo
+
+249
+00:11:38,769 --> 00:11:44,860
+nos devolverá un nivel bajo si el led
+
+250
+00:11:41,919 --> 00:11:47,349
+está apagado y un nivel alto si está
+
+251
+00:11:44,860 --> 00:11:49,949
+encendido como lo que queremos lograr es
+
+252
+00:11:47,350 --> 00:11:53,019
+aplicar el valor opuesto simplemente
+
+253
+00:11:49,948 --> 00:11:54,309
+agregamos el signo de admiración justo
+
+254
+00:11:53,019 --> 00:11:56,830
+delante del digital
+
+255
+00:11:54,309 --> 00:11:59,949
+y el signo de admiración es el llamado
+
+256
+00:11:56,830 --> 00:12:03,250
+not en inglés creo que hace es invertir
+
+257
+00:11:59,950 --> 00:12:05,740
+el valor en este caso invierte o niega
+
+258
+00:12:03,250 --> 00:12:08,590
+el valor leído supongamos que él se
+
+259
+00:12:05,740 --> 00:12:10,480
+encuentra apagado digital read devuelve
+
+260
+00:12:08,590 --> 00:12:14,139
+un nivel bajo con el signo de admiración
+
+261
+00:12:10,480 --> 00:12:17,259
+se convierte ese nivel bajo en uno alto
+
+262
+00:12:14,139 --> 00:12:19,449
+y dicho valor lo aplicamos al led con
+
+263
+00:12:17,259 --> 00:12:22,230
+digital write con lo cual si estaba
+
+264
+00:12:19,450 --> 00:12:25,120
+apagado lo encendemos si estuviese el
+
+265
+00:12:22,230 --> 00:12:28,060
+encendido digital ruiz devolvería un
+
+266
+00:12:25,120 --> 00:12:30,310
+valor alto con el not lo convertimos a
+
+267
+00:12:28,059 --> 00:12:33,369
+un nivel bajo y aplicamos mediante
+
+268
+00:12:30,309 --> 00:12:35,709
+digital write logrando así apagar el led
+
+269
+00:12:33,370 --> 00:12:38,320
+que se encontraba encendido de esta
+
+270
+00:12:35,710 --> 00:12:40,600
+manera cuando desde la app del teléfono
+
+271
+00:12:38,320 --> 00:12:43,720
+enviamos el carácter número uno
+
+272
+00:12:40,600 --> 00:12:46,690
+lograremos encender o apagar el led rojo
+
+273
+00:12:43,720 --> 00:12:48,850
+ahora haremos lo mismo para el led verde
+
+274
+00:12:46,690 --> 00:12:51,580
+pero esta vez cuando se reciba el número
+
+275
+00:12:48,850 --> 00:12:55,389
+2 desde la app así que vayamos a la
+
+276
+00:12:51,580 --> 00:12:58,150
+línea del if dato igual 2 y cambiemos el
+
+277
+00:12:55,389 --> 00:12:59,528
+primer parámetro de digital right del
+
+278
+00:12:58,149 --> 00:13:02,919
+led rojo
+
+279
+00:12:59,528 --> 00:13:08,188
+el led verde y el segundo parámetro será
+
+280
+00:13:02,919 --> 00:13:11,740
+como hicimos antes not digital ruido led
+
+281
+00:13:08,188 --> 00:13:14,169
+verde ya no serán necesarias las líneas
+
+282
+00:13:11,740 --> 00:13:17,409
+siguientes con lo cual las eliminamos
+
+283
+00:13:14,169 --> 00:13:20,378
+vamos entonces a verificar y subir el
+
+284
+00:13:17,409 --> 00:13:22,808
+programa ahora desde la app vamos al
+
+285
+00:13:20,379 --> 00:13:25,720
+icono de las preferencias y tocamos la
+
+286
+00:13:22,808 --> 00:13:29,799
+opción name debajo del título button
+
+287
+00:13:25,720 --> 00:13:32,470
+luego tocamos el botón one y nos abre un
+
+288
+00:13:29,799 --> 00:13:36,008
+diálogo donde permite colocar un nombre
+
+289
+00:13:32,470 --> 00:13:37,120
+al botón número uno por defecto escribe
+
+290
+00:13:36,009 --> 00:13:40,629
+def
+
+291
+00:13:37,120 --> 00:13:44,379
+así que lo borramos y escribimos rojo y
+
+292
+00:13:40,629 --> 00:13:47,199
+luego aceptar luego lo mismo para button
+
+293
+00:13:44,379 --> 00:13:50,860
+to lo seleccionamos y colocamos el
+
+294
+00:13:47,198 --> 00:13:53,469
+nombre verde y aceptar muy bien con el
+
+295
+00:13:50,860 --> 00:13:55,899
+botón de atrás vamos a tocar donde dice
+
+296
+00:13:53,470 --> 00:13:57,550
+command y nos desplazamos hasta
+
+297
+00:13:55,899 --> 00:14:00,909
+seleccionar la opción
+
+298
+00:13:57,549 --> 00:14:03,639
+button one de aquí lo que haremos es
+
+299
+00:14:00,909 --> 00:14:05,049
+establecer el comando que se enviara al
+
+300
+00:14:03,639 --> 00:14:08,259
+presionar el botón
+
+301
+00:14:05,049 --> 00:14:10,479
+uno que ya le pusimos el nombre rojo el
+
+302
+00:14:08,259 --> 00:14:13,269
+comando que deseamos enviar es el
+
+303
+00:14:10,480 --> 00:14:17,830
+carácter del número uno así que borramos
+
+304
+00:14:13,269 --> 00:14:20,169
+def y escribimos el número uno y aceptar
+
+305
+00:14:17,830 --> 00:14:22,839
+los mismos para button to los
+
+306
+00:14:20,169 --> 00:14:25,328
+seleccionamos y cargamos el número dos
+
+307
+00:14:22,839 --> 00:14:27,490
+con el botón de atrás volvemos a las
+
+308
+00:14:25,328 --> 00:14:31,028
+opciones anteriores y sólo nos resta
+
+309
+00:14:27,490 --> 00:14:34,180
+activar la opción que dice line button
+
+310
+00:14:31,028 --> 00:14:37,000
+mode de esta manera en pantalla se
+
+311
+00:14:34,179 --> 00:14:39,539
+mostrarán nueve botones en una matriz de
+
+312
+00:14:37,000 --> 00:14:42,070
+tres por tres nosotros sólo tenemos
+
+313
+00:14:39,539 --> 00:14:44,799
+personalizados por ahora son los dos
+
+314
+00:14:42,070 --> 00:14:47,019
+botones pero ya podrás imaginarte que la
+
+315
+00:14:44,799 --> 00:14:49,750
+idea es que puedas crear todos los que
+
+316
+00:14:47,019 --> 00:14:51,970
+necesites con el botón de atrás volvemos
+
+317
+00:14:49,750 --> 00:14:54,159
+a la pantalla principal de la app y
+
+318
+00:14:51,970 --> 00:14:56,820
+verás que aparecen los nueve botones
+
+319
+00:14:54,159 --> 00:15:00,219
+bien grandes siendo los dos primeros
+
+320
+00:14:56,820 --> 00:15:02,560
+rojo y verde al presionar el botón con
+
+321
+00:15:00,220 --> 00:15:05,170
+el nombre rojo enviaremos de forma
+
+322
+00:15:02,559 --> 00:15:08,049
+automática el número uno y al presionar
+
+323
+00:15:05,169 --> 00:15:10,629
+sobre el botón verde enviaremos el
+
+324
+00:15:08,049 --> 00:15:11,750
+número dos vamos a probarlo presionamos
+
+325
+00:15:10,629 --> 00:15:14,720
+el botón
+
+326
+00:15:11,750 --> 00:15:17,870
+una vez y vemos que se enciende el led
+
+327
+00:15:14,720 --> 00:15:20,090
+rojo y permanece encendido volvemos a
+
+328
+00:15:17,870 --> 00:15:23,149
+presionar el mismo botón y ahora se
+
+329
+00:15:20,090 --> 00:15:25,870
+apaga perfecto esa era la idea lo mismo
+
+330
+00:15:23,149 --> 00:15:29,090
+para el botón verdes presionando una vez
+
+331
+00:15:25,870 --> 00:15:31,909
+encendemos y presionando nuevamente
+
+332
+00:15:29,090 --> 00:15:33,620
+apagamos por supuesto que los leds se
+
+333
+00:15:31,909 --> 00:15:36,079
+pueden controlar de forma totalmente
+
+334
+00:15:33,620 --> 00:15:39,440
+independiente así que podemos por
+
+335
+00:15:36,080 --> 00:15:42,650
+ejemplo encender el rojo luego encender
+
+336
+00:15:39,440 --> 00:15:45,500
+el verde y dejarlos así luego apagar el
+
+337
+00:15:42,649 --> 00:15:48,049
+verde apagar el rojo y todas las
+
+338
+00:15:45,500 --> 00:15:50,480
+combinaciones verás que la app es muy
+
+339
+00:15:48,049 --> 00:15:53,179
+versátil y la y mi preferencia por la
+
+340
+00:15:50,480 --> 00:15:55,700
+misma se pueden crear fácilmente botones
+
+341
+00:15:53,179 --> 00:15:58,219
+que envíen un comando arduino y luego
+
+342
+00:15:55,700 --> 00:16:00,680
+con un simple consultamos por la
+
+343
+00:15:58,220 --> 00:16:03,290
+información recibida y actuamos en
+
+344
+00:16:00,679 --> 00:16:05,689
+consecuencia volvamos al código para un
+
+345
+00:16:03,289 --> 00:16:08,089
+último programa podemos aprovechar que
+
+346
+00:16:05,690 --> 00:16:10,520
+el led verde al estar conectado al pin
+
+347
+00:16:08,090 --> 00:16:13,550
+digital número 3 de arduino tenemos
+
+348
+00:16:10,519 --> 00:16:16,039
+capacidad de w m sobre el mismo es decir
+
+349
+00:16:13,549 --> 00:16:18,469
+que podemos regular el brillo del led
+
+350
+00:16:16,039 --> 00:16:20,870
+modifiquemos un poco el programa
+
+351
+00:16:18,470 --> 00:16:24,259
+de manera tal que si recibimos un número
+
+352
+00:16:20,870 --> 00:16:26,659
+2 desde la app entonces incrementamos el
+
+353
+00:16:24,259 --> 00:16:29,330
+valor de brillo del led verde y si
+
+354
+00:16:26,659 --> 00:16:31,939
+recibimos el número 3 de incrementamos
+
+355
+00:16:29,330 --> 00:16:34,310
+el brillo también es útil para que veas
+
+356
+00:16:31,940 --> 00:16:36,500
+cómo podemos modificar el valor de una
+
+357
+00:16:34,309 --> 00:16:38,269
+variable con distintos comandos
+
+358
+00:16:36,500 --> 00:16:40,879
+recibidos desde el módulo bluetooth
+
+359
+00:16:38,269 --> 00:16:45,019
+borremos primero la línea del digital
+
+360
+00:16:40,879 --> 00:16:47,360
+raid luego del if dato igual 2 antes que
+
+361
+00:16:45,019 --> 00:16:50,269
+nada vamos brevemente a declarar una
+
+362
+00:16:47,360 --> 00:16:53,149
+nueva variable llamada brillo del tipo
+
+363
+00:16:50,269 --> 00:16:56,389
+entera y le cargamos un valor inicial de
+
+364
+00:16:53,149 --> 00:16:59,539
+0 de esa manera iniciamos con el led con
+
+365
+00:16:56,389 --> 00:17:02,960
+brillo 0 o lo que es lo mismo apagado
+
+366
+00:16:59,539 --> 00:17:05,359
+como ya sabemos de cuando aprendimos wm
+
+367
+00:17:02,960 --> 00:17:08,059
+la variable brillo mediante la función
+
+368
+00:17:05,359 --> 00:17:12,109
+al halo write puede tomar valores entre
+
+369
+00:17:08,059 --> 00:17:15,230
+0 y 255 la idea es que cuando con el if
+
+370
+00:17:12,109 --> 00:17:17,179
+detectemos que recibimos el número 2 e
+
+371
+00:17:15,230 --> 00:17:19,819
+incrementamos el valor de la variable
+
+372
+00:17:17,180 --> 00:17:22,310
+brillo lo haremos de a 10 ya que se le
+
+373
+00:17:19,819 --> 00:17:24,730
+incrementamos solo de a 1 necesitaríamos
+
+374
+00:17:22,309 --> 00:17:27,798
+presionar el botón en la app
+
+375
+00:17:24,730 --> 00:17:30,380
+155 veces para irles de brillo cero
+
+376
+00:17:27,798 --> 00:17:32,599
+hasta brillo máximo con lo cual al
+
+377
+00:17:30,380 --> 00:17:35,450
+incrementar that y es sólo con presionar
+
+378
+00:17:32,599 --> 00:17:36,648
+el botón 25 veces tendremos todo el
+
+379
+00:17:35,450 --> 00:17:39,259
+rango completo
+
+380
+00:17:36,648 --> 00:17:41,418
+en este bloque if utilizaremos varias
+
+381
+00:17:39,259 --> 00:17:44,240
+líneas de código así que antes que nada
+
+382
+00:17:41,419 --> 00:17:47,299
+vamos al final de la línea y abramos
+
+383
+00:17:44,240 --> 00:17:49,339
+llaves y luego enter ahora si podemos
+
+384
+00:17:47,298 --> 00:17:51,500
+aquí colocar todo el código que
+
+385
+00:17:49,339 --> 00:17:55,658
+necesitemos será muy sencillo
+
+386
+00:17:51,500 --> 00:18:01,128
+simplemente escribiremos brillo igual
+
+387
+00:17:55,659 --> 00:18:04,250
+brillo + 10 simplemente incrementamos la
+
+388
+00:18:01,128 --> 00:18:06,500
+variable brillo en 10 y la asignamos a
+
+389
+00:18:04,250 --> 00:18:09,250
+sí misma de manera que cada vez que
+
+390
+00:18:06,500 --> 00:18:12,079
+recibimos el número 2 desde la app
+
+391
+00:18:09,250 --> 00:18:14,480
+incrementamos su valor en 10 luego con
+
+392
+00:18:12,079 --> 00:18:17,418
+la siguiente línea escribimos el valor
+
+393
+00:18:14,480 --> 00:18:19,110
+del brillo sobre el es verde analog
+
+394
+00:18:17,419 --> 00:18:23,850
+right
+
+395
+00:18:19,109 --> 00:18:26,669
+verde brillo pero debemos encargarnos de
+
+396
+00:18:23,849 --> 00:18:30,240
+un detalle la variable brillo no puede
+
+397
+00:18:26,670 --> 00:18:32,970
+exceder el valor de 255 si dejamos el
+
+398
+00:18:30,240 --> 00:18:35,519
+código tal cual podríamos pasarnos a
+
+399
+00:18:32,970 --> 00:18:38,548
+dicho valor máximo así que antes del
+
+400
+00:18:35,519 --> 00:18:41,720
+aral o wright hagamos una consulta para
+
+401
+00:18:38,548 --> 00:18:47,400
+ver el valor de brillo y si es mayor a
+
+402
+00:18:41,720 --> 00:18:50,850
+255 le cargamos 255 de esa manera nunca
+
+403
+00:18:47,400 --> 00:19:01,110
+nos pasaremos del valor máximo y brillo
+
+404
+00:18:50,849 --> 00:19:03,869
+mayor 255 brillo igual 255 si iniciamos
+
+405
+00:19:01,109 --> 00:19:06,209
+con un brillo de 0 el led verde se
+
+406
+00:19:03,869 --> 00:19:08,219
+encontrará apagado presionamos el botón
+
+407
+00:19:06,210 --> 00:19:11,069
+para enviar el número 2 desde el
+
+408
+00:19:08,220 --> 00:19:13,650
+teléfono y de esa forma incrementamos el
+
+409
+00:19:11,069 --> 00:19:17,460
+valor del brillo en 10 si el valor de
+
+410
+00:19:13,650 --> 00:19:20,130
+brillo no es mayor a 255 entonces
+
+411
+00:19:17,460 --> 00:19:23,490
+salteamos la sentencia if y escribimos
+
+412
+00:19:20,130 --> 00:19:25,610
+con analog right el valor de 10 así que
+
+413
+00:19:23,490 --> 00:19:27,769
+led ahora tendrá un brillo
+
+414
+00:19:25,609 --> 00:19:30,139
+muy bajo si seguimos presionando el
+
+415
+00:19:27,769 --> 00:19:37,190
+botón iremos incrementando el brillo de
+
+416
+00:19:30,140 --> 00:19:39,350
+10 con 20 30 40 y así hasta 250 si ahora
+
+417
+00:19:37,190 --> 00:19:43,340
+presionamos nuevamente el botón brillo
+
+418
+00:19:39,349 --> 00:19:46,369
+tiene un valor de 260 un valor que no es
+
+419
+00:19:43,339 --> 00:19:49,428
+apto para una salida p w m con lo cual
+
+420
+00:19:46,369 --> 00:19:53,000
+ahora si entramos en el if y cargamos en
+
+421
+00:19:49,429 --> 00:19:55,460
+brillo un valor de 255 si siguiéramos
+
+422
+00:19:53,000 --> 00:19:57,950
+presionando lo veríamos cambio en el
+
+423
+00:19:55,460 --> 00:20:02,360
+valor del brillo ya que quedaría siempre
+
+424
+00:19:57,950 --> 00:20:04,789
+en 255 de la misma manera haremos el
+
+425
+00:20:02,359 --> 00:20:07,279
+proceso de incrementar la variable
+
+426
+00:20:04,789 --> 00:20:09,619
+brillo de a 10 cuando se recibe el
+
+427
+00:20:07,279 --> 00:20:12,470
+carácter con el número 3 y debemos
+
+428
+00:20:09,619 --> 00:20:15,319
+verificar que el valor no sea menor a 0
+
+429
+00:20:12,470 --> 00:20:20,039
+con lo cual todo el bloque quedaría así
+
+430
+00:20:15,319 --> 00:20:28,659
+y dato igual 3
+
+431
+00:20:20,039 --> 00:20:31,259
+brillo igual brillo -10 y brillo menor
+
+432
+00:20:28,660 --> 00:20:38,540
+que cero
+
+433
+00:20:31,259 --> 00:20:41,970
+brillo igual 0 analog right led verde
+
+434
+00:20:38,539 --> 00:20:44,279
+brillo ya con eso tenemos todo el código
+
+435
+00:20:41,970 --> 00:20:47,430
+necesario desde arduino vamos a
+
+436
+00:20:44,279 --> 00:20:50,099
+verificar y subir el programa ahora nos
+
+437
+00:20:47,430 --> 00:20:52,019
+resta configurar la app para este nuevo
+
+438
+00:20:50,099 --> 00:20:54,539
+comportamiento que tendremos para
+
+439
+00:20:52,019 --> 00:20:57,210
+regular el brillo del led verde toquemos
+
+440
+00:20:54,539 --> 00:21:00,899
+sobre el icono de las preferencias vamos
+
+441
+00:20:57,210 --> 00:21:03,960
+a name debajo del título button luego
+
+442
+00:21:00,900 --> 00:21:07,259
+seleccionamos button to verde y
+
+443
+00:21:03,960 --> 00:21:10,230
+cambiamos el nombre agregando un espacio
+
+444
+00:21:07,259 --> 00:21:13,289
+y el símbolo de más y luego aceptar
+
+445
+00:21:10,230 --> 00:21:16,950
+ahora toquemos justo debajo donde dice
+
+446
+00:21:13,289 --> 00:21:20,700
+button free the bowl hemos el de y
+
+447
+00:21:16,950 --> 00:21:24,090
+escribamos verde espacio
+
+448
+00:21:20,700 --> 00:21:26,819
+- y aceptar perfecto sólo un paso más
+
+449
+00:21:24,089 --> 00:21:29,129
+con el botón hacia atrás vamos a tocar
+
+450
+00:21:26,819 --> 00:21:34,169
+donde dice comando y seleccionemos
+
+451
+00:21:29,130 --> 00:21:37,290
+button free de así borramos el dead y
+
+452
+00:21:34,170 --> 00:21:39,810
+escribimos el número 3 y aceptar
+
+453
+00:21:37,289 --> 00:21:42,180
+el botón de hacia atrás dos veces para
+
+454
+00:21:39,809 --> 00:21:44,369
+volver a la pantalla principal y verás
+
+455
+00:21:42,180 --> 00:21:48,539
+que tenemos los tres primeros botones
+
+456
+00:21:44,369 --> 00:21:51,419
+programados rojo verde + y verde menos
+
+457
+00:21:48,539 --> 00:21:54,210
+rojo seguirá siendo lo mismo no lo
+
+458
+00:21:51,420 --> 00:21:56,670
+modificamos enciende y apaga led rojo
+
+459
+00:21:54,210 --> 00:21:59,100
+ahora tocando el botón de verde más
+
+460
+00:21:56,670 --> 00:22:02,460
+iremos incrementando el brillo del led
+
+461
+00:21:59,099 --> 00:22:05,490
+verde deberemos tocarlo un total de 25
+
+462
+00:22:02,460 --> 00:22:08,460
+veces si queremos ir de brillo 0 a bello
+
+463
+00:22:05,490 --> 00:22:11,490
+máximo de forma opuesta el botón de
+
+464
+00:22:08,460 --> 00:22:14,069
+verde - irán incrementando el valor de
+
+465
+00:22:11,490 --> 00:22:16,410
+brillo un detalle que encontrarás útil
+
+466
+00:22:14,069 --> 00:22:19,169
+es que los botones de la app tienen por
+
+467
+00:22:16,410 --> 00:22:21,570
+defecto una función de repetición es
+
+468
+00:22:19,170 --> 00:22:24,080
+decir que si presionas y mantener
+
+469
+00:22:21,569 --> 00:22:26,759
+presionado el botón enviar a el comando
+
+470
+00:22:24,079 --> 00:22:29,069
+correspondiente de forma repetida a
+
+471
+00:22:26,759 --> 00:22:31,619
+intervalos de un segundo ahora si
+
+472
+00:22:29,069 --> 00:22:34,859
+queremos pasar de billo 0 a brillo
+
+473
+00:22:31,619 --> 00:22:37,409
+máximo en vez de presionar 25 veces el
+
+474
+00:22:34,859 --> 00:22:40,349
+botón verde más sólo basta con
+
+475
+00:22:37,410 --> 00:22:43,860
+presionarlo y mantenerlo presionado por
+
+476
+00:22:40,349 --> 00:22:46,469
+25 segundos y hará todo el recorrido
+
+477
+00:22:43,859 --> 00:22:48,779
+función de repetición es muy útil y
+
+478
+00:22:46,470 --> 00:22:51,360
+totalmente programable para cada botón
+
+479
+00:22:48,779 --> 00:22:53,579
+para acceder a la misma vamos al icono
+
+480
+00:22:51,359 --> 00:22:57,149
+de las preferencias y la opción que dice
+
+481
+00:22:53,579 --> 00:23:00,058
+repeat a ver ahí verás que el intervalo
+
+482
+00:22:57,150 --> 00:23:03,269
+que está medido en milisegundos dice
+
+483
+00:23:00,058 --> 00:23:05,519
+1000 y ese es el valor por defecto un
+
+484
+00:23:03,269 --> 00:23:08,339
+segundo podemos desactivar esta función
+
+485
+00:23:05,519 --> 00:23:10,759
+de repetición de forma independiente
+
+486
+00:23:08,339 --> 00:23:13,678
+para cada botón por ejemplo podemos
+
+487
+00:23:10,759 --> 00:23:16,259
+desactivarla sobre el botón 1 de esta
+
+488
+00:23:13,679 --> 00:23:19,350
+forma podemos también habilitar la
+
+489
+00:23:16,259 --> 00:23:21,750
+opción de individual intervalos de esta
+
+490
+00:23:19,349 --> 00:23:24,029
+manera para cada botón de forma
+
+491
+00:23:21,750 --> 00:23:26,579
+independiente podemos seleccionar el
+
+492
+00:23:24,029 --> 00:23:29,428
+intervalo de repetición por ejemplo si
+
+493
+00:23:26,579 --> 00:23:32,220
+queremos que para nuestros botones 2 y 3
+
+494
+00:23:29,429 --> 00:23:34,860
+que regulan el brillo del led verde lo
+
+495
+00:23:32,220 --> 00:23:37,230
+haga de forma más rápida si mantenemos
+
+496
+00:23:34,859 --> 00:23:39,629
+presionado el botón sólo es cuestión de
+
+497
+00:23:37,230 --> 00:23:43,009
+bajar el intervalo de repetición por
+
+498
+00:23:39,630 --> 00:23:48,000
+ejemplo a 500 milisegundos tocando sobre
+
+499
+00:23:43,009 --> 00:23:50,490
+intervalo podemos borrar y colocar 500 y
+
+500
+00:23:48,000 --> 00:23:54,029
+aceptar lo mismo para el botón
+
+501
+00:23:50,490 --> 00:23:56,490
+es con intervalo frío a 500 milisegundos
+
+502
+00:23:54,029 --> 00:23:58,859
+si ahora volvemos a la pantalla
+
+503
+00:23:56,490 --> 00:24:01,859
+principal y presionando sobre el botón
+
+504
+00:23:58,859 --> 00:24:04,649
+verde + o verde - veremos que el
+
+505
+00:24:01,859 --> 00:24:07,919
+incremento o decremento del brillo se
+
+506
+00:24:04,650 --> 00:24:10,170
+realiza al doble de velocidad la idea es
+
+507
+00:24:07,920 --> 00:24:12,660
+que juegues un poco con todas estas
+
+508
+00:24:10,170 --> 00:24:15,300
+opciones que brinda la podrás también
+
+509
+00:24:12,660 --> 00:24:17,880
+definir el tamaño de los botones textos
+
+510
+00:24:15,299 --> 00:24:20,039
+prevenir que se bloquee la pantalla y
+
+511
+00:24:17,880 --> 00:24:21,900
+muchas otras funciones de utilidad con
+
+512
+00:24:20,039 --> 00:24:24,779
+lo visto en este capítulo puedes
+
+513
+00:24:21,900 --> 00:24:26,840
+utilizar el código y configuración de la
+
+514
+00:24:24,779 --> 00:24:29,879
+app para realizar tus propios proyectos
+
+515
+00:24:26,839 --> 00:24:32,730
+creando botones que envíen un carácter
+
+516
+00:24:29,880 --> 00:24:35,550
+específico y luego generar una acción
+
+517
+00:24:32,730 --> 00:24:38,099
+mediante una simple consulta con un if
+
+518
+00:24:35,549 --> 00:24:40,649
+de la misma forma que encendemos un led
+
+519
+00:24:38,099 --> 00:24:43,439
+por supuesto que podrás accionar un relé
+
+520
+00:24:40,650 --> 00:24:46,350
+y con el mismo activar prácticamente
+
+521
+00:24:43,440 --> 00:24:48,779
+cualquier circuito externo de tensión de
+
+522
+00:24:46,349 --> 00:24:52,199
+red podrás controlar motores mediante el
+
+523
+00:24:48,779 --> 00:24:54,420
+módulo el 298 n o el giro de un
+
+524
+00:24:52,200 --> 00:24:57,480
+servomotor eso es todo por este capítulo
+
+525
+00:24:54,420 --> 00:24:59,910
+como siempre te pido te suscribas para
+
+526
+00:24:57,480 --> 00:25:02,610
+recibir notificaciones y por cualquier
+
+527
+00:24:59,910 --> 00:25:05,669
+duda o comentario lo podéis hacer debajo
+
+528
+00:25:02,609 --> 00:25:08,000
+que con gusto te responderé chao y hasta
+
+529
+00:25:05,669 --> 00:25:08,000
+la próxima
+

@@ -1,0 +1,25 @@
+Continuaremos trabajando con Arduino y el módulo Bluetooth HC-05 instalando una App en el teléfono móvíl y mediante la misma activando distintos LEDs.
+Se explicará como instalar una App en Android y como configurarla para que mediante simples botones virtuales se puedan encender, apagar LEDs y modificar su brillo mediante PWM.
+
+Recomendable ver Capítulo 24 (Introducción) en: https://www.youtube.com/watch?v=5SmKOUHhmWk
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoBluetooth
+#ArduinoAppBluetooth
+#ArduinoHC-05
+HC-05 Bluetooth Arduino
+Bluetooth App Android
+Control remoto Bluetooth Arduino
+Control LED Bluetooth Arduino
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+0:44 Circuito de conexión
+1:50 Instalación App
+3:10 Primer programa (activandos LEDs desde App)
+11:10 Segundo programa (personalizando la App)
+16:04 Tercer Programa (LED PWM)
+22:57 Prefencias de la App y despedida

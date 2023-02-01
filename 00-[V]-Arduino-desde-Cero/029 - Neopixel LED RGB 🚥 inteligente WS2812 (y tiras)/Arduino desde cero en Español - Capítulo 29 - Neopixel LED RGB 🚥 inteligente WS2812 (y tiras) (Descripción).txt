@@ -1,0 +1,31 @@
+Veremos el Neopixel, un LED RGB inteligente que incorpora un microchip y permite el encadenado para formar tiras y matrices, de fácil conexión a Arduino mediante una única línea de datos. Descargaremos una librería para facilitar su control y asi poder establecer las características individuales de cada elemento (pixel), el color y brillo.
+Se explicará en detalle el modelo WS2812, como encadenar múltiples de ellos, programarlo y hacer el cálculo de consumo de corriente para tiras de 30 y 60 elementos.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoNeopixel
+#ArduinoRGBinteligente
+#ArduinoTiraRGB
+#WS2812
+#LEDneopixel
+Individually Addressable LED
+Neopixel programming
+tiras led pixel
+Led lights
+Led matrix
+Led rgb direccionable
+
+
+Marcas de tiempo:
+0:00 Introducción a Neopixel
+3:36 Encadenando pixeles
+5:33 Circuito de conexión
+7:14 Instalación librería Adafruit Neopixel
+8:24 Primer programa (detalle de funciones)
+17:42 Segundo programa (encendiendo pixeles y colores)
+19:05 Tercer programa
+21:10 Consumos
+24:38 Tiras y cálculos de consumo
+27:46 Encadenando tiras para matrices

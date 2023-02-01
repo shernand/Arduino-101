@@ -1,0 +1,25 @@
+Aprenderemos a utilizar el módulo Bluetooth HC-05 con Arduino y vincularlo a un teléfono móvil o dispositivo compatible.
+Se explicará como ingresar al modo de configuración del módulo (mediante el pulsador integrado) y mediante comandos AT establecer diferentes parámetros, luego se podrá vincular el módulo con un teléfono móvil.
+
+Sentará las bases para en un próximo capítulo, instalar una App en el teléfono y enviar datos a Arduino para tomar distintas acciones.
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoBluetooth
+#ArduinoComandosAT
+#ArduinoHC-05
+Arduino Bluetooth HC-05
+Arduino Bluetooth maestro esclavo
+HC-05 AT commands
+HC-05 Bluetooth module
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+1:10 Características del HC-05
+4:04 Comandos AT (listado)
+8:55 Circuito de conexión
+9:32 Primer programa (comunicando con el módulo)
+16:27 Modo configuración (ingreso)
+26:00 Próximo capítulo y despedida

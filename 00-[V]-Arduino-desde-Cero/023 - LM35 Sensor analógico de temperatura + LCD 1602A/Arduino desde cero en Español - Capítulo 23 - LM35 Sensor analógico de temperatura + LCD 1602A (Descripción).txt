@@ -1,0 +1,29 @@
+Veremos el sensor de temperatura analógico LM35 para mostrar el valor de temperatura en una pantalla LCD 1602A y hacer un sistema que no requiera conexión por cable USB para el monitor serie de Arduino.
+
+Se explicará el proceso de conversión de la salida analógica del sensor LM35 para obtener un valor en grados centígrados, también se introducirá el concepto de multiples lecturas para obtener un promedio de las mismas y asi evitar variaciones indeseables.
+
+Recomendable ver Capítulo 10 (módulo LCD):
+https://www.youtube.com/watch?v=JEZiHQY-JPI
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoLM35
+#ArduinoLCD
+#ArduinoDisplay
+Arduino LM35 temperature sensor
+Arduino LM35 codigo
+LM35 sensor de temperatura
+LM35 Arduino LCD
+LM35 acondicionamiento señal
+Arduino proyectos desde cero
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+3:39 Cálculos LM35 (voltaje proporcional a temperaura)
+5:55 Circuito de conexión
+6:23 Primer programa (lectura de temperatura)
+10:11 Segundo programa (promediando valores)
+13:25 Circuito de conexión incorporando LCD
+15:10 Tercer programa (mostrando valores por pantalla)

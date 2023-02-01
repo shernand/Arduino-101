@@ -1,0 +1,29 @@
+Continuaremos con el módulo L298N para hacer desplazar un vehiculo tipo rover (con dos motores) y complementar lo iniciado en el capítulo anterior 19 donde se introdujo el concepto del controlador (driver) de motor DC, forma de conexión y control.
+Se establecerá una ruta para que realice el rover y veremos como utilizar funciones para que de forma sencilla realice el trabajo y luego sea facilmente reutilizable el código para otros proyectos.
+
+Mediante simples comandos para detener un motor y hacer avanzar el otro es posible realizar giros a derecha e izquierda.
+
+Recomendable ver Capítulo 19: https://youtu.be/63aitq3KTaI
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoMotor
+#ArduinoL298N
+#ArduinoRover
+#ControlMotor
+#Rover2WD
+Doble puente H
+Dual H bridge
+Puente h l298n arduino
+diy arduino rover
+L298n controlador de motores dc 
+
+Marcas de tiempo:
+0:00 Introducción
+2:24 Circuito de conexión
+3:35 Primer programa (verificando funcionamiento de motores)
+6:14 Planeamiento de ruta (cómo girar deteniendo un motor)
+8:14 Segundo programa (siguiendo ruta programada)
+17:27 Verificando funcionamiento en la vida real

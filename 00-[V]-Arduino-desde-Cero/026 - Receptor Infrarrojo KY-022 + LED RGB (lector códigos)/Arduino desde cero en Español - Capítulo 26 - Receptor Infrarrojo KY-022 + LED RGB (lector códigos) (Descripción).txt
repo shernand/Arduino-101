@@ -1,0 +1,28 @@
+Analizaremos la comunicación por infrarrojo con el módulo KY-022 para comandar un LED RGB, todo conectado a Arduino, mediante un control remoto convencional.
+Se explicará el concepto de la comunicación mediante luz infrarroja y como obtener el código asociado a cada botón (decodificado) del control remoto para tomar distintas acciones.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+* Para versión 3 en adelante de librería usar los códigos:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/blob/master/Capitulo26/Capitulo26-Programa1-nuevo.txt
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/blob/master/Capitulo26/Capitulo26-Programa2-nuevo.txt
+
+#ArduinoInfrarrojo
+#ArduinoIR
+#ArduinoKit37en1
+IRremote
+Modulo KY-022
+vs 1838B
+tsop 1838
+
+Marcas de tiempo:
+0:00 Introducción y Características del módulo
+3:12 Codificación (comunicación infrarroja)
+8:19 Circuito de conexión
+8:50 Primer programa (visualización del código recibido)
+9:29 Instalación de librería
+17:25 Segundo programa (guardar códigos leídos)
+20:37 Circuito de conexión (incorporando LED RGB)
+22:05 Tercer programa (activando LED RGB)

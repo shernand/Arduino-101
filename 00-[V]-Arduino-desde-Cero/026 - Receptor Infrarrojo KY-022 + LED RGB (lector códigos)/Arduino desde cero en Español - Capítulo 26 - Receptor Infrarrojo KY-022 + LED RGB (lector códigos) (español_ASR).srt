@@ -1,0 +1,2412 @@
+1
+00:00:01,629 --> 00:00:07,780
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,509 --> 00:00:09,820
+26 de arduino desde cero en español
+
+3
+00:00:07,780 --> 00:00:11,800
+en esta oportunidad aprenderemos a
+
+4
+00:00:09,820 --> 00:00:15,400
+trabajar con el módulo receptor
+
+5
+00:00:11,800 --> 00:00:18,310
+infrarrojo modelo kai 22 que forma parte
+
+6
+00:00:15,400 --> 00:00:20,230
+del kit de sensores 37 en 1 como se
+
+7
+00:00:18,309 --> 00:00:22,719
+muestra en la imagen el módulo está
+
+8
+00:00:20,230 --> 00:00:25,088
+constituido por el sensor receptor
+
+9
+00:00:22,719 --> 00:00:27,668
+infrarrojo montado sobre una placa de
+
+10
+00:00:25,088 --> 00:00:30,068
+circuito impreso y un pequeño led para
+
+11
+00:00:27,669 --> 00:00:32,829
+indicación de actividad y tres pines de
+
+12
+00:00:30,068 --> 00:00:38,170
+conexión 2 de alimentación y uno de
+
+13
+00:00:32,829 --> 00:00:40,840
+señal el modelo del sensor es el bc 1838
+
+14
+00:00:38,170 --> 00:00:43,240
+ve que aquí vemos representado mediante
+
+15
+00:00:40,840 --> 00:00:45,820
+una vista frontal con sus tres pines de
+
+16
+00:00:43,240 --> 00:00:48,219
+conexión como ya dijimos el módulo
+
+17
+00:00:45,820 --> 00:00:50,829
+tendrá este sensor como componente
+
+18
+00:00:48,219 --> 00:00:53,289
+principal y si bien parece un componente
+
+19
+00:00:50,829 --> 00:00:55,899
+sencillo en realidad se trata de un
+
+20
+00:00:53,289 --> 00:00:58,539
+completo circuito integrado que incluye
+
+21
+00:00:55,899 --> 00:01:01,329
+un diodo fotosensible para recibir la
+
+22
+00:00:58,539 --> 00:01:03,579
+radiación infrarroja de un emisor y una
+
+23
+00:01:01,329 --> 00:01:06,099
+serie de circuitos para adecuar la señal
+
+24
+00:01:03,579 --> 00:01:08,319
+recibida y brindar en su pin de salida
+
+25
+00:01:06,099 --> 00:01:11,649
+out información digital que
+
+26
+00:01:08,319 --> 00:01:14,469
+puede ser procesada este sensor recibirá
+
+27
+00:01:11,650 --> 00:01:16,930
+información de forma de luz infrarroja
+
+28
+00:01:14,469 --> 00:01:19,420
+invisible al ojo humano por parte del
+
+29
+00:01:16,930 --> 00:01:21,820
+emisor que será un control remoto o
+
+30
+00:01:19,420 --> 00:01:24,478
+mando a distancia como los usados en
+
+31
+00:01:21,819 --> 00:01:26,609
+televisores reproductores de música
+
+32
+00:01:24,478 --> 00:01:29,500
+decodificadores de televisión por cable
+
+33
+00:01:26,609 --> 00:01:31,390
+etcétera el típico control remoto que
+
+34
+00:01:29,500 --> 00:01:33,849
+tenemos para comandar a distancia
+
+35
+00:01:31,390 --> 00:01:35,909
+distintos dispositivos la luz infrarroja
+
+36
+00:01:33,849 --> 00:01:38,709
+es un tipo de radiación electromagnética
+
+37
+00:01:35,909 --> 00:01:41,079
+con una longitud de onda que la hace
+
+38
+00:01:38,709 --> 00:01:43,478
+invisible al ojo humano fue generada
+
+39
+00:01:41,079 --> 00:01:46,239
+prácticamente por cualquier cuerpo y
+
+40
+00:01:43,478 --> 00:01:48,039
+produzca calor de forma natural el sol
+
+41
+00:01:46,239 --> 00:01:50,709
+será la fuente de radiación infrarroja
+
+42
+00:01:48,039 --> 00:01:53,200
+pero también por ejemplo las luces
+
+43
+00:01:50,709 --> 00:01:55,839
+incandescentes que además de generar luz
+
+44
+00:01:53,200 --> 00:01:57,789
+visible generan infrarrojo debido a la
+
+45
+00:01:55,840 --> 00:02:00,340
+temperatura de hecho a nuestro cuerpo
+
+46
+00:01:57,789 --> 00:02:02,109
+también genera radiación infrarroja y
+
+47
+00:02:00,340 --> 00:02:04,240
+puede ser captada por sensores
+
+48
+00:02:02,109 --> 00:02:07,179
+especializados cómo hacer el ya
+
+49
+00:02:04,239 --> 00:02:09,459
+analizado sensor pir del capítulo 11
+
+50
+00:02:07,179 --> 00:02:11,979
+esto significa que el sensor infrarrojo
+
+51
+00:02:09,459 --> 00:02:14,469
+debe ser capaz de separar la luz
+
+52
+00:02:11,979 --> 00:02:17,530
+infrarroja generada por el control
+
+53
+00:02:14,469 --> 00:02:19,090
+del resto de radiación del ambiente y de
+
+54
+00:02:17,530 --> 00:02:21,340
+ahí la necesidad de los múltiples
+
+55
+00:02:19,090 --> 00:02:23,500
+circuitos de filtrado que incorpora el
+
+56
+00:02:21,340 --> 00:02:25,569
+sensor un pequeño truco para hacer
+
+57
+00:02:23,500 --> 00:02:27,460
+visible la luz que genera un control
+
+58
+00:02:25,569 --> 00:02:30,430
+remoto es tomar la cámara de nuestro
+
+59
+00:02:27,460 --> 00:02:32,530
+teléfono móvil y apuntarlo al frente del
+
+60
+00:02:30,430 --> 00:02:34,629
+mismo y presionar alguno de sus botones
+
+61
+00:02:32,530 --> 00:02:37,719
+verás que se generan una serie de
+
+62
+00:02:34,629 --> 00:02:40,120
+destellos de color violeta saliendo del
+
+63
+00:02:37,719 --> 00:02:42,099
+diodo emisor del control existen varios
+
+64
+00:02:40,120 --> 00:02:44,620
+fabricantes de sensores receptores
+
+65
+00:02:42,099 --> 00:02:49,269
+infrarrojo nuestro módulo calle 22
+
+66
+00:02:44,620 --> 00:02:53,650
+utiliza el bs 1838 ve pero otro sensor
+
+67
+00:02:49,270 --> 00:02:56,080
+ampliamente usado es el ts o p 1 838
+
+68
+00:02:53,650 --> 00:02:58,689
+como el mostrado en esta parte de la
+
+69
+00:02:56,080 --> 00:03:02,440
+imagen este sensor carece de la jaula
+
+70
+00:02:58,689 --> 00:03:05,109
+metálica que recubre parte del bs 1838
+
+71
+00:03:02,439 --> 00:03:07,599
+ve y que tiene como fin aislar el sensor
+
+72
+00:03:05,110 --> 00:03:09,610
+de otras fuentes de radiación y no sea
+
+73
+00:03:07,599 --> 00:03:11,620
+la infrarroja veamos ahora cómo se
+
+74
+00:03:09,610 --> 00:03:14,140
+genera el proceso de comunicación por
+
+75
+00:03:11,620 --> 00:03:16,509
+infrarrojo una forma efectiva de aislar
+
+76
+00:03:14,139 --> 00:03:18,909
+la luz generada del control remoto de
+
+77
+00:03:16,509 --> 00:03:20,829
+otras fuentes de radiación infrarroja es
+
+78
+00:03:18,909 --> 00:03:23,500
+mediante la modulación de una señal
+
+79
+00:03:20,830 --> 00:03:26,680
+portadora este sensor funciona con una
+
+80
+00:03:23,500 --> 00:03:28,509
+señal de portadora de 38 kilos ers y es
+
+81
+00:03:26,680 --> 00:03:30,849
+el estándar para la mayoría de los
+
+82
+00:03:28,509 --> 00:03:32,799
+controles remotos el concepto de señal
+
+83
+00:03:30,849 --> 00:03:35,489
+portadora es más fácil de entender
+
+84
+00:03:32,800 --> 00:03:37,870
+haciendo un paralelo con radiofrecuencia
+
+85
+00:03:35,490 --> 00:03:39,909
+supongamos que tenemos un receptor de
+
+86
+00:03:37,870 --> 00:03:42,640
+radio y queremos escuchar a la emisora
+
+87
+00:03:39,909 --> 00:03:44,889
+de fm y ópera a 100 megahertz
+
+88
+00:03:42,639 --> 00:03:47,409
+lo que hacemos es sintonizar el receptor
+
+89
+00:03:44,889 --> 00:03:49,989
+justamente a dicha frecuencia 100
+
+90
+00:03:47,409 --> 00:03:52,659
+megahertz es la frecuencia de la señal
+
+91
+00:03:49,990 --> 00:03:54,909
+portadora nuestro receptor puede captar
+
+92
+00:03:52,659 --> 00:03:56,979
+multitud de señales pero para escuchar
+
+93
+00:03:54,909 --> 00:03:59,770
+una emisora en particular debemos
+
+94
+00:03:56,979 --> 00:04:02,049
+sintonizar exactamente una frecuencia
+
+95
+00:03:59,770 --> 00:04:04,209
+específica de la misma manera nuestro
+
+96
+00:04:02,050 --> 00:04:06,760
+sensor infrarrojo está diseñado para
+
+97
+00:04:04,209 --> 00:04:08,949
+sintonizar señales en el espectro
+
+98
+00:04:06,759 --> 00:04:11,919
+infrarrojo de 38 kilos hertz y
+
+99
+00:04:08,949 --> 00:04:14,219
+desestimar cualquier otra señal en otra
+
+100
+00:04:11,919 --> 00:04:17,108
+frecuencia entonces ahora que tenemos
+
+101
+00:04:14,219 --> 00:04:19,930
+sintonizado nuestro receptor infrarrojo
+
+102
+00:04:17,108 --> 00:04:21,879
+debemos modular la señal portadora del
+
+103
+00:04:19,930 --> 00:04:24,610
+control remoto para transmitir
+
+104
+00:04:21,879 --> 00:04:26,949
+información que eso se hace modificando
+
+105
+00:04:24,610 --> 00:04:29,139
+la duración en que se transmite
+
+106
+00:04:26,949 --> 00:04:31,180
+ahora y lo vemos representado en este
+
+107
+00:04:29,139 --> 00:04:33,909
+gráfico las barras de color azul
+
+108
+00:04:31,180 --> 00:04:35,590
+representan la señal portadora de 38
+
+109
+00:04:33,910 --> 00:04:37,960
+kilos hertz es decir que el control
+
+110
+00:04:35,589 --> 00:04:41,199
+remoto está haciendo encender y apagar
+
+111
+00:04:37,959 --> 00:04:43,389
+el diodo emisor a 38 mil ciclos por
+
+112
+00:04:41,199 --> 00:04:45,399
+segundo cada vez que enviamos la señal
+
+113
+00:04:43,389 --> 00:04:48,250
+portadora por un determinado tiempo
+
+114
+00:04:45,399 --> 00:04:50,469
+decimos que enviamos una ráfaga ya que
+
+115
+00:04:48,250 --> 00:04:53,079
+de hecho eso es lo que hacemos enviar
+
+116
+00:04:50,470 --> 00:04:56,020
+ráfagas de la portadora con distinta
+
+117
+00:04:53,079 --> 00:04:59,109
+duración para representar un uno lógico
+
+118
+00:04:56,019 --> 00:05:02,379
+o un 0 lógico en esta parte del gráfico
+
+119
+00:04:59,110 --> 00:05:04,629
+vemos una ráfaga con una duración de 12
+
+120
+00:05:02,379 --> 00:05:07,420
+milisegundos seguido de un espacio en
+
+121
+00:05:04,629 --> 00:05:09,610
+blanco de 0,6 milisegundos cuando
+
+122
+00:05:07,420 --> 00:05:12,520
+decimos espacio en blanco significa que
+
+123
+00:05:09,610 --> 00:05:16,300
+no enviamos nada básicamente el emisor
+
+124
+00:05:12,519 --> 00:05:18,759
+está apagado esos 0,6 milisegundos son
+
+125
+00:05:16,300 --> 00:05:20,860
+el espacio entre ráfaga y ráfaga y
+
+126
+00:05:18,759 --> 00:05:24,279
+permite separar cada bit de información
+
+127
+00:05:20,860 --> 00:05:26,830
+que se envía un uno lógico será una
+
+128
+00:05:24,279 --> 00:05:28,299
+ráfaga con una duración de 12
+
+129
+00:05:26,829 --> 00:05:32,198
+milisegundos mientra
+
+130
+00:05:28,300 --> 00:05:35,050
+pero lógico será una ráfaga de 06
+
+131
+00:05:32,199 --> 00:05:38,139
+milisegundos cada ráfaga es separada por
+
+132
+00:05:35,050 --> 00:05:40,449
+un tiempo fijo de 06 milisegundos
+
+133
+00:05:38,139 --> 00:05:42,098
+entonces de esa manera podemos enviar
+
+134
+00:05:40,449 --> 00:05:44,830
+información desde el control remoto
+
+135
+00:05:42,098 --> 00:05:46,959
+hacia nuestro sensor infrarrojo pero el
+
+136
+00:05:44,829 --> 00:05:49,658
+control remoto tiene multitud de botones
+
+137
+00:05:46,959 --> 00:05:52,180
+y cada uno de ellos debe enviar un
+
+138
+00:05:49,658 --> 00:05:54,759
+código único para que luego desde la
+
+139
+00:05:52,180 --> 00:05:56,769
+parte receptora se lo puede identificar
+
+140
+00:05:54,759 --> 00:05:58,930
+y tomar la acción que corresponda
+
+141
+00:05:56,769 --> 00:06:01,389
+entonces surge la necesidad de
+
+142
+00:05:58,930 --> 00:06:03,610
+establecer un protocolo una forma de
+
+143
+00:06:01,389 --> 00:06:05,978
+enviar el código correspondiente a cada
+
+144
+00:06:03,610 --> 00:06:08,288
+botón del control existen distintos
+
+145
+00:06:05,978 --> 00:06:10,120
+protocolos de comunicación dependiendo
+
+146
+00:06:08,288 --> 00:06:12,128
+del fabricante del dispositivo que
+
+147
+00:06:10,120 --> 00:06:14,319
+deseamos controlar en pantalla se
+
+148
+00:06:12,129 --> 00:06:17,560
+muestra uno de ellos que es el llamado
+
+149
+00:06:14,319 --> 00:06:19,539
+cirque y en su variante de 12 bits ya
+
+150
+00:06:17,560 --> 00:06:21,610
+que si fuera poco tener múltiples
+
+151
+00:06:19,538 --> 00:06:24,339
+protocolos también existen múltiples
+
+152
+00:06:21,610 --> 00:06:26,889
+longitudes de datos en el gráfico para
+
+153
+00:06:24,339 --> 00:06:29,318
+simplificar el medio y dibujar una serie
+
+154
+00:06:26,889 --> 00:06:31,329
+de barras azules como las vistas recién
+
+155
+00:06:29,319 --> 00:06:34,060
+de la señal portadora se mostrará
+
+156
+00:06:31,329 --> 00:06:35,139
+directamente un rectángulo sólido ya que
+
+157
+00:06:34,060 --> 00:06:37,360
+lo que nos interesa
+
+158
+00:06:35,139 --> 00:06:40,389
+es el ancho del mismo en este protocolo
+
+159
+00:06:37,360 --> 00:06:43,210
+silk de 12 bits se enviarán una serie de
+
+160
+00:06:40,389 --> 00:06:46,478
+unos y ceros hasta completar un total de
+
+161
+00:06:43,209 --> 00:06:49,149
+12 bits los primeros 7 corresponderán al
+
+162
+00:06:46,478 --> 00:06:51,278
+comando y los siguientes 5 a la
+
+163
+00:06:49,149 --> 00:06:53,378
+dirección pero antes de enviar los 12
+
+164
+00:06:51,278 --> 00:06:55,629
+bits desde el control remoto debemos
+
+165
+00:06:53,379 --> 00:06:57,939
+hacerle saber al receptor y estamos
+
+166
+00:06:55,629 --> 00:07:01,210
+listos para enviarle datos lo hacemos
+
+167
+00:06:57,939 --> 00:07:03,849
+enviando una ráfaga larga de 24
+
+168
+00:07:01,209 --> 00:07:06,248
+milisegundos al inicio esta ráfaga le
+
+169
+00:07:03,848 --> 00:07:08,829
+indica al receptor que a continuación le
+
+170
+00:07:06,249 --> 00:07:10,629
+estaremos enviando los datos del comando
+
+171
+00:07:08,829 --> 00:07:13,300
+y la dirección cada vez que nos
+
+172
+00:07:10,629 --> 00:07:17,050
+encontremos con una barra azul ancha de
+
+173
+00:07:13,300 --> 00:07:19,060
+12 milisegundos es un uno lógico cada
+
+174
+00:07:17,050 --> 00:07:21,610
+vez que nos encontremos con una barra de
+
+175
+00:07:19,060 --> 00:07:24,189
+la mitad de esa duración será un cero
+
+176
+00:07:21,610 --> 00:07:27,819
+lógico y como ya vimos en la separación
+
+177
+00:07:24,189 --> 00:07:30,009
+entre bits es un espacio en blanco de 06
+
+178
+00:07:27,819 --> 00:07:32,110
+milisegundos por eso comenzando de
+
+179
+00:07:30,009 --> 00:07:35,288
+izquierda a derecha tenemos una ráfaga
+
+180
+00:07:32,110 --> 00:07:36,300
+especial que indica el comienzo luego 7
+
+181
+00:07:35,288 --> 00:07:39,509
+ráfagas para
+
+182
+00:07:36,300 --> 00:07:42,270
+representar los 7 bits del comando sobre
+
+183
+00:07:39,509 --> 00:07:45,060
+cada ráfaga está anotado el nivel lógico
+
+184
+00:07:42,269 --> 00:07:48,060
+que le corresponde y finalmente 5
+
+185
+00:07:45,060 --> 00:07:50,069
+ráfagas para representar los 5 bits de
+
+186
+00:07:48,060 --> 00:07:52,949
+la dirección que también tienen sus
+
+187
+00:07:50,069 --> 00:07:55,348
+respectivos niveles lógicos de esa forma
+
+188
+00:07:52,949 --> 00:07:57,629
+logramos enviar el identificador que es
+
+189
+00:07:55,348 --> 00:08:00,418
+único para cada botón en el control
+
+190
+00:07:57,629 --> 00:08:02,520
+remoto como verás el proceso seguramente
+
+191
+00:08:00,418 --> 00:08:04,529
+es más complicado del que supondría por
+
+192
+00:08:02,519 --> 00:08:06,959
+suerte en arduino lo solucionamos
+
+193
+00:08:04,529 --> 00:08:09,388
+fácilmente con el uso de una librería
+
+194
+00:08:06,959 --> 00:08:11,908
+especial que se encarga de manejar los
+
+195
+00:08:09,389 --> 00:08:14,400
+distintos protocolos y con sólo unas
+
+196
+00:08:11,908 --> 00:08:17,189
+pocas líneas podemos obtener el código
+
+197
+00:08:14,399 --> 00:08:19,649
+de cada tecla antes que nada vamos al
+
+198
+00:08:17,189 --> 00:08:23,098
+circuito de conexión entre arduino y el
+
+199
+00:08:19,649 --> 00:08:25,348
+módulo kai 22 vamos a colocar el módulo
+
+200
+00:08:23,098 --> 00:08:28,019
+sobre protoboard y del pin de la
+
+201
+00:08:25,348 --> 00:08:30,899
+izquierda con el signo menos vamos con
+
+202
+00:08:28,019 --> 00:08:33,629
+un cable a masa del riel de tensión del
+
+203
+00:08:30,899 --> 00:08:35,879
+pin del medio con un cable al positivo
+
+204
+00:08:33,629 --> 00:08:38,219
+del riel de tensión y del pin de la
+
+205
+00:08:35,879 --> 00:08:40,889
+derecha con un cable directo al pin
+
+206
+00:08:38,219 --> 00:08:42,209
+digital número 11 de arduino como
+
+207
+00:08:40,889 --> 00:08:45,269
+siempre alguien
+
+208
+00:08:42,208 --> 00:08:48,208
+protoboard con 5 volts y genere de
+
+209
+00:08:45,269 --> 00:08:50,428
+arduino y eso es todo por ahora la idea
+
+210
+00:08:48,208 --> 00:08:53,008
+de este primer programa es mostrar en el
+
+211
+00:08:50,428 --> 00:08:55,259
+monitor serial el código correspondiente
+
+212
+00:08:53,009 --> 00:08:57,419
+al botón presionado en un control remoto
+
+213
+00:08:55,259 --> 00:08:59,909
+para verificar que todo se encuentra
+
+214
+00:08:57,419 --> 00:09:02,248
+correctamente conectado y configurado
+
+215
+00:08:59,909 --> 00:09:04,708
+luego definiremos tres botones que los
+
+216
+00:09:02,249 --> 00:09:08,490
+utilizaremos en un segundo programa para
+
+217
+00:09:04,708 --> 00:09:10,289
+encender y apagar un led rgb en pantalla
+
+218
+00:09:08,490 --> 00:09:12,448
+para ahorrar tiempo de mostrar la
+
+219
+00:09:10,289 --> 00:09:15,568
+totalidad del código y como siempre
+
+220
+00:09:12,448 --> 00:09:18,328
+iremos explicando línea por línea ya de
+
+221
+00:09:15,568 --> 00:09:21,269
+por si se puede apreciar que con muy
+
+222
+00:09:18,328 --> 00:09:23,549
+pocas líneas lograremos el objetivo para
+
+223
+00:09:21,269 --> 00:09:26,100
+hacernos la vida más fácil y olvidarnos
+
+224
+00:09:23,549 --> 00:09:28,438
+sobre protocolos de comunicación y otras
+
+225
+00:09:26,100 --> 00:09:30,659
+cuestiones vamos a descargar una
+
+226
+00:09:28,438 --> 00:09:32,730
+librería lo haremos de la misma forma
+
+227
+00:09:30,659 --> 00:09:36,028
+que en otros capítulos yendo al menú
+
+228
+00:09:32,730 --> 00:09:39,360
+programa incluir librería y luego
+
+229
+00:09:36,028 --> 00:09:41,820
+gestionar librerías así en el campo de
+
+230
+00:09:39,360 --> 00:09:45,720
+búsqueda escribiremos
+
+231
+00:09:41,820 --> 00:09:48,330
+r remote tal cual y sin espacios y esto
+
+232
+00:09:45,720 --> 00:09:50,759
+nos devolverá una serie de resultados la
+
+233
+00:09:48,330 --> 00:09:51,720
+librería que queremos instalar es la que
+
+234
+00:09:50,759 --> 00:09:55,169
+dice
+
+235
+00:09:51,720 --> 00:09:57,840
+remote by your y que es el nombre del
+
+236
+00:09:55,169 --> 00:09:59,759
+desarrollador la seleccionamos y luego
+
+237
+00:09:57,840 --> 00:10:02,040
+el botón instalar yo ya la tengo
+
+238
+00:09:59,759 --> 00:10:04,049
+instalada por eso no me aparece
+
+239
+00:10:02,039 --> 00:10:06,689
+habilitado el botón pero en tu caso lo
+
+240
+00:10:04,049 --> 00:10:09,269
+estará luego de unos segundos descarga e
+
+241
+00:10:06,690 --> 00:10:11,820
+instala la librería deberás ver qué dice
+
+242
+00:10:09,269 --> 00:10:15,210
+install sólo resta presionar el botón
+
+243
+00:10:11,820 --> 00:10:17,160
+cerrar del gestor de librería y listo la
+
+244
+00:10:15,210 --> 00:10:19,740
+primera línea del código será la del
+
+245
+00:10:17,159 --> 00:10:22,469
+numeral incluido que importa la librería
+
+246
+00:10:19,740 --> 00:10:24,930
+que acabamos de instalar luego definimos
+
+247
+00:10:22,470 --> 00:10:26,790
+una variable llamada sensor para
+
+248
+00:10:24,929 --> 00:10:30,120
+almacenar el pin a donde tenemos
+
+249
+00:10:26,789 --> 00:10:32,669
+conectado el módulo que es el 11
+
+250
+00:10:30,120 --> 00:10:35,310
+en esta línea creamos un objeto del tipo
+
+251
+00:10:32,669 --> 00:10:37,949
+y el receive y le enviamos como
+
+252
+00:10:35,309 --> 00:10:39,779
+parámetro la variable sensor esto es
+
+253
+00:10:37,950 --> 00:10:42,480
+porque la librería tiene la
+
+254
+00:10:39,779 --> 00:10:45,120
+funcionalidad tanto de recepción como de
+
+255
+00:10:42,480 --> 00:10:47,670
+emisión de infrarrojo como nosotros la
+
+256
+00:10:45,120 --> 00:10:48,480
+utilizaremos sólo para recibir entonces
+
+257
+00:10:47,669 --> 00:10:50,819
+se debe crear
+
+258
+00:10:48,480 --> 00:10:52,800
+este objeto e indicarles sobre que
+
+259
+00:10:50,820 --> 00:10:55,589
+pinten hemos conectado al receptor
+
+260
+00:10:52,799 --> 00:10:58,169
+recordad que como toda librería nos hace
+
+261
+00:10:55,589 --> 00:11:00,329
+la vida más fácil al requerir muy poco
+
+262
+00:10:58,169 --> 00:11:03,269
+código de nuestra parte pero a cambio
+
+263
+00:11:00,328 --> 00:11:05,909
+debemos apegarnos a la forma en la cual
+
+264
+00:11:03,269 --> 00:11:07,740
+está programada la librería y cuáles son
+
+265
+00:11:05,909 --> 00:11:10,259
+los nombres que de forma obligada
+
+266
+00:11:07,740 --> 00:11:12,570
+debemos utilizar para realizar distintas
+
+267
+00:11:10,259 --> 00:11:14,819
+funciones el código de este programa y
+
+268
+00:11:12,570 --> 00:11:17,220
+el de todos los capítulos como siempre
+
+269
+00:11:14,820 --> 00:11:19,649
+lo encontrarás en el enlace que dejó en
+
+270
+00:11:17,220 --> 00:11:22,290
+la zona de descripción con lo cual esta
+
+271
+00:11:19,649 --> 00:11:24,659
+línea se debe escribir tal cual lo mismo
+
+272
+00:11:22,289 --> 00:11:27,328
+que para la siguiente línea aquí creamos
+
+273
+00:11:24,659 --> 00:11:29,789
+otro objeto en este caso le podemos
+
+274
+00:11:27,328 --> 00:11:32,819
+poner un nombre personalizado que lo
+
+275
+00:11:29,789 --> 00:11:35,419
+llamaremos código es una instancia de la
+
+276
+00:11:32,820 --> 00:11:39,778
+clase llamada de code
+
+277
+00:11:35,419 --> 00:11:41,969
+resalt aquí nuevamente de col ri salt es
+
+278
+00:11:39,778 --> 00:11:43,828
+el nombre que le asignó al desarrollador
+
+279
+00:11:41,970 --> 00:11:46,680
+de la librería por eso debemos
+
+280
+00:11:43,828 --> 00:11:49,979
+escribirlo tal cual en el setup inicial-
+
+281
+00:11:46,679 --> 00:11:52,439
+izamos la comunicación sería 9.600 bps
+
+282
+00:11:49,980 --> 00:11:54,570
+como ya es usual y también inicializa
+
+283
+00:11:52,440 --> 00:11:57,300
+moss la recepción de datos desde el modo
+
+284
+00:11:54,570 --> 00:11:59,220
+esta línea debe escribirse de esta misma
+
+285
+00:11:57,299 --> 00:12:01,439
+forma en el loop lo que deseamos
+
+286
+00:11:59,220 --> 00:12:03,960
+consultar primero es si hay datos
+
+287
+00:12:01,440 --> 00:12:06,060
+disponibles ya de codificados por la
+
+288
+00:12:03,960 --> 00:12:09,420
+librería recordad que el control remoto
+
+289
+00:12:06,059 --> 00:12:11,969
+envía los 12 bits del protocolo de forma
+
+290
+00:12:09,419 --> 00:12:14,309
+serie de a un bit por vez con lo cual
+
+291
+00:12:11,970 --> 00:12:16,560
+debemos tomar una acción recién cuando
+
+292
+00:12:14,309 --> 00:12:18,779
+se haya recibido la totalidad de la
+
+293
+00:12:16,559 --> 00:12:21,389
+información esto se realiza con esta
+
+294
+00:12:18,779 --> 00:12:24,059
+línea de if de manera que ingresamos al
+
+295
+00:12:21,389 --> 00:12:26,970
+mismo una vez que tengamos datos ya de
+
+296
+00:12:24,059 --> 00:12:29,759
+codificados y listos para mostrar sólo
+
+297
+00:12:26,970 --> 00:12:33,210
+resta imprimir el código del botón en el
+
+298
+00:12:29,759 --> 00:12:36,120
+monitor serial con sería el punto paint
+
+299
+00:12:33,210 --> 00:12:39,780
+line con el valor devuelto por código
+
+300
+00:12:36,120 --> 00:12:42,419
+punto value y luego de la coma vemos que
+
+301
+00:12:39,779 --> 00:12:44,699
+dice ex esto es porque queremos que el
+
+302
+00:12:42,419 --> 00:12:47,399
+código se muestre como un número en
+
+303
+00:12:44,700 --> 00:12:49,560
+formato hexadecimal por si no está
+
+304
+00:12:47,399 --> 00:12:52,370
+familiarizado con el formato hexadecimal
+
+305
+00:12:49,559 --> 00:12:54,779
+aquí se muestra una sencilla explicación
+
+306
+00:12:52,370 --> 00:12:56,940
+nosotros estamos acostumbrados a
+
+307
+00:12:54,779 --> 00:12:59,370
+trabajar con números en formato decimal
+
+308
+00:12:56,940 --> 00:13:00,160
+es decir con base a 10 que son los
+
+309
+00:12:59,370 --> 00:13:03,278
+números
+
+310
+00:13:00,159 --> 00:13:06,309
+09 el formato hexadecimal que se usa
+
+311
+00:13:03,278 --> 00:13:09,189
+mucho en electrónica es base 16 es decir
+
+312
+00:13:06,309 --> 00:13:13,028
+que cada dígito puede representar no
+
+313
+00:13:09,190 --> 00:13:18,069
+sólo de 0 al 9 como el decimal sino que
+
+314
+00:13:13,028 --> 00:13:20,588
+también las letras a b c d e y f
+
+315
+00:13:18,068 --> 00:13:22,870
+el motivo de usar el hexadecimal es por
+
+316
+00:13:20,589 --> 00:13:25,149
+una cuestión de eficiencia un ejemplo
+
+317
+00:13:22,870 --> 00:13:28,419
+simple es si queremos representar el
+
+318
+00:13:25,149 --> 00:13:32,078
+número 12 en decimal necesitamos de dos
+
+319
+00:13:28,419 --> 00:13:34,360
+dígitos el 1 y el 2 sin embargo para
+
+320
+00:13:32,078 --> 00:13:37,479
+representar al mismo número 12 en
+
+321
+00:13:34,360 --> 00:13:40,209
+hexadecimal solo se requiere un dígito
+
+322
+00:13:37,480 --> 00:13:42,159
+la letra c esta diferencia es más
+
+323
+00:13:40,208 --> 00:13:44,500
+notoria a medida que los valores a
+
+324
+00:13:42,159 --> 00:13:46,568
+representar son más grandes cuando
+
+325
+00:13:44,500 --> 00:13:48,938
+ejecutemos el programa y veamos el
+
+326
+00:13:46,568 --> 00:13:51,610
+monitor serial el código del botón del
+
+327
+00:13:48,938 --> 00:13:53,708
+control remoto corresponderá a una serie
+
+328
+00:13:51,610 --> 00:13:56,259
+de números y letras en formato
+
+329
+00:13:53,708 --> 00:13:58,119
+hexadecimal ya para ir finalizando el
+
+330
+00:13:56,259 --> 00:14:00,659
+programa tenemos esta línea que es
+
+331
+00:13:58,120 --> 00:14:03,698
+obligatoria y lo que hace es permitir
+
+332
+00:14:00,659 --> 00:14:04,509
+resumir el proceso de adquisición de un
+
+333
+00:14:03,698 --> 00:14:06,609
+nuevo código
+
+334
+00:14:04,509 --> 00:14:09,279
+es decir que una vez que procesamos el
+
+335
+00:14:06,610 --> 00:14:11,590
+dato recibido en nuestro caso es solo
+
+336
+00:14:09,279 --> 00:14:13,659
+mostrarlo en el monitor serial damos el
+
+337
+00:14:11,590 --> 00:14:16,030
+comando para que vuelva a estar listo
+
+338
+00:14:13,659 --> 00:14:18,429
+para recibir nuevos datos la última
+
+339
+00:14:16,029 --> 00:14:20,740
+línea del programa es una pequeña demora
+
+340
+00:14:18,429 --> 00:14:23,349
+de 100 milisegundos ya que este programa
+
+341
+00:14:20,740 --> 00:14:26,350
+es muy corto y lo ejecutará muy
+
+342
+00:14:23,350 --> 00:14:27,220
+rápidamente al estar dentro del loop eso
+
+343
+00:14:26,350 --> 00:14:29,980
+es todo
+
+344
+00:14:27,220 --> 00:14:33,190
+vamos a verificar y subir el programa
+
+345
+00:14:29,980 --> 00:14:35,080
+luego a abrir el monitor serial aquí te
+
+346
+00:14:33,190 --> 00:14:37,210
+muestro el control remoto que estaré
+
+347
+00:14:35,080 --> 00:14:39,820
+usando es de un decodificador de
+
+348
+00:14:37,210 --> 00:14:41,590
+televisión por cable en tu caso podrás
+
+349
+00:14:39,820 --> 00:14:44,379
+utilizar cualquiera que tenga disponible
+
+350
+00:14:41,590 --> 00:14:46,810
+de un televisor equipo de música
+
+351
+00:14:44,379 --> 00:14:49,509
+etcétera en pantalla se mostrará la
+
+352
+00:14:46,809 --> 00:14:51,759
+proto board con el módulo que hay 22 y
+
+353
+00:14:49,509 --> 00:14:54,100
+el control remoto no combina apuntarlo
+
+354
+00:14:51,759 --> 00:14:55,990
+al receptor desde muy cerca para que la
+
+355
+00:14:54,100 --> 00:14:56,920
+señal no les llegue con demasiada
+
+356
+00:14:55,990 --> 00:14:59,620
+intensidad
+
+357
+00:14:56,919 --> 00:15:01,870
+lo ideal es colocarlo a unos 20 ó 30
+
+358
+00:14:59,620 --> 00:15:04,450
+centímetros del receptor cada vez que el
+
+359
+00:15:01,870 --> 00:15:07,120
+receptor reciba un comando del control
+
+360
+00:15:04,450 --> 00:15:08,940
+remoto despejará brevemente el led
+
+361
+00:15:07,120 --> 00:15:11,250
+incorporado en el módulo
+
+362
+00:15:08,940 --> 00:15:13,800
+bien voy a presionar el botón del número
+
+363
+00:15:11,250 --> 00:15:16,289
+1 en el control remoto verás que en el
+
+364
+00:15:13,799 --> 00:15:19,109
+monitor serial aparece el código del
+
+365
+00:15:16,289 --> 00:15:24,379
+mismo en hexadecimal como una serie de
+
+366
+00:15:19,110 --> 00:15:28,529
+números y letras en mi caso es el 80 vf
+
+367
+00:15:24,379 --> 00:15:31,110
+49 b 6 por supuesto que en tu caso será
+
+368
+00:15:28,529 --> 00:15:33,629
+distinto podrá ser también un código más
+
+369
+00:15:31,110 --> 00:15:35,389
+corto todo dependerá del protocolo que
+
+370
+00:15:33,629 --> 00:15:38,460
+utiliza el control y del fabricante
+
+371
+00:15:35,389 --> 00:15:40,580
+ahora presiona el botón del número 2 el
+
+372
+00:15:38,460 --> 00:15:43,320
+led del módulo destella brevemente
+
+373
+00:15:40,580 --> 00:15:47,970
+indicando que se recibieron datos y en
+
+374
+00:15:43,320 --> 00:15:52,379
+el monitor serial vemos el código 80 vf
+
+375
+00:15:47,970 --> 00:15:54,990
+c 9 36 algo que puede ocurrir mientras
+
+376
+00:15:52,379 --> 00:15:57,299
+realizas este proceso es que luego del
+
+377
+00:15:54,990 --> 00:15:58,350
+código se muestre una línea con una
+
+378
+00:15:57,299 --> 00:16:01,349
+serie de letras
+
+379
+00:15:58,350 --> 00:16:04,050
+efe ese código es el de repetición
+
+380
+00:16:01,350 --> 00:16:06,420
+indica que el botón ha sido presionado
+
+381
+00:16:04,049 --> 00:16:08,490
+más de una vez o incluso se mantiene
+
+382
+00:16:06,419 --> 00:16:10,649
+presionado yo ahora voy a volver a
+
+383
+00:16:08,490 --> 00:16:12,990
+presionar el botón del número 2 y lo
+
+384
+00:16:10,649 --> 00:16:14,818
+mantendré así por 3 segundos
+
+385
+00:16:12,990 --> 00:16:18,028
+verás que aparece el código del voto
+
+386
+00:16:14,818 --> 00:16:19,798
+y varias líneas con la letra f eso es
+
+387
+00:16:18,028 --> 00:16:21,838
+normal y no genera ningún tipo de
+
+388
+00:16:19,798 --> 00:16:26,818
+inconveniente ahora presiona la tecla
+
+389
+00:16:21,839 --> 00:16:29,100
+del número 3 y aparece el código 80 de f
+
+390
+00:16:26,818 --> 00:16:31,469
+3 3
+
+391
+00:16:29,100 --> 00:16:33,659
+este proceso lo podrá realizar con
+
+392
+00:16:31,470 --> 00:16:36,240
+cualquier tecla del control remoto y
+
+393
+00:16:33,659 --> 00:16:38,969
+verás cómo aparece el código asociado y
+
+394
+00:16:36,240 --> 00:16:42,149
+algún que otra línea con efe indicando
+
+395
+00:16:38,970 --> 00:16:44,250
+la repetición perfecto la idea es que en
+
+396
+00:16:42,149 --> 00:16:46,850
+el próximo programa utilicemos el
+
+397
+00:16:44,250 --> 00:16:49,799
+control remoto para activar un led rgb
+
+398
+00:16:46,850 --> 00:16:52,350
+mediante tres botones para eso debemos
+
+399
+00:16:49,799 --> 00:16:54,509
+quedarnos con los códigos asociados a
+
+400
+00:16:52,350 --> 00:16:57,330
+esos tres botones para luego con una
+
+401
+00:16:54,509 --> 00:16:59,639
+simple sentencia y podamos encender el
+
+402
+00:16:57,330 --> 00:17:02,250
+color del led que corresponda
+
+403
+00:16:59,639 --> 00:17:06,089
+utilizaremos para este ejemplo el número
+
+404
+00:17:02,250 --> 00:17:08,160
+1 2 y 3 del control remoto voy a cerrar
+
+405
+00:17:06,089 --> 00:17:10,589
+la ventana del monitor serial ya que
+
+406
+00:17:08,160 --> 00:17:13,529
+está bastante llena y empieza a ser
+
+407
+00:17:10,589 --> 00:17:15,629
+confuso ver el código de cada botón así
+
+408
+00:17:13,529 --> 00:17:17,789
+que la cierro y la vuelvo a abrir para
+
+409
+00:17:15,630 --> 00:17:20,070
+arrancar con todo limpio presiona el
+
+410
+00:17:17,789 --> 00:17:26,849
+botón del número 1 y se muestra el
+
+411
+00:17:20,069 --> 00:17:29,669
+monitor el código 80 vf 49 b 6 vamos a
+
+412
+00:17:26,849 --> 00:17:31,980
+seleccionar este código y copiarlo con
+
+413
+00:17:29,670 --> 00:17:34,200
+el botón derecho del mouse no aparece el
+
+414
+00:17:31,980 --> 00:17:35,579
+menú contextual pero se puede utilizar
+
+415
+00:17:34,200 --> 00:17:39,150
+en su lugar
+
+416
+00:17:35,579 --> 00:17:41,970
+de teclado control más la letra c con
+
+417
+00:17:39,150 --> 00:17:44,370
+eso copiamos el código ahora sin cerrar
+
+418
+00:17:41,970 --> 00:17:46,890
+el monitor serial vamos a la ventana del
+
+419
+00:17:44,369 --> 00:17:48,989
+editor de código y debajo del numeral
+
+420
+00:17:46,890 --> 00:17:52,470
+include en una línea en blanco
+
+421
+00:17:48,990 --> 00:17:59,279
+escribamos lo siguiente numeral -define
+
+422
+00:17:52,470 --> 00:18:03,390
+un espacio botón guión bajo 1 un espacio
+
+423
+00:17:59,279 --> 00:18:06,089
+y luego el número 0 y la letra x a
+
+424
+00:18:03,390 --> 00:18:09,330
+continuación y sin dejar espacio con el
+
+425
+00:18:06,089 --> 00:18:11,669
+atajo de teclado control más la letra be
+
+426
+00:18:09,329 --> 00:18:14,339
+corta pegamos el código que copiamos
+
+427
+00:18:11,670 --> 00:18:17,870
+recién con lo cual la línea queda así
+
+428
+00:18:14,339 --> 00:18:21,059
+numeral -define botón
+
+429
+00:18:17,869 --> 00:18:25,739
+10 x 8 0
+
+430
+00:18:21,059 --> 00:18:28,259
+vf 49 b 6 pero qué significa esto que
+
+431
+00:18:25,740 --> 00:18:30,779
+acabamos de hacer el numeral -define es
+
+432
+00:18:28,259 --> 00:18:33,210
+una directiva al compilador no se trata
+
+433
+00:18:30,779 --> 00:18:36,420
+de una variable simplemente lo que dice
+
+434
+00:18:33,210 --> 00:18:39,090
+es que cada ocurrencia del nombre botón
+
+435
+00:18:36,420 --> 00:18:41,430
+1 se ha reemplazado por el código
+
+436
+00:18:39,089 --> 00:18:46,379
+hexadecimal 80
+
+437
+00:18:41,430 --> 00:18:49,140
+efe 49 de 6 debemos colocar el prefijo 0
+
+438
+00:18:46,380 --> 00:18:52,140
+x delante del código para indicar que se
+
+439
+00:18:49,140 --> 00:18:54,420
+trata de un número en hexadecimal esto
+
+440
+00:18:52,140 --> 00:18:56,670
+nos servirá para el segundo programa lo
+
+441
+00:18:54,420 --> 00:18:59,190
+que hacemos ahora es una tabla donde
+
+442
+00:18:56,670 --> 00:19:02,610
+asociamos el código del botón con un
+
+443
+00:18:59,190 --> 00:19:05,160
+nombre más entendible que es botón 1 en
+
+444
+00:19:02,609 --> 00:19:08,099
+lugar de estar colocando ese número en
+
+445
+00:19:05,160 --> 00:19:11,009
+hexadecimal en el código utilizaremos el
+
+446
+00:19:08,099 --> 00:19:14,490
+nombre botón 1 y de esa manera sabemos
+
+447
+00:19:11,009 --> 00:19:16,890
+exactamente de qué se trata incluso sin
+
+448
+00:19:14,490 --> 00:19:19,109
+necesidad de hacer un comentario sobre
+
+449
+00:19:16,890 --> 00:19:21,780
+el código del programa no te preocupes
+
+450
+00:19:19,109 --> 00:19:24,329
+si parece confuso ahora en breve con el
+
+451
+00:19:21,779 --> 00:19:26,220
+segundo programa quedará claro volvamos
+
+452
+00:19:24,329 --> 00:19:28,559
+a la ventana del monitor serial
+
+453
+00:19:26,220 --> 00:19:31,440
+esta vez presionemos el botón del número
+
+454
+00:19:28,559 --> 00:19:32,879
+2 del control remoto aparece el código
+
+455
+00:19:31,440 --> 00:19:36,059
+80
+
+456
+00:19:32,880 --> 00:19:38,640
+vf ce 9 36
+
+457
+00:19:36,059 --> 00:19:41,579
+hagamos el mismo proceso copiemos el
+
+458
+00:19:38,640 --> 00:19:44,130
+código con control ce vamos al editor
+
+459
+00:19:41,579 --> 00:19:46,859
+debajo de la anterior línea del numeral
+
+460
+00:19:44,130 --> 00:19:53,160
+-define escribamos una nueva que será
+
+461
+00:19:46,859 --> 00:19:56,219
+numeral design botón 20 x y con control
+
+462
+00:19:53,160 --> 00:19:58,500
+b para pegar el código un detalle para
+
+463
+00:19:56,220 --> 00:20:01,230
+que tengas en cuenta es que cuando se
+
+464
+00:19:58,500 --> 00:20:03,900
+usa la directriz numeral -define no se
+
+465
+00:20:01,230 --> 00:20:06,390
+debe colocar un punto y coma al final de
+
+466
+00:20:03,900 --> 00:20:08,790
+la línea muy bien una vez más para el
+
+467
+00:20:06,390 --> 00:20:11,490
+botón número 3 volvemos al monitor
+
+468
+00:20:08,789 --> 00:20:14,759
+serial presionamos el botón número 3 del
+
+469
+00:20:11,490 --> 00:20:17,279
+control copiamos el código y agregamos
+
+470
+00:20:14,759 --> 00:20:22,799
+la línea del numeral design quedando
+
+471
+00:20:17,279 --> 00:20:25,558
+numeral design botón 30 x 80
+
+472
+00:20:22,799 --> 00:20:28,389
+vf 33
+
+473
+00:20:25,558 --> 00:20:30,879
+perfecto ya con eso tenemos los códigos
+
+474
+00:20:28,390 --> 00:20:33,400
+de los botones 1 2 y 3 del control
+
+475
+00:20:30,880 --> 00:20:36,549
+remoto lo que haremos ahora es agregar
+
+476
+00:20:33,400 --> 00:20:39,490
+un led rgb a protoboard y conectarlo
+
+477
+00:20:36,548 --> 00:20:42,339
+arduino en el capítulo 12 vimos en
+
+478
+00:20:39,490 --> 00:20:44,710
+detalle el led rgb así que ahora sólo
+
+479
+00:20:42,339 --> 00:20:47,409
+nos centraremos en conectarlo se trata
+
+480
+00:20:44,710 --> 00:20:50,200
+de un led rgb de cátodo común si no
+
+481
+00:20:47,410 --> 00:20:52,900
+dispones de un led rgb podrás utilizar
+
+482
+00:20:50,200 --> 00:20:55,509
+tres leds convencionales en lo posible
+
+483
+00:20:52,900 --> 00:20:58,298
+de colores distintos conectando todos
+
+484
+00:20:55,509 --> 00:21:01,000
+sus casos a masa del riel de tensión
+
+485
+00:20:58,298 --> 00:21:04,179
+entonces comenzamos conectando el cátodo
+
+486
+00:21:01,000 --> 00:21:07,150
+común del led rgb a masa del riel de
+
+487
+00:21:04,179 --> 00:21:09,360
+tensión que es el pin más largo de los 4
+
+488
+00:21:07,150 --> 00:21:12,070
+luego el pin a su izquierda
+
+489
+00:21:09,359 --> 00:21:14,439
+corresponderá el componente rojo del led
+
+490
+00:21:12,069 --> 00:21:17,619
+dicho pin lo conectaremos mediante una
+
+491
+00:21:14,440 --> 00:21:20,410
+resistencia de 330 vamos al pin digital
+
+492
+00:21:17,619 --> 00:21:22,359
+número 2 de arduino del pin de la
+
+493
+00:21:20,410 --> 00:21:24,820
+derecha del cátodo común que es el
+
+494
+00:21:22,359 --> 00:21:26,789
+componente verde del led o también lo
+
+495
+00:21:24,819 --> 00:21:30,220
+conectaremos mediante una resistencia de
+
+496
+00:21:26,789 --> 00:21:32,379
+330 vamos al pin digital número 3 de
+
+497
+00:21:30,220 --> 00:21:35,350
+arduino y del último pin que se
+
+498
+00:21:32,380 --> 00:21:39,340
+componente azul mediante una resistencia
+
+499
+00:21:35,349 --> 00:21:42,939
+de 330 vamos al pin digital número 4 de
+
+500
+00:21:39,339 --> 00:21:46,449
+arduino el resumen con el pin 2 comandar
+
+501
+00:21:42,940 --> 00:21:50,200
+hemos el led rojo con el pin 3 el verde
+
+502
+00:21:46,450 --> 00:21:52,630
+y con el pin 4 el azul y eso es todo
+
+503
+00:21:50,200 --> 00:21:55,090
+para el circuito envolviendo el programa
+
+504
+00:21:52,630 --> 00:21:57,340
+ya tenemos listo el proceso de obtener
+
+505
+00:21:55,089 --> 00:21:59,709
+el código al presionar un botón del
+
+506
+00:21:57,339 --> 00:22:01,449
+control remoto mediante los numerales de
+
+507
+00:21:59,710 --> 00:22:03,970
+find guardamos los códigos
+
+508
+00:22:01,450 --> 00:22:06,759
+correspondientes a los botones 1 2 y 3
+
+509
+00:22:03,970 --> 00:22:09,039
+ahora sólo resta agregar unas líneas
+
+510
+00:22:06,759 --> 00:22:12,609
+para poder activar los distintos colores
+
+511
+00:22:09,039 --> 00:22:14,980
+del led rgb antes del set up vamos a
+
+512
+00:22:12,609 --> 00:22:17,649
+crear tres variables para almacenar los
+
+513
+00:22:14,980 --> 00:22:20,700
+pines a los cuales tenemos conectados el
+
+514
+00:22:17,650 --> 00:22:30,278
+led rgb con int
+
+515
+00:22:20,700 --> 00:22:36,159
+el rojo igual 215 el verde igual 3
+
+516
+00:22:30,278 --> 00:22:39,219
+ping led azul igual 4 en el setup
+
+517
+00:22:36,159 --> 00:22:45,090
+debemos establecer los pines como salida
+
+518
+00:22:39,219 --> 00:22:51,000
+pin modo led rojo output
+
+519
+00:22:45,089 --> 00:22:57,000
+mi modo de ver de output
+
+520
+00:22:51,000 --> 00:23:00,180
+pin modo led azul output luego del
+
+521
+00:22:57,000 --> 00:23:02,940
+serial punto pin line dejemos un espacio
+
+522
+00:23:00,180 --> 00:23:05,730
+libre y aquí haremos una simple consulta
+
+523
+00:23:02,940 --> 00:23:08,490
+por el código del botón recibido si
+
+524
+00:23:05,730 --> 00:23:10,829
+dicho código coincide con el del botón
+
+525
+00:23:08,490 --> 00:23:13,980
+número 1 del control remoto
+
+526
+00:23:10,829 --> 00:23:17,339
+entonces encenderemos o apagaremos el
+
+527
+00:23:13,980 --> 00:23:23,569
+componente rojo del led if
+
+528
+00:23:17,339 --> 00:23:30,109
+código punto value igual igual botón 1
+
+529
+00:23:23,569 --> 00:23:35,279
+digital write led rojo nota digital
+
+530
+00:23:30,109 --> 00:23:37,229
+ruido led rojo la línea del digital
+
+531
+00:23:35,279 --> 00:23:38,039
+right ya le hemos usado en otros
+
+532
+00:23:37,230 --> 00:23:40,049
+programas
+
+533
+00:23:38,039 --> 00:23:42,839
+la intención es escribir el valor
+
+534
+00:23:40,049 --> 00:23:45,119
+opuesto al leído del estado del led de
+
+535
+00:23:42,839 --> 00:23:48,059
+manera que si está apagado lo encendemos
+
+536
+00:23:45,119 --> 00:23:51,419
+si está encendido lo apagamos con
+
+537
+00:23:48,059 --> 00:23:54,419
+digital ruido leemos el estado y con el
+
+538
+00:23:51,420 --> 00:23:56,789
+signo de admiración delante cambiamos al
+
+539
+00:23:54,420 --> 00:23:57,480
+valor opuesto haremos lo mismo para el
+
+540
+00:23:56,789 --> 00:24:00,359
+botón
+
+541
+00:23:57,480 --> 00:24:03,779
+que comandará al componente verde del
+
+542
+00:24:00,359 --> 00:24:07,048
+led rgb estaré copiando estas dos líneas
+
+543
+00:24:03,779 --> 00:24:10,470
+pegando y modificando botón uno por
+
+544
+00:24:07,048 --> 00:24:13,589
+botón 2 y leds rojo por led verde
+
+545
+00:24:10,470 --> 00:24:17,240
+finalmente para el botón 3 para comandar
+
+546
+00:24:13,589 --> 00:24:17,240
+el componente azul
+
+547
+00:24:18,419 --> 00:24:23,340
+como verás aquí se demuestra la utilidad
+
+548
+00:24:20,999 --> 00:24:25,889
+del uso del numeral design si no lo
+
+549
+00:24:23,339 --> 00:24:26,459
+hubiésemos usado en la condición de cada
+
+550
+00:24:25,888 --> 00:24:28,949
+día
+
+551
+00:24:26,460 --> 00:24:36,869
+deberíamos haber puesto por ejemplo
+
+552
+00:24:28,950 --> 00:24:39,690
+código value igual igual 0 x 80 vf 49 b
+
+553
+00:24:36,868 --> 00:24:42,618
+6 y luego un comentario sobre la línea
+
+554
+00:24:39,690 --> 00:24:45,269
+para saber que ese código en hexadecimal
+
+555
+00:24:42,618 --> 00:24:48,028
+corresponde al botón 1 pero en vez del
+
+556
+00:24:45,269 --> 00:24:51,690
+código pudimos colocar un nombre más
+
+557
+00:24:48,028 --> 00:24:54,509
+entendible a simple vista que es botón 1
+
+558
+00:24:51,690 --> 00:24:57,179
+además el numeral de find como no es una
+
+559
+00:24:54,509 --> 00:24:59,639
+variable no ocupa espacio de memoria de
+
+560
+00:24:57,179 --> 00:25:01,919
+almacenamiento de arduino es sólo una
+
+561
+00:24:59,638 --> 00:25:04,558
+directiva del compilador y si luego
+
+562
+00:25:01,919 --> 00:25:06,989
+deseamos utilizar otro control remoto
+
+563
+00:25:04,558 --> 00:25:10,230
+sólo bastará con cambiar el código
+
+564
+00:25:06,989 --> 00:25:12,899
+hexadecimal al principio y listo
+
+565
+00:25:10,230 --> 00:25:15,868
+perfecto vamos entonces a verificar y
+
+566
+00:25:12,898 --> 00:25:18,209
+subir el programa luego abrir el monitor
+
+567
+00:25:15,868 --> 00:25:21,388
+serial ahora cuando se presione el botón
+
+568
+00:25:18,210 --> 00:25:23,100
+del número 1 del control remoto verás
+
+569
+00:25:21,388 --> 00:25:24,309
+que aparece el código en el monitor
+
+570
+00:25:23,099 --> 00:25:27,519
+serial
+
+571
+00:25:24,309 --> 00:25:30,460
+tiempo encenderá el componente rojo del
+
+572
+00:25:27,519 --> 00:25:33,639
+led rgb presionando nuevamente el número
+
+573
+00:25:30,460 --> 00:25:35,620
+1 logramos apagarlo parece que funciona
+
+574
+00:25:33,640 --> 00:25:38,050
+correcto probemos con el componente
+
+575
+00:25:35,619 --> 00:25:40,869
+verde presionando el botón número 2
+
+576
+00:25:38,049 --> 00:25:43,539
+enciende el color verde y presionando
+
+577
+00:25:40,869 --> 00:25:46,000
+nuevamente lo apaga lo mismo para el
+
+578
+00:25:43,539 --> 00:25:48,970
+botón 3 que presionando una vez
+
+579
+00:25:46,000 --> 00:25:51,640
+encendemos el color azul y presionando
+
+580
+00:25:48,970 --> 00:25:54,279
+nuevamente lo apagamos por supuesto que
+
+581
+00:25:51,640 --> 00:25:57,009
+podemos tener encendido más de un color
+
+582
+00:25:54,279 --> 00:26:00,490
+al mismo tiempo con el 1 encendemos el
+
+583
+00:25:57,009 --> 00:26:03,069
+rojo con el 2 el verde y con el 3 el
+
+584
+00:26:00,490 --> 00:26:05,440
+azul ahora tenemos los 3 colores
+
+585
+00:26:03,069 --> 00:26:08,649
+encendidos al mismo tiempo podemos
+
+586
+00:26:05,440 --> 00:26:11,230
+apagar el color rojo con el botón 1 y
+
+587
+00:26:08,650 --> 00:26:13,690
+nos quedará encendido el color verde y
+
+588
+00:26:11,230 --> 00:26:16,779
+azul que da como resultado un color
+
+589
+00:26:13,690 --> 00:26:19,269
+celeste o aqua la idea es que puedas
+
+590
+00:26:16,779 --> 00:26:22,059
+utilizar este código para activar todo
+
+591
+00:26:19,269 --> 00:26:25,150
+lo que necesites aquí solo encendimos un
+
+592
+00:26:22,059 --> 00:26:27,519
+led rgb con tres botones distintos pero
+
+593
+00:26:25,150 --> 00:26:31,030
+fácilmente podrás agregar más botones
+
+594
+00:26:27,519 --> 00:26:33,400
+para distintas acciones y como siempre
+
+595
+00:26:31,029 --> 00:26:36,250
+logramos encender un led a voluntad
+
+596
+00:26:33,400 --> 00:26:38,800
+entonces podemos encender prácticamente
+
+597
+00:26:36,250 --> 00:26:41,349
+cualquier dispositivo mediante un relé
+
+598
+00:26:38,799 --> 00:26:43,359
+eso es todo por este capítulo como
+
+599
+00:26:41,349 --> 00:26:45,759
+siempre te pido te suscribas para
+
+600
+00:26:43,359 --> 00:26:48,339
+recibir notificaciones y por cualquier
+
+601
+00:26:45,759 --> 00:26:51,309
+duda o comentario lo puedes hacer debajo
+
+602
+00:26:48,339 --> 00:26:53,669
+que con gusto te responderé chau y hasta
+
+603
+00:26:51,309 --> 00:26:53,669
+la próxima
+

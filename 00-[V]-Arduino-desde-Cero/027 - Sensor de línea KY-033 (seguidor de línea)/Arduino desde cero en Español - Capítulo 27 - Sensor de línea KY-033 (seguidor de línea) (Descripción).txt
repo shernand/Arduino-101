@@ -1,0 +1,23 @@
+Mediante el uso del módulo KY-033 podremos detectar una línea de color blanca o negra, ideal como sistema de seguimiento para vehiculos motorizados tipo rover por Arduino.
+Podremos determinar la diferencia entre una superficie reflejante y una opaca, junto a métodos prácticos para el seguimiento de una línea como ser la aproximación de dos pasos y el uso con dos sensores.
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoSeguidorLínea
+#ArduinoSensorLínea
+#ArduinoKit37en1
+Sensor de linea negra
+Sensor de linea blanca
+Sensor seguidor de linea
+Seguidor de linea
+
+Marcas de tiempo:
+0:00 introducción y Componentes del módulo
+3:24 Circuito de conexión
+3:50 Primer programa (detectando color de línea)
+11:31 Concepto de seguimiento de una línea
+13:14 Aproximación dos pasos
+14:29 Utilizando Dos módulos
+16:25 Usos alternativos en la vida real

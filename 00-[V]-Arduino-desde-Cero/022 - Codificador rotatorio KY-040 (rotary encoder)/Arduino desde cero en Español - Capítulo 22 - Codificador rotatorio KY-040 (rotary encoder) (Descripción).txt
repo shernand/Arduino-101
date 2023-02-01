@@ -1,0 +1,27 @@
+Utilizaremos el Codificador rotarorio KY-040 como dispositivo de entrada y determinar el giro y sentido de su eje, muy útil para todo tipo de proyectos de Arduino.
+Se explicará en detalle el principio de funcionamiento y como mediante interrupciones fácilmente podemos utilizarlo para controlar servos, salidas pwm y más.
+
+También un método efectivo antirebote (debouncing)
+
+Recomendable ver Capítulo 21 (interrupciones): https://youtu.be/up-goNfJ_EY
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoInterrupciones
+#ArduinoCodificadorRotatorio
+#ArduinoKit37en1
+Arduino rotary encoder
+Codificador rotatorio Arduino
+KY-040 rotary enconder
+Encoder cuadratura
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+1:15 Características del módulo
+3:41 Principio de funcionamiento (explicación)
+10:36 Circuito de conexión
+11:46 Primer programa
+15:47 Implementando una rutina antirebote
+26:18 Modificaciones (para control de dispositivos)
