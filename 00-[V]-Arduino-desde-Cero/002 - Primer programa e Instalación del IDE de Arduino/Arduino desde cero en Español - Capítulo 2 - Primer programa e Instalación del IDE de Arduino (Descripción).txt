@@ -1,0 +1,23 @@
+Descargaremos el entorno de desarrollo integrado (IDE de Arduino) y conectaremos la placa a la computadora. También haremos desde cero un programa para encender y apagar el LED integrado de Arduino explicando paso a paso todo el proceso.
+
+Al ser el primer programa haremos énfasis en el uso adecuado del editor de código del IDE explicando cada función y luego compilando y subiéndolo a la placa.
+
+#ArduinoComoFunciona
+#ArduinoUNO
+#ArduinoIDE
+Arduino Primeros Pasos Desde 0
+Arduino IDE tutorial Español
+Arduino IDE descargar
+Descargar Arduino
+Arduino primer proyecto
+Arduino primer programa
+Arduino UNO primeros pasos
+
+Marcas de tiempo:
+0:00 Bienvenida e Introducción
+0:26 Descarga de IDE de Arduino
+1:46 Instalación paso a paso en Windows
+4:04 Conectando Arduino a la computadora
+5:10 Nuestro primer programa en Arduino
+14:37 Verificando el correcto funcionamiento
+15:20 Próximo capítulo y despedida

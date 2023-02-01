@@ -1,0 +1,508 @@
+1
+00:00:00,000 --> 00:00:04,349
+hola a todos y bienvenidos al primer
+
+2
+00:00:02,129 --> 00:00:05,819
+capítulo sobre arduino desde cero en
+
+3
+00:00:04,349 --> 00:00:07,410
+español
+
+4
+00:00:05,819 --> 00:00:10,320
+haremos una breve introducción de la
+
+5
+00:00:07,410 --> 00:00:12,570
+plataforma y veremos cómo podemos usarla
+
+6
+00:00:10,320 --> 00:00:15,210
+para proyectos que requieren una
+
+7
+00:00:12,570 --> 00:00:17,278
+interacción con el mundo físico de la
+
+8
+00:00:15,210 --> 00:00:19,260
+misma manera que nuestros sentidos
+
+9
+00:00:17,278 --> 00:00:21,929
+llegan a nuestro cerebro para ser
+
+10
+00:00:19,260 --> 00:00:24,420
+procesados y actuar en consecuencia
+
+11
+00:00:21,929 --> 00:00:26,640
+arduino contará con una gran cantidad de
+
+12
+00:00:24,420 --> 00:00:28,949
+sentidos para procesar en su
+
+13
+00:00:26,640 --> 00:00:31,009
+microcontrolador y actuar de acuerdo a
+
+14
+00:00:28,949 --> 00:00:33,660
+lo que tenga programado en su memoria
+
+15
+00:00:31,009 --> 00:00:36,210
+los sentidos humanos tienen su
+
+16
+00:00:33,659 --> 00:00:38,909
+equivalente en la electrónica con los
+
+17
+00:00:36,210 --> 00:00:40,850
+denominados sensores tendremos así
+
+18
+00:00:38,909 --> 00:00:43,738
+sensores de luz sensores de sonido
+
+19
+00:00:40,850 --> 00:00:46,250
+sensores de orientación temperatura
+
+20
+00:00:43,738 --> 00:00:48,439
+humedad entre muchos más
+
+21
+00:00:46,250 --> 00:00:51,109
+las salidas serán utilizadas para
+
+22
+00:00:48,439 --> 00:00:53,629
+activar todo lo que se nos ocurra desde
+
+23
+00:00:51,109 --> 00:00:56,539
+un led hasta un motor de continua un
+
+24
+00:00:53,630 --> 00:00:59,690
+motor paso a paso un servo una pantalla
+
+25
+00:00:56,539 --> 00:01:02,659
+lcd o enviar información a nuestra pc o
+
+26
+00:00:59,689 --> 00:01:06,200
+teléfono celular vía bluetooth las
+
+27
+00:01:02,659 --> 00:01:09,049
+posibilidades realmente son infinitas su
+
+28
+00:01:06,200 --> 00:01:11,359
+simplicidad de uso y bajo costo lo hace
+
+29
+00:01:09,049 --> 00:01:14,569
+indudablemente atractivo tanto
+
+30
+00:01:11,359 --> 00:01:17,209
+entusiastas como profesionales y con una
+
+31
+00:01:14,569 --> 00:01:19,969
+activa comunidad global constantemente
+
+32
+00:01:17,209 --> 00:01:21,609
+se comparten ideas y proyectos alrededor
+
+33
+00:01:19,969 --> 00:01:23,700
+del mundo
+
+34
+00:01:21,609 --> 00:01:26,319
+existen varios cuadernos de arduino
+
+35
+00:01:23,700 --> 00:01:28,780
+algunos optimizados para el ahorro de
+
+36
+00:01:26,319 --> 00:01:31,750
+espacio y otros por disponer de una gran
+
+37
+00:01:28,780 --> 00:01:33,549
+cantidad de entradas y salidas nosotros
+
+38
+00:01:31,750 --> 00:01:36,280
+nos enfocaremos en el modelo denominado
+
+39
+00:01:33,549 --> 00:01:38,259
+1 ya que es el más utilizado a nivel
+
+40
+00:01:36,280 --> 00:01:42,310
+mundial y el de mayor disponibilidad
+
+41
+00:01:38,260 --> 00:01:44,200
+global el modelo 1 tiene un buen balance
+
+42
+00:01:42,310 --> 00:01:46,600
+entre la cantidad de entradas y salidas
+
+43
+00:01:44,200 --> 00:01:48,790
+y un precio módico que lo hace accesible
+
+44
+00:01:46,599 --> 00:01:51,099
+a cualquiera su facilidad de
+
+45
+00:01:48,790 --> 00:01:53,500
+programación hace que sea ideal para
+
+46
+00:01:51,099 --> 00:01:56,259
+toda persona aunque no tenga ningún tipo
+
+47
+00:01:53,500 --> 00:01:58,390
+de conocimiento en la materia será un
+
+48
+00:01:56,259 --> 00:02:00,819
+objetivo de futuros capítulos ir
+
+49
+00:01:58,390 --> 00:02:03,489
+introduciendo conceptos que nos sigan
+
+50
+00:02:00,819 --> 00:02:06,909
+permitiendo gradualmente realizar tareas
+
+51
+00:02:03,489 --> 00:02:08,709
+más complejas y con un mínimo esfuerzo
+
+52
+00:02:06,909 --> 00:02:11,289
+arduino está siendo cada vez más
+
+53
+00:02:08,709 --> 00:02:13,509
+utilizado en entidades educativas para
+
+54
+00:02:11,289 --> 00:02:15,889
+introducir a tus estudiantes al mundo de
+
+55
+00:02:13,509 --> 00:02:18,500
+la programación y la robótica
+
+56
+00:02:15,889 --> 00:02:20,869
+ya sin más veamos nuestra placa para
+
+57
+00:02:18,500 --> 00:02:22,370
+identificar elementos clave que llevarán
+
+58
+00:02:20,870 --> 00:02:24,379
+al entendimiento de las infinitas
+
+59
+00:02:22,370 --> 00:02:26,599
+posibilidades que nos brinda esta
+
+60
+00:02:24,379 --> 00:02:28,819
+pequeña y potente placa
+
+61
+00:02:26,599 --> 00:02:31,159
+en la imagen se muestra una vista
+
+62
+00:02:28,819 --> 00:02:32,750
+superior dónde podemos identificar los
+
+63
+00:02:31,159 --> 00:02:35,780
+conectores que estaremos utilizando
+
+64
+00:02:32,750 --> 00:02:37,969
+nuestros proyectos comenzando desde la
+
+65
+00:02:35,780 --> 00:02:41,419
+parte superior izquierda vemos el
+
+66
+00:02:37,969 --> 00:02:43,699
+colector el conector usb este conector a
+
+67
+00:02:41,419 --> 00:02:46,219
+través de un cable no se enlazará con
+
+68
+00:02:43,699 --> 00:02:48,229
+nuestra computadora para recibir de ella
+
+69
+00:02:46,219 --> 00:02:51,050
+el programa que deseamos que se ejecute
+
+70
+00:02:48,229 --> 00:02:54,169
+también por el mismo cable y estaremos
+
+71
+00:02:51,050 --> 00:02:56,030
+alimentando la placa de esa manera no
+
+72
+00:02:54,169 --> 00:02:59,030
+requerimos de otro elemento externo de
+
+73
+00:02:56,030 --> 00:03:02,330
+alimentación debajo encontramos un
+
+74
+00:02:59,030 --> 00:03:04,069
+conector para alimentación un momento no
+
+75
+00:03:02,330 --> 00:03:07,520
+acabo de decir que se alimenta con el
+
+76
+00:03:04,069 --> 00:03:10,969
+propio cable usb bueno es verdad pero
+
+77
+00:03:07,520 --> 00:03:13,430
+con ciertos límites usar el cable usb y
+
+78
+00:03:10,969 --> 00:03:15,199
+para aplicaciones de bajo consumo ya que
+
+79
+00:03:13,430 --> 00:03:17,870
+estamos brindando corriente de nuestra
+
+80
+00:03:15,199 --> 00:03:20,449
+computadora y un consumo excesivo puede
+
+81
+00:03:17,870 --> 00:03:22,310
+provocar problemas una alimentación
+
+82
+00:03:20,449 --> 00:03:24,889
+externa mediante un transformador de
+
+83
+00:03:22,310 --> 00:03:27,590
+corriente continua o incluso pilas
+
+84
+00:03:24,889 --> 00:03:30,079
+comunes o recargables pueden alimentar
+
+85
+00:03:27,590 --> 00:03:31,900
+nuestro vino sin necesidad de un cable a
+
+86
+00:03:30,080 --> 00:03:34,150
+nuestra pc
+
+87
+00:03:31,900 --> 00:03:36,908
+en la parte inferior podemos ver una
+
+88
+00:03:34,150 --> 00:03:40,379
+fila de pines con una sección denominada
+
+89
+00:03:36,908 --> 00:03:43,389
+power y la otra indicada como análogo y
+
+90
+00:03:40,378 --> 00:03:45,098
+sin entrar en demasiados detalles power
+
+91
+00:03:43,389 --> 00:03:47,649
+nos brindará acceso conveniente para
+
+92
+00:03:45,098 --> 00:03:50,709
+alimentar dispositivos externos con
+
+93
+00:03:47,650 --> 00:03:52,299
+diversas tensiones analog in nos
+
+94
+00:03:50,709 --> 00:03:54,819
+brindará un total de 6 entradas
+
+95
+00:03:52,299 --> 00:03:57,250
+analógicas para los datos provenientes
+
+96
+00:03:54,818 --> 00:03:59,649
+de sensores activos y componentes
+
+97
+00:03:57,250 --> 00:04:02,889
+pasivos como hacer potenciómetros
+
+98
+00:03:59,650 --> 00:04:04,959
+resistencias variables etcétera en la
+
+99
+00:04:02,889 --> 00:04:07,059
+parte superior se concentran las salidas
+
+100
+00:04:04,959 --> 00:04:10,389
+del tipo digital que nos permitirán
+
+101
+00:04:07,060 --> 00:04:13,269
+activar luces motores relés y comandar
+
+102
+00:04:10,389 --> 00:04:16,418
+otros componentes electrónicos algunas
+
+103
+00:04:13,269 --> 00:04:18,449
+salidas tienen una capacidad única que
+
+104
+00:04:16,418 --> 00:04:21,909
+son de extrema utilidad y se denominan
+
+105
+00:04:18,449 --> 00:04:24,759
+wm qué significa modulación por ancho de
+
+106
+00:04:21,910 --> 00:04:27,610
+pulso nuevamente les recuerdo a no
+
+107
+00:04:24,759 --> 00:04:30,459
+desesperar en próximos capítulos veremos
+
+108
+00:04:27,610 --> 00:04:32,919
+cómo utilizar estas salidas de forma muy
+
+109
+00:04:30,459 --> 00:04:35,288
+sencilla finalmente en este circuito
+
+110
+00:04:32,918 --> 00:04:37,448
+integrado está el cerebro de nuestro
+
+111
+00:04:35,288 --> 00:04:40,418
+órgano el microcontrolador
+
+112
+00:04:37,449 --> 00:04:42,478
+incluye tanto procesador como memoria y
+
+113
+00:04:40,418 --> 00:04:44,889
+es el que ejecutará nuestro programa
+
+114
+00:04:42,478 --> 00:04:47,438
+este curso se centrará en la
+
+115
+00:04:44,889 --> 00:04:49,389
+implementación práctica de proyectos que
+
+116
+00:04:47,439 --> 00:04:51,968
+nos llevarán gradualmente a manejar a
+
+117
+00:04:49,389 --> 00:04:53,650
+voluntad este increíble sistema
+
+118
+00:04:51,968 --> 00:04:56,259
+iremos introduciendo también conceptos
+
+119
+00:04:53,649 --> 00:04:59,378
+básicos de electrónica de forma sencilla
+
+120
+00:04:56,259 --> 00:05:01,960
+y didáctica los espero en el próximo
+
+121
+00:04:59,379 --> 00:05:04,419
+capítulo donde pondremos manos a la obra
+
+122
+00:05:01,959 --> 00:05:06,758
+y escribiremos nuestro primer programa
+
+123
+00:05:04,418 --> 00:05:09,549
+no olviden suscribirse para hacer
+
+124
+00:05:06,759 --> 00:05:11,680
+recibir notificaciones y claro está si
+
+125
+00:05:09,550 --> 00:05:13,990
+tienen alguna pregunta o comentario con
+
+126
+00:05:11,680 --> 00:05:16,439
+gusto lo responderé chau hasta la
+
+127
+00:05:13,990 --> 00:05:16,439
+próxima
+

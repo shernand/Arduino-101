@@ -1,0 +1,1288 @@
+1
+00:00:00,000 --> 00:00:04,889
+hola a todos y bienvenidos al segundo
+
+2
+00:00:02,428 --> 00:00:07,980
+capítulo sobre arduino desde cero en
+
+3
+00:00:04,889 --> 00:00:10,739
+español en esta oportunidad vamos a ver
+
+4
+00:00:07,980 --> 00:00:13,380
+paso a paso cómo instalar el entorno de
+
+5
+00:00:10,740 --> 00:00:15,599
+desarrollo integrado ide por sus siglas
+
+6
+00:00:13,380 --> 00:00:17,699
+en inglés que nos permitirá programar
+
+7
+00:00:15,599 --> 00:00:19,559
+nuestro arduino y haremos el primer
+
+8
+00:00:17,699 --> 00:00:21,810
+programa que consiste en encender y
+
+9
+00:00:19,559 --> 00:00:24,778
+apagar de forma intermitente el led
+
+10
+00:00:21,809 --> 00:00:26,939
+integrado al instalar el lead tendremos
+
+11
+00:00:24,778 --> 00:00:29,099
+todo lo necesario por eso nuestra
+
+12
+00:00:26,939 --> 00:00:31,528
+primera tarea es ingresar a la siguiente
+
+13
+00:00:29,099 --> 00:00:32,640
+página web desde nuestro navegador de
+
+14
+00:00:31,528 --> 00:00:37,229
+internet
+
+15
+00:00:32,640 --> 00:00:41,039
+la dirección es arduino punto cc
+
+16
+00:00:37,229 --> 00:00:43,009
+allí seleccionamos el menú software y
+
+17
+00:00:41,039 --> 00:00:46,280
+nos desplazamos hasta la sección
+
+18
+00:00:43,009 --> 00:00:48,049
+download de arduino y de
+
+19
+00:00:46,280 --> 00:00:50,510
+jacques arduino tiene soporte
+
+20
+00:00:48,049 --> 00:00:52,518
+multiplataforma deberíamos seleccionar
+
+21
+00:00:50,509 --> 00:00:54,619
+nuestro sistema operativo
+
+22
+00:00:52,518 --> 00:00:57,979
+por ejemplo en nuestro caso será windows
+
+23
+00:00:54,619 --> 00:00:59,409
+en su opción instalar claro está que si
+
+24
+00:00:57,979 --> 00:01:01,419
+estás trabajando con una mac
+
+25
+00:00:59,409 --> 00:01:05,629
+seleccionará la opción correspondiente
+
+26
+00:01:01,420 --> 00:01:08,629
+lo mismo si se trata de linux esto nos
+
+27
+00:01:05,629 --> 00:01:11,179
+llevará a una página intermedia saporta
+
+28
+00:01:08,629 --> 00:01:14,060
+de arduino software donde podremos hacer
+
+29
+00:01:11,180 --> 00:01:16,490
+una donación a la fundación cyes en
+
+30
+00:01:14,060 --> 00:01:19,540
+nuestro deseo o directamente daremos
+
+31
+00:01:16,489 --> 00:01:22,239
+clic en just download
+
+32
+00:01:19,540 --> 00:01:24,340
+una vez descargado el archivo damos clic
+
+33
+00:01:22,239 --> 00:01:27,039
+en el mismo para dar inicio al
+
+34
+00:01:24,340 --> 00:01:29,469
+instalador en mi caso se trata de
+
+35
+00:01:27,040 --> 00:01:31,750
+firefox por lo que el archivo descargado
+
+36
+00:01:29,469 --> 00:01:33,969
+se encuentra haciendo clic en la flecha
+
+37
+00:01:31,750 --> 00:01:37,239
+de descarga al lado de la barra de
+
+38
+00:01:33,969 --> 00:01:41,670
+búsqueda en chrome será en el recuadro
+
+39
+00:01:37,239 --> 00:01:41,669
+que aparece al pie de la página
+
+40
+00:01:44,799 --> 00:01:51,329
+leemos las condiciones del contrato y
+
+41
+00:01:47,680 --> 00:01:53,770
+hacemos clic en el botón aya green
+
+42
+00:01:51,329 --> 00:01:56,289
+dejamos las opciones marcadas por
+
+43
+00:01:53,769 --> 00:02:00,750
+defecto ya que son las adecuadas para la
+
+44
+00:01:56,290 --> 00:02:03,340
+mayoría de los casos y click en next
+
+45
+00:02:00,750 --> 00:02:05,590
+luego nos mostrará el directorio de
+
+46
+00:02:03,340 --> 00:02:08,800
+instalación que también dejaremos el
+
+47
+00:02:05,590 --> 00:02:12,250
+valor por defecto nuevamente clic en el
+
+48
+00:02:08,800 --> 00:02:14,920
+botón next y de esta forma comenzará el
+
+49
+00:02:12,250 --> 00:02:18,159
+proceso de instalación que puede demorar
+
+50
+00:02:14,919 --> 00:02:20,649
+varios minutos por eso iremos directo
+
+51
+00:02:18,159 --> 00:02:23,560
+hasta casi el final del proceso de
+
+52
+00:02:20,650 --> 00:02:26,710
+instalación cuando se nos presente una
+
+53
+00:02:23,560 --> 00:02:30,189
+ventana solicitando permiso para
+
+54
+00:02:26,710 --> 00:02:33,370
+instalar el controlador usb haremos clic
+
+55
+00:02:30,189 --> 00:02:36,639
+en el botón instalar luego de unos
+
+56
+00:02:33,370 --> 00:02:40,110
+segundos más ya estará instalado y
+
+57
+00:02:36,639 --> 00:02:40,109
+haremos clic en close
+
+58
+00:02:42,139 --> 00:02:48,229
+[Música]
+
+59
+00:02:43,990 --> 00:02:50,900
+muy bien ya con todo listo damos doble
+
+60
+00:02:48,229 --> 00:02:54,139
+click al icono de arduino que nos dejó
+
+61
+00:02:50,900 --> 00:02:56,810
+el instalador en el escritorio luego de
+
+62
+00:02:54,139 --> 00:02:59,329
+algunos segundos al mismo tiempo que se
+
+63
+00:02:56,810 --> 00:03:02,330
+abre por primera vez puede aparecer nos
+
+64
+00:02:59,330 --> 00:03:04,820
+una ventana del firewall de windows para
+
+65
+00:03:02,330 --> 00:03:07,880
+permitirle al programa acceso a internet
+
+66
+00:03:04,819 --> 00:03:10,189
+el cual sirve para verificar por nuevas
+
+67
+00:03:07,879 --> 00:03:13,519
+versiones o actualizaciones de sus
+
+68
+00:03:10,189 --> 00:03:17,259
+librerías por eso es que haremos clic en
+
+69
+00:03:13,520 --> 00:03:17,260
+desbloquear y listo
+
+70
+00:03:30,129 --> 00:03:32,460
+y
+
+71
+00:03:33,620 --> 00:03:38,989
+en este momento conectaremos nuestro
+
+72
+00:03:36,469 --> 00:03:41,889
+arduino a la computadora mediante el
+
+73
+00:03:38,989 --> 00:03:45,890
+cable usb como se muestra en la imagen
+
+74
+00:03:41,889 --> 00:03:48,708
+el extremo más cuadrado irá del lado del
+
+75
+00:03:45,889 --> 00:03:51,919
+arduino prestar atención es ya que tiene
+
+76
+00:03:48,709 --> 00:03:55,189
+posición y no queremos forzarlo el otro
+
+77
+00:03:51,919 --> 00:03:59,089
+extremo irá a un puerto usb disponible
+
+78
+00:03:55,189 --> 00:04:01,729
+en nuestra pc si todo va bien veremos en
+
+79
+00:03:59,090 --> 00:04:06,310
+la placa que se enciende un led de color
+
+80
+00:04:01,729 --> 00:04:06,310
+verde identificado como un
+
+81
+00:04:08,050 --> 00:04:18,489
+y ya casi estamos listos sólo un paso
+
+82
+00:04:15,909 --> 00:04:20,529
+más para asegurarnos que nuestra pc ha
+
+83
+00:04:18,488 --> 00:04:23,379
+detectado correctamente a nuestro
+
+84
+00:04:20,529 --> 00:04:26,709
+arduino iremos al menú herramientas y
+
+85
+00:04:23,379 --> 00:04:30,040
+luego el submenú placa allí deberá estar
+
+86
+00:04:26,709 --> 00:04:32,799
+seleccionado arduino vardar genuino 1
+
+87
+00:04:30,040 --> 00:04:35,890
+eso significa que la placa ha sido
+
+88
+00:04:32,800 --> 00:04:38,290
+reconocida finalmente en el menú puerto
+
+89
+00:04:35,889 --> 00:04:40,269
+deberá estar seleccionado el puerto de
+
+90
+00:04:38,290 --> 00:04:45,280
+conexión de la placa que por lo general
+
+91
+00:04:40,269 --> 00:04:47,289
+suele ser con 4.5 pero esto depende de
+
+92
+00:04:45,279 --> 00:04:49,379
+los dispositivos que tengamos conectados
+
+93
+00:04:47,290 --> 00:04:52,439
+a nuestra computadora
+
+94
+00:04:49,379 --> 00:04:54,689
+la ventaja del editor nos mostrará un
+
+95
+00:04:52,439 --> 00:04:56,519
+esqueleto típico de un programa de
+
+96
+00:04:54,689 --> 00:04:59,129
+arduino con sus dos principales
+
+97
+00:04:56,519 --> 00:05:01,289
+funciones pero nosotros estamos
+
+98
+00:04:59,129 --> 00:05:04,379
+aprendiendo desde cero vamos a
+
+99
+00:05:01,290 --> 00:05:05,490
+seleccionar todo el texto y eliminarlo
+
+100
+00:05:04,379 --> 00:05:07,139
+todos los programas de arduino
+
+101
+00:05:05,490 --> 00:05:11,610
+comenzarán con la función denominada
+
+102
+00:05:07,139 --> 00:05:14,219
+setup la cual se ejecuta una sola vez es
+
+103
+00:05:11,610 --> 00:05:17,100
+decir al inicio del programa y por única
+
+104
+00:05:14,220 --> 00:05:19,980
+vez y por eso este es el lugar para
+
+105
+00:05:17,100 --> 00:05:23,540
+inicializar variables y hacer los 72
+
+106
+00:05:19,980 --> 00:05:28,500
+preliminares vamos a escribir la palabra
+
+107
+00:05:23,540 --> 00:05:31,460
+void un espacio la palabra setup y
+
+108
+00:05:28,500 --> 00:05:34,259
+abrimos paréntesis e inmediatamente
+
+109
+00:05:31,459 --> 00:05:36,870
+cerramos paréntesis es decir que no
+
+110
+00:05:34,259 --> 00:05:39,719
+dejamos espacio entre ellos luego
+
+111
+00:05:36,870 --> 00:05:40,959
+también sin dejar espacio abriremos
+
+112
+00:05:39,720 --> 00:05:43,150
+llaves
+
+113
+00:05:40,959 --> 00:05:45,668
+es un carácter que no suele utilizarse
+
+114
+00:05:43,149 --> 00:05:48,219
+demasiado quizás tengas que buscar en tu
+
+115
+00:05:45,668 --> 00:05:51,490
+teclado donde se encuentra generalmente
+
+116
+00:05:48,220 --> 00:05:54,160
+es la misma tecla de abril- corchetes
+
+117
+00:05:51,490 --> 00:05:57,220
+luego de abrir llaves hacemos un enter
+
+118
+00:05:54,160 --> 00:05:59,289
+para ir a una nueva línea quieres que
+
+119
+00:05:57,220 --> 00:06:01,900
+inmediatamente al ir el cursor a la
+
+120
+00:05:59,288 --> 00:06:04,329
+nueva línea debajo apareció el carácter
+
+121
+00:06:01,899 --> 00:06:06,758
+de cerrar sabes
+
+122
+00:06:04,329 --> 00:06:09,339
+esto lo hace el editor de forma
+
+123
+00:06:06,759 --> 00:06:11,770
+automática para ahorrarnos tiempo muy
+
+124
+00:06:09,339 --> 00:06:15,218
+conveniente verdad en este lugar
+
+125
+00:06:11,769 --> 00:06:18,668
+escribiremos ping mode tal cual se
+
+126
+00:06:15,218 --> 00:06:20,860
+muestra abrimos paréntesis y aquí
+
+127
+00:06:18,668 --> 00:06:24,279
+pondremos los parámetros de la función
+
+128
+00:06:20,860 --> 00:06:27,280
+team mode el primer parámetro es el
+
+129
+00:06:24,279 --> 00:06:30,698
+número de pin que vamos a usar en este
+
+130
+00:06:27,279 --> 00:06:32,829
+caso será el 13 ya que el mismo es al
+
+131
+00:06:30,699 --> 00:06:35,968
+cual se encuentra conectado de forma
+
+132
+00:06:32,829 --> 00:06:38,889
+interna el led y como segundo parámetro
+
+133
+00:06:35,968 --> 00:06:42,848
+debemos decirle si vamos a usar este pin
+
+134
+00:06:38,889 --> 00:06:45,848
+como entrada o como salida como queremos
+
+135
+00:06:42,848 --> 00:06:48,699
+encender el led el pin deberá estar como
+
+136
+00:06:45,848 --> 00:06:52,310
+salida por eso escribimos la palabra
+
+137
+00:06:48,699 --> 00:06:55,639
+output todo en mayúsculas
+
+138
+00:06:52,310 --> 00:06:57,980
+finalizamos cerrando paréntesis y
+
+139
+00:06:55,639 --> 00:07:01,159
+colocando un punto y coma que significa
+
+140
+00:06:57,980 --> 00:07:03,680
+fin del comando es importante recordar
+
+141
+00:07:01,160 --> 00:07:08,150
+poner siempre un punto y coma al final
+
+142
+00:07:03,680 --> 00:07:10,129
+sino dar dará error más adelante algo
+
+143
+00:07:08,149 --> 00:07:12,259
+muy importante a tener en cuenta es que
+
+144
+00:07:10,129 --> 00:07:14,899
+las funciones y algunas palabras
+
+145
+00:07:12,259 --> 00:07:17,810
+reservadas son sensibles al uso de
+
+146
+00:07:14,899 --> 00:07:21,769
+mayúsculas y minúsculas es por eso que
+
+147
+00:07:17,810 --> 00:07:24,199
+escribimos primos con la m mayúscula y
+
+148
+00:07:21,769 --> 00:07:27,500
+el editor la reconoció al cambiarla de
+
+149
+00:07:24,199 --> 00:07:30,709
+color si por ejemplo ahora cambiamos la
+
+150
+00:07:27,500 --> 00:07:32,750
+n mayúscula por una minúscula que puede
+
+151
+00:07:30,709 --> 00:07:35,689
+ser el equivalente a un simple error de
+
+152
+00:07:32,750 --> 00:07:37,670
+tipeo cambia el color a negro
+
+153
+00:07:35,689 --> 00:07:40,759
+indicando que no es una función
+
+154
+00:07:37,670 --> 00:07:43,340
+reconocida por el editor volviendo a
+
+155
+00:07:40,759 --> 00:07:46,219
+poner la m mayúscula vuelve a su color
+
+156
+00:07:43,339 --> 00:07:49,099
+correcto el cambio de color es una forma
+
+157
+00:07:46,220 --> 00:07:51,650
+que tiene el editor de textos de hacerlo
+
+158
+00:07:49,100 --> 00:07:53,700
+saber si algo lo reconoce o no una
+
+159
+00:07:51,649 --> 00:07:55,769
+ayudita qué mal no viene
+
+160
+00:07:53,699 --> 00:07:58,170
+muy bien ya tenemos lista la función
+
+161
+00:07:55,769 --> 00:07:59,909
+setup que se ejecutará una sola vez
+
+162
+00:07:58,170 --> 00:08:02,550
+ahora haremos la función donde se
+
+163
+00:07:59,910 --> 00:08:05,939
+ejecutará el código de forma permanente
+
+164
+00:08:02,550 --> 00:08:08,819
+y de forma indefinida y es donde la
+
+165
+00:08:05,939 --> 00:08:11,269
+mayor parte del código ya se llama loop
+
+166
+00:08:08,819 --> 00:08:14,909
+que en inglés es bucle o lazo
+
+167
+00:08:11,269 --> 00:08:16,829
+escribiremos void luke abrimos y
+
+168
+00:08:14,910 --> 00:08:20,070
+cerramos paréntesis al igual que hicimos
+
+169
+00:08:16,829 --> 00:08:22,769
+con setup y abrimos llaves luego un
+
+170
+00:08:20,069 --> 00:08:24,420
+enter para una nueva línea y el igual
+
+171
+00:08:22,769 --> 00:08:26,959
+que antes el editor no cerrará la llave
+
+172
+00:08:24,420 --> 00:08:29,210
+en la siguiente línea
+
+173
+00:08:26,959 --> 00:08:31,459
+lo que queremos hacer aquí es encender
+
+174
+00:08:29,209 --> 00:08:35,870
+el led que se encuentra conectado al pin
+
+175
+00:08:31,459 --> 00:08:38,389
+13 ya que en la función setup definimos
+
+176
+00:08:35,870 --> 00:08:41,240
+al pin 13 como salida pero ahora
+
+177
+00:08:38,389 --> 00:08:44,929
+queremos escribir un valor alto es decir
+
+178
+00:08:41,240 --> 00:08:47,539
+un 1 lógico equivalente a 5 gol de
+
+179
+00:08:44,929 --> 00:08:50,569
+atención para encender el él
+
+180
+00:08:47,539 --> 00:08:53,689
+para eso usaremos la función digital
+
+181
+00:08:50,570 --> 00:08:55,730
+white abrimos paréntesis y el primer
+
+182
+00:08:53,690 --> 00:08:59,449
+parámetro que toma es el número de pin
+
+183
+00:08:55,730 --> 00:09:01,820
+en nuestro caso de 13 luego como un
+
+184
+00:08:59,448 --> 00:09:03,559
+espacio como segundo parámetro le
+
+185
+00:09:01,820 --> 00:09:07,129
+indicamos que queremos escribir un valor
+
+186
+00:09:03,559 --> 00:09:10,669
+alto por eso escribiremos height todo en
+
+187
+00:09:07,129 --> 00:09:13,338
+mayúsculas cerramos paréntesis punto y
+
+188
+00:09:10,669 --> 00:09:16,519
+coma y enter para ir la siguiente línea
+
+189
+00:09:13,339 --> 00:09:19,160
+digital right coloca un nivel alto en el
+
+190
+00:09:16,519 --> 00:09:21,649
+pin pero ahora debemos agregar una
+
+191
+00:09:19,159 --> 00:09:23,588
+espera para poder verlo para eso existe
+
+192
+00:09:21,649 --> 00:09:27,379
+la función delay que en inglés significa
+
+193
+00:09:23,589 --> 00:09:30,350
+demora entonces entre los paréntesis de
+
+194
+00:09:27,379 --> 00:09:31,490
+delay pondremos la demora medida en
+
+195
+00:09:30,350 --> 00:09:34,579
+milisegundos
+
+196
+00:09:31,490 --> 00:09:36,350
+es decir en milésimas de segundo si
+
+197
+00:09:34,578 --> 00:09:39,500
+queremos una demora de un segundo
+
+198
+00:09:36,350 --> 00:09:42,319
+colocaremos mil esta función usa un solo
+
+199
+00:09:39,500 --> 00:09:45,089
+parámetro con lo cual no hay comas como
+
+200
+00:09:42,318 --> 00:09:48,139
+con las anteriores funciones
+
+201
+00:09:45,089 --> 00:09:51,360
+al final como siempre un punto y coma
+
+202
+00:09:48,139 --> 00:09:53,730
+magnífico ya casi lo tenemos sólo unas
+
+203
+00:09:51,360 --> 00:09:56,610
+líneas más ya que tenemos algo de
+
+204
+00:09:53,730 --> 00:09:58,649
+práctica iremos más rápido nuestro led
+
+205
+00:09:56,610 --> 00:10:00,808
+ahora queda encendido por un segundo
+
+206
+00:09:58,649 --> 00:10:02,308
+ahora debemos apagarlo
+
+207
+00:10:00,808 --> 00:10:05,938
+para eso volveremos a usar la función
+
+208
+00:10:02,308 --> 00:10:07,740
+digital right con el pin 13 pero esta
+
+209
+00:10:05,938 --> 00:10:11,039
+vez colocaremos como segundo parámetro
+
+210
+00:10:07,740 --> 00:10:13,558
+la palabra lobo todo en mayúsculas como
+
+211
+00:10:11,039 --> 00:10:16,980
+ya se imaginarán esto hace que la salida
+
+212
+00:10:13,558 --> 00:10:20,159
+pase a un nivel lógico de 0 o convertido
+
+213
+00:10:16,980 --> 00:10:22,060
+atención serán 0 volts efectivamente
+
+214
+00:10:20,159 --> 00:10:25,129
+apagando el led
+
+215
+00:10:22,059 --> 00:10:28,099
+finalmente pondremos otra demora de un
+
+216
+00:10:25,129 --> 00:10:30,620
+segundo con la función delay esta línea
+
+217
+00:10:28,100 --> 00:10:33,290
+es la última de la función loop que
+
+218
+00:10:30,620 --> 00:10:36,080
+recordemos se ejecuta constantemente de
+
+219
+00:10:33,289 --> 00:10:38,449
+forma repetida por eso luego de esta
+
+220
+00:10:36,080 --> 00:10:40,700
+demora de un segundo volver a ejecutar
+
+221
+00:10:38,450 --> 00:10:42,920
+la primer línea de nuestra función loop
+
+222
+00:10:40,700 --> 00:10:45,680
+que pone en alto a la salida para
+
+223
+00:10:42,919 --> 00:10:48,559
+encender el led y así todo el tiempo
+
+224
+00:10:45,679 --> 00:10:50,620
+mientras la placa tenga alimentación y
+
+225
+00:10:48,559 --> 00:10:53,569
+el programa funcionará por siempre
+
+226
+00:10:50,620 --> 00:10:55,690
+nuestro programa ya está listo pero ya
+
+227
+00:10:53,570 --> 00:10:58,430
+que estamos aprendiendo desde cero
+
+228
+00:10:55,690 --> 00:11:00,860
+aprendamos también una buena práctica
+
+229
+00:10:58,429 --> 00:11:04,729
+que todo programador debería seguir
+
+230
+00:11:00,860 --> 00:11:07,940
+aunque no es obligatorio se trata de los
+
+231
+00:11:04,730 --> 00:11:09,649
+comentarios o anotaciones amigas que
+
+232
+00:11:07,940 --> 00:11:11,810
+nuestros programas vayan creciendo en
+
+233
+00:11:09,649 --> 00:11:14,840
+complejidad puede darse que no
+
+234
+00:11:11,809 --> 00:11:16,939
+recordemos que hacía una determinada
+
+235
+00:11:14,840 --> 00:11:20,509
+función o un determinado bloque de
+
+236
+00:11:16,940 --> 00:11:22,520
+programa qué tipo de procesamiento hace
+
+237
+00:11:20,509 --> 00:11:25,009
+para eso existe una forma de agregar
+
+238
+00:11:22,519 --> 00:11:27,289
+comentarios sobre cada línea
+
+239
+00:11:25,009 --> 00:11:30,169
+simplemente luego del punto y coma vamos
+
+240
+00:11:27,289 --> 00:11:33,289
+a dejar un generoso espacio aquí el
+
+241
+00:11:30,169 --> 00:11:36,229
+espacio de tabulación o tecla tavo es de
+
+242
+00:11:33,289 --> 00:11:38,360
+mucha utilidad y escribiremos dos barras
+
+243
+00:11:36,230 --> 00:11:40,580
+es la barra que generalmente se
+
+244
+00:11:38,360 --> 00:11:43,550
+encuentra en el teclado numérico justo
+
+245
+00:11:40,580 --> 00:11:46,160
+arriba del número 8 escribiremos dos
+
+246
+00:11:43,549 --> 00:11:47,929
+barras seguidas el elector cambia el
+
+247
+00:11:46,159 --> 00:11:50,120
+color a gris
+
+248
+00:11:47,929 --> 00:11:52,219
+ahora si podemos escribir aquí lo que
+
+249
+00:11:50,120 --> 00:11:54,799
+queramos es un comentario que nos
+
+250
+00:11:52,220 --> 00:11:57,769
+servirá a nosotros para recordar algo
+
+251
+00:11:54,799 --> 00:12:00,439
+con lo cual conviene ser claro y conciso
+
+252
+00:11:57,769 --> 00:12:01,850
+pero tampoco escatimar en letras y que
+
+253
+00:12:00,440 --> 00:12:04,279
+al final tampoco entendamos el
+
+254
+00:12:01,850 --> 00:12:06,170
+comentario ya que estamos practicando
+
+255
+00:12:04,278 --> 00:12:08,169
+continuamos comentando las siguientes
+
+256
+00:12:06,169 --> 00:12:11,028
+líneas como se muestra en pantalla
+
+257
+00:12:08,169 --> 00:12:15,009
+pueden colocar cualquier texto el
+
+258
+00:12:11,028 --> 00:12:15,009
+mostrado es solo de referencia
+
+259
+00:12:26,299 --> 00:12:28,659
+y
+
+260
+00:12:31,580 --> 00:12:33,879
+y
+
+261
+00:12:37,039 --> 00:12:41,799
+i
+
+262
+00:12:38,809 --> 00:12:41,799
+ah
+
+263
+00:12:45,799 --> 00:12:51,598
+[Música]
+
+264
+00:12:58,909 --> 00:13:04,238
+[Música]
+
+265
+00:13:01,259 --> 00:13:06,938
+ahora sí prometo que no más código por
+
+266
+00:13:04,239 --> 00:13:10,119
+este capítulo vamos directo a verificar
+
+267
+00:13:06,938 --> 00:13:12,849
+el programa leader hará una revisión del
+
+268
+00:13:10,119 --> 00:13:15,459
+código y nos marcará si encuentra algún
+
+269
+00:13:12,850 --> 00:13:18,399
+error para esto hacemos clic en el
+
+270
+00:13:15,458 --> 00:13:20,979
+primer botón con el icono del tic como
+
+271
+00:13:18,399 --> 00:13:23,470
+aún no hemos guardado el código nos
+
+272
+00:13:20,980 --> 00:13:25,420
+presentará con la ventana para guardar
+
+273
+00:13:23,470 --> 00:13:28,989
+nuestro proyecto
+
+274
+00:13:25,419 --> 00:13:32,048
+aquí colocamos el nombre por ejemplo mi
+
+275
+00:13:28,989 --> 00:13:33,670
+primer programa arduino y clic en
+
+276
+00:13:32,048 --> 00:13:37,029
+guardada
+
+277
+00:13:33,669 --> 00:13:39,849
+este proceso demorará unos segundos y
+
+278
+00:13:37,029 --> 00:13:43,689
+veremos una barra con el progreso
+
+279
+00:13:39,850 --> 00:13:45,580
+mientras les comento que este proceso no
+
+280
+00:13:43,690 --> 00:13:48,520
+carga el programa en nuestra placa
+
+281
+00:13:45,580 --> 00:13:51,759
+arduino sólo hace la compilación y nos
+
+282
+00:13:48,519 --> 00:13:54,189
+indicará si existe algún error conviene
+
+283
+00:13:51,759 --> 00:13:57,580
+hacerlo para evitar las sorpresas luego
+
+284
+00:13:54,190 --> 00:13:59,950
+si todo va bien verán que en la zona
+
+285
+00:13:57,580 --> 00:14:02,230
+inferior con fondo negro nos dirá el
+
+286
+00:13:59,950 --> 00:14:04,660
+compilador los recursos de memoria
+
+287
+00:14:02,230 --> 00:14:07,960
+usados algo que por ahora no nos
+
+288
+00:14:04,659 --> 00:14:09,429
+interesa solo debemos verificar y no nos
+
+289
+00:14:07,960 --> 00:14:12,519
+muestra ningún tipo de error
+
+290
+00:14:09,429 --> 00:14:15,250
+por último haremos clic en el botón de
+
+291
+00:14:12,519 --> 00:14:18,460
+la flecha justo al lado del de verificar
+
+292
+00:14:15,250 --> 00:14:20,620
+que es subir este como su nombre lo
+
+293
+00:14:18,460 --> 00:14:23,050
+indica va a subir el programa a nuestra
+
+294
+00:14:20,620 --> 00:14:25,330
+placa y enviará el comando para que se
+
+295
+00:14:23,049 --> 00:14:27,549
+inicie todo ha ido bien entonces
+
+296
+00:14:25,330 --> 00:14:30,700
+tendremos parpadeando el led de nuestra
+
+297
+00:14:27,549 --> 00:14:33,039
+placa a intervalos de un segundo el
+
+298
+00:14:30,700 --> 00:14:35,830
+código completo se muestra en pantalla y
+
+299
+00:14:33,039 --> 00:14:38,860
+pueden hacer ahora pausa en el vídeo
+
+300
+00:14:35,830 --> 00:14:41,139
+para leerlo y escribirlo en el editor
+
+301
+00:14:38,860 --> 00:14:43,750
+mi deseo es que lo escriban ustedes
+
+302
+00:14:41,139 --> 00:14:46,809
+línea por línea es importante
+
+303
+00:14:43,750 --> 00:14:49,690
+experimenten en forma propia como el
+
+304
+00:14:46,809 --> 00:14:52,149
+escribir va cambiando el color y demás
+
+305
+00:14:49,690 --> 00:14:54,430
+cuestiones que estuvimos viendo si les
+
+306
+00:14:52,149 --> 00:14:57,370
+dejo el código para copiar y pegar no
+
+307
+00:14:54,429 --> 00:14:59,199
+estarían aprendiendo así que lo siento
+
+308
+00:14:57,370 --> 00:15:02,649
+amigos pero para este primer programa
+
+309
+00:14:59,200 --> 00:15:05,800
+les pido que lo lean y copien letra por
+
+310
+00:15:02,649 --> 00:15:06,340
+letra desde pantalla en el próximo
+
+311
+00:15:05,799 --> 00:15:08,500
+capítulo
+
+312
+00:15:06,340 --> 00:15:10,840
+estaremos conectando componentes
+
+313
+00:15:08,500 --> 00:15:13,750
+externos para entender cómo leer el
+
+314
+00:15:10,840 --> 00:15:16,509
+valor de una entrada digital mediante el
+
+315
+00:15:13,750 --> 00:15:19,149
+uso de un pulsador y también cómo
+
+316
+00:15:16,509 --> 00:15:21,789
+asignarle un valor a una salida para
+
+317
+00:15:19,149 --> 00:15:25,059
+encender un led va a estar bueno así que
+
+318
+00:15:21,789 --> 00:15:27,969
+los espero como siempre les pido se
+
+319
+00:15:25,059 --> 00:15:30,339
+suscriban para recibir notificaciones y
+
+320
+00:15:27,970 --> 00:15:32,860
+por cualquier consulta o comentario lo
+
+321
+00:15:30,340 --> 00:15:36,780
+pueden hacer debajo que responderé con
+
+322
+00:15:32,860 --> 00:15:36,779
+gusto chau y hasta la próxima
+

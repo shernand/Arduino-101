@@ -1,0 +1,27 @@
+Modificaremos el brillo de un LED mediante una salida digital de Aduino en modo PWM y lo comandaremos con un potenciómetro conectado a una entrada analógica.
+Se explica el proceso de la modulación por ancho de pulso (PWM) que permite obtener distintos valores de tensión en salidas digitales y también exploramos como leer una entrada analógica mediante un potenciómetro.
+
+Se introduce el concepto del bucle for como uno de los métodos más usados para iterar una cierta cantidad de veces determinado código.
+
+Recomendado: Visualización en osciloscopio: https://youtu.be/kOxUdNx6tt0
+
+
+Código fuente de los dos programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#arduinodesdecero
+#ArduinoPWM
+#ArduinoPotenciómetro
+Arduino PWM LED
+Arduino PWM potenciometro
+PWM Arduino como funciona
+Arduino PWM duty cycle control
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+1:05 Concepto de PWM
+6:52 Pines PWM de Arduino UNO
+7:25 Primer programa
+15:40 Circuito de conexión
+16:39 Segundo programa
+21:05 Próximo capítulo y despedida

@@ -1,0 +1,23 @@
+Aprenderemos a utilizar el sensor ultrasónico HC-SR04 para medir distancia y encender un LED con Arduino cuando se encuentre el objeto dentro de un determinado rango. Introducimos el concepto del Monitor Serial (Serie) incorporado en el IDE de Arduino, para visualizar en tiempo real el valor de distancia medido.
+
+También cómo hacer parpadear un LED de forma proporcional a la distancia medida. 
+
+
+Código fuente de los dos programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoHC-SR04
+#ArduinoSensorUltrasónico
+#ArduinoDesdeCero
+Sensor ultrasónico Arduino con LED
+Sensor de presencia Arduino
+HC-SR04 funcionamiento
+Monitor serie de Arduino
+
+Marcas de tiempo:
+
+0:00 Introducción
+2:16 Circuito de conexión
+2:57 Primer programa (mostrando distancia por monitor serie)
+9:30 Segundo programa (parpadeo de LED proporcional a distancia)
+13:02 Próximo capítulo y despedida

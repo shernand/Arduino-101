@@ -1,0 +1,30 @@
+Veremos como usar las entradas y salidas digitales de Arduino para detectar cuando se presiona un pulsador y encender un LED. 
+Introducimos el uso detallado de protoboard y como utilizarla para conectar nuestros componentes y cables de interconexión.
+
+También veremos la sentencia if con el else para tomar decisiones y el bucle while para controlar el flujo del programa.
+
+
+Código fuente de los tres programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#arduinodesdecero
+#arduinouno
+#ArduinoLED
+#ArduinoPulsador
+#ArduinoPrimerosPasosDesde0
+Arduino entradas y salidas digitales
+Arduino pulsador y LED
+Antirrebote pulsador Arduino
+Arduino if else
+Arduino if digitalread
+Protoboard como armar circuitos
+LED ánodo y cátodo
+Arduino while
+Arduino pinmode
+Arduino led on off push button
+
+Marcas de tiempo:
+0:00 Introduccióny Conexión de componentes
+7:21 Primer programa (encendiendo LED con pulsador)
+12:22 Segundo programa (interruptor ON/OFF)
+21:00 Tercer programa (mantiene encendido por 5 segundos)

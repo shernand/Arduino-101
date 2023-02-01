@@ -1,0 +1,1800 @@
+1
+00:00:00,000 --> 00:00:06,569
+hola a todos y bienvenidos al capítulo 3
+
+2
+00:00:02,939 --> 00:00:08,609
+de arduino desde cero en español en esta
+
+3
+00:00:06,569 --> 00:00:11,730
+oportunidad vamos a trabajar con las
+
+4
+00:00:08,609 --> 00:00:14,548
+entradas y salidas digitales mediante el
+
+5
+00:00:11,730 --> 00:00:17,339
+uso de componentes externos que serán un
+
+6
+00:00:14,548 --> 00:00:19,559
+pulsador y un led a dichos componentes
+
+7
+00:00:17,339 --> 00:00:22,350
+los colocaremos en una placa de
+
+8
+00:00:19,559 --> 00:00:25,829
+proyectos comúnmente llamada protoboard
+
+9
+00:00:22,350 --> 00:00:28,320
+o en inglés bread board vamos a
+
+10
+00:00:25,829 --> 00:00:31,198
+detenernos unos instantes en la proto
+
+11
+00:00:28,320 --> 00:00:33,390
+board para ver cómo se utiliza ya que
+
+12
+00:00:31,199 --> 00:00:35,340
+será la base de cualquier proyecto que
+
+13
+00:00:33,390 --> 00:00:38,460
+requiere el uso de componentes externos
+
+14
+00:00:35,340 --> 00:00:40,739
+a la placa arduino como se muestra en
+
+15
+00:00:38,460 --> 00:00:43,558
+pantalla la proto guard consta de una
+
+16
+00:00:40,738 --> 00:00:46,259
+gran cantidad de orificios para conectar
+
+17
+00:00:43,558 --> 00:00:49,809
+tanto componentes electrónicos como
+
+18
+00:00:46,259 --> 00:00:52,149
+cables de interconexión entre los mismos
+
+19
+00:00:49,810 --> 00:00:55,660
+la hilera superior se la suele llamar
+
+20
+00:00:52,149 --> 00:00:58,269
+riel de tensión riel ya que se trata de
+
+21
+00:00:55,659 --> 00:01:00,750
+dos líneas paralelas como las vías de un
+
+22
+00:00:58,270 --> 00:01:03,400
+tren estas líneas paralelas
+
+23
+00:01:00,750 --> 00:01:06,819
+identificadas de color azul para el polo
+
+24
+00:01:03,399 --> 00:01:09,400
+negativo o masa y de color rojo para el
+
+25
+00:01:06,819 --> 00:01:11,919
+positivo servirán para conectarla a
+
+26
+00:01:09,400 --> 00:01:15,160
+ellas los distintos componentes mediante
+
+27
+00:01:11,920 --> 00:01:17,769
+cables ya que estas líneas ocupan toda
+
+28
+00:01:15,159 --> 00:01:19,539
+la extensión de la protavoz hace fácil
+
+29
+00:01:17,769 --> 00:01:22,149
+acceder a cualquier pueblo de
+
+30
+00:01:19,540 --> 00:01:24,960
+alimentación desde cualquier parte de la
+
+31
+00:01:22,150 --> 00:01:28,118
+misma sin necesidad de largos cables
+
+32
+00:01:24,959 --> 00:01:30,339
+luego los orificios interiores se
+
+33
+00:01:28,118 --> 00:01:33,159
+encuentran conectados mediante hileras
+
+34
+00:01:30,340 --> 00:01:37,390
+verticales y llegan hasta un surco o
+
+35
+00:01:33,159 --> 00:01:40,118
+canal donde se interrumpen este surco es
+
+36
+00:01:37,390 --> 00:01:43,629
+útil para conectar chips que tienen sus
+
+37
+00:01:40,118 --> 00:01:46,409
+pines en dos hileras técnicamente con un
+
+38
+00:01:43,629 --> 00:01:48,589
+encapsulado del tipo dip
+
+39
+00:01:46,409 --> 00:01:52,020
+por ahora no usaremos ningún chip
+
+40
+00:01:48,590 --> 00:01:54,569
+estaremos conectando un pulsador que nos
+
+41
+00:01:52,019 --> 00:01:57,929
+servirá a modo de entrada para un pin
+
+42
+00:01:54,569 --> 00:02:00,649
+digital arduino y un led como salida
+
+43
+00:01:57,929 --> 00:02:04,109
+conectado a otro pin digital de arduino
+
+44
+00:02:00,649 --> 00:02:07,468
+como decía anteriormente usaremos solo
+
+45
+00:02:04,108 --> 00:02:10,139
+dos componentes un pulsador simple del
+
+46
+00:02:07,468 --> 00:02:13,109
+tipo normal abierto es decir que sin
+
+47
+00:02:10,139 --> 00:02:16,259
+tocarlo el pulsador se comporta como un
+
+48
+00:02:13,110 --> 00:02:19,799
+circuito abierto y al presionarlo se
+
+49
+00:02:16,259 --> 00:02:21,568
+cierra el otro componente es un led ya
+
+50
+00:02:19,799 --> 00:02:24,200
+vimos cómo encender un led en el
+
+51
+00:02:21,568 --> 00:02:27,298
+capítulo 2 pero éste ya se encontraba
+
+52
+00:02:24,199 --> 00:02:30,060
+conectado internamente en la placa
+
+53
+00:02:27,299 --> 00:02:32,689
+arduino por eso ahora deberíamos
+
+54
+00:02:30,060 --> 00:02:35,370
+aprender un poco más de este componente
+
+55
+00:02:32,689 --> 00:02:38,128
+aquí tenemos el circuito completo que
+
+56
+00:02:35,370 --> 00:02:41,549
+utilizaremos voy a explicar paso a paso
+
+57
+00:02:38,128 --> 00:02:44,818
+cómo hacerlo comencemos con el led led
+
+58
+00:02:41,549 --> 00:02:46,859
+significa diodo emisor de luz y tiene
+
+59
+00:02:44,818 --> 00:02:49,560
+polaridad es decir que debemos
+
+60
+00:02:46,859 --> 00:02:52,890
+alimentarlo de la forma correcta para
+
+61
+00:02:49,560 --> 00:02:55,530
+que circule corriente por el mismo
+
+62
+00:02:52,889 --> 00:02:58,259
+la luz una de las patas del led se
+
+63
+00:02:55,530 --> 00:03:01,620
+denomina ánodo y debe recibir una
+
+64
+00:02:58,259 --> 00:03:04,799
+atención positiva para encender la otra
+
+65
+00:03:01,620 --> 00:03:08,099
+pata se denomina cátodo y corresponde al
+
+66
+00:03:04,800 --> 00:03:11,130
+negativo o más a él le ha visto de
+
+67
+00:03:08,099 --> 00:03:15,209
+arriba tiene un bisel y no es del todo
+
+68
+00:03:11,129 --> 00:03:18,500
+circular una parte sea plana la pata que
+
+69
+00:03:15,209 --> 00:03:21,270
+está más cerca a dicha zona es el cátodo
+
+70
+00:03:18,500 --> 00:03:23,129
+evidentemente la otra pata será el ánodo
+
+71
+00:03:21,270 --> 00:03:26,640
+es importante identificar correctamente
+
+72
+00:03:23,129 --> 00:03:28,919
+el ánodo y cátodo del led antes de
+
+73
+00:03:26,639 --> 00:03:31,859
+conectar la proto board ya que si se
+
+74
+00:03:28,919 --> 00:03:35,069
+conecta al revés no funcionará
+
+75
+00:03:31,860 --> 00:03:37,560
+arduino cuando coloca un nivel alto en
+
+76
+00:03:35,069 --> 00:03:40,259
+un pin digital está aplicando una
+
+77
+00:03:37,560 --> 00:03:42,900
+atención de 5 volts todo entrada y
+
+78
+00:03:40,259 --> 00:03:46,079
+salida digital podrá tener sólo dos
+
+79
+00:03:42,900 --> 00:03:50,400
+valores de tensión 0 volts para un nivel
+
+80
+00:03:46,080 --> 00:03:53,310
+lógico bajo o lou y 5volts para un nivel
+
+81
+00:03:50,400 --> 00:03:55,770
+la lógico alto
+
+82
+00:03:53,310 --> 00:03:58,469
+como el ed funciona con tres goles
+
+83
+00:03:55,770 --> 00:04:01,500
+tendremos que colocar una resistencia en
+
+84
+00:03:58,469 --> 00:04:03,750
+serie una resistencia es un componente
+
+85
+00:04:01,500 --> 00:04:06,719
+electrónico que reduce la corriente que
+
+86
+00:04:03,750 --> 00:04:09,629
+circula y así genera una caída de
+
+87
+00:04:06,719 --> 00:04:12,449
+tensión sobre la misma de esa manera
+
+88
+00:04:09,629 --> 00:04:15,419
+podremos encender el led de forma segura
+
+89
+00:04:12,449 --> 00:04:19,229
+sin quemarlo el valor que usaremos de
+
+90
+00:04:15,419 --> 00:04:21,930
+resistencia es de 330 oms no es
+
+91
+00:04:19,230 --> 00:04:25,500
+necesario un valor exacto y por ejemplo
+
+92
+00:04:21,930 --> 00:04:30,000
+funcionaría correctamente con una de 220
+
+93
+00:04:25,500 --> 00:04:33,240
+oms o 470 11 sólo variará levemente la
+
+94
+00:04:30,000 --> 00:04:36,269
+intensidad de la luz las resistencias se
+
+95
+00:04:33,240 --> 00:04:39,210
+manejan con un código de colores sobre
+
+96
+00:04:36,269 --> 00:04:41,159
+tres barras para indicar su valor no
+
+97
+00:04:39,209 --> 00:04:43,049
+vamos a entrar en detalle ya que
+
+98
+00:04:41,160 --> 00:04:45,740
+requeriría de una explicación más
+
+99
+00:04:43,050 --> 00:04:48,930
+extensa y no deseo entrar en cuestiones
+
+100
+00:04:45,740 --> 00:04:51,110
+demasiado teóricas por el momento sólo
+
+101
+00:04:48,930 --> 00:04:54,840
+es importante recordar que un valor de
+
+102
+00:04:51,110 --> 00:04:57,120
+330 oms es adecuado para encender un led
+
+103
+00:04:54,839 --> 00:04:57,929
+la idea del pulsador como método de
+
+104
+00:04:57,120 --> 00:05:00,840
+entrada
+
+105
+00:04:57,930 --> 00:05:04,110
+es que sin presionarse al pin digital de
+
+106
+00:05:00,839 --> 00:05:08,219
+arduino play en 0 volts y al presionar
+
+107
+00:05:04,110 --> 00:05:12,000
+se les lleguen 5 de esa forma con la
+
+108
+00:05:08,220 --> 00:05:14,220
+función digital ruiz le haremos el pin y
+
+109
+00:05:12,000 --> 00:05:16,410
+sabremos si el pulsador ha sido
+
+110
+00:05:14,220 --> 00:05:18,960
+presionado o no
+
+111
+00:05:16,410 --> 00:05:21,750
+colocaremos el led como se muestra el
+
+112
+00:05:18,959 --> 00:05:23,969
+cátodo nos quedará del lado izquierdo y
+
+113
+00:05:21,750 --> 00:05:27,000
+mediante un cable lo pondremos al
+
+114
+00:05:23,970 --> 00:05:29,070
+negativo del riel de tensión y el ánodo
+
+115
+00:05:27,000 --> 00:05:32,098
+se conectará a un extremo de la
+
+116
+00:05:29,069 --> 00:05:34,348
+resistencia de 330 años y el otro
+
+117
+00:05:32,098 --> 00:05:37,409
+extremo se conectará mediante un cable
+
+118
+00:05:34,348 --> 00:05:38,579
+directamente al pin digital número 3 de
+
+119
+00:05:37,410 --> 00:05:40,590
+arduino
+
+120
+00:05:38,579 --> 00:05:42,469
+de esta manera ya tenemos listo el
+
+121
+00:05:40,589 --> 00:05:45,478
+conexionado correspondiente a la salida
+
+122
+00:05:42,470 --> 00:05:48,090
+el circuito de entrada estará conformado
+
+123
+00:05:45,478 --> 00:05:51,029
+por el pulsador y lo colocaremos como se
+
+124
+00:05:48,089 --> 00:05:54,478
+muestra un extremo lo conectaremos
+
+125
+00:05:51,029 --> 00:05:56,758
+mediante un cable al polo positivo el
+
+126
+00:05:54,478 --> 00:05:59,610
+otro extremo lo conectaremos de forma
+
+127
+00:05:56,759 --> 00:06:03,780
+directa mediante la resistencia de 10
+
+128
+00:05:59,610 --> 00:06:06,150
+kilos o 10 k que es como suele decirse
+
+129
+00:06:03,779 --> 00:06:08,579
+practica desde el mismo extremo
+
+130
+00:06:06,149 --> 00:06:11,669
+saldremos con un cable directo al pin
+
+131
+00:06:08,579 --> 00:06:14,129
+digital número 2 de arduino su
+
+132
+00:06:11,670 --> 00:06:16,770
+funcionamiento es el siguiente el
+
+133
+00:06:14,129 --> 00:06:20,339
+pulsador estando en reposo es un
+
+134
+00:06:16,769 --> 00:06:22,769
+circuito abierto con el cual el pin 2 de
+
+135
+00:06:20,339 --> 00:06:25,709
+arduino estará conectado a massa
+
+136
+00:06:22,769 --> 00:06:28,259
+mediante una resistencia de 10 k cuando
+
+137
+00:06:25,709 --> 00:06:31,500
+presionamos el pulsador se cierra el
+
+138
+00:06:28,259 --> 00:06:34,918
+circuito y el polo positivo con sus 5
+
+139
+00:06:31,500 --> 00:06:37,139
+goles llegarán a una bifurcación la
+
+140
+00:06:34,918 --> 00:06:39,569
+corriente siempre elige el camino de
+
+141
+00:06:37,139 --> 00:06:42,329
+menor resistencia y entonces podrá
+
+142
+00:06:39,569 --> 00:06:45,719
+elegir pasar por una resistencia elevada
+
+143
+00:06:42,329 --> 00:06:48,269
+de 10k o ir directamente al pin 2
+
+144
+00:06:45,720 --> 00:06:51,750
+mediante el cable de resistencia
+
+145
+00:06:48,269 --> 00:06:54,299
+prácticamente nula como siempre elige el
+
+146
+00:06:51,750 --> 00:06:57,779
+camino de menor resistencia circulará
+
+147
+00:06:54,300 --> 00:07:01,129
+por el cable y llegarán los 5 goles a
+
+148
+00:06:57,779 --> 00:07:03,739
+pin 2 logrando el efecto deseado
+
+149
+00:07:01,129 --> 00:07:06,719
+finalmente debemos alimentar la protavoz
+
+150
+00:07:03,740 --> 00:07:08,460
+esto lo haremos conectando un cable
+
+151
+00:07:06,720 --> 00:07:10,830
+desde arduino en la
+
+152
+00:07:08,459 --> 00:07:14,149
+acción power desde el fin identificar
+
+153
+00:07:10,829 --> 00:07:18,240
+como 5volts y con otro cable
+
+154
+00:07:14,149 --> 00:07:20,818
+conectaremos nd o ground de arduino al
+
+155
+00:07:18,240 --> 00:07:23,699
+negativo de la protavoz vamos a escribir
+
+156
+00:07:20,819 --> 00:07:26,340
+un simple programa para verificar que
+
+157
+00:07:23,699 --> 00:07:29,009
+esté todo correcto conectado y de paso a
+
+158
+00:07:26,339 --> 00:07:31,948
+introducir algunos nuevos conceptos como
+
+159
+00:07:29,009 --> 00:07:33,810
+ya vimos el capítulo 2 debemos comenzar
+
+160
+00:07:31,949 --> 00:07:36,210
+con la función setup donde haremos
+
+161
+00:07:33,810 --> 00:07:38,788
+tareas de inicialización que se
+
+162
+00:07:36,209 --> 00:07:42,719
+ejecutarán una sola vez
+
+163
+00:07:38,788 --> 00:07:44,189
+bobby setup abrimos llave y vamos a
+
+164
+00:07:42,720 --> 00:07:47,190
+poner pin mod
+
+165
+00:07:44,189 --> 00:07:50,550
+abrimos paréntesis colocamos el número
+
+166
+00:07:47,189 --> 00:07:54,029
+de pin en este caso el 2 y luego de la
+
+167
+00:07:50,550 --> 00:07:56,788
+coma input todo en mayúsculas aquí
+
+168
+00:07:54,029 --> 00:07:59,339
+definimos que el pin 2 lo queremos como
+
+169
+00:07:56,788 --> 00:08:01,180
+entrada ya que de él le diremos el
+
+170
+00:07:59,339 --> 00:08:04,359
+estado del pulsador
+
+171
+00:08:01,180 --> 00:08:07,430
+ahora nuevamente pino pero ahora con el
+
+172
+00:08:04,360 --> 00:08:09,980
+pin 3 como salida
+
+173
+00:08:07,430 --> 00:08:12,889
+comenzamos la función loop como ya
+
+174
+00:08:09,980 --> 00:08:16,520
+sabemos para leer el estado de un pin
+
+175
+00:08:12,889 --> 00:08:19,430
+usaremos la función digital ruiz que
+
+176
+00:08:16,519 --> 00:08:23,479
+toma un único parámetro y es el número
+
+177
+00:08:19,430 --> 00:08:26,360
+de pin pondremos el número 2 y listo
+
+178
+00:08:23,480 --> 00:08:29,360
+esta función nos devolverá el globo si
+
+179
+00:08:26,360 --> 00:08:33,230
+el valor del pin está a cero balls y
+
+180
+00:08:29,360 --> 00:08:36,050
+high si está a 5 volts a nosotros nos
+
+181
+00:08:33,230 --> 00:08:38,960
+interesa detectar cuando el pin 2 pasa a
+
+182
+00:08:36,049 --> 00:08:42,949
+un nivel alto por eso vamos a preguntar
+
+183
+00:08:38,960 --> 00:08:47,080
+si el valor leído es alto digital ruiz
+
+184
+00:08:42,950 --> 00:08:50,629
+entre paréntesis 2 igual igual a high
+
+185
+00:08:47,080 --> 00:08:53,900
+como estamos haciendo una comparación se
+
+186
+00:08:50,629 --> 00:08:56,090
+utiliza el doble símbolo de igual para
+
+187
+00:08:53,899 --> 00:08:58,610
+evaluar si esta condición es verdadera
+
+188
+00:08:56,090 --> 00:09:01,879
+es decir que el valor leído tiene un
+
+189
+00:08:58,610 --> 00:09:05,539
+nivel alto debemos usar una sentencia
+
+190
+00:09:01,879 --> 00:09:09,740
+especial llamada eve if en español
+
+191
+00:09:05,539 --> 00:09:12,919
+significa si si a modo de pregunta es
+
+192
+00:09:09,740 --> 00:09:16,839
+decir que lo que hace es evaluar si uno
+
+193
+00:09:12,919 --> 00:09:19,969
+es verdadera o falsa si es verdadera
+
+194
+00:09:16,839 --> 00:09:22,700
+ejecutará un bloque de código si la
+
+195
+00:09:19,970 --> 00:09:26,089
+condición es falsa ejecutará otro bloque
+
+196
+00:09:22,700 --> 00:09:30,139
+por eso vamos a completar la línea con
+
+197
+00:09:26,089 --> 00:09:32,810
+el comando if como corresponde y vamos a
+
+198
+00:09:30,139 --> 00:09:36,810
+poner entre paréntesis digital ruiz
+
+199
+00:09:32,809 --> 00:09:39,869
+entre paréntesis 2 igual igual a jaén
+
+200
+00:09:36,809 --> 00:09:42,750
+y vamos a abrir una llave presionamos
+
+201
+00:09:39,870 --> 00:09:46,409
+centre y como siempre al ir a una nueva
+
+202
+00:09:42,750 --> 00:09:48,179
+línea el editor no cerrará la llave aquí
+
+203
+00:09:46,409 --> 00:09:51,269
+colocaremos el código que debe
+
+204
+00:09:48,179 --> 00:09:54,389
+ejecutarse si la condición es verdadera
+
+205
+00:09:51,269 --> 00:09:57,210
+es decir que si la entrada efectivamente
+
+206
+00:09:54,389 --> 00:10:00,000
+tiene un valor alto lo que significa que
+
+207
+00:09:57,210 --> 00:10:02,339
+el pulsador está presionado vamos a
+
+208
+00:10:00,000 --> 00:10:05,580
+encender el led y usaremos la ya
+
+209
+00:10:02,339 --> 00:10:10,350
+conocida digital write digital write
+
+210
+00:10:05,580 --> 00:10:13,470
+entre paréntesis 3 coma y high vamos a
+
+211
+00:10:10,350 --> 00:10:16,830
+colocar de manera de poner un nivel alto
+
+212
+00:10:13,470 --> 00:10:19,230
+en el pin digital 3-d arduino que está
+
+213
+00:10:16,830 --> 00:10:22,950
+conectado en nuestra protoboard mediante
+
+214
+00:10:19,230 --> 00:10:26,430
+una resistencia al led luego usaremos la
+
+215
+00:10:22,950 --> 00:10:30,028
+palabra else que significa en español si
+
+216
+00:10:26,429 --> 00:10:33,179
+no es decir que luego del else pondremos
+
+217
+00:10:30,028 --> 00:10:35,639
+el bloque de código que se ejecutará si
+
+218
+00:10:33,179 --> 00:10:38,489
+la condición no es verdadera
+
+219
+00:10:35,639 --> 00:10:40,710
+recordad que la pregunta del if irá si
+
+220
+00:10:38,490 --> 00:10:43,529
+la entrada estaba en alto
+
+221
+00:10:40,710 --> 00:10:46,259
+aquí llegaremos si la entrada está en
+
+222
+00:10:43,529 --> 00:10:48,629
+bajo si está en bajo significa que el
+
+223
+00:10:46,259 --> 00:10:51,779
+pulsador no está presionado
+
+224
+00:10:48,629 --> 00:10:55,200
+entonces el led deberá apagarse por eso
+
+225
+00:10:51,779 --> 00:10:58,470
+con digital raid pondremos un valor bajo
+
+226
+00:10:55,200 --> 00:11:00,990
+la sentencia if es útil para hacer
+
+227
+00:10:58,470 --> 00:11:03,540
+simples consultas y permite tomar
+
+228
+00:11:00,990 --> 00:11:05,509
+decisiones se utiliza en infinidad de
+
+229
+00:11:03,539 --> 00:11:08,519
+casos y es un bloque de programación
+
+230
+00:11:05,509 --> 00:11:11,399
+fundamental en posteriores capítulos
+
+231
+00:11:08,519 --> 00:11:14,730
+veremos múltiples casos de su uso por
+
+232
+00:11:11,399 --> 00:11:16,949
+eso es importante entenderlo bien el
+
+233
+00:11:14,730 --> 00:11:19,320
+programa ya está listo pero antes de
+
+234
+00:11:16,950 --> 00:11:21,480
+subirlo a la placa vamos a hacer algunas
+
+235
+00:11:19,320 --> 00:11:24,060
+anotaciones y repasamos los que
+
+236
+00:11:21,480 --> 00:11:29,659
+estuvimos haciendo aquí en la sección
+
+237
+00:11:24,059 --> 00:11:33,929
+del setup tenemos al pin 2 como entrada
+
+238
+00:11:29,659 --> 00:11:38,009
+luego el pin 3 como salida
+
+239
+00:11:33,929 --> 00:11:40,919
+después tenemos la condición if donde
+
+240
+00:11:38,009 --> 00:11:42,870
+vamos a evaluar si la entrada está a
+
+241
+00:11:40,919 --> 00:11:45,959
+nivel alto
+
+242
+00:11:42,870 --> 00:11:49,200
+si es así significa que el pulsador está
+
+243
+00:11:45,960 --> 00:11:52,830
+presionado entonces deberíamos encender
+
+244
+00:11:49,200 --> 00:11:55,890
+el led si no es así entonces el pulsador
+
+245
+00:11:52,830 --> 00:11:56,740
+no está presionado y debemos apagar el
+
+246
+00:11:55,889 --> 00:11:59,830
+led
+
+247
+00:11:56,740 --> 00:12:01,810
+muy bien hacemos clic en verificar para
+
+248
+00:11:59,830 --> 00:12:04,270
+revisar que no haya errores y
+
+249
+00:12:01,809 --> 00:12:07,829
+posteriormente subir para que alguno
+
+250
+00:12:04,269 --> 00:12:07,829
+ejecute nuestro programa
+
+251
+00:12:18,019 --> 00:12:20,379
+y
+
+252
+00:12:21,230 --> 00:12:27,000
+ya verificamos que las conexiones en el
+
+253
+00:12:24,029 --> 00:12:29,309
+protocolo están correctas y también el
+
+254
+00:12:27,000 --> 00:12:32,940
+código para encender el led al pulsar
+
+255
+00:12:29,309 --> 00:12:35,399
+por cierto felicitaciones y si algo no
+
+256
+00:12:32,940 --> 00:12:38,040
+ha funcionado a revisar las conexiones
+
+257
+00:12:35,399 --> 00:12:40,740
+polaridad del led algún que otro cable
+
+258
+00:12:38,039 --> 00:12:43,409
+en falso contacto la práctica hacia el
+
+259
+00:12:40,740 --> 00:12:45,389
+maestro así que no decepcionarse si no
+
+260
+00:12:43,409 --> 00:12:48,000
+sale la primera tenemos un dispositivo
+
+261
+00:12:45,389 --> 00:12:50,370
+que es programable con lo cual sin
+
+262
+00:12:48,000 --> 00:12:52,980
+modificar el hardware es decir nuestro
+
+263
+00:12:50,370 --> 00:12:55,350
+circuito podemos hacer un nuevo programa
+
+264
+00:12:52,980 --> 00:12:57,539
+que cambie el comportamiento cuando se
+
+265
+00:12:55,350 --> 00:12:59,460
+presiona el pulsador qué tal si al
+
+266
+00:12:57,539 --> 00:13:01,889
+presionarlo hacemos que quede le de
+
+267
+00:12:59,460 --> 00:13:04,710
+encendido de forma permanente y al
+
+268
+00:13:01,889 --> 00:13:07,679
+presionar nuevamente se apague una idea
+
+269
+00:13:04,710 --> 00:13:10,590
+no perfecto ya tenemos un nuevo proyecto
+
+270
+00:13:07,679 --> 00:13:13,019
+vamos a comenzar con el código actual y
+
+271
+00:13:10,590 --> 00:13:15,000
+hacerle algunas modificaciones recordar
+
+272
+00:13:13,019 --> 00:13:17,759
+cuál es el pin de entrada y cuál es el
+
+273
+00:13:15,000 --> 00:13:20,220
+de salida ahora sencillo pero tener que
+
+274
+00:13:17,759 --> 00:13:23,009
+trabajar con valores numéricos es poco
+
+275
+00:13:20,220 --> 00:13:25,470
+práctico por suerte existe una solución
+
+276
+00:13:23,009 --> 00:13:28,049
+y ella es el uso de variables
+
+277
+00:13:25,470 --> 00:13:30,590
+una variable la define uno con el nombre
+
+278
+00:13:28,049 --> 00:13:34,319
+que desee y puede almacenar información
+
+279
+00:13:30,590 --> 00:13:36,660
+además puede variar su contenido de allí
+
+280
+00:13:34,320 --> 00:13:38,730
+el término de variable por ejemplo
+
+281
+00:13:36,659 --> 00:13:41,159
+podemos escribir lo siguiente en la
+
+282
+00:13:38,730 --> 00:13:43,800
+primer línea justo antes de setup
+
+283
+00:13:41,159 --> 00:13:47,759
+colocamos el cursor justo al inicio de
+
+284
+00:13:43,799 --> 00:13:50,789
+void y vamos a y damos un par de enter
+
+285
+00:13:47,759 --> 00:13:54,769
+para dejar espacio luego vamos al
+
+286
+00:13:50,789 --> 00:13:59,789
+principio y escribimos int un espacio
+
+287
+00:13:54,769 --> 00:14:03,299
+pulsador todo con mayúscula igual a 2
+
+288
+00:13:59,789 --> 00:14:06,569
+punto y coma int es la abreviatura de
+
+289
+00:14:03,299 --> 00:14:09,000
+entero en inglés es decir que será una
+
+290
+00:14:06,570 --> 00:14:13,590
+variable que puede almacenar un número
+
+291
+00:14:09,000 --> 00:14:16,500
+entre 0 y 255 no puede almacenar un
+
+292
+00:14:13,590 --> 00:14:19,920
+valor con comas decimales escribimos
+
+293
+00:14:16,500 --> 00:14:22,500
+pulsador todo con mayúsculas que será el
+
+294
+00:14:19,919 --> 00:14:25,589
+nombre de nuestra variable este nombre
+
+295
+00:14:22,500 --> 00:14:28,620
+puede ser cualquiera que queramos como
+
+296
+00:14:25,590 --> 00:14:30,149
+por ejemplo botón suele ponerse todo en
+
+297
+00:14:28,620 --> 00:14:32,850
+mayúsculas para saber qué es una
+
+298
+00:14:30,149 --> 00:14:35,939
+variable propia y no una del sistema
+
+299
+00:14:32,850 --> 00:14:38,820
+luego colocamos el símbolo de igual y el
+
+300
+00:14:35,940 --> 00:14:41,430
+número dos de esta manera tenemos una
+
+301
+00:14:38,820 --> 00:14:43,270
+variable llamada pulsador que contiene
+
+302
+00:14:41,429 --> 00:14:46,659
+el número 2
+
+303
+00:14:43,269 --> 00:14:50,230
+hagamos otra esta vida llamaremos le da
+
+304
+00:14:46,659 --> 00:14:52,750
+y tendrá asignado un valor de 3 como
+
+305
+00:14:50,230 --> 00:14:55,240
+verán la idea es poder reemplazar cada
+
+306
+00:14:52,750 --> 00:14:59,320
+ocurrencia del número 2 con la palabra
+
+307
+00:14:55,240 --> 00:15:02,289
+pulsador y del número 3 con led así es
+
+308
+00:14:59,320 --> 00:15:04,450
+más entendible nuestro código y no
+
+309
+00:15:02,289 --> 00:15:06,519
+tenemos que estar recordando el número
+
+310
+00:15:04,450 --> 00:15:09,160
+de pin al cual está conectado el
+
+311
+00:15:06,519 --> 00:15:11,679
+pulsador o el led lo definimos al
+
+312
+00:15:09,159 --> 00:15:15,069
+principio y luego hacemos referencia por
+
+313
+00:15:11,679 --> 00:15:17,679
+su nombre vamos a la sección de setup y
+
+314
+00:15:15,070 --> 00:15:21,610
+en el primer piñón reemplazamos el
+
+315
+00:15:17,679 --> 00:15:26,079
+número 2 por pulsador en la línea
+
+316
+00:15:21,610 --> 00:15:29,529
+siguiente reemplazamos 3 por led
+
+317
+00:15:26,080 --> 00:15:31,440
+en la sección de loop borraremos todo lo
+
+318
+00:15:29,529 --> 00:15:34,750
+que se encuentra entre sus llaves
+
+319
+00:15:31,440 --> 00:15:39,400
+usaremos un código nuevo y escribamos lo
+
+320
+00:15:34,750 --> 00:15:44,299
+siguiente while entre paréntesis digital
+
+321
+00:15:39,399 --> 00:15:47,779
+ruido pulsador igual al low
+
+322
+00:15:44,299 --> 00:15:50,240
+abrimos llave enter y automáticamente
+
+323
+00:15:47,779 --> 00:15:54,559
+como ya sabemos se nos cierra la llave
+
+324
+00:15:50,240 --> 00:15:58,639
+la sentencia while significa mientras en
+
+325
+00:15:54,559 --> 00:16:02,389
+español y al igual que el if evalúa una
+
+326
+00:15:58,639 --> 00:16:05,059
+condición si es verdadera ejecuta todo
+
+327
+00:16:02,389 --> 00:16:08,840
+el código que esté entre sus llaves si
+
+328
+00:16:05,059 --> 00:16:11,209
+evalúa falso entonces sale y ejecuta la
+
+329
+00:16:08,840 --> 00:16:13,009
+línea que le siga lo que acabamos de
+
+330
+00:16:11,210 --> 00:16:15,680
+escribir se traduce en lo siguiente
+
+331
+00:16:13,009 --> 00:16:20,210
+mientras que el pulsador tenga un valor
+
+332
+00:16:15,679 --> 00:16:22,399
+bajo ejecutaremos nada sin nada ya que
+
+333
+00:16:20,210 --> 00:16:25,460
+el pulsador en bajo significa que no
+
+334
+00:16:22,399 --> 00:16:28,189
+está presionado while es un bucle
+
+335
+00:16:25,460 --> 00:16:30,860
+infinito mientras la condición evaluada
+
+336
+00:16:28,190 --> 00:16:34,580
+sea verdadera ejecuta el código entre
+
+337
+00:16:30,860 --> 00:16:37,340
+sus llaves y así todo el tiempo sale del
+
+338
+00:16:34,580 --> 00:16:38,570
+bucle o lazo cuando la condición es
+
+339
+00:16:37,340 --> 00:16:40,700
+falsa
+
+340
+00:16:38,570 --> 00:16:43,129
+es perfecta para nosotros ya que
+
+341
+00:16:40,700 --> 00:16:45,230
+básicamente lo que estaremos haciendo es
+
+342
+00:16:43,129 --> 00:16:47,870
+esperar hasta que el pulsador se ha
+
+343
+00:16:45,230 --> 00:16:50,870
+presionado mientras tanto no hacemos
+
+344
+00:16:47,870 --> 00:16:53,149
+nada cuando se presiona el pulsador se
+
+345
+00:16:50,870 --> 00:16:56,960
+irá la siguiente línea fuera del bucle
+
+346
+00:16:53,149 --> 00:17:01,189
+while que es la siguiente estado es
+
+347
+00:16:56,960 --> 00:17:04,220
+igual a digital reader de led
+
+348
+00:17:01,190 --> 00:17:06,920
+en la variable estado guardaremos el
+
+349
+00:17:04,220 --> 00:17:10,100
+valor que nos devuelva digital ruiz del
+
+350
+00:17:06,920 --> 00:17:13,490
+led es decir que estamos viendo si el
+
+351
+00:17:10,099 --> 00:17:15,529
+led está encendido o apagado esto se
+
+352
+00:17:13,490 --> 00:17:18,470
+puede hacer sin problemas aunque el pin
+
+353
+00:17:15,529 --> 00:17:20,359
+del ede esté definido como salida es
+
+354
+00:17:18,470 --> 00:17:23,750
+importante saber si el led está
+
+355
+00:17:20,359 --> 00:17:26,929
+encendido o no ya que usaremos un único
+
+356
+00:17:23,750 --> 00:17:29,539
+botón para cambiar su estado con lo cual
+
+357
+00:17:26,930 --> 00:17:32,360
+si está encendido lo apagaremos y si
+
+358
+00:17:29,539 --> 00:17:35,299
+está apagado lo encenderemos siempre el
+
+359
+00:17:32,359 --> 00:17:37,009
+caso opuesto la variable estado la
+
+360
+00:17:35,299 --> 00:17:39,919
+tenemos que declarar como hicimos con
+
+361
+00:17:37,009 --> 00:17:43,720
+pulsador y led así que vamos brevemente
+
+362
+00:17:39,920 --> 00:17:47,660
+al principio del código y escribimos int
+
+363
+00:17:43,720 --> 00:17:50,269
+estado igual al logo
+
+364
+00:17:47,660 --> 00:17:53,060
+ya que declaramos la variable estado le
+
+365
+00:17:50,269 --> 00:17:56,119
+asignamos un valor bajo asumiendo que
+
+366
+00:17:53,059 --> 00:17:58,399
+arrancamos con un led apagado volvemos
+
+367
+00:17:56,119 --> 00:18:01,669
+al código dentro del loop y escribimos
+
+368
+00:17:58,400 --> 00:18:05,730
+lo siguiente digital write entre
+
+369
+00:18:01,670 --> 00:18:08,580
+paréntesis led not estado
+
+370
+00:18:05,730 --> 00:18:12,660
+el símbolo de admiración delante de la
+
+371
+00:18:08,579 --> 00:18:16,639
+variable hace que la niegue en inglés se
+
+372
+00:18:12,660 --> 00:18:19,230
+dice no es decir que cambie al opuesto
+
+373
+00:18:16,640 --> 00:18:22,680
+para hacer gráficos supongamos que
+
+374
+00:18:19,230 --> 00:18:25,759
+arrancamos el programa estado tiene un
+
+375
+00:18:22,680 --> 00:18:29,370
+valor bajo si presionamos el pulsador
+
+376
+00:18:25,759 --> 00:18:31,440
+saltamos el primer wild estado lo
+
+377
+00:18:29,369 --> 00:18:34,379
+cargamos con el valor del led que está
+
+378
+00:18:31,440 --> 00:18:36,870
+apagado es decir un valor bajo luego con
+
+379
+00:18:34,380 --> 00:18:39,780
+digital write colocamos en el pin del
+
+380
+00:18:36,869 --> 00:18:43,439
+led el estado contrario es decir un
+
+381
+00:18:39,779 --> 00:18:45,500
+estado alto y así lo encendemos si el
+
+382
+00:18:43,440 --> 00:18:48,960
+caso hubiese sido que el led está
+
+383
+00:18:45,500 --> 00:18:51,809
+encendido estado tiene un valor alto y
+
+384
+00:18:48,960 --> 00:18:54,390
+con digital right escribiremos el valor
+
+385
+00:18:51,809 --> 00:18:58,409
+contrario al de encendido es decir
+
+386
+00:18:54,390 --> 00:19:00,750
+apagado o logo no te preocupes si no se
+
+387
+00:18:58,410 --> 00:19:02,880
+entiende del todo ahora lo mejor es
+
+388
+00:19:00,750 --> 00:19:06,869
+practicar y hacer el ejercicio como la
+
+389
+00:19:02,880 --> 00:19:09,510
+anterior asumir un valor y ver qué pasa
+
+390
+00:19:06,869 --> 00:19:10,979
+luego asumir el valor contrario y ver
+
+391
+00:19:09,509 --> 00:19:13,259
+qué pasa entonces
+
+392
+00:19:10,980 --> 00:19:15,808
+al fin de cuentas el digital raid
+
+393
+00:19:13,259 --> 00:19:18,779
+escribe el valor contrario al que se
+
+394
+00:19:15,808 --> 00:19:20,789
+encuentra el led en ese momento última
+
+395
+00:19:18,779 --> 00:19:23,509
+línea y ya probamos cómo sale esto
+
+396
+00:19:20,789 --> 00:19:27,178
+prometo que suficiente por este capítulo
+
+397
+00:19:23,509 --> 00:19:31,440
+escribiremos lo siguiente while digital
+
+398
+00:19:27,179 --> 00:19:33,179
+read the pulsador igual a high es igual
+
+399
+00:19:31,440 --> 00:19:35,970
+que el primer wild pero esta vez
+
+400
+00:19:33,179 --> 00:19:37,798
+comparamos con un nivel alto esto lo
+
+401
+00:19:35,970 --> 00:19:40,440
+hacemos porque el pulsador hacer un
+
+402
+00:19:37,798 --> 00:19:43,079
+componente mecánico tiene contactos
+
+403
+00:19:40,440 --> 00:19:45,870
+eléctricos que producen los llamados
+
+404
+00:19:43,079 --> 00:19:48,839
+rebotes es decir que al presionar el
+
+405
+00:19:45,869 --> 00:19:50,729
+pulsador por breves periodos de tiempo
+
+406
+00:19:48,839 --> 00:19:53,039
+los contactos rebotan y genera
+
+407
+00:19:50,730 --> 00:19:55,829
+pulsaciones fantasma hasta que se
+
+408
+00:19:53,039 --> 00:19:58,470
+estabiliza es decir que un pulsador en
+
+409
+00:19:55,829 --> 00:20:01,168
+el mundo real no pasa de abierto a
+
+410
+00:19:58,470 --> 00:20:03,929
+cerrado de forma instantánea sino que
+
+411
+00:20:01,169 --> 00:20:07,110
+demora algunos milisegundos este tiempo
+
+412
+00:20:03,929 --> 00:20:09,150
+aunque parezca ínfimo es captado por el
+
+413
+00:20:07,109 --> 00:20:12,209
+arduino que trabaja en el orden de los
+
+414
+00:20:09,150 --> 00:20:15,210
+micro segundos es decir millonésimas de
+
+415
+00:20:12,210 --> 00:20:17,548
+segundo y luego y puede detectar estos
+
+416
+00:20:15,210 --> 00:20:20,759
+rebotes que se producen en el pulso
+
+417
+00:20:17,548 --> 00:20:23,128
+mecánico para evitarlo se debe usar en
+
+418
+00:20:20,759 --> 00:20:27,118
+el programa rutinas que se denominan
+
+419
+00:20:23,128 --> 00:20:29,759
+anti rebote una forma sencilla es con
+
+420
+00:20:27,118 --> 00:20:32,099
+este último while que lo que hace es
+
+421
+00:20:29,759 --> 00:20:34,798
+esperar a que el botón deje de estar
+
+422
+00:20:32,099 --> 00:20:37,709
+presionado antes de que el loop vuelva a
+
+423
+00:20:34,798 --> 00:20:40,259
+ejecutar la primer línea vamos ya mismo
+
+424
+00:20:37,710 --> 00:20:44,509
+a verificar si no hay ningún error a
+
+425
+00:20:40,259 --> 00:20:44,509
+subir y probarlo en el mundo real
+
+426
+00:20:54,789 --> 00:20:56,789
+y
+
+427
+00:20:58,390 --> 00:21:04,220
+genial sin modificar el circuito
+
+428
+00:21:01,460 --> 00:21:06,740
+logramos un comportamiento diferente al
+
+429
+00:21:04,220 --> 00:21:09,620
+del primer programa les dejo en pantalla
+
+430
+00:21:06,740 --> 00:21:11,808
+un código para que prueben usa funciones
+
+431
+00:21:09,619 --> 00:21:14,178
+que ya utilizamos con anterioridad y
+
+432
+00:21:11,808 --> 00:21:16,910
+hace que al presionar se el pulsador se
+
+433
+00:21:14,179 --> 00:21:20,210
+encienda el led por 5 segundos y luego
+
+434
+00:21:16,910 --> 00:21:23,029
+se apague solo eso es todo por este
+
+435
+00:21:20,210 --> 00:21:25,069
+capítulo lleno de nuevos conceptos y
+
+436
+00:21:23,029 --> 00:21:27,619
+espero que les permita vislumbrar el
+
+437
+00:21:25,069 --> 00:21:30,168
+potencial de los microcontroladores y su
+
+438
+00:21:27,619 --> 00:21:30,829
+infinidad de usos con componentes
+
+439
+00:21:30,169 --> 00:21:33,559
+básicos
+
+440
+00:21:30,829 --> 00:21:35,808
+vimos tres programas diferentes para el
+
+441
+00:21:33,558 --> 00:21:38,509
+próximo capítulo usaremos una entrada
+
+442
+00:21:35,808 --> 00:21:40,849
+analógica con un potenciómetro para
+
+443
+00:21:38,509 --> 00:21:44,509
+controlar el brillo de un led mediante
+
+444
+00:21:40,849 --> 00:21:47,689
+la salida de w m es decir modulación por
+
+445
+00:21:44,509 --> 00:21:50,269
+ancho de pulso como siempre les pido se
+
+446
+00:21:47,690 --> 00:21:52,548
+suscriban para recibir notificaciones y
+
+447
+00:21:50,269 --> 00:21:54,470
+por cualquier duda o comentario lo
+
+448
+00:21:52,548 --> 00:21:58,599
+pueden hacer debajo que con gusto les
+
+449
+00:21:54,470 --> 00:21:58,600
+responderé chau y hasta la próxima
+
+450
+00:21:58,869 --> 00:22:01,959
+[Música]
+

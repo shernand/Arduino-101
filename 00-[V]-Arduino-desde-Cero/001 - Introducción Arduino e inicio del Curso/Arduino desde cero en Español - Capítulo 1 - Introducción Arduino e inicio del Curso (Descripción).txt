@@ -1,0 +1,20 @@
+Haremos una breve introducción a la plataforma Arduino permitiendo vislumbrar su increible potencial y su facilidad de uso. 
+Desde cero y de forma sencilla y didáctica iremos incorporando conceptos para realizar diversos proyectos de utilidad en el mundo real.
+
+Puntapié inicial del Curso que llevará a manejar sensores, motores, comunicación con diversos periféricos, comunicación inalámbrica por Bluetooth, WiFi, enlaces de radio frecuencia, todo desde cero y sin necesidad de conocimientos previos.
+
+
+#arduinocomofunciona
+#arduinouno
+#arduinodesdecero
+Que es Arduino
+Arduino tutorial
+Arduino primeros pasos
+Arduino UNO desde cero
+
+Marcas de tiempo:
+0:00 Introducción a Arduino
+1:06 Modelos de placas Arduino
+2:10 Comunidad Arduino
+2:30 Características de Arduino UNO
+4:49 Conclusiones y próximo capítulo
