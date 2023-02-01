@@ -1,0 +1,35 @@
+Aprenderemos a mostrar colores con un LED RGB y mezclas de los mismos con Arduino, se verán tanto cátodo como ánodo común y sus variantes de módulos KY-016 y KY-009.
+También se explicará como los colores son percibidos por el ojo humano y los distintos niveles de sensibilidad. 
+
+Para simplificar el código y optimizar su comprensión se introduce el concepto de función ampliamente usado en programación.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoLEDRGB
+#ArduinoKit37en1
+#ArduinoLEDcolores
+ArduinoPrimerosPasosDesde0
+Modulo RGB
+RGB catodo comun
+RGB anodo comun
+Conexion de LED RGB Arduino
+LED 4 pines
+Funciones en arduino
+Led light
+
+Marcas de tiempo:
+
+0:00 Introducción
+0:17 Ánodo y cátodo común
+3:48 Módulos KY-016 y KY-009
+7:09 Circuito de conexión
+8:31 Primer programa (activando colores RGB)
+12:59 Colores RGB (concepto y obtener valores para un color)
+14:40 Segundo programa (mezclando colores)
+16:27 Sensibilidad del ojo humano a los colores
+18:54 Tercer programa (usando una función para simplificar)
+24:46 Ánodo común, diferencias (conexión)
+25:19 Cuarto programa (para ánodo común)
+27:25 Próximo capítulo y despedida

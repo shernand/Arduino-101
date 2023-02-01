@@ -1,0 +1,2236 @@
+1
+00:00:01,780 --> 00:00:08,230
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,599 --> 00:00:10,449
+19 de arduino desde cero en español en
+
+3
+00:00:08,230 --> 00:00:14,259
+esta oportunidad vamos a trabajar con el
+
+4
+00:00:10,449 --> 00:00:16,570
+módulo controlador de motores el 298 n
+
+5
+00:00:14,259 --> 00:00:19,000
+fundamental para todo tipo de proyectos
+
+6
+00:00:16,570 --> 00:00:20,530
+de robótica y automatización que
+
+7
+00:00:19,000 --> 00:00:24,429
+requiere el control de motores de
+
+8
+00:00:20,530 --> 00:00:26,170
+continua y paso a paso el l 298 n es la
+
+9
+00:00:24,429 --> 00:00:28,929
+denominación del circuito integrado
+
+10
+00:00:26,170 --> 00:00:31,030
+principal del módulo y es este de aquí
+
+11
+00:00:28,929 --> 00:00:33,609
+se encuentra montado de forma vertical
+
+12
+00:00:31,030 --> 00:00:36,010
+sobre la placa de circuito impreso y
+
+13
+00:00:33,609 --> 00:00:38,229
+tiene adosado un disipador pasivo de
+
+14
+00:00:36,009 --> 00:00:40,178
+aluminio pintado de color negro
+
+15
+00:00:38,229 --> 00:00:42,518
+este circuito integrado incluye
+
+16
+00:00:40,179 --> 00:00:43,899
+transistores de potencia para el manejo
+
+17
+00:00:42,518 --> 00:00:46,689
+de hasta dos motores de corriente
+
+18
+00:00:43,899 --> 00:00:49,749
+continua en variedad de tensiones y se
+
+19
+00:00:46,689 --> 00:00:52,209
+lo denomina doble puente h debajo del
+
+20
+00:00:49,749 --> 00:00:55,239
+módulo vemos un circuito eléctrico o
+
+21
+00:00:52,210 --> 00:00:57,549
+esquemático simplificado de un puente h
+
+22
+00:00:55,238 --> 00:01:00,158
+se le dice h por la forma en que se
+
+23
+00:00:57,549 --> 00:01:02,678
+disponen cuatro transistores que manejan
+
+24
+00:01:00,158 --> 00:01:05,140
+a un motor y con dicha distribución es
+
+25
+00:01:02,679 --> 00:01:07,719
+posible controlar el giro del motor en
+
+26
+00:01:05,140 --> 00:01:08,299
+un sentido u otro mediante señales de
+
+27
+00:01:07,718 --> 00:01:10,879
+control
+
+28
+00:01:08,299 --> 00:01:14,179
+muy simples los cuatro transistores con
+
+29
+00:01:10,879 --> 00:01:16,280
+la conexión al motor forman la famosa h
+
+30
+00:01:14,180 --> 00:01:20,000
+que hace referencia a su nombre este
+
+31
+00:01:16,280 --> 00:01:22,939
+circuito integrado el 298 n es un doble
+
+32
+00:01:20,000 --> 00:01:24,920
+puente h con lo cual tendrá entonces dos
+
+33
+00:01:22,939 --> 00:01:27,439
+circuitos como el mostrado para
+
+34
+00:01:24,920 --> 00:01:29,450
+controlar de forma independiente el giro
+
+35
+00:01:27,439 --> 00:01:31,429
+de dos motores la conexión de los
+
+36
+00:01:29,450 --> 00:01:33,560
+motores al módulo se realiza mediante
+
+37
+00:01:31,430 --> 00:01:36,200
+dos bourne heras en extremos opuestos
+
+38
+00:01:33,560 --> 00:01:39,109
+del mismo a la salida del motor de la
+
+39
+00:01:36,200 --> 00:01:41,750
+izquierda se lo denomina como motor a y
+
+40
+00:01:39,109 --> 00:01:43,819
+a la de la derecha como motor de dichas
+
+41
+00:01:41,750 --> 00:01:46,159
+salidas del motor serán controladas
+
+42
+00:01:43,819 --> 00:01:48,649
+mediante pines en la parte inferior del
+
+43
+00:01:46,159 --> 00:01:51,379
+módulo y también tendrá otra hornera
+
+44
+00:01:48,650 --> 00:01:53,719
+para alimentación y salida de 5 volts
+
+45
+00:01:51,379 --> 00:01:55,879
+auxiliar los primeros 3 pines de la
+
+46
+00:01:53,719 --> 00:01:56,599
+izquierda se utilizarán para controlar
+
+47
+00:01:55,879 --> 00:01:59,030
+el motor
+
+48
+00:01:56,599 --> 00:02:01,640
+y los 3 pines de la derecha para el
+
+49
+00:01:59,030 --> 00:02:03,469
+motor ve podrás ver que el módulo de
+
+50
+00:02:01,640 --> 00:02:07,579
+fábrica viene con 2
+
+51
+00:02:03,469 --> 00:02:09,919
+jumpers sobre los pines línea y nb estos
+
+52
+00:02:07,579 --> 00:02:12,229
+que marco aquí en la imagen los jumpers
+
+53
+00:02:09,919 --> 00:02:14,659
+son puentes que permiten hacer un
+
+54
+00:02:12,229 --> 00:02:15,019
+contacto eléctrico entre dos pines lo
+
+55
+00:02:14,659 --> 00:02:18,139
+que hace
+
+56
+00:02:15,020 --> 00:02:22,010
+jumpers colocados es poner a los pines
+
+57
+00:02:18,139 --> 00:02:25,489
+línea y nieve a un nivel lógico alto
+
+58
+00:02:22,009 --> 00:02:27,560
+resulta que enea y nb son los pines que
+
+59
+00:02:25,490 --> 00:02:30,200
+permiten habilitar a los motores con
+
+60
+00:02:27,560 --> 00:02:32,000
+estos fines a 5 volts habilitamos por
+
+61
+00:02:30,199 --> 00:02:35,569
+defecto la salida de los motores
+
+62
+00:02:32,000 --> 00:02:37,789
+nosotros estaremos controlando enea y nb
+
+63
+00:02:35,569 --> 00:02:40,340
+desde arduino con lo cual te voy a pedir
+
+64
+00:02:37,789 --> 00:02:42,530
+que quites esos jumpers y los guardes en
+
+65
+00:02:40,340 --> 00:02:44,509
+algún lugar donde no se pierdan ya que
+
+66
+00:02:42,530 --> 00:02:48,500
+son muy pequeños para terminar con la
+
+67
+00:02:44,509 --> 00:02:50,299
+revisión general tendremos en 1 en 2 los
+
+68
+00:02:48,500 --> 00:02:52,759
+cuales mediante distintos niveles
+
+69
+00:02:50,300 --> 00:02:54,560
+lógicos nos permitirán establecer el
+
+70
+00:02:52,759 --> 00:02:57,500
+sentido de giro del motor
+
+71
+00:02:54,560 --> 00:02:59,689
+luego en 3 en cuatro tendrán la misma
+
+72
+00:02:57,500 --> 00:03:01,819
+función pero para el motor ve en las
+
+73
+00:02:59,689 --> 00:03:03,469
+siguientes tablas tendremos un detalle
+
+74
+00:03:01,819 --> 00:03:06,229
+del funcionamiento de los pines de
+
+75
+00:03:03,469 --> 00:03:08,000
+control comenzaremos con el motor a con
+
+76
+00:03:06,229 --> 00:03:12,590
+lo cual en la tabla estaremos mostrando
+
+77
+00:03:08,000 --> 00:03:14,180
+los pines línea en 12 y los valores que
+
+78
+00:03:12,590 --> 00:03:16,550
+puede asumir para distintos
+
+79
+00:03:14,180 --> 00:03:19,610
+comportamientos comencemos con el pin
+
+80
+00:03:16,550 --> 00:03:21,100
+línea con un nivel lógico bajo es decir
+
+81
+00:03:19,610 --> 00:03:22,910
+0
+
+82
+00:03:21,099 --> 00:03:26,539
+independientemente de los valores que
+
+83
+00:03:22,909 --> 00:03:29,180
+pueda tener en 1 en 2 el motor
+
+84
+00:03:26,539 --> 00:03:31,879
+no se activa lo tenemos inhabilitado
+
+85
+00:03:29,180 --> 00:03:33,860
+como decía antes este pin debe estar un
+
+86
+00:03:31,879 --> 00:03:36,620
+nivel lógico alto para habilitar al
+
+87
+00:03:33,860 --> 00:03:39,230
+motor este pin es importante ya que nos
+
+88
+00:03:36,620 --> 00:03:42,289
+permite fácilmente detener un motor y
+
+89
+00:03:39,229 --> 00:03:44,569
+también mediante wm podremos controlar
+
+90
+00:03:42,289 --> 00:03:46,549
+la velocidad de giro del mismo por eso
+
+91
+00:03:44,569 --> 00:03:50,060
+veremos que en los próximos dos casos
+
+92
+00:03:46,550 --> 00:03:52,700
+siempre en ya estará con un uno lógico
+
+93
+00:03:50,060 --> 00:03:55,759
+habilitando así el uso del motor en la
+
+94
+00:03:52,699 --> 00:04:01,429
+siguiente línea vemos que en ea tiene un
+
+95
+00:03:55,759 --> 00:04:03,500
+uno lógico en 110 y en 211 en este caso
+
+96
+00:04:01,430 --> 00:04:05,719
+lograremos que el motor gire en un
+
+97
+00:04:03,500 --> 00:04:07,969
+sentido el giro del motor está
+
+98
+00:04:05,719 --> 00:04:10,280
+representado por esta flecha en este
+
+99
+00:04:07,969 --> 00:04:12,379
+caso sería un giro en el sentido de las
+
+100
+00:04:10,280 --> 00:04:14,599
+agujas del reloj pero por ahora no es
+
+101
+00:04:12,379 --> 00:04:16,759
+muy importante el sentido de giro solo
+
+102
+00:04:14,599 --> 00:04:21,048
+debemos saber que habilitando el motor
+
+103
+00:04:16,759 --> 00:04:25,009
+con un 1 lógico en línea y luego con 0 y
+
+104
+00:04:21,048 --> 00:04:26,659
+1 en un 12 lograremos que el motor gire
+
+105
+00:04:25,009 --> 00:04:28,719
+en un sentido sí
+
+106
+00:04:26,660 --> 00:04:31,850
+como tercer caso posible en la tabla
+
+107
+00:04:28,720 --> 00:04:34,400
+habilitamos el motor con un 1 lógico en
+
+108
+00:04:31,850 --> 00:04:37,939
+línea pero invertimos los valores
+
+109
+00:04:34,399 --> 00:04:42,049
+anteriores de un 1 e in 2 de manera que
+
+110
+00:04:37,939 --> 00:04:44,420
+ahora ninguno tenga un 1 en 2 1 0 el
+
+111
+00:04:42,050 --> 00:04:46,790
+sentido de giro del motor será opuesto
+
+112
+00:04:44,420 --> 00:04:49,220
+al caso anterior en resumen lo que nos
+
+113
+00:04:46,790 --> 00:04:51,800
+indica esta primera tabla es que enea
+
+114
+00:04:49,220 --> 00:04:53,780
+debe tener un nivel alto para habilitar
+
+115
+00:04:51,800 --> 00:04:57,410
+al motor luego aplicando distintos
+
+116
+00:04:53,779 --> 00:05:00,259
+niveles lógicos en un 12 lograremos el
+
+117
+00:04:57,410 --> 00:05:02,689
+giro del motor en un sentido u otro la
+
+118
+00:05:00,259 --> 00:05:05,779
+tabla de abajo será la misma pero para
+
+119
+00:05:02,689 --> 00:05:07,879
+el motor b el cual tendrá su n b para
+
+120
+00:05:05,779 --> 00:05:11,239
+habilitar el motor y los pines de
+
+121
+00:05:07,879 --> 00:05:14,029
+control interés en 4 para lograr el giro
+
+122
+00:05:11,240 --> 00:05:16,280
+en un sentido u otro como verás es muy
+
+123
+00:05:14,029 --> 00:05:18,409
+sencillo controlar el sentido de giro de
+
+124
+00:05:16,279 --> 00:05:22,579
+un motor esto es gracias al uso del
+
+125
+00:05:18,410 --> 00:05:24,770
+doble puente h del l 298 n veamos ahora
+
+126
+00:05:22,579 --> 00:05:28,430
+la sección de alimentación del módulo
+
+127
+00:05:24,769 --> 00:05:30,169
+mediante los terminales de in ign de la
+
+128
+00:05:28,430 --> 00:05:32,569
+born era hasta ahora estuvimos
+
+129
+00:05:30,170 --> 00:05:33,949
+acostumbrados a alimentar sensores
+
+130
+00:05:32,569 --> 00:05:36,019
+siempre con 5
+
+131
+00:05:33,949 --> 00:05:37,939
+goltz generado desde el propio arduino
+
+132
+00:05:36,019 --> 00:05:40,699
+pero cuando se trata de motores el
+
+133
+00:05:37,939 --> 00:05:42,860
+consumo de corriente suele ser elevado y
+
+134
+00:05:40,699 --> 00:05:44,870
+por eso este módulo requiere una
+
+135
+00:05:42,860 --> 00:05:46,850
+alimentación independiente con una
+
+136
+00:05:44,870 --> 00:05:49,129
+atención adecuada para el tipo de motor
+
+137
+00:05:46,850 --> 00:05:51,439
+que coloquemos y con una provisión de
+
+138
+00:05:49,129 --> 00:05:53,750
+corriente acorde podremos alimentar este
+
+139
+00:05:51,439 --> 00:05:56,480
+módulo con tensiones que van de los 5
+
+140
+00:05:53,750 --> 00:06:00,319
+hasta los 35 volts pudiendo conectar
+
+141
+00:05:56,480 --> 00:06:02,930
+motores de 3 hasta 30 volts y un consumo
+
+142
+00:06:00,319 --> 00:06:05,209
+de corriente máximo de 2 samper en total
+
+143
+00:06:02,930 --> 00:06:07,340
+con una variedad tan amplia de tensiones
+
+144
+00:06:05,209 --> 00:06:09,500
+de alimentación podría preguntarse
+
+145
+00:06:07,339 --> 00:06:12,079
+entonces cuál es la adecuada y la
+
+146
+00:06:09,500 --> 00:06:14,540
+respuesta es que depende del motor o
+
+147
+00:06:12,079 --> 00:06:16,310
+motores a utilizar por ejemplo si
+
+148
+00:06:14,540 --> 00:06:18,650
+estaremos utilizando motores que
+
+149
+00:06:16,310 --> 00:06:20,930
+funcionan en el rango de los 6 golf
+
+150
+00:06:18,649 --> 00:06:23,299
+entonces la atención de alimentación
+
+151
+00:06:20,930 --> 00:06:27,379
+debería ser algo superior a dicho valor
+
+152
+00:06:23,300 --> 00:06:29,360
+por ejemplo de 75 ó 9 volts si por el
+
+153
+00:06:27,379 --> 00:06:31,759
+contrario queremos utilizar un motor de
+
+154
+00:06:29,360 --> 00:06:33,920
+12 volts entonces la alimentación del
+
+155
+00:06:31,759 --> 00:06:36,289
+módulo deberá ser de 12 volts o
+
+156
+00:06:33,920 --> 00:06:38,420
+ligeramente superior así que todo
+
+157
+00:06:36,290 --> 00:06:38,930
+dependerá de la tensión de operación del
+
+158
+00:06:38,420 --> 00:06:40,699
+motor
+
+159
+00:06:38,930 --> 00:06:43,490
+en este capítulo estaremos
+
+160
+00:06:40,699 --> 00:06:46,129
+un motor que funciona adecuadamente con
+
+161
+00:06:43,490 --> 00:06:48,500
+tensiones entre tres y seis volts con lo
+
+162
+00:06:46,129 --> 00:06:51,409
+cual alimentaremos al módulo mediante
+
+163
+00:06:48,500 --> 00:06:53,480
+baterías de forma de generar 6 worlds o
+
+164
+00:06:51,410 --> 00:06:57,200
+con una fuente de alimentación de igual
+
+165
+00:06:53,480 --> 00:06:59,600
+tensión o 75 volts incluso una batería
+
+166
+00:06:57,199 --> 00:07:01,699
+de 9 voltios también funcionaría pero
+
+167
+00:06:59,600 --> 00:07:03,740
+eso lo veremos en más detalle cuando
+
+168
+00:07:01,699 --> 00:07:05,949
+armemos el circuito los motores pequeños
+
+169
+00:07:03,740 --> 00:07:09,949
+que se usan electrónica y computación
+
+170
+00:07:05,949 --> 00:07:12,620
+suelen funcionar con 3 5 ó 6 volts
+
+171
+00:07:09,949 --> 00:07:14,689
+motores más potentes funcionan con 12
+
+172
+00:07:12,620 --> 00:07:16,939
+volts y motores que requieren accionar
+
+173
+00:07:14,689 --> 00:07:18,949
+mecanismos con gran fuerza como por
+
+174
+00:07:16,939 --> 00:07:21,139
+ejemplo los usados en impresoras de
+
+175
+00:07:18,949 --> 00:07:24,079
+inyección de tinta suelen funcionar con
+
+176
+00:07:21,139 --> 00:07:26,659
+24 volts dicha variedad de tensiones es
+
+177
+00:07:24,079 --> 00:07:29,029
+perfectamente cubierta por este módulo y
+
+178
+00:07:26,660 --> 00:07:31,939
+es uno de los motivos por el cual es tan
+
+179
+00:07:29,029 --> 00:07:33,859
+versátil y ampliamente usado un detalle
+
+180
+00:07:31,939 --> 00:07:35,779
+importante respecto a la alimentación
+
+181
+00:07:33,860 --> 00:07:38,060
+del módulo es que uno de los terminales
+
+182
+00:07:35,779 --> 00:07:41,359
+de las borner has identificado como
+
+183
+00:07:38,060 --> 00:07:43,939
+5volts es una salida que se usa para que
+
+184
+00:07:41,360 --> 00:07:45,740
+desde el propio módulo alimentar otros
+
+185
+00:07:43,939 --> 00:07:48,560
+dispositivos como hacerse
+
+186
+00:07:45,740 --> 00:07:50,930
+sobre estos cinco volts son generados a
+
+187
+00:07:48,560 --> 00:07:53,329
+partir de la tensión de alimentación que
+
+188
+00:07:50,930 --> 00:07:54,319
+pasa por un circuito integrado regulador
+
+189
+00:07:53,329 --> 00:07:56,418
+de tensión
+
+190
+00:07:54,319 --> 00:07:59,509
+este circuito integrado regula con
+
+191
+00:07:56,418 --> 00:08:02,508
+precisión 5volts en su salida pero no
+
+192
+00:07:59,509 --> 00:08:04,610
+puede recibir tensiones mayores a los 12
+
+193
+00:08:02,509 --> 00:08:06,319
+volts con lo cual si estamos trabajando
+
+194
+00:08:04,610 --> 00:08:08,780
+con una tensión de alimentación del
+
+195
+00:08:06,319 --> 00:08:11,150
+módulo que supera los 12 volts es
+
+196
+00:08:08,779 --> 00:08:13,728
+necesario remover este jumper aquí
+
+197
+00:08:11,149 --> 00:08:16,549
+marcado esto deshabilita el regulador de
+
+198
+00:08:13,728 --> 00:08:19,068
+tensión y ya no tendremos los 5 volts en
+
+199
+00:08:16,550 --> 00:08:21,139
+el terminal pero es necesario hacerlo ya
+
+200
+00:08:19,069 --> 00:08:23,180
+que si no corremos riesgo de quemar el
+
+201
+00:08:21,139 --> 00:08:25,519
+regulador nosotros no estaremos usando
+
+202
+00:08:23,180 --> 00:08:27,590
+la salida de 5 volts ni tampoco
+
+203
+00:08:25,519 --> 00:08:29,959
+estaremos alimentando el módulo con
+
+204
+00:08:27,589 --> 00:08:31,788
+tensiones tan altas pero es importante
+
+205
+00:08:29,959 --> 00:08:34,549
+que lo tengas en cuenta para un futuro
+
+206
+00:08:31,788 --> 00:08:36,588
+proyecto donde utilices este módulo con
+
+207
+00:08:34,549 --> 00:08:39,079
+tensiones mayores a los 12 volts
+
+208
+00:08:36,589 --> 00:08:40,849
+recordad remover el jumper ya avistan
+
+209
+00:08:39,080 --> 00:08:43,278
+las cuestiones más importantes del
+
+210
+00:08:40,849 --> 00:08:45,500
+módulo veamos un poco el tema motores
+
+211
+00:08:43,278 --> 00:08:47,419
+comenzaremos utilizando los motores más
+
+212
+00:08:45,500 --> 00:08:49,370
+sencillos que son los de corriente
+
+213
+00:08:47,419 --> 00:08:51,229
+continua sobre la parte izquierda de
+
+214
+00:08:49,370 --> 00:08:52,009
+pantalla vemos una animación del
+
+215
+00:08:51,230 --> 00:08:54,259
+principio
+
+216
+00:08:52,009 --> 00:08:56,450
+funcionamiento la alimentación del motor
+
+217
+00:08:54,259 --> 00:08:59,029
+se aplica mediante 12 escobillas al
+
+218
+00:08:56,450 --> 00:09:01,160
+rotor que es la parte que gira dentro de
+
+219
+00:08:59,029 --> 00:09:03,620
+un encapsulado metálico y tiene a su
+
+220
+00:09:01,159 --> 00:09:05,689
+alrededor dos imanes permanentes la
+
+221
+00:09:03,620 --> 00:09:08,000
+circulación de corriente por las bobinas
+
+222
+00:09:05,690 --> 00:09:09,470
+del rotor genera un campo magnético que
+
+223
+00:09:08,000 --> 00:09:12,139
+interactúa con el de los imanes
+
+224
+00:09:09,470 --> 00:09:13,940
+permanentes y así se genera una fuerza
+
+225
+00:09:12,139 --> 00:09:16,309
+que permite la rotación del eje
+
+226
+00:09:13,940 --> 00:09:18,830
+conectada al rotor aquí vemos un
+
+227
+00:09:16,309 --> 00:09:21,019
+despiece de un típico motor de continua
+
+228
+00:09:18,830 --> 00:09:23,270
+se muestran los imanes permanentes
+
+229
+00:09:21,019 --> 00:09:25,460
+el rotor con sus respectivas bobinas y
+
+230
+00:09:23,269 --> 00:09:27,559
+sobre uno de los extremos plásticos y
+
+231
+00:09:25,460 --> 00:09:29,629
+estarán las escobillas que permiten que
+
+232
+00:09:27,559 --> 00:09:30,109
+la tensión de alimentación llega al
+
+233
+00:09:29,629 --> 00:09:32,299
+rotor
+
+234
+00:09:30,110 --> 00:09:34,820
+en este capítulo estaremos usando un
+
+235
+00:09:32,299 --> 00:09:37,399
+motor de continua que incluye una caja
+
+236
+00:09:34,820 --> 00:09:39,470
+reductora aquí en la imagen se puede ver
+
+237
+00:09:37,399 --> 00:09:42,409
+un extremo del motor con sus terminales
+
+238
+00:09:39,470 --> 00:09:44,810
+de alimentación y una sección amarilla
+
+239
+00:09:42,409 --> 00:09:47,089
+donde dentro se encuentran una serie de
+
+240
+00:09:44,809 --> 00:09:49,549
+engranajes que producen la reducción de
+
+241
+00:09:47,090 --> 00:09:51,800
+velocidad al mismo tiempo que se produce
+
+242
+00:09:49,549 --> 00:09:54,799
+la reducción de velocidad se aumenta la
+
+243
+00:09:51,799 --> 00:09:57,289
+fuerza o torque del conjunto de la caja
+
+244
+00:09:54,799 --> 00:09:57,949
+de engranajes sale un eje con dos caras
+
+245
+00:09:57,289 --> 00:10:00,139
+planas
+
+246
+00:09:57,950 --> 00:10:02,660
+pensadas para colocar de forma firme y
+
+247
+00:10:00,139 --> 00:10:04,699
+segura por ejemplo una rueda como la
+
+248
+00:10:02,659 --> 00:10:07,730
+mostrada la reducción que produce la
+
+249
+00:10:04,700 --> 00:10:10,670
+caja es de 1 en 48 y eso significa que
+
+250
+00:10:07,730 --> 00:10:13,220
+cada 48 vueltas del motor que elige de
+
+251
+00:10:10,669 --> 00:10:15,620
+la caja reductora dará una sola vuelta
+
+252
+00:10:13,220 --> 00:10:18,050
+esto es importante ya que los motores de
+
+253
+00:10:15,620 --> 00:10:19,789
+continua giran demasiado rápido para
+
+254
+00:10:18,049 --> 00:10:21,649
+aplicarlo directamente al giro de una
+
+255
+00:10:19,789 --> 00:10:24,679
+rueda además la reducción de velocidad
+
+256
+00:10:21,649 --> 00:10:26,929
+aumenta significativamente la fuerza y
+
+257
+00:10:24,679 --> 00:10:29,329
+así podremos utilizar dos de estos
+
+258
+00:10:26,929 --> 00:10:31,969
+motores con reducción para hacer avanzar
+
+259
+00:10:29,330 --> 00:10:33,650
+un vehículo del tipo robert finalmente
+
+260
+00:10:31,970 --> 00:10:36,290
+quiero hacerte notar que estos motores
+
+261
+00:10:33,649 --> 00:10:38,659
+con caja reductora y rueda suelen venir
+
+262
+00:10:36,289 --> 00:10:41,029
+en kits que se pueden adquirir ya sea
+
+263
+00:10:38,659 --> 00:10:43,519
+por separado o como parte de un rover
+
+264
+00:10:41,029 --> 00:10:46,009
+donde tendremos un par de motores y
+
+265
+00:10:43,519 --> 00:10:48,110
+ruedas y una base acrílica para montar
+
+266
+00:10:46,009 --> 00:10:50,960
+toda la parte mecánica y electrónica
+
+267
+00:10:48,110 --> 00:10:53,120
+estos motores suelen venir sin cables de
+
+268
+00:10:50,960 --> 00:10:55,550
+alimentación con lo cual será una tarea
+
+269
+00:10:53,120 --> 00:10:58,159
+adicional de tu parte sol darle un par
+
+270
+00:10:55,549 --> 00:11:00,859
+de cables para así poder conectarlos al
+
+271
+00:10:58,159 --> 00:11:02,959
+módulo vamos al circuito de conexión
+
+272
+00:11:00,860 --> 00:11:04,550
+utilizaremos cables directos entre
+
+273
+00:11:02,960 --> 00:11:06,860
+arduino y el módulo
+
+274
+00:11:04,549 --> 00:11:09,139
+lo cual no es necesaria protoboard para
+
+275
+00:11:06,860 --> 00:11:11,629
+este capítulo y no complicar el tema
+
+276
+00:11:09,139 --> 00:11:14,028
+conectaremos y controlaremos un solo
+
+277
+00:11:11,629 --> 00:11:16,429
+motor usaremos el motor con la caja
+
+278
+00:11:14,028 --> 00:11:18,740
+reductora que vimos recién y la rueda
+
+279
+00:11:16,429 --> 00:11:21,078
+que se acopla a su eje antes de comenzar
+
+280
+00:11:18,740 --> 00:11:21,680
+las conexiones recordad que debe remover
+
+281
+00:11:21,078 --> 00:11:24,588
+los dos
+
+282
+00:11:21,679 --> 00:11:27,379
+jumpers que vienen colocados en línea y
+
+283
+00:11:24,589 --> 00:11:29,930
+nb si bien por ahora no usaremos el
+
+284
+00:11:27,379 --> 00:11:32,419
+motor ve es mejor dejar el módulo sino
+
+285
+00:11:29,929 --> 00:11:34,969
+chambers para futuros proyectos muy bien
+
+286
+00:11:32,419 --> 00:11:38,328
+ahora sí comenzaremos conectando el pin
+
+287
+00:11:34,970 --> 00:11:41,450
+in 1 del módulo con un cable directo al
+
+288
+00:11:38,328 --> 00:11:44,419
+pin digital número 2 de arduino del pin
+
+289
+00:11:41,450 --> 00:11:47,509
+pin 2 e iremos con otro cable directo al
+
+290
+00:11:44,419 --> 00:11:50,179
+pin digital número 3 de arduino y desde
+
+291
+00:11:47,509 --> 00:11:53,120
+en eada con un cable directo al pin
+
+292
+00:11:50,179 --> 00:11:55,370
+digital número 5 de arduino ahora
+
+293
+00:11:53,120 --> 00:11:57,350
+conectaremos el motor a labor negra de
+
+294
+00:11:55,370 --> 00:11:59,570
+la parte izquierda del módulo
+
+295
+00:11:57,350 --> 00:12:01,519
+aquí no hay polaridad con lo cual podrás
+
+296
+00:11:59,570 --> 00:12:03,890
+conectar los cables en el orden que
+
+297
+00:12:01,519 --> 00:12:06,169
+desees lo que sí es conveniente es que
+
+298
+00:12:03,889 --> 00:12:08,328
+ambos cables del motor tengan dos
+
+299
+00:12:06,169 --> 00:12:10,729
+colores distintos de manera que si
+
+300
+00:12:08,328 --> 00:12:11,599
+tenemos hecho un programa con un sentido
+
+301
+00:12:10,730 --> 00:12:14,329
+de giro
+
+302
+00:12:11,600 --> 00:12:16,579
+y luego debemos desconectar el motor de
+
+303
+00:12:14,328 --> 00:12:18,828
+la born era cuando volvamos a conectarlo
+
+304
+00:12:16,578 --> 00:12:21,198
+será necesario conectar los cables tal
+
+305
+00:12:18,828 --> 00:12:23,659
+cual estaban sino tendremos un giro
+
+306
+00:12:21,198 --> 00:12:25,939
+exactamente al revés también será útil
+
+307
+00:12:23,659 --> 00:12:28,250
+tener los cables en colores distintos
+
+308
+00:12:25,940 --> 00:12:30,829
+para cuando utilicemos dos motores
+
+309
+00:12:28,250 --> 00:12:32,509
+genial sólo resta alimentar el módulo
+
+310
+00:12:30,828 --> 00:12:35,059
+como nuestro motor funciona con
+
+311
+00:12:32,509 --> 00:12:37,490
+tensiones entre 3 y 6 world aquí
+
+312
+00:12:35,059 --> 00:12:40,669
+propongo utilizar una batería formada
+
+313
+00:12:37,490 --> 00:12:42,919
+por 4 pilas en series para generar 6
+
+314
+00:12:40,669 --> 00:12:45,019
+volt si vas a utilizar pilas recargables
+
+315
+00:12:42,919 --> 00:12:49,399
+recordad que éstas tienen una tensión
+
+316
+00:12:45,019 --> 00:12:51,818
+nominal de 12 volts en lugar de 15 de
+
+317
+00:12:49,399 --> 00:12:54,889
+las pilas comunes con lo cual tendremos
+
+318
+00:12:51,818 --> 00:12:57,139
+48 en lugar de seis bolsas pero de todas
+
+319
+00:12:54,889 --> 00:12:59,149
+maneras funcionará correctamente
+
+320
+00:12:57,139 --> 00:13:03,409
+otra opción es alimentar con una fuente
+
+321
+00:12:59,149 --> 00:13:06,620
+de 675 o nueve volts yo estaré usando
+
+322
+00:13:03,409 --> 00:13:09,259
+una fuente de 75 pero podrás utilizar la
+
+323
+00:13:06,620 --> 00:13:11,600
+que tengas a disposición 9 volts sería
+
+324
+00:13:09,259 --> 00:13:13,250
+el límite una mayor tensión podría
+
+325
+00:13:11,600 --> 00:13:15,528
+deteriorar el motor con lo cual
+
+326
+00:13:13,250 --> 00:13:17,909
+conectaremos el positivo de la batería
+
+327
+00:13:15,528 --> 00:13:21,480
+al terminal de la born era
+
+328
+00:13:17,909 --> 00:13:23,610
+y el negativo a gene de iu x debimos
+
+329
+00:13:21,480 --> 00:13:24,950
+hacer algo importante cuando trabajamos
+
+330
+00:13:23,610 --> 00:13:27,000
+con fuentes de alimentación
+
+331
+00:13:24,950 --> 00:13:29,220
+independientes arduino lo estaremos
+
+332
+00:13:27,000 --> 00:13:33,480
+alimentando mediante el mismo cable usb
+
+333
+00:13:29,220 --> 00:13:35,460
+y el módulo el 298 n con la batería de 6
+
+334
+00:13:33,480 --> 00:13:37,379
+world o fuente de alimentación
+
+335
+00:13:35,460 --> 00:13:39,750
+arduino se encargará de controlar el
+
+336
+00:13:37,379 --> 00:13:42,269
+motor mediante pines digitales y el
+
+337
+00:13:39,750 --> 00:13:44,580
+módulo usará la batería externa para
+
+338
+00:13:42,269 --> 00:13:46,769
+alimentarse a sí mismo y a los motores
+
+339
+00:13:44,580 --> 00:13:49,650
+con lo cual se puede generar un problema
+
+340
+00:13:46,769 --> 00:13:52,649
+de referencia de tierra género o masa
+
+341
+00:13:49,649 --> 00:13:54,419
+debe ser común a ambas fuentes quizás no
+
+342
+00:13:52,649 --> 00:13:56,850
+pienses arduino como una fuente de
+
+343
+00:13:54,419 --> 00:13:59,370
+alimentación pero en realidad lo es la
+
+344
+00:13:56,850 --> 00:14:01,200
+alimentación viene del puerto usb de la
+
+345
+00:13:59,370 --> 00:14:04,139
+computadora entonces es necesario
+
+346
+00:14:01,200 --> 00:14:06,960
+mediante un cable conectar geneve de
+
+347
+00:14:04,139 --> 00:14:09,960
+arduino congénere del módulo de esta
+
+348
+00:14:06,960 --> 00:14:12,480
+forma la referencia de masa o tierra es
+
+349
+00:14:09,960 --> 00:14:13,830
+la misma para ambas partes siempre que
+
+350
+00:14:12,480 --> 00:14:16,320
+utilices fuentes de alimentación
+
+351
+00:14:13,830 --> 00:14:18,990
+distintas será necesario que conectes
+
+352
+00:14:16,320 --> 00:14:21,720
+los terminales de gene de o masa entre
+
+353
+00:14:18,990 --> 00:14:23,879
+sí para asegurar una correcta referencia
+
+354
+00:14:21,720 --> 00:14:26,670
+en todos los dispositivos conectados
+
+355
+00:14:23,879 --> 00:14:28,559
+y eso será todo vamos ahora el código
+
+356
+00:14:26,669 --> 00:14:30,209
+para hacer un simple programa y
+
+357
+00:14:28,559 --> 00:14:32,369
+verificar que todo funciona
+
+358
+00:14:30,210 --> 00:14:35,009
+correctamente al lado de la ventana del
+
+359
+00:14:32,370 --> 00:14:37,110
+editor de código estaré dejando la tabla
+
+360
+00:14:35,009 --> 00:14:39,000
+que vimos al principio con los valores
+
+361
+00:14:37,110 --> 00:14:40,950
+de los pines de control para que nos
+
+362
+00:14:39,000 --> 00:14:43,440
+sirva de referencia definiremos
+
+363
+00:14:40,950 --> 00:14:45,780
+variables para almacenar los pines a
+
+364
+00:14:43,440 --> 00:14:53,139
+donde tenemos conectados los fines de
+
+365
+00:14:45,779 --> 00:15:02,350
+control del módulo int en uno igual 2
+
+366
+00:14:53,139 --> 00:15:05,259
+en dos igual 35 que en ea igual 5 en el
+
+367
+00:15:02,350 --> 00:15:10,528
+setup simplemente establecemos que todos
+
+368
+00:15:05,259 --> 00:15:18,579
+los pines serán salidas pin modo in 1
+
+369
+00:15:10,528 --> 00:15:22,269
+output pin modo in 2 output pin modo y
+
+370
+00:15:18,578 --> 00:15:25,208
+en el output vamos a hacer girar el
+
+371
+00:15:22,269 --> 00:15:28,600
+motor en un sentido por eso vemos en la
+
+372
+00:15:25,208 --> 00:15:31,418
+tabla que necesitamos que tenga un 1
+
+373
+00:15:28,600 --> 00:15:36,548
+lógico para habilitar el motor y luego
+
+374
+00:15:31,418 --> 00:15:38,828
+en 110 e in 211 entonces haremos 3
+
+375
+00:15:36,548 --> 00:15:41,619
+digital raid para escribir dichos
+
+376
+00:15:38,828 --> 00:15:47,008
+valores vamos a hacer primero el loop y
+
+377
+00:15:41,619 --> 00:15:47,009
+luego digital right línea
+
+378
+00:15:47,409 --> 00:15:58,819
+digital right in 1 cloud
+
+379
+00:15:53,149 --> 00:16:00,860
+digital right in 2 high muy bien con
+
+380
+00:15:58,820 --> 00:16:03,200
+esas tres líneas ya logramos que el
+
+381
+00:16:00,860 --> 00:16:05,930
+motor comienza a girar vamos a aplicar
+
+382
+00:16:03,200 --> 00:16:08,750
+una demora de 3 segundos y luego vamos a
+
+383
+00:16:05,929 --> 00:16:15,309
+apagar el motor lo haremos así delay
+
+384
+00:16:08,750 --> 00:16:19,730
+entre paréntesis 3000 digital raid línea
+
+385
+00:16:15,309 --> 00:16:22,099
+low apagar el motor es muy fácil sólo es
+
+386
+00:16:19,730 --> 00:16:25,759
+cuestión de escribir un nivel bajo es
+
+387
+00:16:22,100 --> 00:16:27,560
+decir un serológico en línea y listo lo
+
+388
+00:16:25,759 --> 00:16:29,870
+que logramos hasta ahora es hacer que
+
+389
+00:16:27,559 --> 00:16:31,939
+gire el motor durante tres segundos y
+
+390
+00:16:29,870 --> 00:16:34,129
+luego lo apagamos ahora vamos a
+
+391
+00:16:31,940 --> 00:16:36,200
+verificar que funciona el giro en el
+
+392
+00:16:34,129 --> 00:16:38,840
+sentido opuesto para que se pueda
+
+393
+00:16:36,200 --> 00:16:39,980
+percibir bien vamos a aplicar una demora
+
+394
+00:16:38,840 --> 00:16:44,509
+de dos segundos
+
+395
+00:16:39,980 --> 00:16:46,690
+delay 2000 y ahora para activar el motor
+
+396
+00:16:44,509 --> 00:16:49,250
+y hacerlo girar en sentido opuesto
+
+397
+00:16:46,690 --> 00:16:51,830
+podemos copiar el bloque de código
+
+398
+00:16:49,250 --> 00:16:55,580
+anterior y pegarlo y simplemente
+
+399
+00:16:51,830 --> 00:16:57,980
+modificar los valores de un 1 en 2 por
+
+400
+00:16:55,580 --> 00:17:01,759
+los supuestos es decir que ahora
+
+401
+00:16:57,980 --> 00:17:04,430
+1 lo pondremos a un nivel alto en 2 a un
+
+402
+00:17:01,759 --> 00:17:06,710
+nivel bajo tal cual como se indica en
+
+403
+00:17:04,430 --> 00:17:09,380
+esta fila de la tabla ahora para
+
+404
+00:17:06,710 --> 00:17:12,230
+finalizar nos resta detener el motor por
+
+405
+00:17:09,380 --> 00:17:15,740
+2 segundos podemos copiar y pegar este
+
+406
+00:17:12,230 --> 00:17:18,049
+bloque ya que no cambia este programa lo
+
+407
+00:17:15,740 --> 00:17:20,839
+que hará es hacer girar el motor en un
+
+408
+00:17:18,049 --> 00:17:23,059
+sentido durante tres segundos detenerlo
+
+409
+00:17:20,839 --> 00:17:25,609
+por dos segundos hacerlo girar en
+
+410
+00:17:23,059 --> 00:17:28,159
+sentido contrario por tres segundos y
+
+411
+00:17:25,609 --> 00:17:31,099
+luego detenerlo por dos segundos y así
+
+412
+00:17:28,160 --> 00:17:33,769
+todo el tiempo vamos a verificar y subir
+
+413
+00:17:31,099 --> 00:17:36,019
+el programa recordad también conectar en
+
+414
+00:17:33,769 --> 00:17:38,029
+la alimentación externa al módulo
+
+415
+00:17:36,019 --> 00:17:39,079
+mediante las baterías o fuente de
+
+416
+00:17:38,029 --> 00:17:41,180
+alimentación
+
+417
+00:17:39,079 --> 00:17:44,329
+verás que se enciende un led rojo en el
+
+418
+00:17:41,180 --> 00:17:46,640
+propio módulo podrás verificar cómo la
+
+419
+00:17:44,329 --> 00:17:49,879
+rueda gira en un sentido durante tres
+
+420
+00:17:46,640 --> 00:17:52,550
+segundos se detiene dos segundos gire en
+
+421
+00:17:49,880 --> 00:17:54,530
+sentido contrario otros tres segundos y
+
+422
+00:17:52,549 --> 00:17:56,659
+se detiene por dos segundos para
+
+423
+00:17:54,529 --> 00:17:59,420
+comenzar nuevamente el ciclo también
+
+424
+00:17:56,660 --> 00:18:02,630
+podrás comprobar que pese la reducción
+
+425
+00:17:59,420 --> 00:18:04,880
+de uno en 48 la rueda gira bastante
+
+426
+00:18:02,630 --> 00:18:07,580
+rápido al principio del capítulo
+
+427
+00:18:04,880 --> 00:18:09,320
+mencionaba que el nea se puede utilizar
+
+428
+00:18:07,579 --> 00:18:12,500
+para el control de velocidad del motor
+
+429
+00:18:09,319 --> 00:18:15,200
+es por eso que no por casualidad lineal
+
+430
+00:18:12,500 --> 00:18:17,779
+lo conectamos al pin digital número 5 de
+
+431
+00:18:15,200 --> 00:18:20,269
+arduino que tiene capacidad de w m
+
+432
+00:18:17,779 --> 00:18:22,759
+recordad que se trató el tema modulación
+
+433
+00:18:20,269 --> 00:18:25,670
+por ancho de pulso en detalle en el
+
+434
+00:18:22,759 --> 00:18:27,920
+capítulo 4 vimos que en ea puede
+
+435
+00:18:25,670 --> 00:18:31,160
+habilitar o deshabilitar el motor
+
+436
+00:18:27,920 --> 00:18:33,860
+mediante p w m podemos enviar la s pin
+
+437
+00:18:31,160 --> 00:18:36,740
+una señal para activar y desactivar el
+
+438
+00:18:33,859 --> 00:18:38,299
+motor muy rápidamente logrando así el
+
+439
+00:18:36,740 --> 00:18:41,480
+efecto de reducción en la velocidad
+
+440
+00:18:38,299 --> 00:18:44,089
+desde el código será muy simple será
+
+441
+00:18:41,480 --> 00:18:47,240
+cuestión de cambiar digital white x
+
+442
+00:18:44,089 --> 00:18:51,409
+analog right sobre línea y luego
+
+443
+00:18:47,240 --> 00:18:53,839
+asignarle un valor entre 0 y 255 siendo
+
+444
+00:18:51,410 --> 00:18:57,710
+0 una velocidad de 0 o lo que es lo
+
+445
+00:18:53,839 --> 00:19:00,769
+mismo apagado y 255 velocidad máxima un
+
+446
+00:18:57,710 --> 00:19:03,440
+valor intermedio de 127 generaría una
+
+447
+00:19:00,769 --> 00:19:06,529
+señal p w m con un ciclo de trabajo de
+
+448
+00:19:03,440 --> 00:19:08,930
+50 por ciento haciendo que el motor gire
+
+449
+00:19:06,529 --> 00:19:10,879
+a la mitad de su velocidad máxima para
+
+450
+00:19:08,930 --> 00:19:15,650
+hacer un cambio de velocidad gradual
+
+451
+00:19:10,880 --> 00:19:18,230
+de 0 a 255 nos viene bien el bucle for y
+
+452
+00:19:15,650 --> 00:19:20,570
+modificaremos el código de la siguiente
+
+453
+00:19:18,230 --> 00:19:23,089
+manera vamos rápidamente al principio
+
+454
+00:19:20,569 --> 00:19:26,329
+del código y agreguemos una variable más
+
+455
+00:19:23,089 --> 00:19:28,159
+la llamaremos velocidad en esta variable
+
+456
+00:19:26,329 --> 00:19:31,279
+iremos almacenando el valor de la
+
+457
+00:19:28,160 --> 00:19:33,380
+velocidad que será aplicada al pin n
+
+458
+00:19:31,279 --> 00:19:37,000
+hagamos un espacio en la primera línea
+
+459
+00:19:33,380 --> 00:19:40,970
+del loop y escribamos lo siguiente for
+
+460
+00:19:37,000 --> 00:19:49,099
+velocidad igual 0
+
+461
+00:19:40,970 --> 00:19:51,950
+velocidad menor 256 velocidad más más
+
+462
+00:19:49,099 --> 00:19:54,529
+este bucle for comenzará con velocidad
+
+463
+00:19:51,950 --> 00:19:58,220
+igual a cero y mientras dicho valor sea
+
+464
+00:19:54,529 --> 00:20:00,950
+menor de 256 iremos incrementando su
+
+465
+00:19:58,220 --> 00:20:03,200
+valor en 1 con cada iteración lo que
+
+466
+00:20:00,950 --> 00:20:05,690
+debemos hacer ahora es mover el bloque
+
+467
+00:20:03,200 --> 00:20:08,330
+de código de los tres dígitos wright y
+
+468
+00:20:05,690 --> 00:20:11,120
+el delay adentro de las llaves del bucle
+
+469
+00:20:08,329 --> 00:20:13,788
+así que seleccionamos el bloque y luego
+
+470
+00:20:11,119 --> 00:20:17,259
+cortar en la línea anterior al cierre de
+
+471
+00:20:13,788 --> 00:20:21,390
+la llave pegamos el código cortado
+
+472
+00:20:17,259 --> 00:20:24,579
+ahora n podrá tener valores entre 0 y
+
+473
+00:20:21,390 --> 00:20:27,190
+255 con lo cual debemos cambiar digital
+
+474
+00:20:24,579 --> 00:20:30,730
+un raid por analog raid y en lugar de
+
+475
+00:20:27,190 --> 00:20:33,039
+high colocaremos velocidad por último
+
+476
+00:20:30,730 --> 00:20:35,799
+debemos modificar el valor de la demora
+
+477
+00:20:33,039 --> 00:20:39,460
+como el delay está dentro del bucle for
+
+478
+00:20:35,799 --> 00:20:43,359
+se ejecutará un total de 255 veces con
+
+479
+00:20:39,460 --> 00:20:45,819
+lo cual cambiaremos el valor 3000 por 50
+
+480
+00:20:43,359 --> 00:20:47,500
+de esta forma cada vez que se incremente
+
+481
+00:20:45,819 --> 00:20:50,619
+en uno el valor de velocidad
+
+482
+00:20:47,500 --> 00:20:53,019
+introduciremos una pequeña demora así se
+
+483
+00:20:50,619 --> 00:20:54,789
+puede apreciar bien en la práctica cómo
+
+484
+00:20:53,019 --> 00:20:55,629
+va incrementando gradualmente la
+
+485
+00:20:54,789 --> 00:20:58,240
+velocidad
+
+486
+00:20:55,630 --> 00:21:00,880
+el digital raid con línea y un valor
+
+487
+00:20:58,240 --> 00:21:03,250
+bajo junto con la demora de dos segundos
+
+488
+00:21:00,880 --> 00:21:05,710
+lo dejaremos sin cambios queremos que
+
+489
+00:21:03,250 --> 00:21:07,990
+pase unos instantes hasta que hagamos el
+
+490
+00:21:05,710 --> 00:21:10,299
+cambio de giro del motor incrementando
+
+491
+00:21:07,990 --> 00:21:12,609
+la velocidad cambiar el giro del motor
+
+492
+00:21:10,299 --> 00:21:14,980
+lo vimos en el primer programa sólo es
+
+493
+00:21:12,609 --> 00:21:18,490
+cuestión de intercambiar los valores de
+
+494
+00:21:14,980 --> 00:21:21,849
+en uno en dos así que copiaremos todo el
+
+495
+00:21:18,490 --> 00:21:23,259
+bloque del bucle for y también la línea
+
+496
+00:21:21,849 --> 00:21:25,659
+que apaga el motor y la
+
+497
+00:21:23,259 --> 00:21:28,480
+ahora de 2 segundos eliminemos primero
+
+498
+00:21:25,660 --> 00:21:30,700
+todo el código por debajo y peguemos ya
+
+499
+00:21:28,480 --> 00:21:32,920
+que sólo necesitaremos 2 pequeños
+
+500
+00:21:30,700 --> 00:21:35,230
+cambios ahora lo que queremos es que el
+
+501
+00:21:32,920 --> 00:21:40,029
+motor gire en sentido contrario con lo
+
+502
+00:21:35,230 --> 00:21:43,059
+cual cambiaremos height a un 1 y lou a
+
+503
+00:21:40,029 --> 00:21:45,789
+un 2 y eso es todo este programa
+
+504
+00:21:43,059 --> 00:21:47,369
+comenzará con el motor con velocidad 0 e
+
+505
+00:21:45,789 --> 00:21:50,440
+irá incrementando su velocidad
+
+506
+00:21:47,369 --> 00:21:53,589
+gradualmente se detiene por 2 segundos y
+
+507
+00:21:50,440 --> 00:21:55,779
+comienza a girar lentamente en sentido
+
+508
+00:21:53,589 --> 00:21:57,970
+contrario subiendo gradualmente la
+
+509
+00:21:55,779 --> 00:22:01,269
+velocidad hasta que se detiene por 2
+
+510
+00:21:57,970 --> 00:22:03,789
+segundos y repite el ciclo podrás
+
+511
+00:22:01,269 --> 00:22:05,950
+observar y más bien escuchar que el
+
+512
+00:22:03,789 --> 00:22:09,339
+principio con el motor comienza desde
+
+513
+00:22:05,950 --> 00:22:12,789
+velocidad 0 la rueda no gira pero se oye
+
+514
+00:22:09,339 --> 00:22:14,980
+un pequeño zumbido luego si ya comienza
+
+515
+00:22:12,789 --> 00:22:17,799
+a moverse la rueda y a incrementar su
+
+516
+00:22:14,980 --> 00:22:20,319
+velocidad llega al máximo y se detiene
+
+517
+00:22:17,799 --> 00:22:22,539
+por 2 segundos luego nuevamente los
+
+518
+00:22:20,319 --> 00:22:25,689
+primeros segundos no hay giro de la
+
+519
+00:22:22,539 --> 00:22:28,359
+rueda un pequeño zumbido y ya comienza a
+
+520
+00:22:25,690 --> 00:22:30,490
+girar en sentido contrario lo que sucede
+
+521
+00:22:28,359 --> 00:22:33,189
+al principio es que estamos incrementos
+
+522
+00:22:30,490 --> 00:22:35,589
+el valor de la salida p w m desde un
+
+523
+00:22:33,190 --> 00:22:38,200
+valor de 0 esto genera un ciclo de
+
+524
+00:22:35,589 --> 00:22:40,629
+trabajo muy chico tan chico que el motor
+
+525
+00:22:38,200 --> 00:22:43,120
+no llega a girar recién cuando el ciclo
+
+526
+00:22:40,630 --> 00:22:45,280
+de trabajo tiene un valor mayor el motor
+
+527
+00:22:43,119 --> 00:22:47,469
+tiene la energía suficiente para girar
+
+528
+00:22:45,279 --> 00:22:49,899
+esto lleva a una conclusión interesante
+
+529
+00:22:47,470 --> 00:22:52,110
+y es que los motores de continua
+
+530
+00:22:49,900 --> 00:22:54,850
+requieren tener una velocidad de giro
+
+531
+00:22:52,109 --> 00:22:56,919
+relativamente alta para funcionar y
+
+532
+00:22:54,849 --> 00:22:59,558
+aunque logremos que gire lentamente
+
+533
+00:22:56,920 --> 00:23:01,750
+veremos que no tiene fuerza la fuerza o
+
+534
+00:22:59,558 --> 00:23:03,910
+torque de estos motores se logra con su
+
+535
+00:23:01,750 --> 00:23:05,980
+máxima velocidad esto no quiere decir
+
+536
+00:23:03,910 --> 00:23:07,808
+que no se puedan usar a menores
+
+537
+00:23:05,980 --> 00:23:10,360
+velocidades pero hay que tener en cuenta
+
+538
+00:23:07,808 --> 00:23:12,009
+que no tendremos la máxima fuerza que
+
+539
+00:23:10,359 --> 00:23:14,619
+pueda administrar cuando lo que se
+
+540
+00:23:12,009 --> 00:23:17,289
+quiere es un giro lento y con mucha
+
+541
+00:23:14,619 --> 00:23:20,259
+fuerza se utilizan otro tipo de motores
+
+542
+00:23:17,289 --> 00:23:22,539
+llamados paso a paso los cuales son más
+
+543
+00:23:20,259 --> 00:23:26,289
+complejos de operar pero el módulo el
+
+544
+00:23:22,539 --> 00:23:28,750
+298 n es perfectamente capaz de hacerlo
+
+545
+00:23:26,289 --> 00:23:31,119
+y de hecho en un próximo capítulo
+
+546
+00:23:28,750 --> 00:23:34,450
+estaremos introduciendo el uso de
+
+547
+00:23:31,119 --> 00:23:36,579
+motores paso a paso con este módulo eso
+
+548
+00:23:34,450 --> 00:23:38,890
+es todo por este capítulo
+
+549
+00:23:36,579 --> 00:23:42,250
+próximo continuaremos utilizando el
+
+550
+00:23:38,890 --> 00:23:44,380
+módulo l 298 n con dos motores de
+
+551
+00:23:42,250 --> 00:23:46,778
+continua para hacer desplazar un
+
+552
+00:23:44,380 --> 00:23:49,090
+vehículo tipo rover y en base a los
+
+553
+00:23:46,778 --> 00:23:51,298
+conceptos vistos en este capítulo on
+
+554
+00:23:49,089 --> 00:23:54,339
+daremos un poco más en la programación
+
+555
+00:23:51,298 --> 00:23:56,648
+como siempre te pido te suscribas para
+
+556
+00:23:54,339 --> 00:23:59,230
+recibir notificaciones y por cualquier
+
+557
+00:23:56,648 --> 00:24:02,288
+duda o comentario lo puedes hacer debajo
+
+558
+00:23:59,230 --> 00:24:04,620
+y con gusto te responderé chau y hasta
+
+559
+00:24:02,288 --> 00:24:04,619
+la próxima
+

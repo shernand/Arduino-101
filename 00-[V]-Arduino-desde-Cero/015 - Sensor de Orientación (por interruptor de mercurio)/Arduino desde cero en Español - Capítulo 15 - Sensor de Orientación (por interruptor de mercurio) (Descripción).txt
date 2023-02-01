@@ -1,0 +1,20 @@
+Con el Sensor de Orientación por interruptor de mercurio en módulos KY-017 y KY-027 podremos detectar cambios en la posición de objetos y tomar una acción con Arduino de manera muy simple y confiable.
+Veremos también una aplicación práctica para determinar el angulo limite de inclinación para un vehículo motorizado tipo rover. 
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoKit37en1
+#ArduinoTilt
+Mercury switch module
+Sensor de mercurio
+Mercury tilt switch
+Arduino Tilt switch KY-017 y Light Cup KY-027
+
+Marcas de tiempo:
+0:00 Bienvenida e Introducción
+3:25 Circuito de conexión
+4:15 Primer programa (experimentos con la orientación)
+9:55 Circuito de conexión para segunda experiencia
+11:45 Segundo programa (dos sensores sobre Rover)

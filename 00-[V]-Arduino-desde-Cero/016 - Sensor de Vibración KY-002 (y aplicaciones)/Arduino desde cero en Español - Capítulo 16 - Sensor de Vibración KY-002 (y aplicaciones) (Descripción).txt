@@ -1,0 +1,19 @@
+Simple pero efectivo Sensor de Vibración KY-002 para Arduino para la detección de golpes o vibraciones fuertes y tomar una acción.
+Veremos el funcionamiento interno del sensor y como de manera muy simple nos permite utilizarlo para variedad de situaciones en la vida real. 
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoKit37en1
+#ArduinoVibración
+Shock sensor module
+Sensor de impacto
+KY-002 vibration switch 
+
+Marcas de tiempo:
+0:00 Introducción al módulo
+2:37 Circuito de conexión
+3:39 Primer programa (detectando vibración)
+6:25 Segundo programa (activando LED)
+7:38 Usos prácticos en la vida real

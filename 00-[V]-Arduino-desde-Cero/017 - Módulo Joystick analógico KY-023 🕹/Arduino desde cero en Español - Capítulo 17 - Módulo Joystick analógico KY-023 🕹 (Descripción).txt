@@ -1,0 +1,25 @@
+Arduino desde cero en Español - Capítulo 17 - Módulo Joystick analógico KY-023
+
+Usaremos el Módulo de Joystick KY-023 de forma de obtener valores proporcionales al movimiento de la palanca en entradas analógicas de Arduino.
+Mediante una serie de LEDs en modo PWM obtendremos una indicación visual del movimiento de la palanca y del cierre del interruptor incorporado. 
+
+¿ Buscando cómo emular un Joystick para conexión a PC ? ⌨️🖱🕹
+Capítulo 57: https://www.youtube.com/watch?v=NmOefV36RY0
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoJoystick
+#ArduinoKit37en1
+#ArduinoMandoAnalogico
+Arduino joystick pc
+Arduino joystick code
+Joystick ps2 Arduino
+Joystick analogico ps2
+
+
+Marcas de tiempo:
+0:00 Introducción
+4:26 Circuito de conexión
+9:29 Primer programa LEDs y PWM
+22:33 Usos y despedida

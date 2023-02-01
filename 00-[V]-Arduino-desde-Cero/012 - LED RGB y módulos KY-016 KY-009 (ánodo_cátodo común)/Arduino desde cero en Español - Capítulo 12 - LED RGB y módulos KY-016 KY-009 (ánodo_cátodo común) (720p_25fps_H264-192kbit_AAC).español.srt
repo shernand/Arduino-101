@@ -1,0 +1,2264 @@
+1
+00:00:00,719 --> 00:00:07,680
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,779 --> 00:00:10,289
+12 de arduino desde cero en español en
+
+3
+00:00:07,679 --> 00:00:13,919
+esta oportunidad vamos a utilizar un led
+
+4
+00:00:10,289 --> 00:00:16,858
+del tipo rgb muy útil para todo tipo de
+
+5
+00:00:13,919 --> 00:00:19,820
+proyectos donde es necesario hacer una
+
+6
+00:00:16,859 --> 00:00:22,800
+indicación luminosa pudiendo generar
+
+7
+00:00:19,820 --> 00:00:24,749
+combinaciones de colores el led lo
+
+8
+00:00:22,800 --> 00:00:28,140
+venimos utilizando desde los primeros
+
+9
+00:00:24,748 --> 00:00:31,229
+capítulos el tipo que veremos ahora se
+
+10
+00:00:28,140 --> 00:00:33,870
+lo denomina rgb ya que dentro de un
+
+11
+00:00:31,230 --> 00:00:36,390
+mismo encapsulado transparente tendremos
+
+12
+00:00:33,869 --> 00:00:39,390
+tres colores que se pueden encender de
+
+13
+00:00:36,390 --> 00:00:42,750
+forma independiente y algo incluso más
+
+14
+00:00:39,390 --> 00:00:45,480
+útil es la capacidad de mezclar dichos
+
+15
+00:00:42,750 --> 00:00:48,149
+colores para formar muchos más
+
+16
+00:00:45,479 --> 00:00:51,569
+rgb son las siglas en inglés de rojo
+
+17
+00:00:48,149 --> 00:00:54,780
+verde y azul y esos serán los colores
+
+18
+00:00:51,570 --> 00:00:57,119
+que tendremos a disposición en el led si
+
+19
+00:00:54,780 --> 00:00:59,399
+lo consideramos como tres leds en un
+
+20
+00:00:57,119 --> 00:01:02,578
+mismo encapsulado necesitaríamos
+
+21
+00:00:59,399 --> 00:01:05,280
+disponer de seis patas dos para cada uno
+
+22
+00:01:02,579 --> 00:01:07,799
+de los colores para reducir a un mínimo
+
+23
+00:01:05,280 --> 00:01:11,489
+la cantidad de conexiones
+
+24
+00:01:07,799 --> 00:01:14,849
+para controlarlo existen de dos tipos de
+
+25
+00:01:11,489 --> 00:01:17,159
+ánodo común y de cátodo como aquí en
+
+26
+00:01:14,849 --> 00:01:20,369
+pantalla vemos el diagrama eléctrico de
+
+27
+00:01:17,159 --> 00:01:24,030
+conexionado interno de un led rgb de
+
+28
+00:01:20,370 --> 00:01:27,270
+ánodo común y uno de cátodo común en el
+
+29
+00:01:24,030 --> 00:01:30,000
+caso del ánodo común todos los ánodos de
+
+30
+00:01:27,269 --> 00:01:33,539
+cada color se unen de manera de exponer
+
+31
+00:01:30,000 --> 00:01:36,450
+al exterior una sola pata de conexión y
+
+32
+00:01:33,540 --> 00:01:39,360
+luego tendrán también expuestos cada uno
+
+33
+00:01:36,450 --> 00:01:42,240
+de los cátodos de esta forma para
+
+34
+00:01:39,359 --> 00:01:45,539
+encender un color basta con conectar el
+
+35
+00:01:42,239 --> 00:01:48,719
+ánodo común a una atención positiva y un
+
+36
+00:01:45,540 --> 00:01:51,840
+cátodo a masa en el caso del cátodo
+
+37
+00:01:48,719 --> 00:01:53,719
+común como su nombre lo indica el cátodo
+
+38
+00:01:51,840 --> 00:01:56,219
+será el común para los tres leds
+
+39
+00:01:53,719 --> 00:01:59,189
+logrando encender cada uno de los
+
+40
+00:01:56,219 --> 00:02:01,920
+colores colocando el cátodo a massa y el
+
+41
+00:01:59,189 --> 00:02:05,549
+ánodo del color que se desee a una
+
+42
+00:02:01,920 --> 00:02:08,460
+tensión positiva como recordarás siempre
+
+43
+00:02:05,549 --> 00:02:11,009
+que conectamos un led la asocia vamos en
+
+44
+00:02:08,460 --> 00:02:12,469
+serie una resistencia para reducir la
+
+45
+00:02:11,009 --> 00:02:15,649
+corriente al mismo
+
+46
+00:02:12,469 --> 00:02:19,219
+en definitiva un led rgb podrá ser ánodo
+
+47
+00:02:15,650 --> 00:02:22,310
+común o cátodos y tendrá un encapsulado
+
+48
+00:02:19,219 --> 00:02:25,580
+transparente con cuatro patas que se
+
+49
+00:02:22,310 --> 00:02:28,699
+muestra en pantalla la pata más larga es
+
+50
+00:02:25,580 --> 00:02:31,550
+siempre el terminal común ánodo o cátodo
+
+51
+00:02:28,699 --> 00:02:34,219
+dependiendo del tipo y luego el resto de
+
+52
+00:02:31,550 --> 00:02:38,180
+las patas corresponderán a cada uno de
+
+53
+00:02:34,219 --> 00:02:41,449
+los colores rojo verde y azul nosotros
+
+54
+00:02:38,180 --> 00:02:44,240
+comenzaremos utilizando un led rgb del
+
+55
+00:02:41,449 --> 00:02:47,149
+tipo cátodo común ya que al conectar el
+
+56
+00:02:44,240 --> 00:02:50,719
+cátodo a masa podremos desde arduino
+
+57
+00:02:47,150 --> 00:02:53,569
+aplicar una tensión positiva mediante un
+
+58
+00:02:50,719 --> 00:02:56,659
+uno lógico para encender cada uno de los
+
+59
+00:02:53,569 --> 00:02:59,509
+colores de esta forma utilizamos lo que
+
+60
+00:02:56,659 --> 00:03:01,759
+se denomina lógica positiva que es la
+
+61
+00:02:59,509 --> 00:03:04,719
+más simple de entender en lógica
+
+62
+00:03:01,759 --> 00:03:08,239
+positiva un cero lógico cero balls
+
+63
+00:03:04,719 --> 00:03:12,409
+equivale a apagado una atención positiva
+
+64
+00:03:08,240 --> 00:03:14,959
+un 1 lógico equivale a encendido luego
+
+65
+00:03:12,409 --> 00:03:17,629
+más adelante en el capítulo veremos cómo
+
+66
+00:03:14,959 --> 00:03:20,620
+conectar y comandar un led
+
+67
+00:03:17,629 --> 00:03:24,349
+modo común que utiliza lógica negativa
+
+68
+00:03:20,620 --> 00:03:27,469
+entonces en nuestro leds rgb de cátodo
+
+69
+00:03:24,349 --> 00:03:30,349
+con la pata más larga será el cátodo
+
+70
+00:03:27,469 --> 00:03:32,050
+común a todos los colores y mirándolo
+
+71
+00:03:30,349 --> 00:03:35,030
+tal cual se muestra en pantalla
+
+72
+00:03:32,050 --> 00:03:37,790
+tendremos el color rojo a la izquierda
+
+73
+00:03:35,030 --> 00:03:40,520
+del cátodo luego a la derecha del cátodo
+
+74
+00:03:37,789 --> 00:03:43,609
+tendremos el verde y la última pata
+
+75
+00:03:40,520 --> 00:03:46,310
+corresponderá al azul existen distintos
+
+76
+00:03:43,610 --> 00:03:49,790
+tipos de presentaciones para los leds
+
+77
+00:03:46,310 --> 00:03:52,699
+rgb tendremos el encapsulado como vimos
+
+78
+00:03:49,789 --> 00:03:55,819
+recién con sus respectivas cuatro patas
+
+79
+00:03:52,699 --> 00:03:59,599
+y también existen versiones que forman
+
+80
+00:03:55,819 --> 00:04:01,969
+parte de módulos un módulo consiste en
+
+81
+00:03:59,599 --> 00:04:04,609
+un componente montado sobre una placa de
+
+82
+00:04:01,969 --> 00:04:07,000
+circuito impreso el cual puede tener
+
+83
+00:04:04,610 --> 00:04:10,070
+también otros componentes adicionales
+
+84
+00:04:07,000 --> 00:04:12,800
+aquí les muestro los módulos que forman
+
+85
+00:04:10,069 --> 00:04:15,949
+parte de un kit de sensores que es el
+
+86
+00:04:12,800 --> 00:04:18,560
+kit 37 en uno este kit es
+
+87
+00:04:15,949 --> 00:04:20,539
+particularmente popular por tener una
+
+88
+00:04:18,560 --> 00:04:23,300
+gran variedad de sensores y dispositivos
+
+89
+00:04:20,540 --> 00:04:26,569
+a un precio accesible
+
+90
+00:04:23,300 --> 00:04:31,728
+estamos hablando del led rgb este kit
+
+91
+00:04:26,569 --> 00:04:35,289
+incluye dos módulos el k y 16 y el k y 9
+
+92
+00:04:31,728 --> 00:04:38,598
+el cádiz 16 es básicamente el led rgb
+
+93
+00:04:35,288 --> 00:04:41,538
+que viene de fábrica pero montado sobre
+
+94
+00:04:38,598 --> 00:04:44,360
+un circuito impreso y con unos pines a
+
+95
+00:04:41,538 --> 00:04:47,300
+90 grados para una fácil conexión a
+
+96
+00:04:44,360 --> 00:04:50,750
+protoboard incluye también resistencias
+
+97
+00:04:47,300 --> 00:04:53,090
+en serie con cada ánodo permitiendo el
+
+98
+00:04:50,750 --> 00:04:55,189
+conexionado directo arduino sin
+
+99
+00:04:53,089 --> 00:04:57,918
+componentes adicionales
+
+100
+00:04:55,189 --> 00:05:00,379
+sin embargo debo hacerte notar que las
+
+101
+00:04:57,918 --> 00:05:03,740
+resistencias que incluyen que aquí vemos
+
+102
+00:05:00,379 --> 00:05:06,939
+de montaje superficial son de sólo 150
+
+103
+00:05:03,740 --> 00:05:10,218
+oms siendo un led de alto brillo
+
+104
+00:05:06,939 --> 00:05:13,060
+considero que son algo insuficientes y
+
+105
+00:05:10,218 --> 00:05:16,968
+yo estaré agregando unas resistencias de
+
+106
+00:05:13,060 --> 00:05:19,968
+330 11 en serie para reducir un poco el
+
+107
+00:05:16,968 --> 00:05:22,189
+brillo y el consumo de corriente pero
+
+108
+00:05:19,968 --> 00:05:24,319
+tranquilamente se puede conectar de
+
+109
+00:05:22,189 --> 00:05:28,218
+forma segura sin ninguna resistencia
+
+110
+00:05:24,319 --> 00:05:29,550
+adicional finalmente este kit incluye
+
+111
+00:05:28,218 --> 00:05:34,589
+otro módulo de
+
+112
+00:05:29,550 --> 00:05:37,230
+y 9 el cual también es un led rgb pero
+
+113
+00:05:34,589 --> 00:05:41,399
+de montaje superficial cuyas siglas en
+
+114
+00:05:37,230 --> 00:05:44,160
+inglés son smd es útil por ser muy
+
+115
+00:05:41,399 --> 00:05:46,500
+delgado y funciona muy bien hay que
+
+116
+00:05:44,160 --> 00:05:49,080
+notar que este módulo no tiene ninguna
+
+117
+00:05:46,500 --> 00:05:51,540
+resistencia incorporada en el circuito
+
+118
+00:05:49,079 --> 00:05:53,849
+impreso con lo cual debemos colocarle
+
+119
+00:05:51,540 --> 00:05:55,830
+nosotros las mismas como nota al margen
+
+120
+00:05:53,850 --> 00:05:59,160
+debo decir que el módulo que me ha
+
+121
+00:05:55,829 --> 00:06:00,740
+tocado tiene un defecto de fabricación y
+
+122
+00:05:59,160 --> 00:06:03,540
+es que está incorrectamente
+
+123
+00:06:00,740 --> 00:06:06,000
+identificados los pines correspondientes
+
+124
+00:06:03,540 --> 00:06:08,760
+a cada color no sé si se trata de un
+
+125
+00:06:06,000 --> 00:06:10,230
+error de ensamble o simplemente una
+
+126
+00:06:08,759 --> 00:06:13,409
+error en la impresión de la indicación
+
+127
+00:06:10,230 --> 00:06:16,069
+pero como se muestra aquí en pantalla el
+
+128
+00:06:13,410 --> 00:06:18,780
+módulo tiene las indicaciones rgb
+
+129
+00:06:16,069 --> 00:06:21,149
+comenzando de derecha a izquierda luego
+
+130
+00:06:18,779 --> 00:06:23,909
+del símbolo de menos que es el cátodo
+
+131
+00:06:21,149 --> 00:06:27,659
+común yo pude comprobar en la práctica
+
+132
+00:06:23,910 --> 00:06:30,360
+que en realidad debería decir que rb es
+
+133
+00:06:27,660 --> 00:06:33,450
+decir que están intercambiados los pines
+
+134
+00:06:30,360 --> 00:06:35,550
+de los colores rojo y verde es sólo para
+
+135
+00:06:33,449 --> 00:06:36,120
+tener en cuenta si vas a trabajar con
+
+136
+00:06:35,550 --> 00:06:38,550
+éste
+
+137
+00:06:36,120 --> 00:06:41,160
+y se hace un problema del lote de
+
+138
+00:06:38,550 --> 00:06:43,470
+fabricación que llegó a mis manos y no
+
+139
+00:06:41,160 --> 00:06:45,449
+sea así para todos los casos si lo
+
+140
+00:06:43,470 --> 00:06:47,820
+conectamos tal cual la indicación del
+
+141
+00:06:45,449 --> 00:06:50,910
+circuito impreso tendremos los colores
+
+142
+00:06:47,819 --> 00:06:54,060
+incorrectos y dará más de un dolor de
+
+143
+00:06:50,910 --> 00:06:56,639
+cabeza detectar que no ha sido ni culpa
+
+144
+00:06:54,060 --> 00:06:58,709
+de la conexión ni el código que el
+
+145
+00:06:56,639 --> 00:07:02,129
+módulo no se comporta como el esperado
+
+146
+00:06:58,709 --> 00:07:04,709
+un error de fabricación a veces es la
+
+147
+00:07:02,129 --> 00:07:07,439
+respuesta aunque no sea la más obvia al
+
+148
+00:07:04,709 --> 00:07:10,079
+principio vamos entonces a ver el
+
+149
+00:07:07,439 --> 00:07:13,410
+circuito de conexión es muy simple
+
+150
+00:07:10,079 --> 00:07:17,370
+conectaremos el rgb de cátodo común como
+
+151
+00:07:13,410 --> 00:07:19,520
+se muestra si es el led sin módulo las
+
+152
+00:07:17,370 --> 00:07:21,870
+patas suelen requerir separarse
+
+153
+00:07:19,519 --> 00:07:24,000
+ligeramente para que se inserten
+
+154
+00:07:21,870 --> 00:07:27,060
+correctamente los orificios de la placa
+
+155
+00:07:24,000 --> 00:07:29,399
+en caso de un módulo ya los pines tienen
+
+156
+00:07:27,060 --> 00:07:31,889
+la distancia correcta conectaremos el
+
+157
+00:07:29,399 --> 00:07:34,168
+cátodo común que es el segundo pin
+
+158
+00:07:31,889 --> 00:07:35,370
+comenzando desde la izquierda el más
+
+159
+00:07:34,168 --> 00:07:38,759
+largo
+
+160
+00:07:35,370 --> 00:07:40,949
+del riel de tensión luego desde el ánodo
+
+161
+00:07:38,759 --> 00:07:43,289
+correspondiente al color rojo
+
+162
+00:07:40,949 --> 00:07:47,669
+conectaremos un extremo de una
+
+163
+00:07:43,290 --> 00:07:49,710
+resistencia de 330 onu del otro extremo
+
+164
+00:07:47,668 --> 00:07:52,889
+iremos con un cable directo al pin
+
+165
+00:07:49,709 --> 00:07:55,799
+digital número 9 de arduino
+
+166
+00:07:52,889 --> 00:07:59,160
+de la misma forma conectaremos el ánodo
+
+167
+00:07:55,800 --> 00:08:02,069
+del color verde mediante una resistencia
+
+168
+00:07:59,160 --> 00:08:04,889
+del mismo valor al pin digital 10 de
+
+169
+00:08:02,069 --> 00:08:07,978
+arduino y finalmente desde el ánodo de
+
+170
+00:08:04,889 --> 00:08:10,620
+color azul mediante una resistencia al
+
+171
+00:08:07,978 --> 00:08:12,870
+pin digital 11 de arduino
+
+172
+00:08:10,620 --> 00:08:15,840
+como siempre alimentamos protoboard con
+
+173
+00:08:12,870 --> 00:08:19,288
+5 volts y genes de de arduino y eso es
+
+174
+00:08:15,839 --> 00:08:21,750
+todo si estarás utilizando un módulo de
+
+175
+00:08:19,288 --> 00:08:24,689
+las indicaciones de los colores sobre el
+
+176
+00:08:21,750 --> 00:08:27,000
+circuito impreso el cátodo común está
+
+177
+00:08:24,689 --> 00:08:30,259
+marcado con el signo de menos sobre el
+
+178
+00:08:27,000 --> 00:08:32,788
+extremo derecho muy bien vamos al código
+
+179
+00:08:30,259 --> 00:08:34,468
+comenzaremos con algo sencillo para
+
+180
+00:08:32,788 --> 00:08:37,588
+verificar que todo está correctamente
+
+181
+00:08:34,469 --> 00:08:40,919
+conectado como habrás notado los pines
+
+182
+00:08:37,589 --> 00:08:43,740
+elegidos tienen capacidad de wm
+
+183
+00:08:40,918 --> 00:08:45,629
+luego utilizaremos dicha capacidad para
+
+184
+00:08:43,740 --> 00:08:48,810
+manejar el brillo individual de cada
+
+185
+00:08:45,629 --> 00:08:51,809
+color y así formar combinaciones la
+
+186
+00:08:48,809 --> 00:08:54,409
+teoría sobre el funcionamiento de wm se
+
+187
+00:08:51,809 --> 00:08:56,879
+vio en detalle en el capítulo 4
+
+188
+00:08:54,409 --> 00:08:59,578
+comenzaremos definiendo las variables
+
+189
+00:08:56,879 --> 00:09:02,009
+que representarán los pines a los cuales
+
+190
+00:08:59,578 --> 00:09:09,629
+tenemos conectados los distintos colores
+
+191
+00:09:02,009 --> 00:09:15,639
+del led escribamos int led rojo igual 9
+
+192
+00:09:09,629 --> 00:09:21,698
+int led verde igual 10
+
+193
+00:09:15,639 --> 00:09:24,970
+int led azul igual 11
+
+194
+00:09:21,698 --> 00:09:30,208
+en el setup inicializa mos los pines
+
+195
+00:09:24,970 --> 00:09:36,290
+digitales 9 10 y 11 como salida con
+
+196
+00:09:30,208 --> 00:09:44,528
+timón led rojo output
+
+197
+00:09:36,289 --> 00:09:48,349
+timón led verde output y mount led azul
+
+198
+00:09:44,528 --> 00:09:51,078
+output hagamos ahora el loop
+
+199
+00:09:48,350 --> 00:09:53,810
+la idea es encender cada uno de los
+
+200
+00:09:51,078 --> 00:09:58,458
+colores por dos segundos utilizaremos
+
+201
+00:09:53,809 --> 00:10:01,250
+análogo write con un valor de 255 para
+
+202
+00:09:58,458 --> 00:10:04,099
+asignar un brillo máximo si bien para
+
+203
+00:10:01,250 --> 00:10:07,068
+este caso podríamos usar digital write
+
+204
+00:10:04,100 --> 00:10:09,829
+con un nivel alto utilizaremos los pines
+
+205
+00:10:07,068 --> 00:10:12,528
+como wm ya que luego con una
+
+206
+00:10:09,828 --> 00:10:15,289
+modificación a este código no será de
+
+207
+00:10:12,528 --> 00:10:19,429
+utilidad escribamos lo siguiente para
+
+208
+00:10:15,289 --> 00:10:21,029
+encender el led de color rojo analog
+
+209
+00:10:19,429 --> 00:10:26,870
+write
+
+210
+00:10:21,029 --> 00:10:32,629
+led rojo 255
+
+211
+00:10:26,870 --> 00:10:38,120
+angela whyte led verde 0
+
+212
+00:10:32,629 --> 00:10:43,909
+analog write led azul 0
+
+213
+00:10:38,120 --> 00:10:46,250
+delay 2000 debemos utilizar tres líneas
+
+214
+00:10:43,909 --> 00:10:49,159
+de código ya que debemos indicar que
+
+215
+00:10:46,250 --> 00:10:53,149
+queremos encender el rojo y dejar
+
+216
+00:10:49,159 --> 00:10:57,409
+apagados verde y azul de la teoría de wm
+
+217
+00:10:53,149 --> 00:11:01,100
+sabemos que 255 equivale al valor máximo
+
+218
+00:10:57,409 --> 00:11:05,539
+es decir 5 volts y 0 es el valor mínimo
+
+219
+00:11:01,100 --> 00:11:08,509
+0 volts con wm podemos asignar valores
+
+220
+00:11:05,539 --> 00:11:11,299
+intermedios para simular una atención
+
+221
+00:11:08,509 --> 00:11:14,269
+analógica que en realidad es una señal
+
+222
+00:11:11,299 --> 00:11:17,269
+digital al cual modificamos su ciclo de
+
+223
+00:11:14,269 --> 00:11:19,610
+trabajo ahora usaremos el mismo bloque
+
+224
+00:11:17,269 --> 00:11:22,730
+de código pero para encender el color
+
+225
+00:11:19,610 --> 00:11:27,649
+verde estaré copiando todo el bloque y
+
+226
+00:11:22,730 --> 00:11:32,539
+pegando luego solo cambiaré el 255 del
+
+227
+00:11:27,649 --> 00:11:36,829
+led rojo por 0 y el 0 del led verde por
+
+228
+00:11:32,539 --> 00:11:40,129
+255 para el led azul misma cuestión
+
+229
+00:11:36,830 --> 00:11:42,379
+ya tengo copiado el primer bloque así
+
+230
+00:11:40,129 --> 00:11:44,689
+que solo lo pegó nuevamente
+
+231
+00:11:42,379 --> 00:11:47,990
+como es de esperar pondremos el valor
+
+232
+00:11:44,690 --> 00:11:52,030
+del led rojo en el 0 el valor del led
+
+233
+00:11:47,990 --> 00:11:56,269
+verde también en 0 y el de color azul en
+
+234
+00:11:52,029 --> 00:11:58,289
+255 vamos ahora a verificar y subir el
+
+235
+00:11:56,269 --> 00:12:01,889
+programa
+
+236
+00:11:58,289 --> 00:12:03,750
+yo estoy utilizando el módulo k y 16 por
+
+237
+00:12:01,889 --> 00:12:07,500
+una cuestión de comodidad con
+
+238
+00:12:03,750 --> 00:12:10,649
+resistencias de 330 11 en serie con cada
+
+239
+00:12:07,500 --> 00:12:13,440
+nodo como decía anteriormente si bien el
+
+240
+00:12:10,649 --> 00:12:15,929
+módulo ya incluye resistencias son de
+
+241
+00:12:13,440 --> 00:12:20,009
+bajo valor veamos como cada dos segundos
+
+242
+00:12:15,929 --> 00:12:22,919
+va cambiando de color rojo a verde azul
+
+243
+00:12:20,009 --> 00:12:25,800
+y así todo el tiempo el brillo es
+
+244
+00:12:22,919 --> 00:12:27,990
+considerable como podrás ver dependiendo
+
+245
+00:12:25,799 --> 00:12:30,359
+de la aplicación puede que quieras
+
+246
+00:12:27,990 --> 00:12:33,089
+mantener un alto brillo pero si te
+
+247
+00:12:30,360 --> 00:12:37,949
+parece algo excesivo se puede reemplazar
+
+248
+00:12:33,089 --> 00:12:40,920
+las resistencias de 330 oms por 470 o
+
+249
+00:12:37,948 --> 00:12:43,649
+560 o no es perfecto
+
+250
+00:12:40,919 --> 00:12:45,389
+nuestro led ha mostrado signos de vida y
+
+251
+00:12:43,649 --> 00:12:48,480
+nos alegra con sus vibrantes colores
+
+252
+00:12:45,389 --> 00:12:50,789
+pero no estamos restringidos a sólo tres
+
+253
+00:12:48,480 --> 00:12:54,060
+colores y ese es uno de los atractivos
+
+254
+00:12:50,789 --> 00:12:57,059
+de este tipo de led podemos combinar los
+
+255
+00:12:54,059 --> 00:12:59,008
+tres colores para generar muchos más si
+
+256
+00:12:57,059 --> 00:13:02,250
+alguna vez trabajaste con algún programa
+
+257
+00:12:59,009 --> 00:13:04,230
+editor de imágenes probablemente sepas
+
+258
+00:13:02,250 --> 00:13:04,779
+que todos los colores que se muestran en
+
+259
+00:13:04,230 --> 00:13:08,019
+una
+
+260
+00:13:04,779 --> 00:13:09,529
+son una combinación de los colores
+
+261
+00:13:08,019 --> 00:13:13,639
+individuales
+
+262
+00:13:09,529 --> 00:13:16,339
+rg y b es decir rojo verde y azul
+
+263
+00:13:13,639 --> 00:13:19,490
+combinando dichos colores podremos
+
+264
+00:13:16,340 --> 00:13:22,820
+generar hasta un total de 16 millones de
+
+265
+00:13:19,490 --> 00:13:25,190
+posibles combinaciones la idea ahora es
+
+266
+00:13:22,820 --> 00:13:27,530
+modificar el programa que acabamos de
+
+267
+00:13:25,190 --> 00:13:30,740
+hacer para mostrar tres colores
+
+268
+00:13:27,529 --> 00:13:34,370
+personalizados y verificar cómo es en la
+
+269
+00:13:30,740 --> 00:13:37,159
+práctica la mezcla de los colores voy a
+
+270
+00:13:34,370 --> 00:13:40,700
+seleccionar un color amarillo y veo
+
+271
+00:13:37,159 --> 00:13:43,490
+cuáles son sus componentes rojo verde y
+
+272
+00:13:40,700 --> 00:13:46,690
+azul si quiero un amarillo puro lo
+
+273
+00:13:43,490 --> 00:13:50,930
+obtengo con valores máximos es decir de
+
+274
+00:13:46,690 --> 00:13:54,680
+255 tanto en color rojo como en verde y
+
+275
+00:13:50,929 --> 00:13:57,769
+0 en azul veamos otro color uno bonito
+
+276
+00:13:54,679 --> 00:14:01,039
+es el celeste también llamado acuaco
+
+277
+00:13:57,769 --> 00:14:04,879
+turquesa se obtiene mezclando valores
+
+278
+00:14:01,039 --> 00:14:06,528
+máximos los colores azul y verde con
+
+279
+00:14:04,879 --> 00:14:08,958
+cero de rojo
+
+280
+00:14:06,528 --> 00:14:11,629
+yo anduvimos mezclando dos colores ahora
+
+281
+00:14:08,958 --> 00:14:14,659
+mezclamos tres colores para generar un
+
+282
+00:14:11,629 --> 00:14:17,509
+rosado si selecciona visualmente algo
+
+283
+00:14:14,659 --> 00:14:19,969
+similar a un rosa vemos sus
+
+284
+00:14:17,509 --> 00:14:26,568
+correspondientes valores de rojo verde y
+
+285
+00:14:19,970 --> 00:14:30,259
+azul 255 de rojo 118 de verde y 192 de
+
+286
+00:14:26,568 --> 00:14:31,878
+azul perfecto ya tenemos 3 colores que
+
+287
+00:14:30,259 --> 00:14:34,610
+se generan con la combinación de
+
+288
+00:14:31,879 --> 00:14:35,149
+distintas cantidades de rojo verde y
+
+289
+00:14:34,610 --> 00:14:37,399
+azul
+
+290
+00:14:35,149 --> 00:14:40,249
+apliquemos dichos valores a nuestro
+
+291
+00:14:37,399 --> 00:14:42,679
+programa en el código modifiquemos el
+
+292
+00:14:40,249 --> 00:14:48,259
+primer bloque queremos mostrar un
+
+293
+00:14:42,679 --> 00:14:53,120
+amarillo como vimos es 255 de rojo y 255
+
+294
+00:14:48,259 --> 00:14:56,659
+de verde rojo ya tiene 255 así que solo
+
+295
+00:14:53,120 --> 00:15:00,740
+modifiquemos el valor del verde de 0 a
+
+296
+00:14:56,659 --> 00:15:03,769
+255 y agreguemos un comentario al
+
+297
+00:15:00,740 --> 00:15:06,220
+principio para recordar de qué color se
+
+298
+00:15:03,769 --> 00:15:06,220
+trata
+
+299
+00:15:06,578 --> 00:15:16,058
+ahora queremos mostrar el celeste es 0
+
+300
+00:15:10,208 --> 00:15:19,469
+de rojo 255 de verde y 255 de azul y
+
+301
+00:15:16,058 --> 00:15:22,679
+agregamos también el comentario
+
+302
+00:15:19,470 --> 00:15:27,360
+el último color será el rosado con
+
+303
+00:15:22,679 --> 00:15:30,689
+valores de 255 para el rojo 118 para el
+
+304
+00:15:27,360 --> 00:15:33,820
+verde y 192 para el azul con sus
+
+305
+00:15:30,690 --> 00:15:37,150
+correspondientes comentarios
+
+306
+00:15:33,820 --> 00:15:39,270
+muy bien vamos a verificar y subir el
+
+307
+00:15:37,149 --> 00:15:42,419
+programa
+
+308
+00:15:39,269 --> 00:15:44,039
+vemos como cada dos segundos va
+
+309
+00:15:42,419 --> 00:15:47,399
+cambiando por los tres colores
+
+310
+00:15:44,039 --> 00:15:50,309
+personalizados el amarillo es el más
+
+311
+00:15:47,399 --> 00:15:53,699
+confuso porque se ve más bien tirando a
+
+312
+00:15:50,309 --> 00:15:55,889
+verde el celeste se ve bastante bien y
+
+313
+00:15:53,700 --> 00:15:57,900
+el rosado también hay que tener en
+
+314
+00:15:55,889 --> 00:15:59,960
+cuenta que si bien los tres colores que
+
+315
+00:15:57,899 --> 00:16:03,240
+se mezclan salen del mismo encapsulado
+
+316
+00:15:59,960 --> 00:16:06,269
+en la construcción física del dedo cada
+
+317
+00:16:03,240 --> 00:16:09,060
+color está ligeramente separado con lo
+
+318
+00:16:06,269 --> 00:16:11,419
+cual la mezcla se visualiza mejor a la
+
+319
+00:16:09,059 --> 00:16:14,189
+distancia viéndolo desde muy cerca
+
+320
+00:16:11,419 --> 00:16:17,250
+podemos ver prácticamente cada color
+
+321
+00:16:14,190 --> 00:16:19,380
+individual fue colocado una hoja blanca
+
+322
+00:16:17,250 --> 00:16:21,120
+sobre el protoboard de manera que
+
+323
+00:16:19,379 --> 00:16:23,399
+refleje parte de la luz
+
+324
+00:16:21,120 --> 00:16:26,009
+hablando de colores hay un tema
+
+325
+00:16:23,399 --> 00:16:28,019
+interesante a tener en cuenta el ojo
+
+326
+00:16:26,009 --> 00:16:30,990
+humano no tiene la misma sensibilidad
+
+327
+00:16:28,019 --> 00:16:33,870
+para todos los colores como se muestra
+
+328
+00:16:30,990 --> 00:16:35,879
+en esta gráfica de forma de campana en
+
+329
+00:16:33,870 --> 00:16:39,330
+el eje vertical tenemos el valor de
+
+330
+00:16:35,879 --> 00:16:42,120
+sensibilidad de color en porcentaje y
+
+331
+00:16:39,330 --> 00:16:44,490
+luego en el eje horizontal los colores
+
+332
+00:16:42,120 --> 00:16:46,589
+medidos por su longitud de onda
+
+333
+00:16:44,490 --> 00:16:48,659
+sin entrar en mayor detalle lo
+
+334
+00:16:46,589 --> 00:16:51,570
+interesante de este gráfico es que
+
+335
+00:16:48,659 --> 00:16:54,299
+claramente se ve que el color verde más
+
+336
+00:16:51,570 --> 00:16:56,520
+precisamente el verde tirando a amarillo
+
+337
+00:16:54,299 --> 00:16:59,189
+es el que tiene un mayor nivel de
+
+338
+00:16:56,519 --> 00:17:01,889
+sensibilidad para nuestros ojos con lo
+
+339
+00:16:59,190 --> 00:17:04,650
+cual siempre que tengamos presente una
+
+340
+00:17:01,889 --> 00:17:06,990
+iluminación con color verde el mismo
+
+341
+00:17:04,650 --> 00:17:10,410
+tiende a imponerse sobre otros colores
+
+342
+00:17:06,990 --> 00:17:12,959
+como ser el rojo o el azul que están en
+
+343
+00:17:10,410 --> 00:17:14,819
+los extremos de la campana con niveles
+
+344
+00:17:12,959 --> 00:17:17,220
+bajos de sensibilidad
+
+345
+00:17:14,818 --> 00:17:19,078
+esto es para justificar el hecho de que
+
+346
+00:17:17,220 --> 00:17:22,019
+nuestro amarillo no se ve del todo
+
+347
+00:17:19,078 --> 00:17:24,629
+amarillo ya que como dijimos se forma
+
+348
+00:17:22,019 --> 00:17:27,029
+por la máxima intensidad de verde con la
+
+349
+00:17:24,630 --> 00:17:28,740
+máxima intensidad de rojo pero como
+
+350
+00:17:27,029 --> 00:17:31,379
+nuestros ojos tienen mucha más
+
+351
+00:17:28,740 --> 00:17:34,349
+sensibilidad al color verde frente un
+
+352
+00:17:31,380 --> 00:17:37,050
+mismo nivel de brillo el verde siempre
+
+353
+00:17:34,349 --> 00:17:40,079
+tiende a imponerse una forma práctica de
+
+354
+00:17:37,049 --> 00:17:43,079
+corregir parcialmente este efecto es
+
+355
+00:17:40,079 --> 00:17:46,139
+colocar un valor de resistencia más alta
+
+356
+00:17:43,079 --> 00:17:48,539
+únicamente sobre el color verde de esta
+
+357
+00:17:46,140 --> 00:17:50,520
+forma reducimos por hardware la
+
+358
+00:17:48,539 --> 00:17:53,759
+intensidad del mismo
+
+359
+00:17:50,519 --> 00:17:56,009
+si no pisamos tanto los demás colores la
+
+360
+00:17:53,759 --> 00:17:57,930
+percepción de los colores es un tema
+
+361
+00:17:56,009 --> 00:18:00,750
+interesante para tratar en algún otro
+
+362
+00:17:57,930 --> 00:18:02,640
+momento por ahora volvamos al código
+
+363
+00:18:00,750 --> 00:18:04,980
+para ver algo que nos servirá para
+
+364
+00:18:02,640 --> 00:18:07,920
+futuros programas cada vez que deseamos
+
+365
+00:18:04,980 --> 00:18:11,069
+mostrar un color debemos utilizar tres
+
+366
+00:18:07,920 --> 00:18:13,590
+líneas de código con analog write eso es
+
+367
+00:18:11,069 --> 00:18:16,559
+algo bastante tedioso y ocupa bastante
+
+368
+00:18:13,589 --> 00:18:18,959
+espacio en el loop la idea es siempre
+
+369
+00:18:16,559 --> 00:18:20,849
+tratar de simplificar y utilizar la
+
+370
+00:18:18,960 --> 00:18:22,200
+menor cantidad de líneas pero
+
+371
+00:18:20,849 --> 00:18:24,209
+manteniendo la facilidad de
+
+372
+00:18:22,200 --> 00:18:27,180
+entendimiento para cuando existen
+
+373
+00:18:24,210 --> 00:18:29,130
+secciones de código que se repite y solo
+
+374
+00:18:27,180 --> 00:18:32,460
+se requiere cambiar algunos valores
+
+375
+00:18:29,130 --> 00:18:35,310
+existen las funciones una función es
+
+376
+00:18:32,460 --> 00:18:37,500
+como el setup o el loop esas funciones
+
+377
+00:18:35,309 --> 00:18:40,079
+son especiales porque le indican
+
+378
+00:18:37,500 --> 00:18:41,339
+cuestiones específicas arduino pero de
+
+379
+00:18:40,079 --> 00:18:43,559
+la misma forma
+
+380
+00:18:41,339 --> 00:18:46,889
+nosotros podemos crear nuestras propias
+
+381
+00:18:43,559 --> 00:18:50,129
+funciones la forma de crear una función
+
+382
+00:18:46,890 --> 00:18:53,009
+es la siguiente vamos a ir al final de
+
+383
+00:18:50,130 --> 00:18:55,320
+nuestro código por fuera de la llave de
+
+384
+00:18:53,009 --> 00:18:56,099
+cierre del loop dejemos un par de
+
+385
+00:18:55,319 --> 00:18:58,470
+espacios
+
+386
+00:18:56,099 --> 00:19:03,058
+si es necesario vamos a escribir lo
+
+387
+00:18:58,470 --> 00:19:08,339
+siguiente voy a un espacio mi color
+
+388
+00:19:03,058 --> 00:19:12,690
+entre paréntesis int rojo coma quinta
+
+389
+00:19:08,339 --> 00:19:15,209
+verde coma en azul
+
+390
+00:19:12,690 --> 00:19:18,630
+de esa forma creamos una nueva función
+
+391
+00:19:15,210 --> 00:19:21,150
+llamada mi color podemos asignarle el
+
+392
+00:19:18,630 --> 00:19:23,760
+nombre que queramos lo que se acostumbra
+
+393
+00:19:21,150 --> 00:19:26,009
+es simple llamar a una función con el
+
+394
+00:19:23,759 --> 00:19:28,250
+primer carácter inglés q la no es
+
+395
+00:19:26,009 --> 00:19:31,230
+obligatorio pero es una práctica usual
+
+396
+00:19:28,250 --> 00:19:33,990
+entonces creamos esta función que le
+
+397
+00:19:31,230 --> 00:19:36,990
+precede de la palabra void al igual que
+
+398
+00:19:33,990 --> 00:19:39,538
+cuando creamos el setup o el loop dentro
+
+399
+00:19:36,990 --> 00:19:42,269
+del paréntesis definimos los parámetros
+
+400
+00:19:39,538 --> 00:19:42,960
+es decir los valores que va a recibir la
+
+401
+00:19:42,269 --> 00:19:45,869
+función
+
+402
+00:19:42,960 --> 00:19:48,779
+nosotros queremos reemplazar el bloque
+
+403
+00:19:45,869 --> 00:19:51,298
+de tres analog write con esta función
+
+404
+00:19:48,779 --> 00:19:53,490
+todos los análogos write son iguales
+
+405
+00:19:51,298 --> 00:19:56,009
+salvo por el valor que le asignamos
+
+406
+00:19:53,490 --> 00:19:59,009
+dependiendo del color entonces dentro
+
+407
+00:19:56,009 --> 00:20:01,470
+del paréntesis hacemos la definición de
+
+408
+00:19:59,009 --> 00:20:04,109
+una variable que le usaremos
+
+409
+00:20:01,470 --> 00:20:06,870
+dentro de la función para recibir el
+
+410
+00:20:04,109 --> 00:20:09,269
+valor que luego aplicaremos al hágalo
+
+411
+00:20:06,869 --> 00:20:13,079
+wright por eso tenemos tres variables
+
+412
+00:20:09,269 --> 00:20:15,960
+del tipo entero que será el rojo verde y
+
+413
+00:20:13,079 --> 00:20:18,569
+azul ya vas a ir entendiendo a medida
+
+414
+00:20:15,960 --> 00:20:21,360
+que continúe no te preocupes si es una
+
+415
+00:20:18,569 --> 00:20:24,089
+confuso ahora vamos a abrir llaves y
+
+416
+00:20:21,359 --> 00:20:26,548
+presionamos enter como ya sabemos el
+
+417
+00:20:24,089 --> 00:20:29,459
+idea automáticamente no cierra la llave
+
+418
+00:20:26,548 --> 00:20:32,190
+en la línea siguiente aquí colocaremos
+
+419
+00:20:29,460 --> 00:20:35,450
+los análogos write escribamos los
+
+420
+00:20:32,190 --> 00:20:41,730
+siguientes analog write entre paréntesis
+
+421
+00:20:35,450 --> 00:20:48,659
+led rojo coma rojo análogo wright led
+
+422
+00:20:41,730 --> 00:20:51,808
+verde coma verde ana laura led azul coma
+
+423
+00:20:48,659 --> 00:20:54,630
+azul muy bien creo que ya va quedando
+
+424
+00:20:51,808 --> 00:20:58,589
+claro lo que estaremos haciendo en esta
+
+425
+00:20:54,630 --> 00:21:00,870
+función usamos 3 analog raid uno para
+
+426
+00:20:58,589 --> 00:21:03,538
+cada color de led pero en vez de ya
+
+427
+00:21:00,869 --> 00:21:04,939
+asignarle un valor colocamos una
+
+428
+00:21:03,538 --> 00:21:07,579
+variable
+
+429
+00:21:04,940 --> 00:21:10,039
+verde y azul y eso es todo desde el
+
+430
+00:21:07,579 --> 00:21:13,189
+punto de vista de la función ya está
+
+431
+00:21:10,039 --> 00:21:15,680
+creada y lista ahora debemos modificar
+
+432
+00:21:13,190 --> 00:21:18,289
+el código del loop para llamar a esta
+
+433
+00:21:15,680 --> 00:21:20,960
+función cuando lo necesitemos vamos al
+
+434
+00:21:18,289 --> 00:21:23,869
+principio del primer bloque justo arriba
+
+435
+00:21:20,960 --> 00:21:27,590
+del primer análogo wright y dejemos un
+
+436
+00:21:23,869 --> 00:21:32,750
+espacio y escribamos mi color entre
+
+437
+00:21:27,589 --> 00:21:36,259
+paréntesis 255 a 255
+
+438
+00:21:32,750 --> 00:21:37,279
+0 ahora borremos todos los alelos wright
+
+439
+00:21:36,259 --> 00:21:40,220
+del bloque
+
+440
+00:21:37,279 --> 00:21:43,069
+dejemos solamente el delay fantástico
+
+441
+00:21:40,220 --> 00:21:45,710
+con una sola línea reemplazamos todo ese
+
+442
+00:21:43,069 --> 00:21:46,609
+bloque pero como es que funciona muy
+
+443
+00:21:45,710 --> 00:21:49,279
+simple
+
+444
+00:21:46,609 --> 00:21:52,129
+aquí estamos llamando a la función mi
+
+445
+00:21:49,279 --> 00:21:57,799
+color y le pasamos tres parámetros el
+
+446
+00:21:52,130 --> 00:22:01,010
+primero 255 el segundo 255 y el tercero
+
+447
+00:21:57,799 --> 00:22:03,559
+0 cuando el programa se ejecuta y se
+
+448
+00:22:01,009 --> 00:22:05,750
+encuentra con esta línea sabe que tiene
+
+449
+00:22:03,559 --> 00:22:08,509
+que saltar hasta la función es llamada
+
+450
+00:22:05,750 --> 00:22:09,680
+mi color y esa función ya la tenemos
+
+451
+00:22:08,509 --> 00:22:11,750
+creada
+
+452
+00:22:09,680 --> 00:22:14,539
+fuera de luz cuando llamamos a la
+
+453
+00:22:11,750 --> 00:22:17,930
+función le enviamos los tres parámetros
+
+454
+00:22:14,539 --> 00:22:20,329
+la función recibe esos tres parámetros y
+
+455
+00:22:17,930 --> 00:22:23,299
+los asigna ordenadamente en las
+
+456
+00:22:20,329 --> 00:22:26,299
+variables rojo verde y azul luego
+
+457
+00:22:23,299 --> 00:22:29,299
+ejecuta los tres análogo write y cuando
+
+458
+00:22:26,299 --> 00:22:31,700
+termina vuelve a la línea siguiente de
+
+459
+00:22:29,299 --> 00:22:34,970
+donde fue llamada en nuestro caso
+
+460
+00:22:31,700 --> 00:22:37,400
+ejecuta el delay de dos segundos podemos
+
+461
+00:22:34,970 --> 00:22:39,170
+agregar el comentario como hicimos antes
+
+462
+00:22:37,400 --> 00:22:41,750
+para saber que se trata del color
+
+463
+00:22:39,170 --> 00:22:44,330
+amarillo vamos al principio del segundo
+
+464
+00:22:41,750 --> 00:22:47,390
+bloque aquí vamos a llamar de nuevo la
+
+465
+00:22:44,329 --> 00:22:49,599
+misma función mi color pero esta vez le
+
+466
+00:22:47,390 --> 00:22:52,310
+enviaremos los valores rgb
+
+467
+00:22:49,599 --> 00:22:59,719
+correspondientes al celeste mi color
+
+468
+00:22:52,309 --> 00:23:02,119
+entre paréntesis 0,2 55,2 55 también lo
+
+469
+00:22:59,720 --> 00:23:05,299
+comentamos para no olvidar que se trata
+
+470
+00:23:02,119 --> 00:23:08,089
+del celeste y borramos las tres líneas
+
+471
+00:23:05,299 --> 00:23:10,579
+del canal o write queda claro que aquí
+
+472
+00:23:08,089 --> 00:23:12,829
+ya mouse exactamente la misma función
+
+473
+00:23:10,579 --> 00:23:13,750
+pero le enviamos como primer parámetro
+
+474
+00:23:12,829 --> 00:23:18,970
+cero
+
+475
+00:23:13,750 --> 00:23:21,670
+como segundo 255 y como tercero 255
+
+476
+00:23:18,970 --> 00:23:24,039
+cuando se ejecuta la función tomará esos
+
+477
+00:23:21,670 --> 00:23:26,680
+tres valores y con la nau write
+
+478
+00:23:24,039 --> 00:23:30,129
+encenderemos los leds que correspondan
+
+479
+00:23:26,680 --> 00:23:37,570
+vamos al último bloque escribamos mi
+
+480
+00:23:30,130 --> 00:23:40,510
+color 255 118 192 y el comentario de que
+
+481
+00:23:37,569 --> 00:23:43,269
+se trata del rosado y borremos las tres
+
+482
+00:23:40,509 --> 00:23:46,059
+líneas siguientes genial hemos logrado
+
+483
+00:23:43,269 --> 00:23:48,190
+reducir considerablemente el número de
+
+484
+00:23:46,059 --> 00:23:51,009
+líneas de código y sigue siendo
+
+485
+00:23:48,190 --> 00:23:53,740
+perfectamente entendible y ese era el
+
+486
+00:23:51,009 --> 00:23:55,809
+objetivo ahora podemos verificar el
+
+487
+00:23:53,740 --> 00:23:58,569
+programa para ver que no hay errores
+
+488
+00:23:55,809 --> 00:24:00,519
+puedes subirlo pero en definitiva hará
+
+489
+00:23:58,569 --> 00:24:03,849
+exactamente lo mismo que el anterior
+
+490
+00:24:00,519 --> 00:24:06,940
+programa ya que el funcionamiento no ha
+
+491
+00:24:03,849 --> 00:24:09,099
+cambiado sólo cambiamos un poco la forma
+
+492
+00:24:06,940 --> 00:24:11,140
+de escribir el programa las funciones
+
+493
+00:24:09,099 --> 00:24:13,629
+son extremadamente útiles en
+
+494
+00:24:11,140 --> 00:24:15,910
+programación y te encontrarás creando
+
+495
+00:24:13,630 --> 00:24:17,860
+tus propias cada vez que veas que hay
+
+496
+00:24:15,910 --> 00:24:20,019
+código que se repite oa veces
+
+497
+00:24:17,859 --> 00:24:22,750
+simplemente para no hacer
+
+498
+00:24:20,019 --> 00:24:24,609
+muy largo y difícil de entender quiero
+
+499
+00:24:22,750 --> 00:24:27,640
+finalizar el capítulo con lo prometido
+
+500
+00:24:24,609 --> 00:24:30,309
+al principio que es cómo conectar un led
+
+501
+00:24:27,640 --> 00:24:33,100
+rgb de ánodo común lo veremos
+
+502
+00:24:30,309 --> 00:24:36,099
+rápidamente porque es muy simple algunas
+
+503
+00:24:33,099 --> 00:24:38,079
+veces debemos trabajar en un proyecto no
+
+504
+00:24:36,099 --> 00:24:40,000
+con los componentes que queremos sino
+
+505
+00:24:38,079 --> 00:24:43,029
+con los componentes que tenemos a
+
+506
+00:24:40,000 --> 00:24:45,099
+disposición o si es un trabajo dependerá
+
+507
+00:24:43,029 --> 00:24:47,799
+de lo solicitado por el cliente para
+
+508
+00:24:45,099 --> 00:24:50,019
+utilizar un led de ánodo común debemos
+
+509
+00:24:47,799 --> 00:24:53,109
+volver a protoboard y hacer un pequeño
+
+510
+00:24:50,019 --> 00:24:55,839
+cambio y reemplazar el led actual por
+
+511
+00:24:53,109 --> 00:24:58,479
+uno de ánodo con un el terminal común
+
+512
+00:24:55,839 --> 00:25:01,299
+ahora será el ánodo y debe ir al
+
+513
+00:24:58,480 --> 00:25:02,920
+positivo del riel de tensión el resto
+
+514
+00:25:01,299 --> 00:25:05,799
+quede exactamente igual
+
+515
+00:25:02,920 --> 00:25:07,960
+cada cátodo ahora será el que tenga su
+
+516
+00:25:05,799 --> 00:25:12,549
+correspondiente resistencia en serie
+
+517
+00:25:07,960 --> 00:25:15,880
+conectado a los pines 9 10 y 11 desde el
+
+518
+00:25:12,549 --> 00:25:19,058
+código debemos hacer un cambio el led ya
+
+519
+00:25:15,880 --> 00:25:21,909
+no común se activa con un nivel bajo
+
+520
+00:25:19,058 --> 00:25:23,740
+al positivo ya se encuentra conectado al
+
+521
+00:25:21,909 --> 00:25:26,580
+terminal común con lo cual debemos
+
+522
+00:25:23,740 --> 00:25:30,339
+trabajar con lógica negativa donde el
+
+523
+00:25:26,579 --> 00:25:32,769
+serológico serán 5 volts y el 1 lógico
+
+524
+00:25:30,339 --> 00:25:35,859
+serán 0 volts si nosotros deseamos
+
+525
+00:25:32,769 --> 00:25:38,888
+encender un color del led a máximo a
+
+526
+00:25:35,859 --> 00:25:41,709
+brillo debemos enviarle un valor 0
+
+527
+00:25:38,888 --> 00:25:45,209
+mediante el análogo write para apagar
+
+528
+00:25:41,710 --> 00:25:48,399
+enviamos un valor de 255 todo
+
+529
+00:25:45,210 --> 00:25:50,769
+exactamente opuesto al cátodo kong y es
+
+530
+00:25:48,398 --> 00:25:53,528
+por eso que comencé explicando el cátodo
+
+531
+00:25:50,769 --> 00:25:55,868
+con un ya que la lógica positiva es más
+
+532
+00:25:53,528 --> 00:25:58,269
+fácil de entender en un principio como
+
+533
+00:25:55,868 --> 00:26:01,329
+ya tenemos creado una función que recibe
+
+534
+00:25:58,269 --> 00:26:04,419
+los valores rgb y los escribe mediante
+
+535
+00:26:01,329 --> 00:26:09,819
+analog right solo debemos al valor de
+
+536
+00:26:04,419 --> 00:26:12,519
+255 restarle el valor rgb y así siempre
+
+537
+00:26:09,819 --> 00:26:16,450
+tendremos el opuesto vamos a la función
+
+538
+00:26:12,519 --> 00:26:22,440
+mi color y delante de la variable rojo
+
+539
+00:26:16,450 --> 00:26:24,069
+escribamos 255 menos lo mismo para ver
+
+540
+00:26:22,440 --> 00:26:29,620
+255
+
+541
+00:26:24,069 --> 00:26:33,039
+y verde y luego 255 menos azul y listo
+
+542
+00:26:29,619 --> 00:26:35,829
+ya podemos usar un led rgb de ánodo
+
+543
+00:26:33,039 --> 00:26:38,109
+común sin problemas pero cómo funciona
+
+544
+00:26:35,829 --> 00:26:40,689
+esto veamos un ejemplo si queremos
+
+545
+00:26:38,109 --> 00:26:45,279
+encender un color a su máximo brillo
+
+546
+00:26:40,690 --> 00:26:48,430
+enviamos a la función 1 255 pero para un
+
+547
+00:26:45,279 --> 00:26:54,460
+ánodo común el máximo brillo se logra
+
+548
+00:26:48,430 --> 00:26:56,830
+con 0 entonces si hacemos 255 menos 255
+
+549
+00:26:54,460 --> 00:26:58,930
+el resultado es 0
+
+550
+00:26:56,829 --> 00:27:02,139
+veamos el ejemplo opuesto si queremos
+
+551
+00:26:58,930 --> 00:27:06,820
+apagar un led es decir un brillo de 0
+
+552
+00:27:02,140 --> 00:27:12,370
+enviamos a la función 0 y al hacer 255
+
+553
+00:27:06,819 --> 00:27:16,000
+0 es 255 y 255 para un ánodo común es
+
+554
+00:27:12,369 --> 00:27:19,929
+apagado o brillo 0 en definitiva al
+
+555
+00:27:16,000 --> 00:27:23,380
+hacer 255 menos la variable cambiamos de
+
+556
+00:27:19,930 --> 00:27:26,350
+lógica positiva a lógica negativa eso es
+
+557
+00:27:23,380 --> 00:27:28,570
+todo por este capítulo en el próximo
+
+558
+00:27:26,349 --> 00:27:31,928
+estaremos utilizando el módulo
+
+559
+00:27:28,569 --> 00:27:34,960
+sensor de sonido acá y 38 en sus
+
+560
+00:27:31,929 --> 00:27:37,179
+modalidades digital y analógica para
+
+561
+00:27:34,960 --> 00:27:40,240
+medir niveles de audio y activar
+
+562
+00:27:37,179 --> 00:27:42,880
+circuitos como siempre les pido se
+
+563
+00:27:40,240 --> 00:27:45,130
+suscriban para recibir notificaciones y
+
+564
+00:27:42,880 --> 00:27:47,289
+por cualquier duda o comentario lo
+
+565
+00:27:45,130 --> 00:27:51,600
+pueden hacer debajo que con gusto les
+
+566
+00:27:47,288 --> 00:27:51,599
+responderé chau y hasta la próxima
+

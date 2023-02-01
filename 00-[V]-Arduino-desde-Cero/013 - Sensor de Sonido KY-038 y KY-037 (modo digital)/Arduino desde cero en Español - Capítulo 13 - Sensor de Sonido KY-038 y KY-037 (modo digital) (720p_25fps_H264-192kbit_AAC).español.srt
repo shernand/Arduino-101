@@ -1,0 +1,1148 @@
+1
+00:00:01,159 --> 00:00:07,850
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,250 --> 00:00:10,190
+13 de arduino desde cero en español en
+
+3
+00:00:07,849 --> 00:00:13,160
+esta oportunidad vamos a utilizar un
+
+4
+00:00:10,189 --> 00:00:16,480
+módulo de sensor de sonido modelo calle
+
+5
+00:00:13,160 --> 00:00:19,939
+38 que forma parte del kit de sensores
+
+6
+00:00:16,480 --> 00:00:22,969
+37 en uno el cual permite establecer un
+
+7
+00:00:19,939 --> 00:00:26,028
+valor de referencia y todo sonido cuya
+
+8
+00:00:22,969 --> 00:00:26,719
+intensidad lo supere activará una salida
+
+9
+00:00:26,028 --> 00:00:29,420
+digital
+
+10
+00:00:26,719 --> 00:00:32,000
+el módulo consta principalmente de un
+
+11
+00:00:29,420 --> 00:00:34,250
+circuito impreso sobre el cual se monta
+
+12
+00:00:32,000 --> 00:00:37,340
+el micrófono que captará el sonido
+
+13
+00:00:34,250 --> 00:00:40,640
+ambiente un presente multi vuelta para
+
+14
+00:00:37,340 --> 00:00:44,120
+establecer un valor de sensibilidad y 4
+
+15
+00:00:40,640 --> 00:00:46,579
+pines de conexión 2 de alimentación uno
+
+16
+00:00:44,119 --> 00:00:50,750
+de salida analógica y uno de salida
+
+17
+00:00:46,579 --> 00:00:55,340
+digital el kit 37 en uno incluye también
+
+18
+00:00:50,750 --> 00:00:57,710
+otro módulo denominado k y 37 el cual es
+
+19
+00:00:55,340 --> 00:00:59,870
+básicamente el mismo que el que hay 38
+
+20
+00:00:57,710 --> 00:01:02,539
+pero con un micrófono de mayor
+
+21
+00:00:59,869 --> 00:01:05,579
+sensibilidad y se ve a la derecha de
+
+22
+00:01:02,539 --> 00:01:08,849
+pantalla su funcionamiento es muy
+
+23
+00:01:05,579 --> 00:01:10,829
+en cierta forma también algo limitado
+
+24
+00:01:08,849 --> 00:01:12,030
+quizás pensemos que con la salida
+
+25
+00:01:10,829 --> 00:01:14,340
+analógica
+
+26
+00:01:12,030 --> 00:01:16,980
+podríamos captar el sonido y hacer algún
+
+27
+00:01:14,340 --> 00:01:19,770
+tipo de procesamiento quizás un boom
+
+28
+00:01:16,980 --> 00:01:22,680
+etro o medidores de intensidad de señal
+
+29
+00:01:19,769 --> 00:01:25,439
+pero lamentablemente no es así
+
+30
+00:01:22,680 --> 00:01:27,990
+el sonido captado solo será comparado
+
+31
+00:01:25,439 --> 00:01:30,780
+con un valor de referencia y si lo
+
+32
+00:01:27,989 --> 00:01:33,359
+supera entonces activar a la salida
+
+33
+00:01:30,780 --> 00:01:35,489
+digital de todas maneras hacia el final
+
+34
+00:01:33,359 --> 00:01:37,379
+del capítulo tendremos algunas
+
+35
+00:01:35,489 --> 00:01:40,349
+consideraciones sobre la salida
+
+36
+00:01:37,379 --> 00:01:41,519
+analógica pero ahora nos centraremos en
+
+37
+00:01:40,349 --> 00:01:43,169
+la digital
+
+38
+00:01:41,519 --> 00:01:46,199
+el módulo tal cual se muestra en
+
+39
+00:01:43,170 --> 00:01:48,570
+pantalla es muy compacto y sus pines a
+
+40
+00:01:46,200 --> 00:01:51,570
+90 grados permiten una fácil conexión
+
+41
+00:01:48,569 --> 00:01:54,750
+con cables o en protoboard también
+
+42
+00:01:51,569 --> 00:01:58,139
+incluye dos leds uno de encendido que
+
+43
+00:01:54,750 --> 00:02:01,019
+estará activo mientras haya alimentación
+
+44
+00:01:58,140 --> 00:02:03,439
+en el módulo y otro led que se encenderá
+
+45
+00:02:01,019 --> 00:02:06,269
+cada vez que se active la salida digital
+
+46
+00:02:03,439 --> 00:02:09,149
+además un elemento fundamental de este
+
+47
+00:02:06,269 --> 00:02:11,639
+módulo es el presente multi vuelta que
+
+48
+00:02:09,149 --> 00:02:13,500
+se muestra aquí con encapsulado de color
+
+49
+00:02:11,639 --> 00:02:16,139
+el cual se regula mediante un
+
+50
+00:02:13,500 --> 00:02:18,360
+destornillador plano es del tipo multi
+
+51
+00:02:16,139 --> 00:02:21,479
+vuelta y tiene como ventaja de ser
+
+52
+00:02:18,360 --> 00:02:24,600
+compacto y permitir una calibración fina
+
+53
+00:02:21,479 --> 00:02:26,939
+ya que para ir de extremo a extremo del
+
+54
+00:02:24,599 --> 00:02:29,549
+valor de resistencia se deben dar
+
+55
+00:02:26,939 --> 00:02:32,039
+múltiples vueltas del tornillo a
+
+56
+00:02:29,550 --> 00:02:34,709
+diferencia del presente o potenciómetros
+
+57
+00:02:32,039 --> 00:02:36,929
+ya vistos que no llegaban a dar una
+
+58
+00:02:34,709 --> 00:02:38,870
+vuelta entera para utilizar todo su
+
+59
+00:02:36,930 --> 00:02:42,810
+recorrido el principio de funcionamiento
+
+60
+00:02:38,870 --> 00:02:44,640
+es muy simple la salida digital estará
+
+61
+00:02:42,810 --> 00:02:46,860
+en un nivel bajo mientras que la
+
+62
+00:02:44,639 --> 00:02:49,889
+intensidad de la señal de audio que
+
+63
+00:02:46,860 --> 00:02:52,709
+capta el micrófono sea menor que la pre
+
+64
+00:02:49,889 --> 00:02:55,199
+fijada por el presente sensibilidad más
+
+65
+00:02:52,709 --> 00:02:57,689
+que sensibilidad con el presente estamos
+
+66
+00:02:55,199 --> 00:03:00,149
+estableciendo con un valor de umbral un
+
+67
+00:02:57,689 --> 00:03:02,519
+valor que compara constantemente con el
+
+68
+00:03:00,150 --> 00:03:05,069
+valor recibido por el micrófono y
+
+69
+00:03:02,519 --> 00:03:07,860
+únicamente cuando la señal captada sea
+
+70
+00:03:05,069 --> 00:03:11,340
+mayor que el umbral entonces la salida
+
+71
+00:03:07,860 --> 00:03:14,430
+digital pasa a un estado alto nosotros
+
+72
+00:03:11,340 --> 00:03:17,009
+desde arduino estaremos viendo el estado
+
+73
+00:03:14,430 --> 00:03:20,040
+de dicha salida digital y en el momento
+
+74
+00:03:17,009 --> 00:03:23,370
+en que pasa a un nivel alto ejecutaremos
+
+75
+00:03:20,039 --> 00:03:25,650
+una acción por ejemplo encender y
+
+76
+00:03:23,370 --> 00:03:28,920
+mantener encendido un led hasta que se
+
+77
+00:03:25,650 --> 00:03:31,829
+reciba otro nivel alto y así lo apagamos
+
+78
+00:03:28,919 --> 00:03:33,809
+una aplicación típica es para encender
+
+79
+00:03:31,829 --> 00:03:37,379
+un dispositivo mediante un ruido fuerte
+
+80
+00:03:33,810 --> 00:03:40,469
+como hacer una palmada un soplido o
+
+81
+00:03:37,379 --> 00:03:43,489
+silbido un nivel de sonido que supere el
+
+82
+00:03:40,469 --> 00:03:46,079
+umbral y así activar la salida digital
+
+83
+00:03:43,489 --> 00:03:48,000
+nosotros estaremos encendiendo un led
+
+84
+00:03:46,079 --> 00:03:50,879
+pero como ya sabrás de anteriores
+
+85
+00:03:48,000 --> 00:03:53,189
+capítulos es muy fácil activar un módulo
+
+86
+00:03:50,879 --> 00:03:55,319
+de relé y el mismo a su vez puede
+
+87
+00:03:53,189 --> 00:03:57,719
+activar prácticamente cualquier circuito
+
+88
+00:03:55,319 --> 00:03:59,789
+veamos el circuito de conexión
+
+89
+00:03:57,719 --> 00:04:01,949
+el módulo puede colocarse sobre
+
+90
+00:03:59,789 --> 00:04:05,039
+protoboard o directamente mediante
+
+91
+00:04:01,949 --> 00:04:09,089
+cables conectaremos al pin denominado g
+
+92
+00:04:05,039 --> 00:04:11,849
+a masa del riel de tensión el pin con el
+
+93
+00:04:09,090 --> 00:04:15,359
+símbolo de más al positivo del riel de
+
+94
+00:04:11,849 --> 00:04:18,810
+tensión la salida a cero a la entrada
+
+95
+00:04:15,359 --> 00:04:20,160
+analógica a cero de arduino y del pin de
+
+96
+00:04:18,810 --> 00:04:23,310
+cero
+
+97
+00:04:20,160 --> 00:04:25,550
+en digital número 2 de arduino luego
+
+98
+00:04:23,310 --> 00:04:28,889
+haremos la típica conexión de un led
+
+99
+00:04:25,550 --> 00:04:31,670
+conectando el cátodo del mismo a massa y
+
+100
+00:04:28,889 --> 00:04:35,250
+del ánodo mediante una resistencia de
+
+101
+00:04:31,670 --> 00:04:36,180
+330 oms al pin digital número 3 de
+
+102
+00:04:35,250 --> 00:04:39,360
+arduino
+
+103
+00:04:36,180 --> 00:04:43,199
+finalmente alimentamos protoboard con 5
+
+104
+00:04:39,360 --> 00:04:45,840
+volts y genes de arduino y eso es todo
+
+105
+00:04:43,199 --> 00:04:48,509
+veamos ahora el código lo que estaremos
+
+106
+00:04:45,839 --> 00:04:51,209
+haciendo es leer el estado del pin
+
+107
+00:04:48,509 --> 00:04:53,730
+digital 2 de arduino a donde tenemos
+
+108
+00:04:51,209 --> 00:04:56,430
+conectada a la salida digital del módulo
+
+109
+00:04:53,730 --> 00:04:59,009
+si está en alto encenderemos o
+
+110
+00:04:56,430 --> 00:05:05,129
+apagaremos el led conectado al pin
+
+111
+00:04:59,009 --> 00:05:10,560
+digital 3 int mic igual 2
+
+112
+00:05:05,129 --> 00:05:13,889
+int le da igual 3 en la variable mix
+
+113
+00:05:10,560 --> 00:05:16,709
+almacenamos el número 2 que se digital
+
+114
+00:05:13,889 --> 00:05:20,099
+el cual se encuentra conectado de 0 del
+
+115
+00:05:16,709 --> 00:05:22,709
+sensor en la variable led el número 3
+
+116
+00:05:20,100 --> 00:05:26,129
+que allí efectivamente tenemos nuestro
+
+117
+00:05:22,709 --> 00:05:28,558
+led luego definimos dos variables
+
+118
+00:05:26,129 --> 00:05:31,919
+usaremos para obtener el valor leído del
+
+119
+00:05:28,559 --> 00:05:36,169
+sensor y una de estado para saber si el
+
+120
+00:05:31,918 --> 00:05:41,549
+lente está encendido o apagado int valor
+
+121
+00:05:36,168 --> 00:05:44,968
+int estado en el setup definimos al pin
+
+122
+00:05:41,550 --> 00:05:50,908
+del sensor llamado mix como entrada y el
+
+123
+00:05:44,968 --> 00:05:56,338
+led como salida en modo mic input in
+
+124
+00:05:50,908 --> 00:05:58,800
+modo led output vamos entonces al loop
+
+125
+00:05:56,338 --> 00:06:04,579
+será muy sencillo escribamos lo
+
+126
+00:05:58,800 --> 00:06:07,860
+siguiente valor igual digital ruido mic
+
+127
+00:06:04,579 --> 00:06:10,978
+en la variable almacenamos el valor que
+
+128
+00:06:07,860 --> 00:06:15,028
+leemos del pin 2 luego consultamos con
+
+129
+00:06:10,978 --> 00:06:17,728
+nif si ese valor es 0 o 1 si es 0
+
+130
+00:06:15,028 --> 00:06:21,689
+significa que el sensor no ha activado
+
+131
+00:06:17,728 --> 00:06:23,699
+la salida digital si es 1 es que está
+
+132
+00:06:21,689 --> 00:06:25,889
+activa dicha salida o lo que es
+
+133
+00:06:23,699 --> 00:06:28,709
+equivalente a que el nivel de sonido
+
+134
+00:06:25,889 --> 00:06:30,480
+captado ha superado el umbral que
+
+135
+00:06:28,709 --> 00:06:36,930
+establecimos con el presente
+
+136
+00:06:30,480 --> 00:06:39,689
+y valor igual igual hai dentro de este
+
+137
+00:06:36,930 --> 00:06:42,060
+bloque lo que haremos es primero saber
+
+138
+00:06:39,689 --> 00:06:45,060
+si el led se encuentra encendido o
+
+139
+00:06:42,060 --> 00:06:48,720
+apagado y luego le aplicamos la opción
+
+140
+00:06:45,060 --> 00:06:52,579
+opuesta si está apagado lo encendemos y
+
+141
+00:06:48,720 --> 00:06:57,740
+si está encendido lo apagamos estado
+
+142
+00:06:52,579 --> 00:06:57,740
+igual digital ruido
+
+143
+00:06:57,988 --> 00:07:06,788
+digital right led not estado esta parte
+
+144
+00:07:04,569 --> 00:07:09,218
+es muy similar a lo visto en el capítulo
+
+145
+00:07:06,788 --> 00:07:12,668
+3 cuando trabajamos con un led y un
+
+146
+00:07:09,218 --> 00:07:16,360
+pulsador en estado tendremos un valor de
+
+147
+00:07:12,668 --> 00:07:18,878
+0 si el led está apagado y un 1 si está
+
+148
+00:07:16,360 --> 00:07:21,759
+encendido en la siguiente línea con el
+
+149
+00:07:18,879 --> 00:07:24,999
+digital write sobre el led escribiremos
+
+150
+00:07:21,759 --> 00:07:28,088
+el valor opuesto anteponiendo el símbolo
+
+151
+00:07:24,999 --> 00:07:30,219
+de admiración a la variable estado para
+
+152
+00:07:28,088 --> 00:07:33,249
+obtener el opuesto con lo cual
+
+153
+00:07:30,218 --> 00:07:36,998
+escribiremos un 1 si ésta le da apagado
+
+154
+00:07:33,249 --> 00:07:39,429
+y un cero si está encendido finalmente
+
+155
+00:07:36,999 --> 00:07:41,949
+pondremos una pequeña demora de medio
+
+156
+00:07:39,428 --> 00:07:44,768
+segundo para evitar que se genere una
+
+157
+00:07:41,949 --> 00:07:47,169
+activación de forma muy inmediata a la
+
+158
+00:07:44,769 --> 00:07:49,360
+anterior es para evitar algún pulso
+
+159
+00:07:47,168 --> 00:07:51,908
+espurio que nos pueda llegar
+
+160
+00:07:49,360 --> 00:07:54,939
+inmediatamente después de la activación
+
+161
+00:07:51,908 --> 00:07:59,598
+de la salida digital
+
+162
+00:07:54,939 --> 00:08:03,979
+500 y ese es todo el programa muy simple
+
+163
+00:07:59,598 --> 00:08:07,370
+vamos a verificar y subirlo aquí vemos
+
+164
+00:08:03,978 --> 00:08:09,918
+el módulo el led rojo de la derecha es
+
+165
+00:08:07,370 --> 00:08:12,379
+la alimentación y estará siempre
+
+166
+00:08:09,918 --> 00:08:14,959
+encendido el de la izquierda es el que
+
+167
+00:08:12,379 --> 00:08:17,569
+indica que la salida digital está activa
+
+168
+00:08:14,959 --> 00:08:20,000
+generalmente viene de fábrica regulado
+
+169
+00:08:17,569 --> 00:08:22,520
+de manera que está encendido lo que
+
+170
+00:08:20,000 --> 00:08:24,709
+debemos hacer nosotros es colocar un
+
+171
+00:08:22,519 --> 00:08:26,859
+destornillador plano sobre el precepto
+
+172
+00:08:24,709 --> 00:08:29,329
+multi vuelta y girar en sentido
+
+173
+00:08:26,860 --> 00:08:31,788
+contrarreloj hasta que se apague dicho
+
+174
+00:08:29,329 --> 00:08:34,549
+led de esa manera la salida digital
+
+175
+00:08:31,788 --> 00:08:36,769
+tiene un nivel bajo y sólo se activará
+
+176
+00:08:34,549 --> 00:08:38,809
+con un sonido fuerte una vez que
+
+177
+00:08:36,769 --> 00:08:40,969
+verificamos que el led de la izquierda
+
+178
+00:08:38,809 --> 00:08:44,119
+está apagado podemos hacer un ruido
+
+179
+00:08:40,969 --> 00:08:46,760
+fuerte como sea una palmada o en mi caso
+
+180
+00:08:44,120 --> 00:08:49,730
+con la punta del destornillador de forma
+
+181
+00:08:46,759 --> 00:08:52,338
+gentil un pequeño golpe vemos cómo se
+
+182
+00:08:49,730 --> 00:08:54,889
+enciende nuestro led verde y se mantiene
+
+183
+00:08:52,339 --> 00:08:56,490
+encendido si ahora volvemos a hacer otro
+
+184
+00:08:54,889 --> 00:08:59,519
+ruido fuerte se apaga
+
+185
+00:08:56,490 --> 00:09:02,070
+también una forma es soplar a unos
+
+186
+00:08:59,519 --> 00:09:04,679
+centímetros del micrófono vemos que el
+
+187
+00:09:02,070 --> 00:09:07,080
+led verde se enciende ahora volvería a
+
+188
+00:09:04,679 --> 00:09:09,329
+soplar y se apaga de esa forma
+
+189
+00:09:07,080 --> 00:09:12,360
+verificamos que efectivamente funciona
+
+190
+00:09:09,330 --> 00:09:14,879
+adecuadamente nosotros encendemos un led
+
+191
+00:09:12,360 --> 00:09:17,370
+pero ya sabemos del capítulo 8 que
+
+192
+00:09:14,879 --> 00:09:19,860
+podemos encender un relé y éste a su vez
+
+193
+00:09:17,370 --> 00:09:22,289
+puede cerrar casi cualquier tipo de
+
+194
+00:09:19,860 --> 00:09:24,629
+circuito externo podríamos hacer que
+
+195
+00:09:22,289 --> 00:09:27,059
+encienda por ejemplo una lámpara de
+
+196
+00:09:24,629 --> 00:09:30,838
+escritorio con solo el ruido de una
+
+197
+00:09:27,059 --> 00:09:33,179
+palmada soplido o silbido tranquilamente
+
+198
+00:09:30,839 --> 00:09:36,209
+podemos hacer que se encienda una sirena
+
+199
+00:09:33,179 --> 00:09:39,088
+o indicación luminosa por un determinado
+
+200
+00:09:36,208 --> 00:09:41,489
+número de segundos y luego se apague una
+
+201
+00:09:39,089 --> 00:09:44,070
+aplicación podría ser para el monitoreo
+
+202
+00:09:41,490 --> 00:09:46,759
+de niveles de ruido de una fábrica de
+
+203
+00:09:44,070 --> 00:09:49,260
+manera que si excede un valor máximo
+
+204
+00:09:46,759 --> 00:09:49,679
+establecido con anterioridad con el pre
+
+205
+00:09:49,259 --> 00:09:52,500
+set
+
+206
+00:09:49,679 --> 00:09:55,229
+encienda una alarma indicando que existe
+
+207
+00:09:52,500 --> 00:09:57,600
+una contaminación sonora que excede los
+
+208
+00:09:55,230 --> 00:09:59,459
+valores permitidos por ley hay muchos
+
+209
+00:09:57,600 --> 00:10:01,980
+proyectos que se pueden hacer donde
+
+210
+00:09:59,458 --> 00:10:02,669
+podemos aprovechar este módulo no me he
+
+211
+00:10:01,980 --> 00:10:05,399
+olvidado de
+
+212
+00:10:02,669 --> 00:10:08,099
+salida analógica que la conectamos a
+
+213
+00:10:05,399 --> 00:10:10,110
+arduino y no utilizamos la salida
+
+214
+00:10:08,100 --> 00:10:13,050
+analógica nos brinda el valor de
+
+215
+00:10:10,110 --> 00:10:15,750
+referencia del presente de sensibilidad
+
+216
+00:10:13,049 --> 00:10:18,089
+si por ejemplo nosotros tenemos regulado
+
+217
+00:10:15,750 --> 00:10:20,279
+el módulo y queremos saber en qué punto
+
+218
+00:10:18,090 --> 00:10:22,980
+del presente se encuentra utilizaremos
+
+219
+00:10:20,279 --> 00:10:25,860
+el valor de la salida analógica mediante
+
+220
+00:10:22,980 --> 00:10:27,960
+el monitor serial y así anotar a qué
+
+221
+00:10:25,860 --> 00:10:30,300
+valor se encuentra de manera que si en
+
+222
+00:10:27,960 --> 00:10:32,900
+algún momento pierde la regulación por
+
+223
+00:10:30,299 --> 00:10:35,969
+algún motivo podemos volver a colocarlo
+
+224
+00:10:32,899 --> 00:10:38,549
+exactamente al valor original la salida
+
+225
+00:10:35,970 --> 00:10:40,830
+analógica podría parecer útil para
+
+226
+00:10:38,549 --> 00:10:43,139
+obtener valores en tiempo real de los
+
+227
+00:10:40,830 --> 00:10:45,600
+niveles de audio que capta el micrófono
+
+228
+00:10:43,139 --> 00:10:48,840
+pero lamentablemente tanto el módulo que
+
+229
+00:10:45,600 --> 00:10:51,629
+hay 38 como el que hay 37 no están
+
+230
+00:10:48,840 --> 00:10:53,970
+diseñados de esa manera sólo será útil
+
+231
+00:10:51,629 --> 00:10:56,580
+la salida digital de todas maneras
+
+232
+00:10:53,970 --> 00:10:58,769
+hagamos el siguiente programa quelli el
+
+233
+00:10:56,580 --> 00:11:01,290
+valor de la salida analógica y lo
+
+234
+00:10:58,769 --> 00:11:03,779
+imprime en el monitor serial estaré
+
+235
+00:11:01,289 --> 00:11:05,879
+pegando el programa completo ya que no
+
+236
+00:11:03,779 --> 00:11:08,639
+hay nada nuevo aquí recordad que los
+
+237
+00:11:05,879 --> 00:11:10,889
+programas vistos en este capítulo
+
+238
+00:11:08,639 --> 00:11:13,350
+de los del curso se pueden descargar
+
+239
+00:11:10,889 --> 00:11:17,340
+desde el enlace que dejó en la zona de
+
+240
+00:11:13,350 --> 00:11:20,930
+descripción vamos a verificar y subir el
+
+241
+00:11:17,340 --> 00:11:25,019
+programa luego a abrir el monitor serial
+
+242
+00:11:20,929 --> 00:11:27,539
+como verás nos devuelve el número 536
+
+243
+00:11:25,019 --> 00:11:29,569
+que es el valor al cual se encuentra el
+
+244
+00:11:27,539 --> 00:11:32,659
+presente como en toda entrada analógica
+
+245
+00:11:29,570 --> 00:11:38,190
+sus valores pueden variar entre 0 y
+
+246
+00:11:32,659 --> 00:11:40,919
+1.023 siendo 0 0 volts y mil 23 5 volts
+
+247
+00:11:38,190 --> 00:11:43,170
+aquí vemos que con este valor el 3 set
+
+248
+00:11:40,919 --> 00:11:45,360
+se encuentra prácticamente a la mitad de
+
+249
+00:11:43,169 --> 00:11:47,939
+su recorrido lo que podemos hacer es
+
+250
+00:11:45,360 --> 00:11:50,370
+anotar dicho valor y al futuro lo
+
+251
+00:11:47,940 --> 00:11:53,670
+podemos utilizar para volver a regularlo
+
+252
+00:11:50,370 --> 00:11:55,980
+a exactamente este punto una forma de
+
+253
+00:11:53,669 --> 00:11:59,129
+aprovechar el micrófono es utilizar los
+
+254
+00:11:55,980 --> 00:12:01,830
+terminales denominados s y g en el
+
+255
+00:11:59,129 --> 00:12:04,200
+extremo del circuito impreso en dichos
+
+256
+00:12:01,830 --> 00:12:06,690
+terminales tendremos el valor captado
+
+257
+00:12:04,200 --> 00:12:08,450
+por el micrófono pero que es de muy bajo
+
+258
+00:12:06,690 --> 00:12:11,550
+nivel para conectarlo directamente
+
+259
+00:12:08,450 --> 00:12:14,220
+arduino se requiere utilizar un circuito
+
+260
+00:12:11,549 --> 00:12:16,500
+externo que amplifica la señal antes
+
+261
+00:12:14,220 --> 00:12:18,889
+ingresarlo a una entrada analógica de
+
+262
+00:12:16,500 --> 00:12:22,110
+arduino podemos armar un preamplificador
+
+263
+00:12:18,889 --> 00:12:24,379
+con un circuito integrado o utilizar
+
+264
+00:12:22,110 --> 00:12:27,029
+módulos que existen en el mercado
+
+265
+00:12:24,379 --> 00:12:29,580
+específicamente diseñados para tal fin
+
+266
+00:12:27,029 --> 00:12:32,220
+para resumir el módulo permite
+
+267
+00:12:29,580 --> 00:12:34,470
+establecer un umbral a partir del cual
+
+268
+00:12:32,220 --> 00:12:37,110
+se activa la salida digital luego
+
+269
+00:12:34,470 --> 00:12:40,440
+nosotros al detectar un nivel alto
+
+270
+00:12:37,110 --> 00:12:43,230
+podemos encender un led un relé etcétera
+
+271
+00:12:40,440 --> 00:12:45,570
+la salida analógica solo sirve como
+
+272
+00:12:43,230 --> 00:12:48,029
+referencia de la posición del presente y
+
+273
+00:12:45,570 --> 00:12:50,550
+para obtener valores analógicos y hacer
+
+274
+00:12:48,029 --> 00:12:52,769
+por ejemplo 1 metro podemos aprovechar
+
+275
+00:12:50,549 --> 00:12:55,529
+el micrófono pero necesitaremos un
+
+276
+00:12:52,769 --> 00:12:58,319
+circuito amplificador adicional y eso es
+
+277
+00:12:55,529 --> 00:13:00,559
+todo por este capítulo en el próximo
+
+278
+00:12:58,320 --> 00:13:05,129
+estaremos usando un sensor crepuscular
+
+279
+00:13:00,559 --> 00:13:07,859
+del tipo foto resistencia o ldr por sus
+
+280
+00:13:05,129 --> 00:13:10,409
+siglas en inglés el cual nos permitirá
+
+281
+00:13:07,860 --> 00:13:12,629
+tomar distintas acciones dependiendo de
+
+282
+00:13:10,409 --> 00:13:15,809
+la cantidad de luz que reciba el sensor
+
+283
+00:13:12,629 --> 00:13:18,179
+como siempre les pido se suscriban para
+
+284
+00:13:15,809 --> 00:13:19,949
+recibir notificaciones y por cualquier
+
+285
+00:13:18,179 --> 00:13:22,319
+duda o comentario lo pueden
+
+286
+00:13:19,950 --> 00:13:26,120
+por debajo que con gusto la responderé
+
+287
+00:13:22,320 --> 00:13:26,120
+chau y hasta la próxima
+

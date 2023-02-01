@@ -1,0 +1,816 @@
+1
+00:00:01,169 --> 00:00:07,559
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,108 --> 00:00:09,719
+16 de arduino desde cero en español en
+
+3
+00:00:07,559 --> 00:00:12,689
+esta oportunidad vamos a utilizar un
+
+4
+00:00:09,720 --> 00:00:15,510
+módulo sensor de vibración caídos que
+
+5
+00:00:12,689 --> 00:00:18,089
+forma parte del kit de sensores 37 en
+
+6
+00:00:15,509 --> 00:00:20,609
+uno para detectar vibraciones o golpes
+
+7
+00:00:18,089 --> 00:00:22,890
+de forma muy simple sobre la parte
+
+8
+00:00:20,609 --> 00:00:25,500
+izquierda vemos el módulo constituido
+
+9
+00:00:22,890 --> 00:00:27,570
+por el sensor en forma de cilindro que
+
+10
+00:00:25,500 --> 00:00:29,969
+se encuentra montado sobre una placa de
+
+11
+00:00:27,570 --> 00:00:32,429
+circuito impreso con una resistencia de
+
+12
+00:00:29,969 --> 00:00:35,308
+montaje superficial y tres pines de
+
+13
+00:00:32,429 --> 00:00:37,378
+conexión 2 de alimentación y uno de
+
+14
+00:00:35,308 --> 00:00:39,718
+señales si hiciéramos un corte
+
+15
+00:00:37,378 --> 00:00:42,448
+longitudinal del sensor veríamos que
+
+16
+00:00:39,719 --> 00:00:44,510
+tiene un cilindro exterior el cual tiene
+
+17
+00:00:42,448 --> 00:00:48,208
+dentro un fino alambre de cobre
+
+18
+00:00:44,509 --> 00:00:50,128
+enrollado de forma de resorte tanto éste
+
+19
+00:00:48,209 --> 00:00:52,440
+como el cilindro serán los dos
+
+20
+00:00:50,128 --> 00:00:54,928
+terminales de conexión del sensor el
+
+21
+00:00:52,439 --> 00:00:58,108
+cual funciona como un interruptor simple
+
+22
+00:00:54,929 --> 00:01:00,228
+estando en reposo y el alambre en forma
+
+23
+00:00:58,109 --> 00:01:02,940
+de resorte se encuentra ligeramente
+
+24
+00:01:00,228 --> 00:01:05,578
+separado del cilindro exterior cuando
+
+25
+00:01:02,939 --> 00:01:07,500
+ocurre una vibración fuerte o un golpe
+
+26
+00:01:05,578 --> 00:01:09,750
+el resorte se mueve
+
+27
+00:01:07,500 --> 00:01:12,030
+forma tal que toca el cilindro exterior
+
+28
+00:01:09,750 --> 00:01:14,909
+cerrando el circuito eléctrico un
+
+29
+00:01:12,030 --> 00:01:17,040
+funcionamiento muy simple y eficaz por
+
+30
+00:01:14,909 --> 00:01:18,989
+su simpleza te imaginarás que nos sirve
+
+31
+00:01:17,040 --> 00:01:21,180
+para detectar distintos niveles de
+
+32
+00:01:18,989 --> 00:01:23,728
+vibración ya que se trata sólo de un
+
+33
+00:01:21,180 --> 00:01:25,740
+interruptor donde el circuito se cierra
+
+34
+00:01:23,728 --> 00:01:28,140
+producto del movimiento del resorte
+
+35
+00:01:25,739 --> 00:01:30,539
+interno en el cilindro pero será de
+
+36
+00:01:28,140 --> 00:01:33,150
+utilidad para detectar un golpe o una
+
+37
+00:01:30,540 --> 00:01:35,520
+vibración fuerte si bien el contacto del
+
+38
+00:01:33,150 --> 00:01:37,770
+resorte con el cilindro es muy breve
+
+39
+00:01:35,519 --> 00:01:39,750
+arduino es perfectamente capaz de
+
+40
+00:01:37,769 --> 00:01:42,780
+detectarlo y luego por programación
+
+41
+00:01:39,750 --> 00:01:44,700
+podemos tomar una acción el circuito
+
+42
+00:01:42,780 --> 00:01:47,159
+eléctrico de este módulo lo vemos aquí
+
+43
+00:01:44,700 --> 00:01:49,350
+el sensor está representado como si
+
+44
+00:01:47,159 --> 00:01:51,509
+fuese un simple interruptor luego
+
+45
+00:01:49,349 --> 00:01:54,538
+tendremos una resistencia de 10k
+
+46
+00:01:51,509 --> 00:01:57,209
+conectada entre el sensor y la salida s
+
+47
+00:01:54,539 --> 00:02:00,299
+del módulo entre los extremos estará la
+
+48
+00:01:57,209 --> 00:02:02,699
+alimentación estando en reposo el sensor
+
+49
+00:02:00,299 --> 00:02:05,129
+se comporta como un interruptor abierto
+
+50
+00:02:02,700 --> 00:02:07,560
+con lo cual al pin s le llegará el
+
+51
+00:02:05,129 --> 00:02:09,689
+positivo de tensión a través de la
+
+52
+00:02:07,560 --> 00:02:12,569
+resistencia de 10 k es decir que
+
+53
+00:02:09,689 --> 00:02:13,500
+tendremos un uno lógico cuando exista
+
+54
+00:02:12,569 --> 00:02:15,539
+una vibración
+
+55
+00:02:13,500 --> 00:02:18,090
+el sensor cierra el circuito del
+
+56
+00:02:15,539 --> 00:02:20,759
+interruptor y el terminal s queda
+
+57
+00:02:18,090 --> 00:02:23,009
+conectado a massa haciendo que pase a un
+
+58
+00:02:20,759 --> 00:02:24,829
+cero lógico eso significa que
+
+59
+00:02:23,009 --> 00:02:28,379
+trabajaremos con lógica negativa
+
+60
+00:02:24,830 --> 00:02:31,020
+tendremos un uno lógico todo el tiempo y
+
+61
+00:02:28,379 --> 00:02:33,659
+sólo cuando se activó el sensor pasará a
+
+62
+00:02:31,020 --> 00:02:36,600
+un cero lógico o lo que es lo mismo un
+
+63
+00:02:33,659 --> 00:02:39,299
+nivel bajo o lou vamos al circuito de
+
+64
+00:02:36,599 --> 00:02:42,359
+conexión comenzaremos conectando un led
+
+65
+00:02:39,300 --> 00:02:45,060
+como ya es usual con el cátodo a masa
+
+66
+00:02:42,360 --> 00:02:48,270
+del real de tensión del ánodo mediante
+
+67
+00:02:45,060 --> 00:02:50,789
+una resistencia de 330 oms con un cable
+
+68
+00:02:48,270 --> 00:02:51,540
+directo al pin digital número 3 de
+
+69
+00:02:50,789 --> 00:02:54,150
+arduino
+
+70
+00:02:51,539 --> 00:02:56,340
+luego del módulo conectaremos el pin de
+
+71
+00:02:54,150 --> 00:02:59,370
+la izquierda con la indicación de menos
+
+72
+00:02:56,340 --> 00:03:02,129
+a más a del riel de tensión el pin del
+
+73
+00:02:59,370 --> 00:03:04,770
+medio al positivo y del pin de la
+
+74
+00:03:02,129 --> 00:03:07,560
+derecha con la denominación s con un
+
+75
+00:03:04,770 --> 00:03:08,100
+cable directo al pin digital número 2 de
+
+76
+00:03:07,560 --> 00:03:10,650
+arduino
+
+77
+00:03:08,099 --> 00:03:13,169
+es importante que verifique si siento
+
+78
+00:03:10,650 --> 00:03:16,230
+módulo caídos las indicaciones de los
+
+79
+00:03:13,169 --> 00:03:18,988
+pines están correctas muchas veces no lo
+
+80
+00:03:16,229 --> 00:03:19,599
+están y ese es mi caso la forma más
+
+81
+00:03:18,989 --> 00:03:21,730
+simple
+
+82
+00:03:19,599 --> 00:03:24,639
+es verificar mediante un multímetro o
+
+83
+00:03:21,729 --> 00:03:27,669
+tester los pines donde me das un valor
+
+84
+00:03:24,639 --> 00:03:30,369
+de 10 cada resistencia dichos pines
+
+85
+00:03:27,669 --> 00:03:32,469
+serán el positivo y ese como
+
+86
+00:03:30,370 --> 00:03:35,680
+recomendación general todos los sensores
+
+87
+00:03:32,469 --> 00:03:38,050
+del kit 37 en uno deben verificarse que
+
+88
+00:03:35,680 --> 00:03:40,240
+tenga la indicación correcta muy bien
+
+89
+00:03:38,050 --> 00:03:42,400
+vamos al código comenzaremos con un
+
+90
+00:03:40,240 --> 00:03:44,230
+programa muy simple para verificar el
+
+91
+00:03:42,400 --> 00:03:47,140
+correcto funcionamiento del módulo
+
+92
+00:03:44,229 --> 00:03:49,929
+la idea es prender el led cada vez que
+
+93
+00:03:47,139 --> 00:03:52,419
+leamos un nivel bajo en el pin digital 2
+
+94
+00:03:49,930 --> 00:03:55,240
+donde tenemos conectado la señal del
+
+95
+00:03:52,419 --> 00:04:01,969
+módulo lo haremos de forma directa de la
+
+96
+00:03:55,240 --> 00:04:09,860
+siguiente manera int sensor igual 2
+
+97
+00:04:01,969 --> 00:04:12,800
+int le da igual 3 int estado como
+
+98
+00:04:09,860 --> 00:04:15,350
+siempre asignamos en variables los pines
+
+99
+00:04:12,800 --> 00:04:18,319
+a los cuales tenemos conectados tanto el
+
+100
+00:04:15,349 --> 00:04:21,048
+sensor como el led y una variable para
+
+101
+00:04:18,319 --> 00:04:24,379
+almacenar el valor leído del pin digital
+
+102
+00:04:21,048 --> 00:04:28,579
+en el setup estableceremos al sensor
+
+103
+00:04:24,379 --> 00:04:33,870
+como entrada y al led como salida pin
+
+104
+00:04:28,579 --> 00:04:42,139
+modo sensor input
+
+105
+00:04:33,870 --> 00:04:49,209
+en modo led output en el loop pondremos
+
+106
+00:04:42,139 --> 00:04:51,629
+he estado igual digital ruido sensor
+
+107
+00:04:49,209 --> 00:04:56,849
+digital right
+
+108
+00:04:51,629 --> 00:04:59,939
+les noto estado con digital right
+
+109
+00:04:56,850 --> 00:05:01,200
+escribimos en el led el valor opuesto al
+
+110
+00:04:59,939 --> 00:05:03,779
+leído del sensor
+
+111
+00:05:01,199 --> 00:05:06,629
+recordad que el sensor cuando detecta
+
+112
+00:05:03,779 --> 00:05:09,209
+vibración pasa a un nivel bajo pero el
+
+113
+00:05:06,629 --> 00:05:11,339
+led se enciende con un nivel alto con lo
+
+114
+00:05:09,209 --> 00:05:14,250
+cual debemos estar escribiendo el led
+
+115
+00:05:11,339 --> 00:05:16,799
+siempre el valor opuesto que se logra
+
+116
+00:05:14,250 --> 00:05:19,709
+con el signo de admiración delante de la
+
+117
+00:05:16,800 --> 00:05:23,610
+variable estado y eso es todo ya podemos
+
+118
+00:05:19,709 --> 00:05:25,310
+verificar y subir el programa lo que voy
+
+119
+00:05:23,610 --> 00:05:28,020
+a hacer es golpear ligeramente
+
+120
+00:05:25,310 --> 00:05:30,750
+protoboard para generar una vibración
+
+121
+00:05:28,019 --> 00:05:33,659
+verás que el led se enciende brevemente
+
+122
+00:05:30,750 --> 00:05:36,209
+con un nivel de brillo bajo incluso
+
+123
+00:05:33,660 --> 00:05:38,850
+podrás ver que se enciende varias veces
+
+124
+00:05:36,209 --> 00:05:41,189
+con tiempos distintos esto se debe a que
+
+125
+00:05:38,850 --> 00:05:43,470
+la vibración hace que el alambre en
+
+126
+00:05:41,189 --> 00:05:46,680
+forma de resorte que está dentro del
+
+127
+00:05:43,470 --> 00:05:48,840
+cilindro toque al mismo muy brevemente y
+
+128
+00:05:46,680 --> 00:05:50,699
+si la vibración es fuerte el mismo
+
+129
+00:05:48,839 --> 00:05:53,099
+rebotar a más de una vez
+
+130
+00:05:50,699 --> 00:05:55,170
+haciendo que led se prenda en varias
+
+131
+00:05:53,100 --> 00:05:57,210
+ocasiones la idea de este primer
+
+132
+00:05:55,170 --> 00:05:58,259
+programa es que veas que escribiendo
+
+133
+00:05:57,209 --> 00:06:01,169
+directamente
+
+134
+00:05:58,259 --> 00:06:03,689
+el valor leído del sensor al led no es
+
+135
+00:06:01,170 --> 00:06:05,939
+muy útil debido al breve tiempo que la
+
+136
+00:06:03,689 --> 00:06:08,459
+señal está presente lo que haremos ahora
+
+137
+00:06:05,939 --> 00:06:11,160
+es modificar el código para que cuando
+
+138
+00:06:08,459 --> 00:06:13,620
+se detecta un nivel bajo en el pin de
+
+139
+00:06:11,160 --> 00:06:16,290
+señal encendamos el led por medio
+
+140
+00:06:13,620 --> 00:06:18,600
+segundo de esa manera el brillo será
+
+141
+00:06:16,290 --> 00:06:21,600
+máximo y no abrimos los rebotes que
+
+142
+00:06:18,600 --> 00:06:24,180
+suceden dando una mejor indicación de
+
+143
+00:06:21,600 --> 00:06:26,700
+que se ha detectado una vibración fuerte
+
+144
+00:06:24,180 --> 00:06:29,340
+o golpe vamos a eliminar la segunda
+
+145
+00:06:26,699 --> 00:06:32,250
+línea del loop dejaremos solo la primera
+
+146
+00:06:29,339 --> 00:06:34,619
+ya que nos sirve ahora consultaremos y
+
+147
+00:06:32,250 --> 00:06:37,139
+la variable estado tiene un valor bajo
+
+148
+00:06:34,620 --> 00:06:42,959
+lo que significa que se ha detectado una
+
+149
+00:06:37,139 --> 00:06:46,169
+vibración if estado igual igual blog
+
+150
+00:06:42,959 --> 00:06:48,839
+ahora encendemos el led por medio
+
+151
+00:06:46,170 --> 00:06:53,710
+segundo asegurando así que sea bien
+
+152
+00:06:48,839 --> 00:06:56,568
+visible y evitando rebotes digital right
+
+153
+00:06:53,709 --> 00:07:02,058
+led hair
+
+154
+00:06:56,569 --> 00:07:08,809
+delay 500 por fuera del if apagaremos el
+
+155
+00:07:02,059 --> 00:07:12,469
+led digital write led low y eso es todo
+
+156
+00:07:08,809 --> 00:07:14,749
+vamos a verificar y subir el programa al
+
+157
+00:07:12,468 --> 00:07:17,269
+igual que antes estaré golpeando
+
+158
+00:07:14,749 --> 00:07:19,699
+levemente protoboard para generar una
+
+159
+00:07:17,269 --> 00:07:22,639
+vibración verás que ahora él le de
+
+160
+00:07:19,699 --> 00:07:25,278
+enciende por medio segundo y se apaga y
+
+161
+00:07:22,639 --> 00:07:28,278
+se puede visualizar correctamente con un
+
+162
+00:07:25,278 --> 00:07:30,110
+brillo máximo de esa forma es más útil
+
+163
+00:07:28,278 --> 00:07:33,709
+la indicación de que el módulo ha
+
+164
+00:07:30,110 --> 00:07:36,110
+detectado una vibración fuerte golpe en
+
+165
+00:07:33,709 --> 00:07:38,449
+un proyecto en la vida real este tipo de
+
+166
+00:07:36,110 --> 00:07:41,209
+sensor se utilizaría en conjunto con
+
+167
+00:07:38,449 --> 00:07:43,939
+otros sistemas por ejemplo podría formar
+
+168
+00:07:41,209 --> 00:07:46,459
+parte de un sistema de alarma donde el
+
+169
+00:07:43,939 --> 00:07:49,039
+sensor de vibración se coloca sobre una
+
+170
+00:07:46,459 --> 00:07:51,709
+puerta y estando la alarma activa podría
+
+171
+00:07:49,038 --> 00:07:53,628
+funcionar como un sistema preventivo al
+
+172
+00:07:51,709 --> 00:07:56,629
+detectar si la puerta está siendo
+
+173
+00:07:53,629 --> 00:07:59,199
+golpeada o forzada antes que otros
+
+174
+00:07:56,629 --> 00:08:03,020
+sensores como el sensor del tipo peer
+
+175
+00:07:59,199 --> 00:08:05,509
+detecte movimiento otra aplicación seria
+
+176
+00:08:03,019 --> 00:08:07,909
+monitoreo de vibración excesiva en un
+
+177
+00:08:05,509 --> 00:08:11,689
+sistema de ventilación donde un motor
+
+178
+00:08:07,910 --> 00:08:14,060
+hace girar aspas para forzar el aire si
+
+179
+00:08:11,689 --> 00:08:16,399
+una aspas se rompiera se generaría un
+
+180
+00:08:14,060 --> 00:08:18,649
+movimiento brusco en el motor al quedar
+
+181
+00:08:16,399 --> 00:08:20,810
+el sistema fuera de balance dicha
+
+182
+00:08:18,649 --> 00:08:23,269
+situación puede ser captada por el
+
+183
+00:08:20,810 --> 00:08:25,908
+sensor y realizar el aviso en una
+
+184
+00:08:23,269 --> 00:08:27,889
+central de monitoreo o incluso apagar el
+
+185
+00:08:25,908 --> 00:08:30,259
+propio motor para evitar que se
+
+186
+00:08:27,889 --> 00:08:33,528
+deteriore también una máquina de
+
+187
+00:08:30,259 --> 00:08:36,469
+autoservicio para café bebidas etcétera
+
+188
+00:08:33,528 --> 00:08:38,838
+detectar si alguien con mal genio tiene
+
+189
+00:08:36,469 --> 00:08:40,909
+ganas de darle una patada o movimiento
+
+190
+00:08:38,839 --> 00:08:43,700
+brusco que puede deteriorar el sistema
+
+191
+00:08:40,908 --> 00:08:46,159
+interno se puede entonces detener el
+
+192
+00:08:43,700 --> 00:08:48,649
+proceso que llevaba a cabo o encender
+
+193
+00:08:46,159 --> 00:08:51,500
+una alarma sonora y eso es todo por este
+
+194
+00:08:48,649 --> 00:08:54,440
+capítulo en el próximo estaremos viendo
+
+195
+00:08:51,500 --> 00:08:56,419
+cómo utilizar un módulo de joystick como
+
+196
+00:08:54,440 --> 00:08:58,910
+método de entrada para variedad de
+
+197
+00:08:56,419 --> 00:09:01,309
+proyectos donde podremos obtener un
+
+198
+00:08:58,909 --> 00:09:03,740
+valor proporcional al movimiento de la
+
+199
+00:09:01,309 --> 00:09:06,259
+palanca como siempre te pido te
+
+200
+00:09:03,740 --> 00:09:08,209
+suscribas para recibir notificaciones y
+
+201
+00:09:06,259 --> 00:09:09,200
+por cualquier duda o comentario lo
+
+202
+00:09:08,208 --> 00:09:12,469
+puedes hacer
+
+203
+00:09:09,200 --> 00:09:14,830
+que con gusto te responderé chau y hasta
+
+204
+00:09:12,470 --> 00:09:14,830
+la próxima
+

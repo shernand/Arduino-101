@@ -1,0 +1,23 @@
+Pondremos foco en el Módulo controlador de Motor L298N el cual permite comandar de forma independiente dos motores de continua (DC) en variedad de tensiones y también motores paso a paso (PAP) con Arduino.
+En esta capítulo se detalla las caracteristicas del módulo y lo ponemos en práctica con un motor de continua con caja de reducción y rueda para controlar el sentido de giro y velocidad. 
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoMotor
+#ArduinoL298N
+#ArduinoMotorDC
+Arduino L298N motor control
+Arduino L298N DC motor
+Arduino L298N tutorial
+Arduino motor DC
+Arduino motor PWM
+Arduino puente H
+
+Marcas de tiempo:
+0:00 Bienvenida e introducción
+3:03 Detalle de funciones
+8:43 Motor DC (partes y funcionamiento)
+11:04 Circuito de conexión
+14:34 Primer programa (giro en ambos sentidos y parada)
+18:24 Segundo programa (control de velocidad de giro)

@@ -1,0 +1,24 @@
+Mediante el Sensor de Sonido (micrófono) en módulos KY-038 y KY-037 podremos fácilmente encender y apagar un LED cuando se activa la salida digital del módulo o tomar otras acciones con Arduino.
+También se explicará el funcionamiento de la salida analógica de ambos sensores y como aprovechar la salida directa de micrófono. 
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoSensorSonido
+#ArduinoKit37en1
+#ArduinoMicrófono
+Sensor microfono Arduino
+Arduino microfono
+Arduino sensor sonido
+Sensor sonido Arduino KY-037
+Sensor sonido Arduino KY-038
+
+Marcas de tiempo:
+0:00 Introducción
+3:59 Circuito de conexión
+4:46 Primer programa (activando un LED con sonido)
+10:09 Circuito de conexión
+10:55 Segundo programa (lectura analógica)
+12:30 Conclusiones de los módulos
+13:03 Próximo capítulo y despedida

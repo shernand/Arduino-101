@@ -1,0 +1,29 @@
+Los sensores de campo magnético 🧲 por efecto Hall (KY-003, KY-024, KY-035) nos permitirán tomar acciones con Arduino en función del campo magnético detectado.
+Veremos el principio de funcionamiento del sensor y el efecto Hall que permite la detección de un campo magnético y la conversión a una tensión proporcional aplicada a una entrada analógica de Arduino.
+
+En base a la intensidad del campo detectado es posible tomar diferentes acciones con Arduino de manera simple, al no requerir un contacto directo con la fuente del campo magnético (ej. imán) es ampliamente usado para calcular la velocidad de giro de motores, fines de carrera, detección de metales ferromagnéticos y mucho más. 
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoCampoMagnético
+#ArduinoKit37en1
+#ArduinoEfectoHall
+#SensorHall49e
+#LinearHall
+#ArduinoSensorMagnetismo
+Magnetic hall sensor
+Hall 49e
+Hall 44e
+hall effect switch
+
+Marcas de tiempo:
+0:00 Introducción
+2:10 Magnetismo y efecto Hall
+7:14 Imanes (fuentes)
+11:09 Circuito de conexión
+11:35 Primer programa (valores por monitor serie)
+15:24 Segundo programa (generar un evento por proximidad)
+18:28 KY-003 y KY-024 (diferencias)
+20:37 Salida digital y despedida

@@ -1,0 +1,1412 @@
+1
+00:00:00,650 --> 00:00:06,890
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:03,439 --> 00:00:08,929
+15 de arduino desde cero en español en
+
+3
+00:00:06,889 --> 00:00:11,329
+esta oportunidad vamos a utilizar un
+
+4
+00:00:08,929 --> 00:00:13,820
+módulo sensor de orientación mediante
+
+5
+00:00:11,329 --> 00:00:15,739
+interruptor de mercurio el cual será
+
+6
+00:00:13,820 --> 00:00:17,868
+útil para determinar cambios en la
+
+7
+00:00:15,739 --> 00:00:20,000
+posición de objetos en la parte
+
+8
+00:00:17,868 --> 00:00:23,000
+izquierda de pantalla vemos el módulo
+
+9
+00:00:20,000 --> 00:00:25,939
+denominado k y 17 que forma parte del
+
+10
+00:00:23,000 --> 00:00:28,669
+kit 37 en 1 sobre el circuito impreso
+
+11
+00:00:25,939 --> 00:00:30,379
+tendremos el interruptor de mercurio que
+
+12
+00:00:28,669 --> 00:00:32,509
+tiene un icap su lado de vidrio
+
+13
+00:00:30,379 --> 00:00:35,780
+transparente y dentro del mismo se
+
+14
+00:00:32,509 --> 00:00:38,750
+desplaza una gota de mercurio el módulo
+
+15
+00:00:35,780 --> 00:00:41,420
+incluye también una resistencia y un led
+
+16
+00:00:38,750 --> 00:00:42,950
+de montaje superficial que se encenderá
+
+17
+00:00:41,420 --> 00:00:44,950
+cuando el interruptor esté en la
+
+18
+00:00:42,950 --> 00:00:47,270
+posición de cerrado que sería
+
+19
+00:00:44,950 --> 00:00:50,270
+exactamente como vemos en esta imagen
+
+20
+00:00:47,270 --> 00:00:53,000
+tendrá tres pines que serán dos de
+
+21
+00:00:50,270 --> 00:00:55,550
+alimentación y uno de señal que pasará
+
+22
+00:00:53,000 --> 00:00:58,070
+de nivel lógico dependiendo de la
+
+23
+00:00:55,549 --> 00:01:00,379
+orientación del interruptor estando tal
+
+24
+00:00:58,070 --> 00:01:02,780
+cual se muestra en la imagen podrás ver
+
+25
+00:01:00,380 --> 00:01:04,730
+que dentro del encapsulado de vidrio la
+
+26
+00:01:02,780 --> 00:01:07,310
+gota de mercurio se encuentra
+
+27
+00:01:04,730 --> 00:01:09,920
+en la parte inferior haciendo contacto
+
+28
+00:01:07,310 --> 00:01:12,439
+con dos terminales internos es decir que
+
+29
+00:01:09,920 --> 00:01:14,359
+estará cerrando eléctricamente el
+
+30
+00:01:12,439 --> 00:01:16,489
+circuito entre los terminales del
+
+31
+00:01:14,359 --> 00:01:18,769
+interruptor si el módulo se gira 90
+
+32
+00:01:16,489 --> 00:01:20,780
+grados tendremos la orientación que se
+
+33
+00:01:18,769 --> 00:01:23,179
+muestra en la parte superior de pantalla
+
+34
+00:01:20,780 --> 00:01:25,939
+la gota de mercurio se desplazará de
+
+35
+00:01:23,180 --> 00:01:28,100
+manera tal que ya deja de hacer contacto
+
+36
+00:01:25,939 --> 00:01:30,530
+con los dos terminales internos y se
+
+37
+00:01:28,099 --> 00:01:32,869
+convierte en un circuito abierto esto
+
+38
+00:01:30,530 --> 00:01:35,239
+hará que cambie el estado lógico del pin
+
+39
+00:01:32,870 --> 00:01:37,910
+de señal el cual nosotros conectaremos
+
+40
+00:01:35,239 --> 00:01:40,489
+un pin digital de arduino para tomar una
+
+41
+00:01:37,909 --> 00:01:42,590
+acción el módulo en sí no tiene una
+
+42
+00:01:40,489 --> 00:01:45,079
+posición predeterminada podemos
+
+43
+00:01:42,590 --> 00:01:47,510
+conectarlo con los pines hacia abajo por
+
+44
+00:01:45,079 --> 00:01:50,390
+ejemplo sobre una protoboard o mediante
+
+45
+00:01:47,510 --> 00:01:52,939
+cables en cualquier otra posición podría
+
+46
+00:01:50,390 --> 00:01:55,250
+estar a 90 grados como ya vimos o
+
+47
+00:01:52,939 --> 00:01:58,189
+cualquier otro ángulo este módulo se
+
+48
+00:01:55,250 --> 00:02:00,859
+caracteriza por ser más importante la
+
+49
+00:01:58,189 --> 00:02:03,560
+cuestión mecánica de donde se ubica en
+
+50
+00:02:00,859 --> 00:02:06,260
+un objeto y la cuestión eléctrica de
+
+51
+00:02:03,560 --> 00:02:08,539
+hecho se podría utilizar completamente
+
+52
+00:02:06,260 --> 00:02:10,399
+al revés con los pines apuntando hacia
+
+53
+00:02:08,539 --> 00:02:12,348
+arriba que también funcionaría
+
+54
+00:02:10,399 --> 00:02:14,419
+sólo será cuestión de establecer
+
+55
+00:02:12,348 --> 00:02:17,209
+mediante programación si deseamos
+
+56
+00:02:14,419 --> 00:02:20,169
+detectar cuando el circuito está abierto
+
+57
+00:02:17,209 --> 00:02:23,180
+o cerrado seguramente ya habrás visto la
+
+58
+00:02:20,169 --> 00:02:25,759
+advertencia de precaución en el uso de
+
+59
+00:02:23,180 --> 00:02:28,370
+este sensor el mercurio es un material
+
+60
+00:02:25,759 --> 00:02:30,979
+peligroso si el mismo tiene contacto con
+
+61
+00:02:28,370 --> 00:02:33,438
+la piel o es ingerido también es
+
+62
+00:02:30,979 --> 00:02:36,108
+peligroso a nivel medio ambiente por eso
+
+63
+00:02:33,438 --> 00:02:38,090
+la precaución se refiere al hecho de que
+
+64
+00:02:36,109 --> 00:02:40,909
+en caso de que el encapsulado de vidrio
+
+65
+00:02:38,090 --> 00:02:43,639
+se rompa o fisura por ningún motivo debe
+
+66
+00:02:40,908 --> 00:02:46,098
+tocarse y es necesario desecharlo de
+
+67
+00:02:43,639 --> 00:02:48,079
+forma apropiada dicho eso no te
+
+68
+00:02:46,098 --> 00:02:49,638
+preocupes ya que difícilmente te
+
+69
+00:02:48,079 --> 00:02:52,280
+encuentres en una situación de peligro
+
+70
+00:02:49,639 --> 00:02:55,250
+ya que el encapsulado es muy resistente
+
+71
+00:02:52,280 --> 00:02:58,188
+sobre la derecha vemos otro módulo que
+
+72
+00:02:55,250 --> 00:03:01,400
+también forma parte del kit 37 en uno
+
+73
+00:02:58,188 --> 00:03:03,590
+que es el calle 27 el cual también tiene
+
+74
+00:03:01,400 --> 00:03:05,989
+un interruptor de mercurio pero
+
+75
+00:03:03,590 --> 00:03:08,989
+incorpora un led que podremos controlar
+
+76
+00:03:05,989 --> 00:03:11,688
+mediante un pin por separado con lo cual
+
+77
+00:03:08,989 --> 00:03:14,360
+este módulo tendrá 4 pines los dos de
+
+78
+00:03:11,688 --> 00:03:16,370
+alimentación uno de señal y uno para
+
+79
+00:03:14,360 --> 00:03:18,890
+encender el led el cual se encuentra
+
+80
+00:03:16,370 --> 00:03:21,319
+conectado internamente mediante una
+
+81
+00:03:18,889 --> 00:03:23,839
+resistencia al cátodo con lo cual lo
+
+82
+00:03:21,319 --> 00:03:26,599
+encenderemos de forma directa con cinco
+
+83
+00:03:23,840 --> 00:03:28,909
+bolsas de tensión muy bien veamos el
+
+84
+00:03:26,599 --> 00:03:31,789
+circuito de conexión que será muy simple
+
+85
+00:03:28,909 --> 00:03:35,030
+vamos a conectar un led y ya es usual
+
+86
+00:03:31,789 --> 00:03:38,150
+con el cátodo a masa del ánodo mediante
+
+87
+00:03:35,030 --> 00:03:41,209
+una resistencia de 330 oms con un cable
+
+88
+00:03:38,150 --> 00:03:42,740
+de forma directa al pin digital número 3
+
+89
+00:03:41,209 --> 00:03:44,719
+de arduino
+
+90
+00:03:42,740 --> 00:03:47,209
+el módulo lo conectaremos mediante
+
+91
+00:03:44,719 --> 00:03:49,129
+cables para poder moverlo libremente y
+
+92
+00:03:47,209 --> 00:03:51,409
+ver en qué posiciones nos será de
+
+93
+00:03:49,129 --> 00:03:53,659
+utilidad el pin de la izquierda con la
+
+94
+00:03:51,409 --> 00:03:56,359
+indicación de menos irá con un cable
+
+95
+00:03:53,659 --> 00:03:59,359
+directo a masa del riel de tensión el
+
+96
+00:03:56,360 --> 00:04:01,940
+pin del medio al positivo y del pin de
+
+97
+00:03:59,360 --> 00:04:04,100
+la derecha con un cable directo al pin
+
+98
+00:04:01,939 --> 00:04:07,459
+digital número 2 de arduino
+
+99
+00:04:04,099 --> 00:04:10,519
+luego alimentamos protoboard con 5 goltz
+
+100
+00:04:07,459 --> 00:04:13,430
+y genere de arduino perfecto vamos
+
+101
+00:04:10,520 --> 00:04:15,709
+entonces al código en el pin digital 2
+
+102
+00:04:13,430 --> 00:04:17,030
+tendremos la señal que nos envíe el
+
+103
+00:04:15,709 --> 00:04:20,000
+sensor
+
+104
+00:04:17,029 --> 00:04:22,429
+brinda un nivel lógico cero cuando la
+
+105
+00:04:20,000 --> 00:04:24,470
+gota de mercurio está haciendo contacto
+
+106
+00:04:22,430 --> 00:04:26,780
+de manera de cerrar el circuito en sus
+
+107
+00:04:24,470 --> 00:04:29,330
+terminales sería la posición con el
+
+108
+00:04:26,779 --> 00:04:31,399
+módulo con los pines hacia abajo cuando
+
+109
+00:04:29,329 --> 00:04:33,469
+se cambia la orientación del módulo de
+
+110
+00:04:31,399 --> 00:04:35,929
+manera que la gota vaya al extremo
+
+111
+00:04:33,470 --> 00:04:38,900
+opuesto el circuito se abre y nos
+
+112
+00:04:35,930 --> 00:04:40,879
+entrega un uno lógico lo que haremos es
+
+113
+00:04:38,899 --> 00:04:43,399
+un simple programa para verificar su
+
+114
+00:04:40,879 --> 00:04:45,889
+funcionamiento y jugar un poco con las
+
+115
+00:04:43,399 --> 00:04:49,810
+distintas posiciones y ver qué nivel de
+
+116
+00:04:45,889 --> 00:04:53,009
+sensibilidad podemos obtener un sensor
+
+117
+00:04:49,810 --> 00:04:56,579
+igual 2
+
+118
+00:04:53,009 --> 00:04:57,629
+y no le da igual
+
+119
+00:04:56,579 --> 00:05:01,769
+3
+
+120
+00:04:57,629 --> 00:05:05,129
+int estado guardamos en variables los
+
+121
+00:05:01,769 --> 00:05:07,649
+pines asociados al sensor y el led y una
+
+122
+00:05:05,129 --> 00:05:08,519
+variable para almacenar el valor leído
+
+123
+00:05:07,649 --> 00:05:11,189
+del sensor
+
+124
+00:05:08,519 --> 00:05:15,139
+luego en el setup definimos al sensor
+
+125
+00:05:11,189 --> 00:05:18,660
+como entrada y al led como salida con
+
+126
+00:05:15,139 --> 00:05:24,419
+sensor input
+
+127
+00:05:18,660 --> 00:05:26,730
+en modo leer output ahora en el look lo
+
+128
+00:05:24,420 --> 00:05:29,730
+haremos bien directo el balón leído del
+
+129
+00:05:26,730 --> 00:05:33,120
+sensor que será cero si está en posición
+
+130
+00:05:29,730 --> 00:05:35,550
+vertical y uno en posición horizontal lo
+
+131
+00:05:33,120 --> 00:05:38,189
+cargaremos directamente al led no es
+
+132
+00:05:35,550 --> 00:05:42,980
+necesario utilizar un y se hace de esta
+
+133
+00:05:38,189 --> 00:05:45,569
+manera he estado igual digital ruiz
+
+134
+00:05:42,980 --> 00:05:51,229
+sensor
+
+135
+00:05:45,569 --> 00:05:51,229
+digital wright le ha estado
+
+136
+00:05:51,769 --> 00:05:59,149
+100 en estado almacenamos el valor que
+
+137
+00:05:55,728 --> 00:06:01,639
+nos brinda el sensor 01 dependiendo de
+
+138
+00:05:59,149 --> 00:06:04,189
+la orientación luego con digital write
+
+139
+00:06:01,639 --> 00:06:06,769
+escribimos dicho valor de forma directa
+
+140
+00:06:04,189 --> 00:06:09,139
+y finalmente aplicamos una pequeña
+
+141
+00:06:06,769 --> 00:06:11,810
+demora de 100 milisegundos para evitar
+
+142
+00:06:09,139 --> 00:06:14,689
+que el led parpadee mientras se abre o
+
+143
+00:06:11,810 --> 00:06:17,540
+cierra el circuito y eso es todo vamos a
+
+144
+00:06:14,689 --> 00:06:19,939
+verificar y subir el programa
+
+145
+00:06:17,540 --> 00:06:22,700
+yo ahora estoy sosteniendo el módulo de
+
+146
+00:06:19,939 --> 00:06:24,920
+forma vertical con los pines hacia abajo
+
+147
+00:06:22,699 --> 00:06:27,439
+la gota de mercurio se encuentra en la
+
+148
+00:06:24,920 --> 00:06:30,319
+parte inferior del sensor esto nos
+
+149
+00:06:27,439 --> 00:06:32,959
+brinda un nivel lógico 0 en el pin de
+
+150
+00:06:30,319 --> 00:06:35,180
+señal con lo cual el led verde que hemos
+
+151
+00:06:32,959 --> 00:06:38,060
+conectado al pin digital 2 de arduino
+
+152
+00:06:35,180 --> 00:06:40,400
+está apagado pero el led integrado al
+
+153
+00:06:38,060 --> 00:06:41,089
+módulo de color rojo vemos que está
+
+154
+00:06:40,399 --> 00:06:43,759
+encendido
+
+155
+00:06:41,089 --> 00:06:45,560
+este led está conectado internamente en
+
+156
+00:06:43,759 --> 00:06:47,839
+el módulo y se enciende con el
+
+157
+00:06:45,560 --> 00:06:50,149
+interruptor está en la posición de
+
+158
+00:06:47,839 --> 00:06:52,519
+cerrado que es justamente lo que sucede
+
+159
+00:06:50,149 --> 00:06:55,129
+ahora con lo cual este led estará
+
+160
+00:06:52,519 --> 00:06:57,799
+encendido hasta que la gota de mercurio
+
+161
+00:06:55,129 --> 00:07:00,409
+del interruptor abra el circuito cuando
+
+162
+00:06:57,800 --> 00:07:03,590
+eso sucede se apagará y al mismo tiempo
+
+163
+00:07:00,410 --> 00:07:05,360
+tendremos un uno lógico que encenderá
+
+164
+00:07:03,589 --> 00:07:07,639
+nuestro led verde
+
+165
+00:07:05,360 --> 00:07:11,000
+en definitiva el led del módulo tendrá
+
+166
+00:07:07,639 --> 00:07:13,009
+un comportamiento opuesto al nuestro que
+
+167
+00:07:11,000 --> 00:07:15,170
+es el que nos interesa ya que es el que
+
+168
+00:07:13,009 --> 00:07:17,539
+podemos controlar por programación
+
+169
+00:07:15,170 --> 00:07:19,879
+entonces si lo tenemos de forma vertical
+
+170
+00:07:17,540 --> 00:07:22,160
+el es verde estará apagado
+
+171
+00:07:19,879 --> 00:07:23,509
+si ahora giramos en sentido horario unos
+
+172
+00:07:22,160 --> 00:07:25,610
+90 grados
+
+173
+00:07:23,509 --> 00:07:28,099
+la gota pasa el extremo opuesto se
+
+174
+00:07:25,610 --> 00:07:31,490
+encenderá nuestro led y si volvemos a la
+
+175
+00:07:28,100 --> 00:07:33,740
+posición vertical se apagará lo mismo
+
+176
+00:07:31,490 --> 00:07:36,560
+sucede si giramos 90 grados pero en
+
+177
+00:07:33,740 --> 00:07:38,810
+sentido antihorario la gota se va al
+
+178
+00:07:36,560 --> 00:07:41,360
+extremo opuesto y enciende el led
+
+179
+00:07:38,810 --> 00:07:43,970
+si ahora colocamos el módulo de costados
+
+180
+00:07:41,360 --> 00:07:45,500
+de forma que el circuito impreso está en
+
+181
+00:07:43,970 --> 00:07:47,270
+posición horizontal
+
+182
+00:07:45,500 --> 00:07:49,730
+el sensor tiene una leve inclinación
+
+183
+00:07:47,269 --> 00:07:51,829
+hacia arriba y sólo bastará que
+
+184
+00:07:49,730 --> 00:07:54,920
+elegiremos levemente para que la gota
+
+185
+00:07:51,829 --> 00:07:57,529
+vaya al extremo opuesto como verás ya no
+
+186
+00:07:54,920 --> 00:08:00,080
+hace falta girar 90 grados para lograr
+
+187
+00:07:57,529 --> 00:08:02,929
+una activación del led y esto sirve para
+
+188
+00:08:00,079 --> 00:08:05,240
+ilustrar lo que decía al principio todo
+
+189
+00:08:02,930 --> 00:08:07,910
+dependerá de cómo ubicamos mecánicamente
+
+190
+00:08:05,240 --> 00:08:10,100
+el sensor sobre un objeto podemos
+
+191
+00:08:07,910 --> 00:08:12,710
+colocando de forma vertical y
+
+192
+00:08:10,100 --> 00:08:13,700
+necesitaremos un giro de 90 grados para
+
+193
+00:08:12,709 --> 00:08:16,430
+su activación
+
+194
+00:08:13,699 --> 00:08:19,610
+podríamos instalarlo a 45 grados de
+
+195
+00:08:16,430 --> 00:08:21,889
+inclinación y sólo requeriría otros 45
+
+196
+00:08:19,610 --> 00:08:24,110
+grados para activarlo con instalarlo de
+
+197
+00:08:21,889 --> 00:08:27,180
+costado y solo con una leve inclinación
+
+198
+00:08:24,110 --> 00:08:29,280
+en un sentido lo activamos
+
+199
+00:08:27,180 --> 00:08:31,470
+es el momento para que juegues un poco
+
+200
+00:08:29,279 --> 00:08:34,049
+con las distintas posiciones y veas qué
+
+201
+00:08:31,470 --> 00:08:36,089
+comportamiento vas obteniendo muy bien
+
+202
+00:08:34,049 --> 00:08:37,859
+pudimos verificar que dependiendo de la
+
+203
+00:08:36,089 --> 00:08:40,110
+posición en que se ubique el sensor
+
+204
+00:08:37,860 --> 00:08:42,479
+tendremos la activación en distintos
+
+205
+00:08:40,110 --> 00:08:46,320
+momentos a veces requerirá un gran
+
+206
+00:08:42,479 --> 00:08:48,080
+movimiento otras veces sólo uno leve
+
+207
+00:08:46,320 --> 00:08:50,220
+veamos una aplicación práctica
+
+208
+00:08:48,080 --> 00:08:53,009
+supongamos que estamos armando un
+
+209
+00:08:50,220 --> 00:08:55,190
+vehículo del tipo rover es como este que
+
+210
+00:08:53,009 --> 00:08:58,139
+muestra en pantalla consta de dos ruedas
+
+211
+00:08:55,190 --> 00:09:00,600
+autorizadas y una tercera libre que
+
+212
+00:08:58,139 --> 00:09:02,639
+sirve de apoyo en un futuro capítulo
+
+213
+00:09:00,600 --> 00:09:04,860
+estaremos haciendo funcionar uno de
+
+214
+00:09:02,639 --> 00:09:07,049
+estos vehículos pero para llegar a ello
+
+215
+00:09:04,860 --> 00:09:09,539
+deberemos ver primero cómo controlar
+
+216
+00:09:07,049 --> 00:09:12,120
+motores decía entonces que tenemos un
+
+217
+00:09:09,539 --> 00:09:14,189
+rover queremos que avance libremente y
+
+218
+00:09:12,120 --> 00:09:17,549
+exploren distintos terrenos duro es
+
+219
+00:09:14,190 --> 00:09:19,670
+importante que no se incline a más de 45
+
+220
+00:09:17,549 --> 00:09:22,649
+grados ya que podría perder estabilidad
+
+221
+00:09:19,669 --> 00:09:25,229
+este es un problema real que podemos
+
+222
+00:09:22,649 --> 00:09:27,509
+resolver con un sensor de orientación lo
+
+223
+00:09:25,230 --> 00:09:30,600
+que haremos es utilizar 2
+
+224
+00:09:27,509 --> 00:09:33,389
+y 27 son los que tienen el interruptor
+
+225
+00:09:30,600 --> 00:09:36,029
+de mercurio pero también incluyen un led
+
+226
+00:09:33,389 --> 00:09:38,759
+además este módulo tiene los terminales
+
+227
+00:09:36,029 --> 00:09:41,579
+de conexión del interruptor más largo
+
+228
+00:09:38,759 --> 00:09:44,519
+que el ca y 17 y eso nos permite ubicar
+
+229
+00:09:41,580 --> 00:09:46,200
+el sensor a distintos ángulos de forma
+
+230
+00:09:44,519 --> 00:09:48,929
+independiente del circuito impreso
+
+231
+00:09:46,200 --> 00:09:52,800
+colocaremos cada uno cerca de cada rueda
+
+232
+00:09:48,929 --> 00:09:55,349
+y con los sensores a 45 grados de esa
+
+233
+00:09:52,799 --> 00:09:58,889
+forma podemos determinar si alguna rueda
+
+234
+00:09:55,350 --> 00:10:01,170
+excede los 45 grados de ángulo respecto
+
+235
+00:09:58,889 --> 00:10:04,710
+de la otra el circuito para armar es el
+
+236
+00:10:01,169 --> 00:10:06,929
+siguiente muy simple un acá y 27 será el
+
+237
+00:10:04,710 --> 00:10:08,040
+de la rueda derecha y el otro el de la
+
+238
+00:10:06,929 --> 00:10:10,259
+rueda izquierda
+
+239
+00:10:08,039 --> 00:10:12,360
+el módulo se conecta como ya hicimos en
+
+240
+00:10:10,259 --> 00:10:14,850
+el anterior programa pero al incorporar
+
+241
+00:10:12,360 --> 00:10:18,350
+un led tendremos un pin más de conexión
+
+242
+00:10:14,850 --> 00:10:20,700
+y ya no utilizaremos un led externo
+
+243
+00:10:18,350 --> 00:10:23,639
+lamentablemente no pude conseguir la
+
+244
+00:10:20,700 --> 00:10:26,759
+librería del ca y 27 así que te estaré
+
+245
+00:10:23,639 --> 00:10:29,309
+mostrando el calle 17 con un led a su
+
+246
+00:10:26,759 --> 00:10:32,009
+lado y el cátodo del mismo conectado a
+
+247
+00:10:29,309 --> 00:10:35,159
+massa el pin con la designación
+
+248
+00:10:32,009 --> 00:10:39,059
+será el ánodo del led de esa forma
+
+249
+00:10:35,159 --> 00:10:42,779
+podemos representar a un k y 27 en base
+
+250
+00:10:39,059 --> 00:10:45,739
+a kaká y 17 el pin de la izquierda de
+
+251
+00:10:42,779 --> 00:10:49,860
+ambos módulos con la denominación g
+
+252
+00:10:45,740 --> 00:10:53,070
+amasa el pin con el símbolo de más al
+
+253
+00:10:49,860 --> 00:10:56,610
+positivo del riel de tensión del módulo
+
+254
+00:10:53,070 --> 00:10:59,220
+de la derecha del terminal s diremos con
+
+255
+00:10:56,610 --> 00:11:01,950
+un cable al pin digital número 2 de
+
+256
+00:10:59,220 --> 00:11:04,800
+arduino de ese mismo módulo desde el
+
+257
+00:11:01,950 --> 00:11:07,470
+terminal con la letra l que se le dé
+
+258
+00:11:04,799 --> 00:11:10,559
+integrado iremos con un cable directo al
+
+259
+00:11:07,470 --> 00:11:14,340
+pin digital 3-d arduino ahora del módulo
+
+260
+00:11:10,559 --> 00:11:18,479
+de la izquierda del pin s al pin digital
+
+261
+00:11:14,340 --> 00:11:21,420
+4 de arduino y del pin l al pin digital
+
+262
+00:11:18,480 --> 00:11:24,690
+5 de arduino y alimentamos protoboard
+
+263
+00:11:21,419 --> 00:11:26,610
+con 5 goltz y geniales como siempre para
+
+264
+00:11:24,690 --> 00:11:29,040
+este caso yo estaré colocando los
+
+265
+00:11:26,610 --> 00:11:31,289
+sensores sobre protoboard porque viene
+
+266
+00:11:29,039 --> 00:11:34,049
+bien que ambos estén sobre una misma
+
+267
+00:11:31,289 --> 00:11:35,938
+superficie plana luego ubicar el proto
+
+268
+00:11:34,049 --> 00:11:38,038
+board sobre la base del robo
+
+269
+00:11:35,938 --> 00:11:40,469
+por supuesto que esto es durante el
+
+270
+00:11:38,038 --> 00:11:43,019
+proceso de desarrollo luego los sensores
+
+271
+00:11:40,470 --> 00:11:45,809
+y jenson un circuito impreso hecho a
+
+272
+00:11:43,019 --> 00:11:48,239
+medida o sobre el propio vehículo veamos
+
+273
+00:11:45,808 --> 00:11:50,308
+el código que es muy simple haremos lo
+
+274
+00:11:48,239 --> 00:11:52,949
+mismo que el primer programa pero para
+
+275
+00:11:50,308 --> 00:11:55,038
+dos sensores como cada módulo tiene el
+
+276
+00:11:52,948 --> 00:11:57,238
+sensor de mercurio y un led
+
+277
+00:11:55,038 --> 00:12:00,028
+identificaremos a cada uno por su
+
+278
+00:11:57,239 --> 00:12:02,038
+ubicación física uno será el derecho y
+
+279
+00:12:00,028 --> 00:12:04,708
+otro el izquierdo definiremos las
+
+280
+00:12:02,038 --> 00:12:06,509
+variables que almacenan los pines a los
+
+281
+00:12:04,708 --> 00:12:09,868
+cuales están conectados los sensores
+
+282
+00:12:06,509 --> 00:12:14,329
+leds y dos variables para el valor leído
+
+283
+00:12:09,869 --> 00:12:18,220
+por cada módulo int sensor guión bajo
+
+284
+00:12:14,328 --> 00:12:25,870
+derecho igual 2
+
+285
+00:12:18,220 --> 00:12:29,050
+int le da derecho igual 3 copiar y pegar
+
+286
+00:12:25,870 --> 00:12:33,490
+este bloque y cambiar el derecho por
+
+287
+00:12:29,049 --> 00:12:36,539
+izquierdo el sensor al pin 4 y el led al
+
+288
+00:12:33,490 --> 00:12:36,539
+pin 5
+
+289
+00:12:41,860 --> 00:12:52,879
+int estado bajo derecho
+
+290
+00:12:47,269 --> 00:12:55,490
+int estado bajo izquierdo en el setup
+
+291
+00:12:52,879 --> 00:13:00,159
+cada sensor será establecido como
+
+292
+00:12:55,490 --> 00:13:00,159
+entrada y cada lente como salida
+
+293
+00:13:00,429 --> 00:13:08,239
+pin modo sensor guión bajo derecho
+
+294
+00:13:06,339 --> 00:13:11,950
+input
+
+295
+00:13:08,240 --> 00:13:16,450
+pink moon sensor
+
+296
+00:13:11,950 --> 00:13:20,509
+izquierdo input
+
+297
+00:13:16,450 --> 00:13:22,629
+led derecho
+
+298
+00:13:20,509 --> 00:13:29,710
+output
+
+299
+00:13:22,629 --> 00:13:31,720
+con el ojo izquierdo output
+
+300
+00:13:29,710 --> 00:13:33,910
+en el loop al igual que el primer
+
+301
+00:13:31,720 --> 00:13:37,180
+programa leeremos el valor de la entrada
+
+302
+00:13:33,909 --> 00:13:39,639
+digital de cada sensor la almacenamos y
+
+303
+00:13:37,179 --> 00:13:41,919
+luego escribimos con digital raid y una
+
+304
+00:13:39,639 --> 00:13:45,399
+pequeña demora para evitar el parpadeo
+
+305
+00:13:41,919 --> 00:13:50,949
+durante la transición de estado guión
+
+306
+00:13:45,399 --> 00:13:54,769
+bajo derecho igual digital ruido sensor
+
+307
+00:13:50,950 --> 00:13:57,430
+guión bajo derecho
+
+308
+00:13:54,769 --> 00:14:00,590
+line
+
+309
+00:13:57,429 --> 00:14:04,769
+bajo derecho
+
+310
+00:14:00,590 --> 00:14:08,339
+he estado bajo derecho
+
+311
+00:14:04,769 --> 00:14:11,938
+delay 100
+
+312
+00:14:08,339 --> 00:14:16,939
+estaré copiando todo este bloque pegando
+
+313
+00:14:11,938 --> 00:14:16,938
+y reemplazando derecho por izquierdo
+
+314
+00:14:23,419 --> 00:14:28,370
+y eso es todo vamos a verificar y subir
+
+315
+00:14:26,419 --> 00:14:30,949
+el programa
+
+316
+00:14:28,370 --> 00:14:33,379
+como podrás ver la protoboard si está
+
+317
+00:14:30,950 --> 00:14:35,990
+apoyada sobre el rover de manera de
+
+318
+00:14:33,379 --> 00:14:39,350
+tener un sensor a la misma altura de
+
+319
+00:14:35,990 --> 00:14:42,259
+cada rueda ahora en posición horizontal
+
+320
+00:14:39,350 --> 00:14:44,259
+los leds están apagados lo que haré es
+
+321
+00:14:42,259 --> 00:14:46,879
+comenzar a elevar la rueda izquierda
+
+322
+00:14:44,259 --> 00:14:50,330
+simulando el paso del vehículo por una
+
+323
+00:14:46,879 --> 00:14:53,570
+ladera cuando supere los 45 grados se
+
+324
+00:14:50,330 --> 00:14:56,660
+encenderán leds del módulo izquierdo muy
+
+325
+00:14:53,570 --> 00:14:59,089
+bien funciona correcto ahora lo mismo
+
+326
+00:14:56,659 --> 00:15:02,600
+pero del lado derecho al elevar la rueda
+
+327
+00:14:59,089 --> 00:15:05,900
+derecha a más de 45 grados se encienden
+
+328
+00:15:02,600 --> 00:15:08,028
+led del lado derecho en este caso sólo
+
+329
+00:15:05,899 --> 00:15:10,549
+encendemos el led pero la lógica de
+
+330
+00:15:08,028 --> 00:15:13,610
+programación vista serviría para por
+
+331
+00:15:10,549 --> 00:15:16,189
+ejemplo detener los motores de avance si
+
+332
+00:15:13,610 --> 00:15:18,620
+se detecta dicha inclinación también se
+
+333
+00:15:16,190 --> 00:15:20,900
+podría emitir una advertencia sonora con
+
+334
+00:15:18,620 --> 00:15:23,690
+un va a ser o si tenemos un módulo
+
+335
+00:15:20,899 --> 00:15:26,120
+bluetooth enviar información indicando
+
+336
+00:15:23,690 --> 00:15:28,220
+de dicha situación acabamos de ver un
+
+337
+00:15:26,120 --> 00:15:30,320
+ejemplo práctico de la utilización de
+
+338
+00:15:28,220 --> 00:15:33,820
+este tipo de sensor y como decía al
+
+339
+00:15:30,320 --> 00:15:36,640
+principio puede que parezca poco útil
+
+340
+00:15:33,820 --> 00:15:38,920
+pero luego vemos que su simplicidad lo
+
+341
+00:15:36,639 --> 00:15:41,409
+hace también muy flexible a la hora de
+
+342
+00:15:38,919 --> 00:15:44,019
+incorporarlo en objetos estáticos o en
+
+343
+00:15:41,409 --> 00:15:47,169
+movimiento eso es todo por este capítulo
+
+344
+00:15:44,019 --> 00:15:49,689
+en el próximo estaremos viendo cómo
+
+345
+00:15:47,169 --> 00:15:52,000
+utilizar un módulo sensor de vibración
+
+346
+00:15:49,690 --> 00:15:54,970
+el cual también es muy simple en su
+
+347
+00:15:52,000 --> 00:15:57,669
+funcionamiento lo resulta muy útil en
+
+348
+00:15:54,970 --> 00:15:59,710
+gran variedad de proyectos como siempre
+
+349
+00:15:57,669 --> 00:16:01,839
+te pido te suscribas para recibir
+
+350
+00:15:59,710 --> 00:16:04,360
+notificaciones y por cualquier duda o
+
+351
+00:16:01,840 --> 00:16:07,420
+comentario lo puedes hacer debajo que
+
+352
+00:16:04,360 --> 00:16:09,629
+con gusto te responderé chao y hasta la
+
+353
+00:16:07,419 --> 00:16:09,629
+próxima
+

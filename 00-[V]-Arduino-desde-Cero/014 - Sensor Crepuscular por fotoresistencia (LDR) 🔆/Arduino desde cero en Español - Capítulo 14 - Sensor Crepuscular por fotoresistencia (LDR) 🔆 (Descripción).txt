@@ -1,0 +1,30 @@
+El sensor crepuscular por fotoresistencia (LDR) módulo KY-018 permite tomar distintas acciones con Arduino en función de la intensidad de luz captada.
+Un sensor ampliamente usado para encender una luz cuando es de noche, nosotros lo emularemos con un LED y veremos como convertir los valores leídos de la entrada analógica de Arduino para modificar el brillo del LED usando PWM.
+
+Ademas del módulo KY-018 se explica como utilizar una fotoresistencia por separado para lograr el mismo comportamiento que el módulo y la función ampliamente usada map() para la conversión de rangos de valores.
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+#ArduinoLDR
+#ArduinoCrepuscular
+#ArduinoKit37en1
+#ArduinoMap
+#ArduinoPrimerosPasosDesde0
+#ArduinoDuskSensor
+#ArduinoSensorOscuridad
+Fotocelula
+Foto resistor
+Light dependant
+Arduino ldr sensor + led tutorial
+Photoresistor
+Funcion map en arduino
+
+
+Marcas de tiempo:
+0:00 Introducción y concepto
+6:06 Circuito de conexión
+9:00 Primer programa (interruptor crepuscular)
+12:21 Segundo programa (usando la función map y PWM)
+17:28 Tercer programa (más experiencias con map y PWM)

@@ -1,0 +1,1672 @@
+1
+00:00:01,330 --> 00:00:08,050
+hola a todos y bienvenidos al capítulo
+
+2
+00:00:04,419 --> 00:00:10,300
+14 de arduino desde cero en español en
+
+3
+00:00:08,050 --> 00:00:12,969
+esta oportunidad vamos a utilizar un
+
+4
+00:00:10,300 --> 00:00:16,089
+módulo de sensor crepuscular por foto
+
+5
+00:00:12,968 --> 00:00:18,608
+resistencia o ldr por sus siglas en
+
+6
+00:00:16,089 --> 00:00:20,890
+inglés el funcionamiento es muy simple y
+
+7
+00:00:18,609 --> 00:00:22,990
+nos servirá para detectar el nivel de
+
+8
+00:00:20,890 --> 00:00:25,990
+luz ambiente y en función del mismo
+
+9
+00:00:22,989 --> 00:00:28,689
+tomar decisiones por ejemplo si está
+
+10
+00:00:25,989 --> 00:00:29,858
+oscuro que encienda una luz en la parte
+
+11
+00:00:28,689 --> 00:00:33,159
+izquierda de la pantalla
+
+12
+00:00:29,859 --> 00:00:36,490
+vemos el módulo denominado calle 18 que
+
+13
+00:00:33,159 --> 00:00:38,500
+forma parte del kit 37 en 1 sobre el
+
+14
+00:00:36,490 --> 00:00:40,810
+circuito impreso tendremos una
+
+15
+00:00:38,500 --> 00:00:44,769
+resistencia variable por luz también
+
+16
+00:00:40,810 --> 00:00:47,440
+llamada foto resistencia o ldr en serie
+
+17
+00:00:44,770 --> 00:00:49,690
+con una resistencia de valor fijo 3
+
+18
+00:00:47,439 --> 00:00:52,299
+pines de conexión nos permitirán
+
+19
+00:00:49,689 --> 00:00:54,429
+alimentar el módulo y obtener un valor
+
+20
+00:00:52,299 --> 00:00:56,829
+analógico de tensión que será
+
+21
+00:00:54,429 --> 00:00:59,740
+proporcional a la luz que incide en la
+
+22
+00:00:56,829 --> 00:01:02,109
+foto resistencia luego nosotros le
+
+23
+00:00:59,740 --> 00:01:04,838
+iremos dicho valor para tomar una acción
+
+24
+00:01:02,109 --> 00:01:05,590
+veamos aquí el circuito eléctrico del
+
+25
+00:01:04,838 --> 00:01:08,280
+sensor
+
+26
+00:01:05,590 --> 00:01:11,259
+son dos componentes dos resistencias
+
+27
+00:01:08,280 --> 00:01:14,259
+conectadas en serie siendo una de ellas
+
+28
+00:01:11,259 --> 00:01:17,259
+la foto resistencia probablemente ya
+
+29
+00:01:14,259 --> 00:01:20,019
+sepas cómo se representa una resistencia
+
+30
+00:01:17,259 --> 00:01:23,049
+en un diagrama eléctrico o esquemático
+
+31
+00:01:20,019 --> 00:01:25,840
+es este de la foto resistencia tiene un
+
+32
+00:01:23,049 --> 00:01:28,539
+símbolo muy similar ya que se trata
+
+33
+00:01:25,840 --> 00:01:30,850
+básicamente de una resistencia pero la
+
+34
+00:01:28,539 --> 00:01:33,269
+misma se encuentra dentro de una
+
+35
+00:01:30,849 --> 00:01:36,489
+circunferencia con dos flechas
+
+36
+00:01:33,269 --> 00:01:38,769
+apuntándole esto indica justamente que
+
+37
+00:01:36,489 --> 00:01:41,708
+no se trata de una resistencia común de
+
+38
+00:01:38,769 --> 00:01:44,500
+valor fijo sino de una resistencia cuyo
+
+39
+00:01:41,709 --> 00:01:46,780
+valor variará en función de la cantidad
+
+40
+00:01:44,500 --> 00:01:48,700
+de luz que incida sobre ella la
+
+41
+00:01:46,780 --> 00:01:51,700
+alimentación se realiza mediante los
+
+42
+00:01:48,700 --> 00:01:54,759
+extremos de las dos resistencias y desde
+
+43
+00:01:51,700 --> 00:01:57,459
+el punto medio denominado con la letra s
+
+44
+00:01:54,759 --> 00:01:59,978
+tendremos la salida que nos brindará un
+
+45
+00:01:57,459 --> 00:02:02,739
+valor de tensión proporcional a la luz
+
+46
+00:01:59,978 --> 00:02:05,228
+que reciba el sensor es importante saber
+
+47
+00:02:02,739 --> 00:02:07,750
+cómo es la relación de la luz y el valor
+
+48
+00:02:05,228 --> 00:02:09,599
+de la foto resistencia para eso veamos
+
+49
+00:02:07,750 --> 00:02:11,669
+la siguiente tabla
+
+50
+00:02:09,599 --> 00:02:15,090
+simplificar tendremos dos estados
+
+51
+00:02:11,669 --> 00:02:17,609
+posibles día y noche para ejemplificar
+
+52
+00:02:15,090 --> 00:02:20,520
+los distintos niveles de intensidad de
+
+53
+00:02:17,610 --> 00:02:23,100
+luz que pueda recibir si comenzamos con
+
+54
+00:02:20,520 --> 00:02:25,740
+la fila correspondiente a día vemos que
+
+55
+00:02:23,099 --> 00:02:28,049
+la cantidad de luz será alta pensemos
+
+56
+00:02:25,740 --> 00:02:31,080
+que estamos en el exterior y tenemos al
+
+57
+00:02:28,050 --> 00:02:33,689
+sensor bajo la luz del sol evidentemente
+
+58
+00:02:31,080 --> 00:02:35,910
+la cantidad de luz que recibe es elevada
+
+59
+00:02:33,689 --> 00:02:39,509
+ahora veamos el valor de la resistencia
+
+60
+00:02:35,909 --> 00:02:43,109
+para dicho caso es bajo es decir que la
+
+61
+00:02:39,509 --> 00:02:45,569
+foto de resistencia o ldr asume un valor
+
+62
+00:02:43,110 --> 00:02:48,990
+de resistencia abajo cuando la cantidad
+
+63
+00:02:45,569 --> 00:02:51,840
+de luz es alta veamos el ejemplo opuesto
+
+64
+00:02:48,990 --> 00:02:54,629
+si es de noche la cantidad de luz será
+
+65
+00:02:51,840 --> 00:02:58,379
+baja el valor de resistencia que asumirá
+
+66
+00:02:54,629 --> 00:03:01,259
+la foto resistencia es alto exactamente
+
+67
+00:02:58,379 --> 00:03:03,240
+lo opuesto al caso de luz de día lo que
+
+68
+00:03:01,259 --> 00:03:05,780
+queda claro es que el valor de la foto
+
+69
+00:03:03,240 --> 00:03:09,090
+resistencia es inversamente proporcional
+
+70
+00:03:05,780 --> 00:03:09,629
+a la luz que incide en ella con mucha
+
+71
+00:03:09,090 --> 00:03:12,450
+luz
+
+72
+00:03:09,629 --> 00:03:14,469
+la resistencia es baja con poca luz la
+
+73
+00:03:12,449 --> 00:03:17,589
+resistencia es alta
+
+74
+00:03:14,469 --> 00:03:19,960
+eso era importante entenderlo para ahora
+
+75
+00:03:17,590 --> 00:03:22,810
+volver al circuito eléctrico de conexión
+
+76
+00:03:19,960 --> 00:03:25,450
+dijimos que aplicamos tensión entre los
+
+77
+00:03:22,810 --> 00:03:28,210
+extremos de las dos resistencias y desde
+
+78
+00:03:25,449 --> 00:03:30,209
+el punto medio obtendremos una tensión
+
+79
+00:03:28,210 --> 00:03:33,219
+proporcional por unos instantes
+
+80
+00:03:30,210 --> 00:03:36,219
+olvidemos la resistencia fija del yesca
+
+81
+00:03:33,219 --> 00:03:39,069
+y el extremo negativo imaginemos que el
+
+82
+00:03:36,219 --> 00:03:42,099
+circuito es solo el polo positivo de 5
+
+83
+00:03:39,069 --> 00:03:44,799
+volts la foto resistencia y el terminal
+
+84
+00:03:42,099 --> 00:03:47,289
+s ya vimos que el valor que asume la
+
+85
+00:03:44,800 --> 00:03:49,570
+resistencia en función de la luz es
+
+86
+00:03:47,289 --> 00:03:52,299
+inversamente proporcional a la misma
+
+87
+00:03:49,569 --> 00:03:54,939
+pero lo que en realidad nos interesa es
+
+88
+00:03:52,300 --> 00:03:58,360
+saber qué niveles de tensión tendremos
+
+89
+00:03:54,939 --> 00:04:00,939
+en el punto es que luego conectaremos a
+
+90
+00:03:58,360 --> 00:04:03,459
+una entrada analógica de arduino hagamos
+
+91
+00:04:00,939 --> 00:04:06,550
+nuevamente el ejercicio de asumir que es
+
+92
+00:04:03,459 --> 00:04:09,400
+de día el valor de luz es alto el valor
+
+93
+00:04:06,550 --> 00:04:12,430
+de resistencia es bajo con lo cual si
+
+94
+00:04:09,400 --> 00:04:15,039
+tenemos 5 volts en un extremo de la foto
+
+95
+00:04:12,430 --> 00:04:17,798
+resistencia y la misma tiene un valor de
+
+96
+00:04:15,039 --> 00:04:19,180
+resistencia abajo qué valor tendremos en
+
+97
+00:04:17,798 --> 00:04:22,179
+el terminal s
+
+98
+00:04:19,180 --> 00:04:24,728
+bueno prácticamente los mismos cinco
+
+99
+00:04:22,180 --> 00:04:27,430
+goles que le aplicamos los cinco bots
+
+100
+00:04:24,728 --> 00:04:30,819
+pasando por una resistencia con un valor
+
+101
+00:04:27,430 --> 00:04:33,759
+muy bajo genera una muy pequeña caída de
+
+102
+00:04:30,819 --> 00:04:37,629
+tensión con lo cual tendremos casi 5
+
+103
+00:04:33,759 --> 00:04:40,538
+volts perfecto ahora el caso opuesto es
+
+104
+00:04:37,629 --> 00:04:43,389
+de noche la luz es baja el valor que
+
+105
+00:04:40,538 --> 00:04:46,240
+asume la foto resistencia es muy elevado
+
+106
+00:04:43,389 --> 00:04:48,668
+qué pasa entonces con esos 5 volts al
+
+107
+00:04:46,240 --> 00:04:52,000
+pasar por una resistencia de muy alto
+
+108
+00:04:48,668 --> 00:04:55,240
+valor la tensión en el terminal s
+
+109
+00:04:52,000 --> 00:04:57,339
+será muy baja tendiendo a cero este
+
+110
+00:04:55,240 --> 00:04:59,199
+ejercicio es para que veas que si bien
+
+111
+00:04:57,339 --> 00:05:01,989
+la foto resistencia tiene un
+
+112
+00:04:59,199 --> 00:05:05,050
+comportamiento inversamente proporcional
+
+113
+00:05:01,990 --> 00:05:08,228
+a la luz la configuración de la foto
+
+114
+00:05:05,050 --> 00:05:11,560
+resistencia con la resistencia de 10k en
+
+115
+00:05:08,228 --> 00:05:13,560
+serie y alimentando sus extremos ahora
+
+116
+00:05:11,560 --> 00:05:16,899
+la atención es directamente proporcional
+
+117
+00:05:13,560 --> 00:05:19,000
+a la luz cuando la luz sea intensa
+
+118
+00:05:16,899 --> 00:05:21,848
+tendremos un valor alto de tensión
+
+119
+00:05:19,000 --> 00:05:24,839
+cercano a los 5 volts cuando la luz sea
+
+120
+00:05:21,848 --> 00:05:27,990
+muy tenue tendremos un valor cercano
+
+121
+00:05:24,839 --> 00:05:30,239
+a los 0 balls como el terminal y si lo
+
+122
+00:05:27,990 --> 00:05:32,759
+conectaremos a una entrada analógica de
+
+123
+00:05:30,240 --> 00:05:35,610
+arduino y como ya sabrás toda entrada
+
+124
+00:05:32,759 --> 00:05:41,240
+analógica nos brinda valores entre 0 y
+
+125
+00:05:35,610 --> 00:05:43,430
+1000 23 100 200 volts y 1.023 5volts
+
+126
+00:05:41,240 --> 00:05:46,710
+entonces cuando desde la programación
+
+127
+00:05:43,430 --> 00:05:49,290
+obtengamos un valor bajo leído de la
+
+128
+00:05:46,709 --> 00:05:51,750
+entrada analógica sabremos que hay poca
+
+129
+00:05:49,290 --> 00:05:54,600
+luz cuando el valor leído sea alto
+
+130
+00:05:51,750 --> 00:05:57,029
+entonces la luz será intensa es decir
+
+131
+00:05:54,600 --> 00:05:59,300
+que es directamente proporcional cuando
+
+132
+00:05:57,029 --> 00:06:02,250
+veamos en la práctica el funcionamiento
+
+133
+00:05:59,300 --> 00:06:04,710
+terminarás de fijar el concepto no te
+
+134
+00:06:02,250 --> 00:06:07,918
+preocupes primero vamos al circuito de
+
+135
+00:06:04,709 --> 00:06:10,259
+conexión para luego pasar al código que
+
+136
+00:06:07,918 --> 00:06:13,139
+estaré mostrando cómo conectar el módulo
+
+137
+00:06:10,259 --> 00:06:15,389
+calle 18 y también cómo hacer nuestro
+
+138
+00:06:13,139 --> 00:06:18,180
+propio módulo con componentes por
+
+139
+00:06:15,389 --> 00:06:21,538
+separado ya que quizás no consigas el
+
+140
+00:06:18,180 --> 00:06:24,090
+módulo pero si una foto resistencia que
+
+141
+00:06:21,538 --> 00:06:26,579
+es de muy bajo costo y con solo agregar
+
+142
+00:06:24,089 --> 00:06:28,739
+una resistencia de 10 k tenemos un
+
+143
+00:06:26,579 --> 00:06:30,159
+perfecto reemplazo vamos a conectar
+
+144
+00:06:28,740 --> 00:06:32,050
+primero un led
+
+145
+00:06:30,160 --> 00:06:34,360
+y lo usaremos luego en distintos
+
+146
+00:06:32,050 --> 00:06:38,020
+programas lo conectaremos como es usual
+
+147
+00:06:34,360 --> 00:06:41,290
+el cátodo a masa del ánodo mediante una
+
+148
+00:06:38,019 --> 00:06:43,240
+resistencia de 330 oms al pin digital
+
+149
+00:06:41,290 --> 00:06:45,910
+número 3 de arduino
+
+150
+00:06:43,240 --> 00:06:48,819
+si estás viendo este capítulo y no sabes
+
+151
+00:06:45,910 --> 00:06:51,340
+cómo identificar ánodo y cátodo de un
+
+152
+00:06:48,819 --> 00:06:54,310
+led te recomiendo ver el capítulo 3
+
+153
+00:06:51,339 --> 00:06:57,429
+donde se explica en detalle muy bien led
+
+154
+00:06:54,310 --> 00:07:00,280
+conectado vamos al módulo conectemos el
+
+155
+00:06:57,430 --> 00:07:02,650
+que hay 18 deseo aclarar que este módulo
+
+156
+00:07:00,279 --> 00:07:04,509
+suele venir de fábrica con un error en
+
+157
+00:07:02,649 --> 00:07:06,849
+la indicación de los pines en el
+
+158
+00:07:04,509 --> 00:07:09,730
+circuito impreso lamentablemente es
+
+159
+00:07:06,850 --> 00:07:12,520
+usual en el kit 37 en uno que las
+
+160
+00:07:09,730 --> 00:07:15,250
+indicaciones no sean las correctas en mi
+
+161
+00:07:12,519 --> 00:07:17,259
+caso la indicación correcta debería ser
+
+162
+00:07:15,250 --> 00:07:20,050
+como se muestra aquí el pin de la
+
+163
+00:07:17,259 --> 00:07:23,769
+izquierda es el positivo el central es
+
+164
+00:07:20,050 --> 00:07:27,220
+massa y el de la derecha la salida o pin
+
+165
+00:07:23,769 --> 00:07:29,349
+denominado s es importante que verifique
+
+166
+00:07:27,220 --> 00:07:32,920
+si en tu caso si la indicación es
+
+167
+00:07:29,350 --> 00:07:35,420
+correcta o no como emilio la mejor forma
+
+168
+00:07:32,920 --> 00:07:38,480
+es que si dispones de un
+
+169
+00:07:35,420 --> 00:07:41,629
+un multímetro colocando el selector para
+
+170
+00:07:38,480 --> 00:07:44,420
+medir resistencia unidas entre dos pines
+
+171
+00:07:41,629 --> 00:07:46,759
+cuando obtengas un valor de 10 k ya
+
+172
+00:07:44,420 --> 00:07:50,360
+sabrás que se tratan de los terminales
+
+173
+00:07:46,759 --> 00:07:52,819
+de masa y s si quieres también puedes
+
+174
+00:07:50,360 --> 00:07:56,150
+probar la resistencia entre el positivo
+
+175
+00:07:52,819 --> 00:07:58,339
+y el terminal s y verás un valor que
+
+176
+00:07:56,149 --> 00:08:00,349
+variará en función de la luz
+
+177
+00:07:58,339 --> 00:08:02,779
+dicho eso conectaremos el módulo
+
+178
+00:08:00,350 --> 00:08:05,750
+mediante el pin de la izquierda al
+
+179
+00:08:02,779 --> 00:08:08,659
+positivo del riel de tensión el pin del
+
+180
+00:08:05,750 --> 00:08:11,839
+medio a massa y el de la derecha con un
+
+181
+00:08:08,660 --> 00:08:14,780
+cable directo a la entrada analógica a 0
+
+182
+00:08:11,839 --> 00:08:17,449
+de arduino y eso sería todo con respecto
+
+183
+00:08:14,779 --> 00:08:19,819
+al módulo aquí sobre la derecha arme el
+
+184
+00:08:17,449 --> 00:08:22,610
+circuito si vas a usar una foto
+
+185
+00:08:19,819 --> 00:08:25,159
+resistencia por separado solo basta con
+
+186
+00:08:22,610 --> 00:08:27,800
+conectar la foto resistencia que aquí
+
+187
+00:08:25,160 --> 00:08:31,010
+señaló en serie con una resistencia de
+
+188
+00:08:27,800 --> 00:08:34,850
+10 k cuyas bandas de colores son marrón
+
+189
+00:08:31,009 --> 00:08:37,840
+negro naranja el extremo izquierdo al
+
+190
+00:08:34,850 --> 00:08:40,899
+positivo y el extremo derecho
+
+191
+00:08:37,840 --> 00:08:43,840
+del centro iremos con un cable a la
+
+192
+00:08:40,899 --> 00:08:46,299
+entrada a 0 de arduino que estaré usando
+
+193
+00:08:43,840 --> 00:08:49,120
+el módulo pero como verás es muy fácil
+
+194
+00:08:46,299 --> 00:08:51,039
+armar lo con los componentes sueltos
+
+195
+00:08:49,120 --> 00:08:54,549
+de esa manera cubrimos las dos
+
+196
+00:08:51,039 --> 00:08:57,490
+posibilidades con o sin módulo muy bien
+
+197
+00:08:54,549 --> 00:09:00,219
+al código entonces haremos una serie de
+
+198
+00:08:57,490 --> 00:09:03,190
+programas simples para ver cómo un mismo
+
+199
+00:09:00,220 --> 00:09:05,860
+circuito se puede utilizar para lograr
+
+200
+00:09:03,190 --> 00:09:08,680
+distintos comportamientos en este primer
+
+201
+00:09:05,860 --> 00:09:11,230
+programa haremos lo clásico encender un
+
+202
+00:09:08,679 --> 00:09:13,359
+led cuando es de noche o está oscuro
+
+203
+00:09:11,230 --> 00:09:16,000
+para ello primero definiremos las
+
+204
+00:09:13,360 --> 00:09:18,580
+variables que representarán a los pines
+
+205
+00:09:16,000 --> 00:09:21,429
+a los cuales tenemos conectados tanto el
+
+206
+00:09:18,580 --> 00:09:24,009
+sensor como el led y una variable de
+
+207
+00:09:21,429 --> 00:09:32,179
+estado para almacenar el valor de la
+
+208
+00:09:24,009 --> 00:09:39,019
+entrada analógica int sensor igual 0 int
+
+209
+00:09:32,179 --> 00:09:42,079
+le da igual 3 int valor ahora en el
+
+210
+00:09:39,019 --> 00:09:45,350
+setup solo estabilizaremos al led como
+
+211
+00:09:42,080 --> 00:09:48,200
+salida y dejaremos el comentario de que
+
+212
+00:09:45,350 --> 00:09:50,509
+las entradas analógicas no requieren ser
+
+213
+00:09:48,200 --> 00:09:55,028
+definidas como entradas ya que ese
+
+214
+00:09:50,509 --> 00:09:59,149
+proceso es por defecto pin modo led
+
+215
+00:09:55,028 --> 00:10:01,549
+output ahora en el loop leeremos el
+
+216
+00:09:59,149 --> 00:10:04,250
+valor de la entrada analógica y
+
+217
+00:10:01,549 --> 00:10:07,069
+consultaremos con un if he dicho valor
+
+218
+00:10:04,250 --> 00:10:10,159
+es menor a 200 si es así
+
+219
+00:10:07,070 --> 00:10:12,528
+encendemos el led y el valor de 200 es
+
+220
+00:10:10,159 --> 00:10:15,350
+un promedio recordad que un valor bajo
+
+221
+00:10:12,528 --> 00:10:18,439
+significa poca luz y que una entrada
+
+222
+00:10:15,350 --> 00:10:21,920
+analógica puede sumir valores entre 0 y
+
+223
+00:10:18,440 --> 00:10:27,339
+1000 23 con lo cual 200 es un valor
+
+224
+00:10:21,919 --> 00:10:30,338
+bastante bajo valor igual analog reel
+
+225
+00:10:27,339 --> 00:10:30,339
+sensor
+
+226
+00:10:30,490 --> 00:10:41,278
+un valor menor a 200
+
+227
+00:10:35,289 --> 00:10:41,278
+abrimos llaves digital raid led
+
+228
+00:10:41,820 --> 00:10:50,610
+delay milk y por fuera de leaf
+
+229
+00:10:46,009 --> 00:10:54,450
+colocaremos digital right
+
+230
+00:10:50,610 --> 00:10:56,940
+lo estaremos apagando el led por fuera
+
+231
+00:10:54,450 --> 00:11:00,209
+del eve de manera que siempre esté el
+
+232
+00:10:56,940 --> 00:11:02,700
+led apagado y solo se encienda cuando la
+
+233
+00:11:00,208 --> 00:11:04,889
+luz tenga poca intensidad luego de
+
+234
+00:11:02,700 --> 00:11:08,009
+encender el led hay una demora de un
+
+235
+00:11:04,889 --> 00:11:10,919
+segundo eso es porque si la luz va
+
+236
+00:11:08,009 --> 00:11:13,049
+bajando de intensidad muy lentamente no
+
+237
+00:11:10,919 --> 00:11:15,539
+queremos que el led parpadee y hasta
+
+238
+00:11:13,049 --> 00:11:18,208
+encenderse por completo si encuentras
+
+239
+00:11:15,539 --> 00:11:19,528
+que por ejemplo el led enciende aún con
+
+240
+00:11:18,208 --> 00:11:21,838
+mucha luz
+
+241
+00:11:19,528 --> 00:11:25,110
+podéis colocar un número más bajo por
+
+242
+00:11:21,839 --> 00:11:27,779
+ejemplo 100 y así tendrá que estar más
+
+243
+00:11:25,110 --> 00:11:30,839
+oscuro para que encienda lo mismo que si
+
+244
+00:11:27,778 --> 00:11:34,110
+deseas que le encienda apenas esté
+
+245
+00:11:30,839 --> 00:11:37,560
+oscuro puede subir dicho número a 300
+
+246
+00:11:34,110 --> 00:11:39,550
+vamos entonces a verificar y subir el
+
+247
+00:11:37,559 --> 00:11:43,509
+programa
+
+248
+00:11:39,549 --> 00:11:46,389
+yo he colocado un divisor entre el led y
+
+249
+00:11:43,509 --> 00:11:49,000
+el módulo sensor de manera que no haya
+
+250
+00:11:46,389 --> 00:11:52,028
+contaminación de luz entre ambos en este
+
+251
+00:11:49,000 --> 00:11:55,330
+momento tengo una iluminación más bien
+
+252
+00:11:52,028 --> 00:11:57,450
+tenue como verás el lead está apagado lo
+
+253
+00:11:55,330 --> 00:12:00,009
+que haré es ir acercando la mano
+
+254
+00:11:57,450 --> 00:12:02,589
+lentamente al sensor de manera de
+
+255
+00:12:00,009 --> 00:12:06,019
+generar sombra hasta que llegue a un
+
+256
+00:12:02,589 --> 00:12:08,869
+nivel de oscuridad que encienda el led
+
+257
+00:12:06,019 --> 00:12:12,259
+si ahora quito la mano y dejó que el
+
+258
+00:12:08,869 --> 00:12:15,709
+photo resistor vuelva a recibir luz el
+
+259
+00:12:12,259 --> 00:12:17,749
+led se apagará genial eso no fue tan
+
+260
+00:12:15,708 --> 00:12:20,289
+difícil verdad espero que ahora
+
+261
+00:12:17,749 --> 00:12:22,790
+comprendas lo que decíamos al principio
+
+262
+00:12:20,289 --> 00:12:26,298
+respecto a que si bien el valor de
+
+263
+00:12:22,789 --> 00:12:28,998
+resistencia de la foto resistencia era
+
+264
+00:12:26,298 --> 00:12:31,068
+inversamente proporcional a la luz una
+
+265
+00:12:28,999 --> 00:12:33,409
+vez que la conecta vamos en serie con
+
+266
+00:12:31,068 --> 00:12:36,458
+otra resistencia y alimentábamos
+
+267
+00:12:33,409 --> 00:12:39,048
+lográbamos que pasara a una condición
+
+268
+00:12:36,458 --> 00:12:42,078
+directamente proporcional con el if
+
+269
+00:12:39,048 --> 00:12:44,958
+consultamos con un valor de 200 es un
+
+270
+00:12:42,078 --> 00:12:47,988
+valor bajo para saber si tenemos baja
+
+271
+00:12:44,958 --> 00:12:50,298
+luminosidad por cierto este sistema se
+
+272
+00:12:47,989 --> 00:12:53,269
+utiliza en los autos que tienen el
+
+273
+00:12:50,298 --> 00:12:56,208
+sistema de luces bajas automáticas
+
+274
+00:12:53,269 --> 00:12:59,928
+cuando es de noche hagamos otro programa
+
+275
+00:12:56,208 --> 00:13:02,568
+esta vez usaremos la capacidad wm del
+
+276
+00:12:59,928 --> 00:13:05,389
+pin digital 3 para variar el brillo del
+
+277
+00:13:02,568 --> 00:13:07,188
+led de forma continua en función de la
+
+278
+00:13:05,389 --> 00:13:10,068
+intensidad de luz captada
+
+279
+00:13:07,188 --> 00:13:12,409
+lo que queremos es que a menor luz se
+
+280
+00:13:10,068 --> 00:13:15,740
+incremente el brillo del leds
+
+281
+00:13:12,409 --> 00:13:18,549
+mayor luz baje el brillo del led con
+
+282
+00:13:15,740 --> 00:13:21,169
+solo dos líneas de código lo lograremos
+
+283
+00:13:18,549 --> 00:13:24,078
+utilizaremos las mismas variables y
+
+284
+00:13:21,169 --> 00:13:26,750
+función setup ya que nuestro circuito no
+
+285
+00:13:24,078 --> 00:13:29,328
+cambio borremos del look todo menos la
+
+286
+00:13:26,750 --> 00:13:34,600
+primer línea escribamos los siguientes
+
+287
+00:13:29,328 --> 00:13:48,289
+que luego lo explico wv m igual map
+
+288
+00:13:34,600 --> 00:13:50,959
+valor 0 mil 23 255 0 analog write led wm
+
+289
+00:13:48,289 --> 00:13:53,269
+ahora que veo pie w m no la hemos
+
+290
+00:13:50,958 --> 00:13:56,078
+declarado volvamos rápidamente al
+
+291
+00:13:53,269 --> 00:13:57,889
+principio y debajo de la variable valor
+
+292
+00:13:56,078 --> 00:14:01,729
+escribamos int
+
+293
+00:13:57,889 --> 00:14:04,159
+wv m ahora si la función map ya la
+
+294
+00:14:01,730 --> 00:14:06,649
+usamos con anterioridad y nos sirve para
+
+295
+00:14:04,159 --> 00:14:09,230
+convertir un determinado rango de
+
+296
+00:14:06,649 --> 00:14:12,379
+valores a otro rango como la entrada
+
+297
+00:14:09,230 --> 00:14:16,220
+analógica nos devuelve valores entre 0 y
+
+298
+00:14:12,379 --> 00:14:17,930
+1000 23 pero la salida de w m sólo
+
+299
+00:14:16,220 --> 00:14:21,680
+acepta valores en 3
+
+300
+00:14:17,929 --> 00:14:24,649
+y 255 debemos compatibilizar los los
+
+301
+00:14:21,679 --> 00:14:28,429
+valores y maps se encarga de ello vimos
+
+302
+00:14:24,649 --> 00:14:31,000
+p w m y la función map en detalle en el
+
+303
+00:14:28,429 --> 00:14:33,889
+capítulo 4 nosotros estaremos
+
+304
+00:14:31,000 --> 00:14:36,889
+alimentando el valor leído de la entrada
+
+305
+00:14:33,889 --> 00:14:39,049
+analógica directamente al led pero en
+
+306
+00:14:36,889 --> 00:14:42,350
+realidad no nos sirve de esa manera
+
+307
+00:14:39,049 --> 00:14:44,929
+veamos el motivo si el sensor capta poca
+
+308
+00:14:42,350 --> 00:14:47,959
+luz tendremos un valor bajo en la
+
+309
+00:14:44,929 --> 00:14:50,599
+entrada analógica si ese mismo valor lo
+
+310
+00:14:47,958 --> 00:14:53,239
+aplicamos al brillo del led entonces
+
+311
+00:14:50,600 --> 00:14:55,790
+tendremos poco brillo con poca luz
+
+312
+00:14:53,240 --> 00:14:59,389
+nosotros queremos lo opuesto que con
+
+313
+00:14:55,789 --> 00:15:01,309
+poca luz el brillo sea mayor y viceversa
+
+314
+00:14:59,389 --> 00:15:04,189
+por eso es que los dos últimos
+
+315
+00:15:01,309 --> 00:15:08,419
+parámetros del map colocamos de forma
+
+316
+00:15:04,190 --> 00:15:11,450
+invertida primero el 255 y después el 0
+
+317
+00:15:08,419 --> 00:15:13,879
+con la función map tal cual estamos
+
+318
+00:15:11,450 --> 00:15:17,120
+diciendo lo siguiente cuando el valor de
+
+319
+00:15:13,879 --> 00:15:20,480
+entrada sea 0 quiero que lo conviertas a
+
+320
+00:15:17,120 --> 00:15:24,019
+un valor de 255 cuando el valor de
+
+321
+00:15:20,480 --> 00:15:26,329
+entrada sea mil 23 quiero que lo convida
+
+322
+00:15:24,019 --> 00:15:28,698
+a 0 y así con todos los valores
+
+323
+00:15:26,328 --> 00:15:34,789
+intermedios es decir que además de
+
+324
+00:15:28,698 --> 00:15:37,338
+cambiar el rango de 0 1.023 a 0 2 255 lo
+
+325
+00:15:34,789 --> 00:15:40,879
+estamos invirtiendo supongamos que hay
+
+326
+00:15:37,339 --> 00:15:44,149
+cero nivel de luz total oscuridad leemos
+
+327
+00:15:40,879 --> 00:15:47,259
+en la entrada analógica arduino 10 con
+
+328
+00:15:44,149 --> 00:15:51,139
+map le decimos que lo convierta en un
+
+329
+00:15:47,259 --> 00:15:54,230
+255 y luego con análogo write escribimos
+
+330
+00:15:51,139 --> 00:15:56,869
+dicho valor al led 1 255 al led
+
+331
+00:15:54,230 --> 00:15:59,360
+significa brillo máximo lo cual es
+
+332
+00:15:56,869 --> 00:16:01,879
+correcto en ausencia de luz quiere un
+
+333
+00:15:59,360 --> 00:16:04,759
+brillo máximo ahora lo opuesto
+
+334
+00:16:01,879 --> 00:16:08,239
+el sensor recibe una gran cantidad de
+
+335
+00:16:04,759 --> 00:16:10,699
+luz leemos un 1.023 con map le decimos
+
+336
+00:16:08,239 --> 00:16:14,028
+que lo convierte en un 0 y luego lo
+
+337
+00:16:10,698 --> 00:16:16,639
+escribimos en el led brilló 0 es apagado
+
+338
+00:16:14,028 --> 00:16:18,860
+perfecto con una luz intensa
+
+339
+00:16:16,639 --> 00:16:21,829
+quiero que el brillo sea mínimo o
+
+340
+00:16:18,860 --> 00:16:24,318
+incluso 0 así que en definitiva esa
+
+341
+00:16:21,828 --> 00:16:26,479
+simple línea además de adaptar los
+
+342
+00:16:24,318 --> 00:16:29,179
+valores de entrada a un rango que
+
+343
+00:16:26,480 --> 00:16:32,720
+podamos usar con wm
+
+344
+00:16:29,179 --> 00:16:35,809
+estamos invirtiendo vamos a verificar y
+
+345
+00:16:32,720 --> 00:16:38,660
+subir el programa ahora el led se
+
+346
+00:16:35,809 --> 00:16:41,479
+encuentra con brillo entre medio y alto
+
+347
+00:16:38,659 --> 00:16:43,969
+ya que la luz ambiente que tengo es más
+
+348
+00:16:41,480 --> 00:16:46,490
+bien tenue estaré haciendo lo mismo que
+
+349
+00:16:43,970 --> 00:16:49,519
+el anterior programa acercaré la mano
+
+350
+00:16:46,490 --> 00:16:52,279
+para hacer sombra y trataré de tapar lo
+
+351
+00:16:49,519 --> 00:16:54,889
+más que pueda el sensor deberás ver que
+
+352
+00:16:52,279 --> 00:16:57,139
+el led incrementa su brillo
+
+353
+00:16:54,889 --> 00:16:59,539
+ahora para verificar la acción apuesta
+
+354
+00:16:57,139 --> 00:17:02,419
+voy a iluminar el sensor con una
+
+355
+00:16:59,539 --> 00:17:06,649
+linterna de manera que reciba mucha luz
+
+356
+00:17:02,419 --> 00:17:08,899
+verás el brillo del led baja quizás sea
+
+357
+00:17:06,650 --> 00:17:11,630
+algo difícil de visualizar ya que la
+
+358
+00:17:08,900 --> 00:17:14,120
+transición del brillo es en tiempo real
+
+359
+00:17:11,630 --> 00:17:16,670
+y a medida que cambia la condición de
+
+360
+00:17:14,119 --> 00:17:19,399
+luz ambiente va cambiando el brillo del
+
+361
+00:17:16,670 --> 00:17:22,340
+led muy bien lo que he logrado es un
+
+362
+00:17:19,400 --> 00:17:24,890
+comportamiento inversamente proporcional
+
+363
+00:17:22,339 --> 00:17:28,549
+de la luz que recibe el sensor con el
+
+364
+00:17:24,890 --> 00:17:32,100
+brillo del led a más luz ambiente menor
+
+365
+00:17:28,549 --> 00:17:34,710
+brillo del led a menor luz ambiente más
+
+366
+00:17:32,099 --> 00:17:36,980
+brillo del led hay ocasiones donde es
+
+367
+00:17:34,710 --> 00:17:40,048
+deseable tener un comportamiento
+
+368
+00:17:36,980 --> 00:17:42,960
+directamente proporcional de la luz y el
+
+369
+00:17:40,048 --> 00:17:45,690
+brillo del led un caso es por ejemplo el
+
+370
+00:17:42,960 --> 00:17:48,538
+sistema de brillo automático de algunos
+
+371
+00:17:45,690 --> 00:17:51,390
+teléfonos inteligentes es una opción que
+
+372
+00:17:48,538 --> 00:17:53,490
+al estar activa va variando el brillo de
+
+373
+00:17:51,390 --> 00:17:54,538
+la pantalla en función de la luz
+
+374
+00:17:53,490 --> 00:17:56,429
+ambiente
+
+375
+00:17:54,538 --> 00:17:59,490
+este comportamiento es directamente
+
+376
+00:17:56,429 --> 00:18:00,330
+proporcional porque si estamos a plena
+
+377
+00:17:59,490 --> 00:18:02,700
+luz del día
+
+378
+00:18:00,329 --> 00:18:05,428
+queremos que el brillo de pantalla sea
+
+379
+00:18:02,700 --> 00:18:07,650
+muy alto para poder verla bien por el
+
+380
+00:18:05,429 --> 00:18:08,490
+contrario si estamos en una total
+
+381
+00:18:07,650 --> 00:18:09,720
+oscuridad
+
+382
+00:18:08,490 --> 00:18:13,558
+queremos que el brillo de la pantalla
+
+383
+00:18:09,720 --> 00:18:16,679
+hacia abajo ya que con bajo brillo igual
+
+384
+00:18:13,558 --> 00:18:19,079
+logramos un buen contraste además de no
+
+385
+00:18:16,679 --> 00:18:21,559
+dañarnos la vista vamos a modificar el
+
+386
+00:18:19,079 --> 00:18:27,210
+programa para lograr este comportamiento
+
+387
+00:18:21,558 --> 00:18:30,899
+solo cambiaremos el 255 por 1 0 y el 0
+
+388
+00:18:27,210 --> 00:18:34,409
+por 255 estamos diciendo que con un
+
+389
+00:18:30,900 --> 00:18:37,259
+valor de entrada 0 queremos convertirlo
+
+390
+00:18:34,409 --> 00:18:41,790
+a 0 y que con un valor de entrada d
+
+391
+00:18:37,259 --> 00:18:44,129
+23 lo queremos convertir en 255 es decir
+
+392
+00:18:41,789 --> 00:18:46,769
+un comportamiento directamente
+
+393
+00:18:44,130 --> 00:18:48,210
+proporcional de la luz captada y el
+
+394
+00:18:46,769 --> 00:18:50,849
+brillo del led
+
+395
+00:18:48,210 --> 00:18:53,970
+vamos a verificar y subir el programa
+
+396
+00:18:50,849 --> 00:18:56,939
+misma metodología que antes al ir
+
+397
+00:18:53,970 --> 00:18:59,319
+tapando el sensor vemos como el brillo
+
+398
+00:18:56,940 --> 00:19:02,890
+del led va bajando
+
+399
+00:18:59,319 --> 00:19:06,309
+si aumento la luz mediante una linterna
+
+400
+00:19:02,890 --> 00:19:08,800
+también aumenta el brillo del led con lo
+
+401
+00:19:06,309 --> 00:19:11,799
+cual verificamos el comportamiento
+
+402
+00:19:08,799 --> 00:19:14,589
+directamente proporcional de la luz y el
+
+403
+00:19:11,799 --> 00:19:16,960
+brillo del led para resumir este
+
+404
+00:19:14,589 --> 00:19:19,809
+capítulo podemos ver que el sensor
+
+405
+00:19:16,960 --> 00:19:22,210
+crepuscular es de mucha utilidad y es
+
+406
+00:19:19,809 --> 00:19:24,940
+muy simple en su funcionamiento con un
+
+407
+00:19:22,210 --> 00:19:27,309
+mismo circuito podemos lograr distintos
+
+408
+00:19:24,940 --> 00:19:29,799
+comportamientos dependiendo de nuestras
+
+409
+00:19:27,309 --> 00:19:32,679
+necesidades eso es todo por este
+
+410
+00:19:29,799 --> 00:19:35,649
+capítulo en el próximo estaremos
+
+411
+00:19:32,680 --> 00:19:38,350
+utilizando un sensor de inclinación para
+
+412
+00:19:35,650 --> 00:19:41,200
+determinar la variación en la posición
+
+413
+00:19:38,349 --> 00:19:44,500
+de objetos y tomar distintas acciones
+
+414
+00:19:41,200 --> 00:19:47,049
+como siempre les pido se suscriban para
+
+415
+00:19:44,500 --> 00:19:49,779
+recibir notificaciones y por cualquier
+
+416
+00:19:47,049 --> 00:19:52,569
+duda o comentario lo pueden hacer debajo
+
+417
+00:19:49,779 --> 00:19:55,109
+que con gusto les responderé chau y
+
+418
+00:19:52,569 --> 00:19:55,109
+hasta la próxima
+
