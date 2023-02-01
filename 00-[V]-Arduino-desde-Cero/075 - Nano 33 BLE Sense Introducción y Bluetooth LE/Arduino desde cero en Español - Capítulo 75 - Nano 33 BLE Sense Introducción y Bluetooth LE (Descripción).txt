@@ -1,0 +1,32 @@
+Una placa con gran cantidad de sensores y comunicación inalámbrica por Bluetooth Low Energy. Analizamos los sensores de gestos, color, proximidad, imu, micrófono, temperatura, humedad y presión. Distribución de pines y función de puentes en parte posterior.
+También introducimos los conceptos básicos de la comunicación por Bluetooth LE y un programa de ejemplo para controlar el LED RGB incorporado  mediante una App en el teléfono móvil.
+
+
+#Nano33BLE
+#BluetoothLE
+#ArduinoNano33
+Arduino Mbed OS Nano Boards
+arduino nano 33 ble bluetooth example
+arduino nano 33 ble sense pinout
+gatt service bluetooth
+bluetooth low energy
+arduino bluetooth
+
+Código original de Arduino:
+https://docs.arduino.cc/tutorials/nano-33-ble-sense/bluetooth
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+
+
+Marcas de tiempo:
+
+0:00 Nano 33 BLE Sense Sensores
+3:35 Jumpers en parte posterior
+5:15 Pines y funcionalidad (pinout)
+7:16 Instalar placa en IDE
+8:57 Instalando librería ArduinoBLE
+9:39 Conceptos básicos de Bluetooth LE
+12:49 Programa para comandar LED RGB por Bluetooth LE
+24:19 Instalando App en teléfono móvil

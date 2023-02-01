@@ -1,0 +1,1604 @@
+1
+00:00:00,590 --> 00:00:06,439
+hola bienvenidos a un nuevo capítulo de
+
+2
+00:00:03,589 --> 00:00:08,689
+arduino desde cero en español en esta
+
+3
+00:00:06,440 --> 00:00:12,050
+oportunidad veremos cómo obtener datos
+
+4
+00:00:08,689 --> 00:00:15,169
+de temperatura humedad y presión de un
+
+5
+00:00:12,050 --> 00:00:17,780
+sensor bm 280 y lo conectaremos con
+
+6
+00:00:15,169 --> 00:00:19,640
+arduino guti cloud de manera de
+
+7
+00:00:17,780 --> 00:00:21,859
+visualizar la información desde el
+
+8
+00:00:19,640 --> 00:00:24,380
+navegador web o incluso desde una
+
+9
+00:00:21,859 --> 00:00:27,439
+aplicación en el teléfono móvil desde
+
+10
+00:00:24,379 --> 00:00:31,368
+cualquier parte del mundo comencemos con
+
+11
+00:00:27,439 --> 00:00:33,649
+la introducción del sensor modelo bm 280
+
+12
+00:00:31,368 --> 00:00:35,929
+que se muestra aquí en la imagen como
+
+13
+00:00:33,649 --> 00:00:37,039
+parte de un módulo con sus pines de
+
+14
+00:00:35,929 --> 00:00:39,890
+conexión
+
+15
+00:00:37,039 --> 00:00:42,140
+el sensor en sí es este pequeño amigo en
+
+16
+00:00:39,890 --> 00:00:44,450
+la siguiente hoja de datos se encuentra
+
+17
+00:00:42,140 --> 00:00:46,759
+amplia información del mismo dejaré un
+
+18
+00:00:44,450 --> 00:00:49,219
+enlace en la zona de descripción para
+
+19
+00:00:46,759 --> 00:00:51,710
+que puedas ver o descargar pero en esta
+
+20
+00:00:49,219 --> 00:00:53,840
+tabla se encuentran resumidos los datos
+
+21
+00:00:51,710 --> 00:00:57,829
+más relevantes el voltaje de
+
+22
+00:00:53,840 --> 00:01:00,350
+alimentación es en el rango de 17 a 3,6
+
+23
+00:00:57,829 --> 00:01:03,140
+volts nosotros aplicaremos 3,3
+
+24
+00:01:00,350 --> 00:01:04,998
+directamente desde la placa arduino la
+
+25
+00:01:03,140 --> 00:01:09,140
+comunicación serie se puede realizar
+
+26
+00:01:04,998 --> 00:01:12,319
+mediante interfaz y 2 y sp y en la
+
+27
+00:01:09,140 --> 00:01:14,840
+práctica usaremos y 12 al requerir menos
+
+28
+00:01:12,319 --> 00:01:18,409
+conexiones luego el rango de medición
+
+29
+00:01:14,840 --> 00:01:21,650
+para la temperatura entre menos 40 y 85
+
+30
+00:01:18,409 --> 00:01:24,379
+grados celsius la humedad relativa entre
+
+31
+00:01:21,650 --> 00:01:27,800
+0 y 100 por ciento y finalmente la
+
+32
+00:01:24,379 --> 00:01:30,769
+presión atmosférica entre 300 y 1100
+
+33
+00:01:27,799 --> 00:01:32,709
+hectopascales no debemos confundir este
+
+34
+00:01:30,769 --> 00:01:35,989
+sensor con el bmp
+
+35
+00:01:32,709 --> 00:01:39,439
+280 analizado hace tiempo en el capítulo
+
+36
+00:01:35,989 --> 00:01:42,409
+36 que mide presión y temperatura pero
+
+37
+00:01:39,439 --> 00:01:44,959
+no humedad a bien vamos al circuito de
+
+38
+00:01:42,409 --> 00:01:47,899
+conexión con arduino que será muy simple
+
+39
+00:01:44,959 --> 00:01:51,469
+al igual que el capítulo 72 estaría
+
+40
+00:01:47,900 --> 00:01:53,719
+usando el modelo de placas nano erp 2040
+
+41
+00:01:51,469 --> 00:01:58,250
+connect analizada en detalle en el
+
+42
+00:01:53,719 --> 00:02:00,469
+capítulo 69 aquí el módulo bm 280 se
+
+43
+00:01:58,250 --> 00:02:02,478
+muestra algo distinto de la imagen que
+
+44
+00:02:00,469 --> 00:02:04,939
+te mostraba antes pero eso es porque
+
+45
+00:02:02,478 --> 00:02:07,030
+existen varios fabricantes de todas
+
+46
+00:02:04,939 --> 00:02:10,429
+maneras la conexión es siempre la misma
+
+47
+00:02:07,030 --> 00:02:13,699
+desde beijing del módulo iremos con un
+
+48
+00:02:10,429 --> 00:02:16,550
+cable directo a la salida de 33 volts de
+
+49
+00:02:13,699 --> 00:02:18,979
+lana no generé del módulo a uno de los
+
+50
+00:02:16,550 --> 00:02:23,000
+múltiples pines de gene de de lana no
+
+51
+00:02:18,979 --> 00:02:26,389
+ahora para el base y 12 conectaremos ssl
+
+52
+00:02:23,000 --> 00:02:27,159
+del módulo con un cable directo a 5 de
+
+53
+00:02:26,389 --> 00:02:31,459
+arduino
+
+54
+00:02:27,159 --> 00:02:34,460
+finalmente esa idea del módulo 4 de la
+
+55
+00:02:31,460 --> 00:02:36,290
+placa y eso es todo como siempre en la
+
+56
+00:02:34,460 --> 00:02:38,960
+nota se encuentra el resumen de las
+
+57
+00:02:36,289 --> 00:02:41,239
+conexiones es momento de ingresar con
+
+58
+00:02:38,960 --> 00:02:44,510
+nuestro navegador web a la página de
+
+59
+00:02:41,240 --> 00:02:46,189
+arduino en arduino punto cc haciendo
+
+60
+00:02:44,509 --> 00:02:48,859
+clic en este icono del menú
+
+61
+00:02:46,189 --> 00:02:51,469
+seleccionamos la opción a youth y cloud
+
+62
+00:02:48,860 --> 00:02:53,720
+a continuación ingresó el usuario y
+
+63
+00:02:51,469 --> 00:02:56,750
+contraseña de la plataforma es
+
+64
+00:02:53,719 --> 00:02:58,789
+recomendable que veas el capítulo 72 si
+
+65
+00:02:56,750 --> 00:03:01,520
+aún no lo has hecho ya que muchos temas
+
+66
+00:02:58,789 --> 00:03:04,099
+se darán por sentado de manera de no ser
+
+67
+00:03:01,520 --> 00:03:06,230
+reiterativos incrementó un poco el nivel
+
+68
+00:03:04,099 --> 00:03:09,680
+de ampliación del navegador para que se
+
+69
+00:03:06,229 --> 00:03:14,119
+vea mejor ya tengo creado un fin o cosa
+
+70
+00:03:09,680 --> 00:03:16,819
+con el nombre de m2 80 variables y la
+
+71
+00:03:14,120 --> 00:03:20,060
+placa asociada sólo a modo de breve
+
+72
+00:03:16,819 --> 00:03:22,849
+recordatorio un fin o cosa la creamos
+
+73
+00:03:20,060 --> 00:03:24,979
+con el botón create luego podemos crear
+
+74
+00:03:22,849 --> 00:03:27,650
+las variables que utilizaremos para
+
+75
+00:03:24,979 --> 00:03:29,899
+obtener información del sensor en device
+
+76
+00:03:27,650 --> 00:03:33,069
+seleccionar el modelo de placa y en
+
+77
+00:03:29,900 --> 00:03:36,530
+network las credenciales de tu red wifi
+
+78
+00:03:33,068 --> 00:03:39,829
+vuelvo a la página anterior y aparece un
+
+79
+00:03:36,530 --> 00:03:41,000
+fin con el nombre untitled lo eliminó ya
+
+80
+00:03:39,830 --> 00:03:42,530
+que es el que acabamos de dejar
+
+81
+00:03:41,000 --> 00:03:45,199
+incompleto
+
+82
+00:03:42,530 --> 00:03:48,020
+a modo de ejemplo y ahora si vamos al ya
+
+83
+00:03:45,199 --> 00:03:50,419
+configurado y lo analizamos se puede
+
+84
+00:03:48,020 --> 00:03:52,850
+apreciar que hay tres variables para los
+
+85
+00:03:50,419 --> 00:03:56,719
+valores que nos brindará el sensor ésta
+
+86
+00:03:52,849 --> 00:03:59,209
+de nombre bm 280 bajo temperatura la
+
+87
+00:03:56,719 --> 00:04:01,609
+seleccionó para ver sus propiedades es
+
+88
+00:03:59,209 --> 00:04:04,280
+del tipo floating points para obtener
+
+89
+00:04:01,610 --> 00:04:07,190
+valores con coma o punto decimal y
+
+90
+00:04:04,280 --> 00:04:09,680
+también con permiso de sólo lectura read
+
+91
+00:04:07,189 --> 00:04:11,900
+only con las mismas propiedades se
+
+92
+00:04:09,680 --> 00:04:18,079
+encuentran el resto de las variables de
+
+93
+00:04:11,900 --> 00:04:20,720
+m2 80 bajo presión ibm de 280 humedad en
+
+94
+00:04:18,079 --> 00:04:24,439
+la sección device ya tengo seleccionada
+
+95
+00:04:20,720 --> 00:04:26,660
+la nano erp 2040 conecta nuevamente si
+
+96
+00:04:24,439 --> 00:04:29,329
+todo esto te parece nuevo recordad que
+
+97
+00:04:26,660 --> 00:04:31,460
+lo vimos en el capítulo 72 y en la
+
+98
+00:04:29,329 --> 00:04:34,639
+sección network cargadas las
+
+99
+00:04:31,459 --> 00:04:37,489
+credenciales de mi red wifi con todo
+
+100
+00:04:34,639 --> 00:04:40,579
+configurado vamos a la solapa sketch y
+
+101
+00:04:37,490 --> 00:04:43,610
+luego clic en el botón open full editor
+
+102
+00:04:40,579 --> 00:04:45,769
+para ahorrar tiempo ya tengo aquí la
+
+103
+00:04:43,610 --> 00:04:48,020
+totalidad del código del primer programa
+
+104
+00:04:45,769 --> 00:04:50,659
+pero iremos línea por línea como es
+
+105
+00:04:48,019 --> 00:04:53,149
+usual la idea de este primer programa es
+
+106
+00:04:50,660 --> 00:04:55,460
+utilizar el monitor serie incorporado en
+
+107
+00:04:53,149 --> 00:04:57,560
+la plataforma para visualizar los datos
+
+108
+00:04:55,459 --> 00:04:59,870
+del sensor de esa manera nos aseguramos
+
+109
+00:04:57,560 --> 00:05:02,269
+que todo se encuentra conectado
+
+110
+00:04:59,870 --> 00:05:04,759
+correctamente y dejamos para una segunda
+
+111
+00:05:02,269 --> 00:05:07,490
+etapa enlazar las variables creadas al
+
+112
+00:05:04,759 --> 00:05:09,680
+principio para una bonita visualización
+
+113
+00:05:07,490 --> 00:05:12,560
+gráfica en el touch word o panel de
+
+114
+00:05:09,680 --> 00:05:15,228
+control para utilizar el sensor debemos
+
+115
+00:05:12,560 --> 00:05:19,310
+incluir una librería específica por eso
+
+116
+00:05:15,228 --> 00:05:22,250
+esta línea de numeral incluye bm 280 y
+
+117
+00:05:19,310 --> 00:05:24,978
+12 al trabajar dentro del iut icloud
+
+118
+00:05:22,250 --> 00:05:26,769
+existe una gran cantidad de librerías ya
+
+119
+00:05:24,978 --> 00:05:30,050
+incorporadas podemos seleccionar
+
+120
+00:05:26,769 --> 00:05:33,468
+librerías desde la barra lateral y luego
+
+121
+00:05:30,050 --> 00:05:36,800
+el botón library manager en el campo de
+
+122
+00:05:33,468 --> 00:05:39,110
+búsqueda escribimos bm 280 y nos
+
+123
+00:05:36,800 --> 00:05:41,658
+devuelve las disponibles al igual que
+
+124
+00:05:39,110 --> 00:05:44,809
+hicimos en el capítulo 72 podemos
+
+125
+00:05:41,658 --> 00:05:47,899
+seleccionar la estrella sobre la fila de
+
+126
+00:05:44,809 --> 00:05:50,809
+la librería y luego el botón dan en la
+
+127
+00:05:47,899 --> 00:05:53,149
+columna central en la solapa favoritos
+
+128
+00:05:50,809 --> 00:05:55,370
+vemos la librería de hecho a mí me
+
+129
+00:05:53,149 --> 00:05:58,038
+aparece dos veces ya que la tenía
+
+130
+00:05:55,370 --> 00:06:00,620
+previamente seleccionada como favorito
+
+131
+00:05:58,038 --> 00:06:03,139
+así que solo damos la instrucción de
+
+132
+00:06:00,620 --> 00:06:05,778
+incluir esta librería las líneas que
+
+133
+00:06:03,139 --> 00:06:07,699
+estaremos analizando son las que agregué
+
+134
+00:06:05,778 --> 00:06:10,249
+para la funcionalidad del primer
+
+135
+00:06:07,699 --> 00:06:13,788
+programa recordad que al crear un fin o
+
+136
+00:06:10,249 --> 00:06:16,249
+cosa arduino algo tic loud genera código
+
+137
+00:06:13,788 --> 00:06:19,490
+de forma automática que no es necesario
+
+138
+00:06:16,249 --> 00:06:21,199
+modificar solo agregamos el nuestro en
+
+139
+00:06:19,490 --> 00:06:23,930
+estas tres líneas que se encuentran
+
+140
+00:06:21,199 --> 00:06:26,180
+dentro de un comentario por eso de color
+
+141
+00:06:23,930 --> 00:06:28,430
+gris nos recuerda las tres variables que
+
+142
+00:06:26,180 --> 00:06:30,918
+creamos al principio que más adelante
+
+143
+00:06:28,430 --> 00:06:33,889
+usaremos pero por ahora primero es
+
+144
+00:06:30,918 --> 00:06:36,389
+necesario crear un objeto con el nombre
+
+145
+00:06:33,889 --> 00:06:40,800
+bm y será del tipo
+
+146
+00:06:36,389 --> 00:06:42,990
+2 80 y 12 claro que el nombre de m puede
+
+147
+00:06:40,800 --> 00:06:45,270
+ser el que quieras pero viene bien que
+
+148
+00:06:42,990 --> 00:06:48,360
+sea corto usaremos sus funciones
+
+149
+00:06:45,269 --> 00:06:51,629
+asociadas para inicializar y obtener
+
+150
+00:06:48,360 --> 00:06:54,240
+datos del sensor hablando de inicializar
+
+151
+00:06:51,629 --> 00:06:55,769
+vamos a incorporar al final del set up
+
+152
+00:06:54,240 --> 00:06:58,710
+este bloque
+
+153
+00:06:55,769 --> 00:07:01,439
+la idea es consultar con la función del
+
+154
+00:06:58,709 --> 00:07:04,709
+objeto bm si la inicialización del
+
+155
+00:07:01,439 --> 00:07:07,079
+sensor devuelve un valor verdadero si no
+
+156
+00:07:04,709 --> 00:07:09,599
+fuera el caso la condición del bucle
+
+157
+00:07:07,079 --> 00:07:12,300
+while es verdadero y mostramos por
+
+158
+00:07:09,600 --> 00:07:15,540
+monitor serie el texto no se pudo
+
+159
+00:07:12,300 --> 00:07:18,150
+encontrar un bm de 280 conectado y una
+
+160
+00:07:15,540 --> 00:07:20,819
+demora de un segundo en definitiva
+
+161
+00:07:18,149 --> 00:07:23,519
+mientras el sensor no nos devuelva que
+
+162
+00:07:20,819 --> 00:07:25,829
+ha sido correctamente inicializa do nos
+
+163
+00:07:23,519 --> 00:07:27,449
+quedaremos dentro de este bucle ya que
+
+164
+00:07:25,829 --> 00:07:30,539
+no tiene sentido continuar la ejecución
+
+165
+00:07:27,449 --> 00:07:33,180
+del programa si el sensor no responde
+
+166
+00:07:30,540 --> 00:07:35,879
+como debe si todo va bien ingresamos al
+
+167
+00:07:33,180 --> 00:07:39,030
+loop al bucle principal la función
+
+168
+00:07:35,879 --> 00:07:41,990
+arduino cloud punto update es creada de
+
+169
+00:07:39,029 --> 00:07:45,469
+forma automática así que la dejamos
+
+170
+00:07:41,990 --> 00:07:47,990
+y debajo de your con here colocamos
+
+171
+00:07:45,470 --> 00:07:50,540
+nuestro código vamos a declarar tres
+
+172
+00:07:47,990 --> 00:07:53,840
+variables del tipo flow punto flotante
+
+173
+00:07:50,540 --> 00:07:57,020
+con los nombres temperatura humedad y
+
+174
+00:07:53,839 --> 00:07:59,149
+presión estas variables son locales y
+
+175
+00:07:57,019 --> 00:08:01,879
+las usaremos para almacenar los valores
+
+176
+00:07:59,149 --> 00:08:04,579
+leídos del sensor y luego mostrar por el
+
+177
+00:08:01,879 --> 00:08:07,969
+monitor en la siguiente línea usamos la
+
+178
+00:08:04,579 --> 00:08:10,039
+función read del objeto bm y le pasamos
+
+179
+00:08:07,970 --> 00:08:12,500
+con parámetros las variables que
+
+180
+00:08:10,040 --> 00:08:14,689
+acabamos de crear para que almacene en
+
+181
+00:08:12,500 --> 00:08:17,689
+las mismas los valores actuales de
+
+182
+00:08:14,689 --> 00:08:20,600
+presión temperatura y humedad así de
+
+183
+00:08:17,689 --> 00:08:22,639
+simple obtenemos los tres valores es
+
+184
+00:08:20,600 --> 00:08:25,550
+importante que notes el orden de las
+
+185
+00:08:22,639 --> 00:08:27,949
+variables la función read espera que el
+
+186
+00:08:25,550 --> 00:08:30,410
+primer parámetro sea la presión el
+
+187
+00:08:27,949 --> 00:08:33,080
+segundo la humedad y el tercero la
+
+188
+00:08:30,410 --> 00:08:35,720
+temperatura luego nosotros mostraremos
+
+189
+00:08:33,080 --> 00:08:38,509
+la información en un orden distinto pero
+
+190
+00:08:35,720 --> 00:08:41,360
+al invocar read debe ser en este orden
+
+191
+00:08:38,509 --> 00:08:43,850
+específico genial ya casi tenemos el
+
+192
+00:08:41,360 --> 00:08:46,550
+programa listo y resta mostrar los datos
+
+193
+00:08:43,850 --> 00:08:49,210
+por el monitor con este serial punto
+
+194
+00:08:46,549 --> 00:08:51,979
+print escribimos el texto estático
+
+195
+00:08:49,210 --> 00:08:54,500
+temperatura dos puntos y un espacio en
+
+196
+00:08:51,980 --> 00:08:56,629
+blanco a continuación con otro serial
+
+197
+00:08:54,500 --> 00:08:59,509
+punto print y el valor de la variable
+
+198
+00:08:56,629 --> 00:09:02,389
+temperatura el siguiente sería el punto
+
+199
+00:08:59,509 --> 00:09:05,539
+print lo utilizamos para luego del valor
+
+200
+00:09:02,389 --> 00:09:08,569
+dejar un espacio en blanco y mostrar el
+
+201
+00:09:05,539 --> 00:09:11,740
+cero volado y la letra c mayúscula
+
+202
+00:09:08,570 --> 00:09:14,180
+indicando que se trata de grados celsius
+
+203
+00:09:11,740 --> 00:09:16,639
+imaginarás que lo que sigue es repetir
+
+204
+00:09:14,179 --> 00:09:19,039
+el proceso para el resto de valores pero
+
+205
+00:09:16,639 --> 00:09:22,069
+para mantener todo ordenado en columnas
+
+206
+00:09:19,039 --> 00:09:24,829
+aquí el serial punto print para el texto
+
+207
+00:09:22,070 --> 00:09:27,560
+humedad verás que le precede la barra
+
+208
+00:09:24,830 --> 00:09:30,830
+invertida y la letra t esto ya lo usamos
+
+209
+00:09:27,559 --> 00:09:33,829
+varias veces y lo que hace es indicar un
+
+210
+00:09:30,830 --> 00:09:36,259
+espacio de tabulación la barra invertida
+
+211
+00:09:33,830 --> 00:09:38,690
+es un carácter de escape indica que la
+
+212
+00:09:36,259 --> 00:09:41,509
+letra t no sea considerada como un
+
+213
+00:09:38,690 --> 00:09:44,270
+carácter a imprimir sino como un comando
+
+214
+00:09:41,509 --> 00:09:47,059
+a ejecutar en este caso un espacio de
+
+215
+00:09:44,269 --> 00:09:49,309
+tabulación a continuación mostramos el
+
+216
+00:09:47,059 --> 00:09:51,289
+valor de la variable humedad luego un
+
+217
+00:09:49,309 --> 00:09:53,779
+espacio en blanco y el signo de
+
+218
+00:09:51,289 --> 00:09:54,589
+porcentaje ya que se trata de humedad
+
+219
+00:09:53,779 --> 00:09:57,049
+relativa
+
+220
+00:09:54,590 --> 00:09:59,120
+para ir finalizando aplicamos la misma
+
+221
+00:09:57,049 --> 00:10:01,969
+mecánica de dejar un espacio de
+
+222
+00:09:59,120 --> 00:10:04,429
+tabulación mostrar el texto estático a
+
+223
+00:10:01,970 --> 00:10:07,250
+presión dos puntos y el valor de la
+
+224
+00:10:04,429 --> 00:10:09,829
+variable presión y en este último en vez
+
+225
+00:10:07,250 --> 00:10:12,080
+de ser ya el punto print será un serial
+
+226
+00:10:09,830 --> 00:10:16,040
+punto print line que automáticamente
+
+227
+00:10:12,080 --> 00:10:20,150
+deja un salto de línea al final luego de
+
+228
+00:10:16,039 --> 00:10:22,219
+escribir hp a siglas de hectopascales la
+
+229
+00:10:20,149 --> 00:10:25,189
+última línea del programa es un delay
+
+230
+00:10:22,220 --> 00:10:27,470
+con una demora de 5000 milisegundos de
+
+231
+00:10:25,190 --> 00:10:29,950
+manera de actualizar los datos cada 5
+
+232
+00:10:27,470 --> 00:10:32,840
+segundos en este punto sólo nos interesa
+
+233
+00:10:29,950 --> 00:10:35,180
+verificar que los datos obtenidos sean
+
+234
+00:10:32,840 --> 00:10:37,820
+correctos y ese es todo el programa
+
+235
+00:10:35,179 --> 00:10:40,549
+vamos a subirlo a la placa recomiendo
+
+236
+00:10:37,820 --> 00:10:43,160
+que verifique en esta sección que junto
+
+237
+00:10:40,549 --> 00:10:47,329
+al modelo de placa se muestre el puerto
+
+238
+00:10:43,159 --> 00:10:49,850
+con asignado en mi caso es con 5 y ahora
+
+239
+00:10:47,330 --> 00:10:53,000
+sí con el botón de la flecha de blood
+
+240
+00:10:49,850 --> 00:10:55,580
+and save aguardamos a la compilación y
+
+241
+00:10:53,000 --> 00:10:57,799
+subida a la placa es un proceso que
+
+242
+00:10:55,580 --> 00:11:00,230
+puede demorar en promedio unos 30
+
+243
+00:10:57,799 --> 00:11:04,219
+segundos recuerda que estamos trabajando
+
+244
+00:11:00,230 --> 00:11:06,200
+todo sobre y cloud ningún procesamiento
+
+245
+00:11:04,220 --> 00:11:08,420
+se realiza de forma local en nuestra
+
+246
+00:11:06,200 --> 00:11:10,850
+computadora en caso de que se muestra
+
+247
+00:11:08,419 --> 00:11:13,370
+algún error recomiendo veas un vídeo que
+
+248
+00:11:10,850 --> 00:11:15,620
+realice con los problemas usuales que
+
+249
+00:11:13,370 --> 00:11:17,899
+pueden ocurrir y por supuesto sus
+
+250
+00:11:15,620 --> 00:11:20,210
+soluciones aquí vemos que todo fue
+
+251
+00:11:17,899 --> 00:11:23,149
+correcto y el código ya se encuentra
+
+252
+00:11:20,210 --> 00:11:25,370
+subido a la placa y ejecutándose es
+
+253
+00:11:23,149 --> 00:11:29,240
+momento de abrir el monitor serie
+
+254
+00:11:25,370 --> 00:11:31,399
+haciendo clic en monitor o monitor sobre
+
+255
+00:11:29,240 --> 00:11:33,560
+la barra lateral izquierda y en la
+
+256
+00:11:31,399 --> 00:11:36,649
+columna central ya se muestran los
+
+257
+00:11:33,559 --> 00:11:38,989
+valores actualizados cada 5 segundos tal
+
+258
+00:11:36,649 --> 00:11:41,449
+cual lo programamos verás también como
+
+259
+00:11:38,990 --> 00:11:43,580
+los espacios de tabulación crean tres
+
+260
+00:11:41,450 --> 00:11:46,730
+columnas para visualizar de forma
+
+261
+00:11:43,580 --> 00:11:50,240
+ordenada los datos genial parece todo en
+
+262
+00:11:46,730 --> 00:11:52,850
+orden temperatura humedad y presión un
+
+263
+00:11:50,240 --> 00:11:55,850
+día fresco y húmedo por estas latitudes
+
+264
+00:11:52,850 --> 00:11:59,120
+vamos a detener el monitor con el botón
+
+265
+00:11:55,850 --> 00:12:01,639
+disconnect y cerrarlo eso estuvo bien
+
+266
+00:11:59,120 --> 00:12:04,310
+pero la idea es utilizar las variables
+
+267
+00:12:01,639 --> 00:12:06,529
+que creamos al principio y enlazarlas a
+
+268
+00:12:04,309 --> 00:12:07,819
+medidores en un dash word así que
+
+269
+00:12:06,529 --> 00:12:10,669
+hagamos eso
+
+270
+00:12:07,820 --> 00:12:12,860
+será muy simple y en vez de incorporar
+
+271
+00:12:10,669 --> 00:12:16,279
+código verás que terminaremos por
+
+272
+00:12:12,860 --> 00:12:18,769
+eliminar una buena cantidad del mismo si
+
+273
+00:12:16,279 --> 00:12:21,079
+nos dirigimos al loop todos los serial
+
+274
+00:12:18,769 --> 00:12:24,049
+punto print ya no serán necesarios
+
+275
+00:12:21,080 --> 00:12:27,770
+porque no usaremos más el monitor serie
+
+276
+00:12:24,049 --> 00:12:29,779
+así que eliminemos toda esta sección las
+
+277
+00:12:27,769 --> 00:12:31,819
+variables que creamos para luego mostrar
+
+278
+00:12:29,779 --> 00:12:35,750
+por el monitor ahora tampoco son
+
+279
+00:12:31,820 --> 00:12:37,940
+necesarias así que adiós a esta línea si
+
+280
+00:12:35,750 --> 00:12:40,100
+volvemos a la parte superior del código
+
+281
+00:12:37,940 --> 00:12:42,560
+tenemos dentro del comentario las
+
+282
+00:12:40,100 --> 00:12:45,200
+variables creadas junto con el sinn o
+
+283
+00:12:42,559 --> 00:12:47,839
+cosa estas son las variables que debemos
+
+284
+00:12:45,200 --> 00:12:50,120
+utilizar para cargar los datos devueltos
+
+285
+00:12:47,840 --> 00:12:52,970
+por el sensor así que de manera muy
+
+286
+00:12:50,120 --> 00:12:55,789
+simple vamos a renombrar las variables
+
+287
+00:12:52,970 --> 00:12:58,970
+dentro de la función read agregando el
+
+288
+00:12:55,789 --> 00:13:02,149
+prefijo bm de 280
+
+289
+00:12:58,970 --> 00:13:05,000
+y eso es todo no podría ser más simple
+
+290
+00:13:02,149 --> 00:13:07,120
+esta línea hace todo el proceso de leer
+
+291
+00:13:05,000 --> 00:13:09,950
+el sensor y asignar a las variables
+
+292
+00:13:07,120 --> 00:13:12,289
+sumamos este nuevo programa mientras
+
+293
+00:13:09,950 --> 00:13:14,300
+aguardamos a que finalice el proceso te
+
+294
+00:13:12,289 --> 00:13:16,699
+comento que el código de los programas
+
+295
+00:13:14,299 --> 00:13:19,099
+los podrás descargar desde el enlace que
+
+296
+00:13:16,700 --> 00:13:21,560
+dejo en la zona de descripción nos
+
+297
+00:13:19,100 --> 00:13:23,980
+dirigimos a la anterior solapa abierta
+
+298
+00:13:21,559 --> 00:13:27,319
+del navegador web y al menú superior
+
+299
+00:13:23,980 --> 00:13:30,379
+dashboards yo ya tengo uno creado con el
+
+300
+00:13:27,320 --> 00:13:32,870
+nombre bm 280 al seleccionarlo
+
+301
+00:13:30,379 --> 00:13:35,120
+ingresamos al mismo y se observan tres
+
+302
+00:13:32,870 --> 00:13:37,610
+medidores para mostrar las tres
+
+303
+00:13:35,120 --> 00:13:39,799
+magnitudes medidas y un cuadro para
+
+304
+00:13:37,610 --> 00:13:42,259
+graficar el historial de temperatura
+
+305
+00:13:39,799 --> 00:13:44,599
+aquí te muestro las propiedades del
+
+306
+00:13:42,259 --> 00:13:47,870
+medidor de temperatura como vimos en el
+
+307
+00:13:44,600 --> 00:13:50,210
+capítulo 72 es muy simple definimos un
+
+308
+00:13:47,870 --> 00:13:53,090
+nombre a mostrar en este caso
+
+309
+00:13:50,210 --> 00:13:56,900
+temperatura luego la variable enlazada
+
+310
+00:13:53,090 --> 00:13:59,300
+que es bm de 281 bajo temperatura en
+
+311
+00:13:56,899 --> 00:14:02,539
+definitiva la variable a partir de la
+
+312
+00:13:59,299 --> 00:14:04,939
+cual obtendrá el dato a mostrar y en el
+
+313
+00:14:02,539 --> 00:14:08,149
+rango de valores sólo modifique el
+
+314
+00:14:04,940 --> 00:14:10,160
+límite superior que por defecto es 100 y
+
+315
+00:14:08,149 --> 00:14:13,429
+lo coloque con un valor más coherente
+
+316
+00:14:10,159 --> 00:14:15,439
+como ser 50 claro que podrás colocar el
+
+317
+00:14:13,429 --> 00:14:18,229
+rango que se aplique mejor para tu zona
+
+318
+00:14:15,440 --> 00:14:21,740
+geográfica y ya vimos los rangos que
+
+319
+00:14:18,230 --> 00:14:24,139
+puede manejar él y 280 de la misma
+
+320
+00:14:21,740 --> 00:14:26,720
+manera el medidor de humedad estará
+
+321
+00:14:24,139 --> 00:14:29,509
+enlazado a la variable correspondiente y
+
+322
+00:14:26,720 --> 00:14:31,820
+para presión la única diferencia es el
+
+323
+00:14:29,509 --> 00:14:35,419
+rango de valores que nuevamente lo
+
+324
+00:14:31,820 --> 00:14:38,270
+coloque a un valor lógico entre 900 y
+
+325
+00:14:35,419 --> 00:14:40,490
+1100 hectopascales por cierto verás que
+
+326
+00:14:38,269 --> 00:14:43,189
+los medidores ya se encuentran mostrando
+
+327
+00:14:40,490 --> 00:14:45,470
+los valores reales del sensor así que
+
+328
+00:14:43,190 --> 00:14:47,170
+tenemos validación de que el programa
+
+329
+00:14:45,470 --> 00:14:50,210
+funciona correctamente
+
+330
+00:14:47,169 --> 00:14:52,729
+esta tabla es un elemento del dashboard
+
+331
+00:14:50,210 --> 00:14:54,980
+que no hemos usado con anterioridad y es
+
+332
+00:14:52,730 --> 00:14:57,470
+muy interesante y simple de configurar
+
+333
+00:14:54,980 --> 00:15:00,050
+con el botón add tenemos todos los
+
+334
+00:14:57,470 --> 00:15:02,540
+elementos o widgets posibles de
+
+335
+00:15:00,049 --> 00:15:05,269
+incorporar los medidores llevan el
+
+336
+00:15:02,539 --> 00:15:07,579
+nombre de game 3 de los mismos se
+
+337
+00:15:05,269 --> 00:15:10,399
+encuentran en uso para nuestro panel y
+
+338
+00:15:07,580 --> 00:15:12,680
+la tabla con la denominación chart si
+
+339
+00:15:10,399 --> 00:15:15,500
+vimos las propiedades de la misma con
+
+340
+00:15:12,679 --> 00:15:18,259
+edit settings el nombre que le asigne es
+
+341
+00:15:15,500 --> 00:15:20,929
+historial de temperatura al igual que el
+
+342
+00:15:18,259 --> 00:15:24,519
+resto es sólo un nombre descriptivo la
+
+343
+00:15:20,929 --> 00:15:26,799
+variable enlazado es bm 280 bajo
+
+344
+00:15:24,519 --> 00:15:29,350
+temperatura y el resto de valores por
+
+345
+00:15:26,799 --> 00:15:31,359
+defecto cabe aclarar que podría haber
+
+346
+00:15:29,350 --> 00:15:35,409
+seleccionado cualquier otra variable
+
+347
+00:15:31,360 --> 00:15:37,690
+como ser bm de 280 bajo humedad y
+
+348
+00:15:35,409 --> 00:15:40,360
+tendríamos una tabla con el historial de
+
+349
+00:15:37,690 --> 00:15:42,610
+humedad en vez de temperatura lo mismo
+
+350
+00:15:40,360 --> 00:15:45,909
+para la presión haciendo clic en el
+
+351
+00:15:42,610 --> 00:15:48,070
+botón live forzamos la actualización y
+
+352
+00:15:45,909 --> 00:15:51,009
+verás que se mostrará un punto por cada
+
+353
+00:15:48,070 --> 00:15:53,820
+lectura de temperatura y una curva que
+
+354
+00:15:51,009 --> 00:15:56,289
+une dichos puntos en el eje horizontal
+
+355
+00:15:53,820 --> 00:15:58,629
+automáticamente muestra el horario en
+
+356
+00:15:56,289 --> 00:16:00,549
+que se realiza la lectura y en el eje
+
+357
+00:15:58,629 --> 00:16:03,009
+vertical y el valor de la magnitud
+
+358
+00:16:00,549 --> 00:16:04,719
+aunque visualmente parezca una
+
+359
+00:16:03,009 --> 00:16:07,600
+modificación muy grande de la
+
+360
+00:16:04,720 --> 00:16:09,850
+temperatura el sistema ajusta su escala
+
+361
+00:16:07,600 --> 00:16:12,459
+de forma automática así que en realidad
+
+362
+00:16:09,850 --> 00:16:16,050
+la diferencia de temperatura y de unas
+
+363
+00:16:12,458 --> 00:16:19,259
+pocas centésimas de grado comenzamos con
+
+364
+00:16:16,049 --> 00:16:22,659
+18.49 y ya estamos con
+
+365
+00:16:19,259 --> 00:16:24,700
+18.52 cabe destacar que el gráfico se
+
+366
+00:16:22,659 --> 00:16:27,069
+actualiza siempre que exista un cambio
+
+367
+00:16:24,700 --> 00:16:28,129
+en el valor de la variable no mostrará
+
+368
+00:16:27,070 --> 00:16:31,070
+valores
+
+369
+00:16:28,129 --> 00:16:33,740
+con segundos si no hubo un cambio entre
+
+370
+00:16:31,070 --> 00:16:35,870
+mediciones claro que podemos acceder a
+
+371
+00:16:33,740 --> 00:16:37,730
+esta misma información desde nuestro
+
+372
+00:16:35,870 --> 00:16:40,779
+teléfono móvil con la aplicación
+
+373
+00:16:37,730 --> 00:16:43,610
+gratuita arduino out y cloud remote
+
+374
+00:16:40,779 --> 00:16:46,579
+disponible para ios y android
+
+375
+00:16:43,610 --> 00:16:48,800
+al seleccionar el dashboard creado nos
+
+376
+00:16:46,580 --> 00:16:51,710
+mostrará en una columna los mismos
+
+377
+00:16:48,799 --> 00:16:54,439
+medidores del navegador web en una forma
+
+378
+00:16:51,710 --> 00:16:56,060
+amigable para pantallas pequeñas y de
+
+379
+00:16:54,440 --> 00:16:58,820
+esa forma poder acceder a la información
+
+380
+00:16:56,059 --> 00:17:01,669
+desde cualquier parte del mundo y
+
+381
+00:16:58,820 --> 00:17:04,309
+aprovechar los beneficios de la nube de
+
+382
+00:17:01,669 --> 00:17:08,029
+manera que para recapitular utilizamos
+
+383
+00:17:04,309 --> 00:17:10,789
+un sensor bm 280 para obtener datos de
+
+384
+00:17:08,029 --> 00:17:13,039
+temperatura humedad y presión lo
+
+385
+00:17:10,789 --> 00:17:15,588
+conectamos a nuestra placa y con el
+
+386
+00:17:13,039 --> 00:17:18,078
+servicio de arduino out y cloud de
+
+387
+00:17:15,588 --> 00:17:21,109
+manera simple y con una mínima cantidad
+
+388
+00:17:18,078 --> 00:17:23,209
+de código logramos enviar los datos por
+
+389
+00:17:21,109 --> 00:17:26,088
+internet y mostrarlos de forma gráfica
+
+390
+00:17:23,209 --> 00:17:28,370
+en un navegador web y teléfono móvil
+
+391
+00:17:26,088 --> 00:17:31,099
+accesible desde cualquier parte del
+
+392
+00:17:28,369 --> 00:17:33,529
+mundo completando así un proyecto más
+
+393
+00:17:31,099 --> 00:17:35,839
+sobre internet de las cosas
+
+394
+00:17:33,529 --> 00:17:37,910
+y eso es todo por este capítulo
+
+395
+00:17:35,839 --> 00:17:40,519
+si te pareció interesante recuerda dejar
+
+396
+00:17:37,910 --> 00:17:43,490
+un me gusta suscribirte si aún no lo has
+
+397
+00:17:40,519 --> 00:17:46,069
+hecho y activar la campana para recibir
+
+398
+00:17:43,490 --> 00:17:48,950
+una notificación ni bien se publica
+
+399
+00:17:46,069 --> 00:17:51,980
+nuevo material como siempre podrás dejar
+
+400
+00:17:48,950 --> 00:17:55,299
+cualquier duda o comentario debajo chao
+
+401
+00:17:51,980 --> 00:17:55,299
+y hasta la próxima
+

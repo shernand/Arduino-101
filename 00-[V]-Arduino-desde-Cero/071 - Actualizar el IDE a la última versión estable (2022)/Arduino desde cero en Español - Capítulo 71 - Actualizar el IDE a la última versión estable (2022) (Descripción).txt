@@ -1,0 +1,20 @@
+Paso a paso el proceso de actualización del IDE de Arduino a la última versión estable disponible, descarga y actualización asegurando mantener las preciadas librerías que fuimos descargando con el tiempo.
+Interpretación de los mensajes de advertencia que nos irán apareciendo en el proceso.
+
+#ArduinoIDE
+#ActualizarArduino
+#IDEversionEstable
+actualizar ide arduino
+como descargar arduino
+como instalar arduino
+arduino ide descargar
+arduino ide update
+how to download arduino software on windows 10
+
+Marcas de tiempo:
+
+0:00 Introducción
+0:44 Descarga desde sitio web
+1:39 Desinstalación de versión anterior
+2:49 Instalación de nueva versión
+3:32 Arranque inicial y verificación de librerías

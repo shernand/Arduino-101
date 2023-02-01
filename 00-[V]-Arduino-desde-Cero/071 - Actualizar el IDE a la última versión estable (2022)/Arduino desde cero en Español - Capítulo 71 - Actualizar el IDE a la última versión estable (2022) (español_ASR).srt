@@ -1,0 +1,420 @@
+1
+00:00:00,610 --> 00:00:06,430
+hola bienvenidos a un nuevo capítulo de
+
+2
+00:00:03,698 --> 00:00:08,740
+arduino desde cero en español en esta
+
+3
+00:00:06,429 --> 00:00:11,349
+oportunidad quiero compartir el proceso
+
+4
+00:00:08,740 --> 00:00:13,150
+de actualización del id como todo
+
+5
+00:00:11,349 --> 00:00:14,980
+programa se va actualizando con el
+
+6
+00:00:13,150 --> 00:00:17,620
+tiempo y si estás siguiendo el curso
+
+7
+00:00:14,980 --> 00:00:19,990
+quizás tengas algo desactualizada tu
+
+8
+00:00:17,620 --> 00:00:23,260
+versión veremos paso a paso el proceso
+
+9
+00:00:19,989 --> 00:00:25,899
+de descarga actualización e interpretar
+
+10
+00:00:23,260 --> 00:00:27,970
+algún que otro mensaje de eliminación de
+
+11
+00:00:25,899 --> 00:00:30,909
+archivos que puede resultar algo
+
+12
+00:00:27,969 --> 00:00:33,879
+intimidante en un principio aquí podrás
+
+13
+00:00:30,910 --> 00:00:35,469
+ver que estoy con la versión 1 815 y
+
+14
+00:00:33,880 --> 00:00:37,810
+hace tiempo que no lo actualizo
+
+15
+00:00:35,469 --> 00:00:40,570
+seguramente ya existe una nueva versión
+
+16
+00:00:37,810 --> 00:00:43,030
+así que primero lo cierro de manera que
+
+17
+00:00:40,570 --> 00:00:45,460
+no quede un proceso en ejecución y me
+
+18
+00:00:43,030 --> 00:00:49,030
+dirijo con el navegador web a la página
+
+19
+00:00:45,460 --> 00:00:51,149
+de arduino en arduino punto cc luego la
+
+20
+00:00:49,030 --> 00:00:53,739
+sección software y se puede apreciar
+
+21
+00:00:51,149 --> 00:00:58,030
+rápidamente la última versión estable
+
+22
+00:00:53,738 --> 00:00:59,589
+disponible la 1 819 genial también
+
+23
+00:00:58,030 --> 00:01:02,500
+debajo podrás ver que en poco tiempo
+
+24
+00:00:59,590 --> 00:01:05,350
+arduino lanzará una actualización mayor
+
+25
+00:01:02,500 --> 00:01:07,989
+la versión 2.0 que actualmente se
+
+26
+00:01:05,349 --> 00:01:10,899
+encuentra en versión rc release
+
+27
+00:01:07,989 --> 00:01:12,780
+candidate en definitiva en sus últimas
+
+28
+00:01:10,899 --> 00:01:16,090
+etapas de prueba para la disponibilidad
+
+29
+00:01:12,780 --> 00:01:18,609
+general seguramente será motivo de una
+
+30
+00:01:16,090 --> 00:01:20,950
+revisión en un futuro capítulo pero por
+
+31
+00:01:18,609 --> 00:01:23,500
+ahora vamos a la versión estable y bien
+
+32
+00:01:20,950 --> 00:01:25,780
+probada existen enlaces para distintos
+
+33
+00:01:23,500 --> 00:01:28,780
+sistemas operativos soportados yo
+
+34
+00:01:25,780 --> 00:01:31,390
+seleccionaré windows y luego en just
+
+35
+00:01:28,780 --> 00:01:34,659
+down load esto descargara un archivo
+
+36
+00:01:31,390 --> 00:01:36,429
+ejecutable de 112 megabytes una vez
+
+37
+00:01:34,659 --> 00:01:39,700
+finalizado el proceso de descarga
+
+38
+00:01:36,429 --> 00:01:41,409
+podemos directamente ejecutar en esta
+
+39
+00:01:39,700 --> 00:01:44,890
+ventana se nos indica que se ha
+
+40
+00:01:41,409 --> 00:01:46,780
+detectado la versión 1 815 instalada lo
+
+41
+00:01:44,890 --> 00:01:49,509
+cual es correcto también que debe
+
+42
+00:01:46,780 --> 00:01:51,340
+primero desinstalar dicha versión para
+
+43
+00:01:49,509 --> 00:01:53,590
+luego instalar la nueva y que se
+
+44
+00:01:51,340 --> 00:01:56,259
+eliminará todo el contenido de la
+
+45
+00:01:53,590 --> 00:01:58,329
+carpeta arduino dentro del directorio de
+
+46
+00:01:56,259 --> 00:02:01,840
+instalación clásico de windows en
+
+47
+00:01:58,329 --> 00:02:04,030
+program files x86 las librerías que
+
+48
+00:02:01,840 --> 00:02:06,759
+fuimos descargando con el tiempo son
+
+49
+00:02:04,030 --> 00:02:09,038
+importantes y sería malo perderlas las
+
+50
+00:02:06,759 --> 00:02:12,009
+mismas se instalan por defecto dentro de
+
+51
+00:02:09,038 --> 00:02:14,169
+la carpeta documentos arduino libraries
+
+52
+00:02:12,009 --> 00:02:15,818
+es decir que se encuentran del
+
+53
+00:02:14,169 --> 00:02:18,188
+directorio que estamos a punto de
+
+54
+00:02:15,818 --> 00:02:20,348
+eliminar de todas maneras el instalador
+
+55
+00:02:18,188 --> 00:02:22,598
+nos da la advertencia lo cual se
+
+56
+00:02:20,348 --> 00:02:25,479
+agradece ahora sí con confianza
+
+57
+00:02:22,598 --> 00:02:28,179
+presionamos en aceptar nos indica el
+
+58
+00:02:25,479 --> 00:02:30,188
+directorio de la desinstalación y por
+
+59
+00:02:28,180 --> 00:02:33,189
+ende eliminación de contenido en el
+
+60
+00:02:30,188 --> 00:02:35,858
+mismo presionamos en and in store y una
+
+61
+00:02:33,188 --> 00:02:39,519
+última advertencia del borrado antes del
+
+62
+00:02:35,859 --> 00:02:41,680
+proceso así que aceptar aguardamos unos
+
+63
+00:02:39,519 --> 00:02:43,389
+segundos y cuando finalice nos lo
+
+64
+00:02:41,680 --> 00:02:46,150
+indicará con esta otra ventana
+
+65
+00:02:43,389 --> 00:02:49,389
+presionamos en aceptar y luego en close
+
+66
+00:02:46,150 --> 00:02:52,120
+ya ahora de forma automática inicia el
+
+67
+00:02:49,389 --> 00:02:54,700
+instalador propiamente dicho aceptamos
+
+68
+00:02:52,120 --> 00:02:57,459
+las condiciones que como es usual sin
+
+69
+00:02:54,699 --> 00:02:59,589
+leer con hay agree y dejamos las
+
+70
+00:02:57,459 --> 00:03:02,229
+opciones por defecto que son las típicas
+
+71
+00:02:59,590 --> 00:03:03,789
+y el botón next indica ahora el
+
+72
+00:03:02,229 --> 00:03:06,250
+directorio en donde instalarán los
+
+73
+00:03:03,789 --> 00:03:08,888
+nuevos archivos nuevamente el valor por
+
+74
+00:03:06,250 --> 00:03:11,229
+defecto suele ser el correcto a no ser
+
+75
+00:03:08,889 --> 00:03:14,109
+que desees otra ubicación o unidad de
+
+76
+00:03:11,229 --> 00:03:16,268
+disco botón install y comienza el
+
+77
+00:03:14,109 --> 00:03:18,790
+proceso es una buena cantidad de
+
+78
+00:03:16,269 --> 00:03:20,920
+archivos pero no debe demorar mucho de
+
+79
+00:03:18,789 --> 00:03:23,439
+todas maneras solo esperar a que
+
+80
+00:03:20,919 --> 00:03:26,199
+finalice cuando lo hace presionamos
+
+81
+00:03:23,439 --> 00:03:28,840
+close y listo voy a cerrar el navegador
+
+82
+00:03:26,199 --> 00:03:31,568
+web que quedó abierto y a seleccionar
+
+83
+00:03:28,840 --> 00:03:34,150
+arduino desde el menú de inicio arranca
+
+84
+00:03:31,568 --> 00:03:37,479
+como es usual y podremos ver en la barra
+
+85
+00:03:34,150 --> 00:03:39,039
+que estamos con la versión 1 819 para
+
+86
+00:03:37,479 --> 00:03:41,139
+quedarnos tranquilos que nuestras
+
+87
+00:03:39,039 --> 00:03:43,810
+preciadas librerías siguen estando
+
+88
+00:03:41,139 --> 00:03:46,059
+podemos seleccionar el menú archivo y
+
+89
+00:03:43,810 --> 00:03:48,098
+luego ejemplos y veremos todos los
+
+90
+00:03:46,060 --> 00:03:51,159
+ejemplos asociados a las librerías
+
+91
+00:03:48,098 --> 00:03:54,909
+instaladas parece todo en orden aquí la
+
+92
+00:03:51,159 --> 00:04:00,669
+del bmp 280 que vimos en el capítulo 36
+
+93
+00:03:54,909 --> 00:04:06,219
+e id a fruit fx en el 93 41 del capítulo
+
+94
+00:04:00,669 --> 00:04:08,798
+54 tag del capítulo 66 genial logramos
+
+95
+00:04:06,219 --> 00:04:11,439
+entonces actualizar el id a la última
+
+96
+00:04:08,799 --> 00:04:13,810
+versión estable disponible espero haya
+
+97
+00:04:11,439 --> 00:04:15,060
+sido de utilidad y como referencia para
+
+98
+00:04:13,810 --> 00:04:17,649
+seguir a futuro
+
+99
+00:04:15,060 --> 00:04:20,019
+actualizando a medida que salgan nuevas
+
+100
+00:04:17,649 --> 00:04:22,779
+versiones eso es todo por este breve
+
+101
+00:04:20,019 --> 00:04:25,240
+capítulo recordad dejar un me gusta si
+
+102
+00:04:22,779 --> 00:04:26,638
+te pareció interesante suscribirte y si
+
+103
+00:04:25,240 --> 00:04:28,740
+aún no lo has hecho
+
+104
+00:04:26,639 --> 00:04:33,710
+cualquier duda o comentario lo podrás
+
+105
+00:04:28,740 --> 00:04:33,710
+hacer debajo chao y hasta la próxima
+

@@ -1,0 +1,46 @@
+En este proyecto de Internet de las Cosas integramos un sensor BME280 para la medición de temperatura, humedad y presión, conectamos con el servicio gratuito de Arduino IoT Cloud en la nube y mostramos la información de forma gráfica con medidores y tabla de historial.
+De manera muy simple con una placa Nano RP2040 Connect utilizamos un sensor BME280 mediante bus I2C y configuramos todo en Arduino IoT Cloud, con una mínima cantidad de código logramos obtener las mediciones y crear un Dashboard o Panel de Control con medidores y una tabla con el historial de temperatura.
+
+También vemos como ingresar mediante teléfono móvil con la aplicación Arduino IoT Cloud Remote.
+
+
+Hoja de datos BME280:
+https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf
+
+Recomendable ver Capítulo 72:
+https://www.youtube.com/watch?v=MMV-5k_33CI
+
+Arduino Nano RP2040 Connect (análisis):
+https://www.youtube.com/watch?v=xanpqt74nxY
+
+#ArduinoIoTCloud
+#BME280
+#CloudIoT
+Arduino IoT
+BME280 Arduino
+Arduino Nano RP2040 Connect
+Arduino IoT projects
+Arduino IoT tutorial
+Arduino internet de las cosas
+Arduino internet of things
+Proyecto IoT Arduino
+Sensor BME280 Arduino
+
+
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+
+
+Marcas de tiempo:
+
+0:00 En este capítulo
+0:28 BME280
+1:43 Circuito de conexión
+2:42 Acceso a Arduino IoT Cloud
+4:42 Primer programa (mostrando valores por Monitor)
+12:00 Segundo programa (enlazando a variables de IoT Cloud)
+13:26 Creando un Dashboard (panel de control)
+16:33 Accediendo mediante Teléfono móvil (App)
+17:04 Recapitulando

@@ -1,0 +1,23 @@
+El futuro del IDE (Entorno de Desarrollo Integrado) de Arduino ya está aquí cin su versión 2, lo instalamos desde cero y analizamos todas las nuevas características visuales y de productividad del nuevo editor con diferentes placas (Uno y Nano 33 BLE).
+Veremos que puede coexistir sin problemas con la versión anterior 1.8.19 y las novedades del editor a la hora de sugerir funciones, acceso rápido a referencias, autocompletado y mucho más en un entorno moderno y personalizable.
+Basado en el framework (marco de trabajo) Eclipse Theia es un proyecto de código abierto para desarrollo de IDEs de escritorio y en la nube, con una experiencia de uso similar al VS Code (Visual Studio Code).
+
+
+#ArduinoIDE2
+#ArduinoDesdeCero
+
+Arduino IDE 2.0 Español
+Arduino IDE 2.0 download
+install arduino ide 2.0
+arduino ide 2 windows 11
+
+Marcas de tiempo:
+
+0:00 Introducción e Instalación
+3:10 Menues y Accesos rápidos
+7:46 Personalizando apariencia (temas)
+8:58 Conectando placa Arduino UNO
+11:22 Analizando el monitor serie
+13:22 Nuevas características del Editor
+19:59 Gestor de placas (Mbed OS Nano Boards)
+21:51 Conclusiones

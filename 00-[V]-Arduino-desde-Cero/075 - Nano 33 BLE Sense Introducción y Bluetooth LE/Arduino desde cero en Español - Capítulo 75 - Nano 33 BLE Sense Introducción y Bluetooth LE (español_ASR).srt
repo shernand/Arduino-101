@@ -1,0 +1,2432 @@
+1
+00:00:00,900 --> 00:00:06,660
+Hola Bienvenidos a un nuevo capítulo de
+
+2
+00:00:03,779 --> 00:00:09,058
+arduino desde cero en español en esta
+
+3
+00:00:06,660 --> 00:00:11,359
+oportunidad le daremos un vistazo al
+
+4
+00:00:09,058 --> 00:00:14,399
+modelo de placa
+
+5
+00:00:11,359 --> 00:00:17,039
+nano33bls una interesante opción que
+
+6
+00:00:14,400 --> 00:00:19,560
+incluye una gran cantidad de sensores en
+
+7
+00:00:17,039 --> 00:00:22,260
+un reducido tamaño y conectividad por
+
+8
+00:00:19,559 --> 00:00:24,960
+Bluetooth le reteniendo las dimensiones
+
+9
+00:00:22,260 --> 00:00:29,060
+clásicas de los modelos Nano de arduino
+
+10
+00:00:24,960 --> 00:00:32,640
+este módulo de aquí es un Nina b306
+
+11
+00:00:29,059 --> 00:00:35,839
+basado en un shock siglas de sistema en
+
+12
+00:00:32,640 --> 00:00:37,880
+un chip del fabricante nordic y modelo
+
+13
+00:00:35,840 --> 00:00:42,020
+nrf
+
+14
+00:00:37,880 --> 00:00:47,160
+52480 incluye un procesador arma cortex
+
+15
+00:00:42,020 --> 00:00:50,160
+m4f de 32 bits a 64 megahertz con un
+
+16
+00:00:47,159 --> 00:00:52,859
+megabyte de memoria flash y 256
+
+17
+00:00:50,159 --> 00:00:56,459
+kilobytes de ram conectividad por
+
+18
+00:00:52,859 --> 00:00:58,500
+Bluetooth de baja energía le con antena
+
+19
+00:00:56,460 --> 00:01:01,460
+incorporada también todos los
+
+20
+00:00:58,500 --> 00:01:07,319
+periféricos para comunicación u
+
+21
+00:01:01,460 --> 00:01:10,260
+y device vas spi y 12 ward conversor
+
+22
+00:01:07,319 --> 00:01:12,779
+analógico digital para mencionar lo más
+
+23
+00:01:10,260 --> 00:01:15,359
+relevante este sensor de aquí es un
+
+24
+00:01:12,780 --> 00:01:18,299
+micrófono de tecnología Mens totalmente
+
+25
+00:01:15,359 --> 00:01:21,118
+digital omnidireccional de alta
+
+26
+00:01:18,299 --> 00:01:23,100
+sensibilidad este otro sensor se lo
+
+27
+00:01:21,118 --> 00:01:25,920
+denomina de ambiente y puede cumplir
+
+28
+00:01:23,099 --> 00:01:29,099
+varias tareas incorpora cuatro fotos
+
+29
+00:01:25,920 --> 00:01:31,978
+diodos direccionales y un emisor led
+
+30
+00:01:29,099 --> 00:01:34,978
+infrarrojo este conjunto permite emitir
+
+31
+00:01:31,978 --> 00:01:37,259
+luz invisible a los humanos y captar el
+
+32
+00:01:34,978 --> 00:01:39,900
+reflejo del mismo en objetos cercanos
+
+33
+00:01:37,259 --> 00:01:42,540
+Por ese motivo puede detectar movimiento
+
+34
+00:01:39,900 --> 00:01:45,478
+de una mano a varios centímetros de
+
+35
+00:01:42,540 --> 00:01:49,079
+distancia y determinar gestos simples
+
+36
+00:01:45,478 --> 00:01:52,739
+como ser movimiento arriba abajo derecha
+
+37
+00:01:49,078 --> 00:01:55,319
+e izquierda o gestos más complejos un
+
+38
+00:01:52,739 --> 00:01:56,759
+sensor muy interesante Pero además se lo
+
+39
+00:01:55,319 --> 00:01:59,279
+puede emplear como un sensor de
+
+40
+00:01:56,759 --> 00:02:01,739
+proximidad del mismo estilo que tienen
+
+41
+00:01:59,280 --> 00:02:03,599
+los teléfonos móviles que apagan la
+
+42
+00:02:01,739 --> 00:02:06,239
+pantalla cuando detectan que se
+
+43
+00:02:03,599 --> 00:02:08,399
+encuentra muy cercano al oído y como si
+
+44
+00:02:06,239 --> 00:02:11,459
+fuera poco permite detectar intensidad
+
+45
+00:02:08,399 --> 00:02:14,280
+individual de colores rojo verde y azul
+
+46
+00:02:11,459 --> 00:02:17,520
+y también luz natural con filtros
+
+47
+00:02:14,280 --> 00:02:20,459
+infrarrojo y ultravioleta un sensor muy
+
+48
+00:02:17,520 --> 00:02:22,800
+interesante y versátil este otro de aquí
+
+49
+00:02:20,459 --> 00:02:26,780
+es un barómetro para la medición de
+
+50
+00:02:22,800 --> 00:02:31,140
+presión atmosférica en el rango de 260 a
+
+51
+00:02:26,780 --> 00:02:34,439
+1.260 hectopascales el de aquí es un imu
+
+52
+00:02:31,139 --> 00:02:36,719
+un sensor de medición inercial de tres
+
+53
+00:02:34,439 --> 00:02:39,479
+ejes de acelerómetro tres ejes de
+
+54
+00:02:36,719 --> 00:02:42,419
+giróscopo o giroscopio y tres ejes de
+
+55
+00:02:39,479 --> 00:02:45,179
+magnetómetro En definitiva de 9 grados
+
+56
+00:02:42,419 --> 00:02:49,559
+de libertad este que apunto es un
+
+57
+00:02:45,180 --> 00:02:52,140
+conversor DC DC reductor Step down que
+
+58
+00:02:49,560 --> 00:02:56,219
+permite ingresar con voltaje no regulado
+
+59
+00:02:52,139 --> 00:02:58,139
+de hasta 21 volts y reduce a 3,3 para la
+
+60
+00:02:56,219 --> 00:03:01,680
+operación de todos los componentes de la
+
+61
+00:02:58,139 --> 00:03:05,098
+placa este diminuto componente es un led
+
+62
+00:03:01,680 --> 00:03:06,900
+rgb de ánodo común el último de los
+
+63
+00:03:05,098 --> 00:03:09,839
+sensores se trata de uno de temperatura
+
+64
+00:03:06,900 --> 00:03:14,039
+y humedad midiendo temperatura en el
+
+65
+00:03:09,840 --> 00:03:18,180
+rango de menos 40 a 120 grados celsius y
+
+66
+00:03:14,039 --> 00:03:20,039
+humedad relativa entre 0 Y 100%. para ir
+
+67
+00:03:18,180 --> 00:03:22,620
+terminando la descripción de esta
+
+68
+00:03:20,039 --> 00:03:25,739
+densamente poblada placa tenemos un
+
+69
+00:03:22,620 --> 00:03:28,920
+pulsador de reset un led de encendido y
+
+70
+00:03:25,739 --> 00:03:31,739
+finalmente el led l clásico de arduino
+
+71
+00:03:28,919 --> 00:03:34,259
+controlable por programación en la parte
+
+72
+00:03:31,739 --> 00:03:36,360
+posterior del circuito impreso nos
+
+73
+00:03:34,259 --> 00:03:38,479
+encontraremos con un par de jumpers o
+
+74
+00:03:36,360 --> 00:03:43,200
+puentes para diferentes configuraciones
+
+75
+00:03:38,479 --> 00:03:45,840
+el denominado B USB que aquí resalto es
+
+76
+00:03:43,199 --> 00:03:49,500
+un puente abierto por defecto lo que
+
+77
+00:03:45,840 --> 00:03:52,500
+hace es aislar los 5 volts provistos del
+
+78
+00:03:49,500 --> 00:03:55,739
+puerto microusb ya que se trata de una
+
+79
+00:03:52,500 --> 00:03:58,979
+placa que opera a 3,3 y previene que por
+
+80
+00:03:55,739 --> 00:04:01,980
+ejemplo usemos 5 como entrada a un pin
+
+81
+00:03:58,979 --> 00:04:04,259
+digital que puede dañar la un método de
+
+82
+00:04:01,979 --> 00:04:06,719
+seguridad que nos brinda arduino para
+
+83
+00:04:04,259 --> 00:04:08,818
+evitar posibles errores personalmente
+
+84
+00:04:06,719 --> 00:04:11,759
+este puente me parece interesante
+
+85
+00:04:08,818 --> 00:04:14,579
+cerrarlo con un punto de soldadura y
+
+86
+00:04:11,759 --> 00:04:16,858
+disponer de un pin de 5 volts ya que
+
+87
+00:04:14,580 --> 00:04:19,799
+puede ser Útil para alimentar un
+
+88
+00:04:16,858 --> 00:04:23,279
+dispositivo externo como ser un módulo
+
+89
+00:04:19,798 --> 00:04:25,679
+de relé este otro puente o jumper se
+
+90
+00:04:23,279 --> 00:04:28,799
+encuentra cerrado y conecta la salida
+
+91
+00:04:25,680 --> 00:04:31,620
+del conversor DC ddc al resto del
+
+92
+00:04:28,800 --> 00:04:34,199
+sistema Claro que por defecto deseamos
+
+93
+00:04:31,620 --> 00:04:36,000
+que esté conectado sino no funcionaría
+
+94
+00:04:34,199 --> 00:04:38,100
+En ningún componente de la placa pero
+
+95
+00:04:36,000 --> 00:04:42,060
+abriendo este puente nos permitiría
+
+96
+00:04:38,100 --> 00:04:44,639
+ingresar con 3,3 de manera externa Si
+
+97
+00:04:42,060 --> 00:04:47,699
+fuera necesario pasando por alto al
+
+98
+00:04:44,639 --> 00:04:50,160
+conversor incorporado los últimos dos
+
+99
+00:04:47,699 --> 00:04:53,580
+puentes que se encuentran abiertos se
+
+100
+00:04:50,160 --> 00:04:56,280
+ubican cerca de los Pines de 7 y de 8 y
+
+101
+00:04:53,579 --> 00:04:58,439
+permite una conexión a dichos Pines a
+
+102
+00:04:56,279 --> 00:05:01,859
+una función del shock para la
+
+103
+00:04:58,439 --> 00:05:03,959
+instalación de una antena para n como es
+
+104
+00:05:01,860 --> 00:05:06,720
+poco usual el uso de la misma justamente
+
+105
+00:05:03,959 --> 00:05:10,319
+los puentes se encuentran abiertos y así
+
+106
+00:05:06,720 --> 00:05:12,540
+poder usar de 7 y de 8 como Pines de
+
+107
+00:05:10,319 --> 00:05:15,860
+entrada salida digitales convencionales
+
+108
+00:05:12,540 --> 00:05:19,139
+la distribución de Pines y funcionalidad
+
+109
+00:05:15,860 --> 00:05:21,479
+opinaut es el siguiente continuando con
+
+110
+00:05:19,139 --> 00:05:25,978
+la tradición de los modelos Nano los
+
+111
+00:05:21,478 --> 00:05:28,740
+Pines digitales 0 y 1 para TX y RX de la
+
+112
+00:05:25,978 --> 00:05:31,680
+comunicación serie por wart los Pines
+
+113
+00:05:28,740 --> 00:05:35,819
+digitales 2 a 12 de este lado de la
+
+114
+00:05:31,680 --> 00:05:38,699
+placa con Pines 11 y 12 para el base spi
+
+115
+00:05:35,819 --> 00:05:42,599
+y pasando al lado izquierdo El pin
+
+116
+00:05:38,699 --> 00:05:45,960
+digital 13 para el reloj del bus spi le
+
+117
+00:05:42,600 --> 00:05:49,080
+sigue una salida regulada de 3,3 volts
+
+118
+00:05:45,959 --> 00:05:51,659
+provistas por el conversor de cdc que
+
+119
+00:05:49,079 --> 00:05:55,198
+vimos antes y brinda un suministro de
+
+120
+00:05:51,660 --> 00:05:57,900
+corriente de hasta 950 miliamperes para
+
+121
+00:05:55,199 --> 00:06:02,879
+alimentar dispositivos y sensores
+
+122
+00:05:57,899 --> 00:06:05,219
+externos las entradas anal serán 8 de a
+
+123
+00:06:02,879 --> 00:06:09,360
+0 a a7 reteniendo el formato
+
+124
+00:06:05,220 --> 00:06:12,979
+convencional de A4 y a5 para el gas y 12
+
+125
+00:06:09,360 --> 00:06:15,960
+a diferencia de otras placas A4 y a5
+
+126
+00:06:12,978 --> 00:06:18,300
+incorporan resistencias internas de Pull
+
+127
+00:06:15,959 --> 00:06:21,359
+up Por ese motivo según la documentación
+
+128
+00:06:18,300 --> 00:06:24,900
+oficial de arduino no se recomienda usar
+
+129
+00:06:21,360 --> 00:06:27,180
+dichos Pines como canales para el adc en
+
+130
+00:06:24,899 --> 00:06:30,000
+su lugar reservar de forma exclusiva
+
+131
+00:06:27,180 --> 00:06:33,000
+para el vas y 12 de todas maneras
+
+132
+00:06:30,000 --> 00:06:36,240
+quedarían 6 entradas que suelen ser más
+
+133
+00:06:33,000 --> 00:06:38,699
+que suficientes este pin de salida de 5
+
+134
+00:06:36,240 --> 00:06:42,240
+volts tendrá presente dicho voltaje
+
+135
+00:06:38,699 --> 00:06:44,280
+únicamente si Cerramos el puente B USB
+
+136
+00:06:42,240 --> 00:06:46,699
+que vimos en la parte posterior de la
+
+137
+00:06:44,279 --> 00:06:50,159
+placa que por defecto viene abierto
+
+138
+00:06:46,699 --> 00:06:53,280
+finalmente El pin bein para el ingreso
+
+139
+00:06:50,160 --> 00:06:56,639
+del voltaje no regulado de hasta 21
+
+140
+00:06:53,279 --> 00:06:58,799
+volts Aunque dicho valor es máximo y se
+
+141
+00:06:56,639 --> 00:07:02,400
+recomienda no ingresar con más de 18
+
+142
+00:06:58,800 --> 00:07:04,439
+claro que el puerto micro USB servirá
+
+143
+00:07:02,399 --> 00:07:07,318
+tanto para la alimentación con un cable
+
+144
+00:07:04,439 --> 00:07:09,719
+USB desde la computadora o fuente
+
+145
+00:07:07,319 --> 00:07:11,580
+regulada de 5 volts y comunicación para
+
+146
+00:07:09,720 --> 00:07:14,940
+la transmisión de datos con la
+
+147
+00:07:11,579 --> 00:07:17,519
+computadora genial es momento de abrir
+
+148
+00:07:14,939 --> 00:07:20,098
+el ID y configurarlo para poder trabajar
+
+149
+00:07:17,519 --> 00:07:23,598
+con nuestra placa ingresando al menú
+
+150
+00:07:20,098 --> 00:07:26,399
+herramientas placa y gestor de tarjetas
+
+151
+00:07:23,598 --> 00:07:28,500
+aguardamos unos segundos a que actualice
+
+152
+00:07:26,399 --> 00:07:32,879
+el listado y en el campo de búsqueda
+
+153
+00:07:28,500 --> 00:07:35,959
+escribimos nano33 ble el primer
+
+154
+00:07:32,879 --> 00:07:39,300
+resultado de arduino en vez o es
+
+155
+00:07:35,959 --> 00:07:41,279
+nanoboards es el adecuado yo ya lo tengo
+
+156
+00:07:39,300 --> 00:07:43,918
+instalado por eso el botón de instalar
+
+157
+00:07:41,279 --> 00:07:46,198
+no se encuentra disponible así que solo
+
+158
+00:07:43,918 --> 00:07:48,839
+es cuestión de presionarlo y aguardar a
+
+159
+00:07:46,199 --> 00:07:52,080
+la descarga e instalación una vez haya
+
+160
+00:07:48,839 --> 00:07:55,138
+finalizado veremos el texto de install y
+
+161
+00:07:52,079 --> 00:07:57,779
+podemos entonces cerrar el gestor al
+
+162
+00:07:55,139 --> 00:08:01,079
+conectar la placa con el cable USB a la
+
+163
+00:07:57,779 --> 00:08:02,879
+computadora Verás que el led l parpa ya
+
+164
+00:08:01,079 --> 00:08:05,159
+que viene precargado con un simple
+
+165
+00:08:02,879 --> 00:08:08,279
+programa de blink desde el menú
+
+166
+00:08:05,160 --> 00:08:11,580
+herramientas luego en placa y en la
+
+167
+00:08:08,279 --> 00:08:15,418
+sección arduino en vez o es Nano Bots
+
+168
+00:08:11,579 --> 00:08:17,879
+seleccionamos nuestra nano33 ble luego
+
+169
+00:08:15,418 --> 00:08:20,060
+ingresando nuevamente a herramientas y
+
+170
+00:08:17,879 --> 00:08:23,819
+Puerto seleccionamos el puerto
+
+171
+00:08:20,060 --> 00:08:26,759
+consignado que en mi caso es con 14 y
+
+172
+00:08:23,819 --> 00:08:28,979
+con eso tenemos todo listo como el único
+
+173
+00:08:26,759 --> 00:08:31,038
+medio de comunicación inalámbrico de
+
+174
+00:08:28,978 --> 00:08:33,479
+esta placa es por Bluetooth le
+
+175
+00:08:31,038 --> 00:08:36,418
+ejecutaremos Este programa de ejemplo
+
+176
+00:08:33,479 --> 00:08:39,000
+provisto por arduino que dejaré un
+
+177
+00:08:36,418 --> 00:08:41,639
+enlace en la zona de descripción el que
+
+178
+00:08:39,000 --> 00:08:43,860
+ves en pantalla y ejecutaremos es una
+
+179
+00:08:41,639 --> 00:08:46,799
+versión traducida al español por mi
+
+180
+00:08:43,860 --> 00:08:49,620
+parte que claro estará disponible en el
+
+181
+00:08:46,799 --> 00:08:52,139
+repositorio usual de github enlace
+
+182
+00:08:49,620 --> 00:08:54,419
+también en la zona de descripción la
+
+183
+00:08:52,139 --> 00:08:56,338
+primer tarea será instalar la librería
+
+184
+00:08:54,419 --> 00:08:58,979
+que permite la comunicación por
+
+185
+00:08:56,339 --> 00:09:00,360
+Bluetooth le ingresando al menú
+
+186
+00:08:58,980 --> 00:09:02,519
+herramientas
+
+187
+00:09:00,360 --> 00:09:06,300
+administrar bibliotecas y en el campo de
+
+188
+00:09:02,519 --> 00:09:09,959
+búsqueda escribimos arduino ble todo
+
+189
+00:09:06,299 --> 00:09:13,019
+junto el resultado que dice arduino ble
+
+190
+00:09:09,958 --> 00:09:15,299
+by arduino es el adecuado Así que
+
+191
+00:09:13,019 --> 00:09:18,360
+simplemente es cuestión de presionar el
+
+192
+00:09:15,299 --> 00:09:20,579
+botón instalar nuevamente en mi caso ya
+
+193
+00:09:18,360 --> 00:09:23,339
+la tengo instalada pero en tu caso en
+
+194
+00:09:20,580 --> 00:09:25,320
+pocos segundos descarga instala y
+
+195
+00:09:23,339 --> 00:09:27,899
+finalmente cerramos la ventana del
+
+196
+00:09:25,320 --> 00:09:31,140
+gestor el programa tiene como propósito
+
+197
+00:09:27,899 --> 00:09:33,419
+activar el led rgb incorporado en la
+
+198
+00:09:31,139 --> 00:09:35,240
+placa a través de una app que
+
+199
+00:09:33,419 --> 00:09:38,278
+instalaremos en nuestro teléfono móvil
+
+200
+00:09:35,240 --> 00:09:40,740
+en este punto quiero hacer un paréntesis
+
+201
+00:09:38,278 --> 00:09:44,399
+para dejar en claro un par de conceptos
+
+202
+00:09:40,740 --> 00:09:46,560
+sobre Bluetooth le que es diferente a
+
+203
+00:09:44,399 --> 00:09:48,419
+Bluetooth clásico como no es el
+
+204
+00:09:46,559 --> 00:09:50,939
+propósito de este capítulo la
+
+205
+00:09:48,419 --> 00:09:53,399
+explicación en detalle de bluetooth low
+
+206
+00:09:50,940 --> 00:09:55,920
+Energy nos centraremos en lo básico para
+
+207
+00:09:53,399 --> 00:09:58,200
+poder entender el código y que sirva
+
+208
+00:09:55,919 --> 00:10:01,199
+como puntapié inicial para un análisis
+
+209
+00:09:58,200 --> 00:10:03,839
+más completo a futuro lo primero es
+
+210
+00:10:01,200 --> 00:10:06,720
+identificar los roles que puede tener un
+
+211
+00:10:03,839 --> 00:10:10,200
+dispositivo en Bluetooth le que son
+
+212
+00:10:06,720 --> 00:10:12,060
+periférico y central periférico es el
+
+213
+00:10:10,200 --> 00:10:13,860
+rol usual que tienen los
+
+214
+00:10:12,059 --> 00:10:18,299
+microcontroladores con sensores
+
+215
+00:10:13,860 --> 00:10:20,700
+incorporados como nuestra nano33 ble o
+
+216
+00:10:18,299 --> 00:10:24,000
+sensores o dispositivos externos a la
+
+217
+00:10:20,700 --> 00:10:26,339
+misma luego se denomina central a los
+
+218
+00:10:24,000 --> 00:10:28,860
+dispositivos que van a recibir datos del
+
+219
+00:10:26,339 --> 00:10:31,860
+periférico y también pueden a su vez
+
+220
+00:10:28,860 --> 00:10:34,379
+enviarle datos al mismo por eso estas
+
+221
+00:10:31,860 --> 00:10:36,899
+flechas en ambos sentidos indican una
+
+222
+00:10:34,379 --> 00:10:40,259
+comunicación bidireccional entre el
+
+223
+00:10:36,899 --> 00:10:42,419
+periférico y las centrales ejemplos de
+
+224
+00:10:40,259 --> 00:10:44,939
+centrales pueden ser un teléfono móvil
+
+225
+00:10:42,419 --> 00:10:46,860
+que mencionaba antes es lo que usaremos
+
+226
+00:10:44,940 --> 00:10:49,620
+para comunicarnos con la Nano pero
+
+227
+00:10:46,860 --> 00:10:51,539
+también puede ser un Notebook laptop o
+
+228
+00:10:49,620 --> 00:10:54,240
+computadora con capacidad de
+
+229
+00:10:51,539 --> 00:10:56,699
+comunicación por Bluetooth aquí coloque
+
+230
+00:10:54,240 --> 00:10:58,860
+otro dispositivo de teléfono móvil con
+
+231
+00:10:56,700 --> 00:11:01,680
+el rol de central para también
+
+232
+00:10:58,860 --> 00:11:04,379
+ejemplificar del periférico puede
+
+233
+00:11:01,679 --> 00:11:07,559
+establecer comunicación con más de una
+
+234
+00:11:04,379 --> 00:11:09,659
+central en una analogía con internet se
+
+235
+00:11:07,559 --> 00:11:12,500
+podría decir que el periférico es el
+
+236
+00:11:09,659 --> 00:11:15,179
+servidor y el Central es el cliente
+
+237
+00:11:12,500 --> 00:11:17,480
+vamos a centrarnos en el periférico
+
+238
+00:11:15,179 --> 00:11:21,059
+estos rectángulos de color blanco
+
+239
+00:11:17,480 --> 00:11:23,339
+representan a un servicio un servicio lo
+
+240
+00:11:21,059 --> 00:11:26,699
+podrás imaginar como una colección de
+
+241
+00:11:23,339 --> 00:11:29,760
+datos por ejemplo un sensor podríamos
+
+242
+00:11:26,700 --> 00:11:32,879
+tener un servicio 1 denominado ambiental
+
+243
+00:11:29,759 --> 00:11:34,980
+y luego una serie de características las
+
+244
+00:11:32,879 --> 00:11:37,919
+características podrían ser temperatura
+
+245
+00:11:34,980 --> 00:11:40,680
+y humedad de la misma forma podemos ir
+
+246
+00:11:37,919 --> 00:11:43,379
+creando los servicios que necesitemos un
+
+247
+00:11:40,679 --> 00:11:46,259
+servicio 2 tendrá otra característica
+
+248
+00:11:43,379 --> 00:11:48,958
+como ser la presión atmosférica entonces
+
+249
+00:11:46,259 --> 00:11:51,720
+debemos siempre crear un servicio y
+
+250
+00:11:48,958 --> 00:11:54,000
+asignarle características que sean En
+
+251
+00:11:51,720 --> 00:11:56,519
+definitiva los datos que enviaremos al
+
+252
+00:11:54,000 --> 00:11:59,519
+dispositivo central o una característica
+
+253
+00:11:56,519 --> 00:12:01,620
+que el central pueda modificar este
+
+254
+00:11:59,519 --> 00:12:04,740
+último caso es el que aplicaremos para
+
+255
+00:12:01,620 --> 00:12:07,200
+el ejemplo La idea es controlar el led
+
+256
+00:12:04,740 --> 00:12:09,079
+rgb incorporado en la Nano Así que
+
+257
+00:12:07,200 --> 00:12:12,540
+crearemos un servicio denominado
+
+258
+00:12:09,078 --> 00:12:16,500
+servicio led y tendrá una característica
+
+259
+00:12:12,539 --> 00:12:18,838
+denominada característica color desde la
+
+260
+00:12:16,500 --> 00:12:21,539
+app en el teléfono móvil enviaremos
+
+261
+00:12:18,839 --> 00:12:24,300
+datos que modificarán esa característica
+
+262
+00:12:21,539 --> 00:12:28,740
+permitiendo encender componentes rojo
+
+263
+00:12:24,299 --> 00:12:31,439
+verde y azul o apagarlos por completo sé
+
+264
+00:12:28,740 --> 00:12:33,180
+que son varios conceptos y todo tendrá
+
+265
+00:12:31,440 --> 00:12:34,980
+sentido ahora que veamos su
+
+266
+00:12:33,179 --> 00:12:37,439
+implementación en la programación pero
+
+267
+00:12:34,980 --> 00:12:40,139
+es importante que quede claro que existe
+
+268
+00:12:37,440 --> 00:12:42,959
+un periférico que se comunica con un
+
+269
+00:12:40,139 --> 00:12:46,199
+central el periférico tendrá uno o
+
+270
+00:12:42,958 --> 00:12:47,299
+varios servicios y cada servicio una o
+
+271
+00:12:46,200 --> 00:12:50,278
+varias características
+
+272
+00:12:47,299 --> 00:12:52,379
+volvamos al código en la primer línea
+
+273
+00:12:50,278 --> 00:12:54,958
+incluimos la librería para la
+
+274
+00:12:52,379 --> 00:12:56,820
+comunicación por Bluetooth le luego
+
+275
+00:12:54,958 --> 00:12:59,699
+creamos el servicio con el nombre
+
+276
+00:12:56,820 --> 00:13:02,278
+servicio led como recién vimos en el
+
+277
+00:12:59,700 --> 00:13:05,700
+diagrama y le asignamos un número en
+
+278
+00:13:02,278 --> 00:13:09,600
+hexadecimal de 16 bits de longitud que
+
+279
+00:13:05,700 --> 00:13:11,459
+es 180 a tanto el servicio Como la
+
+280
+00:13:09,600 --> 00:13:15,720
+característica se maneja mediante
+
+281
+00:13:11,458 --> 00:13:18,138
+identificadores denominados uuid por y
+
+282
+00:13:15,720 --> 00:13:21,180
+universal y unic identity fire
+
+283
+00:13:18,139 --> 00:13:23,100
+identificador único universal muy
+
+284
+00:13:21,179 --> 00:13:26,939
+parecido a lo que vimos en el capítulo
+
+285
+00:13:23,100 --> 00:13:29,100
+40 con arref ID En definitiva se trata
+
+286
+00:13:26,940 --> 00:13:31,560
+de un identificador que forma parte
+
+287
+00:13:29,100 --> 00:13:33,959
+luego de la transmisión de datos por eso
+
+288
+00:13:31,559 --> 00:13:36,419
+es un número corto hay que recordar que
+
+289
+00:13:33,958 --> 00:13:38,578
+la idea de la parte de baja energía de
+
+290
+00:13:36,419 --> 00:13:41,159
+bluetooth es realizar una comunicación
+
+291
+00:13:38,578 --> 00:13:43,578
+lo más breve posible para ahorrar
+
+292
+00:13:41,159 --> 00:13:46,439
+energía sobre todo con dispositivos
+
+293
+00:13:43,578 --> 00:13:49,199
+alimentados a baterías aquí te muestro
+
+294
+00:13:46,440 --> 00:13:51,240
+una tabla de algunos uuides que
+
+295
+00:13:49,200 --> 00:13:54,379
+corresponden a servicios específicos
+
+296
+00:13:51,240 --> 00:13:58,200
+aquí por ejemplo aparece el nuestro de
+
+297
+00:13:54,379 --> 00:14:02,700
+180 a en hexadecimal por eso el prefijo
+
+298
+00:13:58,200 --> 00:14:05,278
+0x y corresponde a device information un
+
+299
+00:14:02,700 --> 00:14:07,079
+valor genérico ya que al tratarse de una
+
+300
+00:14:05,278 --> 00:14:09,419
+placa de desarrollo puede tomar
+
+301
+00:14:07,078 --> 00:14:11,519
+diferentes funciones si por ejemplo
+
+302
+00:14:09,419 --> 00:14:14,939
+estuvieras desarrollando un dispositivo
+
+303
+00:14:11,519 --> 00:14:17,220
+compatible con Bluetooth le y realiza la
+
+304
+00:14:14,940 --> 00:14:22,500
+medición del ritmo cardíaco al servicio
+
+305
+00:14:17,220 --> 00:14:24,899
+le asignarías el uuid de 180 d genial
+
+306
+00:14:22,500 --> 00:14:27,240
+tenemos nuestro servicio ahora debemos
+
+307
+00:14:24,899 --> 00:14:29,700
+crear una característica que la
+
+308
+00:14:27,240 --> 00:14:33,360
+llamaremos característica color y en el
+
+309
+00:14:29,700 --> 00:14:38,759
+primer parámetro el uid asignado en este
+
+310
+00:14:33,360 --> 00:14:41,820
+caso 2 a 57 se trata de un uid libre y
+
+311
+00:14:38,759 --> 00:14:43,620
+no asignado a nada en específico aquí te
+
+312
+00:14:41,820 --> 00:14:46,079
+traigo un tramo de la tabla de
+
+313
+00:14:43,620 --> 00:14:48,240
+características y al igual que la de
+
+314
+00:14:46,078 --> 00:14:50,698
+servicios hay algunos valores ya
+
+315
+00:14:48,240 --> 00:14:53,459
+asignados para funciones usuales si
+
+316
+00:14:50,698 --> 00:14:58,500
+estuviésemos midiendo altitud asignarías
+
+317
+00:14:53,458 --> 00:15:00,659
+el uuid número 2 a B3 como verás hay
+
+318
+00:14:58,500 --> 00:15:03,240
+varias cuestiones de protoco para el uso
+
+319
+00:15:00,659 --> 00:15:05,399
+de bluetooth le y la idea no es
+
+320
+00:15:03,240 --> 00:15:08,159
+complicar el tema me interesa que quede
+
+321
+00:15:05,399 --> 00:15:11,339
+el concepto que tanto el servicio Como
+
+322
+00:15:08,159 --> 00:15:14,278
+la característica debemos asignar un
+
+323
+00:15:11,339 --> 00:15:17,940
+identificador el segundo parámetro luego
+
+324
+00:15:14,278 --> 00:15:20,360
+del uuid es los permisos que aplican a
+
+325
+00:15:17,940 --> 00:15:24,000
+la característica al decir
+
+326
+00:15:20,360 --> 00:15:27,120
+bleed y ble write como podrás imaginar
+
+327
+00:15:24,000 --> 00:15:28,860
+damos permiso de lectura y escritura de
+
+328
+00:15:27,120 --> 00:15:31,440
+hecho nosotros estaremos solo
+
+329
+00:15:28,860 --> 00:15:34,019
+escribiendo en la característica cuando
+
+330
+00:15:31,440 --> 00:15:36,420
+nos conectemos con el teléfono móvil en
+
+331
+00:15:34,019 --> 00:15:39,480
+el Setup inicializamos El Monitor serie
+
+332
+00:15:36,419 --> 00:15:41,698
+a 9.600 bautios para mostrar la
+
+333
+00:15:39,480 --> 00:15:44,220
+información en tiempo real de las
+
+334
+00:15:41,698 --> 00:15:46,259
+acciones que van ocurriendo esperamos a
+
+335
+00:15:44,220 --> 00:15:49,199
+que la conexión serie quede establecida
+
+336
+00:15:46,259 --> 00:15:51,360
+correctamente con esta línea que como ya
+
+337
+00:15:49,198 --> 00:15:54,000
+mencionaba en otras oportunidades se
+
+338
+00:15:51,360 --> 00:15:57,360
+utiliza para microcontroladores con USB
+
+339
+00:15:54,000 --> 00:16:01,078
+nativo como es el caso del nrf de esta
+
+340
+00:15:57,360 --> 00:16:03,959
+placa luego establecemos como a cada uno
+
+341
+00:16:01,078 --> 00:16:08,578
+de los componentes del led rgb las
+
+342
+00:16:03,958 --> 00:16:10,619
+constantes especiales led r led G y LED
+
+343
+00:16:08,578 --> 00:16:14,039
+B larga hacen referencia a las
+
+344
+00:16:10,620 --> 00:16:16,919
+conexiones internas entre el nrf y el
+
+345
+00:16:14,039 --> 00:16:19,679
+led rgb de la misma manera que vimos con
+
+346
+00:16:16,919 --> 00:16:22,139
+la rp 2040 Connect también aquí
+
+347
+00:16:19,679 --> 00:16:24,679
+establecemos como salida al led
+
+348
+00:16:22,139 --> 00:16:29,039
+incorporado l utilizando la constante
+
+349
+00:16:24,679 --> 00:16:32,159
+led - bajo built Inn esta constante hace
+
+350
+00:16:29,039 --> 00:16:34,500
+referencia al pin 13 como es usual en la
+
+351
+00:16:32,159 --> 00:16:37,740
+mayoría de placas de arduino pero es una
+
+352
+00:16:34,500 --> 00:16:39,620
+buena práctica utilizarla constante led
+
+353
+00:16:37,740 --> 00:16:42,899
+build Inn ya que el código podría
+
+354
+00:16:39,620 --> 00:16:45,060
+reutilizarse en otra placa donde el led
+
+355
+00:16:42,899 --> 00:16:48,899
+incorporado se encuentra en un chipio
+
+356
+00:16:45,059 --> 00:16:51,419
+distinto Cómo es en el caso de las esp y
+
+357
+00:16:48,899 --> 00:16:54,899
+ahora con este bloque de digital write
+
+358
+00:16:51,419 --> 00:16:56,939
+iniciamos con todos los leds apagados el
+
+359
+00:16:54,899 --> 00:17:00,839
+led incorporado y los tres componentes
+
+360
+00:16:56,940 --> 00:17:03,600
+del led rgb notarás que para rgb
+
+361
+00:17:00,839 --> 00:17:06,360
+enviamos un valor High en vez de Low
+
+362
+00:17:03,600 --> 00:17:08,759
+esto es porque dicho led es de ánodo
+
+363
+00:17:06,359 --> 00:17:10,798
+común es decir que el positivo se
+
+364
+00:17:08,759 --> 00:17:13,338
+encuentra siempre conectado y debemos
+
+365
+00:17:10,798 --> 00:17:16,500
+enviar un nivel low para encenderlo
+
+366
+00:17:13,338 --> 00:17:19,859
+utilizamos lógica negativa por eso Si
+
+367
+00:17:16,500 --> 00:17:22,500
+queremos Apagar enviamos High aguardamos
+
+368
+00:17:19,859 --> 00:17:25,198
+a que la inicialización de Bluetooth sea
+
+369
+00:17:22,500 --> 00:17:27,359
+correcta con la función begin si no
+
+370
+00:17:25,199 --> 00:17:30,480
+fuera el caso mostramos el mensaje de
+
+371
+00:17:27,359 --> 00:17:33,719
+error de fallo de inicio de bluetooth le
+
+372
+00:17:30,480 --> 00:17:36,599
+y con Wild entre paréntesis 1 nos
+
+373
+00:17:33,720 --> 00:17:40,079
+quedamos infinitamente en este punto si
+
+374
+00:17:36,599 --> 00:17:42,779
+todo va bien continuamos la función set
+
+375
+00:17:40,079 --> 00:17:44,819
+local name del objeto blé se utiliza
+
+376
+00:17:42,779 --> 00:17:48,558
+para darle un nombre descriptivo a
+
+377
+00:17:44,819 --> 00:17:51,119
+nuestro dispositivo en este caso nano33
+
+378
+00:17:48,558 --> 00:17:54,480
+vélezens Pero puede ser el que quieras
+
+379
+00:17:51,119 --> 00:17:57,479
+con la función set advertise service
+
+380
+00:17:54,480 --> 00:18:00,960
+damos un nombre al servicio en este caso
+
+381
+00:17:57,480 --> 00:18:03,500
+servicio led y luego llegamos a dicho
+
+382
+00:18:00,960 --> 00:18:06,298
+servicio una característica de nombre
+
+383
+00:18:03,500 --> 00:18:08,220
+característica color todo Tal cual lo
+
+384
+00:18:06,298 --> 00:18:11,460
+planificamos con el gráfico que vimos
+
+385
+00:18:08,220 --> 00:18:13,980
+antes respecto a crear un servicio y una
+
+386
+00:18:11,460 --> 00:18:16,620
+característica para ir finalizando el
+
+387
+00:18:13,980 --> 00:18:19,319
+Setup con add service agregamos el
+
+388
+00:18:16,619 --> 00:18:21,839
+servicio servicio led que antes
+
+389
+00:18:19,319 --> 00:18:24,720
+definimos luego daremos un estado
+
+390
+00:18:21,839 --> 00:18:28,379
+inicial a la característica color con la
+
+391
+00:18:24,720 --> 00:18:30,779
+función write value y un valor de 0 este
+
+392
+00:18:28,380 --> 00:18:33,299
+valor luego lo cambiaremos desde la app
+
+393
+00:18:30,779 --> 00:18:36,000
+en el teléfono resta invocar a la
+
+394
+00:18:33,298 --> 00:18:39,359
+función advertise que comienza a emitir
+
+395
+00:18:36,000 --> 00:18:42,179
+en la banda y sm de bluetooth a 2.4
+
+396
+00:18:39,359 --> 00:18:44,819
+gigahertz el servicio activo en este
+
+397
+00:18:42,179 --> 00:18:47,700
+periférico podrás imaginarlo como el
+
+398
+00:18:44,819 --> 00:18:50,038
+bitcoin o radiofaro que tiene el WiFi
+
+399
+00:18:47,700 --> 00:18:52,319
+con el nombre de la red para que un
+
+400
+00:18:50,038 --> 00:18:55,919
+dispositivo lo pueda Identificar y
+
+401
+00:18:52,319 --> 00:18:57,839
+conectarse como la inicialización ya se
+
+402
+00:18:55,919 --> 00:18:59,759
+encuentra finalizada mostramos por
+
+403
+00:18:57,839 --> 00:19:02,819
+monitor serie el texto
+
+404
+00:18:59,759 --> 00:19:04,980
+automático inicio de periférico quedará
+
+405
+00:19:02,819 --> 00:19:08,339
+así hasta que se conecte un dispositivo
+
+406
+00:19:04,980 --> 00:19:10,019
+central en el Loop la primer tarea es
+
+407
+00:19:08,339 --> 00:19:13,918
+crear un dispositivo con el nombre
+
+408
+00:19:10,019 --> 00:19:16,259
+central y será del tipo velé central
+
+409
+00:19:13,919 --> 00:19:18,840
+necesario para obtener datos
+
+410
+00:19:16,259 --> 00:19:21,779
+provenientes del mismo en el condicional
+
+411
+00:19:18,839 --> 00:19:24,659
+consultamos si central devuelve un valor
+
+412
+00:19:21,779 --> 00:19:28,019
+de verdadero si es el caso significa que
+
+413
+00:19:24,660 --> 00:19:30,419
+se ha establecido una conexión exitosa y
+
+414
+00:19:28,019 --> 00:19:33,900
+mostramos por monitor serie el texto
+
+415
+00:19:30,419 --> 00:19:36,059
+conectado a Central dos puntos luego con
+
+416
+00:19:33,900 --> 00:19:39,120
+la función address la dirección del
+
+417
+00:19:36,058 --> 00:19:41,519
+dispositivo central el macadress y
+
+418
+00:19:39,119 --> 00:19:43,678
+encendemos el led incorporado de la Nano
+
+419
+00:19:41,519 --> 00:19:46,798
+de manera de tener una indicación visual
+
+420
+00:19:43,679 --> 00:19:49,320
+de la conexión establecida ahora debemos
+
+421
+00:19:46,798 --> 00:19:51,960
+esperar por datos provenientes desde el
+
+422
+00:19:49,319 --> 00:19:54,119
+dispositivo central con el Wilde hasta
+
+423
+00:19:51,960 --> 00:19:56,460
+ahora solo se ha conectado con nuestro
+
+424
+00:19:54,119 --> 00:19:58,979
+periférico aguardamos a que la función
+
+425
+00:19:56,460 --> 00:20:02,038
+conected devuelva un valor de verdadero
+
+426
+00:19:58,980 --> 00:20:04,558
+y luego consultando si se ha escrito
+
+427
+00:20:02,038 --> 00:20:07,740
+algo por parte del Central con la
+
+428
+00:20:04,558 --> 00:20:09,740
+función retén no lo dije antes pero la
+
+429
+00:20:07,740 --> 00:20:12,779
+idea es que desde la App del teléfono
+
+430
+00:20:09,740 --> 00:20:15,660
+enviemos El número uno para encender el
+
+431
+00:20:12,779 --> 00:20:18,538
+componente de color rojo del led rgb
+
+432
+00:20:15,660 --> 00:20:21,538
+incorporado un 2 para encender el verde
+
+433
+00:20:18,538 --> 00:20:24,298
+y un 3 para encender el azul cualquier
+
+434
+00:20:21,538 --> 00:20:26,579
+otro número simplemente apaga todos los
+
+435
+00:20:24,298 --> 00:20:29,220
+componentes para no utilizar una gran
+
+436
+00:20:26,579 --> 00:20:31,500
+cantidad de condicionales If se aplica
+
+437
+00:20:29,220 --> 00:20:33,419
+en este programa otro método para el
+
+438
+00:20:31,500 --> 00:20:36,798
+control de flujo con el denominado
+
+439
+00:20:33,419 --> 00:20:39,600
+switch Case lo que hace es muy simple
+
+440
+00:20:36,798 --> 00:20:43,079
+switch compara el valor de la variable
+
+441
+00:20:39,599 --> 00:20:46,439
+con los Case o casos que se especifiquen
+
+442
+00:20:43,079 --> 00:20:49,139
+Y ejecuta si coinciden característica
+
+443
+00:20:46,440 --> 00:20:51,419
+color punto value es una función que
+
+444
+00:20:49,140 --> 00:20:54,059
+devuelve el valor el número que
+
+445
+00:20:51,419 --> 00:20:58,020
+escribimos en la App del teléfono como
+
+446
+00:20:54,058 --> 00:20:59,639
+decía antes 1 2 o 3 Entonces si el valor
+
+447
+00:20:58,019 --> 00:21:02,839
+coincide con
+
+448
+00:20:59,640 --> 00:21:06,059
+01 es decir que se ingresó el número 1
+
+449
+00:21:02,839 --> 00:21:10,379
+ejecuta el bloque que le sigue verás que
+
+450
+00:21:06,058 --> 00:21:12,779
+luego hay un case02 y un case03 y un
+
+451
+00:21:10,380 --> 00:21:15,179
+default que luego veremos pero la idea
+
+452
+00:21:12,779 --> 00:21:18,779
+es no tener que aplicar If condición
+
+453
+00:21:15,179 --> 00:21:21,298
+igual a uno If condición igual a 2 El
+
+454
+00:21:18,779 --> 00:21:23,519
+control de flujo por switch Case es muy
+
+455
+00:21:21,298 --> 00:21:27,240
+práctico En ese sentido entonces
+
+456
+00:21:23,519 --> 00:21:29,700
+llegamos a Case 01 si ingresamos el
+
+457
+00:21:27,240 --> 00:21:32,220
+número 1 desde la App del teléfono o
+
+458
+00:21:29,700 --> 00:21:34,798
+dispositivo central mostramos por
+
+459
+00:21:32,220 --> 00:21:37,740
+monitor serie el texto led rojo
+
+460
+00:21:34,798 --> 00:21:41,460
+encendido y encendemos el componente de
+
+461
+00:21:37,740 --> 00:21:44,759
+color rojo con un digital write led r y
+
+462
+00:21:41,460 --> 00:21:47,519
+un valor low recordar que el led rgb es
+
+463
+00:21:44,759 --> 00:21:50,339
+de ánodo común Por ese motivo se activa
+
+464
+00:21:47,519 --> 00:21:52,740
+con un cero lógico apagamos el resto de
+
+465
+00:21:50,339 --> 00:21:57,058
+los componentes enviando un nivel alto
+
+466
+00:21:52,740 --> 00:22:00,179
+Jay tanto para led G como para led B
+
+467
+00:21:57,058 --> 00:22:02,579
+larga El Comando break Al al final del
+
+468
+00:22:00,179 --> 00:22:05,298
+bloque se utiliza para indicar el final
+
+469
+00:22:02,579 --> 00:22:08,579
+de los comandos a ejecutar para ese caso
+
+470
+00:22:05,298 --> 00:22:11,879
+y el resto es básicamente lo mismo con
+
+471
+00:22:08,579 --> 00:22:14,579
+el Case 02 que mostrará el texto de
+
+472
+00:22:11,880 --> 00:22:18,240
+verde encendido se enciende el
+
+473
+00:22:14,579 --> 00:22:21,960
+componente verde del led rgb y apaga el
+
+474
+00:22:18,240 --> 00:22:25,380
+resto misma mecánica para Case 03 para
+
+475
+00:22:21,960 --> 00:22:28,140
+el color azul ahora queda finalmente una
+
+476
+00:22:25,380 --> 00:22:31,380
+condición llamada default que se traduce
+
+477
+00:22:28,140 --> 00:22:34,860
+por defecto a esta condición llegamos si
+
+478
+00:22:31,380 --> 00:22:37,799
+el valor leído no es ni uno ni dos ni
+
+479
+00:22:34,859 --> 00:22:40,079
+tres es decir cualquier valor que no se
+
+480
+00:22:37,798 --> 00:22:43,679
+haya definido con el Case Entonces
+
+481
+00:22:40,079 --> 00:22:45,779
+mostramos por monitor leds apagados y
+
+482
+00:22:43,679 --> 00:22:49,259
+con digital write todos los niveles
+
+483
+00:22:45,779 --> 00:22:51,839
+altos para pagar todos los componentes y
+
+484
+00:22:49,259 --> 00:22:54,119
+ya vamos finalizando el programa a este
+
+485
+00:22:51,839 --> 00:22:56,879
+serial punto print llegamos si el
+
+486
+00:22:54,119 --> 00:22:59,519
+condicional If que evalúa a Central que
+
+487
+00:22:56,880 --> 00:23:02,460
+nos quedó por aquí arriba en el código
+
+488
+00:22:59,519 --> 00:23:05,700
+vuelve falso Entonces mostramos por
+
+489
+00:23:02,460 --> 00:23:08,519
+monitor serie el texto desconectado de
+
+490
+00:23:05,700 --> 00:23:11,640
+Central dos puntos luego nuevamente la
+
+491
+00:23:08,519 --> 00:23:14,400
+dirección el Mac address del Central que
+
+492
+00:23:11,640 --> 00:23:17,520
+se ha desconectado apagamos el led
+
+493
+00:23:14,400 --> 00:23:20,100
+incorporado con el led built in y low y
+
+494
+00:23:17,519 --> 00:23:23,400
+apagamos todos los componentes del led
+
+495
+00:23:20,099 --> 00:23:25,259
+rgb parece redundante esta parte pero
+
+496
+00:23:23,400 --> 00:23:28,140
+recordad que el dispositivo central
+
+497
+00:23:25,259 --> 00:23:30,558
+podría haber enviado un valor de 1 para
+
+498
+00:23:28,140 --> 00:23:33,419
+encender el color rojo y luego
+
+499
+00:23:30,558 --> 00:23:36,899
+desconectarse con lo cual nunca ejecuta
+
+500
+00:23:33,419 --> 00:23:39,240
+la sección de fold del switch Case igual
+
+501
+00:23:36,900 --> 00:23:42,120
+esto es un ejemplo pero podríamos dejar
+
+502
+00:23:39,240 --> 00:23:44,700
+el led encendido aunque se desconectará
+
+503
+00:23:42,119 --> 00:23:47,459
+el central y ese es todo el programa
+
+504
+00:23:44,700 --> 00:23:50,038
+algo extenso para un ejemplo pero
+
+505
+00:23:47,460 --> 00:23:52,740
+Bluetooth le requiere de varias
+
+506
+00:23:50,038 --> 00:23:55,259
+cuestiones como ser el servicio la
+
+507
+00:23:52,740 --> 00:23:58,200
+característica y luego tomar la acción
+
+508
+00:23:55,259 --> 00:24:01,500
+en base a lo recibido vamos a verificar
+
+509
+00:23:58,200 --> 00:24:03,360
+y subir este el programa abrimos el
+
+510
+00:24:01,500 --> 00:24:06,900
+monitor serie y se muestra el mensaje
+
+511
+00:24:03,359 --> 00:24:08,879
+inicio de periférico y se mantendrá a la
+
+512
+00:24:06,900 --> 00:24:12,000
+espera de la conexión de un dispositivo
+
+513
+00:24:08,880 --> 00:24:14,159
+central instalemos una app en nuestro
+
+514
+00:24:12,000 --> 00:24:17,099
+teléfono móvil la recomendada por
+
+515
+00:24:14,159 --> 00:24:19,380
+arduino lleva el nombre de Light Blue y
+
+516
+00:24:17,099 --> 00:24:22,500
+se encuentra disponible tanto en iOS
+
+517
+00:24:19,380 --> 00:24:25,620
+como en Android aquí yo la busco en el
+
+518
+00:24:22,500 --> 00:24:27,900
+app store escribiendo light Blue y es la
+
+519
+00:24:25,619 --> 00:24:30,959
+que corresponde al desarrollador Pancho
+
+520
+00:24:27,900 --> 00:24:33,298
+true ya la tengo instalada por eso me da
+
+521
+00:24:30,960 --> 00:24:35,579
+la opción directa de abrir antes de
+
+522
+00:24:33,298 --> 00:24:38,279
+abrirla recomiendo verifiques que tengas
+
+523
+00:24:35,579 --> 00:24:40,619
+habilitado bluetooth en tu teléfono al
+
+524
+00:24:38,279 --> 00:24:42,779
+ingresar verás que aparece un listado de
+
+525
+00:24:40,619 --> 00:24:45,418
+todos los dispositivos que ha detectado
+
+526
+00:24:42,779 --> 00:24:48,359
+en la cercanía nuestra Nano se lista
+
+527
+00:24:45,419 --> 00:24:50,820
+bajo el nombre arduino incluso Verás un
+
+528
+00:24:48,359 --> 00:24:53,038
+indicador de nivel de señal al tocar
+
+529
+00:24:50,819 --> 00:24:56,339
+sobre arduino Verás que el monitor serie
+
+530
+00:24:53,038 --> 00:24:58,740
+muestra el mensaje conectado a central y
+
+531
+00:24:56,339 --> 00:25:00,720
+una serie de números que corresponde a
+
+532
+00:24:58,740 --> 00:25:04,500
+la dirección Mac de nuestro teléfono
+
+533
+00:25:00,720 --> 00:25:07,380
+también sobre la placa Nano el led l se
+
+534
+00:25:04,500 --> 00:25:10,140
+ha encendido genial logramos una
+
+535
+00:25:07,380 --> 00:25:12,919
+conexión exitosa en la aplicación si
+
+536
+00:25:10,140 --> 00:25:15,179
+tocamos en el texto show al lado de
+
+537
+00:25:12,919 --> 00:25:17,820
+advertisement Data podrás Ver
+
+538
+00:25:15,179 --> 00:25:20,000
+información adicional como ser el nombre
+
+539
+00:25:17,819 --> 00:25:21,798
+que asignamos por programación
+
+540
+00:25:20,000 --> 00:25:24,839
+nano33
+
+541
+00:25:21,798 --> 00:25:26,940
+blsens luego hacia el final aparece el
+
+542
+00:25:24,839 --> 00:25:31,980
+número de identificación de la
+
+543
+00:25:26,940 --> 00:25:35,038
+característica que es 0x2 a 57 tocando
+
+544
+00:25:31,980 --> 00:25:37,980
+la misma llegamos a esta sección debajo
+
+545
+00:25:35,038 --> 00:25:41,460
+de retén values tenemos para seleccionar
+
+546
+00:25:37,980 --> 00:25:44,099
+write New value toquemos ahí y se nos
+
+547
+00:25:41,460 --> 00:25:46,500
+despliega un teclado alfanumérico y un
+
+548
+00:25:44,099 --> 00:25:49,439
+campo con el cursor para que ingresemos
+
+549
+00:25:46,500 --> 00:25:52,558
+un valor coloquemos el número 1 y el
+
+550
+00:25:49,440 --> 00:25:54,960
+botón dan vemos sobre la placa que se
+
+551
+00:25:52,558 --> 00:25:57,778
+enciende el componente de color rojo del
+
+552
+00:25:54,960 --> 00:25:59,340
+led rgb también sobre el monitor serie
+
+553
+00:25:57,778 --> 00:26:02,819
+el texto
+
+554
+00:25:59,339 --> 00:26:04,678
+el rojo encendido perfecto hemos logrado
+
+555
+00:26:02,819 --> 00:26:07,500
+escribir sobre una característica
+
+556
+00:26:04,679 --> 00:26:09,659
+mediante un dispositivo central que es
+
+557
+00:26:07,500 --> 00:26:10,819
+nuestro teléfono móvil Y tomó la acción
+
+558
+00:26:09,659 --> 00:26:14,039
+programada
+
+559
+00:26:10,819 --> 00:26:17,339
+seleccionamos nuevamente write New value
+
+560
+00:26:14,038 --> 00:26:19,679
+y esta vez el número 2 y el botón dan
+
+561
+00:26:17,339 --> 00:26:21,839
+ahora en la placa enciende el color
+
+562
+00:26:19,679 --> 00:26:24,140
+verde y se muestra el texto
+
+563
+00:26:21,839 --> 00:26:27,538
+correspondiente por monitor serie
+
+564
+00:26:24,140 --> 00:26:31,200
+verifiquemos con el color azul con write
+
+565
+00:26:27,538 --> 00:26:33,538
+New value el número 3 y dan y como no
+
+566
+00:26:31,200 --> 00:26:36,960
+podía ser de otra manera el componente
+
+567
+00:26:33,538 --> 00:26:39,179
+de color azul enciende resta probar de
+
+568
+00:26:36,960 --> 00:26:41,519
+enviar cualquier otro número que debe
+
+569
+00:26:39,179 --> 00:26:43,640
+tomar la acción de apagar cualquier
+
+570
+00:26:41,519 --> 00:26:47,579
+componente que se encuentre encendido
+
+571
+00:26:43,640 --> 00:26:49,799
+Bright New value y enviamos un cero y
+
+572
+00:26:47,579 --> 00:26:52,259
+efectivamente ningún componente de color
+
+573
+00:26:49,798 --> 00:26:55,740
+se encuentra encendido y en el monitor
+
+574
+00:26:52,259 --> 00:26:58,319
+serie se muestra leds apagados todo Tal
+
+575
+00:26:55,740 --> 00:27:00,778
+cual lo programado una función útil de
+
+576
+00:26:58,319 --> 00:27:03,480
+la app te deja una historial de los
+
+577
+00:27:00,778 --> 00:27:06,179
+valores enviados Entonces no sería
+
+578
+00:27:03,480 --> 00:27:08,519
+necesario volver a escribirlo Si
+
+579
+00:27:06,179 --> 00:27:10,740
+volvemos una pantalla atrás en la app
+
+580
+00:27:08,519 --> 00:27:13,980
+tenemos la información del dispositivo
+
+581
+00:27:10,740 --> 00:27:16,740
+que ya vimos retrocediendo una vez más
+
+582
+00:27:13,980 --> 00:27:19,798
+automáticamente se desconecta la
+
+583
+00:27:16,740 --> 00:27:22,099
+desconexión se hace evidente Si vemos el
+
+584
+00:27:19,798 --> 00:27:24,480
+monitor serie donde nos indica
+
+585
+00:27:22,099 --> 00:27:28,319
+desconectado de central y la dirección
+
+586
+00:27:24,480 --> 00:27:30,058
+también el led l de la placa se apaga y
+
+587
+00:27:28,319 --> 00:27:31,939
+de esa manera verificamos que el
+
+588
+00:27:30,058 --> 00:27:34,558
+programa funciona correctamente
+
+589
+00:27:31,940 --> 00:27:36,900
+exponiendo un servicio mediante
+
+590
+00:27:34,558 --> 00:27:39,418
+Bluetooth low Energy permitiendo
+
+591
+00:27:36,900 --> 00:27:42,000
+modificar una característica que es el
+
+592
+00:27:39,419 --> 00:27:44,400
+color del led rgb mediante un
+
+593
+00:27:42,000 --> 00:27:46,740
+dispositivo central constituido por una
+
+594
+00:27:44,400 --> 00:27:50,278
+app corriendo en un teléfono móvil
+
+595
+00:27:46,740 --> 00:27:53,099
+entonces para recapitular analizamos un
+
+596
+00:27:50,278 --> 00:27:55,200
+modelo de placa muy interesante con una
+
+597
+00:27:53,099 --> 00:27:57,658
+gran cantidad de sensores que iremos
+
+598
+00:27:55,200 --> 00:28:00,120
+utilizando en futuros capítulos y
+
+599
+00:27:57,659 --> 00:28:03,480
+aspectos básicos sobre la comunicación
+
+600
+00:28:00,119 --> 00:28:05,339
+por Bluetooth le Eso es todo por este
+
+601
+00:28:03,480 --> 00:28:08,278
+capítulo si te pareció interesante
+
+602
+00:28:05,339 --> 00:28:10,558
+recuerda dejar un me gusta suscribirte
+
+603
+00:28:08,278 --> 00:28:12,859
+si aún no lo has hecho y activar la
+
+604
+00:28:10,558 --> 00:28:15,778
+campana para recibir una notificación
+
+605
+00:28:12,859 --> 00:28:18,178
+niguense pública nuevo material y como
+
+606
+00:28:15,778 --> 00:28:22,319
+es usual por cualquier duda o comentario
+
+607
+00:28:18,179 --> 00:28:24,440
+lo podrás hacer debajo Chau y hasta la
+
+608
+00:28:22,319 --> 00:28:24,439
+próxima
+

@@ -1,0 +1,34 @@
+Aprovecharemos la Unidad de Medición Inercial (IMU) de la Nano RP2040 Connect para obtener aceleración lineal y velocidad de rotación, luego integrar dichos valores para ángulos de rotación yaw, pitch y roll.
+También cómo tomar una acción cuando el pitch se encuentra dentro de determinado rango activando el LED RGB incorporado de la placa.
+
+Capítulo 65: desde cero conceptos de acelerómetro y giróscopo:
+https://www.youtube.com/watch?v=TwFZ4BJUX5c
+
+Nano RP2040 Connect (análisis):
+https://www.youtube.com/watch?v=xanpqt74nxY
+
+Concepto AHRS: https://ahrs.readthedocs.io/en/latest/filters/madgwick.html
+
+#IMU
+#NanoRP2040Connect
+#Acelerómetro
+LSM6DSOX
+Madgwick filter arduino
+AHRS
+sistema de referencia inercial
+arduino imu position tracking
+arduino giroscopio
+
+Código fuente de los programas vistos en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+
+Marcas de tiempo:
+
+0:00 IMU incorporado en Nano RP2040 Connect
+1:18 Primer programa (acelerómetro y giróscopo por monitor serie)
+10:14 Experimentando con distintas posiciones
+13:48 Segundo programa (ángulos de rotación yaw, pitch y roll)
+17:24 Experimentando con ángulos de rotación
+19:21 Tercer programa (activando LED RGB con el pitch)
+22:25 Verificando activación del LED RGB con la acción

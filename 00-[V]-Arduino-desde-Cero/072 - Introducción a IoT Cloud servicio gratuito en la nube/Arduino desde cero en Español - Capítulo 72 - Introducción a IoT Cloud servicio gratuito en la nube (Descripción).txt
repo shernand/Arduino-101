@@ -1,0 +1,42 @@
+Introducción al Internet de las Cosas (IoT) con el servicio de Arduino Cloud, conectaremos nuestra placa al servicio en un plan gratuito para obtener temperatura, humedad y controlar de forma remota el LED RGB incorporado, visualización de datos en PC y teléfono móvil.
+Con la placa Nano RP2040 Connect y un sensor DHT22 enviaremos datos de temperatura y humedad para mostrar en un Dashboard o Panel de control y también mediante interruptores virtuales controlar los colores del LED RGB de la placa, ingreso a la plataforma, configuración del dispositivo, red y programación desde cero.
+También instalaremos la App Arduino IoT Cloud Remote en un teléfono móvil.
+
+Recomendable ver Capítulo 69:
+https://www.youtube.com/watch?v=xanpqt74nxY
+
+#ArduinoIoTCloud
+#NanoRP2040Connect
+#CloudIoT
+Arduino IoT
+Arduino IoT cloud plans
+Arduino Nano RP2040 Connect
+Arduino IoT projects
+Arduino IoT tutorial
+Arduino IoT DHT22
+Arduino internet de las cosas
+Arduino internet of things
+Proyecto IoT Arduino
+Iot projects
+
+
+Código fuente del programa visto en:
+https://github.com/bitwiseAr/Curso-Arduino-desde-cero/
+
+
+Marcas de tiempo:
+
+0:00 Introducción
+0:36 Servicio y planes Arduino IoT Cloud
+1:40 Circuito de conexión
+3:35 Ingreso a Arduino IoT Cloud
+4:26 Agregando variables de control
+7:30 Seleccionado modelo de placa
+10:53 Ingresando credenciales de red
+11:49 Código mediante el Editor en línea
+15:59 Incorporando librería para el DHT22
+18:30 Compilando y subiendo a la placa
+19:18 Creación de un Dashboard (panel de control)
+21:42 Comprobando el funcionamiento
+23:28 App Arduino IoT Cloud Remote
+24:15 Recapitulando y despedida
